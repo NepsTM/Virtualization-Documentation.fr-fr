@@ -29,5 +29,6 @@
             }
         }
     ],
-    "notification_subscribers": ["mayast@microsoft.com"]
+    "notification_subscribers": ["mayast@microsoft.com"],
+    "branches_to_filter": ["master-oldev", "live-oldev"]
 }
