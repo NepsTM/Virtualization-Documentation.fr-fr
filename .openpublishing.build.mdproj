@@ -30,8 +30,7 @@
     <Message Text="Use latest package version: $(UseLatestPackage)"/>
 
     <!-- Get Latest version from nuget server if latest version is needed -->
-    <XmlPeek Condition="$(UseLatestPackage)" Query="//packageSources/add[@key='Azure']/@value" XmlInputPath="$(ToolsFolder)NuGet\NuGet.config">
-      <Output PropertyName="NugetSource" TaskParameter="Result"/>
+   <XmlPeek Condition="$(UseLatestPackage)" Query="//packageSources/add[@key='NuGet official package source']/@value" XmlInputPath="$(ToolsFolder)NuGet\NuGet.config">       <Output PropertyName="NugetSource" TaskParameter="Result"/>
     </XmlPeek>
     <Message Condition="$(UseLatestPackage)" Text="NugetSource=$(NugetSource)"/>
     <Exec Command="&quot;$(ToolsFolder)NuGet\NuGet.exe&quot; list $(BuildTaskPackage) -Source &quot;$(NugetSource)&quot;" Condition="$(UseLatestPackage)" ConsoleToMSBuild="true">
@@ -95,3 +94,4 @@
     <MSBuild Projects="$(BuildProjectPath)" Targets="DocRebuild" Properties="DocfxConfigFile=%(DocfxConfigFile.FullPath);RebuildDoc=True;OutputFolder=$(OutputFolder);DocTemplate=$(OPTemplateName);LogFile=$(LogFile);LogLevel=$(LogLevel)"/>
   </Target>
 </Project>
+
