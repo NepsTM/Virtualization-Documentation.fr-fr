@@ -1,86 +1,83 @@
-# Gérer Windows avec PowerShell Direct
+# Manage Windows with PowerShell Direct
 
-PowerShell Direct permet de gérer à distance une machine virtuelle Windows 10 ou Windows Server Technical Preview à partir d’un hôte Hyper-V Windows 10 ou Windows Server Technical. Grâce à PowerShell Direct, vous pouvez gérer PowerShell dans une machine virtuelle, indépendamment de la configuration du réseau ou des paramètres de gestion à distance sur l’hôte Hyper-V ou la machine virtuelle. Pour les administrateurs Hyper-V, cela facilite la génération de scripts et l’automatisation de la gestion et de la configuration des machines virtuelles.
+You can use PowerShell Direct to remotely manage a Windows 10 or Windows Server Technical Preview virtual machine from a Windows 10 or Windows Server Technical Preview Hyper-V host. PowerShell Direct allows PowerShell management inside a virtual machine regardless of the network configuration or remote management settings on either the Hyper-V host or the virtual machine. This makes it easier for Hyper-V Administrators to automate and script virtual machine management and configuration.
 
-Vous pouvez exécuter PowerShell Direct de deux manières :
-* En tant que session interactive : [accédez à cette section](vmsession.md#create-and-exit-an-interactive-powershell-session) pour créer et quitter une session PowerShell Direct à l’aide d’applets de commande PSSession.
-* En exécutant un ensemble de commandes ou un script : [accédez à cette section](vmsession.md#run-a-script-or-command-with-invoke-command) pour exécuter un script ou une commande avec l’applet de commande Invoke-Command.
+There are two ways to run PowerShell Direct:  
+* As an interactive session -- [go to this section](vmsession.md#create-and-exit-an-interactive-powershell-session) to create and exit a PowerShell Direct session using PSSession cmdlets
+* To execute a set of commands or script -- [go to this section](vmsession.md#run-a-script-or-command-with-invoke-command) to run a script or command with the Invoke-Command cmdlet
 
 
-## Spécifications
+## Requirements
+**Operating system requirements:**
+* The host operating system must run Windows 10, Windows Server Technical Preview, or a higher version.
+* The virtual machine must run Windows 10, Windows Server Technical Preview, or a higher version.
 
-**Configuration requise pour le système d’exploitation :**
-* Le système d’exploitation hôte doit exécuter Windows 10, Windows Server Technical Preview ou une version ultérieure.
-* La machine virtuelle doit exécuter Windows 10, Windows Server Technical Preview ou une version ultérieure.
+If you're managing older virtual machines, use Virtual Machine Connection (VMConnect) or [configure a virtual network for the virtual machine](http://technet.microsoft.com/library/cc816585.aspx). 
 
-Si vous gérez des anciennes machines virtuelles, utilisez Connexion à une machine virtuelle (VMConnect) ou [configurez un réseau virtuel pour la machine virtuelle](http://technet.microsoft.com/library/cc816585.aspx).
+To create a PowerShell Direct session on a virtual machine,
+* The virtual machine must be running locally on the host and booted. 
+* You must be logged into the host computer as a Hyper-V administrator.
+* You must supply valid user credentials for the virtual machine.
 
-Pour créer une session PowerShell Direct sur une machine virtuelle :
-* la machine virtuelle doit être démarrée et s’exécuter localement sur l’hôte ;
-* vous devez être connecté à l’ordinateur hôte en tant qu’administrateur Hyper-V ;
-* vous devez fournir des informations d’identification utilisateur valides pour la machine virtuelle.
+## Create and exit an interactive PowerShell session
+1. On the Hyper-V host, open Windows PowerShell as Administrator.
 
-## Créer et quitter une session PowerShell interactive
-
-1. Sur l’hôte Hyper-V, ouvrez Windows PowerShell en tant qu’administrateur.
-
-3. Exécutez l’une des commandes suivantes pour créer une session en utilisant le nom ou le GUID de la machine virtuelle :
+3. Run the one of the following commands to create a session by using the virtual machine name or GUID:  
 ``` PowerShell
 Enter-PSSession -VMName <VMName>
 Enter-PSSession -VMGUID <VMGUID>
 ```
 
-4. Exécutez toutes les commandes nécessaires. Ces commandes s’exécutent sur la machine virtuelle à l’aide de laquelle vous avez créé la session.
-5. Une fois terminé, exécutez la commande suivante pour fermer la session :
+4. Run whatever commands you need to. These commands run on the virtual machine that you created the session with.
+5. When you're done, run the following command to close the session:  
 ``` PowerShell
 Exit-PSSession 
-```
+``` 
 
-> Remarque : si votre session ne se connecte pas, vérifiez que vous utilisez des informations d’identification propres à la machine virtuelle à laquelle vous vous connectez, et non à l’hôte Hyper-V.
+> Note:  If you're session won't connect, make sure you're using credentials for the virtual machine you're connecting to -- not the Hyper-V host.
 
-Pour en savoir plus sur ces applets de commande, voir [Enter-PSSession](http://technet.microsoft.com/library/hh849707.aspx) et [Exit-PSSession](http://technet.microsoft.com/library/hh849743.aspx).
+To learn more about these cmdlets, see [Enter-PSSession](http://technet.microsoft.com/library/hh849707.aspx) and [Exit-PSSession](http://technet.microsoft.com/library/hh849743.aspx). 
 
-## Exécuter un script ou une commande avec Invoke-Command
+## Run a script or command with Invoke-Command
 
-Vous pouvez utiliser l’applet de commande [Invoke-Command](http://technet.microsoft.com/library/hh849719.aspx) pour exécuter un ensemble prédéfini de commandes sur la machine virtuelle. L’exemple suivant illustre l’utilisation de l’applet de commande Invoke-Command, où PSTest est le nom de la machine virtuelle et où le script à exécuter (foo.ps1) se trouve dans le dossier script sur le lecteur C:/ :
+You can use the [Invoke-Command](http://technet.microsoft.com/library/hh849719.aspx) cmdlet to run a pre-determined set of commands on the virtual machine. Here is an example of how you can use the Invoke-Command cmdlet where PSTest is the virtual machine name and the script to run (foo.ps1) is in the script folder on the C:/ drive:
 
  ``` PowerShell
  Invoke-Command -VMName PSTest -FilePath C:\script\foo.ps1 
  ```
 
-Pour exécuter une commande unique, utilisez le paramètre **-ScriptBlock** :
+To run a single command, use the **-ScriptBlock** parameter:
 
  ``` PowerShell
  Invoke-Command -VMName PSTest -ScriptBlock { cmdlet } 
  ```
 
-## Résolution des problèmes
+## Troubleshooting
 
-Les messages d’erreur liés à l’utilisation de PowerShell Direct sont peu nombreux. Voici les plus courants, les causes possibles et les outils à utiliser pour diagnostiquer les problèmes.
+There are a small set of common error messages surfaced through PowerShell direct.  Here are the most common, some causes, and tools for diagnosing issues.
 
-### Erreur : une session à distance a peut-être pris fin.
-
-Message d’erreur :
+### Error:  A remote session might have ended
+Error message:
 ```
-An error has occured which Windows PowerShell cannot handle.  A remote session might have ended. 
+Enter-PSSession : An error has occurred which Windows PowerShell cannot handle. A remote session might have ended.
 ```
 
-Causes possibles :
-* La machine virtuelle n’est pas en cours d’exécution.
-* Le système d’exploitation invité ne prend pas en charge PowerShell Direct (voir la [configuration requise](#Requirements)).
-* PowerShell n’est pas encore disponible dans l’invité.
-    * Le système d’exploitation n’est pas entièrement démarré.
-    * Le système d’exploitation ne peut pas démarrer correctement.
-    * Un événement de démarrage exige une entrée de l’utilisateur.
-* Impossible de valider les informations d’identification de l’invité.
+Potential causes:
+* The VM is not running
+* The guest OS does not support PowerShell Direct (see [requirements](#Requirements))
+* PowerShell isn't available in the guest yet
+  * The operating system hasn't finished booting
+  * The operating system can't boot correctly
+  * Some boot time event needs user input
+* The guest credentials couldn't be validated
+  * The supplied credentials were incorrect
+  * There are no user accounts in the guest (the OS hasn't booted before)
+  * If connecting as Administrator:  Administrator has not been set as an active user.  Learn more [here](https://technet.microsoft.com/en-us/library/hh825104.aspx).
 
-Vous pouvez utiliser l’applet de commande [Get-VM](http://technet.microsoft.com/library/hh848479.aspx) pour vérifier que les informations d’identification que vous utilisez ont le rôle d’administrateur Hyper-V et pour identifier les machines virtuelles démarrées et exécutées localement sur l’hôte.
+You can use the [Get-VM](http://technet.microsoft.com/library/hh848479.aspx) cmdlet to check that the credentials you're using have the Hyper-V administrator role and to see which VMs are running locally on the host and booted.
 
-## Exemples
+## Samples
 
-Pour obtenir des exemples, voir [GitHub](https://github.com/Microsoft/Virtualization-Documentation/search?l=powershell&q=-VMName+OR+-VMGuid&type=Code&utf8=%E2%9C%93).
+Checkout samples on [GitHub](https://github.com/Microsoft/Virtualization-Documentation/search?l=powershell&q=-VMName+OR+-VMGuid&type=Code&utf8=%E2%9C%93).
 
-Pour obtenir de nombreux exemples d’utilisation de PowerShell Direct dans votre environnement, ainsi que des trucs et astuces pour écrire des scripts Hyper-V avec PowerShell, voir [Extraits de code PowerShell Direct](../develop/powershell_snippets.md).
-
-
-
+See [PowerShell Direct snippets](../develop/powershell_snippets.md) for numerous examples of how to use PowerShell Direct in your environment as well as tips and tricks for writing Hyper-V scripts with PowerShell.

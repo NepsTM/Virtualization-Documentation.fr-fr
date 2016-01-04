@@ -1,29 +1,29 @@
-# Guide de démarrage rapide des conteneurs Windows - Docker
+# Windows Containers Quick Start - Docker
 
-Les conteneurs Windows peuvent servir à déployer rapidement de nombreuses applications isolées sur un ordinateur unique. Cet exercice montre comment créer et gérer un conteneur Windows à l’aide de Docker. Quand vous aurez terminé, vous aurez compris les bases de l’intégration de Docker aux conteneurs Windows et aurez acquis une expérience pratique de la technologie.
+Windows Containers can be used to rapidly deploy many isolated applications on a single computer system. This exercise will demonstrate Windows Container creation and management using Docker. When completed you should have a basic understanding of how Docker integrates with Windows Containers and will have gained hands on experience with the technology.
 
-Cette procédure pas à pas décrit en détail les conteneurs Windows Server et les conteneurs Hyper-V. Chaque type de conteneur a ses propres exigences de base. La documentation des conteneurs Windows contient une procédure permettant de déployer rapidement un hôte de conteneur. Il s’agit du moyen le plus simple pour apprendre à utiliser rapidement les conteneurs Windows. Si vous n’avez pas d’hôte de conteneur, voir [Guide de démarrage rapide du déploiement d’un hôte de conteneur](./container_setup.md).
+This walkthrough will detail both Windows Server containers and Hyper-V containers. Each type of container has its own basic requirements. Included with the Windows Container documentation is a procedure for quickly deploying a container host. This is the easiest way to quickly start with Windows Containers. If you do not already have a container host, see the [Container Host Deployment Quick Start](./container_setup.md).
 
-Les éléments suivants sont requis pour chaque exercice.
+The following items will be required for each exercise.
 
-**Conteneurs Windows Server :**
+**Windows Server Containers:**
 
-- un hôte de conteneur Windows exécutant Windows Server 2016 (Full ou Core), localement ou dans Azure.
+- A Windows Container Host running Windows Server 2016 (Full or Core), either on-prem or in Azure.
 
-**Conteneurs Hyper-V :**
+**Hyper-V Containers:**
 
-- un hôte de conteneur Windows compatible avec la virtualisation imbriquée.
-- Support Windows Server 2016 : [Télécharger](https://aka.ms/tp4/serveriso).
+- A Windows Container host enabled with Nested Virtualization.
+- The Windows Server 2016 Media - [Download](https://aka.ms/tp4/serveriso).
 
-> Microsoft Azure ne prend pas en charge les conteneurs Hyper-V. Pour effectuer les exercices de conteneur Hyper-V, vous avez besoin d’un hôte de conteneur local.
+> Microsoft Azure does not support Hyper-V containers. To complete the Hyper-V Container exercises, you need an on-prem container host.
 
-## Conteneur Windows Server
+## Windows Server Container
 
-Les conteneurs Windows Server fournissent un environnement d’exploitation isolé, portable et contrôlé par les ressources pour exécuter des applications et des processus d’hébergement. Les conteneurs Windows Server permettent d’isoler le conteneur et l’hôte, en isolant le processus et l’espace de noms.
+Windows Server Containers provide an isolated, portable, and resource controlled operating environment for running applications and hosting processes. Windows Server Containers provide isolation between the container and host, through process and namespace isolation.
 
-### Créer un conteneur
+### Create Container <!--1-->
 
-Avant de créer un conteneur, utilisez la commande `docker images` pour répertorier les images de conteneur installées sur l’hôte.
+Before creating a container, use the `docker images` command to list container images installed on the host.
 
 ```powershell
 PS C:\> docker images
@@ -35,39 +35,39 @@ nanoserver          10.0.10586.0        8572198a60f1        2 weeks ago         
 nanoserver          latest              8572198a60f1        2 weeks ago         0 B
 ```
 
-Pour cet exemple, créez un conteneur à l’aide de l’image Windows Server Core. Pour ce faire, utilisez la commande `docker run`. Pour plus d’informations sur la commande `docker run`, voir les [informations de référence sur Docker Run sur docker.com](https://docs.docker.com/engine/reference/run/).
+For this example, create a container using the Windows Server Core image. This is done with the `docker run command`. For more information on `docker run`, see the [Docker Run reference on docker.com]( https://docs.docker.com/engine/reference/run/).
 
-Cet exemple montre comment créer un conteneur nommé `iisbase`, puis démarrer une session interactive avec le conteneur.
+This example creates a container named `iisbase`, and starts an interactive session with the container. 
 
 ```powershell
 C:\> docker run --name iisbase -it windowsservercore cmd
 ```
 
-Une fois le conteneur créé, vous allez utiliser une session d’interpréteur de commandes à partir du conteneur.
+When the container has been created, you will be working in a shell session from within the container. 
 
 
-### Créer une image IIS
+### Create IIS Image <!--1-->
 
-Il faut d’abord installer IIS, puis une image est créée à partir du conteneur. Pour installer IIS, exécutez la commande suivante.
+IIS will be installed, and then an image created from the container. To install IIS, run the following.
 
 ```powershell
 C:\> powershell.exe Install-WindowsFeature web-server
 ```
 
-Une fois terminé, quittez la session interactive de l’interpréteur de commandes.
+When completed, exit the interactive shell session.
 
 ```powershell
 C:\> exit
 ```
 
-Enfin, le conteneur est validé dans une nouvelle image de conteneur à l’aide de la commande `docker commit`. Cet exemple crée une image de conteneur nommée `windowsservercoreiis`.
+Finally, the container will be committed to a new container image using `docker commit`. This example creates a new container image with the name `windowsservercoreiis`.
 
 ```powershell
 C:\> docker commit iisbase windowsservercoreiis
 4193c9f34e320c4e2c52ec52550df225b2243927ed21f014fbfff3f29474b090
 ```
 
-Les nouvelles images IIS sont consultables à l’aide de la commande `docker images`.
+The new IIS images can be viewed using the `docker images` command.
 
 ```powershell
 C:\> docker images
@@ -80,9 +80,8 @@ nanoserver             10.0.10586.0        8572198a60f1        2 weeks ago      
 nanoserver             latest              8572198a60f1        2 weeks ago         0 B
 ```
 
-### Configurer le réseau
-
-Avant de créer un conteneur avec Docker, vous devez créer une règle pour le Pare-feu Windows qui autorise la connectivité réseau vers le conteneur. Exécutez la commande suivante pour créer une règle pour le port 80.
+### Configure Network
+Before creating a container with Docker, a rule needs to be created for the Windows Firewall that will allow network connectivity to the container. Run the following to create a rule for port 80.
 
 ```powershell
 if (!(Get-NetFirewallRule | where {$_.Name -eq "TCP80"})) {
@@ -90,52 +89,52 @@ if (!(Get-NetFirewallRule | where {$_.Name -eq "TCP80"})) {
 }
 ```
 
-Vous pouvez également noter l’adresse IP de l’hôte de conteneur. Elle sera utilisée tout au long de l’exercice.
+You may also want to take note of the container host IP address. This will be use throughout the exercise.
 
-### Créer un conteneur IIS
+### Create IIS Container <!--1-->
 
-Vous disposez maintenant d’une image de conteneur qui contient IIS et permet de déployer des environnements d’exploitation compatibles avec IIS.
+You now have a container image that contains IIS, which can be used to deploy IIS ready operating environments. 
 
-Pour créer un conteneur à partir de la nouvelle image, utilisez la commande `docker run`, cette fois en spécifiant le nom de l’image IIS. Notez que cet exemple a spécifié un paramètre `-p 80:80`. Étant donné que le conteneur est connecté à un commutateur virtuel qui fournit des adresses IP par la traduction d’adresses réseau, un port de l’hôte de conteneur doit être mappé à un port sur l’adresse IP NAT des conteneurs. Pour plus d’informations sur `-p`, voir les [informations de référence sur Docker Run sur docker.com](https://docs.docker.com/engine/reference/run/)
+To create a container from the new image, use the `docker run` command, this time specifying the name of the IIS image. Notice that this sample has specified a parameter `-p 80:80`. Because the container is connected to a virtual switch that is supplying IP addresses .via network address translation, a port needs to be mapped from the container host, to a port on the containers NAT IP address. For more information on the `-p` see the [Docker Run reference on docker.com]( https://docs.docker.com/engine/reference/run/)
 
 ```powershell
 C:\> docker run --name iisdemo -it -p 80:80 windowsservercoreiis cmd
 ```
 
-Une fois le conteneur créé, ouvrez un navigateur et accédez à l’adresse IP de l’hôte de conteneur. Étant donné que le port 80 de l’hôte a été mappé au port 80 du conteneur, l’écran de démarrage IIS doit s’afficher.
+When the container has been created, open a browser, and browse to the IP address of the container host. Because port 80 of the host has been mapped to port 80 if the container, the IIS splash screen should be displayed.
 
 ![](media/iis1.png)
 
-### Créer une application
+### Create Application <!--1-->
 
-Exécutez la commande suivante pour supprimer l’écran de démarrage IIS.
+Run the following command to remove the IIS splash screen.
 
 ```powershell
 C:\> del C:\inetpub\wwwroot\iisstart.htm
 ```
 
-Exécutez la commande suivante pour remplacer le site IIS par défaut par un nouveau site statique.
+Run the following command to replace the default IIS site with a new static site.
 
 ```powershell
 C:\> echo "Hello World From a Windows Server Container" > C:\inetpub\wwwroot\index.html
 ```
 
-Accédez de nouveau à l’adresse IP de l’hôte de conteneur. Vous devez maintenant voir l’application « Hello World ». Remarque : vous devez peut-être fermer toutes les connexions de navigateur existantes ou effacer le cache du navigateur pour voir l’application mise à jour.
+Browse again to the IP Address of the container host, you should now see the ‘Hello World’ application. Note – you may need to close any existing browser connections, or clear browser cache to see the updated application.
 
 ![](media/HWWINServer.png)
 
-Quittez la session interactive avec le conteneur.
+Exit the interactive session with the container.
 
 ```powershell
 C:\> exit
 ```
 
-Supprimer le conteneur
+Remove the container
 
 ```powershell
 C:\> docker rm iisdemo
 ```
-Supprimez l’image IIS.
+Remove the IIS image.
 
 ```powershell
 C:\> docker rmi windowsservercoreiis
@@ -143,23 +142,23 @@ C:\> docker rmi windowsservercoreiis
 
 ## Dockerfile
 
-Dans l’exercice précédent, un conteneur a été manuellement créé, modifié, puis capturé dans une nouvelle image de conteneur. Docker inclut une méthode pour automatiser ce processus, à l’aide de ce que l’on appelle un fichier dockerfile. Cet exercice permet d’obtenir les mêmes résultats que le précédent, mais avec un processus entièrement automatisé.
+Through the last exercise, a container was manually created, modified, and then captured into a new container image. Docker includes a method for automating this process, using what is called a dockerfile. This exercise will have identical results as the last, however this time the process will be completely automated.
 
-### Créer une image IIS
+### Create IIS Image
 
-Dans l’hôte de conteneur, créez un répertoire `c:\build` dans lequel vous créez un fichier nommé `dockerfile`.
+On the container host, create a directory `c:\build`, and in this directory create a file named `dockerfile`.
 
 ```powershell
 C:\> powershell new-item c:\build\dockerfile -Force
 ```
 
-Ouvrez le fichier dockerfile dans le Bloc-notes.
+Open the dockerfile in notepad.
 
 ```powershell
 C:\> notepad c:\build\dockerfile
 ```
 
-Copiez le texte suivant dans le fichier dockerfile et enregistrez-le. Ces commandes indiquent à Docker de créer une image en se servant de `windosservercore` comme base, puis d’inclure les modifications spécifiées avec `RUN`. Pour plus d’informations sur les fichiers Dockerfile, voir les [informations de référence sur Docker Run sur docker.com](http://docs.docker.com/engine/reference/builder/).
+Copy the following text into the dockerfile and save the file. These commands instruct Docker to create a new image, using `windosservercore` as the base, and include the modifications specified with `RUN`. For more information on Dockerfiles, see the [Dockerfile reference at docker.com](http://docs.docker.com/engine/reference/builder/).
 
 ```powershell
 FROM windowsservercore
@@ -167,13 +166,13 @@ RUN dism /online /enable-feature /all /featurename:iis-webserver /NoRestart
 RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 ```
 
-Cette commande démarre le processus de génération automatique de l’image. Le paramètre `-t` indique au processus de nommer la nouvelle image `iis`.
+This command will start the automated image build process. The `-t` parameter instructs the process to name the new image `iis`.
 
 ```powershell
 C:\> docker build -t iis c:\Build
 ```
 
-Une fois l’opération terminée, vous pouvez vérifier que l’image a été créée à l’aide de la commande `docker images`.
+When completed, you can verify that the image has been created using the `docker images` command.
 
 ```powershell
 C:\> docker images
@@ -186,58 +185,58 @@ nanoserver          10.0.10586.0        8572198a60f1        2 weeks ago         
 nanoserver          latest              8572198a60f1        2 weeks ago         0 B
 ```
 
-### Déployer un conteneur IIS
+### Deploy IIS Container
 
-À présent, comme dans l’exercice précédent, déployez le conteneur en mappant le port 80 de l’hôte au port 80 du conteneur.
+Now, just like in the last exercise, deploy the container, mapping port 80 of the host to port 80 of the container.
 
 ```powershell
 C:\> docker run --name iisdemo -it -p 80:80 iis cmd
 ```
 
-Une fois le conteneur créé, accédez à l’adresse IP de l’hôte de conteneur. Vous devez voir l’application hello world.
+Once the container has been created, browse to the IP address of the container host. You should see the hello world application.
 
 ![](media/dockerfile2.png)
 
-Quittez la session interactive avec le conteneur.
+Exit the interactive session with the container.
 
 ```powershell
 C:\> exit
 ```
 
-Supprimer le conteneur
+Remove the container
 
 ```powershell
 C:\> docker rm iisdemo
 ```
-Supprimez l’image IIS.
+Remove the IIS image.
 
 ```powershell
 C:\> docker rmi iis
 ```
 
-## Conteneur Hyper-V
+## Hyper-V Container
 
-Les conteneurs Hyper-V fournissent une couche d’isolement supplémentaire sur les conteneurs Windows Server. Chaque conteneur Hyper-V est créé dans une machine virtuelle hautement optimisée. Quand un conteneur Windows Server partage un noyau avec l’hôte de conteneur, le conteneur Hyper-V est complètement isolé. Les conteneurs Hyper-V sont créés et gérés comme les conteneurs Windows Server. Pour plus d’informations sur les conteneurs Hyper-V, voir [Gestion des conteneurs Hyper-V](../management/hyperv_container.md).
+Hyper-V Containers provide an additional layer of isolation over Windows Server Containers. Each Hyper-V Container is created within a highly optimized virtual machine. Where a Windows Server Container shares a kernel with the Container host, a Hyper-V container is completely isolated. Hyper-V Containers are created and managed identically to Windows Server Containers. For more information about Hyper-V Containers see [Managing Hyper-V Containers](../management/hyperv_container.md).
 
-> Microsoft Azure ne prend pas en charge les conteneurs Hyper-V. Dans le cadre des exercices Hyper-V, vous avez besoin d’un hôte de conteneur local.
+> Microsoft Azure does not support Hyper-V containers. To complete the Hyper-V exercises, you need an on-prem container host.
 
-### Créer un conteneur
+### Create Container <!--2-->
 
-Étant donné que le conteneur exécute une image de système d’exploitation Nano Server, les packages Nano Server IIS sont nécessaires pour installer IIS. Ceux-ci figurent sur le support d’installation de Windows Server 2016 TP4, dans le répertoire `NanoServer\Packages`.
+Because the container will be running a Nano Server OS Image, the Nano Server IIS packages will be needed to install IIS. These can be found on the Windows Server 2016 TP4 Installation media, under the `NanoServer\Packages` directory.
 
-Dans cet exemple, un répertoire de l’hôte du conteneur est rendu accessible au conteneur en cours d’exécution à l’aide du paramètre `-v` de `docker run`. Avant cela, le répertoire source doit être configuré.
+In this example a directory from the container host will be made available to the running container using the `-v` parameter of `docker run`. Before doing so, the source directory will need to be configured. 
 
-Créez un répertoire sur l’hôte de conteneur, qui sera partagé avec le conteneur. Si vous avez déjà effectué la procédure pas à pas PowerShell, ce répertoire et les fichiers nécessaires existent déjà.
+Create a directory on the container host that will be shared with the container. If you have already completed the PowerShell walkthrough, this directory and the needed files may already exist. 
 
 ```powershell
 C:\> powershell New-Item -Type Directory c:\share\en-us
 ```
 
-Copiez `Microsoft-NanoServer-IIS-Package.cab` à partir de `NanoServer\Packages` dans `c:\share` sur l’hôte du conteneur.
+Copy `Microsoft-NanoServer-IIS-Package.cab` from `NanoServer\Packages` to `c:\share` on the container host. 
 
-Copiez `NanoServer\Packages\en-us\Microsoft-NanoServer-IIS-Package.cab` dans `c:\share\en-us` sur l’hôte du conteneur.
+Copy `NanoServer\Packages\en-us\Microsoft-NanoServer-IIS-Package.cab` to `c:\share\en-us` on the container host.
 
-Créez un fichier dans le dossier c:\share nommé unattend.xml et copiez-y ce texte.
+Create a file in the c:\share folder named unattend.xml, copy this text into the unattend.xml file.
 
 ```powershell
 <?xml version="1.0" encoding="utf-8"?>
@@ -255,7 +254,7 @@ Créez un fichier dans le dossier c:\share nommé unattend.xml et copiez-y ce te
 </unattend>
 ```
 
-Une fois l’opération terminée, le répertoire `c:\share` sur l’hôte du conteneur doit être configuré comme suit.
+When completed, the `c:\share` directory, on the container host, should be configured like this.
 
 ```
 c:\share
@@ -266,41 +265,41 @@ c:\share
 |-- unattend.xml
 ```
 
-Pour créer un conteneur Hyper-V à l’aide de Docker, spécifiez le paramètre `--isolation=hyperv`. Cet exemple monte le répertoire `c:\share` de l’hôte dans le répertoire `c:\iisinstall` du conteneur, puis crée une session d’interpréteur de commandes interactive avec le conteneur.
+To create a Hyper-V container using docker, specify the `--isolation=hyperv` parameter. This example mounts the `c:\share` directory from the host, to the `c:\iisinstall` directory of the container, and then creates an interactive shell session with the container.
 
 ```powershell
 C:\> docker run --name iisnanobase -it -v c:\share:c:\iisinstall --isolation=hyperv nanoserver cmd
 ```
 
-### Créer une image IIS
+### Create IIS Image <!--2-->
 
-À partir de la session d’interpréteur de commandes du conteneur, IIS peut être installé à l’aide de `dism`. Exécutez la commande suivante pour installer IIS dans le conteneur.
+From within the container shell session, IIS can be installed using `dism`. Run the following command to install IIS in the container.
 
 ```powershell
 C:\> dism /online /apply-unattend:c:\iisinstall\unattend.xml
 ```
 
-Une fois l’installation d’IIS terminée, démarrez manuellement IIS avec la commande suivante.
+When the IIS installation has complete, manually start IIS with the following command.
 
 ```powershell
 C:\> Net start w3svc
 ```
 
-Quittez la session du conteneur.
+Exit the container session.
 
 ```powershell
 C:\> exit
 ```
 
-### Créer un conteneur IIS
+### Create IIS Container <!--2-->
 
-Le conteneur Nano Server modifié peut maintenant être validé dans une nouvelle image de conteneur. Pour ce faire, utilisez la commande `docker commit`.
+The modified Nano Server container can now be committed to a new container image. To do so, use the `docker commit` command.
 
 ```powershell
 C:\> docker commit iisnanobase nanoserveriis
 ```
 
-Les résultats peuvent être consultés dans la liste des images de conteneur.
+The results can be seen when returning a list of container images.
 
 ```powershell
 C:\> docker images
@@ -313,38 +312,34 @@ nanoserver          10.0.10586.0        8572198a60f1        2 weeks ago         
 nanoserver          latest              8572198a60f1        2 weeks ago          0 B
 ```
 
-### Créer une application
+### Create Application <!--2-->
 
-L’image Nano Server IIS peut désormais être déployée dans un nouveau conteneur.
+The Nano Server IIS image can now be deployed to a new container.
 
 ```powershell
 C:\> docker run -it -p 80:80 --isolation=hyperv nanoserveriis cmd
 ```
 
-Exécutez la commande suivante pour supprimer l’écran de démarrage IIS.
+Run the following command to remove the IIS splash screen.
 
 ```powershell
 C:\> del C:\inetpub\wwwroot\iisstart.htm
 ```
 
-Exécutez la commande suivante pour remplacer le site IIS par défaut par un nouveau site statique.
+Run the following command to replace the default IIS site with a new static site.
 
 ```powershell
 C:\> echo "Hello World From a Hyper-V Container" > C:\inetpub\wwwroot\index.html
 ```
 
-Accédez à l’adresse IP de l’hôte de conteneur. Vous devez maintenant voir l’application « Hello World ». Remarque : vous devez peut-être fermer toutes les connexions de navigateur existantes ou effacer le cache du navigateur pour voir l’application mise à jour.
+Browse to the IP Address of the container host, you should now see the ‘Hello World’ application. Note – you may need to close any existing browser connections, or clear browser cache to see the updated application.
 
 ![](media/HWWINServer.png)
 
-Quittez la session interactive avec le conteneur.
+Exit the interactive session with the container.
 
 ```powershell
 C:\> exit
 ```
-
-
-
-
 
 
