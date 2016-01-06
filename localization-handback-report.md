@@ -1,7 +1,7 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 9
+ Total Files | 8
 
 ## File List
  Source File | Status | Details 
@@ -14,7 +14,6 @@
  [virtualization\windowscontainers\media\try.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/14789bf2e37d8a551ba2ee35f627c0514ea39e7e/virtualization/windowscontainers/media/try.png) | FullHandedBack | [Details](#7244a1a0ddcebfe36147f05577bceb7671592b9680)
  [virtualization\windowscontainers\media\try.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/14789bf2e37d8a551ba2ee35f627c0514ea39e7e/virtualization/windowscontainers/media/try.png) | FullHandedBack | [Details](#7244a1a0ddcebfe36147f05577bceb7671592b96224)
  [virtualization\windowscontainers\quick_start\manage_docker.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/14789bf2e37d8a551ba2ee35f627c0514ea39e7e/virtualization/windowscontainers/quick_start/manage_docker.md) | FullHandedBack | [Details](#d637af744a26827ceeebc9574d1d1cf24b5a7258229)
- [virtualization\windowscontainers\quick_start\manage_powershell.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/14789bf2e37d8a551ba2ee35f627c0514ea39e7e/virtualization/windowscontainers/quick_start/manage_powershell.md) | FullHandedBack | [Details](#7c1a1ddd6a66a967a0b99bcc0b48ff6f26cddbf8230)
 
 ## Item Details
 ##### <a name='02a74d5f1ff50a45b6cac5cf935d1b321d1f7331182'></a> Source: [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fb8e11aa1f93d7548c3cd383a939fe845718c8ea/virtualization/hyperv_on_windows/user_guide/vmsession.md)
@@ -97,16 +96,6 @@
 * Handoff Datetime: 2016-01-04 22:17:02
 * Handoff Reason: Include
 * Handback File: [manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/fc60574ea90c4e299ba2a672d1a43fc8c9621af2/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.fr-fr.xlf)
-* Handback Datetime: 2016-01-05 22:04:01
-* [Back to Top](#report-top)
-
-##### <a name='7c1a1ddd6a66a967a0b99bcc0b48ff6f26cddbf8230'></a> Source: [virtualization\windowscontainers\quick_start\manage_powershell.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/14789bf2e37d8a551ba2ee35f627c0514ea39e7e/virtualization/windowscontainers/quick_start/manage_powershell.md)
-* Status: FullHandedBack
-* Target File: [virtualization\windowscontainers\quick_start\manage_powershell.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/b91b61c84f124108947677112a4ae6b439cbb319/virtualization/windowscontainers/quick_start/manage_powershell.md)
-* Handoff File: [manage_powershell.fccfd13be3f4bd16afbe4f31a5ca5ed4e93806b7.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/a00fe3fdf93952c9813c037710e31b3d7a5da720/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_powershell.fccfd13be3f4bd16afbe4f31a5ca5ed4e93806b7.fr-fr.xlf)
-* Handoff Datetime: 2016-01-04 22:17:02
-* Handoff Reason: Include
-* Handback File: [manage_powershell.fccfd13be3f4bd16afbe4f31a5ca5ed4e93806b7.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/fc60574ea90c4e299ba2a672d1a43fc8c9621af2/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_powershell.fccfd13be3f4bd16afbe4f31a5ca5ed4e93806b7.fr-fr.xlf)
 * Handback Datetime: 2016-01-05 22:04:01
 * [Back to Top](#report-top)
 
