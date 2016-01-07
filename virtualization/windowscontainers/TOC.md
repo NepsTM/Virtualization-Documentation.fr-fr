@@ -12,7 +12,7 @@
 
 ## [Conteneurs dans Azure](quick_start/azure_setup.md)
 
-## [Conteneurs dans une nouvelle machine virtuelle Hyper-V](quick_start/container_setup.md).
+## [Conteneurs dans une nouvelle machine virtuelle Hyper-V](quick_start/container_setup.md)
 
 ## [Conteneurs dans un système virtuel ou physique existant](quick_start/inplace_setup.md)
 
