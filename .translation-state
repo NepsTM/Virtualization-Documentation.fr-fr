@@ -2940,7 +2940,7 @@
       "HandoffDateTime": "2015-12-11T03:54:45.8219724Z",
       "HandoffException": null,
       "HandoffFailureTimes": 0,
-      "TargetFileCommit": "f51111c1b8bc906178c0d6f882eb8ddce3552f64",
+      "TargetFileCommit": "2efba0d9e8306a7149e2c06fb1667495f974122e",
       "TargetFilePath": "virtualization\\windowscontainers\\about\\about_overview.md",
       "HandbackFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\about_overview.128dd77ccb6c6a944b03f43ade40980cc30f0f48.fr-fr.xlf",
       "HandbackFileCommit": "80522310213fceac06860495f24105ec901c9f0d",
