@@ -44,7 +44,7 @@ Connectez-vous à la machine virtuelle à l’aide du nom d’utilisateur et du 
 
 ## Vidéo de la procédure pas à pas
 
-<iframe src="https://channel9.msdn.com/Blogs/containers/Quick-Start-Configure-Windows-Server-Containers-in-Microsoft-Azure/player" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
+<iframe src="https://channel9.msdn.com/Blogs/containers/Quick-Start-Configure-Windows-Server-Containers-in-Microsoft-Azure/player#ccLang=fr" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
 ## Étapes suivantes : commencer à utiliser des conteneurs
