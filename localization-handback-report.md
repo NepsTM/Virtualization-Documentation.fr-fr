@@ -1,11 +1,24 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\hyperv_on_windows\windows_welcome.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/f9d155d4a61a8db99b65374bfa4dd79f3a55bc7a/virtualization/hyperv_on_windows/windows_welcome.md) | InSyncHandedBackSuccess | [Details](#55e6b7d576cdaa06773b63556435753e1d191803185)
 
 ## Item Details
+##### <a name='55e6b7d576cdaa06773b63556435753e1d191803185'></a> Source: [virtualization\hyperv_on_windows\windows_welcome.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/f9d155d4a61a8db99b65374bfa4dd79f3a55bc7a/virtualization/hyperv_on_windows/windows_welcome.md)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\hyperv_on_windows\windows_welcome.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/3901756e065f201a0838371eceb1ad5897278dd4/virtualization/hyperv_on_windows/windows_welcome.md)
+* Handoff File: [windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/a00fe3fdf93952c9813c037710e31b3d7a5da720/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.fr-fr.xlf)
+* Handoff Datetime: 2016-01-04 22:17:02
+* Handoff Reason: Include
+* Handback File: [windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/5f4e59012ec3aa29ee90976d17348a2e028e12d7/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.fr-fr.xlf)
+* Handback Datetime: 2016-01-14 21:50:35
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
