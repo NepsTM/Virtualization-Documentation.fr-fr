@@ -50,7 +50,7 @@
 
 ## [Fournisseur WMI Hyper-V (V2)](https://msdn.microsoft.com/library/hh850319.aspx)
 
-## [Architecture Hyper-V] (https://msdn.microsoft.com/en-us/library/cc768520(v=bts.10).aspx)
+## [Architecture Hyper-V](https://msdn.microsoft.com/en-us/library/cc768520(v=bts.10).aspx)
 
 # Entrer en contact avec la Communauté et le support technique
 
