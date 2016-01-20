@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\about\work_in_progress.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/8f4485403c8f6c7ec2e71796ddc28121ebb4cad7/virtualization/windowscontainers/about/work_in_progress.md) | OutofSyncHandedBackSuccess | [Details](#2c31e322bc2ebc76d1b9a278b17d7a2314e9d045199)
+ [virtualization\windowscontainers\about\work_in_progress.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/0e474918caeaae4e235a98e06470daa94088a5d6/virtualization/windowscontainers/about/work_in_progress.md) | OutofSyncHandedBackSuccess | [Details](#521e5b85b7c4f8fd131970a600090f91986c6f52202)
 
 ## Item Details
-##### <a name='2c31e322bc2ebc76d1b9a278b17d7a2314e9d045199'></a> Source: [virtualization\windowscontainers\about\work_in_progress.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/8f4485403c8f6c7ec2e71796ddc28121ebb4cad7/virtualization/windowscontainers/about/work_in_progress.md)
+##### <a name='521e5b85b7c4f8fd131970a600090f91986c6f52202'></a> Source: [virtualization\windowscontainers\about\work_in_progress.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/0e474918caeaae4e235a98e06470daa94088a5d6/virtualization/windowscontainers/about/work_in_progress.md)
 * Status: OutofSyncHandedBackSuccess
 * Target File: 
-* Handoff File: [work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/d8d0e06c5ad68fd59c78071ba353884c2f8d1700/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.fr-fr.xlf)
-* Handoff Datetime: 2016-01-20 22:44:11
+* Handoff File: [work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/cb298a323ce8e81e8a12dea6190a15cf9103b7aa/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.fr-fr.xlf)
+* Handoff Datetime: 2016-01-20 22:54:08
 * Handoff Reason: Include
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
