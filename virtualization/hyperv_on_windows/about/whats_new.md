@@ -4,7 +4,7 @@ Cette rubrique décrit les nouvelles fonctionnalités d’Hyper-V sur Windows 1
 
 ## Windows PowerShell Direct
 
-Vous disposez à présent d’un moyen simple et fiable pour exécuter des commandes Windows PowerShell dans une machine virtuelle à partir du système d’exploitation hôte. Aucune configuration spéciale n’est requise, même au niveau du réseau ou du pare-feu. 
+Vous disposez à présent d’un moyen simple et fiable pour exécuter des commandes Windows PowerShell dans une machine virtuelle à partir du système d’exploitation hôte. Aucune configuration spéciale n’est requise, même au niveau du réseau ou du pare-feu.
 Windows PowerShell Direct fonctionne indépendamment de la configuration de la gestion à distance. Pour vous en servir, vous devez exécuter Windows 10 ou Windows Server Technical Preview sur l’hôte et sur la machine virtuelle (système d’exploitation invité).
 
 Pour créer une session PowerShell Direct, utilisez l’une des commandes suivantes :
@@ -41,7 +41,7 @@ Vous pouvez également ajuster la quantité de mémoire allouée à une machine 
 Les points de contrôle de production permettent de créer facilement des images « dans le temps » d’une machine virtuelle. Vous pouvez par la suite restaurer ces images, celles-ci étant entièrement prises en charge par toutes les charges de travail de production. Notez que la création du point de contrôle repose sur la technologie de sauvegarde de l’invité, et non sur la technologie de l’état de mise en mémoire. Pour les points de contrôle de production, le service d’instantanés de volume (VSS) est utilisé dans les machines virtuelles Windows. Les machines virtuelles Linux vident les mémoires tampons de leur système de fichiers pour créer un point de contrôle cohérent avec le système de fichiers. Si vous souhaitez créer des points de contrôle à l’aide de la technologie de l’état de mise en mémoire, vous pouvez utiliser des points de contrôle standard pour votre machine virtuelle.
 
 
-> **Important :** pour les nouvelles machines virtuelles, la procédure par défaut consiste à créer des points de contrôle de production avec des points de contrôle standard comme secours.
+>**Important :** pour les nouvelles machines virtuelles, la procédure par défaut consiste à créer des points de contrôle de production avec des points de contrôle standard comme secours.
 
 
 ## Améliorations apportées au Gestionnaire Hyper-V
@@ -57,7 +57,7 @@ Les points de contrôle de production permettent de créer facilement des images
 
 Quand Hyper-V est activé sur un ordinateur qui utilise le mode d’alimentation AOAC (Always On/Always Connected), l’état de veille connectée n’est pas disponible.
 
-Dans Windows 8 et 8.1, Hyper-V empêche les ordinateurs qui utilisent le modèle d’alimentation AOAC, également appelé InstantON, d’entrer en veille. Pour obtenir une description complète, voir cet article dans la Base de connaissances Microsoft (
+Dans Windows 8 et 8.1, Hyper-V empêche les ordinateurs qui utilisent le modèle d’alimentation AOAC, également appelé InstantON, d’entrer en veille. Pour obtenir une description complète, voir cet [article de la Base de connaissances Microsoft](
 https://support.microsoft.com/en-us/kb/2973536).
 
 
@@ -110,7 +110,7 @@ Update-VmConfigurationVersion <vmobject>
 Les machines virtuelles disposent d’un nouveau format de fichier de configuration. Celui-ci est conçu pour accroître les performances de lecture et d’écriture des données de configuration des machines virtuelles. Il vise également à réduire le risque de corruption des données en cas de défaillance du stockage. Les nouveaux fichiers de configuration utilisent l’extension .VMCX pour les données de configuration des machines virtuelles et l’extension .VMRS pour les données d’état de l’exécution.
 
 
-> **Important :** le fichier .VMCX a un format binaire. Vous ne pouvez pas modifier directement un fichier .VMCX ou .VMRS.
+>**Important :** le fichier .VMCX a un format binaire. Vous ne pouvez pas modifier directement un fichier .VMCX ou .VMRS.
 
 ## Services d’intégration par le biais de Windows Update
 
@@ -140,7 +140,7 @@ Pour plus d’informations sur la façon dont nous déterminons les conditions d
 Pour obtenir la procédure pas à pas de l’installation des services d’intégration, voir ce [billet de blog](http://blogs.msdn.com/b/virtual_pc_guy/archive/2014/11/12/updating-integration-components-over-windows-update.aspx).
 
 
-> **Important :** le fichier image ISO vmguest.iso n’est plus obligatoire pour mettre à jour les composants d’intégration. Il n’est donc pas fourni avec Hyper-V sur Windows 10.
+>**Important :** le fichier image ISO vmguest.iso n’est plus obligatoire pour mettre à jour les composants d’intégration. Il n’est donc pas fourni avec Hyper-V sur Windows 10.
 
 
 ## Étape suivante
@@ -149,3 +149,4 @@ Pour obtenir la procédure pas à pas de l’installation des services d’inté
 
 
 
+<!--HONumber=Dec15_HO1-->
