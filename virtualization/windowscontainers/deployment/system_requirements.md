@@ -9,11 +9,14 @@ Ces guides fournissent la configuration requise pour un hôte de conteneur Windo
 Windows Server Technical Preview 4 est offert avec deux images de système d’exploitation de conteneur, Windows Server Core et Nano Server. Les configurations ne prennent pas toutes en charge les deux images de système d’exploitation. Ce tableau détaille les configurations prises en charge.
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:75%" cellpadding="5" cellspacing="5">
+<thead>
 <tr valign="top">
-<td><center>**Système d’exploitation invité**</center></td>
-<td><center>**Conteneur Windows Server**</center></td>
-<td><center>**Conteneur Hyper-V**</center></td>
+<th><center>Système d’exploitation invité</center></th>
+<th><center>Conteneur Windows Server</center></th>
+<th><center>Conteneur Hyper-V</center></th>
 </tr>
+</thead>
+<tbody>
 <tr valign="top">
 <td><center>Interface utilisateur Windows Server 2016 Full</center></td>
 <td><center>Image de système d’exploitation de base</center></td>
@@ -29,6 +32,7 @@ Windows Server Technical Preview 4 est offert avec deux images de système d’
 <td><center> Image de système d’exploitation Nano</center></td>
 <td><center>Image de système d’exploitation Nano</center></td>
 </tr>
+</tbody>
 </table>
 
 ## Configuration requise pour un conteneur Hyper-V
@@ -44,3 +48,4 @@ Si un hôte de conteneur Windows est exécuté sur une machine virtuelle Hyper-V
 
 
 
+<!--HONumber=Jan16_HO1-->

@@ -1,4 +1,4 @@
-## Déploiement d’un hôte de conteneur
+# Déploiement d’un hôte de conteneur
 
 **Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
 
@@ -13,9 +13,9 @@ Les scripts PowerShell sont disponibles pour automatiser le déploiement d’un 
 
 ### Hôte Windows Server
 
-Les étapes répertoriées dans ce tableau peuvent servir à déployer un hôte de conteneur vers Windows Server 2016 TP4 et Windows Server Core 2016. Voici les configurations requises pour les conteneurs Windows Server et Hyper-V.
+Les étapes répertoriées dans ce tableau peuvent servir à déployer un hôte de conteneur vers Windows Server 2016 et Windows Server 2016 Core. Voici les configurations requises pour les conteneurs Windows Server et Hyper-V.
 
-\* Nécessaire uniquement si les conteneurs Hyper-V sont déployés.  
+\* Nécessaire uniquement si les conteneurs Hyper-V sont déployés.
 \*\* Nécessaire uniquement si Docker doit servir à créer et à gérer des conteneurs.
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
@@ -34,6 +34,10 @@ Les étapes répertoriées dans ce tableau peuvent servir à déployer un hôte 
 <tr>
 <td>[Configurer les processeurs virtuels *](#proc)</td>
 <td>Si l’hôte de conteneur est lui-même une machine virtuelle Hyper-V, au moins deux processeurs virtuels doivent être configurés.</td>
+</tr>
+<tr>
+<td>[Désactiver la mémoire dynamique *](#dyn)</td>
+<td>Si l’hôte de conteneur est lui-même une machine virtuelle Hyper-V, la mémoire dynamique doit être désactivée.</td>
 </tr>
 <tr>
 <td>[Activer le rôle Hyper-V *](#hypv) </td>
@@ -65,7 +69,7 @@ Les étapes répertoriées dans ce tableau peuvent servir à déployer un hôte 
 
 Les étapes répertoriées dans ce tableau peuvent servir à déployer un hôte de conteneur vers Nano Server. Voici les configurations requises pour les conteneurs Windows Server et Hyper-V.
 
-\* Nécessaire uniquement si les conteneurs Hyper-V sont déployés.  
+\* Nécessaire uniquement si les conteneurs Hyper-V sont déployés.
 \*\* Nécessaire uniquement si Docker doit servir à créer et à gérer des conteneurs.
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
@@ -86,6 +90,10 @@ Les étapes répertoriées dans ce tableau peuvent servir à déployer un hôte 
 <td>Si l’hôte de conteneur est lui-même une machine virtuelle Hyper-V, au moins deux processeurs virtuels doivent être configurés.</td>
 </tr>
 <tr>
+<tr>
+<td>[Désactiver la mémoire dynamique *](#dyn)</td>
+<td>Si l’hôte de conteneur est lui-même une machine virtuelle Hyper-V, la mémoire dynamique doit être désactivée.</td>
+</tr>
 <td>[Créer un commutateur virtuel](#vswitch)</td>
 <td>Les conteneurs se connectent à un commutateur virtuel pour assurer la connectivité réseau.</td>
 </tr>
@@ -167,10 +175,10 @@ Quand vous avez terminé, créez une machine virtuelle à partir du fichier `Nan
 
 Si l’hôte de conteneur est exécuté sur une machine virtuelle Hyper-V et héberge également des conteneurs Hyper-V, la virtualisation imbriquée doit être activée. Vous pouvez pour cela exécuter la commande PowerShell suivante.
 
-> Les machines virtuelles doivent être mises hors tension lors de l’exécution de cette commande.
+>Les machines virtuelles doivent être mises hors tension lors de l’exécution de cette commande.
 
 ```powershell
-PS C:\> Set-VMProcessor -VMName <container host vm> -ExposeVirtualizationExtensions $true
+PS C:\> Set-VMProcessor -VMName <VM Name> -ExposeVirtualizationExtensions $true
 ```
 
 ### <a name=proc></a>Configurer les processeurs virtuels
@@ -179,6 +187,16 @@ Si l’hôte de conteneur est exécuté sur une machine virtuelle Hyper-V et hé
 
 ```poweshell
 PS C:\> Set-VMProcessor –VMName <VM Name> -Count 2
+```
+
+### <a name=dyn></a>Désactiver la mémoire dynamique
+
+Si l’hôte de conteneur est lui-même une machine virtuelle Hyper-V, la mémoire dynamique doit être désactivée sur la machine virtuelle de l’hôte de conteneur. Cette configuration peut être effectuée via les paramètres de la machine virtuelle ou avec le script PowerShell suivant.
+
+>Les machines virtuelles doivent être mises hors tension lors de l’exécution de cette commande.
+
+```poweshell
+PS C:\> Set-VMMemory <VM Name> -DynamicMemoryEnabled $false
 ```
 
 ### <a name=hypv></a>Activer le rôle Hyper-V
@@ -223,7 +241,7 @@ Active                           : True
 <a name=mac></a>Enfin, si l’hôte du conteneur s’exécute à l’intérieur d’une machine virtuelle Hyper-V, l’usurpation MAC doit être activée. Chaque conteneur reçoit ainsi une adresse IP. Pour activer l’usurpation des adresses MAC, exécutez la commande suivante sur l’hôte Hyper-V. La propriété VMName sera le nom de l’hôte de conteneur.
 
 ```powershell
-PS C:\> Get-VMNetworkAdapter -VMName <contianer host vm> | Set-VMNetworkAdapter -MacAddressSpoofing On
+PS C:\> Get-VMNetworkAdapter -VMName <VM Name> | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
 
 ### <a name=img></a>Installer les images de système d’exploitation
@@ -255,7 +273,7 @@ Downloaded in 0 hours, 0 minutes, 10 seconds.
 
 De même, cette commande télécharge et installe l’image de système d’exploitation de base Windows Server Core.
 
-> **Problème :** les applets de commande Save-ContainerImage et Install-ContainerImage ne fonctionnent pas avec une image de conteneur WindowsServerCore à partir d’une session PowerShell à distance.<br /> **Solution de contournement :** ouvrez une session sur la machine à l’aide du Bureau à distance, et utilisez directement l’applet de commande Save-ContainerImage.
+>**Problème :** les applets de commande Save-ContainerImage et Install-ContainerImage ne fonctionnent pas avec une image de conteneur WindowsServerCore à partir d’une session PowerShell à distance.<br /> **Solution de contournement :** ouvrez une session sur l’ordinateur à l’aide du Bureau à distance et utilisez directement l’applet de commande Save-ContainerImage.
 
 ```powershell
 PS C:\> Install-ContainerImage -Name WindowsServerCore -Version 10.0.10586.0
@@ -281,4 +299,4 @@ Le démon Docker et l’interface de ligne de commande ne sont pas fournis avec 
 
 
 
-
+<!--HONumber=Jan16_HO1-->

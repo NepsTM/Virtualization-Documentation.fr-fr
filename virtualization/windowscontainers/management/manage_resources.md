@@ -16,7 +16,7 @@ PS C:\> New-Container –Name TestContainer –MaximumMemoryBytes 256MB -Contain
 Vous pouvez également définir la limite de mémoire d’un conteneur existant à l’aide de l’applet de commande `Set-ContainerMemory`.
 
 ```powershell
-PS C:\> Set-ContainerMemory -ContainerName TestContainer -MaximumBytes 500mb
+PS C:\> Set-ContainerMemory -ContainerName TestContainer -MaximumBytes 256mb
 ```
 
 ### Bande passante réseau
@@ -36,7 +36,7 @@ Pour limiter la quantité de calcul qu’un conteneur peut utiliser, définissez
 L’exemple ci-dessous définit la pondération relative du conteneur avec la valeur 1 000. La pondération par défaut d’un conteneur étant 100, ce conteneur a une priorité 10 fois supérieure à celle d’un conteneur ayant la valeur par défaut. La valeur maximale est 10 000.
 
 ```powershell
-PS C:\> Set-ContainerProcessor -ContainerName Container1 –RelativeWeight 10000.
+PS C:\> Set-ContainerProcessor -ContainerName Container1 –RelativeWeight 10000
 ```
 
 Vous pouvez également définir une limite matérielle sur la quantité de processeur qu’un conteneur peut utiliser en termes de pourcentage de temps processeur. Par défaut, un conteneur peut utiliser 100 % du processeur. L’exemple ci-dessous définit le pourcentage maximal de processeur qu’un conteneur peut utiliser avec une valeur de 30 %. L’utilisation de l’indicateur –Maximum définit automatiquement la propriété RelativeWeight avec la valeur 100.
@@ -62,7 +62,7 @@ Nous offrons la possibilité de gérer un sous-ensemble des ressources de conten
 
 ### Processeur
 
-Le pourcentage de processeur réparti entre les conteneurs peut être géré au moment de l’exécution avec l’indicateur --cpu-shares. Par défaut, tous les conteneurs bénéficient d’une même proportion de temps processeur. Pour modifier le pourcentage relatif de processeur que les conteneurs utilisent, exécutez l’indicateur --cpu-shares avec une valeur comprise entre 1 et 10 000. Par défaut, tous les conteneurs reçoivent une pondération de 5 000.
+Le pourcentage de processeur réparti entre les conteneurs peut être géré au moment de l’exécution avec l’indicateur --cpu-shares. Par défaut, tous les conteneurs bénéficient d’une même proportion de temps processeur. Pour modifier le pourcentage relatif de processeur que les conteneurs utilisent, exécutez l’indicateur --cpu-shares avec une valeur comprise entre 1 et 10 000. Par défaut, tous les conteneurs reçoivent une pondération de 5 000. Pour plus d’informations sur la contrainte de partage de processeur, voir les [informations de référence sur Docker Run](https://docs.docker.com/engine/reference/run/#cpu-share-constraint).
 
 ```powershell 
 C:\> docker run –it --cpu-shares 2 --name dockerdemo windowsservercore cmd
@@ -77,3 +77,4 @@ C:\> docker run –it --cpu-shares 2 --name dockerdemo windowsservercore cmd
 
 
 
+<!--HONumber=Jan16_HO1-->

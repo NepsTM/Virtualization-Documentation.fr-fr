@@ -24,7 +24,7 @@ PS C:\> $con = New-Container -Name HYPVCON -ContainerImageName NanoServer -Switc
 
 En plus de la création d’un conteneur comme conteneur Hyper-V au moment de la génération, les conteneurs qui ont été créés avec PowerShell peuvent également faire l’objet d’une conversion de conteneur Windows Server en conteneur Hyper-V.
 
-> Actuellement, le seul système d’exploitation hôte qui prend en charge la conversion d’exécution de conteneur est Nano Server.
+>Actuellement, le seul système d’exploitation hôte qui prend en charge la conversion d’exécution de conteneur est Nano Server.
 
 Créez un conteneur avec l’exécution par défaut.
 
@@ -61,7 +61,7 @@ DEMO               HyperV
 
 ### Créer un conteneur
 
-La gestion des conteneurs Hyper-V avec Docker est presque identique à la gestion des conteneurs Windows Server. Quand vous créez un conteneur Hyper-V avec Docker, le paramètre `–issolation=hyperv` est utilisé.
+La gestion des conteneurs Hyper-V avec Docker est presque identique à la gestion des conteneurs Windows Server. Quand vous créez un conteneur Hyper-V avec Docker, le paramètre `isolation=hyperv` est utilisé.
 
 ```powershell
 docker run -it --isolation=hyperv 646d6317b02f cmd
@@ -214,3 +214,4 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
 
 
 
+<!--HONumber=Jan16_HO1-->

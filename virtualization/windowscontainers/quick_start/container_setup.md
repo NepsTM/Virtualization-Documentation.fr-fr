@@ -2,13 +2,13 @@
 
 Ce document décrit l’utilisation d’un script PowerShell pour déployer une nouvelle machine virtuelle Hyper-V, qui est ensuite configurée comme un hôte de conteneur Windows.
 
-Pour effectuer un déploiement avec script d’un hôte de conteneur Windows sur un système virtuel ou physique existant, voir [Déploiement d’un hôte de conteneur Windows sur place](./inplace_setup.md).
+Pour effectuer un pas à pas détaillé dans un déploiement avec script d’un hôte de conteneur Windows sur un système virtuel ou physique existant, voir [Déploiement d’un hôte de conteneur Windows sur place](./inplace_setup.md).
 
 **À LIRE AVANT L’INSTALLATION DE L’IMAGE DE SYSTÈME D’EXPLOITATION DU CONTENEUR :** les termes du contrat de licence de la version préliminaire du logiciel Microsoft Windows Server (« termes du contrat de licence ») s’appliquent à votre utilisation du supplément de l’image de système d’exploitation du conteneur Microsoft Windows (« logiciel supplémentaire »). En téléchargeant et en utilisant le logiciel supplémentaire, vous acceptez les termes du contrat de licence, et vous ne pouvez pas l’utiliser si vous n’avez pas accepté les termes du contrat de licence. La version préliminaire du logiciel Windows Server et le logiciel supplémentaire sont tous deux concédés sous licence par Microsoft Corporation.
 
 Les éléments suivants sont requis pour effectuer les exercices relatifs aux conteneurs **Windows Server** et **Hyper-V** dans ce démarrage rapide.
 
-* Système exécutant Windows 10 build 1056 ou ultérieure / Windows Server Technical Preview 4 ou ultérieure.
+* Système exécutant Windows 10 build 10586 ou ultérieure / Windows Server Technical Preview 4 ou ultérieure.
 * Rôle Hyper-V activé ([voir les instructions](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install#UsingPowerShell)).
 * 20 Go de stockage disponible pour l’image hôte de conteneur, l’image de base du système d’exploitation et les scripts d’installation.
 * Autorisations d’administrateur sur l’hôte Hyper-V.
@@ -39,7 +39,7 @@ Utilisez la commande suivante pour télécharger le script de configuration. Le 
 PS C:\> wget -uri https://aka.ms/tp4/New-ContainerHost -OutFile c:\New-ContainerHost.ps1
 ```
 
-Pour créer et configurer l’hôte du conteneur, exécutez la commande suivante où `<containerhost>` est le nom de la machine virtuelle.
+Exécutez la commande suivante pour créer et configurer l’hôte de conteneur, où `<hôte_conteneur>` est le nom de la machine virtuelle.
 
 ``` powershell
 PS C:\> c:\New-ContainerHost.ps1 –VmName <containerhost> -WindowsImage ServerDatacenterCore -Hyperv
@@ -71,3 +71,5 @@ Maintenant que vous disposez d’un système Windows Server 2016 exécutant la 
 
 
 
+
+<!--HONumber=Jan16_HO2-->

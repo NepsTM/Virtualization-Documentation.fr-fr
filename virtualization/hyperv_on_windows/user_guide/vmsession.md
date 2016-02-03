@@ -3,7 +3,7 @@
 PowerShell Direct permet de gérer à distance une machine virtuelle Windows 10 ou Windows Server Technical Preview à partir d’un hôte Hyper-V Windows 10 ou Windows Server Technical. Grâce à PowerShell Direct, vous pouvez gérer PowerShell dans une machine virtuelle, indépendamment de la configuration du réseau ou des paramètres de gestion à distance sur l’hôte Hyper-V ou la machine virtuelle. Pour les administrateurs Hyper-V, cela facilite la génération de scripts et l’automatisation de la gestion et de la configuration des machines virtuelles.
 
 Vous pouvez exécuter PowerShell Direct de deux manières :
-* En tant que session interactive : [accédez à cette section](vmsession.md#create-and-exit-an-interactive-powershell-session) pour créer et quitter une session PowerShell Direct à l’aide d’applets de commande PSSession.
+* En tant que session interactive : [accédez à cette section](vmsession.md#create-and-exit-an-interactive-powershell-session) pour créer et quitter une session PowerShell Direct à l’aide d’applets de commande de session PSsession.
 * En exécutant un ensemble de commandes ou un script : [accédez à cette section](vmsession.md#run-a-script-or-command-with-invoke-command) pour exécuter un script ou une commande avec l’applet de commande Invoke-Command.
 
 
@@ -36,9 +36,9 @@ Enter-PSSession -VMGUID <VMGUID>
 Exit-PSSession 
 ```
 
->Remarque : si votre session ne se connecte pas, vérifiez que vous utilisez des informations d’identification propres à la machine virtuelle à laquelle vous vous connectez, et non à l’hôte Hyper-V.
+> Remarque : si votre session ne se connecte pas, vérifiez que vous utilisez des informations d’identification propres à la machine virtuelle à laquelle vous vous connectez, et non à l’hôte Hyper-V.
 
-Pour en savoir plus sur ces applets de commande, consultez [Enter-PSSession](http://technet.microsoft.com/library/hh849707.aspx) et [Exit-PSSession](http://technet.microsoft.com/library/hh849743.aspx).
+Pour en savoir plus sur ces applets de commande, voir [Enter-PSSession](http://technet.microsoft.com/library/hh849707.aspx) et [Exit-PSSession](http://technet.microsoft.com/library/hh849743.aspx).
 
 ## Exécuter un script ou une commande avec Invoke-Command
 
@@ -60,31 +60,47 @@ Les messages d’erreur liés à l’utilisation de PowerShell Direct sont peu n
 
 ### Erreur : une session à distance a peut-être pris fin.
 
-Message d’erreur :
+**Message d’erreur :**
 ```
 Enter-PSSession : An error has occurred which Windows PowerShell cannot handle. A remote session might have ended.
 ```
 
-Causes possibles :
+**Causes possibles :**
 * La machine virtuelle n’est pas en cours d’exécution.
-* Le système d’exploitation invité ne prend pas en charge PowerShell Direct (voir la [configuration requise](#Requirements)).
+* Le système d’exploitation invité ne prend pas en charge PowerShell Direct (voir la [configuration requise](#Requirements))).
 * PowerShell n’est pas encore disponible dans l’invité.
-* Le système d’exploitation n’est pas entièrement démarré.
-* Le système d’exploitation ne peut pas démarrer correctement.
-* Un événement de démarrage exige une entrée de l’utilisateur.
+  * Le système d’exploitation n’est pas entièrement démarré.
+  * Le système d’exploitation ne peut pas démarrer correctement.
+  * Un événement de démarrage exige une entrée de l’utilisateur.
 * Impossible de valider les informations d’identification de l’invité.
-* Les informations d’identification fournies sont incorrectes
-* Aucun compte d’utilisateur n’existe dans l’invité (le système d’exploitation n’a pas encore démarré)
-* Si vous vous connectez en tant qu’administrateur : l’administrateur n’a pas été défini comme un utilisateur actif. En savoir plus [ici](https://technet.microsoft.com/en-us/library/hh825104.aspx).
+  * Les informations d’identification fournies sont incorrectes
+  * Aucun compte d’utilisateur n’existe dans l’invité (le système d’exploitation n’a pas encore démarré)
+  * Si vous vous connectez en tant qu’administrateur : l’administrateur n’a pas été défini comme un utilisateur actif. En savoir plus [ici](https://technet.microsoft.com/en-us/library/hh825104.aspx).
 
 Vous pouvez utiliser l’applet de commande [Get-VM](http://technet.microsoft.com/library/hh848479.aspx) pour vérifier que les informations d’identification que vous utilisez ont le rôle d’administrateur Hyper-V et pour identifier les machines virtuelles démarrées et exécutées localement sur l’hôte.
+
+### Erreur : le jeu de paramètres ne peut pas être résolu
+
+**Message d’erreur :**
+``` 
+Enter-PSSession : Parameter set cannot be resolved using the specified named parameters.
+```
+
+**Causes possibles :**  
+`-RunAsAdministrator` n’est pas pris en charge lors de la connexion aux machines virtuelles.
+
+PowerShell Direct a des comportements différents lors de la connexion aux machines virtuelles et aux conteneurs Windows. Lors de la connexion à un conteneur Windows, l’indicateur `-RunAsAdministrator` autorise les connexions administrateur sans informations d’identification explicites. Étant donné que les machines virtuelles ne donnent pas à l’hôte un accès administrateur implicite, vous devez entrer explicitement les informations d’identification.
+
+Les informations d’identification d’administrateur peuvent être passées à la machine virtuelle avec le paramètre `-credential` ou en les entrant manuellement quand vous y êtes invité.
+
 
 ## Exemples
 
 Pour obtenir des exemples, accédez à [GitHub](https://github.com/Microsoft/Virtualization-Documentation/search?l=powershell&q=-VMName+OR+-VMGuid&type=Code&utf8=%E2%9C%93).
 
-Pour obtenir de nombreux exemples d’utilisation de PowerShell Direct dans votre environnement, ainsi que des conseils et astuces pour écrire des scripts Hyper-V avec PowerShell, consultez [Extraits de code PowerShell Direct](../develop/powershell_snippets.md).
+Pour obtenir de nombreux exemples d’utilisation de PowerShell Direct dans votre environnement, ainsi que des conseils et astuces pour écrire des scripts Hyper-V avec PowerShell, voir [Extraits de code PowerShell Direct](../develop/powershell_snippets.md).
 
 
 
-<!--HONumber=Jan16_HO1-->
+
+<!--HONumber=Jan16_HO2-->

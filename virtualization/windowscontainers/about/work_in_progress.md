@@ -97,7 +97,7 @@ Si plusieurs points de terminaison doivent être exposés par un conteneur, util
 
 Si vous vous connectez aux conteneurs Windows avec des commutateurs de machine virtuelle DHCP, il est possible que l’hôte de conteneur reçoive une adresse IP, mais pas les conteneurs.
 
-Les conteneurs obtiennent une adresse IP APIPA 169.254.***.***.
+Les conteneurs obtiennent une adresse IP APIPA 169.254.***.***.
 
 **Solution de contournement :**
 Il s’agit d’un effet secondaire du partage du noyau. Tous les conteneurs possèdent effectivement la même adresse MAC.
@@ -108,6 +108,9 @@ Pour cela, vous pouvez utiliser PowerShell.
 ```
 Get-VMNetworkAdapter -VMName "[YourVMNameHere]"  | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
+### HTTPS et TLS ne sont pas pris en charge
+
+Les conteneurs Windows Server et Hyper-V ne prennent pas en charge HTTPS ni TLS. Nous travaillons à rendre cette prise en charge possible à l’avenir.
 
 --------------------------
 
@@ -162,9 +165,8 @@ Dans cette version préliminaire, les communications Docker sont publiques si vo
 
 ### Les commandes Docker ne fonctionnent pas toutes
 
-Docker Exec échoue dans les conteneurs Hyper-V.
-
-Les commandes liées à DockerHub ne sont pas encore prises en charge.
+* Docker Exec échoue dans les conteneurs Hyper-V.
+* Les commandes liées à DockerHub ne sont pas encore prises en charge.
 
 Si vous êtes confronté à un échec qui ne figure pas dans cette liste (ou si une commande échoue de manière imprévue), faites-le nous savoir via les [forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
 
@@ -187,6 +189,11 @@ net use S: \\your\sources\here /User:shareuser [yourpassword]
 ```
 
 
+--------------------------
+
+
+
+
 ## Bureau à distance
 
 Il n’est pas possible de gérer les conteneurs Windows ni d’interagir avec eux par le biais d’une session RDP dans TP4.
@@ -200,8 +207,36 @@ Il n’est pas possible de gérer les conteneurs Windows ni d’interagir avec e
 
 C’est exact. Nous prévoyons de prendre entièrement en charge cimsession à l’avenir.
 
-N’hésitez pas à nous faire part de vos demandes de fonctionnalités via [les forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
+### La sortie d’un conteneur dans un hôte de conteneur Nano Server n’est pas possible avec « exit »
+
+Si vous essayez de quitter un conteneur qui se trouve dans un hôte de conteneur Nano Server avec « exit », vous êtes déconnecté de l’hôte de conteneur Nano Server, mais ne quittez pas le conteneur.
+
+**Solution de contournement :**
+Utilisez Exit-PSSession à la place pour quitter le conteneur.
+
+N’hésitez pas à nous faire part de vos demandes de fonctionnalités via les [forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
+
+
+--------------------------
+
+
+
+## Utilisateurs et domaines
+
+### Utilisateurs locaux
+
+Des comptes d’utilisateurs locaux peuvent être créés et utilisés pour l’exécution des services et applications Windows dans des conteneurs.
+
+
+### Appartenance au domaine
+
+Les conteneurs ne peuvent pas joindre des domaines Active Directory ni exécuter des services ou applications en tant qu’utilisateurs du domaine, comptes de service ni comptes d’ordinateurs.
+
+Les conteneurs sont conçus pour démarrer rapidement dans un état cohérent connu qui est en grande partie indépendant de l’environnement. La jonction à un domaine et l’application de paramètres de stratégie de groupe du domaine augmentent le temps nécessaire au démarrage d’un conteneur, modifient son mode de fonctionnement au fil du temps et limitent la possibilité de déplacer ou de partager des images entre les développeurs et les déploiements.
+
+Nous examinons soigneusement les commentaires sur la façon dont les applications et services utilisent Active Directory et sur leur déploiement dans les conteneurs. Si vous avez plus d’informations sur ce qui vous convient le mieux, partagez-les avec nous dans les [ forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers). Nous étudions activement des solutions pour prendre en charge ces types de scénarios.
 
 
 
 
+<!--HONumber=Jan16_HO3-->

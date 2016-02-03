@@ -12,17 +12,17 @@
 
 ## [Conteneurs dans Azure](quick_start/azure_setup.md)
 
-## [Conteneurs dans une nouvelle machine virtuelle Hyper-V](quick_start/container_setup.md)
+## [Conteneurs dans une nouvelle machine virtuelle Hyper-V](quick_start/container_setup.md).
 
-## [Conteneurs dans un système virtuel ou physique existant](quick_start/inplace_setup.md)
+## [Conteneurs dans un système existant](quick_start/inplace_setup.md)
 
-## [Guide de démarrage rapide de PowerShell](quick_start/manage_powershell.md)
+## [Démarrage rapide de PowerShell](quick_start/manage_powershell.md)
 
-## [Guide de démarrage rapide de Docker](quick_start/manage_docker.md)
+## [Démarrage rapide de Docker](quick_start/manage_docker.md)
 
 # Déployer des conteneurs Windows
 
-## [Configuration requise](deployment/system_requirements.md)
+## [Configuration système requise](deployment/system_requirements.md)
 
 ## [Déployer un hôte de conteneur](deployment/deployment.md)
 
@@ -38,7 +38,7 @@
 
 ## [Mise en réseau de conteneur](management/container_networking.md)
 
-## [Données de conteneur](management/manage_data.md)
+## [Dossiers partagés de conteneur](management/manage_data.md)
 
 ## [Contrôle des ressources de conteneur](management/manage_resources.md)
 
@@ -60,6 +60,9 @@
 
 ## [Compatibilité des applications](reference/app_compat.md)
 
-# [CLUF](EULA.md)
+# [CLUF Windows Server](EULA.md)
+
+# [CLUF Nano Server](Nano_EULA.md)
 
 
+<!--HONumber=Jan16_HO1-->

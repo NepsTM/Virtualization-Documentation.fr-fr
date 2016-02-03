@@ -13,7 +13,7 @@ Il existe deux types d’images de conteneur :
 
 ### Répertorier des images
 
-Pour obtenir la liste d’images sur l’hôte de conteneur, exécutez la commande `get-containerImage`. Le type d’image de conteneur est déterminé avec la propriété `IsOSImage`.
+Pour obtenir une liste d’images sur l’hôte de conteneur, exécutez la commande `get-containerImage`. Le type d’image de conteneur est déterminé avec la propriété `IsOSImage`.
 
 ```powershell
 PS C:\> Get-ContainerImage
@@ -43,7 +43,7 @@ NanoServer           10.0.10586.0            Container OS Image of Windows Serve
 WindowsServerCore    10.0.10586.0            Container OS Image of Windows Server 2016 Techn...
 ```
 
-Pour télécharger et installer l’image du système d’exploitation de base Nano Server, exécutez la commande suivante.
+Pour télécharger et installer l’image du système d’exploitation de base Nano Server, exécutez la commande suivante. Le paramètre `–version` est facultatif. Sans version d’image de système d’exploitation de base spécifiée, la dernière version est installée.
 
 ```powershell
 PS C:\> Install-ContainerImage -Name NanoServer -Version 10.0.10586.0
@@ -51,9 +51,9 @@ PS C:\> Install-ContainerImage -Name NanoServer -Version 10.0.10586.0
 Downloaded in 0 hours, 0 minutes, 10 seconds.
 ```
 
-Cette commande télécharge et installe l’image du système d’exploitation de base Windows Server Core.
+Cette commande télécharge et installe l’image du système d’exploitation de base Windows Server Core. Le paramètre `–version` est facultatif. Sans version d’image de système d’exploitation de base spécifiée, la dernière version est installée.
 
-> **Problème :** les applets de commande Save-ContainerImage et Install-ContainerImage ne fonctionnent pas avec une image de conteneur WindowsServerCore dans une session de communication à distance PowerShell. **Solution de contournement :** ouvrez une session sur l’ordinateur à l’aide du Bureau à distance et utilisez directement l’applet de commande Save-ContainerImage.
+>**Problème :** les applets de commande Save-ContainerImage et Install-ContainerImage ne fonctionnent pas avec une image de conteneur WindowsServerCore dans une session de communication à distance PowerShell. **Solution de contournement :** ouvrez une session sur l’ordinateur à l’aide du Bureau à distance et utilisez directement l’applet de commande Save-ContainerImage.
 
 ```powershell
 PS C:\> Install-ContainerImage -Name WindowsServerCore -Version 10.0.10586.0
@@ -202,3 +202,4 @@ IMAGE               CREATED             CREATED BY          SIZE                
 
 
 
+<!--HONumber=Jan16_HO1-->

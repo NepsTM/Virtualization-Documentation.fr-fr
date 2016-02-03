@@ -4,9 +4,9 @@
 
 Sur le plan de la mise en réseau, les conteneurs Windows fonctionnent de la même façon que des machines virtuelles. Chaque conteneur possède une carte réseau virtuelle qui est connectée à un commutateur virtuel sur lequel le trafic entrant et sortant est transféré. Deux types de configurations de réseau sont disponibles.
 
-- **Mode traduction d’adresses réseau (NAT)** : chaque conteneur est connecté à un commutateur virtuel interne et reçoit une adresse IP interne. Une configuration NAT traduit cette adresse interne en l’adresse externe de l’hôte du conteneur.
+- **Mode traduction d’adresses réseau (NAT)** : chaque conteneur est connecté à un commutateur virtuel interne et reçoit une adresse IP interne. Une configuration NAT traduit cette adresse interne en l’adresse externe de l’hôte du conteneur.
 
-- **Mode transparent** : chaque conteneur est connecté à un commutateur virtuel externe et reçoit une adresse IP d’un serveur DHCP.
+- **Mode transparent** : chaque conteneur est connecté à un commutateur virtuel externe et reçoit une adresse IP d’un serveur DHCP.
 
 Ce document décrit en détail l’avantage et la configuration de chacun de ces modes.
 
@@ -23,7 +23,7 @@ Créez un commutateur virtuel de type « NAT » et configurez-le avec un sous-
 ```powershell
 New-VMSwitch -Name "NAT" -SwitchType NAT -NATSubnetAddress "172.16.0.0/12"
 ```
-Créez l’objet traduction d’adresses réseau. Ce sera l’objet responsable de la traduction d’adresses NAT. Pour plus d’informations sur la commande **New-NetNat**, voir les [informations de référence sur New-NetNat](https://technet.microsoft.com/en-us/library/dn283361.aspx)
+Créez l’objet traduction d’adresses réseau. Il s’agit de l’objet responsable de la traduction d’adresses NAT. Pour plus d’informations sur la commande **New-NetNat**, voir les [informations de référence sur New-NetNat](https://technet.microsoft.com/en-us/library/dn283361.aspx)
 
 ```powershell
 New-NetNat -Name NAT -InternalIPInterfaceAddressPrefix "172.16.0.0/12" 
@@ -59,18 +59,18 @@ Pour plus d’informations sur le démarrage et la connexion à un conteneur Win
 
 Pour accéder à des applications à l’intérieur d’un conteneur « compatible avec NAT », des mappages de ports doivent être créés entre le conteneur et son hôte. Pour créer le mappage, vous avez besoin de l’adresse IP du conteneur, du port de conteneur « interne » et d’un port d’hôte « externe ».
 
-Cet exemple montre comment créer un mappage entre le port **80** de l’hôte et le port **80** d’un conteneur dont l’adresse IP est **172.16.0.2**.
+Cet exemple montre comment créer un mappage entre le port **80** de l’hôte et le port **80** d’un conteneur dont l’adresse IP est **172.16.0.2**.
 
 ```powershell
 Add-NetNatStaticMapping -NatName "Nat" -Protocol TCP -ExternalIPAddress 0.0.0.0 -InternalIPAddress 172.16.0.2 -InternalPort 80 -ExternalPort 80
 ```
 
-Cet exemple montre comment créer un mappage entre le port **82** de l’hôte du conteneur et le port **80** d’un conteneur dont l’adresse IP est **172.16.0.3**.
+Cet exemple montre comment créer un mappage entre le port **82** de l’hôte du conteneur et le port **80** d’un conteneur dont l’adresse IP est **172.16.0.3**.
 
 ```powershell
 Add-NetNatStaticMapping -NatName "Nat" -Protocol TCP -ExternalIPAddress 0.0.0.0 -InternalIPAddress 172.16.0.3 -InternalPort 80 -ExternalPort 82
 ```
-> Une règle de pare-feu correspondante est requise pour chaque port externe. Celle-ci peut être créée avec la commande `New-NetFirewallRule`. Pour plus d’informations, voir les [informations de référence sur New-NetFirewallRule](https://technet.microsoft.com/en-us/library/jj554908.aspx).
+>Une règle de pare-feu correspondante est requise pour chaque port externe. Celle-ci peut être créée avec la commande `New-NetFirewallRule`. Pour plus d’informations, voir les [informations de référence sur New-NetFirewallRule](https://technet.microsoft.com/en-us/library/jj554908.aspx).
 
 Une fois le mappage de ports créé, une application de conteneurs est accessible via l’adresse IP de l’hôte du conteneur (physique ou virtuel) et un port externe exposé. Par exemple, le schéma ci-dessous illustre une configuration NAT avec une demande ciblant le port externe **82** de l’hôte du conteneur. Sur la base du mappage de ports, cette demande renvoie l’application hébergée dans le conteneur 2.
 
@@ -128,7 +128,7 @@ Enfin, démarrez le service.
 Start-Service docker
 ```
 
-## Gestion de cartes réseau de conteneur
+## Gérer les cartes réseau
 
 Quelle que soit la configuration réseau (NAT ou Transparente), plusieurs commandes PowerShell sont disponibles pour la gestion des cartes réseau de conteneur et les connexions de commutateur virtuel.
 
@@ -149,3 +149,4 @@ Pour plus d’informations sur chacune de ces commandes, voir les [informations 
 
 
 
+<!--HONumber=Jan16_HO1-->

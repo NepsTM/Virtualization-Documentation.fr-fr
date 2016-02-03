@@ -14,10 +14,10 @@ Le démon Docker et l’interface de ligne de commande ne sont pas fournis avec 
 
 Le démon et l’interface de ligne de commande Docker ont été développés en langage Go. À ce stade, docker.exe n’est pas installé comme un service Windows. Plusieurs méthodes permettent de créer un service Windows : un exemple illustré ici utilise `nssm.exe`.
 
-Téléchargez docker.exe à partir de `https://aka.ms/ContainerTools`, puis placez-le dans le répertoire System32 sur l’hôte du conteneur.
+Téléchargez docker.exe à partir de `https://aka.ms/tp4/docker`, puis placez-le dans le répertoire System32 sur l’hôte du conteneur.
 
 ```powershell
-PS C:\> wget https://aka.ms/ContainerTools -OutFile $env:SystemRoot\system32\docker.exe
+PS C:\> wget https://aka.ms/tp4/docker -OutFile $env:SystemRoot\system32\docker.exe
 ```
 
 Créez un répertoire nommé `c:\programdata\docker`. Dans ce répertoire, créez un fichier nommé `runDockerDaemon.cmd`.
@@ -112,7 +112,7 @@ PS C:\> sc.exe delete Docker
 
 ### Installer Docker
 
-Téléchargez docker.exe à partir de `https://aka.ms/ContainerTools`, et copiez-le dans le dossier `windows\system32` de l’hôte du conteneur Nano Server.
+Téléchargez docker.exe à partir de `https://aka.ms/tp4/docker` et copiez-le dans le dossier `windows\system32` de l’hôte du conteneur Nano Server.
 
 Exécutez la commande ci-dessous pour démarrer le démon Docker. Cette commande doit être exécutée lors de chaque démarrage de l’hôte de conteneur. Cette commande démarre le démon Docker, spécifie un commutateur virtuel pour la connectivité du conteneur et configure le démon pour qu’il écoute les demandes Docker entrantes sur le port 2375. Dans cette configuration, Docker peut être géré à partir d’un ordinateur distant.
 
@@ -128,6 +128,50 @@ Pour supprimer le démon et l’interface de ligne de commande Docker de Nano Se
 PS C:\> Remove-Item $env:SystemRoot\system32\docker.exe
 ```
 
+### Session interactive Nano
+
+> Pour plus d’informations sur la gestion à distance de Nano Server, voir [Prise en main de Nano Server](https://technet.microsoft.com/en-us/library/mt126167.aspx#bkmk_ManageRemote).
+
+Vous pouvez recevoir cette erreur lors de la gestion interactive d’un conteneur sur un hôte Nano Server.
+
+```powershell
+docker : cannot enable tty mode on non tty input
++ CategoryInfo          : NotSpecified: (cannot enable tty mode on non tty input:String) [], RemoteException
++ FullyQualifiedErrorId : NativeCommandError 
+```
+
+Cela peut se produire quand vous tentez d’exécuter un conteneur avec une session interactive, en utilisant -it :
+
+```powershell
+Docker run -it <image> <command>
+```
+ou quand vous tentez l’attachement à un conteneur en cours d’exécution :
+
+```powershell
+Docker attach <container name>
+```
+
+Pour créer une session interactive avec un conteneur créé avec Docker sur un hôte Nano Server, le démon Docker doit être géré à distance. Pour ce faire, téléchargez docker.exe à partir de [cet emplacement](https://aka.ms/ContainerTools) et copiez-le sur un système distant.
+
+Tout d’abord, vous devez configurer le démon Docker dans Nano Server pour écouter les commandes à distance. Pour cela, exécutez cette commande dans Nano Server :
+
+```powershell
+docker daemon -D -H <ip address of Nano Server>:2375
+```
+
+À présent, sur votre machine, ouvrez une session PowerShell ou CMD et exécutez les commandes Docker en spécifiant l’hôte distant avec `-H`.
+
+```powershell
+.\docker.exe -H tcp://<ip address of Nano Server>:2375
+```
+
+Par exemple, si vous souhaitez afficher les images disponibles :
+
+```powershell
+.\docker.exe -H tcp://<ip address of Nano Server>:2375 images
+```
 
 
 
+
+<!--HONumber=Jan16_HO3-->

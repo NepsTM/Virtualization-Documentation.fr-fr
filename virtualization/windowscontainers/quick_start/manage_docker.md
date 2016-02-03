@@ -2,7 +2,7 @@
 
 Les conteneurs Windows peuvent servir à déployer rapidement de nombreuses applications isolées sur un ordinateur unique. Cet exercice montre comment créer et gérer un conteneur Windows à l’aide de Docker. Quand vous aurez terminé, vous aurez compris les bases de l’intégration de Docker aux conteneurs Windows et aurez acquis une expérience pratique de la technologie.
 
-Cette procédure pas à pas décrit en détail les conteneurs Windows Server et les conteneurs Hyper-V. Chaque type de conteneur a ses propres exigences de base. La documentation des conteneurs Windows contient une procédure permettant de déployer rapidement un hôte de conteneur. Il s’agit du moyen le plus simple pour apprendre à utiliser rapidement les conteneurs Windows. Si vous n’avez pas déjà un hôte de conteneur, consultez [Démarrage rapide du déploiement d’un hôte de conteneur](./container_setup.md).
+Cette procédure pas à pas décrit en détail les conteneurs Windows Server et les conteneurs Hyper-V. Chaque type de conteneur a ses propres exigences de base. La documentation des conteneurs Windows contient une procédure permettant de déployer rapidement un hôte de conteneur. Il s’agit du moyen le plus simple pour apprendre à utiliser rapidement les conteneurs Windows. Si vous ne disposez pas déjà d’un hôte de conteneur, voir [Démarrage rapide du déploiement d’un hôte de conteneur](./container_setup.md).
 
 Les éléments suivants sont nécessaires à chaque exercice.
 
@@ -35,7 +35,7 @@ nanoserver          10.0.10586.0        8572198a60f1        2 weeks ago         
 nanoserver          latest              8572198a60f1        2 weeks ago         0 B
 ```
 
-Pour cet exemple, créez un conteneur à l’aide de l’image Windows Server Core. Pour ce faire, utilisez la commande `docker run`. Pour plus d’informations sur la commande `docker run`, consultez les [informations de référence sur Docker Run sur docker.com](https://docs.docker.com/engine/reference/run/).
+Pour cet exemple, créez un conteneur à l’aide de l’image Windows Server Core. Pour ce faire, utilisez la commande `docker run`. Pour plus d’informations sur la commande `docker run`, voir les [informations de référence sur Docker Run sur docker.com](https://docs.docker.com/engine/reference/run/).
 
 Cet exemple montre comment créer un conteneur nommé `iisbase`, puis comment démarrer une session interactive avec le conteneur.
 
@@ -96,7 +96,7 @@ Vous pouvez également noter l’adresse IP de l’hôte de conteneur. Elle sera
 
 Vous disposez maintenant d’une image de conteneur qui contient IIS et permet de déployer des environnements d’exploitation compatibles avec IIS.
 
-Pour créer un conteneur à partir de la nouvelle image, utilisez la commande `docker run`, cette fois en spécifiant le nom de l’image IIS. Notez que cet exemple a spécifié un paramètre `-p 80:80`. Étant donné que le conteneur est connecté à un commutateur virtuel qui fournit des adresses IP par la traduction d’adresses réseau, un port de l’hôte de conteneur doit être mappé à un port sur l’adresse IP NAT des conteneurs. Pour plus d’informations sur `-p`, consultez les [informations de référence sur Docker Run sur docker.com](https://docs.docker.com/engine/reference/run/)
+Pour créer un conteneur à partir de la nouvelle image, utilisez la commande `docker run`, cette fois en spécifiant le nom de l’image IIS. Notez que cet exemple a spécifié un paramètre `-p 80:80`. Étant donné que le conteneur est connecté à un commutateur virtuel qui fournit des adresses IP par la traduction d’adresses réseau, un port de l’hôte de conteneur doit être mappé à un port sur l’adresse IP NAT des conteneurs. Pour plus d’informations sur `-p`, voir les [informations de référence sur Docker Run sur docker.com](https://docs.docker.com/engine/reference/run/)
 
 ```powershell
 C:\> docker run --name iisdemo -it -p 80:80 windowsservercoreiis cmd
@@ -147,7 +147,7 @@ Dans l’exercice précédent, un conteneur a été manuellement créé, modifi�
 
 ### Créer une image IIS
 
-Dans l’hôte de conteneur, créez un répertoire `c:\build` dans lequel vous créez un fichier nommé `dockerfile`.
+Sur l’hôte de conteneur, créez un répertoire `c:\build` dans lequel vous créez un fichier nommé `dockerfile`.
 
 ```powershell
 C:\> powershell new-item c:\build\dockerfile -Force
@@ -159,7 +159,7 @@ Ouvrez le fichier dockerfile dans le Bloc-notes.
 C:\> notepad c:\build\dockerfile
 ```
 
-Copiez le texte suivant dans le fichier dockerfile et enregistrez-le. Ces commandes indiquent à Docker de créer une image en se servant de `windosservercore` comme base, puis d’inclure les modifications spécifiées avec `RUN`. Pour plus d’informations sur les fichiers Dockerfile, consultez les [informations de référence sur Docker Run sur docker.com](http://docs.docker.com/engine/reference/builder/).
+Copiez le texte suivant dans le fichier dockerfile et enregistrez-le. Ces commandes indiquent à Docker de créer une image en se servant de `windowsservercore` comme base, puis d’inclure les modifications spécifiées avec `RUN`. Pour plus d’informations sur les fichiers Dockerfile, voir les [informations de référence sur Docker Run sur docker.com](http://docs.docker.com/engine/reference/builder/).
 
 ```powershell
 FROM windowsservercore
@@ -217,7 +217,7 @@ C:\> docker rmi iis
 
 ## Conteneur Hyper-V
 
-Les conteneurs Hyper-V fournissent une couche d’isolement supplémentaire sur les conteneurs Windows Server. Chaque conteneur Hyper-V est créé dans une machine virtuelle hautement optimisée. Quand un conteneur Windows Server partage un noyau avec l’hôte de conteneur, le conteneur Hyper-V est complètement isolé. Les conteneurs Hyper-V sont créés et gérés comme les conteneurs Windows Server. Pour plus d’informations sur les conteneurs Hyper-V, consultez [Gestion des conteneurs Hyper-V](../management/hyperv_container.md).
+Les conteneurs Hyper-V fournissent une couche d’isolement supplémentaire sur les conteneurs Windows Server. Chaque conteneur Hyper-V est créé dans une machine virtuelle hautement optimisée. Quand un conteneur Windows Server partage un noyau avec l’hôte de conteneur, le conteneur Hyper-V est complètement isolé. Les conteneurs Hyper-V sont créés et gérés comme les conteneurs Windows Server. Pour plus d’informations sur les conteneurs Hyper-V, voir [Gestion des conteneurs Hyper-V](../management/hyperv_container.md).
 
 >Microsoft Azure ne prend pas en charge les conteneurs Hyper-V. Dans le cadre des exercices Hyper-V, vous avez besoin d’un hôte de conteneur local.
 

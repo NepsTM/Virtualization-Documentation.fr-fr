@@ -2,18 +2,18 @@
 
 Les services d’intégration (souvent appelés composants d’intégration) sont des services qui permettent à la machine virtuelle de communiquer avec l’hôte Hyper-V. Plusieurs de ces services sont pratiques (comme la copie de fichier de l’invité), mais d’autres peuvent être très importants dans le fonctionnement du système d’exploitation invité (synchronisation date/heure).
 
-Cet article décrit en détail comment gérer les services d’intégration à l’aide du Gestionnaire Hyper-V et de PowerShell dans Windows 10. Pour plus d’informations sur chaque service d’intégration, voir [Services d’intégration](https://technet.microsoft.com/en-us/library/dn798297.aspx) .
+Cet article décrit en détail comment gérer les services d’intégration à l’aide du Gestionnaire Hyper-V et de PowerShell dans Windows 10. Pour plus d’informations sur chaque service d’intégration, voir [Services d’intégration](https://technet.microsoft.com/en-us/library/dn798297.aspx).
 
 ## Activer ou désactiver les services d’intégration à l’aide du Gestionnaire Hyper-V
 
 1. Sélectionnez une machine virtuelle et ouvrez les paramètres.
-    ![](./media/HyperVManager-OpenVMSettings.png)
+  ![](./media/HyperVManager-OpenVMSettings.png)
 
 2. Dans la fenêtre de paramètres de la machine virtuelle, accédez à l’onglet Services d’intégration sous Gestion.
 
-    ![](./media/HyperVManager-IntegrationServices.png)
+  ![](./media/HyperVManager-IntegrationServices.png)
 
-    Dans cet onglet sont affichés tous les services d’intégration disponibles sur cet hôte Hyper-V. Il est important de noter que le système d’exploitation invité peut ou ne peut pas prendre en charge la totalité des services d’intégration répertoriés.
+  Dans cet onglet sont affichés tous les services d’intégration disponibles sur cet hôte Hyper-V. Il est important de noter que le système d’exploitation invité peut ou ne peut pas prendre en charge la totalité des services d’intégration répertoriés.
 
 ## Activer ou désactiver les services d’intégration à l’aide de PowerShell
 
@@ -87,7 +87,7 @@ Stopped  vmicvmsession      Hyper-V VM Session Service
 Running  vmicvss            Hyper-V Volume Shadow Copy Requestor
 ```
 
-Démarrez ou arrêtez des services à l’aide de [`Start-Service`] (https://technet.microsoft.com/en-us/library/hh849825.aspx) ou [`Stop-Service`](https://technet.microsoft.com/en-us/library/hh849790.aspx).
+Démarrez ou arrêtez des services à l’aide de [`Start-Service`](https://technet.microsoft.com/en-us/library/hh849825.aspx) ou [`Stop-Service`](https://technet.microsoft.com/en-us/library/hh849790.aspx).
 
 Par défaut, tous les services d’intégration sont activés dans le système d’exploitation invité.
 
@@ -147,9 +147,9 @@ Vérifiez que le pilote et les démons des services d’intégration sont en cou
   ```
 
   Processus de services intégration qui peuvent s’afficher :
-* **`hv_vss_daemon`** : ce démon est nécessaire pour créer des sauvegardes dynamiques de machines virtuelles Linux.
-* **`hv_kvp_daemon`**: ce démon permet de définir et d’interroger des paires clé-valeur intrinsèques et extrinsèques.
-* **`hv_fcopy_daemon`** : ce démon implémente un service de copie de fichiers entre l’hôte et l’invité.
+  * **`hv_vss_daemon`** : ce démon est nécessaire pour créer des sauvegardes dynamiques de machines virtuelles Linux.
+  * **`hv_kvp_daemon`**: ce démon permet de définir et d’interroger des paires clé-valeur intrinsèques et extrinsèques.
+  * **`hv_fcopy_daemon`** : ce démon implémente un service de copie de fichiers entre l’hôte et l’invité.
 
 > **Remarque :** si les démons de services d’intégration ci-dessus ne sont pas disponibles, ils ne sont peut-être pas pris en charge sur votre système ou installés. Pour en savoir plus sur la distribution, cliquez [ici](https://technet.microsoft.com/en-us/library/dn531030.aspx).
 
@@ -188,13 +188,14 @@ Maintenez les services d’intégration à jour pour bénéficier des meilleures
 | -| | |
 | Windows Server 2012 R2| Windows Update| |
 | Windows Server 2012| Windows Update| Nécessite le service d’intégration Échange de données.*****|
-| Windows Server 2008 R2| Windows Update| Nécessite le service d’intégration Échange de données.*****|
-| Windows Server 2008 (SP2)| Windows Update| Nécessite le service d’intégration Échange de données.*****|
-| Windows Home Server 2011| Windows Update| Nécessite le service d’intégration Échange de données.*****|
-| Windows Small Business Server 2011| Windows Update| Nécessite le service d’intégration Échange de données.*****|
+| Windows Server 2008 R2 (SP1)| Windows Update| Nécessite le service d’intégration Échange de données.*****|
+| Windows Server 2008 (SP2)| Windows Update| Support étendu uniquement dans Server 2016 ([en savoir plus](https://support.microsoft.com/en-us/lifecycle?p1=12925)).|
+| Windows Home Server 2011| Windows Update| Pas de support dans Server 2016 ([en savoir plus](https://support.microsoft.com/en-us/lifecycle?p1=15820)).|
+| Windows Small Business Server 2011| Windows Update| Pas de support standard ([en savoir plus](https://support.microsoft.com/en-us/lifecycle?p1=15817)).|
+| -| | |
+| Invités Linux| gestionnaire de package| Les composants d’intégration pour Linux sont intégrés à la distribution, mais des mises à jour facultatives peuvent être disponibles.********|
 
-
-**\*** Si le service d’intégration Échange de données ne peut pas être activé, les composants d’intégration pour ces invités sont disponibles [ici](https://support.microsoft.com/en-us/kb/3071740) en tant que fichier cabinet (cab) dans le Centre de téléchargement. Les instructions relatives à l’application un fichier cab sont disponibles [ici](http://blogs.technet.com/b/virtualization/archive/2015/07/24/integration-components-available-for-virtual-machines-not-connected-to-windows-update.aspx).
+**\*** Si le service d’intégration Échange de données ne peut pas être activé, les composants d’intégration pour ces invités sont disponibles [ici](https://support.microsoft.com/en-us/kb/3071740) en tant que fichier cabinet (cab) dans le Centre de téléchargement. Les instructions permettant d’appliquer un fichier cab sont disponibles [ici](http://blogs.technet.com/b/virtualization/archive/2015/07/24/integration-components-available-for-virtual-machines-not-connected-to-windows-update.aspx).
 
 
 **Pour les machines virtuelles qui s’exécutent sur des hôtes Windows 8.1 :**
@@ -216,6 +217,9 @@ Maintenez les services d’intégration à jour pour bénéficier des meilleures
 | Windows Small Business Server 2011| Disque des services d’intégration| |
 | Windows Server 2003 R2 (SP2)| Disque des services d’intégration| |
 | Windows Server 2003 (SP2)| Disque des services d’intégration| |
+| -| | |
+| Invités Linux| gestionnaire de package| Les composants d’intégration pour Linux sont intégrés à la distribution, mais des mises à jour facultatives peuvent être disponibles.********|
+
 
 **Pour les machines virtuelles qui s’exécutent sur des hôtes Windows 8 :**
 
@@ -235,11 +239,15 @@ Maintenez les services d’intégration à jour pour bénéficier des meilleures
 | Windows Small Business Server 2011| Disque des services d’intégration| |
 | Windows Server 2003 R2 (SP2)| Disque des services d’intégration| |
 | Windows Server 2003 (SP2)| Disque des services d’intégration| |
+| -| | |
+| Invités Linux| gestionnaire de package| Les composants d’intégration pour Linux sont intégrés à la distribution, mais des mises à jour facultatives peuvent être disponibles.********|
+
 
 Les instructions relatives à la mise à jour avec le disque des services d’intégration pour Windows 8 et Windows 8.1 sont disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4).
 
-**\*\*** D’autres informations sur les invités Linux sont disponibles [ici](https://technet.microsoft.com/en-us/library/dn531030.aspx).
+ **\****** D’autres informations sur les invités Linux sont disponibles [ici](https://technet.microsoft.com/en-us/library/dn531030.aspx).
 
 
 
 
+<!--HONumber=Jan16_HO3-->
