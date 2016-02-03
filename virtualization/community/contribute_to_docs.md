@@ -1,54 +1,55 @@
-# Contribution à la documentation
+# Contribute to the docs
 
-> **Remarque :**  pour pouvoir contribuer, vous devez avoir un compte [GitHub](https://www.github.com).
+>**Note:**  In order to contribute, you must have a [GitHub](https://www.github.com) account.
 
-## Modification d’un document existant
+## Edit an existing doc
 
-1. Recherchez le document à modifier.
+1. Find the doc you'd like to edit.
 
-2. Sélectionnez **Contribute to this topic**  
-    ![](media/editDoc.png)
+2. Select **Contribute to this topic**
+![](media/editDoc.png)
 
-    Cela vous redirige automatiquement vers le fichier markdown associé à ce fichier dans GitHub.
+This will automatically redirect you to the markdown file in GitHub associated with this file.
 
-    Assurez-vous que vous êtes connecté à GitHub. Si ce n’est pas le cas, connectez-vous ou créez un compte GitHub.
+Make sure you are signed into GitHub. If not, either sign in or create a GitHub account.
 
-    ![](media/GitHubView.png)
+![](media/GitHubView.png)
 
-3. Sélectionnez l’icône d’édition pour modifier dans l’éditeur du navigateur.
+3. Select the edit icon to edit with the in browser editor.
 
-    ![](media/GitHubEdit.png)
+![](media/GitHubEdit.png)
 
-4. Apportez les modifications en ligne.
+4. Make changes inline.
 
-    Actions possibles :
-    1. Modifier le fichier
-    2. Prévisualiser les modifications
-    3. Renommer le fichier (il est peu probable que vous souhaitiez le faire)
+Possible actions:
+1. Edit file
+2. Preview changes
+3. Rename the file (it's very unlikely you'll want to do this)
 
-    ![](media/GitHubEditor.png)
+![](media/GitHubEditor.png)
 
-5. Proposer vos modifications en tant que requête de tirage
+5. Propose your changes as a pull request
 
-    ![](media/GitHubProposeChange.png)
+![](media/GitHubProposeChange.png)
 
-6. Réviser vos modifications
+6. Review your changes
 
-    **Ce que nous recherchons dans une requête de tirage**
-    * La modification est correcte : elle représente réellement la technologie
-    * L’orthographe et la grammaire sont correctes
-    * Emplacement logique dans la documentation
+**What we're looking for in a pull request**
+* The change is correct -- it accurately represents the technology
+* Spelling/grammar are correct
+* Logical location in the documentation
 
-    ![](media/GitHubCreatePR.png)
+![](media/GitHubCreatePR.png)
 
-7. Créer une [requête de tirage](contribute_to_docs.md#pull-requests)
+7. Create a [pull request](contribute_to_docs.md#pull-requests)
 
-## Requêtes de tirage
+## Pull requests
 
-La plupart des modifications sont validées par une requête de tirage. Une requête de tirage permet de réviser un ensemble de modifications avec plusieurs réviseurs, ainsi que de modifier et commenter le contenu actuel.
-
-
+Most changes will be committed via pull request. A pull request is a way of reviewing a change set with multiple reviewers, changing, and commenting on the current content.
 
 
 
 
+
+
+<!--HONumber=Jan16_HO1-->
