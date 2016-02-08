@@ -1,26 +1,11 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\Nano_EULA.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e8c2522788395c01addc4987c89d49f6ff1889a8/virtualization/windowscontainers/Nano_EULA.md) | InSyncHandedBackSuccess | [Details](#aa26c5fc60bcdfd7cd521799700e2f6eea48eb17234)
 
 ## Item Details
-##### <a name='aa26c5fc60bcdfd7cd521799700e2f6eea48eb17234'></a> Source: [virtualization\windowscontainers\Nano_EULA.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e8c2522788395c01addc4987c89d49f6ff1889a8/virtualization/windowscontainers/Nano_EULA.md)
-* Status: InSyncHandedBackSuccess
-* Target File: [virtualization\windowscontainers\Nano_EULA.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/b7df8dabe386e4adf1b3abffdb8dd3c8a1ac8011/virtualization/windowscontainers/Nano_EULA.md)
-* Handoff File: [Nano_EULA.dc5fd75e218dabebc3dde5de2ed83d8f59835aa5.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/2922cd3775a64979a6ef7cc7439cac7504859fbd/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/Nano_EULA.dc5fd75e218dabebc3dde5de2ed83d8f59835aa5.fr-fr.xlf)
-* Handoff Datetime: 2016-01-05 20:42:44
-* Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: [Nano_EULA.dc5fd75e218dabebc3dde5de2ed83d8f59835aa5.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/7909b2ed07bc147b954a7b016b42c728ee26a12d/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/Nano_EULA.dc5fd75e218dabebc3dde5de2ed83d8f59835aa5.fr-fr.xlf)
-* Handback Datetime: 2016-02-08 19:39:27
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
