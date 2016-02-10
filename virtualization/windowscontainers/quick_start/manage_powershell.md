@@ -2,7 +2,7 @@
 
 Les conteneurs Windows peuvent servir à déployer rapidement de nombreuses applications isolées sur un ordinateur unique. Ce guide de démarrage rapide décrit le déploiement et la gestion de conteneurs Windows Server et Hyper-V à l’aide de PowerShell. Tout au long de cet exercice, vous allez créer entièrement une application très simple « hello world », qui s’exécute dans un conteneur Windows Server et un conteneur Hyper-V. Pendant ce processus, vous allez créer des images de conteneur, utiliser des dossiers partagés de conteneur et gérer le cycle de vie du conteneur. Une fois terminé, vous aurez acquis une compréhension de base du déploiement et de la gestion de conteneurs Windows.
 
-Cette procédure pas à pas décrit en détail les conteneurs Windows Server et Hyper-V. Chaque type de conteneur a ses propres exigences de base. La documentation des conteneurs Windows contient une procédure permettant de déployer rapidement un hôte de conteneur. Il s’agit du moyen le plus simple pour apprendre à utiliser rapidement les conteneurs Windows. Si vous ne disposez pas déjà d’un hôte de conteneur, voir [Démarrage rapide du déploiement d’un hôte de conteneur](./container_setup.md).
+Cette procédure pas à pas décrit en détail les conteneurs Windows Server et Hyper-V. Chaque type de conteneur a ses propres exigences de base. La documentation des conteneurs Windows contient une procédure permettant de déployer rapidement un hôte de conteneur. Il s’agit du moyen le plus simple pour apprendre à utiliser rapidement les conteneurs Windows. Si vous ne disposez pas déjà d’un hôte de conteneur, consultez [Démarrage rapide du déploiement d’un hôte de conteneur](./container_setup.md).
 
 Les éléments suivants sont nécessaires pour chaque exercice.
 
@@ -15,7 +15,7 @@ Les éléments suivants sont nécessaires pour chaque exercice.
 - un hôte de conteneur Windows compatible avec la virtualisation imbriquée.
 - Support Windows Server 2016 : [Télécharger](https://aka.ms/tp4/serveriso).
 
->Microsoft Azure ne prend pas en charge les conteneurs Hyper-V. Dans le cadre des exercices Hyper-V, vous avez besoin d’un hôte de conteneur local.
+> Microsoft Azure ne prend pas en charge les conteneurs Hyper-V. Dans le cadre des exercices Hyper-V, vous avez besoin d’un hôte de conteneur local.
 
 ## Conteneur Windows Server
 
@@ -35,7 +35,7 @@ Copyright (C) 2015 Microsoft Corporation. All rights reserved.
 PS C:\>
 ```
 
-Pour vérifier que l’image de système d’exploitation Windows Server Core est installée, utilisez la commande `Get-ContainerImage`. Plusieurs images de système d’exploitation s’affichent, ce qui est normal.
+Pour vérifier que l’image de système d’exploitation Windows Server Core a été installée, utilisez la commande `Get-ContainerImage`. Plusieurs images de système d’exploitation s’affichent, ce qui est normal.
 
 ```powershell
 PS C:\> Get-ContainerImage
@@ -145,7 +145,7 @@ PS C:\> Start-Container -Name IIS
 
 ### Configurer la mise en réseau
 
-La configuration réseau par défaut indiquée dans le guide de démarrage rapide des conteneurs Windows stipule des conteneurs connectés à un commutateur virtuel configuré avec la traduction d’adresses réseau (NAT). Vous devez donc, pour vous connecter à une application s’exécutant dans un conteneur, mapper un port de l’hôte de conteneur à un port du conteneur. Pour plus d’informations sur la mise en réseau de conteneur, voir [Mise en réseau de conteneur](../management/container_networking.md).
+La configuration réseau par défaut indiquée dans le guide de démarrage rapide des conteneurs Windows stipule des conteneurs connectés à un commutateur virtuel configuré avec la traduction d’adresses réseau (NAT). Vous devez donc, pour vous connecter à une application s’exécutant dans un conteneur, mapper un port de l’hôte de conteneur à un port du conteneur. Pour plus d’informations sur la mise en réseau de conteneur, consultez [Mise en réseau de conteneur](../management/container_networking.md).
 
 Dans cet exercice, un site web est hébergé dans IIS qui s’exécute dans un conteneur. Pour accéder au site web sur le port 80, mappez le port 80 de l’adresse IP des hôtes de conteneur au port 80 de l’adresse IP des conteneurs.
 
@@ -182,7 +182,7 @@ if (!(Get-NetFirewallRule | where {$_.Name -eq "TCP80"})) {
 }
 ```
 
-Si vous utilisez Azure et que vous n’avez pas encore créé de groupe de sécurité réseau, vous devez en créer un maintenant. Pour plus d’informations sur les groupes de sécurité réseau, voir [Qu’est-ce qu’un groupe de sécurité réseau](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/).
+Si vous utilisez Azure et que vous n’avez pas encore créé de groupe de sécurité réseau, vous devez en créer un maintenant. Pour plus d’informations sur les groupes de sécurité réseau, consultez cet article : [Qu’est-ce qu’un groupe de sécurité réseau ?](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/).
 
 ### Créer une application
 
@@ -241,9 +241,9 @@ PS C:\> Remove-ContainerImage -Name WindowsServerCoreIIS -Force
 
 ## Conteneur Hyper-V
 
-Les conteneurs Hyper-V fournissent une couche d’isolement supplémentaire sur les conteneurs Windows Server. Chaque conteneur Hyper-V est créé dans une machine virtuelle hautement optimisée. Quand un conteneur Windows Server partage un noyau avec l’hôte de conteneur et que tous les autres conteneurs Windows Server s’exécutent sur cet hôte, un conteneur Hyper-V est complètement isolé des autres conteneurs. Les conteneurs Hyper-V sont créés et gérés comme les conteneurs Windows Server. Pour plus d’informations sur les conteneurs Hyper-V, voir [Gestion des conteneurs Hyper-V](../management/hyperv_container.md).
+Les conteneurs Hyper-V fournissent une couche d’isolement supplémentaire sur les conteneurs Windows Server. Chaque conteneur Hyper-V est créé dans une machine virtuelle hautement optimisée. Quand un conteneur Windows Server partage un noyau avec l’hôte de conteneur et que tous les autres conteneurs Windows Server s’exécutent sur cet hôte, un conteneur Hyper-V est complètement isolé des autres conteneurs. Les conteneurs Hyper-V sont créés et gérés comme les conteneurs Windows Server. Pour plus d’informations sur les conteneurs Hyper-V, consultez [Gestion des conteneurs Hyper-V](../management/hyperv_container.md).
 
->Microsoft Azure ne prend pas en charge les conteneurs Hyper-V. Pour effectuer les exercices de conteneur Hyper-V, vous avez besoin d’un hôte de conteneur local.
+> Microsoft Azure ne prend pas en charge les conteneurs Hyper-V. Pour effectuer les exercices de conteneur Hyper-V, vous avez besoin d’un hôte de conteneur local.
 
 ### Créer un conteneur
 
@@ -258,7 +258,7 @@ NanoServer        CN=Microsoft 10.0.10586.0 True
 WindowsServerCore CN=Microsoft 10.0.10586.0 True
 ```
 
-Pour créer un conteneur Hyper-V, utilisez la commande `New-Container` en spécifiant HyperV pour le Runtime.
+Pour créer un conteneur Hyper-V, utilisez la commande `New-Container` en spécifiant HyperV pour le runtime.
 
 ```powershell
 PS C:\> New-Container -Name HYPV -ContainerImageName NanoServer -SwitchName "Virtual Switch" -RuntimeType HyperV
@@ -272,7 +272,7 @@ Une fois le conteneur créé, **ne le démarrez pas**.
 
 ### Créer un dossier partagé
 
-Les dossiers partagés exposent un répertoire de l’hôte de conteneur au conteneur. Une fois qu’un dossier partagé a été créé, tous les fichiers placés dans le dossier partagé sont disponibles dans le conteneur. Dans cet exemple, le dossier partagé permet de copier les packages Nano Server IIS dans le conteneur. Ces packages sont ensuite utilisés pour installer IIS. Pour plus d’informations sur le dossier partagé, voir [Dossiers partagés de conteneur](../management/manage_data.md).
+Les dossiers partagés exposent un répertoire de l’hôte de conteneur au conteneur. Une fois qu’un dossier partagé a été créé, tous les fichiers placés dans le dossier partagé sont disponibles dans le conteneur. Dans cet exemple, le dossier partagé permet de copier les packages Nano Server IIS dans le conteneur. Ces packages sont ensuite utilisés pour installer IIS. Pour plus d’informations sur le dossier partagé, consultez [Dossiers partagés de conteneur](../management/manage_data.md).
 
 Créez un répertoire nommé `c:\share\en-us` sur l’hôte de conteneur.
 
@@ -288,7 +288,7 @@ d-----       11/18/2015   5:27 PM                en-us
 
 Utilisez la commande `Add-ContainerSharedFolder` pour créer un dossier partagé dans le nouveau conteneur.
 
->Le conteneur doit être dans un état arrêté pour pouvoir créer un dossier partagé.
+> Le conteneur doit être dans un état arrêté pour pouvoir créer un dossier partagé.
 
 ```powershell
 PS C:\> Add-ContainerSharedFolder -ContainerName HYPV -SourcePath c:\share -DestinationPath c:\iisinstall
@@ -323,9 +323,9 @@ d-----       11/18/2015   5:27 PM                en-us
 
 ### Créer une image IIS
 
-Étant donné que le conteneur exécute une image de système d’exploitation Nano Server, les packages Nano Server IIS sont nécessaires pour installer IIS. Ceux-ci se trouvent dans le support d’installation de Windows Server 2016 TP4, sous le répertoire `NanoServer\Packages`.
+Étant donné que le conteneur exécute une image de système d’exploitation Nano Server, les packages Nano Server IIS sont nécessaires pour installer IIS. Ceux-ci se trouvent sur le support d’installation de Windows Server 2016 TP4, sous le répertoire `NanoServer\Packages`.
 
-Copiez `Microsoft-NanoServer-IIS-Package.cab` à partir de `NanoServer\Packages` dans `c:\share` sur l’hôte du conteneur.
+Copiez `Microsoft-NanoServer-IIS-Package.cab` depuis `NanoServer\Packages` dans `c:\share` sur l’hôte du conteneur.
 
 Copiez `NanoServer\Packages\en-us\Microsoft-NanoServer-IIS-Package.cab` dans `c:\share\en-us` sur l’hôte du conteneur.
 
@@ -517,4 +517,4 @@ exit
 
 
 
-<!--HONumber=Jan16_HO1-->
+<!--HONumber=Feb16_HO1-->

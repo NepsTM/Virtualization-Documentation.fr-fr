@@ -18,12 +18,12 @@ Ce document décrit en détail l’avantage et la configuration de chacun de ces
 
 Pour configurer l’hôte du conteneur pour la traduction d’adresses réseau, procédez comme suit.
 
-Créez un commutateur virtuel de type « NAT » et configurez-le avec un sous-réseau interne. Pour plus d’informations sur la commande **New-VMSwitch**, voir les [informations de référence sur New-VMSwitch](https://technet.microsoft.com/en-us/library/hh848455.aspx).
+Créez un commutateur virtuel de type « NAT » et configurez-le avec un sous-réseau interne. Pour plus d’informations sur la commande **New-VMSwitch**, consultez les [informations de référence sur New-VMSwitch](https://technet.microsoft.com/en-us/library/hh848455.aspx).
 
 ```powershell
 New-VMSwitch -Name "NAT" -SwitchType NAT -NATSubnetAddress "172.16.0.0/12"
 ```
-Créez l’objet traduction d’adresses réseau. Il s’agit de l’objet responsable de la traduction d’adresses NAT. Pour plus d’informations sur la commande **New-NetNat**, voir les [informations de référence sur New-NetNat](https://technet.microsoft.com/en-us/library/dn283361.aspx)
+Créez l’objet traduction d’adresses réseau. Il s’agit de l’objet responsable de la traduction d’adresses NAT. Pour plus d’informations sur la commande **New-NetNat**, consultez les [informations de référence sur New-NetNat](https://technet.microsoft.com/en-us/library/dn283361.aspx).
 
 ```powershell
 New-NetNat -Name NAT -InternalIPInterfaceAddressPrefix "172.16.0.0/12" 
@@ -53,7 +53,7 @@ Ethernet adapter vEthernet (Virtual Switch-527ED2FB-D56D-4852-AD7B-E83732A032F5-
    Default Gateway . . . . . . . . . : 172.16.0.1
 ```
 
-Pour plus d’informations sur le démarrage et la connexion à un conteneur Windows, voir [Gestion des conteneurs](./manage_containers.md).
+Pour plus d’informations sur le démarrage et la connexion à un conteneur Windows, consultez [Gestion des conteneurs](./manage_containers.md).
 
 ### Mappage de ports
 
@@ -70,9 +70,9 @@ Cet exemple montre comment créer un mappage entre le port **82** de l’hôte d
 ```powershell
 Add-NetNatStaticMapping -NatName "Nat" -Protocol TCP -ExternalIPAddress 0.0.0.0 -InternalIPAddress 172.16.0.3 -InternalPort 80 -ExternalPort 82
 ```
->Une règle de pare-feu correspondante est requise pour chaque port externe. Celle-ci peut être créée avec la commande `New-NetFirewallRule`. Pour plus d’informations, voir les [informations de référence sur New-NetFirewallRule](https://technet.microsoft.com/en-us/library/jj554908.aspx).
+> Une règle de pare-feu correspondante est requise pour chaque port externe. Celle-ci peut être créée avec la commande `New-NetFirewallRule`. Pour plus d’informations, consultez les [informations de référence sur New-NetFirewallRule](https://technet.microsoft.com/en-us/library/jj554908.aspx).
 
-Une fois le mappage de ports créé, une application de conteneurs est accessible via l’adresse IP de l’hôte du conteneur (physique ou virtuel) et un port externe exposé. Par exemple, le schéma ci-dessous illustre une configuration NAT avec une demande ciblant le port externe **82** de l’hôte du conteneur. Sur la base du mappage de ports, cette demande renvoie l’application hébergée dans le conteneur 2.
+Une fois le mappage de ports créé, une application de conteneurs est accessible via l’adresse IP de l’hôte du conteneur (physique ou virtuel) et un port externe exposé. Par exemple, le schéma ci-dessous décrit une configuration NAT avec une demande ciblant le port externe **82** de l’hôte du conteneur. Sur la base du mappage de ports, cette demande renvoie l’application hébergée dans le conteneur 2.
 
 ![](./media/nat1.png)
 
@@ -117,7 +117,7 @@ Pour arrêter le service, utilisez la commande PowerShell suivante :
 Stop-Service docker
 ```
 
-Le fichier de configuration se trouve dans « C:\programdata\docker\runDockerDaemon.cmd ». Modifiez la ligne suivante, en remplaçant `Virtual Switch` par le nom du commutateur virtuel que le service Docker doit utiliser.
+Le fichier de configuration se trouve dans `C:\programdata\docker\runDockerDaemon.cmd`. Modifiez la ligne suivante, en remplaçant `Virtual Switch` par le nom du commutateur virtuel que le service Docker doit utiliser.
 
 ```powershell
 docker daemon -D -b “New Switch Name"
@@ -135,18 +135,18 @@ Quelle que soit la configuration réseau (NAT ou Transparente), plusieurs comman
 Gestion d’une carte réseau de conteneurs
 
 - Add-ContainerNetworkAdapter : ajoute une carte réseau à un conteneur.
-- Set-ContainerNetworkAdapter : modifie une carte réseau de conteneurs.
-- Remove-ContainerNetworkAdapter : supprime une carte réseau de conteneurs.
-- Get-ContainerNetworkAdapter : renvoie des données sur une carte réseau de conteneurs.
+- Set-ContainerNetworkAdapter : modifie la carte réseau d’un conteneur.
+- Remove-ContainerNetworkAdapter : supprime la carte réseau d’un conteneur.
+- Get-ContainerNetworkAdapter : renvoie des données sur la carte réseau d’un conteneur.
 
 Gérez la connexion entre une carte réseau de conteneurs et un commutateur virtuel.
 
 - Connect-ContainerNetworkAdapter : connecte un conteneur à un commutateur virtuel.
-- Disconect-ContainerNetworkAdapter : déconnecte un conteneur d’un commutateur virtuel.
+- Disconnect-ContainerNetworkAdapter : déconnecte un conteneur d’un commutateur virtuel.
 
-Pour plus d’informations sur chacune de ces commandes, voir les [informations de référence PowerShell sur le conteneur](https://technet.microsoft.com/en-us/library/mt433069.aspx).
-
-
+Pour plus d’informations sur chacune de ces commandes, consultez les [informations de référence PowerShell sur le conteneur](https://technet.microsoft.com/en-us/library/mt433069.aspx).
 
 
-<!--HONumber=Jan16_HO1-->
+
+
+<!--HONumber=Feb16_HO1-->

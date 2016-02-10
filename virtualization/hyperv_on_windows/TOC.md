@@ -6,7 +6,7 @@
 
 ## [Nouveautés de Windows 10](./about/whats_new.md)
 
-## [Système d’exploitation invité pris en charge](about/supported_guest_os.md)
+## [Systèmes d’exploitation invités pris en charge](about/supported_guest_os.md)
 
 ## [Linux et FreeBSD sur Hyper-V](https://technet.microsoft.com/library/dn531030.aspx)
 
@@ -14,7 +14,7 @@
 
 ## [Configuration requise](quick_start/walkthrough_compatibility.md)
 
-## [Installer Hyper-V](quick_start/walkthrough_install.md)
+## [Installer Hyper-V](quick_start/walkthrough_install.md)
 
 ## [Créer un commutateur virtuel](quick_start/walkthrough_virtual_switch.md)
 
@@ -30,7 +30,7 @@
 
 ## [Utilisation de points de contrôle](user_guide/checkpoints.md)
 
-## [Exportation et importation](user_guide/export_import.md)
+## [Exporter et importer](user_guide/export_import.md)
 
 ## [PowerShell Direct](user_guide/vmsession.md)
 
@@ -46,15 +46,15 @@
 
 ## [Exemples PowerShell](develop/powershell_snippets.md)
 
-## [Service de gestion](develop/make_mgmt_service.md)
+## [Créer un service d’intégration](develop/make_mgmt_service.md)
 
 ## [Fournisseur WMI Hyper-V (V2)](https://msdn.microsoft.com/library/hh850319.aspx)
 
 ## [Architecture Hyper-V](https://msdn.microsoft.com/en-us/library/cc768520(v=bts.10).aspx)
 
-# Entrer en contact avec la Communauté et le support technique
+# Communauté et support
 
 ## [Forums Hyper-V](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)
 
 
-<!--HONumber=Dec15_HO3-->
+<!--HONumber=Feb16_HO1-->

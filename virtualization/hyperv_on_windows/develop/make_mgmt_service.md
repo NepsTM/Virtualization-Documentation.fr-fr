@@ -1,10 +1,10 @@
-# Créer un service de gestion
+# Créez vos propres services d’intégration
 
-À compter de Windows 10, Hyper-V permet des connexions de socket enregistrées entre l’hôte et l’invité Hyper-V sans compter sur une connexion réseau. Les sockets Hyper-V permettent aux services de s’exécuter indépendamment de la pile réseau et toutes les données restent sur la même mémoire physique.
+À partir de Windows 10, tout le monde peut rendre un service très similaire aux services d’intégration Hyper-V prédéfinis en utilisant un nouveau canal de communication par socket entre l’hôte Hyper-V et les machines virtuelles qui s’y exécutent. Grâce à ces sockets Hyper-V, les services peuvent s’exécuter indépendamment de la pile réseau et toutes les données restent sur la même mémoire physique.
 
 Ce document décrit la création d’une application simple basée sur les sockets Hyper-V et explique comment commencer à les utiliser.
 
-[PowerShell Direct](../user_guide/vmsession.md) est un exemple d’application (ici, un service Windows fourni) qui utilise des sockets Hyper-V pour communiquer.
+[PowerShell Direct](../user_guide/vmsession.md) est un exemple d’application (ici un service Windows prédéfini) qui utilise des sockets Hyper-V pour communiquer.
 
 **Système d’exploitation hôte pris en charge**
 * Windows 10
@@ -29,9 +29,9 @@ Ce document décrit la création d’une application simple basée sur les socke
 Pour le moment, les sockets Hyper-V sont disponibles en code natif (C/C++).
 
 Pour écrire une application simple, vous avez besoin des éléments suivants :
-* Compilateur C. Si vous n’en avez pas un, voir [Visual Studio Code](https://aka.ms/vs)
+* Compilateur C. Si vous n’en avez pas, consultez [Code Visual Studio](https://aka.ms/vs).
 * Ordinateur exécutant Hyper-V et une machine virtuelle.
-    * Le système d’exploitation hôte et invité (machine virtuelle) doit être Windows 10, Windows Server Technical Preview 3, ou version ultérieure.
+  * Le système d’exploitation hôte et invité (machine virtuelle) doit être Windows 10, Windows Server Technical Preview 3, ou version ultérieure.
 * Kit de développement logiciel (SDK) Windows : voici un lien vers le [Kit de développement logiciel (SDK) Windows 10](https://dev.windows.com/en-us/downloads/windows-10-sdk) qui comprend `hvsocket.h`.
 
 ## Inscrire une nouvelle application
@@ -191,3 +191,5 @@ sans perte de données
 
 
 
+
+<!--HONumber=Feb16_HO1-->

@@ -4,15 +4,15 @@
 
 ## [À propos des conteneurs Windows](about/about_overview.md)
 
-## [Travail en cours](about/work_in_progress.md)
+## [Travaux en cours](about/work_in_progress.md)
 
-## [FAQ](about/faq.md)
+## [Forum aux questions](about/faq.md)
 
 # Guide de démarrage rapide des conteneurs
 
 ## [Conteneurs dans Azure](quick_start/azure_setup.md)
 
-## [Conteneurs dans une nouvelle machine virtuelle Hyper-V](quick_start/container_setup.md).
+## [Conteneurs dans une nouvelle machine virtuelle Hyper-V](quick_start/container_setup.md)
 
 ## [Conteneurs dans un système existant](quick_start/inplace_setup.md)
 
@@ -22,11 +22,13 @@
 
 # Déployer des conteneurs Windows
 
-## [Configuration système requise](deployment/system_requirements.md)
+## [Configuration requise](deployment/system_requirements.md)
 
-## [Déployer un hôte de conteneur](deployment/deployment.md)
+## [Conteneurs sur Windows Server](deployment/deployment.md)
 
-## [Déployer Docker sur Windows](deployment/docker_windows.md)
+## [Conteneurs sur Nao Server](deployment/deployment_nano.md)
+
+## [Docker sur Windows](deployment/docker_windows.md)
 
 # Gérer des conteneurs Windows
 
@@ -36,13 +38,13 @@
 
 ## [Images de conteneur](management/manage_images.md)
 
-## [Mise en réseau de conteneur](management/container_networking.md)
+## [Mise en réseau de conteneurs](management/container_networking.md)
 
 ## [Dossiers partagés de conteneur](management/manage_data.md)
 
 ## [Contrôle des ressources de conteneur](management/manage_resources.md)
 
-## [Interopérabilité de gestion](management/hcs_powershell.md)
+## [Interopérabilité de la gestion](management/hcs_powershell.md)
 
 # Exemples de déploiement de conteneur
 
@@ -65,4 +67,4 @@
 # [CLUF Nano Server](Nano_EULA.md)
 
 
-<!--HONumber=Jan16_HO1-->
+<!--HONumber=Feb16_HO1-->

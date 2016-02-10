@@ -234,9 +234,10 @@ Les conteneurs ne peuvent pas joindre des domaines Active Directory ni exécuter
 
 Les conteneurs sont conçus pour démarrer rapidement dans un état cohérent connu qui est en grande partie indépendant de l’environnement. La jonction à un domaine et l’application de paramètres de stratégie de groupe du domaine augmentent le temps nécessaire au démarrage d’un conteneur, modifient son mode de fonctionnement au fil du temps et limitent la possibilité de déplacer ou de partager des images entre les développeurs et les déploiements.
 
-Nous examinons soigneusement les commentaires sur la façon dont les applications et services utilisent Active Directory et sur leur déploiement dans les conteneurs. Si vous avez plus d’informations sur ce qui vous convient le mieux, partagez-les avec nous dans les [ forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers). Nous étudions activement des solutions pour prendre en charge ces types de scénarios.
+Nous examinons soigneusement les commentaires sur la façon dont les applications et services utilisent Active Directory et sur leur déploiement dans les conteneurs. Si vous avez plus d’informations sur ce qui vous convient le mieux, partagez-les avec nous dans les [ forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
+
+Nous étudions activement des solutions pour prendre en charge ces types de scénarios.
 
 
 
-
-<!--HONumber=Jan16_HO3-->
+<!--HONumber=Feb16_HO1-->

@@ -4,13 +4,13 @@
 
 Le cycle de vie de conteneur inclut des actions, telles que le démarrage, l’arrêt et la suppression de conteneurs. Quand vous effectuez ces actions, il est possible que vous deviez également récupérer une liste d’images de conteneur, gérer la mise en réseau des conteneurs et limiter les ressources des conteneurs. Ce document décrit en détail les tâches de gestion des conteneurs de base à l’aide de PowerShell.
 
-Pour obtenir une documentation sur la gestion des conteneurs Windows avec Docker, voir le document Docker [Utilisation de conteneurs](https://docs.docker.com/userguide/usingdocker/).
+Pour obtenir une documentation sur la gestion des conteneurs Windows avec Docker, consultez le document Docker [Utilisation de conteneurs](https://docs.docker.com/userguide/usingdocker/).
 
 ## PowerShell
 
 ### Créer un conteneur
 
-Quand vous créez un conteneur, vous avez besoin du nom d’une image de conteneur qui servira de base de conteneur. Vous pouvez rechercher ce nom à l’aide de la commande `Get-ContainerImageName`.
+Quand vous créez un conteneur, vous avez besoin du nom d’une image de conteneur qui servira de base de conteneur. Vous pouvez rechercher ce nom à l’aide de la commande `Get-ContainerImage`.
 
 ```powershell
 PS C:\> Get-ContainerImage
@@ -76,7 +76,7 @@ PS C:\> Get-Container | Start-Container
 
 ### Se connecter à un conteneur
 
-PowerShell Direct peut être utilisé pour se connecter à un conteneur. Cela peut être utile si vous devez effectuer manuellement une tâche, telle que l’installation d’un logiciel, le démarrage d’un processus ou la résolution des problèmes d’un conteneur. PowerShell Direct étant utilisé, une session PowerShell peut être créée avec le conteneur, quelle que soit la configuration du réseau. Pour plus d’informations sur PowerShell Direct, voir le [blog PowerShell Direct](http://blogs.technet.com/b/virtualization/archive/2015/05/14/powershell-direct-running-powershell-inside-a-virtual-machine-from-the-hyper-v-host.aspx)
+PowerShell Direct peut être utilisé pour se connecter à un conteneur. Cela peut être utile si vous devez effectuer manuellement une tâche, telle que l’installation d’un logiciel, le démarrage d’un processus ou la résolution des problèmes d’un conteneur. PowerShell Direct étant utilisé, une session PowerShell peut être créée avec le conteneur, quelle que soit la configuration du réseau. Pour plus d’informations sur PowerShell Direct, consultez le [blog PowerShell Direct](http://blogs.technet.com/b/virtualization/archive/2015/05/14/powershell-direct-running-powershell-inside-a-virtual-machine-from-the-hyper-v-host.aspx).
 
 Pour créer une session interactive avec le conteneur, utilisez la commande `Enter-PSSession`.
 
@@ -193,8 +193,9 @@ dc3e282c064d
 2230b0433370
 ```
 
-Pour plus d’informations sur la commande docker rm, voir la [référence sur docker rm](https://docs.docker.com/engine/reference/commandline/rm/).
+Pour plus d’informations sur la commande docker rm, consultez les [informations de référence sur docker rm](https://docs.docker.com/engine/reference/commandline/rm/).
 
 
 
 
+<!--HONumber=Feb16_HO1-->
