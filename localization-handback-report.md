@@ -1,11 +1,26 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/952fcfcca9c9dc69aaeb2dd75aa157c42fad92a5/virtualization/windowscontainers/deployment/deployment_nano.md) | InSyncHandedBackSuccess | [Details](#9f1e1bbd25cf45f9cad66c6542769e0d769bf047208)
 
 ## Item Details
+##### <a name='9f1e1bbd25cf45f9cad66c6542769e0d769bf047208'></a> Source: [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/952fcfcca9c9dc69aaeb2dd75aa157c42fad92a5/virtualization/windowscontainers/deployment/deployment_nano.md)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/da3c7048653594deea9d2eb68f01f33bfb7f6c1d/virtualization/windowscontainers/deployment/deployment_nano.md)
+* Handoff File: [deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/e45d9181a680276925fa21f649b4d70746670dfb/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.fr-fr.xlf)
+* Handoff Datetime: 2016-02-03 22:27:36
+* Handoff Reason: Include
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: [deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b65c0eef81a4df673fd6bfbcaeca181d9c96f447/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.fr-fr.xlf)
+* Handback Datetime: 2016-02-11 23:29:58
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
