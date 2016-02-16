@@ -21,7 +21,7 @@ PS C:\> Set-ContainerMemory -ContainerName TestContainer -MaximumBytes 256mb
 
 ### Bande passante réseau
 
-Vous pouvez définir des limites de bande passante réseau sur un conteneur existant. Pour ce faire, vérifiez que le conteneur possède une carte réseau à l’aide de la commande `Get-ContainerNetworkAdapter`. S’il n’existe pas de carte réseau, utilisez la commande `Add-ContainerNetworkAdapter` pour en créer une. Enfin, utilisez la commande `Set-ContainerNetworkAdapter` pour limiter la bande passante maximale de sortie du conteneur.
+Vous pouvez définir des limites de bande passante réseau sur un conteneur existant. Pour ce faire, vérifiez que le conteneur a une carte réseau à l’aide de la commande `Get-ContainerNetworkAdapter`. S’il n’existe pas de carte réseau, utilisez la commande `Add-ContainerNetworkAdapter` pour en créer une. Enfin, utilisez la commande `Set-ContainerNetworkAdapter` pour limiter la bande passante maximale de sortie du conteneur.
 
 Dans l’exemple ci-dessous, la bande passante maximale est de 100 Mbits/s.
 
@@ -73,8 +73,12 @@ C:\> docker run –it --cpu-shares 2 --name dockerdemo windowsservercore cmd
 - Les contrôles de ressources de processeur et d’E/S ne sont actuellement pas pris en charge par les conteneurs Hyper-V.
 - Les contrôles de ressources d’E/S ne sont actuellement pas pris en charge par les dossiers partagés de conteneur.
 
+## Vidéo de la procédure pas à pas
+
+<iframe src="https://channel9.msdn.com/blogs/Containers/Container-Fundamentals--part-4-Resource-Management/Player#ccLang=fr" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
 
 
-<!--HONumber=Jan16_HO1-->
+
+<!--HONumber=Feb16_HO1-->

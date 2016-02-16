@@ -2,7 +2,7 @@
 
 Les conteneurs Windows offrent une virtualisation au niveau du système d’exploitation qui permet à plusieurs applications isolées d’être exécutées sur un seul système. Deux types de runtime de conteneurs différents sont compris dans la fonctionnalité, chacun avec un degré différent d’isolation d’application. Pour procéder à l’isolation, les conteneurs Windows Server passent par l’isolation de processus et d’espace de noms. Les conteneurs Hyper-V encapsulent chaque conteneur dans une machine virtuelle légère. En plus de deux runtimes, les deux peuvent être gérés avec PowerShell ou Docker. L’ensemble de cette documentation fournit des guides de démarrage rapide, des guides de déploiement et des détails techniques sur les opérations de gestion.
 
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:80%" cellpadding="25" cellspacing="5">
+<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:90%" cellpadding="25" cellspacing="5">
 <tr>
 <td><center>![](media/try.png)</center></td>
 <td>**Démarrage rapide**<br /><br />
@@ -21,7 +21,7 @@ Testez les conteneurs Windows Server et Hyper-V en utilisant les guides de déma
 <td>**Déploiement**<br /><br />
 Découvrez comment déployer les conteneurs Windows sur Windows Server 2016 et Nano Server.<br /><br />
 <ul>
-<li>[Configuration système requise](deployment/system_requirements.md)<br /><br /></li>
+<li>[Configuration requise](deployment/system_requirements.md)<br /><br /></li>
 <li>[Déployer un hôte de conteneur](deployment/deployment.md)<br /><br /></li>
 <li>[Déployer Docker sur Windows](deployment/docker_windows.md)<br /><br /></li>
 </ul>
@@ -43,12 +43,22 @@ Découvrez comment gérer les conteneurs Windows dans Windows Server 2016 et Na
 </td>
 </tr>
 <tr>
+<td><center>![](media/video.png)</center></td>
+<td>**Vidéos**<br /><br />
+Vous êtes intéressé par les démonstrations et les interviews de l’équipe des conteneurs Windows ?<br /><br />
+<ul>
+<li>[Chaîne des conteneurs](https://channel9.msdn.com/Blogs/containers)</li>
+</ul>
+<br />
+</td>
+</tr>
+<tr>
 <td><center>![](media/question.png)</center></td>
 <td>**Communauté**<br /><br />
 Interagissez avec la communauté, testez des exemples et trouvez d’autres ressources.<br /><br />
 <ul>
 <li>[Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)<br /><br /></li>
-<li>[Ressources de conteneur](https://msdn.microsoft.com/virtualization/community/community_overview)<br /><br /></li>
+<li>[Ressources sur les conteneurs](https://msdn.microsoft.com/virtualization/community/community_overview)<br /><br /></li>
 <li>[Exemples et scripts](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-server-container-samples)<br /><br /></li>
 </ul>
 </td>
@@ -58,3 +68,4 @@ Interagissez avec la communauté, testez des exemples et trouvez d’autres ress
 
 
 
+<!--HONumber=Feb16_HO1-->

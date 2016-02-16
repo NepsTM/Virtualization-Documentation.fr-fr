@@ -2,11 +2,11 @@
 
 **Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
 
-La technologie de conteneur Windows comprend deux types distincts de conteneurs, les conteneurs Windows Server et les conteneurs Hyper-V. Les deux types de conteneurs sont créés, sont gérés et fonctionnent de manière identique. La différence entre eux est le niveau d’isolation créé entre le conteneur, le système d’exploitation hôte et tous les autres conteneurs exécutés sur cet hôte.
+La technologie de conteneur Windows comprend deux types distincts de conteneurs, les conteneurs Windows Server et les conteneurs Hyper-V. Les deux types de conteneurs sont créés, sont gérés et fonctionnent de manière identique. Elles produisent et consomment les mêmes images de conteneur. La différence entre eux est le niveau d’isolation créé entre le conteneur, le système d’exploitation hôte et tous les autres conteneurs exécutés sur cet hôte.
 
-**Conteneurs Windows Server** : plusieurs conteneurs sont exécutés sur un hôte avec une isolation assurée par le biais des technologies d’isolation des processus et des espaces de noms.
+**Conteneurs Windows Server** : plusieurs instances de conteneurs peuvent être exécutées simultanément sur un hôte avec une isolation assurée par le biais des technologies d’espaces de noms, de contrôle des ressources et d’isolation des processus. Les conteneurs Windows Server et l’hôte partagent le même noyau.
 
-**Conteneurs Hyper-V** : plusieurs conteneurs sont exécutés sur un hôte, mais chaque conteneur est exécuté à l’intérieur d’une machine virtuelle d’utilitaire. Cela fournit une isolation de niveau noyau entre un conteneur Hyper-V, l’hôte de conteneur et tous les autres conteneurs exécutés sur l’hôte de conteneur.
+**Conteneurs Hyper-V** : plusieurs instances de conteneurs peuvent être exécutées simultanément sur un hôte. Cependant, chaque conteneur s’exécute sur une machine virtuelle spéciale. Une isolation au niveau du noyau est ainsi fournie entre chaque conteneur Hyper-V et l’hôte du conteneur.
 
 ## Conteneur Hyper-V PowerShell
 
@@ -24,7 +24,7 @@ PS C:\> $con = New-Container -Name HYPVCON -ContainerImageName NanoServer -Switc
 
 En plus de la création d’un conteneur comme conteneur Hyper-V au moment de la génération, les conteneurs qui ont été créés avec PowerShell peuvent également faire l’objet d’une conversion de conteneur Windows Server en conteneur Hyper-V.
 
->Actuellement, le seul système d’exploitation hôte qui prend en charge la conversion d’exécution de conteneur est Nano Server.
+> Actuellement, le seul système d’exploitation hôte qui prend en charge la conversion d’exécution de conteneur est Nano Server.
 
 Créez un conteneur avec l’exécution par défaut.
 
@@ -211,7 +211,11 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
     243      13     1732       5512 ...18     4.23   3484   2 csrss
 ```
 
+## Vidéo de la procédure pas à pas
+
+<iframe src="https://channel9.msdn.com/blogs/Containers/Container-Fundamentals--part-5-Hyper-V-Containers/Player#ccLang=fr " width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
 
-<!--HONumber=Jan16_HO1-->
+
+<!--HONumber=Feb16_HO2-->

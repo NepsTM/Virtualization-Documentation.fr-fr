@@ -16,7 +16,7 @@ Le rôle Hyper-V ne peut pas être installé sur :
 - Windows 10 Mobile
 - Windows 10 Mobile Entreprise
 
-> Windows 10 Famille peut être mis à niveau vers Windows 10 Professionnel. Pour cela, ouvrez **Paramètres** > **Mise à jour et sécurité** > **Activation**. Vous pouvez alors visiter le magasin et acheter la mise à niveau.
+>Windows 10 Famille peut être mis à niveau vers Windows 10 Professionnel. Pour cela, ouvrez **Paramètres** > **Mise à jour et sécurité** > **Activation**. Vous pouvez alors visiter le magasin et acheter la mise à niveau.
 
 ## Configuration matérielle requise
 
@@ -45,8 +45,9 @@ Hyper-V Requirements: A hypervisor has been detected. Features required for Hype
 
 ## Étape suivante : installer Hyper-V
 
-[Étape suivante : installer Hyper-V](walkthrough_install.md)
+[Installer Hyper-V](walkthrough_install.md)
 
 
 
 
+<!--HONumber=Feb16_HO2-->

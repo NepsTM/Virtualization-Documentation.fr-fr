@@ -21,14 +21,14 @@ NanoServer        CN=Microsoft 10.0.10584.1000 True
 WindowsServerCore CN=Microsoft 10.0.10584.1000 True
 ```
 
-Utilisez la commande `New-Container` pour créer un conteneur.
+Utilisez la commande `New-Container` pour créer un conteneur. Le conteneur peut également recevoir un nom NetBIOS à l’aide du paramètre `- ContainerComputerName`.
 
 ```powershell
-PS C:\> New-Container -Name TST -ContainerImageName WindowsServerCore
+PS C:\> New-Container -ContainerImageName WindowsServerCore -Name demo -ContainerComputerName demo
 
 Name State Uptime   ParentImageName
 ---- ----- ------   ---------------
-TST  Off   00:00:00 WindowsServerCore
+demo  Off   00:00:00 WindowsServerCore
 ```
 
 Une fois le conteneur créé, ajoutez-lui une carte réseau.
@@ -48,7 +48,7 @@ DHCP External   Microsoft Hyper-V Network Adapter
 NAT  NAT
 ```
 
-Connectez la carte réseau au commutateur virtuel à l’aide de la commande `Connect-ContainerNetworkAdapter`. REMARQUE : cette opération peut également être effectuée quand le conteneur est créé à l’aide du paramètre –SwitchName.
+Connectez la carte réseau au commutateur virtuel à l’aide de la commande `Connect-ContainerNetworkAdapter`. **REMARQUE** : cette opération peut également être effectuée quand le conteneur est créé à l’aide du paramètre –SwitchName.
 
 ```powershell
 PS C:\> Connect-ContainerNetworkAdapter -ContainerName TST -SwitchName NAT
@@ -162,6 +162,7 @@ Pour arrêter un conteneur avec Docker, utilisez la commande `docker stop`.
 
 ```powershell
 PS C:\> docker stop tender_panini
+
 tender_panini
 ```
 

@@ -42,7 +42,7 @@ PS C:\> wget -uri https://aka.ms/tp4/New-ContainerHost -OutFile c:\New-Container
 Exécutez la commande suivante pour créer et configurer l’hôte de conteneur, où `<hôte_conteneur>` est le nom de la machine virtuelle.
 
 ``` powershell
-PS C:\> c:\New-ContainerHost.ps1 –VmName <containerhost> -WindowsImage ServerDatacenterCore -Hyperv
+PS C:\> powershell.exe -NoProfile c:\New-ContainerHost.ps1 –VmName testcont -WindowsImage ServerDatacenterCore -Hyperv
 ```
 
 Quand le script commence, vous êtes invité à entrer un mot de passe. Il s’agit du mot de passe affecté au compte d’administrateur.
@@ -72,4 +72,4 @@ Maintenant que vous disposez d’un système Windows Server 2016 exécutant la 
 
 
 
-<!--HONumber=Jan16_HO2-->
+<!--HONumber=Feb16_HO2-->

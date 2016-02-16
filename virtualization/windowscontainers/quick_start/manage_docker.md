@@ -2,7 +2,7 @@
 
 Les conteneurs Windows peuvent servir à déployer rapidement de nombreuses applications isolées sur un ordinateur unique. Cet exercice montre comment créer et gérer un conteneur Windows à l’aide de Docker. Quand vous aurez terminé, vous aurez compris les bases de l’intégration de Docker aux conteneurs Windows et aurez acquis une expérience pratique de la technologie.
 
-Cette procédure pas à pas décrit en détail les conteneurs Windows Server et les conteneurs Hyper-V. Chaque type de conteneur a ses propres exigences de base. La documentation des conteneurs Windows contient une procédure permettant de déployer rapidement un hôte de conteneur. Il s’agit du moyen le plus simple pour apprendre à utiliser rapidement les conteneurs Windows. Si vous ne disposez pas déjà d’un hôte de conteneur, voir [Démarrage rapide du déploiement d’un hôte de conteneur](./container_setup.md).
+Cette procédure pas à pas décrit en détail les conteneurs Windows Server et les conteneurs Hyper-V. Chaque type de conteneur a ses propres exigences de base. La documentation des conteneurs Windows contient une procédure permettant de déployer rapidement un hôte de conteneur. Il s’agit du moyen le plus simple pour apprendre à utiliser rapidement les conteneurs Windows. Si vous ne disposez pas déjà d’un hôte de conteneur, consultez [Démarrage rapide du déploiement d’un hôte de conteneur](./container_setup.md).
 
 Les éléments suivants sont nécessaires à chaque exercice.
 
@@ -15,7 +15,7 @@ Les éléments suivants sont nécessaires à chaque exercice.
 - un hôte de conteneur Windows compatible avec la virtualisation imbriquée.
 - Support Windows Server 2016 : [Télécharger](https://aka.ms/tp4/serveriso).
 
->Microsoft Azure ne prend pas en charge les conteneurs Hyper-V. Pour effectuer les exercices de conteneur Hyper-V, vous avez besoin d’un hôte de conteneur local.
+> Microsoft Azure ne prend pas en charge les conteneurs Hyper-V. Pour effectuer les exercices de conteneur Hyper-V, vous avez besoin d’un hôte de conteneur local.
 
 ## Conteneur Windows Server
 
@@ -67,7 +67,7 @@ C:\> docker commit iisbase windowsservercoreiis
 4193c9f34e320c4e2c52ec52550df225b2243927ed21f014fbfff3f29474b090
 ```
 
-Les nouvelles images IIS sont consultables à l’aide de la commande `docker images`.
+Les nouvelles images IIS sont consultables à l’aide de la commande `docker images`.
 
 ```powershell
 C:\> docker images
@@ -82,7 +82,7 @@ nanoserver             latest              8572198a60f1        2 weeks ago      
 
 ### Configurer le réseau
 
-Avant de créer un conteneur avec Docker, vous devez créer une règle pour le Pare-feu Windows qui autorise la connectivité réseau vers le conteneur. Exécutez la commande suivante pour créer une règle pour le port 80.
+Avant de créer un conteneur avec Docker, vous devez créer une règle pour le Pare-feu Windows qui autorise la connectivité réseau vers le conteneur. Exécutez le script PowerShell suivant pour créer une règle pour le port 80. Remarque : cette opération doit être exécutée à partir d’une session PowerShell.
 
 ```powershell
 if (!(Get-NetFirewallRule | where {$_.Name -eq "TCP80"})) {
@@ -96,7 +96,7 @@ Vous pouvez également noter l’adresse IP de l’hôte de conteneur. Elle sera
 
 Vous disposez maintenant d’une image de conteneur qui contient IIS et permet de déployer des environnements d’exploitation compatibles avec IIS.
 
-Pour créer un conteneur à partir de la nouvelle image, utilisez la commande `docker run`, cette fois en spécifiant le nom de l’image IIS. Notez que cet exemple a spécifié un paramètre `-p 80:80`. Étant donné que le conteneur est connecté à un commutateur virtuel qui fournit des adresses IP par la traduction d’adresses réseau, un port de l’hôte de conteneur doit être mappé à un port sur l’adresse IP NAT des conteneurs. Pour plus d’informations sur `-p`, voir les [informations de référence sur Docker Run sur docker.com](https://docs.docker.com/engine/reference/run/)
+Pour créer un conteneur à partir de la nouvelle image, utilisez la commande `docker run`, cette fois en spécifiant le nom de l’image IIS. Notez que cet exemple a spécifié un paramètre `-p 80:80`. Étant donné que le conteneur est connecté à un commutateur virtuel qui fournit des adresses IP par la traduction d’adresses réseau, un port de l’hôte de conteneur doit être mappé à un port sur l’adresse IP NAT des conteneurs. Pour plus d’informations sur `-p`, voir les [informations de référence sur Docker Run sur docker.com](https://docs.docker.com/engine/reference/run/)
 
 ```powershell
 C:\> docker run --name iisdemo -it -p 80:80 windowsservercoreiis cmd
@@ -217,9 +217,9 @@ C:\> docker rmi iis
 
 ## Conteneur Hyper-V
 
-Les conteneurs Hyper-V fournissent une couche d’isolement supplémentaire sur les conteneurs Windows Server. Chaque conteneur Hyper-V est créé dans une machine virtuelle hautement optimisée. Quand un conteneur Windows Server partage un noyau avec l’hôte de conteneur, le conteneur Hyper-V est complètement isolé. Les conteneurs Hyper-V sont créés et gérés comme les conteneurs Windows Server. Pour plus d’informations sur les conteneurs Hyper-V, voir [Gestion des conteneurs Hyper-V](../management/hyperv_container.md).
+Les conteneurs Hyper-V fournissent une couche d’isolement supplémentaire sur les conteneurs Windows Server. Chaque conteneur Hyper-V est créé dans une machine virtuelle hautement optimisée. Quand un conteneur Windows Server partage un noyau avec l’hôte de conteneur, le conteneur Hyper-V est complètement isolé. Les conteneurs Hyper-V sont créés et gérés comme les conteneurs Windows Server. Pour plus d’informations sur les conteneurs Hyper-V, consultez [Gestion des conteneurs Hyper-V](../management/hyperv_container.md).
 
->Microsoft Azure ne prend pas en charge les conteneurs Hyper-V. Dans le cadre des exercices Hyper-V, vous avez besoin d’un hôte de conteneur local.
+> Microsoft Azure ne prend pas en charge les conteneurs Hyper-V. Dans le cadre des exercices Hyper-V, vous avez besoin d’un hôte de conteneur local.
 
 ### Créer un conteneur
 
@@ -233,7 +233,7 @@ Créez un répertoire sur l’hôte de conteneur, qui sera partagé avec le cont
 C:\> powershell New-Item -Type Directory c:\share\en-us
 ```
 
-Copiez `Microsoft-NanoServer-IIS-Package.cab` à partir de `NanoServer\Packages` dans `c:\share` sur l’hôte du conteneur.
+Copiez `Microsoft-NanoServer-IIS-Package.cab` depuis `NanoServer\Packages` dans `c:\share` sur l’hôte du conteneur.
 
 Copiez `NanoServer\Packages\en-us\Microsoft-NanoServer-IIS-Package.cab` dans `c:\share\en-us` sur l’hôte du conteneur.
 
@@ -348,4 +348,4 @@ C:\> exit
 
 
 
-<!--HONumber=Jan16_HO1-->
+<!--HONumber=Feb16_HO2-->

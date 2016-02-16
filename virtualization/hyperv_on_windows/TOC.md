@@ -10,7 +10,7 @@
 
 ## [Linux et FreeBSD sur Hyper-V](https://technet.microsoft.com/library/dn531030.aspx)
 
-# Prise en main d’Hyper-V
+# Démarrage rapide d’Hyper-V sur Windows
 
 ## [Configuration requise](quick_start/walkthrough_compatibility.md)
 
@@ -22,7 +22,7 @@
 
 ## [Hyper-V et PowerShell](quick_start/walkthrough_powershell.md)
 
-# Guides de l’utilisateur
+# Gérer Hyper-V sur Windows
 
 ## [Migrer et mettre à niveau des machines virtuelles](user_guide/migrating_vms.md)
 
@@ -40,7 +40,11 @@
 
 ## [Résolution des problèmes](user_guide/troubleshooting.md)
 
-# Développer
+# Communauté et Support
+
+## [Forums Hyper-V](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)
+
+# Référence
 
 ## [PowerShell Hyper-V](https://technet.microsoft.com/library/hh848559.aspx)
 
@@ -52,9 +56,5 @@
 
 ## [Architecture Hyper-V](https://msdn.microsoft.com/en-us/library/cc768520(v=bts.10).aspx)
 
-# Communauté et support
 
-## [Forums Hyper-V](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)
-
-
-<!--HONumber=Feb16_HO1-->
+<!--HONumber=Feb16_HO2-->
