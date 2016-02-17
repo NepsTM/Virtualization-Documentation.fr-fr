@@ -1,11 +1,45 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 0
+ Total Files | 2
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\windowscontainers\deployment\deployment.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/444c1520894fbbe99fa2dda4e0b71e35ab7f3a49/virtualization/windowscontainers/deployment/deployment.md) | OutofSyncHandedBackSuccess | [Details](#d521c9fdbb69f6c445daa99e1354797ec59be013207)
+ [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/444c1520894fbbe99fa2dda4e0b71e35ab7f3a49/virtualization/windowscontainers/deployment/deployment_nano.md) | OutofSyncHandedBackSuccess | [Details](#a27c1a982e667e6ffe7de1b227a6ce3c3e01ca39208)
 
 ## Item Details
+##### <a name='d521c9fdbb69f6c445daa99e1354797ec59be013207'></a> Source: [virtualization\windowscontainers\deployment\deployment.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/444c1520894fbbe99fa2dda4e0b71e35ab7f3a49/virtualization/windowscontainers/deployment/deployment.md)
+* Status: OutofSyncHandedBackSuccess
+* Target File: 
+* Handoff File: [deployment.4ddcd8318b2db72f246478d26d82fb4a73b6da65.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/dc0621928005047d80c4223cbee6b8dd774f681b/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/deployment.4ddcd8318b2db72f246478d26d82fb4a73b6da65.fr-fr.xlf)
+* Handoff Datetime: 2016-02-17 17:10:34
+* Handoff Reason: Include
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Current Target File: [virtualization\windowscontainers\deployment\deployment.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/353d2e4ad430690bb9c478f4a6d91c5ccee3d13e/virtualization/windowscontainers/deployment/deployment.md)
+* Current Handback File: [deployment.4ddcd8318b2db72f246478d26d82fb4a73b6da65.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b3bec5eba0e393620879545cf1591cbbab345c61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/deployment.4ddcd8318b2db72f246478d26d82fb4a73b6da65.fr-fr.xlf)
+* Current Handback Datetime: 2016-02-16 21:22:00
+* [Back to Top](#report-top)
+
+##### <a name='a27c1a982e667e6ffe7de1b227a6ce3c3e01ca39208'></a> Source: [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/444c1520894fbbe99fa2dda4e0b71e35ab7f3a49/virtualization/windowscontainers/deployment/deployment_nano.md)
+* Status: OutofSyncHandedBackSuccess
+* Target File: 
+* Handoff File: [deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/dc0621928005047d80c4223cbee6b8dd774f681b/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.fr-fr.xlf)
+* Handoff Datetime: 2016-02-17 17:10:34
+* Handoff Reason: Include
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Current Target File: [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/353d2e4ad430690bb9c478f4a6d91c5ccee3d13e/virtualization/windowscontainers/deployment/deployment_nano.md)
+* Current Handback File: [deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b3bec5eba0e393620879545cf1591cbbab345c61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.fr-fr.xlf)
+* Current Handback Datetime: 2016-02-16 21:22:00
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
