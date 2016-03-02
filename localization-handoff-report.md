@@ -6,30 +6,15 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\hyperv_on_windows\develop\make_mgmt_service.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/809a1a4b25167d8c0e47d94299aab60fbef5ffc4/virtualization/hyperv_on_windows/develop/make_mgmt_service.md) | OutofSyncHandedBackSuccess | [Details](#05291add7b58a9b2457475f3eb333db40081e87685)
- [virtualization\windowscontainers\deployment\media\nssm1.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/809a1a4b25167d8c0e47d94299aab60fbef5ffc4/virtualization/windowscontainers/deployment/media/nssm1.png) | OutofSyncHandedBackSuccess | [Details](#22320b32fb8af15c2e7125ec4f50c2b19643b9bf215)
+ [virtualization\windowscontainers\deployment\media\nssm1.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/0ee93b58a19622beb7b8f08e87edc87c04f9ec5a/virtualization/windowscontainers/deployment/media/nssm1.png) | OutofSyncHandedBackSuccess | [Details](#22320b32fb8af15c2e7125ec4f50c2b19643b9bf215)
+ [virtualization\windowscontainers\management\manage_containers.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/0ee93b58a19622beb7b8f08e87edc87c04f9ec5a/virtualization/windowscontainers/management/manage_containers.md) | OutofSyncHandedBackSuccess | [Details](#ce0941cd8ebb45055103f490bf2be877a215fc46225)
 
 ## Item Details
-##### <a name='05291add7b58a9b2457475f3eb333db40081e87685'></a> Source: [virtualization\hyperv_on_windows\develop\make_mgmt_service.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/809a1a4b25167d8c0e47d94299aab60fbef5ffc4/virtualization/hyperv_on_windows/develop/make_mgmt_service.md)
+##### <a name='22320b32fb8af15c2e7125ec4f50c2b19643b9bf215'></a> Source: [virtualization\windowscontainers\deployment\media\nssm1.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/0ee93b58a19622beb7b8f08e87edc87c04f9ec5a/virtualization/windowscontainers/deployment/media/nssm1.png)
 * Status: OutofSyncHandedBackSuccess
 * Target File: 
-* Handoff File: [make_mgmt_service.f08a72226cda804bf52172777630838cf58daa2b.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/172ccdfe3bf1e24fa59e7758820bec22d31604bf/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/make_mgmt_service.f08a72226cda804bf52172777630838cf58daa2b.fr-fr.xlf)
-* Handoff Datetime: 2016-03-01 22:29:23
-* Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\hyperv_on_windows\develop\make_mgmt_service.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/5cc71f4197c5fd7a8f1061bc1f1d1cd649d64ff0/virtualization/hyperv_on_windows/develop/make_mgmt_service.md)
-* Current Handback File: [make_mgmt_service.f08a72226cda804bf52172777630838cf58daa2b.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/706ce252fb63e6e69d4288e38ef317c2d2591974/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/make_mgmt_service.f08a72226cda804bf52172777630838cf58daa2b.fr-fr.xlf)
-* Current Handback Datetime: 2016-02-10 22:40:19
-* [Back to Top](#report-top)
-
-##### <a name='22320b32fb8af15c2e7125ec4f50c2b19643b9bf215'></a> Source: [virtualization\windowscontainers\deployment\media\nssm1.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/809a1a4b25167d8c0e47d94299aab60fbef5ffc4/virtualization/windowscontainers/deployment/media/nssm1.png)
-* Status: OutofSyncHandedBackSuccess
-* Target File: 
-* Handoff File: [22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/172ccdfe3bf1e24fa59e7758820bec22d31604bf/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png)
-* Handoff Datetime: 2016-03-01 22:29:23
+* Handoff File: [22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/d80616f6e33888771b43917e9cf58c9e896e69c8/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png)
+* Handoff Datetime: 2016-03-02 23:33:55
 * Handoff Reason: IsDependency
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
@@ -39,6 +24,21 @@
 * Current Handback File: [312f08a0f7c0c08c7a7f0c005b76bc4ee38d6bc4.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/80522310213fceac06860495f24105ec901c9f0d/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/312f08a0f7c0c08c7a7f0c005b76bc4ee38d6bc4.png)
 * Current Handback Datetime: 2016-01-04 21:50:42
 * Dependency From: virtualization\windowscontainers\deployment\docker_windows.md
+* [Back to Top](#report-top)
+
+##### <a name='ce0941cd8ebb45055103f490bf2be877a215fc46225'></a> Source: [virtualization\windowscontainers\management\manage_containers.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/0ee93b58a19622beb7b8f08e87edc87c04f9ec5a/virtualization/windowscontainers/management/manage_containers.md)
+* Status: OutofSyncHandedBackSuccess
+* Target File: 
+* Handoff File: [manage_containers.c2c3307892a740ec0efc895be0c78ac01e92a328.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/d80616f6e33888771b43917e9cf58c9e896e69c8/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_containers.c2c3307892a740ec0efc895be0c78ac01e92a328.fr-fr.xlf)
+* Handoff Datetime: 2016-03-02 23:33:55
+* Handoff Reason: Include
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Current Target File: [virtualization\windowscontainers\management\manage_containers.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/353d2e4ad430690bb9c478f4a6d91c5ccee3d13e/virtualization/windowscontainers/management/manage_containers.md)
+* Current Handback File: [manage_containers.c2c3307892a740ec0efc895be0c78ac01e92a328.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b3bec5eba0e393620879545cf1591cbbab345c61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_containers.c2c3307892a740ec0efc895be0c78ac01e92a328.fr-fr.xlf)
+* Current Handback Datetime: 2016-02-16 21:22:00
 * [Back to Top](#report-top)
 
 
