@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "bed07110983dc57e98d4a4e7d669d96be72d2205",
+  "LastProcessedCommit": "097451ac3b5f7e2bcf970cbabf7c226f2f760662",
   "LastTranslatedCommit": "353d2e4ad430690bb9c478f4a6d91c5ccee3d13e",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
@@ -6394,7 +6394,7 @@
     },
     "22320b32fb8af15c2e7125ec4f50c2b19643b9bf": {
       "FileHash": "22320b32fb8af15c2e7125ec4f50c2b19643b9bf",
-      "SourceFileCommit": "bed07110983dc57e98d4a4e7d669d96be72d2205",
+      "SourceFileCommit": "097451ac3b5f7e2bcf970cbabf7c226f2f760662",
       "SourceFilePath": "virtualization\\windowscontainers\\deployment\\media\\nssm1.png",
       "HandoffReason": 2,
       "DependencyFrom": [
@@ -6404,8 +6404,8 @@
         "virtualization\\windowscontainers\\deployment\\media\\nssm1.png"
       ],
       "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png",
-      "HandoffFileCommit": "82817a1126aa11caa990a0e397e882a10687c127",
-      "HandoffDateTime": "2016-03-04T06:03:00.5887156Z",
+      "HandoffFileCommit": "e425e91c3eef1e893c5077a752dcfd3bc0963b05",
+      "HandoffDateTime": "2016-03-04T19:20:40.2885604Z",
       "HandoffPriority": "",
       "HandoffException": null,
       "HandoffFailureTimes": 0,
@@ -8030,6 +8030,34 @@
       "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\hyperv_on_windows.d9da0ac74ee24f28f940324928905e38e074d9e2.fr-fr.xlf",
       "HandoffFileCommit": "cd8600c7fb315eb331b2bae2d0f76a4c0c0ef4ba",
       "HandoffDateTime": "2016-03-03T21:24:00.5419155Z",
+      "HandoffPriority": "",
+      "HandoffException": null,
+      "HandoffFailureTimes": 0,
+      "TargetFileCommit": null,
+      "TargetFilePath": null,
+      "HandbackFilePath": null,
+      "HandbackFileCommit": null,
+      "HandbackDateTime": "0001-01-01T00:00:00",
+      "HandbackException": null,
+      "HandbackFailureTimes": 0,
+      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "ArchiveFilePath": null,
+      "ArchiveFileCommit": null,
+      "ArchiveFileDateTime": "0001-01-01T00:00:00",
+      "ArchiveException": null
+    },
+    "6ae7df8521332b1b6086e68ede218645a51d9431": {
+      "FileHash": "6ae7df8521332b1b6086e68ede218645a51d9431",
+      "SourceFileCommit": "097451ac3b5f7e2bcf970cbabf7c226f2f760662",
+      "SourceFilePath": "virtualization\\windowscontainers\\quick_start\\manage_powershell.md",
+      "HandoffReason": 1,
+      "DependencyFrom": null,
+      "FilePathList": [
+        "virtualization\\windowscontainers\\quick_start\\manage_powershell.md"
+      ],
+      "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\manage_powershell.fccfd13be3f4bd16afbe4f31a5ca5ed4e93806b7.fr-fr.xlf",
+      "HandoffFileCommit": "e425e91c3eef1e893c5077a752dcfd3bc0963b05",
+      "HandoffDateTime": "2016-03-04T19:20:40.2885604Z",
       "HandoffPriority": "",
       "HandoffException": null,
       "HandoffFailureTimes": 0,
