@@ -1,14 +1,18 @@
+
+
+
+
 # Compatibilité des applications dans les conteneurs Windows
 
-Il s’agit d’une version préliminaire. Même si, en fin de compte, une application exécutée sur Windows doit également s’exécuter dans un conteneur, cette page permet d’examiner l’état de compatibilité des applications actives.
+Il s’agit d’une version préliminaire. Même si une application exécutée sur Windows doit aussi au final s’exécuter dans un conteneur, cette page permet d’examiner l’état actuel de la compatibilité des applications.
 
 Le seul but de ce document est de partager notre expérience.
 
-Un élément ne figure pas dans cette liste ? Faites-nous part des réussites et échecs dans votre environnement via [les forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
+Un élément ne figure pas dans cette liste ? Faites-nous part de ce qui a fonctionné ou pas dans votre environnement sur [les forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
 
-## Conteneurs Windows Server
+## Conteneurs de serveur Windows
 
-Nous avons tenté d’exécuter les applications suivantes dans un conteneur Windows Server. Ces résultats ne garantissent pas un fonctionnement correct de l’application.
+Nous avons tenté d’exécuter les applications suivantes dans un conteneur Windows Server. Ces résultats ne garantissent pas le bon fonctionnement de l’application.
 
 | **Nom**| **Version**| **Image de base Windows Server Core**| **Image de base Nano Server**| **Commentaire**|
 |:-----|:-----|:-----|:-----|:-----|
@@ -68,8 +72,9 @@ Nous avons tenté d’exécuter les applications suivantes dans un conteneur Hyp
 
 ## Parlez-nous de votre expérience
 
-Un élément ne figure pas dans cette liste ? Faites-nous part des réussites et échecs dans votre environnement via [les forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
+Un élément ne figure pas dans cette liste ? Faites-nous part de ce qui a fonctionné ou pas dans votre environnement sur [les forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
 
 
 
 
+<!--HONumber=Feb16_HO3-->

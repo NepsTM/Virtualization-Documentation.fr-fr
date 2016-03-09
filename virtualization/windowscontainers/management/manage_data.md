@@ -1,3 +1,7 @@
+
+
+
+
 # Dossiers partagés de conteneur
 
 **Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
@@ -71,12 +75,12 @@ Dans l’exemple ci-dessous, le dossier source est c:\source et le dossier desti
 PS C:\> docker run -it -v c:\source:c:\destination 1f62aaf73140 cmd
 ```
 
-Pour plus d’informations sur la gestion des données dans des conteneurs avec Docker, voir [Volumes Docker sur Docker.com](https://docs.docker.com/userguide/dockervolumes/).
+Pour plus d’informations sur la gestion des données dans les conteneurs avec Docker, consultez [Volumes Docker sur Docker.com](https://docs.docker.com/userguide/dockervolumes/).
 
 ## Vidéo de la procédure pas à pas
 
-<iframe src="https://channel9.msdn.com/blogs/Containers/Container-Fundamentals--part-3-Shared-Folders/Player#ccLang=fr" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
+<iframe src="https://channel9.msdn.com/Blogs/containers/Container-Fundamentals--Part-3-Shared-Folders/player" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
 
-<!--HONumber=Feb16_HO1-->
+<!--HONumber=Feb16_HO3-->

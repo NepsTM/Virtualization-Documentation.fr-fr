@@ -1,4 +1,8 @@
-# Démarrage rapide d’Azure
+
+
+
+
+# Démarrage rapide Azure
 
 Avant de créer et gérer des conteneurs Windows Server dans Azure, vous devez déployer une image Windows Server 2016 Technical Preview qui a été préconfigurée avec la fonctionnalité de conteneurs Windows Server. Ce guide vous aidera tout au long de ce processus.
 
@@ -6,11 +10,11 @@ Avant de créer et gérer des conteneurs Windows Server dans Azure, vous devez d
 
 ## Démarrer l’utilisation du portail Azure
 
-Si vous avez un compte Azure, passez à [Créer une machine virtuelle d’hôte de conteneur](#CreateacontainerhostVM).
+Si vous avez un compte Azure, passez directement à [Créer une machine virtuelle d’hôte de conteneurs](#CreateacontainerhostVM).
 
-1. Accédez à [azure.com](https://azure.com) et suivez les étapes pour obtenir une [version d’évaluation gratuite d’Azure](https://azure.microsoft.com/en-us/pricing/free-trial/).
+1. Accédez à [azure.com](https://azure.com) et suivez la procédure pour obtenir une [version d’évaluation gratuite d’Azure](https://azure.microsoft.com/en-us/pricing/free-trial/).
 2. Connectez-vous avec votre compte Microsoft.
-3. Quand votre compte est prêt à l’emploi, connectez-vous au [portail de gestion Azure](https://portal.azure.com).
+3. Quand votre compte est prêt à être utilisé, connectez-vous au [Portail de gestion Azure](https://portal.azure.com).
 
 ## Créer une machine virtuelle d’hôte de conteneur
 
@@ -44,7 +48,7 @@ Connectez-vous à la machine virtuelle à l’aide du nom d’utilisateur et du 
 
 ## Vidéo de la procédure pas à pas
 
-<iframe src="https://channel9.msdn.com/blogs/Containers/Quick-Start-configure-Windows-Server-Containers-in-Microsoft-Azure/Player#ccLang=fr " width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
+<iframe src="https://channel9.msdn.com/Blogs/containers/Quick-Start-Configure-Windows-Server-Containers-in-Microsoft-Azure/player#ccLang=fr" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
 ## Étapes suivantes : commencer à utiliser des conteneurs
@@ -56,4 +60,4 @@ Maintenant que vous disposez d’un système Windows Server 2016 exécutant la 
 
 
 
-<!--HONumber=Feb16_HO1-->
+<!--HONumber=Feb16_HO3-->

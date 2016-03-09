@@ -6,12 +6,12 @@ Dans Windows 10, Hyper-V comprend deux types de points de contrôle :
 
 * **Points de contrôle standard** : une capture instantanée de la machine virtuelle et de l’état de sa mémoire est prise lors de l’initiation du point de contrôle. Un instantané n’étant pas une sauvegarde complète, il peut entraîner des problèmes de cohérence des données avec les systèmes qui répliquent les données entre différents nœuds (comme Active Directory). Avant Windows 10, Hyper-V offrait uniquement des points de contrôle standard (anciennement nommés captures instantanées).
 
-* **Points de contrôle de production** : ceux-ci utilisent le service VSS (Volume Shadow Copy Service) ou File System Freeze sur une machine virtuelle Linux pour créer une sauvegarde cohérente des données de la machine virtuelle.
+* **Points de contrôle de production** : Ils utilisent le service VSS (Volume Shadow Copy Service) ou File System Freeze sur une machine virtuelle Linux pour créer une sauvegarde cohérente des données de la machine virtuelle.
 
 Les points de contrôle de production sont sélectionnés par défaut, mais vous pouvez les modifier à l’aide du Gestionnaire Hyper-V ou de PowerShell.
 
 > **Remarque :** le module PowerShell Hyper-V ayant plusieurs alias, vous pouvez utiliser indifféremment un point de terminaison ou une capture instantanée.  
->   Bien que ce document utilise le point de contrôle, sachez que des commandes similaires peuvent utiliser le terme « capture instantanée ».
+>  Bien que ce document utilise le point de contrôle, sachez que des commandes similaires peuvent utiliser le terme « capture instantanée ».
 
 ## Modification du type de point de contrôle
 
@@ -46,7 +46,7 @@ Set-VM -Name <vmname> -CheckpointType ProductionOnly
 
 ## Création de points de contrôle
 
-Crée un point de contrôle du type configuré pour la machine virtuelle. Pour obtenir des instructions sur la modification de ce type, voir la section [Configuration du type de point de contrôle](checkpoints.md#changing-the-checkpoint-type-for-a-VM), plus haut dans ce document.
+Crée un point de contrôle du type configuré pour la machine virtuelle. Pour obtenir des instructions sur la modification de ce type, consultez la section [Configuration du type de point de contrôle](checkpoints.md#changing-the-checkpoint-type-for-a-VM) plus haut dans ce document.
 
 **À l’aide du Gestionnaire Hyper-V**
 
@@ -60,7 +60,7 @@ Pour créer un point de contrôle :
 Créez un point de contrôle à l’aide de la commande **CheckPoint-VM**.
 
 ```powershell
-Checkpoint-VM –Name <VMName>
+Checkpoint-VM -Name <VMName>
 ```
 
 Une fois le processus de point de contrôle terminé, pour afficher la liste des points de contrôle pour une machine virtuelle, utilisez la commande **Get-VMCheckpoint**.
@@ -78,11 +78,11 @@ Si vous souhaitez restaurer votre machine virtuelle à un moment donné précéd
 1.  Dans le **Gestionnaire Hyper-V**, sous **Machines virtuelles**, sélectionnez la machine virtuelle.
 2.  Dans la section Points de contrôle, cliquez avec le bouton droit sur le point de contrôle à utiliser, puis cliquez sur **Appliquer**.
 3.  Une boîte de dialogue s’affiche avec les options suivantes :
-    * **Créer un point de contrôle et appliquer** : crée un point de contrôle de la machine virtuelle avant d’appliquer le point de contrôle antérieur.
-    * **Appliquer** : applique uniquement le point de contrôle que vous avez choisi. Vous ne pouvez pas annuler cette action.
-    * **Annuler** : ferme la boîte de dialogue sans rien faire.
+  * **Créer un point de contrôle et appliquer** : crée un point de contrôle de la machine virtuelle avant d’appliquer le point de contrôle antérieur.
+  * **Appliquer** : applique uniquement le point de contrôle que vous avez choisi. Vous ne pouvez pas annuler cette action.
+  * **Annuler** : ferme la boîte de dialogue sans rien faire.
 
-    Sélectionnez l’option Appliquer pour appliquer le point de contrôle.
+  Sélectionnez l’option Appliquer pour appliquer le point de contrôle.
 
 **À l’aide de PowerShell**
 
@@ -104,7 +104,7 @@ De nombreux points de contrôle sont créés à un moment donné. L’attributio
 Par défaut, le nom d’un point de contrôle est le nom de la machine virtuelle associé à la date et à l’heure auxquelles le point de contrôle a été créé. Voici le format standard :
 
 ```
-virtual_machine_name (MM/DD/YYY –hh:mm:ss AM\PM)
+virtual_machine_name (MM/DD/YYY -hh:mm:ss AM\PM)
 ```
 
 Les noms sont limités à 100 caractères au maximum, et le nom ne peut pas être vide.
@@ -119,7 +119,7 @@ Les noms sont limités à 100 caractères au maximum, et le nom ne peut pas êt
 **À l’aide de PowerShell**
 
 ``` powershell
-Rename-VMCheckpoint –VMName <virtual machine name> –Name <checkpoint name> --NewName <new checkpoint name>
+Rename-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name> --NewName <new checkpoint name>
 ```
 
 ## Suppression de points de contrôle
@@ -140,7 +140,7 @@ Pour supprimer correctement un point de contrôle :
 
 **À l’aide de PowerShell**
 ```powershell
-Remove-VMCheckpoint –VMName <virtual machine name> –Name <checkpoint name>
+Remove-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name>
 ```
 
 ## Exportation de points de contrôle
@@ -149,7 +149,7 @@ Une exportation regroupe le point de contrôle en tant que machine virtuelle afi
 
 **À l’aide de PowerShell**
 ``` powershell
-Export-VMCheckpoint –VMName <virtual machine name>  –Name <checkpoint name> -Path <path for export>
+Export-VMCheckpoint -VMName <virtual machine name>  -Name <checkpoint name> -Path <path for export>
 ```
 
 ## Activer ou désactiver des points de contrôle
@@ -157,7 +157,7 @@ Export-VMCheckpoint –VMName <virtual machine name>  –Name <checkpoint name> 
 1.  Dans le **Gestionnaire Hyper-V**, cliquez avec le bouton droit sur le nom de la machine virtuelle, puis cliquez sur **Paramètres**.
 2.  Dans la section **Gestion**, sélectionnez **Points de contrôle**.
 3.  Pour permettre le retrait des points de contrôle de cette machine virtuelle, vérifiez que l’option Activer les points de contrôle est sélectionnée ; il s’agit du comportement par défaut.  
-    Pour désactiver les points de contrôle, désactivez la case à cocher **Activer les points de contrôle**.
+Pour désactiver les points de contrôle, désactivez la case à cocher **Activer les points de contrôle**.
 4.  Cliquez sur **Appliquer** pour appliquer vos modifications. Si vous avez terminé, cliquez sur **OK** pour fermer la boîte de dialogue.
 
 ## Configuration de l’emplacement d’un point de contrôle
@@ -230,3 +230,4 @@ Une fois le point de contrôle de production appliqué, notez que la machine vir
 
 
 
+<!--HONumber=Feb16_HO4-->
