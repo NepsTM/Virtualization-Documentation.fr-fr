@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "ec087b8c5d9d73c7f7b5adc8034f3e46bf82ea22",
+  "LastProcessedCommit": "025cf28322111758d4ea47778246fb494358e9f6",
   "LastTranslatedCommit": "f9f2fb1d5698f365db321c28249280a2f8c378bc",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
@@ -8478,6 +8478,64 @@
       "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.fr-fr.xlf",
       "HandoffFileCommit": "2cecbe2c48e4fb831d9befe911d32c98050827bf",
       "HandoffDateTime": "2016-03-21T20:52:12.4327273Z",
+      "HandoffPriority": "",
+      "HandoffException": null,
+      "HandoffFailureTimes": 0,
+      "TargetFileCommit": null,
+      "TargetFilePath": null,
+      "HandbackFilePath": null,
+      "HandbackFileCommit": null,
+      "HandbackDateTime": "0001-01-01T00:00:00",
+      "HandbackException": null,
+      "HandbackFailureTimes": 0,
+      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "ArchiveFilePath": null,
+      "ArchiveFileCommit": null,
+      "ArchiveFileDateTime": "0001-01-01T00:00:00",
+      "ArchiveException": null
+    },
+    "9c5aa1998bba388ec2368d8b279fc9b8282cb5be": {
+      "FileHash": "9c5aa1998bba388ec2368d8b279fc9b8282cb5be",
+      "SourceFileCommit": "025cf28322111758d4ea47778246fb494358e9f6",
+      "SourceFilePath": "virtualization\\hyperv_on_windows\\develop\\make_mgmt_service.md",
+      "HandoffReason": 1,
+      "DependencyFrom": null,
+      "FilePathList": [
+        "virtualization\\hyperv_on_windows\\develop\\make_mgmt_service.md"
+      ],
+      "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\make_mgmt_service.f08a72226cda804bf52172777630838cf58daa2b.fr-fr.xlf",
+      "HandoffFileCommit": "6a7ecd30687c01c832e7045f2d18dbaff3cd937a",
+      "HandoffDateTime": "2016-03-22T00:54:13.8158719Z",
+      "HandoffPriority": "",
+      "HandoffException": null,
+      "HandoffFailureTimes": 0,
+      "TargetFileCommit": null,
+      "TargetFilePath": null,
+      "HandbackFilePath": null,
+      "HandbackFileCommit": null,
+      "HandbackDateTime": "0001-01-01T00:00:00",
+      "HandbackException": null,
+      "HandbackFailureTimes": 0,
+      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "ArchiveFilePath": null,
+      "ArchiveFileCommit": null,
+      "ArchiveFileDateTime": "0001-01-01T00:00:00",
+      "ArchiveException": null
+    },
+    "224b91fc286f31a5c23fe3d7c9d36b178f6b04c3": {
+      "FileHash": "224b91fc286f31a5c23fe3d7c9d36b178f6b04c3",
+      "SourceFileCommit": "025cf28322111758d4ea47778246fb494358e9f6",
+      "SourceFilePath": "virtualization\\hyperv_on_windows\\develop\\media\\flightingSDK.png",
+      "HandoffReason": 2,
+      "DependencyFrom": [
+        "virtualization\\hyperv_on_windows\\develop\\make_mgmt_service.md"
+      ],
+      "FilePathList": [
+        "virtualization\\hyperv_on_windows\\develop\\media\\flightingSDK.png"
+      ],
+      "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\224b91fc286f31a5c23fe3d7c9d36b178f6b04c3.png",
+      "HandoffFileCommit": "6a7ecd30687c01c832e7045f2d18dbaff3cd937a",
+      "HandoffDateTime": "2016-03-22T00:54:13.8158719Z",
       "HandoffPriority": "",
       "HandoffException": null,
       "HandoffFailureTimes": 0,
