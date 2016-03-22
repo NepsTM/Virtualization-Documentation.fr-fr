@@ -8,8 +8,8 @@
 [ Handoff Success Files ](#handoff-success-list)| 1
 [ Archive Failed Files ](#archive-failed-list)| 0
 [ Archive Success Files ](#archive-success-list)| 0
-[ Handback Failed Files ](#handback-failed-list)| 0
-[ Out Of Sync Handback Files ](#outofsync-handback-success-list)| 30
+[ Handback Failed Files ](#handback-failed-list)| 1
+[ Out Of Sync Handback Files ](#outofsync-handback-success-list)| 29
 [ In Sync Handback Files ](#insync-handback-success-list)| 86
 [ Ignored Files ](#ignored-list)| 303
 
@@ -25,6 +25,9 @@
 ## <a name='archive-success-list'></a> Archive Success File List
 
 ## <a name='handback-failed-list'></a> Handback Failed File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/15511c52f04190aa859959e50e2e95160dfc0c91/virtualization/hyperv_on_windows/user_guide/vmsession.md) | HandedBackFailed | [Details](#d3997f4f512580be5e28fbafa51f1bbd6a0a4b44197)
 
 ## <a name='outofsync-handback-success-list'></a> Out Of Sync Handback Success File List
  Source File | Status | Details 
@@ -36,7 +39,6 @@
  [virtualization\hyperv_on_windows\quick_start\walkthrough_powershell.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/f7294e19184c78d256a04bae8ccfff459871eb14/virtualization/hyperv_on_windows/quick_start/walkthrough_powershell.md) | OutofSyncHandedBackSuccess | [Details](#1ff2fe9d8253430a088e4260273cbcfb8c115414168)
  [virtualization\hyperv_on_windows\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6e6151f770159837193008650a73ec54355eff80/virtualization/hyperv_on_windows/TOC.md) | OutofSyncHandedBackSuccess | [Details](#07461d3c6c45b5d5413d6c8490daee50340b34de170)
  [virtualization\hyperv_on_windows\user_guide\export_import.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/f7294e19184c78d256a04bae8ccfff459871eb14/virtualization/hyperv_on_windows/user_guide/export_import.md) | OutofSyncHandedBackSuccess | [Details](#8f425f8ff5e6bbba952f5b0fad4e2eff8b6960bb172)
- [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/15511c52f04190aa859959e50e2e95160dfc0c91/virtualization/hyperv_on_windows/user_guide/vmsession.md) | OutofSyncHandedBackSuccess | [Details](#d3997f4f512580be5e28fbafa51f1bbd6a0a4b44197)
  [virtualization\hyperv_on_windows\windows_welcome.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ec087b8c5d9d73c7f7b5adc8034f3e46bf82ea22/virtualization/hyperv_on_windows/windows_welcome.md) | OutofSyncHandedBackSuccess | [Details](#ec5ba8f5a387b27405564ad240b53188154f9dfe198)
  [virtualization\windowscontainers\about\about_overview.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4d69a4b3fa6918a1c6cb18266342c72159ef1da7/virtualization/windowscontainers/about/about_overview.md) | OutofSyncHandedBackSuccess | [Details](#4bef4ede34814cd9e6e0445b0fc4a7675e99a526199)
  [virtualization\windowscontainers\about\container_ecosystem.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/39f5ba40ff0a2e535c48d52c480dc21323ba9050/virtualization/windowscontainers/about/container_ecosystem.md) | OutofSyncHandedBackSuccess | [Details](#98fb19c97bd3bb80e62d199db1f951d81225f603200)
@@ -2883,7 +2885,7 @@
 * [Back to Top](#report-top)
 
 ##### <a name='d3997f4f512580be5e28fbafa51f1bbd6a0a4b44197'></a> Source: [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/15511c52f04190aa859959e50e2e95160dfc0c91/virtualization/hyperv_on_windows/user_guide/vmsession.md)
-* Status: OutofSyncHandedBackSuccess
+* Status: HandedBackFailed
 * Target File: 
 * Handoff File: [vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/7d2a10e4b499f6df1158752c4e3bf4e51689a704/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf)
 * Handoff Datetime: 2016-03-03 00:03:32
@@ -2892,6 +2894,7 @@
 * Archive Datetime: 2016-03-03 08:11:35
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
+* Handback Error: [handback_transform_failed](#d3997f4f512580be5e28fbafa51f1bbd6a0a4b44197handback_transform_failed)
 * Current Target File: [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/3fe960a153b7209e2d9ff88a268cf35a1f67c4fd/virtualization/hyperv_on_windows/user_guide/vmsession.md)
 * Current Handback File: [vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/4023ec68a8c52a17c97c14c5667ca7d9c14857a4/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf)
 * Current Handback Datetime: 2016-02-03 21:58:37
@@ -5651,5 +5654,11 @@
 
 
 ## Error Details
+##### <a name='d3997f4f512580be5e28fbafa51f1bbd6a0a4b44197handback_transform_failed'></a> Source: [virtualization\hyperv_on_windows\user_guide\vmsession.md](#d3997f4f512580be5e28fbafa51f1bbd6a0a4b44197)
+* Error Code: handback_transform_failed
+* Error Message: Handback file: C:\ol\master\VDP.handback\0e62d1\ol-handback\Microsoft\Virtualization-Documentation-Private.fr-fr\live\vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf failed.
+* Retriable: False
+* Error Details: {"internal_error_code":"handback_transform_failed","internal_error_message":"Handback file: C:\\ol\\master\\VDP.handback\\0e62d1\\ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf failed.","internal_error_retriable":false,"exception_message":"Data at the root level is invalid. Line 1, position 1.","exception_type":"System.Xml.XmlException","stack_trace":"   at System.Xml.XmlTextReaderImpl.Throw(Exception e)\r\n   at System.Xml.XmlTextReaderImpl.ParseRootLevelWhitespace()\r\n   at System.Xml.XmlTextReaderImpl.ParseDocumentContent()\r\n   at System.Xml.XmlReader.MoveToContent()\r\n   at System.Xml.XmlReader.ReadStartElement(String name)\r\n   at Microsoft.Content.Build.Components.MarkdownFile.LoadSkeletonInternal(XmlReader reader)\r\n   at Microsoft.Content.Build.Components.MarkdownFile.LoadSkeleton(Stream stream)\r\n   at Microsoft.Content.Build.Components.XliffToMarkdownTransformHandler.Transform(ILocalizationFile source)\r\n   at Microsoft.OpenLocalization.Transformer.MarkdownTransformer.XliffToMarkdownCore(Stream xliffStream, Stream sklStream, Stream markdownStream)\r\n   at Microsoft.OpenLocalization.Transformer.XliffTransformerExtensions.XliffToMarkdown(IMarkdownTransformer markdownTransformer, Stream xliffStream, Stream skeletonStream, Stream targetStream)\r\n   at Microsoft.OpenLocalization.Transformer.XliffTransformerExtensions.XliffToMarkdown(IMarkdownTransformer markdownTransformer, String xliffFile, String skeletonFile, String markdownFile)\r\n   at Microsoft.OpenLocalization.Helper.XliffTransformUtil.XliffToMarkdown(String skeletonFile, String xliffFile, String mdfile, Boolean useJavascriptTransformer) in D:\\DevEnlistments\\Source\\OpenLocalization\\src\\OpenLocalization\\Helper\\XliffTransformUtil.cs:line 41\r\n   at Microsoft.OpenLocalization.Localization.LocalizationCore.<>c__DisplayClass5_0.<GetHandbackFiles>b__0(String file) in D:\\DevEnlistments\\Source\\OpenLocalization\\src\\OpenLocalization\\Localization\\HandbackCore.cs:line 407","extended_information":null}
+
 
 Generated by OpenLocalization.
