@@ -1,6 +1,6 @@
 {
   "LastProcessedCommit": "025cf28322111758d4ea47778246fb494358e9f6",
-  "LastTranslatedCommit": "e088e6ad82b4bc3897e0a5609ec95a3eae2aca5b",
+  "LastTranslatedCommit": "1c88ba26943f0bbf6f903ce30c13506b25d1c85b",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
       "FileHash": "5090f6d60b5cbdce0990242d795d9e4e3736e791",
@@ -8009,7 +8009,7 @@
       "TargetFilePath": null,
       "HandbackFilePath": null,
       "HandbackFileCommit": null,
-      "HandbackDateTime": "2016-03-22T16:39:18.2570645Z",
+      "HandbackDateTime": "2016-03-22T16:42:27.4524485Z",
       "HandbackException": {
         "internal_error_code": "handback_transform_failed",
         "internal_error_message": "Handback file: C:\\ol\\master\\VDP.handback\\0e62d1\\ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf failed.",
@@ -8019,7 +8019,7 @@
         "stack_trace": "   at System.Xml.XmlTextReaderImpl.Throw(Exception e)\r\n   at System.Xml.XmlTextReaderImpl.ParseRootLevelWhitespace()\r\n   at System.Xml.XmlTextReaderImpl.ParseDocumentContent()\r\n   at System.Xml.XmlReader.MoveToContent()\r\n   at System.Xml.XmlReader.ReadStartElement(String name)\r\n   at Microsoft.Content.Build.Components.MarkdownFile.LoadSkeletonInternal(XmlReader reader)\r\n   at Microsoft.Content.Build.Components.MarkdownFile.LoadSkeleton(Stream stream)\r\n   at Microsoft.Content.Build.Components.XliffToMarkdownTransformHandler.Transform(ILocalizationFile source)\r\n   at Microsoft.OpenLocalization.Transformer.MarkdownTransformer.XliffToMarkdownCore(Stream xliffStream, Stream sklStream, Stream markdownStream)\r\n   at Microsoft.OpenLocalization.Transformer.XliffTransformerExtensions.XliffToMarkdown(IMarkdownTransformer markdownTransformer, Stream xliffStream, Stream skeletonStream, Stream targetStream)\r\n   at Microsoft.OpenLocalization.Transformer.XliffTransformerExtensions.XliffToMarkdown(IMarkdownTransformer markdownTransformer, String xliffFile, String skeletonFile, String markdownFile)\r\n   at Microsoft.OpenLocalization.Helper.XliffTransformUtil.XliffToMarkdown(String skeletonFile, String xliffFile, String mdfile, Boolean useJavascriptTransformer) in D:\\DevEnlistments\\Source\\OpenLocalization\\src\\OpenLocalization\\Helper\\XliffTransformUtil.cs:line 41\r\n   at Microsoft.OpenLocalization.Localization.LocalizationCore.<>c__DisplayClass5_0.<GetHandbackFiles>b__0(String file) in D:\\DevEnlistments\\Source\\OpenLocalization\\src\\OpenLocalization\\Localization\\HandbackCore.cs:line 407",
         "extended_information": null
       },
-      "HandbackFailureTimes": 2,
+      "HandbackFailureTimes": 3,
       "UpdatedDateTime": "0001-01-01T00:00:00",
       "ArchiveFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\archive\\vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf",
       "ArchiveFileCommit": "f59dc3408ffe8d6e56b6939b6cd843d664e4abcd",
@@ -8125,14 +8125,14 @@
       "HandoffPriority": "",
       "HandoffException": null,
       "HandoffFailureTimes": 0,
-      "TargetFileCommit": null,
-      "TargetFilePath": null,
-      "HandbackFilePath": null,
-      "HandbackFileCommit": null,
-      "HandbackDateTime": "0001-01-01T00:00:00",
+      "TargetFileCommit": "1c88ba26943f0bbf6f903ce30c13506b25d1c85b",
+      "TargetFilePath": "virtualization\\windowscontainers\\reference\\app_compat.md",
+      "HandbackFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\app_compat.85ea42fd0d23543a8fad7596dfdec7699ec15654.fr-fr.xlf",
+      "HandbackFileCommit": "b681eeebc5d3c279bbff22214c30500afc41788d",
+      "HandbackDateTime": "2016-03-22T16:42:27.4524485Z",
       "HandbackException": null,
       "HandbackFailureTimes": 0,
-      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "UpdatedDateTime": "2016-03-22T16:42:27.4524485Z",
       "ArchiveFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\archive\\app_compat.85ea42fd0d23543a8fad7596dfdec7699ec15654.fr-fr.xlf",
       "ArchiveFileCommit": "e20a5991829357629fb304a72631a23000f3f9e9",
       "ArchiveFileDateTime": "2016-03-10T08:11:27.9817627Z",
