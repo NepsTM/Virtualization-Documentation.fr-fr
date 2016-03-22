@@ -1,6 +1,6 @@
-
-
-
+---
+author: scooley
+---
 
 # Compatibilité des applications dans les conteneurs Windows
 
@@ -29,7 +29,7 @@ Nous avons tenté d’exécuter les applications suivantes dans un conteneur Win
 | ASP.NET| 5 bêta 6| Oui| Oui| Les deux, x64 et x86|
 | Django| | Oui| Oui| |
 | Go| 1.4.2| Oui| Oui| |
-| Internet Information Service| 10.0| Oui| Oui| Le runtime VC++ n’est pas installé si le filtre de déduplication est chargé.Déchargez la déduplication avec `fltmc unload dedup`|
+| Internet Information Service| 10.0| Oui| Oui| HTTPS/TLS ne fonctionne pas.Le runtime VC++ n’est pas installé si le filtre de déduplication est chargé.Déchargez la déduplication avec `fltmc unload dedup`|
 | Java| 1.8.0_51| Oui| Oui| Utilisez la version du serveur.La version du client ne s’installe pas correctement|
 | MongoDB| 3.0.4| Oui| Inconnu| |
 | MySQL| 5.6.26| Oui| Oui| |
@@ -59,7 +59,7 @@ Nous avons tenté d’exécuter les applications suivantes dans un conteneur Hyp
 | ASP.NET| 5 bêta 6| Oui| Les deux, x64 et x86|
 | Django| | Oui| Si l’image est créée avec un DockerFile et que des binaires Python sont copiés comme éléments, Python ne fonctionne pas.Démarrez le conteneur, puis copiez les binaires Python.|
 | Go| 1.4.2| Oui| |
-| Internet Information Service| 10.0| Oui| IIS n’est pas installé en utilisant directement dism.Effectuez une installation sans assistance d’IIS à l’aide des commandes dism.|
+| Internet Information Service| 10.0| Oui| HTTPS/TLS ne fonctionne pas.IIS n’est pas installé en utilisant directement dism.Effectuez une installation sans assistance d’IIS à l’aide des commandes dism.|
 | Java| 1.8.0_51| Oui| Utilisez la version du serveur.La version du client ne s’installe pas correctement|
 | MySQL| 5.6.26| Oui| |
 | NGinx| 1.9.3| Oui| |
@@ -77,4 +77,4 @@ Un élément ne figure pas dans cette liste ? Faites-nous part de ce qui a fonc
 
 
 
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=Mar16_HO2-->
