@@ -1,6 +1,6 @@
-
-
-
+---
+author: neilpeterson
+---
 
 # Démarrage rapide Azure
 
@@ -46,6 +46,16 @@ Connectez-vous à la machine virtuelle à l’aide du nom d’utilisateur et du 
 
 ![](media/newazure7.png)
 
+## Mettre à jour le moteur Docker
+
+Pour pouvoir utiliser la commande `docker pull` avec l’image Azure Windows Container Technical Preview, le moteur Docker doit être mis à jour. Exécutez les commandes PowerShell suivantes sur la machine virtuelle Azure pour effectuer cette mise à jour.
+
+```powershell
+PS C:\> wget https://raw.githubusercontent.com/Microsoft/Virtualization-Documentation/live/windows-server-container-tools/Update-ContainerHost/Update-ContainerHost.ps1 -OutFile Update-ContainerHost.ps1
+
+PS C:\> ./Update-ContainerHost.ps1
+```
+
 ## Vidéo de la procédure pas à pas
 
 <iframe src="https://channel9.msdn.com/Blogs/containers/Quick-Start-Configure-Windows-Server-Containers-in-Microsoft-Azure/player#ccLang=fr" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
@@ -60,4 +70,4 @@ Maintenant que vous disposez d’un système Windows Server 2016 exécutant la 
 
 
 
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=Mar16_HO3-->

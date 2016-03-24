@@ -56,7 +56,7 @@
 
 ## [Architecture Hyper-V](https://msdn.microsoft.com/en-us/library/cc768520(v=bts.10).aspx)
 
-## [Spécification fonctionnelle générale de l’hyperviseur](develop/tlfs.md)
+## [Spécifications de l’hyperviseur](develop/tlfs.md)
 
 
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=Mar16_HO2-->
