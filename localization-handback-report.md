@@ -1,26 +1,11 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\reference\app_compat.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/125827d4455642ffc8a25cb0ef7f5e5d40398b8a/virtualization/windowscontainers/reference/app_compat.md) | InSyncHandedBackSuccess | [Details](#43aca5e552bf0e406293b2b4042a2493c89f619f288)
 
 ## Item Details
-##### <a name='43aca5e552bf0e406293b2b4042a2493c89f619f288'></a> Source: [virtualization\windowscontainers\reference\app_compat.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/125827d4455642ffc8a25cb0ef7f5e5d40398b8a/virtualization/windowscontainers/reference/app_compat.md)
-* Status: InSyncHandedBackSuccess
-* Target File: [virtualization\windowscontainers\reference\app_compat.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/708745ce00148a2d0accbdc959133a3e37fcf6e6/virtualization/windowscontainers/reference/app_compat.md)
-* Handoff File: [app_compat.85ea42fd0d23543a8fad7596dfdec7699ec15654.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/a09827d3f2df3385e34e11c72237d2aa48ec90d4/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/app_compat.85ea42fd0d23543a8fad7596dfdec7699ec15654.fr-fr.xlf)
-* Handoff Datetime: 2016-03-11 01:42:16
-* Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: [app_compat.85ea42fd0d23543a8fad7596dfdec7699ec15654.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/1162481db037745defd653bb88b784d2aa31ed7a/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/app_compat.85ea42fd0d23543a8fad7596dfdec7699ec15654.fr-fr.xlf)
-* Handback Datetime: 2016-03-24 14:14:58
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
