@@ -1508,8 +1508,8 @@
 * Handoff File: [make_mgmt_service.f08a72226cda804bf52172777630838cf58daa2b.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/6a7ecd30687c01c832e7045f2d18dbaff3cd937a/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/make_mgmt_service.f08a72226cda804bf52172777630838cf58daa2b.fr-fr.xlf)
 * Handoff Datetime: 2016-03-22 00:54:13
 * Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
+* Archive File: [make_mgmt_service.f08a72226cda804bf52172777630838cf58daa2b.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/e1ae6418144e6957a517f593312c1aa8eca2bcaf/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/archive/make_mgmt_service.f08a72226cda804bf52172777630838cf58daa2b.fr-fr.xlf)
+* Archive Datetime: 2016-03-29 00:01:39
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Current Target File: [virtualization\hyperv_on_windows\develop\make_mgmt_service.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/5cc71f4197c5fd7a8f1061bc1f1d1cd649d64ff0/virtualization/hyperv_on_windows/develop/make_mgmt_service.md)
@@ -2900,8 +2900,8 @@
 * Handoff File: [windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/2cecbe2c48e4fb831d9befe911d32c98050827bf/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.fr-fr.xlf)
 * Handoff Datetime: 2016-03-21 20:52:12
 * Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
+* Archive File: [windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/e1ae6418144e6957a517f593312c1aa8eca2bcaf/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/archive/windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.fr-fr.xlf)
+* Archive Datetime: 2016-03-29 00:01:39
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Current Target File: [virtualization\hyperv_on_windows\windows_welcome.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/3901756e065f201a0838371eceb1ad5897278dd4/virtualization/hyperv_on_windows/windows_welcome.md)
