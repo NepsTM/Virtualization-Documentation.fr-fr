@@ -6,21 +6,21 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\hyperv_on_windows\user_guide\managing_ics.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/311eaa9af9e8d51f444497fecef73cdb566572ca/virtualization/hyperv_on_windows/user_guide/managing_ics.md) | OutofSyncHandedBackSuccess | [Details](#90a37f43e8dd1949ae72fff34644be0038138355180)
+ [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/df897442f9d6997f8bc2bc4de7c3a07531812ebd/virtualization/hyperv_on_windows/user_guide/vmsession.md) | OutofSyncHandedBackSuccess | [Details](#3f93926fa7fae44411e3d690086e583cda865a9a203)
 
 ## Item Details
-##### <a name='90a37f43e8dd1949ae72fff34644be0038138355180'></a> Source: [virtualization\hyperv_on_windows\user_guide\managing_ics.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/311eaa9af9e8d51f444497fecef73cdb566572ca/virtualization/hyperv_on_windows/user_guide/managing_ics.md)
+##### <a name='3f93926fa7fae44411e3d690086e583cda865a9a203'></a> Source: [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/df897442f9d6997f8bc2bc4de7c3a07531812ebd/virtualization/hyperv_on_windows/user_guide/vmsession.md)
 * Status: OutofSyncHandedBackSuccess
 * Target File: 
-* Handoff File: [managing_ics.8df7555f0b61b9ddcddca7419ee655ef1d9a2119.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/5280919ae8ad3dd87963126723ea54369517958c/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/managing_ics.8df7555f0b61b9ddcddca7419ee655ef1d9a2119.fr-fr.xlf)
-* Handoff Datetime: 2016-04-25 17:39:17
+* Handoff File: [vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/e02b8b9243572dd40dd8df1b0be2c11fa77ce9d7/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf)
+* Handoff Datetime: 2016-04-25 23:41:08
 * Handoff Reason: Include
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\hyperv_on_windows\user_guide\managing_ics.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/3fe960a153b7209e2d9ff88a268cf35a1f67c4fd/virtualization/hyperv_on_windows/user_guide/managing_ics.md)
-* Current Handback File: [managing_ics.8df7555f0b61b9ddcddca7419ee655ef1d9a2119.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/4023ec68a8c52a17c97c14c5667ca7d9c14857a4/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/managing_ics.8df7555f0b61b9ddcddca7419ee655ef1d9a2119.fr-fr.xlf)
+* Current Target File: [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/3fe960a153b7209e2d9ff88a268cf35a1f67c4fd/virtualization/hyperv_on_windows/user_guide/vmsession.md)
+* Current Handback File: [vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/4023ec68a8c52a17c97c14c5667ca7d9c14857a4/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf)
 * Current Handback Datetime: 2016-02-03 21:58:37
 * [Back to Top](#report-top)
 
