@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/69018fd475957e573f54bfc70c7015e0fe2bebd0/virtualization/hyperv_on_windows/user_guide/vmsession.md) | OutofSyncHandedBackSuccess | [Details](#77f3ecac64f256a16bf078f29cb1ace6d0420c6a203)
+ [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/f0c47fb0d765b69085fa62da47d06c785cd55913/virtualization/hyperv_on_windows/user_guide/vmsession.md) | OutofSyncHandedBackSuccess | [Details](#6b9a053b92112091f300c3e95891bcebfdf65e88203)
 
 ## Item Details
-##### <a name='77f3ecac64f256a16bf078f29cb1ace6d0420c6a203'></a> Source: [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/69018fd475957e573f54bfc70c7015e0fe2bebd0/virtualization/hyperv_on_windows/user_guide/vmsession.md)
+##### <a name='6b9a053b92112091f300c3e95891bcebfdf65e88203'></a> Source: [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/f0c47fb0d765b69085fa62da47d06c785cd55913/virtualization/hyperv_on_windows/user_guide/vmsession.md)
 * Status: OutofSyncHandedBackSuccess
 * Target File: 
-* Handoff File: [vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/da655f13552079ee8141ea39bcbc5f13cb1f3262/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf)
-* Handoff Datetime: 2016-04-26 21:41:25
+* Handoff File: [vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/239285ab755ba752e0f7effdcde31013a2236e1e/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.fr-fr.xlf)
+* Handoff Datetime: 2016-04-27 00:39:37
 * Handoff Reason: Include
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
