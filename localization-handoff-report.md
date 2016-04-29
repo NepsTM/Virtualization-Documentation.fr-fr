@@ -1,27 +1,53 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 3
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\management\manage_images.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/56b256a2dc5bffcd5af7159449ba64d8726d979a/virtualization/windowscontainers/management/manage_images.md) | OutofSyncHandedBackSuccess | [Details](#ccffdfd5ea89a9515b03d1081e24bf9a377cc688253)
+ [virtualization\windowscontainers\docker\optimize_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/452d6ede0e5d587a249180bbe0eace055f140e69/virtualization/windowscontainers/docker/optimize_windows_dockerfile.md) | HandedOffSuccess | [Details](#6607baebed4c0109bbfc1cdbd735ce4bc568012d245)
+ [virtualization\windowscontainers\quick_start\manage_docker.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/452d6ede0e5d587a249180bbe0eace055f140e69/virtualization/windowscontainers/quick_start/manage_docker.md) | OutofSyncHandedBackSuccess | [Details](#952a1c443cd14575c638f8c845f4075bac9ce77b270)
+ [virtualization\windowscontainers\quick_start\manage_docker_hyperv.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/452d6ede0e5d587a249180bbe0eace055f140e69/virtualization/windowscontainers/quick_start/manage_docker_hyperv.md) | HandedOffSuccess | [Details](#f7c7ae27d58d57f1a9da8546b23caceafd46bb2d271)
 
 ## Item Details
-##### <a name='ccffdfd5ea89a9515b03d1081e24bf9a377cc688253'></a> Source: [virtualization\windowscontainers\management\manage_images.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/56b256a2dc5bffcd5af7159449ba64d8726d979a/virtualization/windowscontainers/management/manage_images.md)
-* Status: OutofSyncHandedBackSuccess
+##### <a name='6607baebed4c0109bbfc1cdbd735ce4bc568012d245'></a> Source: [virtualization\windowscontainers\docker\optimize_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/452d6ede0e5d587a249180bbe0eace055f140e69/virtualization/windowscontainers/docker/optimize_windows_dockerfile.md)
+* Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/93859fc6d14bb81d6b28296b6849dd11baf1a997/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.fr-fr.xlf)
-* Handoff Datetime: 2016-04-29 04:39:30
+* Handoff File: [optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/7e0fc5737e980af23ea551e66bf314523d707d5f/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.fr-fr.xlf)
+* Handoff Datetime: 2016-04-29 05:11:07
 * Handoff Reason: Include
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\management\manage_images.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/3fe960a153b7209e2d9ff88a268cf35a1f67c4fd/virtualization/windowscontainers/management/manage_images.md)
-* Current Handback File: [manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/4023ec68a8c52a17c97c14c5667ca7d9c14857a4/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.fr-fr.xlf)
-* Current Handback Datetime: 2016-02-03 21:58:37
+* [Back to Top](#report-top)
+
+##### <a name='952a1c443cd14575c638f8c845f4075bac9ce77b270'></a> Source: [virtualization\windowscontainers\quick_start\manage_docker.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/452d6ede0e5d587a249180bbe0eace055f140e69/virtualization/windowscontainers/quick_start/manage_docker.md)
+* Status: OutofSyncHandedBackSuccess
+* Target File: 
+* Handoff File: [manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/7e0fc5737e980af23ea551e66bf314523d707d5f/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.fr-fr.xlf)
+* Handoff Datetime: 2016-04-29 05:11:07
+* Handoff Reason: Include
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Current Target File: [virtualization\windowscontainers\quick_start\manage_docker.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/353d2e4ad430690bb9c478f4a6d91c5ccee3d13e/virtualization/windowscontainers/quick_start/manage_docker.md)
+* Current Handback File: [manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b3bec5eba0e393620879545cf1591cbbab345c61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.fr-fr.xlf)
+* Current Handback Datetime: 2016-02-16 21:22:00
+* [Back to Top](#report-top)
+
+##### <a name='f7c7ae27d58d57f1a9da8546b23caceafd46bb2d271'></a> Source: [virtualization\windowscontainers\quick_start\manage_docker_hyperv.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/452d6ede0e5d587a249180bbe0eace055f140e69/virtualization/windowscontainers/quick_start/manage_docker_hyperv.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [manage_docker_hyperv.ffb52dad11f941fa77d304027e357641bbe21dd9.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/7e0fc5737e980af23ea551e66bf314523d707d5f/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_docker_hyperv.ffb52dad11f941fa77d304027e357641bbe21dd9.fr-fr.xlf)
+* Handoff Datetime: 2016-04-29 05:11:07
+* Handoff Reason: Include
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
 * [Back to Top](#report-top)
 
 
