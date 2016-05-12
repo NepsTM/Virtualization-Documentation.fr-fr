@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\hyperv_on_windows\user_guide\setup_nat_network.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/93c9568ae063e3269a28d9cadfd0672f58233712/virtualization/hyperv_on_windows/user_guide/setup_nat_network.md) | HandedOffSuccess | [Details](#c863c298ff91dbca50d5fda61934ec91a4b5c824204)
+ [virtualization\hyperv_on_windows\user_guide\setup_nat_network.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/a0c296686dd935606af437f3043f329272040082/virtualization/hyperv_on_windows/user_guide/setup_nat_network.md) | HandedOffSuccess | [Details](#d6c12e9ef1026b621c0f96ef32b23616b78f9654204)
 
 ## Item Details
-##### <a name='c863c298ff91dbca50d5fda61934ec91a4b5c824204'></a> Source: [virtualization\hyperv_on_windows\user_guide\setup_nat_network.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/93c9568ae063e3269a28d9cadfd0672f58233712/virtualization/hyperv_on_windows/user_guide/setup_nat_network.md)
+##### <a name='d6c12e9ef1026b621c0f96ef32b23616b78f9654204'></a> Source: [virtualization\hyperv_on_windows\user_guide\setup_nat_network.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/a0c296686dd935606af437f3043f329272040082/virtualization/hyperv_on_windows/user_guide/setup_nat_network.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [setup_nat_network.910a966b84616e203e5739d5dde1b65115f14a37.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/594d37db0d55b6ff050f30909a0b1c879b11ba1f/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/setup_nat_network.910a966b84616e203e5739d5dde1b65115f14a37.fr-fr.xlf)
-* Handoff Datetime: 2016-05-12 05:18:15
+* Handoff File: [setup_nat_network.910a966b84616e203e5739d5dde1b65115f14a37.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/c5e9b7c0c76c878708a3b9ff412e36d98e537d36/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/setup_nat_network.910a966b84616e203e5739d5dde1b65115f14a37.fr-fr.xlf)
+* Handoff Datetime: 2016-05-12 19:19:26
 * Handoff Reason: Include
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
