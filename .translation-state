@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "a0c296686dd935606af437f3043f329272040082",
+  "LastProcessedCommit": "8ba266f1586d0d389fb724ff380a1a1e2fb6b4e4",
   "LastTranslatedCommit": "708745ce00148a2d0accbdc959133a3e37fcf6e6",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
@@ -14357,6 +14357,35 @@
       "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\setup_nat_network.910a966b84616e203e5739d5dde1b65115f14a37.fr-fr.xlf",
       "HandoffFileCommit": "c5e9b7c0c76c878708a3b9ff412e36d98e537d36",
       "HandoffDateTime": "2016-05-12T19:19:26.1434842Z",
+      "HandoffPriority": "",
+      "HandoffException": null,
+      "HandoffFailureTimes": 0,
+      "TargetFileCommit": null,
+      "TargetFilePath": null,
+      "HandbackFilePath": null,
+      "HandbackFileCommit": null,
+      "HandbackDateTime": "0001-01-01T00:00:00",
+      "HandbackException": null,
+      "HandbackFailureTimes": 0,
+      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "ArchiveFilePath": null,
+      "ArchiveFileCommit": null,
+      "ArchiveFileDateTime": "0001-01-01T00:00:00",
+      "ArchiveException": null
+    },
+    "1f90b903a56c3da29f3bc582b668461e090d2711": {
+      "FileHash": "1f90b903a56c3da29f3bc582b668461e090d2711",
+      "SourceFileCommit": "8ba266f1586d0d389fb724ff380a1a1e2fb6b4e4",
+      "SourceFilePath": "virtualization\\hyperv_on_windows\\user_guide\\nesting.md",
+      "HandoffReason": 1,
+      "DependencyFrom": null,
+      "TokenReference": null,
+      "FilePathList": [
+        "virtualization\\hyperv_on_windows\\user_guide\\nesting.md"
+      ],
+      "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.fr-fr.xlf",
+      "HandoffFileCommit": "03b96f44b189112f95c8673f80824fcf28124a0c",
+      "HandoffDateTime": "2016-05-12T20:18:52.3303235Z",
       "HandoffPriority": "",
       "HandoffException": null,
       "HandoffFailureTimes": 0,
