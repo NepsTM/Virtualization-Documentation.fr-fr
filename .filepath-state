@@ -14,9 +14,6 @@
   "cb834b4fe44e1716864babc1bfdb20936ebc1d74": [
     "virtualization\\hyperv_on_windows\\about\\hyperv_on_windows.md"
   ],
-  "8353640c257688b361ac7da3912d9e9d749c37f2": [
-    "virtualization\\hyperv_on_windows\\about\\hyperv_on_windows.md"
-  ],
   "19ecce49df066c5816741f375c4610b79d7ad802": [
     "virtualization\\hyperv_on_windows\\about\\supported_guest_os.md"
   ],
@@ -495,9 +492,6 @@
   "9ae0b7729c98ff8625a70e80a410bef8da1159dc": [
     "virtualization\\windowscontainers\\deployment\\system_requirements.md"
   ],
-  "58078d5bfb7b7819c6a6694a3e99dd8fde2f21a4": [
-    "virtualization\\windowscontainers\\deployment\\system_requirements.md"
-  ],
   "f2cb1cdc1a98bf328a24610af6f7313a1071b079": [
     "virtualization\\windowscontainers\\EULA.md"
   ],
@@ -681,9 +675,6 @@
     "virtualization\\windowscontainers\\quick_start\\manage_powershell.md"
   ],
   "6ae7df8521332b1b6086e68ede218645a51d9431": [
-    "virtualization\\windowscontainers\\quick_start\\manage_powershell.md"
-  ],
-  "58788f5e0f5237edc1c1419481baa4c8798e33ea": [
     "virtualization\\windowscontainers\\quick_start\\manage_powershell.md"
   ],
   "6789bb70acbd1b61d69c61b69d8c32e4d4032090": [
