@@ -1,6 +1,6 @@
-
-
-
+---
+author: neilpeterson
+---
 
 # Déployer un hôte de conteneur Windows dans une nouvelle machine virtuelle Hyper-V
 
@@ -70,6 +70,12 @@ Quand le script de configuration est terminé, connectez-vous à la machine virt
 
 Maintenant que vous disposez d’un système Windows Server 2016 exécutant la fonctionnalité de conteneur Windows, accédez aux guides suivants pour commencer à utiliser les conteneurs Windows Server et Hyper-V.
 
+Vous pouvez utiliser la commande `Enter-PSSession` dans l’hôte de gestion Hyper-V pour vous connecter à l’hôte du conteneur.
+
+```powershell
+PS C:\> Enter-PSSession -VMName <VM Name>
+```
+
 [Démarrage rapide : conteneurs Windows et PowerShell](./manage_powershell.md)  
 [Démarrage rapide : conteneurs Windows et Docker](./manage_docker.md)
 
@@ -78,6 +84,6 @@ Maintenant que vous disposez d’un système Windows Server 2016 exécutant la 
 
 
 
-<!--HONumber=Feb16_HO4-->
+<!--HONumber=Mar16_HO3-->
 
 

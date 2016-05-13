@@ -1,6 +1,6 @@
-
-
-
+---
+author: neilpeterson
+---
 
 
 # Déploiement d’un hôte de conteneur – Nano Server
@@ -182,6 +182,11 @@ Pour plus d’informations sur la gestion des images de conteneur, consultez [Im
 
 Le démon Docker et l’interface de ligne de commande ne sont pas fournis avec Windows, et ne sont pas installés avec la fonctionnalité de conteneur Windows. Docker n’est pas obligatoire pour utiliser des conteneurs Windows. Si vous voulez installer Docker, suivez les instructions de l’article [Docker et Windows](./docker_windows.md).
 
+Vous pouvez utiliser la commande `Enter-PSSession` dans l’hôte de gestion Hyper-V pour vous connecter à l’hôte du conteneur.
+
+```powershell
+PS C:\> Enter-PSSession -VMName <VM Name>
+```
 
 ## Hôte de conteneurs Hyper-V
 
@@ -232,6 +237,6 @@ PS C:\> Get-VMNetworkAdapter -VMName <VM Name> | Set-VMNetworkAdapter -MacAddres
 
 
 
-<!--HONumber=Feb16_HO4-->
+<!--HONumber=Mar16_HO3-->
 
 
