@@ -1625,9 +1625,9 @@
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\hyperv_on_windows\develop\make_mgmt_service.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/5cc71f4197c5fd7a8f1061bc1f1d1cd649d64ff0/virtualization/hyperv_on_windows/develop/make_mgmt_service.md)
-* Current Handback File: [make_mgmt_service.f08a72226cda804bf52172777630838cf58daa2b.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/706ce252fb63e6e69d4288e38ef317c2d2591974/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/make_mgmt_service.f08a72226cda804bf52172777630838cf58daa2b.fr-fr.xlf)
-* Current Handback Datetime: 2016-02-10 22:40:19
+* Current Target File: [virtualization\hyperv_on_windows\develop\make_mgmt_service.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/8c431cae52b62aa7598cba5d8736536f72b1279f/virtualization/hyperv_on_windows/develop/make_mgmt_service.md)
+* Current Handback File: [make_mgmt_service.f08a72226cda804bf52172777630838cf58daa2b.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/0420d03c1dee4ee6fdf3867707f68cb2704b1d0e/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/make_mgmt_service.f08a72226cda804bf52172777630838cf58daa2b.fr-fr.xlf)
+* Current Handback Datetime: 2016-05-13 23:17:01
 * [Back to Top](#report-top)
 
 ##### <a name='224b91fc286f31a5c23fe3d7c9d36b178f6b04c393'></a> Source: [virtualization\hyperv_on_windows\develop\media\flightingSDK.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4b739fb7cafe89a2bb61e4ede944f41617a1f589/virtualization/hyperv_on_windows/develop/media/flightingSDK.png)
@@ -3675,9 +3675,9 @@
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\management\manage_containers.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/c9b9f00d01cb1095ae1d6051176698d8ea14e60e/virtualization/windowscontainers/management/manage_containers.md)
-* Current Handback File: [manage_containers.c2c3307892a740ec0efc895be0c78ac01e92a328.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/e355ab49d7d52eb895bb2aaf5b2db72e5e220345/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_containers.c2c3307892a740ec0efc895be0c78ac01e92a328.fr-fr.xlf)
-* Current Handback Datetime: 2016-05-13 23:12:59
+* Current Target File: [virtualization\windowscontainers\management\manage_containers.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/8c431cae52b62aa7598cba5d8736536f72b1279f/virtualization/windowscontainers/management/manage_containers.md)
+* Current Handback File: [manage_containers.c2c3307892a740ec0efc895be0c78ac01e92a328.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/0420d03c1dee4ee6fdf3867707f68cb2704b1d0e/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_containers.c2c3307892a740ec0efc895be0c78ac01e92a328.fr-fr.xlf)
+* Current Handback Datetime: 2016-05-13 23:17:01
 * [Back to Top](#report-top)
 
 ##### <a name='e6c4ba59c902994c79d02a1a2d4d0941c7d8d27c252'></a> Source: [virtualization\windowscontainers\management\manage_data.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e14ede0a2b13de08cea0a955b37a21a150fb88cf/virtualization/windowscontainers/management/manage_data.md)
@@ -4481,9 +4481,9 @@
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\reference\ps_docker_comparison.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/c9b9f00d01cb1095ae1d6051176698d8ea14e60e/virtualization/windowscontainers/reference/ps_docker_comparison.md)
-* Current Handback File: [ps_docker_comparison.ebee670390084537f2252c760f11eefb8de5efa5.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/e355ab49d7d52eb895bb2aaf5b2db72e5e220345/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/ps_docker_comparison.ebee670390084537f2252c760f11eefb8de5efa5.fr-fr.xlf)
-* Current Handback Datetime: 2016-05-13 23:12:59
+* Current Target File: [virtualization\windowscontainers\reference\ps_docker_comparison.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/8c431cae52b62aa7598cba5d8736536f72b1279f/virtualization/windowscontainers/reference/ps_docker_comparison.md)
+* Current Handback File: [ps_docker_comparison.ebee670390084537f2252c760f11eefb8de5efa5.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/0420d03c1dee4ee6fdf3867707f68cb2704b1d0e/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/ps_docker_comparison.ebee670390084537f2252c760f11eefb8de5efa5.fr-fr.xlf)
+* Current Handback Datetime: 2016-05-13 23:17:01
 * [Back to Top](#report-top)
 
 ##### <a name='d2d11aaf20eb5a59bd54ef96544317aa90f2b7b6315'></a> Source: [virtualization\windowscontainers\removed\dotnet35.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e662f1594dcb261c062c029cf1300c0352d151e2/virtualization/windowscontainers/removed/dotnet35.md)
