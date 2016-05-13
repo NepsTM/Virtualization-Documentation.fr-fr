@@ -1,6 +1,6 @@
-
-
-
+---
+author: neilpeterson
+---
 
 # Guide de démarrage rapide des conteneurs Windows - PowerShell
 
@@ -281,7 +281,7 @@ Les dossiers partagés exposent un répertoire de l’hôte de conteneur au cont
 Créez un répertoire nommé `c:\share\en-us` sur l’hôte de conteneur.
 
 ```powershell
-S C:\> New-Item -Type Directory c:\share\en-us
+PS C:\> New-Item -Type Directory c:\share\en-us
 
     Directory: C:\share
 
@@ -500,7 +500,7 @@ PS C:\> Enter-PSSession -ContainerName IISApp -RunAsAdministrator
 Exécutez la commande suivante pour supprimer l’écran de démarrage IIS.
 
 ```powershell
-[IIS]: PS C:\> del C:\inetpub\wwwroot\iisstart.htm
+[IISApp]: PS C:\> del C:\inetpub\wwwroot\iisstart.htm
 ```
 Exécutez la commande suivante pour remplacer le site IIS par défaut par un nouveau site statique.
 
@@ -523,6 +523,6 @@ exit
 
 
 
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=Mar16_HO1-->
 
 

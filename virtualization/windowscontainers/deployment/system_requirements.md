@@ -1,12 +1,27 @@
-
-
-
+---
+author: neilpeterson
+---
 
 # Configuration requise pour un conteneur Windows
 
 **Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
 
 Ces guides fournissent la configuration requise pour un hôte de conteneur Windows.
+
+## Conteneurs Windows sur un système physique
+
+- Le rôle Conteneur Windows est uniquement disponible sur Windows Server 2016 TP4 (Full et Core) et Nano Server.
+- Si les conteneurs Hyper-V sont exécutés, le rôle Hyper-V doit être installé.
+
+## Conteneurs Windows sur un système virtuel
+
+Si un hôte de conteneur Windows est exécuté sur une machine virtuelle Hyper-V et héberge également des conteneurs Hyper-V, la virtualisation imbriquée doit être activée. La configuration requise pour la virtualisation imbriquée est la suivante :
+
+- Au moins 4 Go de RAM disponible pour l’hôte Hyper-V virtualisé.
+- Windows Server 2016 Technical Preview 4 ou Windows 10 build 10565 sur le système hôte et Windows Server Technical Preview 4 (Full, Core) ou Nano Server sur la machine virtuelle.
+- Un processeur Intel VT-x (cette fonctionnalité est actuellement disponible pour les processeurs Intel uniquement).
+- La machine virtuelle de l’hôte de conteneur doit aussi avoir au moins 2 processeurs virtuels.
+
 
 ## Images de système d’exploitation prises en charge
 
@@ -39,21 +54,11 @@ Windows Server Technical Preview 4 est offert avec deux images de système d’
 </tbody>
 </table>
 
-## Configuration requise pour un conteneur Hyper-V
-
-Si un hôte de conteneur Windows est exécuté sur une machine virtuelle Hyper-V et héberge également des conteneurs Hyper-V, la virtualisation imbriquée doit être activée. La configuration requise pour la virtualisation imbriquée est la suivante :
-
-- Au moins 4 Go de RAM disponible pour l’hôte Hyper-V virtualisé.
-- Windows Server 2016 Technical Preview 4 ou Windows 10 build 10565, à la fois sur l’hôte physique et l’hôte virtualisé.
-- Un processeur Intel VT-x (cette fonctionnalité est actuellement disponible pour les processeurs Intel uniquement).
-- La machine virtuelle de l’hôte de conteneur doit aussi avoir au moins 2 processeurs virtuels.
 
 
 
 
 
-
-
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=Mar16_HO1-->
 
 
