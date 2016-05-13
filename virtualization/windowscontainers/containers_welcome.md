@@ -1,3 +1,7 @@
+
+
+
+
 # Documentation sur les conteneurs Windows
 
 Les conteneurs Windows offrent une virtualisation au niveau du système d’exploitation qui permet à plusieurs applications isolées d’être exécutées sur un seul système. Deux types de runtime de conteneurs différents sont compris dans la fonctionnalité, chacun avec un degré différent d’isolation d’application. Pour procéder à l’isolation, les conteneurs Windows Server passent par l’isolation de processus et d’espace de noms. Les conteneurs Hyper-V encapsulent chaque conteneur dans une machine virtuelle légère. En plus de deux runtimes, les deux peuvent être gérés avec PowerShell ou Docker. L’ensemble de cette documentation fournit des guides de démarrage rapide, des guides de déploiement et des détails techniques sur les opérations de gestion.
@@ -9,7 +13,7 @@ Les conteneurs Windows offrent une virtualisation au niveau du système d’expl
 Testez les conteneurs Windows Server et Hyper-V en utilisant les guides de démarrage rapide suivants.<br /><br />
 <ul>
 <li>[Démarrage rapide d’Azure](quick_start/azure_setup.md)<br /><br /></li>
-<li>[Déployer un nouvel hôte de conteneur](quick_start/container_setup.md)<br /><br /></li>
+<li>[Déployer un nouvel hôte de conteneurs](quick_start/container_setup.md)<br /><br /></li>
 <li>[Déployer un hôte sur le système existant](quick_start/inplace_setup.md)<br /><br /></li>
 <li>[Démarrage rapide de PowerShell](quick_start/manage_powershell.md)<br /><br /></li>
 <li>[Démarrage rapide de Docker](quick_start/manage_docker.md)<br /><br /></li>
@@ -22,7 +26,7 @@ Testez les conteneurs Windows Server et Hyper-V en utilisant les guides de déma
 Découvrez comment déployer les conteneurs Windows sur Windows Server 2016 et Nano Server.<br /><br />
 <ul>
 <li>[Configuration requise](deployment/system_requirements.md)<br /><br /></li>
-<li>[Déployer un hôte de conteneur](deployment/deployment.md)<br /><br /></li>
+<li>[Déployer un hôte de conteneurs](deployment/deployment.md)<br /><br /></li>
 <li>[Déployer Docker sur Windows](deployment/docker_windows.md)<br /><br /></li>
 </ul>
 </td>
@@ -44,10 +48,10 @@ Découvrez comment gérer les conteneurs Windows dans Windows Server 2016 et Na
 </tr>
 <tr>
 <td><center>![](media/video.png)</center></td>
-<td>**Vidéos**<br /><br />
-Vous êtes intéressé par les démonstrations et les interviews de l’équipe des conteneurs Windows ?<br /><br />
+<td>**Regarder**<br /><br />
+Vous êtes intéressé par des démonstrations et des interviews de l’équipe des conteneurs Windows ?<br /><br />
 <ul>
-<li>[Chaîne des conteneurs](https://channel9.msdn.com/Blogs/containers)</li>
+<li>[Chaîne Conteneurs](https://channel9.msdn.com/Blogs/containers)</li>
 </ul>
 <br />
 </td>
@@ -68,4 +72,8 @@ Interagissez avec la communauté, testez des exemples et trouvez d’autres ress
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Feb16_HO3-->
+
+

@@ -8,7 +8,7 @@ Maintenant que vous connaissez les principes de base liés au déploiement d’H
 2.  Exécutez la commande suivante pour afficher une liste pouvant faire l’objet d’une recherche des commandes PowerShell disponibles dans le module Hyper-V PowerShell.
 
  ```powershell
-get-command –module hyper-v | out-gridview
+get-command -module hyper-v | out-gridview
  ```
   Vous obtenez une liste qui ressemble à ceci :
 
@@ -37,15 +37,15 @@ get-vm
 
  ![](media\get_vm.png)
 
-2. Pour obtenir uniquement la liste des machines virtuelles sous tension, ajoutez un filtre à la commande `get-vm`. Vous pouvez ajouter un filtre à l’aide de la commande where-object. Pour plus d’informations sur le filtrage, voir la documentation [Utilisation de Where-Object](https://technet.microsoft.com/en-us/library/ee177028.aspx).
+2. Pour obtenir uniquement la liste des machines virtuelles sous tension, ajoutez un filtre à la commande `get-vm`. Vous pouvez ajouter un filtre à l’aide de la commande where-object. Pour plus d’informations sur le filtrage, consultez la documentation [Utilisation de Where-Object](https://technet.microsoft.com/en-us/library/ee177028.aspx).
 
  ```powershell
- get-vm | where {$_.State –eq ‘Running’}
+ get-vm | where {$_.State -eq ‘Running’}
  ```
 3.  Pour répertorier toutes les machines virtuelles dans un état hors tension, exécutez la commande suivante. Cette commande est une copie de la commande de l’étape 2 dans laquelle le filtre « Running » est remplacé par le filtre « Off ».
 
  ```powershell
- get-vm | where {$_.State –eq ‘Off’}
+ get-vm | where {$_.State -eq ‘Off’}
  ```
 
 ### Démarrer et arrêter des machines virtuelles
@@ -53,18 +53,18 @@ get-vm
 1. Pour démarrer une machine virtuelle spécifique, exécutez la commande suivante avec le nom de la machine virtuelle :
 
  ```powershell
- Start-vm –Name <virtual machine name>
+ Start-vm -Name <virtual machine name>
  ```
 
 2. Pour démarrer toutes les machines virtuelles actuellement hors tension, obtenez la liste de ces machines et dirigez-la vers la commande « start-vm » :
 
   ```powershell
- get-vm | where {$_.State –eq ‘Off’} | start-vm
+ get-vm | where {$_.State -eq ‘Off’} | start-vm
   ```
 3. Pour arrêter toutes les machines virtuelles en cours d’exécution, exécutez la commande suivante :
 
   ```powershell
- get-vm | where {$_.State –eq ‘Running’} | stop-vm
+ get-vm | where {$_.State -eq ‘Running’} | stop-vm
   ```
 
 ### Créer un point de contrôle de machine virtuelle
@@ -79,7 +79,7 @@ Pour créer un point de contrôle à l’aide de PowerShell, sélectionnez la ma
 L’exemple suivant montre comment créer une machine virtuelle dans l’environnement d’écriture de scripts intégré de Windows PowerShell (ISE). Vous pouvez étendre cet exemple simple de manière à inclure des fonctionnalités supplémentaires de PowerShell et des déploiements de machines virtuelles plus avancés.
 
 1. Pour ouvrir PowerShell ISE, cliquez sur Démarrer, puis tapez **PowerShell ISE**.
-2. Exécutez le code suivant pour créer une machine virtuelle. Pour plus d’informations sur la commande New-VM, voir la documentation [New-VM](https://technet.microsoft.com/en-us/library/hh848537.aspx).
+2. Exécutez le code suivant pour créer une machine virtuelle. Pour plus d’informations sur la commande New-VM, consultez la documentation de [New-VM](https://technet.microsoft.com/en-us/library/hh848537.aspx).
 
   ```powershell
  $VMName = "VMNAME"
@@ -100,8 +100,13 @@ L’exemple suivant montre comment créer une machine virtuelle dans l’environ
 
 ## Conclusion et références
 
-Dans ce document, nous avons effectué quelques étapes simples pour explorer le module PowerShell Hyper-V et quelques scénarios d’utilisation. Pour plus d’informations sur le module PowerShell Hyper-V, voir les [informations de référence sur les applets de commande Hyper-V dans Windows PowerShell](https://technet.microsoft.com/%5Clibrary/Hh848559.aspx).
+Dans ce document, nous avons effectué quelques étapes simples pour explorer le module PowerShell Hyper-V et quelques scénarios d’utilisation. Pour plus d’informations sur le module PowerShell Hyper-V, consultez les [informations de référence sur les applets de commande Hyper-V dans Windows PowerShell](https://technet.microsoft.com/%5Clibrary/Hh848559.aspx).
 
 
+
+
+
+
+<!--HONumber=Feb16_HO4-->
 
 

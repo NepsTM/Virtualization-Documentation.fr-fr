@@ -1,3 +1,7 @@
+
+
+
+
 # Guide de démarrage rapide des conteneurs Windows - PowerShell
 
 Les conteneurs Windows peuvent servir à déployer rapidement de nombreuses applications isolées sur un ordinateur unique. Ce guide de démarrage rapide décrit le déploiement et la gestion de conteneurs Windows Server et Hyper-V à l’aide de PowerShell. Tout au long de cet exercice, vous allez créer entièrement une application très simple « hello world », qui s’exécute dans un conteneur Windows Server et un conteneur Hyper-V. Pendant ce processus, vous allez créer des images de conteneur, utiliser des dossiers partagés de conteneur et gérer le cycle de vie du conteneur. Une fois terminé, vous aurez acquis une compréhension de base du déploiement et de la gestion de conteneurs Windows.
@@ -517,4 +521,8 @@ exit
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Feb16_HO3-->
+
+

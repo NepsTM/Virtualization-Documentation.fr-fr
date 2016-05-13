@@ -1,3 +1,7 @@
+
+
+
+
 # Mise en réseau de conteneur
 
 **Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
@@ -106,7 +110,7 @@ Le commutateur virtuel externe peut maintenant être connecté à un conteneur, 
 Lors du démarrage du démon Docker, vous pouvez sélectionner un pont réseau. Lors de l’exécution du Docker sur Windows, il s’agit du commutateur virtuel externe ou NAT. L’exemple suivant montre comment démarrer le démon Docker en spécifiant un commutateur virtuel nommé `Virtual Switch`.
 
 ```powershell
-Docker daemon –D –b “Virtual Switch” -H 0.0.0.0:2375
+Docker daemon -D -b “Virtual Switch” -H 0.0.0.0:2375
 ```
 
 Si vous avez déployé l’hôte du conteneur et le Docker à l’aide des scripts fournis dans Windows Container Quick Starts, un commutateur virtuel interne est créé avec un type de NAT, et un service Docker est créé et préconfiguré pour utiliser ce commutateur. Pour modifier le commutateur virtuel que le service Docker utilise, vous devez arrêter le service Docker, modifier un fichier de configuration, puis redémarrer le service.
@@ -149,4 +153,8 @@ Pour plus d’informations sur chacune de ces commandes, consultez les [informat
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+

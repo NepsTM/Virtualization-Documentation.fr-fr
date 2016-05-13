@@ -1,8 +1,12 @@
+
+
+
+
 # Conteneurs Windows
 
 À l’ère du mobile et du cloud, les applications sont vecteurs d’innovation. Les conteneurs, et l’écosystème qui se développe autour, encouragent les développeurs de logiciels à créer la prochaine génération d’expériences d’applications.
 
-Découvrez ici une petite vidéo de présentation : [Conteneurs Windows : développement d’applications modernes avec un contrôle de niveau professionnel](https://youtu.be/Ryx3o0rD5lY).
+Regardez une présentation rapide ici : [Conteneurs Windows : développement d’applications modernes avec un contrôle de niveau professionnel](https://youtu.be/Ryx3o0rD5lY).
 
 ## Présentation des conteneurs
 
@@ -10,7 +14,7 @@ Ils constituent un environnement d’exploitation isolé, mobile et contrôlé p
 
 En fait, un conteneur est un endroit isolé dans lequel une application peut s’exécuter sans affecter le reste du système et sans que le système n’affecte l’application. Les conteneurs sont la prochaine étape de la virtualisation.
 
-Si vous étiez à l’intérieur d’un conteneur, vous vous sentiriez comme dans une machine virtuelle ou un ordinateur physique nouvellement installé. Et, pour [Docker](https://www.docker.com/), un conteneur Windows Server peut être géré de la même façon que tout autre conteneur.
+Si vous étiez à l’intérieur d’un conteneur, vous vous sentiriez comme dans une machine virtuelle ou un ordinateur physique nouvellement installé. Enfin, pour [Docker](https://www.docker.com/), un conteneur Windows Server peut être géré de la même façon que n’importe quel autre conteneur.
 
 ## Conteneurs Windows
 
@@ -25,7 +29,7 @@ Les conteneurs Windows incluent deux types de conteneurs différents, ou runtime
 
 Quand vous commencez à utiliser des conteneurs, vous remarquez de nombreuses similitudes entre un conteneur et une machine virtuelle. Un conteneur exécute un système d’exploitation, a un système de fichiers et est accessible via un réseau comme s’il s’agissait d’un système d’ordinateur physique ou virtuel. Ceci dit, la technologie et les concepts derrière les conteneurs sont très différents de ceux des machines virtuelles.
 
-[Ce billet de blog](http://azure.microsoft.com/blog/2015/08/17/containers-docker-windows-and-trends/) de Mark Russinovich décrit bien les conteneurs.
+[Ce billet de blog](http://azure.microsoft.com/blog/2015/08/17/containers-docker-windows-and-trends/) de Mark Russinovich explique bien ce que sont les conteneurs.
 
 Les concepts clés suivants peuvent s’avérer utiles quand vous commencez à créer des conteneurs Windows et à les utiliser.
 
@@ -69,9 +73,14 @@ src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-an
 
 ## Essayer les conteneurs Windows Server
 
-[Prise en main des conteneurs Windows dans Windows Azure](../quick_start/azure_setup.md)  
+[Prise en main des conteneurs Windows dans Microsoft Azure](../quick_start/azure_setup.md)  
 [Prise en main des conteneurs Windows localement](../quick_start/container_setup.md)
 
 
+
+
+
+
+<!--HONumber=Feb16_HO3-->
 
 

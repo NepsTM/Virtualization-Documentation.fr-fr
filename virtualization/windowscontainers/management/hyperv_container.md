@@ -1,12 +1,16 @@
+---
+auteur : neilpeterson
+---
+
 # Conteneurs Hyper-V
 
-**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
+**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
 
-La technologie de conteneur Windows comprend deux types distincts de conteneurs, les conteneurs Windows Server et les conteneurs Hyper-V. Les deux types de conteneurs sont créés, sont gérés et fonctionnent de manière identique. Elles produisent et consomment les mêmes images de conteneur. La différence entre eux est le niveau d’isolation créé entre le conteneur, le système d’exploitation hôte et tous les autres conteneurs exécutés sur cet hôte.
+La technologie de conteneur Windows comprend deux types distincts de conteneurs, les conteneurs Windows Server et les conteneurs Hyper-V. Les deux types de conteneurs sont créés, sont gérés et fonctionnent de manière identique.  Ils produisent et consomment même les mêmes images de conteneurs. La différence entre eux est le niveau d’isolation créé entre le conteneur, le système d’exploitation hôte et tous les autres conteneurs exécutés sur cet hôte.
 
-**Conteneurs Windows Server** : plusieurs instances de conteneurs peuvent être exécutées simultanément sur un hôte avec une isolation assurée par le biais des technologies d’espaces de noms, de contrôle des ressources et d’isolation des processus. Les conteneurs Windows Server et l’hôte partagent le même noyau.
+**Conteneurs Windows Server** : Plusieurs instances de conteneurs peuvent s’exécuter simultanément sur un hôte avec une isolation assurée par le biais des technologies des espaces de noms, du contrôle des ressources et de l’isolation des processus.  Les conteneurs Windows Server partagent le même noyau avec l’hôte ainsi qu’entre eux-mêmes.
 
-**Conteneurs Hyper-V** : plusieurs instances de conteneurs peuvent être exécutées simultanément sur un hôte. Cependant, chaque conteneur s’exécute sur une machine virtuelle spéciale. Une isolation au niveau du noyau est ainsi fournie entre chaque conteneur Hyper-V et l’hôte du conteneur.
+**Conteneurs Hyper-V** : Plusieurs instances de conteneurs peuvent s’exécuter simultanément sur un hôte. Cependant, chaque conteneur s’exécute à l’intérieur d’une machine virtuelle spéciale. Ceci fournit une isolation de niveau noyau entre chaque conteneur Hyper-V et l’hôte des conteneurs.
 
 ## Conteneur Hyper-V PowerShell
 
@@ -26,12 +30,12 @@ En plus de la création d’un conteneur comme conteneur Hyper-V au moment de la
 
 > Actuellement, le seul système d’exploitation hôte qui prend en charge la conversion d’exécution de conteneur est Nano Server.
 
-Créez un conteneur avec l’exécution par défaut.
+Créez un conteneur avec l’exécution par défaut. 
 
 ```powershell
-PS C:\> New-Container -Name DEMO -ContainerImageName nanoserver -SwitchName NAT
+PS C:\> $con = New-Container -Name DEMO -ContainerImageName nanoserver -SwitchName NAT
 ```
-Retournez la propriété d’exécution du conteneur, notez que l’exécution est définie avec la valeur par défaut.
+Retournez la propriété d’exécution du conteneur, notez que l’exécution est définie avec la valeur par défaut. 
 
 ```powershell
 PS C:\> Get-Container | Select ContainerName, RuntimeType
@@ -41,7 +45,7 @@ ContainerName RuntimeType
 DEMO              Default
 ```
 
-Pour modifier l’exécution du conteneur, utilisez la commande `set-container`.
+Pour changer l’environnement d’exécution du conteneur, utilisez la commande `set-container`.
 
 ```powershell
 PS C:\> Set-Container $con -RuntimeType HyperV
@@ -59,15 +63,15 @@ DEMO               HyperV
 
 ## Conteneur Hyper-V Docker
 
-### Créer un conteneur
+### Créer un conteneur <!--docker-->
 
-La gestion des conteneurs Hyper-V avec Docker est presque identique à la gestion des conteneurs Windows Server. Quand vous créez un conteneur Hyper-V avec Docker, le paramètre `isolation=hyperv` est utilisé.
+La gestion des conteneurs Hyper-V avec Docker est presque identique à la gestion des conteneurs Windows Server. Quand vous créez un conteneur Hyper-V avec Docker, le paramètre `--isolation=hyperv` est utilisé.
 
 ```powershell
 docker run -it --isolation=hyperv 646d6317b02f cmd
 ```
 
-## Éléments internes
+## Éléments internes 
 
 ### Processus de travail de machine virtuelle
 
@@ -85,7 +89,7 @@ TST2      HyperV ccdf6a6e-3358-4419-8dda-ffe87f1de184
 
 Notez que le conteneur peut être associé à un processus par le nom d’utilisateur de processus et l’ID de conteneur.
 
-![](media/process.png)
+![](media/process.png) 
 
 Cette relation peut également être affichée à l’aide de la commande `Get-ComputeProcess`.
 
@@ -99,7 +103,7 @@ B8D7B55A-6B27-4832-88D8-4774DF98F208 TST  VMMS  Container
 CCDF6A6E-3358-4419-8DDA-FFE87F1DE184 TST2 VMMS  Container
 ```
 
-Pour plus d’informations sur la commande `Get-ComputeProcess`, voir [Interopérabilité de gestion](./hcs_powershell.md).
+Pour plus d’informations sur la commande `Get-ComputeProcess`, consultez [Interopérabilité de la gestion](./hcs_powershell.md).
 
 ## Démonstration de l’isolation
 
@@ -120,7 +124,7 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
 Créez un conteneur Windows Server :
 
 ```powershell
-PS C:\> New-Container -Name WINCONT -ContainerImageName WindowsServerCore -SwitchName "Virtual Switch"
+PS C:\> $con = New-Container -Name WINCONT -ContainerImageName WindowsServerCore -SwitchName "Virtual Switch"
 ```
 
 Démarrez le conteneur :
@@ -132,7 +136,7 @@ PS C:\> Start-Container $con
 Créez une session PSsession à distance avec le conteneur.
 
 ```powershell
-PS C:\> Enter-PSSession -ContainerId $con.ContainerId –RunAsAdministrator
+PS C:\> Enter-PSSession -ContainerId $con.ContainerId -RunAsAdministrator
 ```
 
 À partir de la session de conteneur à distance, retournez tous les processus avec le nom csrss. Notez l’ID du processus csrss en cours d’exécution (1228 dans l’exemple ci-dessous).
@@ -186,7 +190,7 @@ PS C:\> Start-Container $con
 Créez une session PSsession à distance avec le conteneur Hyper-V.
 
 ```powershell
-PS C:\> Enter-PSSession -ContainerId $con.ContainerId –RunAsAdministrator
+PS C:\> Enter-PSSession -ContainerId $con.ContainerId -RunAsAdministrator
 ```
 
 Retournez une liste de processus csrss exécutés dans le conteneur Hyper-V. Notez l’ID du processus csrss (956 dans l’exemple ci-dessous).
@@ -213,9 +217,9 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
 
 ## Vidéo de la procédure pas à pas
 
-<iframe src="https://channel9.msdn.com/blogs/Containers/Container-Fundamentals--part-5-Hyper-V-Containers/Player#ccLang=fr " width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
+<iframe src="https://channel9.msdn.com/Blogs/containers/Container-Fundamentals--Part-5-Hyper-V-Containers/player" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
+<!--HONumber=Feb16_HO4-->
 
 
-<!--HONumber=Feb16_HO2-->

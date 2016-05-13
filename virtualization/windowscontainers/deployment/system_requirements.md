@@ -1,3 +1,7 @@
+
+
+
+
 # Configuration requise pour un conteneur Windows
 
 **Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
@@ -48,4 +52,8 @@ Si un hôte de conteneur Windows est exécuté sur une machine virtuelle Hyper-V
 
 
 
-<!--HONumber=Jan16_HO1-->
+
+
+<!--HONumber=Feb16_HO3-->
+
+

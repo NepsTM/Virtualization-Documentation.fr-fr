@@ -1,3 +1,7 @@
+
+
+
+
 # Guide de démarrage rapide des conteneurs Windows - Docker
 
 Les conteneurs Windows peuvent servir à déployer rapidement de nombreuses applications isolées sur un ordinateur unique. Cet exercice montre comment créer et gérer un conteneur Windows à l’aide de Docker. Quand vous aurez terminé, vous aurez compris les bases de l’intégration de Docker aux conteneurs Windows et aurez acquis une expérience pratique de la technologie.
@@ -35,7 +39,7 @@ nanoserver          10.0.10586.0        8572198a60f1        2 weeks ago         
 nanoserver          latest              8572198a60f1        2 weeks ago         0 B
 ```
 
-Pour cet exemple, créez un conteneur à l’aide de l’image Windows Server Core. Pour ce faire, utilisez la commande `docker run`. Pour plus d’informations sur la commande `docker run`, voir les [informations de référence sur Docker Run sur docker.com](https://docs.docker.com/engine/reference/run/).
+Pour cet exemple, créez un conteneur à l’aide de l’image Windows Server Core. Pour ce faire, utilisez la commande `docker run`. Pour plus d’informations sur la commande `docker run`, consultez les [informations de référence sur Docker Run sur docker.com](https://docs.docker.com/engine/reference/run/).
 
 Cet exemple montre comment créer un conteneur nommé `iisbase`, puis comment démarrer une session interactive avec le conteneur.
 
@@ -67,7 +71,7 @@ C:\> docker commit iisbase windowsservercoreiis
 4193c9f34e320c4e2c52ec52550df225b2243927ed21f014fbfff3f29474b090
 ```
 
-Les nouvelles images IIS sont consultables à l’aide de la commande `docker images`.
+Les nouvelles images IIS sont consultables à l’aide de la commande `docker images`.
 
 ```powershell
 C:\> docker images
@@ -82,12 +86,10 @@ nanoserver             latest              8572198a60f1        2 weeks ago      
 
 ### Configurer le réseau
 
-Avant de créer un conteneur avec Docker, vous devez créer une règle pour le Pare-feu Windows qui autorise la connectivité réseau vers le conteneur. Exécutez le script PowerShell suivant pour créer une règle pour le port 80. Remarque : cette opération doit être exécutée à partir d’une session PowerShell.
+Avant de créer un conteneur avec Docker, vous devez créer une règle pour le Pare-feu Windows qui autorise la connectivité réseau vers le conteneur. Exécutez la commande suivante pour créer une règle pour le port 80.
 
 ```powershell
-if (!(Get-NetFirewallRule | where {$_.Name -eq "TCP80"})) {
-    New-NetFirewallRule -Name "TCP80" -DisplayName "HTTP on TCP/80" -Protocol tcp -LocalPort 80 -Action Allow -Enabled True
-}
+powershell.exe "if(!(Get-NetFirewallRule | where {$_.Name -eq 'TCP80'})) { New-NetFirewallRule -Name 'TCP80' -DisplayName 'HTTP on TCP/80' -Protocol tcp -LocalPort 80 -Action Allow -Enabled True }" 
 ```
 
 Vous pouvez également noter l’adresse IP de l’hôte de conteneur. Elle sera utilisée tout au long de l’exercice.
@@ -96,7 +98,7 @@ Vous pouvez également noter l’adresse IP de l’hôte de conteneur. Elle sera
 
 Vous disposez maintenant d’une image de conteneur qui contient IIS et permet de déployer des environnements d’exploitation compatibles avec IIS.
 
-Pour créer un conteneur à partir de la nouvelle image, utilisez la commande `docker run`, cette fois en spécifiant le nom de l’image IIS. Notez que cet exemple a spécifié un paramètre `-p 80:80`. Étant donné que le conteneur est connecté à un commutateur virtuel qui fournit des adresses IP par la traduction d’adresses réseau, un port de l’hôte de conteneur doit être mappé à un port sur l’adresse IP NAT des conteneurs. Pour plus d’informations sur `-p`, voir les [informations de référence sur Docker Run sur docker.com](https://docs.docker.com/engine/reference/run/)
+Pour créer un conteneur à partir de la nouvelle image, utilisez la commande `docker run`, cette fois en spécifiant le nom de l’image IIS. Notez que cet exemple a spécifié un paramètre `-p 80:80`. Étant donné que le conteneur est connecté à un commutateur virtuel qui fournit des adresses IP par la traduction d’adresses réseau, un port de l’hôte de conteneur doit être mappé à un port sur l’adresse IP NAT des conteneurs. Pour plus d’informations sur `-p`, consultez les [informations de référence sur Docker Run sur docker.com](https://docs.docker.com/engine/reference/run/)
 
 ```powershell
 C:\> docker run --name iisdemo -it -p 80:80 windowsservercoreiis cmd
@@ -159,7 +161,7 @@ Ouvrez le fichier dockerfile dans le Bloc-notes.
 C:\> notepad c:\build\dockerfile
 ```
 
-Copiez le texte suivant dans le fichier dockerfile et enregistrez-le. Ces commandes indiquent à Docker de créer une image en se servant de `windowsservercore` comme base, puis d’inclure les modifications spécifiées avec `RUN`. Pour plus d’informations sur les fichiers Dockerfile, voir les [informations de référence sur Docker Run sur docker.com](http://docs.docker.com/engine/reference/builder/).
+Copiez le texte suivant dans le fichier dockerfile et enregistrez-le. Ces commandes indiquent à Docker de créer une image en se servant de `windowsservercore` comme base, puis d’inclure les modifications spécifiées avec `RUN`. Pour plus d’informations sur les fichiers Dockerfile, consultez les [informations de référence sur les fichiers Dockerfile sur docker.com](http://docs.docker.com/engine/reference/builder/).
 
 ```powershell
 FROM windowsservercore
@@ -233,7 +235,7 @@ Créez un répertoire sur l’hôte de conteneur, qui sera partagé avec le cont
 C:\> powershell New-Item -Type Directory c:\share\en-us
 ```
 
-Copiez `Microsoft-NanoServer-IIS-Package.cab` depuis `NanoServer\Packages` dans `c:\share` sur l’hôte du conteneur.
+Copiez `Microsoft-NanoServer-IIS-Package.cab` à partir de `NanoServer\Packages` dans `c:\share` sur l’hôte du conteneur.
 
 Copiez `NanoServer\Packages\en-us\Microsoft-NanoServer-IIS-Package.cab` dans `c:\share\en-us` sur l’hôte du conteneur.
 
@@ -348,4 +350,8 @@ C:\> exit
 
 
 
-<!--HONumber=Feb16_HO2-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+

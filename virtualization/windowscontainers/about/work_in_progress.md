@@ -1,3 +1,7 @@
+
+
+
+
 # Travail en cours
 
 Si votre problème n’est pas traité ici ou si vous avez des questions, faites-nous part de vos commentaires via le [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
@@ -16,15 +20,6 @@ Si vous installez des mises à jour sur le système d’exploitation de l’hôt
 
 **Solution de contournement :**   
 Téléchargez et installez une image de base de conteneur correspondant à la version et au niveau de correctif du système d’exploitation de l’hôte de conteneur.
-
-### Tous les lecteurs autres que C:/ sont visibles dans les conteneurs
-
-Tous les lecteurs autres que C:/ accessibles à l’hôte de conteneur sont automatiquement mappés à des nouveaux conteneurs Windows en cours d’exécution.
-
-Pour l’instant, il n’existe aucun moyen de mapper des dossiers de manière sélective à un conteneur. En guise de solution de contournement provisoire, les lecteurs sont mappés automatiquement.
-
-**Solution de contournement : **  
-Nous y travaillons. À l’avenir, vous pourrez partager des dossiers.
 
 ### Comportement par défaut du pare-feu
 
@@ -94,11 +89,11 @@ Dans cette version, nous prenons en charge un compartiment réseau par conteneur
 Si plusieurs points de terminaison doivent être exposés par un conteneur, utilisez le mappage de port NAT.
 
 
-### Les mappages NAT statiques peuvent créer des conflits avec les mappages de port via Docker
+### Les mappages NAT statiques peuvent entrer en conflit avec les mappages de ports via Docker
 
-Si vous créez des conteneurs à l’aide de Windows PowerShell et ajoutez des mappages NAT statiques, ceux-ci peuvent provoquer des conflits si vous ne les supprimez pas avant de démarrer un conteneur à l’aide de `docker -p &lt;src&gt;:&lt;dst&gt;`
+Si vous créez des conteneurs à l’aide de Windows PowerShell et que vous ajoutez des mappages NAT statiques, ils peuvent provoquer des conflits si vous ne les supprimez pas avant de démarrer un conteneur en utilisant `docker -p &lt;src&gt;:&lt;dst&gt;`
 
-Voici un exemple de conflit créé par un mappage statique sur le port 80
+Voici un exemple d’un conflit avec un mappage statique sur le port 80
 ```
 PS C:\IISDemo> Add-NetNatStaticMapping -NatName "ContainerNat" -Protocol TCP -ExternalIPAddress 0.0.0.0 -InternalIPAddress
  172.16.0.2 -InternalPort 80 -ExternalPort 80
@@ -137,8 +132,8 @@ duplicate name exists on the network. If joining a domain, go to System in Contr
 ```
 
 
-***Solution possible***
-Pour tenter de résoudre le conflit, supprimez le mappage de port à l’aide de PowerShell. Le conflit lié au port 80 provoqué dans l’exemple ci-dessus sera résolu.
+***Solution éventuelle***
+Supprimer le mappage de port à l’aide de PowerShell résoudra peut-être le problème, car il n’y aura plus de conflit avec le port 80 provoqué dans l’exemple ci-dessus.
 ```powershell
 Get-NetNatStaticMapping | ? ExternalPort -eq 80 | Remove-NetNatStaticMapping
 ```
@@ -292,4 +287,8 @@ Nous étudions activement des solutions pour prendre en charge ces types de scé
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+

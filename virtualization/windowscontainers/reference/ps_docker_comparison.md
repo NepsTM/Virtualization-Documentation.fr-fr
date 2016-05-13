@@ -1,3 +1,7 @@
+
+
+
+
 # Comparaison entre Docker et PowerShell pour la gestion des conteneurs Windows
 
 Il existe plusieurs méthodes pour gérer des conteneurs Windows à l’aide d’outils Windows intégrés (PowerShell, dans cette version préliminaire) et d’outils de gestion Open Source tels que Docker.  
@@ -24,8 +28,8 @@ Les applets de commande PowerShell des conteneurs exposent une API qui n’est p
 | `docker rm`| `Remove-Container`|
 | `docker rmi`| `Remove-ContainerImage`|
 | `docker create`| `New-Container`|
-| `docker commit <ID_conteneur>`| `New-ContainerImage -Container <conteneur>`|
-| `docker load <tarball>`| `Import-ContainerImage <package_AppX>`|
+| `docker commit <ID_conteneur>`| `New-ContainerImage -Container &lt;conteneur&gt;`|
+| `docker load &lt;tarball&gt;`| `Import-ContainerImage <package_AppX>`|
 | `docker save`| `Export-ContainerImage`|
 | `docker start`| `Start-Container`|
 | `docker stop`| `Stop-Container`|
@@ -40,10 +44,10 @@ Nous allons vous présenter quelques astuces qui permettent d’obtenir un modè
 
 1.  Le cycle de vie d’un conteneur dans le modèle PowerShell est légèrement différent. Dans le module PowerShell des conteneurs, nous présentons les opérations les plus granulaires de `New-Container` (qui crée un nouveau conteneur arrêté) et `Start-Container`.
 
-    Entre la création et le démarrage du conteneur, vous pouvez également configurer les paramètres du conteneur. Pour TP3, la seule autre configuration que nous comptons exposer est la possibilité de définir la connexion réseau pour le conteneur à l’aide des applets de commande (Add/Remove/Connect/Disconnect/Get/Set)-ContainerNetworkAdapter.
+  Entre la création et le démarrage du conteneur, vous pouvez également configurer les paramètres du conteneur. Pour TP3, la seule autre configuration que nous comptons exposer est la possibilité de définir la connexion réseau pour le conteneur à l’aide des applets de commande (Add/Remove/Connect/Disconnect/Get/Set)-ContainerNetworkAdapter.
 
 2.  Vous ne pouvez actuellement pas transmettre une commande à exécuter à l’intérieur du conteneur au démarrage. Toutefois, vous pouvez toujours obtenir une session PowerShell interactive vers un conteneur en cours d’exécution à l’aide de la commande `Enter-PSSession -ContainerId <ID d’un conteneur en cours d’exécution>`, et vous pouvez exécuter une commande à l’intérieur d’un conteneur en cours d’exécution à l’aide de la commande `Invoke-Command -ContainerId <id de conteneur> -ScriptBlock { code à exécuter à l’intérieur du conteneur }` ou `Invoke-Command -ContainerId <id de conteneur> -FilePath <chemin du script>`.  
-    Ces deux commandes autorisent l’indicateur `-RunAsAdministrator` facultatif pour les actions qui nécessitent des privilèges élevés.
+Ces deux commandes autorisent l’indicateur `-RunAsAdministrator` facultatif pour les actions qui nécessitent des privilèges élevés.
 
 
 ## Problèmes connus et avertissements
@@ -185,5 +189,10 @@ Pour ne pas dupliquer la documentation sur les API disponible dans Docker, voici
 
 Nous consignons ce qui fonctionne et ce qui ne fonctionne pas dans les API Docker dans notre document Travail en cours.
 
+
+
+
+
+<!--HONumber=Feb16_HO3-->
 
 

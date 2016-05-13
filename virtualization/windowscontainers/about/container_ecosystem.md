@@ -1,3 +1,7 @@
+
+
+
+
 # Création d’un écosystème de conteneurs
 
 Pour comprendre pourquoi la création d’un écosystème de conteneurs est si importante, parlons tout d’abord de Docker.
@@ -23,7 +27,6 @@ L’écosystème de conteneurs fournit des méthodes pour gérer des conteneurs,
 
 ![](media/containerEcosystem.png)
 
-
 Microsoft souhaite encourager la productivité et les choix des développeurs à mesure qu’ils génèrent ces applications de nouvelle génération. Notre objectif est d’alimenter la productivité des développeurs, ce qui signifie que les applications doivent pouvoir cibler n’importe quel cloud Microsoft sans avoir à modifier, réécrire ni reconfigurer le code.
 
 Microsoft s’engage à se montrer ouvert et soucieux des écosystèmes. Nous supportons de façon active l’union de plusieurs écosystèmes de développeurs dignes d’intérêt, tels que Windows et Linux, pour stimuler l’innovation.
@@ -31,5 +34,10 @@ Microsoft s’engage à se montrer ouvert et soucieux des écosystèmes. Nous su
 Dans les prochains mois, nous vous fournirons des informations supplémentaires sur d’autres partenaires dans cet écosystème en expansion.
 
 
+
+
+
+
+<!--HONumber=Feb16_HO4-->
 
 

@@ -1,8 +1,12 @@
+
+
+
+
 # Déployer un hôte de conteneur Windows sur un système virtuel ou physique existant
 
 Ce document décrit l’utilisation d’un script PowerShell pour déployer et configurer le rôle de conteneur Windows sur un système virtuel ou physique existant.
 
-Pour effectuer un pas à pas détaillé dans un déploiement avec script d’une nouvelle machine virtuelle Hyper-V configurée comme un hôte de conteneur Windows, voir [Nouvel hôte de conteneur Windows Hyper-V](./container_setup.md).
+Pour obtenir les étapes détaillées d’un déploiement scripté d’une nouvelle machine virtuelle Hyper-V configurée comme un hôte de conteneurs Windows, consultez [Nouvel hôte de conteneurs Windows Hyper-V](./container_setup.md).
 
 **À LIRE AVANT L’INSTALLATION DE L’IMAGE DE SYSTÈME D’EXPLOITATION DU CONTENEUR :** les termes du contrat de licence de la version préliminaire du logiciel Microsoft Windows Server (« termes du contrat de licence ») s’appliquent à votre utilisation du supplément de l’image de système d’exploitation du conteneur Microsoft Windows (« logiciel supplémentaire »). En téléchargeant et en utilisant le logiciel supplémentaire, vous acceptez les termes du contrat de licence, et vous ne pouvez pas l’utiliser si vous n’avez pas accepté les termes du contrat de licence. La version préliminaire du logiciel Windows Server et le logiciel supplémentaire sont tous deux concédés sous licence par Microsoft Corporation.
 
@@ -54,4 +58,8 @@ Maintenant que vous disposez d’un système Windows Server 2016 exécutant la 
 
 
 
-<!--HONumber=Feb16_HO2-->
+
+
+<!--HONumber=Feb16_HO3-->
+
+

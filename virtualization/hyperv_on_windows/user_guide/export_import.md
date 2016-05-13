@@ -28,7 +28,7 @@ Pour exporter une machine virtuelle à l’aide de PowerShell, utilisez la comma
 Export-VM -Name <vm name> -Path <path>
 ```
 
-Pour plus d’informations sur l’utilisation de Windows PowerShell pour exporter des machines virtuelles, voir [Export-VM](https://technet.microsoft.com/library/hh848491.aspx)
+Pour plus d’informations sur l’utilisation de Windows PowerShell pour exporter des machines virtuelles, consultez [Export-VM](https://technet.microsoft.com/library/hh848491.aspx).
 
 ## Importer une machine virtuelle
 
@@ -92,10 +92,15 @@ Import-VM -Path ‘C:\<vm export path>\2B91FEB3-F1E0-4FFF-B8BE-29CED892A95A.vmcx
 Pour effectuer une importation de copie et déplacer les fichiers de la machine virtuelle à l’emplacement Hyper-V par défaut, utilisez une commande semblable à celle-ci.
 
 ``` PowerShell
-Import-VM -Path 'C:\<vm export path>\2B91FEB3-F1E0-4FFF-B8BE-29CED892A95A.vmcx' –Copy -GenerateNewId
+Import-VM -Path 'C:\<vm export path>\2B91FEB3-F1E0-4FFF-B8BE-29CED892A95A.vmcx' -Copy -GenerateNewId
 ```
 
-Pour plus d’informations, voir [Import-VM](https://technet.microsoft.com/library/hh848495.aspx).
+Pour plus d’informations, consultez [Import-VM](https://technet.microsoft.com/library/hh848495.aspx).
 
+
+
+
+
+<!--HONumber=Feb16_HO4-->
 
 

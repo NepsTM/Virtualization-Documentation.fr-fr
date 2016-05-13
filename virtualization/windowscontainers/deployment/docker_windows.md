@@ -1,3 +1,7 @@
+
+
+
+
 # Docker et Windows
 
 **Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
@@ -26,7 +30,7 @@ Créez un répertoire nommé `c:\programdata\docker`. Dans ce répertoire, crée
 PS C:\> New-Item -ItemType File -Path C:\ProgramData\Docker\runDockerDaemon.cmd -Force
 ```
 
-Copiez le texte suivant dans le fichier `runDockerDaemon.cmd`. Ce fichier de commandes démarre le démon Docker avec la commande `docker daemon –D –b  « commutateur virtuel »`. Remarque : le nom du commutateur virtuel dans ce fichier doit correspondre au nom de celui que les conteneurs utilisent pour la connectivité réseau.
+Copiez le texte suivant dans le fichier `runDockerDaemon.cmd`. Ce fichier de commandes démarre le démon Docker avec la commande `docker daemon -D -b "Virtual Switch"`. Remarque : Le nom du commutateur virtuel dans ce fichier doit correspondre au nom de celui que les conteneurs utilisent pour la connectivité réseau.
 
 ```powershell
 @echo off
@@ -70,7 +74,7 @@ Onglet Application :
 
 - **Répertoire de démarrage :** C:\Windows\System32
 
-- **Arguments :** /s /c C:\ProgramData\docker\runDockerDaemon.cmd
+- **Arguments :** /s /c C:\ProgramData\docker\runDockerDaemon.cmd < nul
 
 - **Nom du service :** Docker
 
@@ -174,4 +178,8 @@ Par exemple, si vous souhaitez afficher les images disponibles :
 
 
 
-<!--HONumber=Jan16_HO3-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+

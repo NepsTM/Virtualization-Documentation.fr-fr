@@ -1,3 +1,7 @@
+
+
+
+
 # Gestion des conteneurs Windows Server
 
 **Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
@@ -21,7 +25,7 @@ NanoServer        CN=Microsoft 10.0.10584.1000 True
 WindowsServerCore CN=Microsoft 10.0.10584.1000 True
 ```
 
-Utilisez la commande `New-Container` pour créer un conteneur. Le conteneur peut également recevoir un nom NetBIOS à l’aide du paramètre `- ContainerComputerName`.
+Utilisez la commande `New-Container` pour créer un conteneur. Le conteneur peut également recevoir un nom NetBIOS à l’aide du paramètre `-ContainerComputerName`.
 
 ```powershell
 PS C:\> New-Container -ContainerImageName WindowsServerCore -Name demo -ContainerComputerName demo
@@ -34,7 +38,7 @@ demo  Off   00:00:00 WindowsServerCore
 Une fois le conteneur créé, ajoutez-lui une carte réseau.
 
 ```powershell
-PS C:\> Add-ContainerNetworkAdapter -ContainerName TST
+PS C:\> Add-ContainerNetworkAdapter -ContainerName demo
 ```
 
 Pour pouvoir connecter la carte réseau du conteneur à un commutateur virtuel, vous avez besoin du nom du commutateur. Pour obtenir la liste des commutateurs virtuels, utilisez la commande `Get-VMSwitch`.
@@ -48,10 +52,10 @@ DHCP External   Microsoft Hyper-V Network Adapter
 NAT  NAT
 ```
 
-Connectez la carte réseau au commutateur virtuel à l’aide de la commande `Connect-ContainerNetworkAdapter`. **REMARQUE** : cette opération peut également être effectuée quand le conteneur est créé à l’aide du paramètre –SwitchName.
+Connectez la carte réseau au commutateur virtuel à l’aide de la commande `Connect-ContainerNetworkAdapter`. **REMARQUE** : Cette opération peut également être effectuée quand le conteneur est créé à l’aide du paramètre -SwitchName.
 
 ```powershell
-PS C:\> Connect-ContainerNetworkAdapter -ContainerName TST -SwitchName NAT
+PS C:\> Connect-ContainerNetworkAdapter -ContainerName demo -SwitchName NAT
 ```
 
 ### Démarrer un conteneur
@@ -59,7 +63,7 @@ PS C:\> Connect-ContainerNetworkAdapter -ContainerName TST -SwitchName NAT
 Pour démarrer le conteneur, un objet PowerShell représentant ce conteneur est énuméré. Pour cela, placez la sortie de la commande `Get-Container` dans une variable PowerShell.
 
 ```powershell
-PS C:\> $container = Get-Container -Name TST
+PS C:\> $container = Get-Container -Name demo
 ```
 
 Vous pouvez ensuite utiliser ces données avec la commande `Start-Container` pour démarrer le conteneur.
@@ -81,13 +85,13 @@ PowerShell Direct peut être utilisé pour se connecter à un conteneur. Cela pe
 Pour créer une session interactive avec le conteneur, utilisez la commande `Enter-PSSession`.
 
  ```powershell
-PS C:\> Enter-PSSession -ContainerName TST –RunAsAdministrator
+PS C:\> Enter-PSSession -ContainerName demo -RunAsAdministrator
  ```
 
 Notez qu’une fois la session PowerShell à distance créée, l’invite PowerShell change pour refléter le nom du conteneur.
 
 ```powershell
-[TST]: PS C:\>
+[demo]: PS C:\>
 ```
 
 Les commandes peuvent également être exécutées sur un conteneur sans créer de session PowerShell persistante. Pour ce faire, utilisez la commande `Invoke-Command`.
@@ -96,12 +100,12 @@ L’exemple suivant crée un dossier nommé « Application » dans le conteneu
 
 ```powershell
 
-PS C:\> Invoke-Command -ContainerName TST -ScriptBlock {New-Item -ItemType Directory -Path c:\application }
+PS C:\> Invoke-Command -ContainerName demo -ScriptBlock {New-Item -ItemType Directory -Path c:\application }
 
 Directory: C:\
 Mode                LastWriteTime         Length Name                                                 PSComputerName
 ----                -------------         ------ ----                                                 --------------
-d-----       10/28/2015   3:31 PM                application                                          TST
+d-----       10/28/2015   3:31 PM                application                                          demo
 ```
 
 ### Arrêter un conteneur
@@ -109,7 +113,7 @@ d-----       10/28/2015   3:31 PM                application                    
 Pour arrêter le conteneur, un objet PowerShell représentant ce conteneur est nécessaire. Pour cela, placez la sortie de la commande `Get-Container` dans une variable PowerShell.
 
 ```powershell
-PS C:\> $container = Get-Container -Name TST
+PS C:\> $container = Get-Container -Name demo
 ```
 
 Vous pouvez ensuite utiliser ces données avec la commande `Stop-Container` pour arrêter le conteneur.
@@ -129,7 +133,7 @@ PS C:\> Get-Container | Stop-Container
 Quand un conteneur est devenu inutile, il peut être supprimé. Pour supprimer un conteneur, il doit être arrêté, et un objet PowerShell doit être créé pour le représenter.
 
 ```powershell
-PS C:\> $container = Get-Container -Name TST
+PS C:\> $container = Get-Container -Name demo
 ```
 
 Pour supprimer le conteneur, utilisez la commande `Remove-Container`.
@@ -199,4 +203,8 @@ Pour plus d’informations sur la commande docker rm, consultez les [information
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+
