@@ -24,7 +24,7 @@ Dans les documents suivants, vous trouverez une présentation détaillée de la 
             <p>Les documents suivants offrent une présentation rapide et interactive d’Hyper-V sur Windows 10.</p>
             <ul>
                 <li class="unordered">[Vérifier la configuration système requise](quick_start\walkthrough_compatibility.md)<br /><br /></li>
-                <li class="unordered">[Installer Hyper-V](quick_start\walkthrough_install.md)<br /><br /></li>
+                <li class="unordered">[Installer Hyper-V](quick_start\walkthrough_install.md)<br /><br /></li>
                 <li class="unordered">[Créer un commutateur virtuel](quick_start\walkthrough_virtual_switch.md)<br /><br /></li>
                 <li class="unordered">[Créer une machine virtuelle](quick_start\walkthrough_create_vm.md)<br /><br /></li>
                 <li class="unordered">[Hyper-V et PowerShell](quick_start\walkthrough_powershell.md)<br /><br /></li>
@@ -37,8 +37,8 @@ Dans les documents suivants, vous trouverez une présentation détaillée de la 
             <p><strong>Communauté et support</strong></p>
             <p>Support technique supplémentaire et ressources de la communauté.</p>
             <ul>
-                <li class="unordered">[Forums sur Hyper-V](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)<br /><br /></li>
-                <li class="unordered">[Ressources de la communauté sur les conteneurs Windows et Hyper-V](/virtualization/community/community_overview.md)<br /><br /></li>
+                <li class="unordered">[Forums Hyper-V](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)<br /><br /></li>
+                <li class="unordered">[Ressources de la communauté sur les conteneurs Windows et Hyper-V](/virtualization/community/community_overview)<br /><br /></li>
             </ul>   
         </td>
     </tr>
@@ -47,4 +47,8 @@ Dans les documents suivants, vous trouverez une présentation détaillée de la 
 
 
 
-<!--HONumber=Jan16_HO1-->
+
+
+<!--HONumber=Mar16_HO3-->
+
+
