@@ -1,20 +1,20 @@
-
-
-
+---
+auteur : neilpeterson
+---
 
 # Gestion des conteneurs Windows Server
 
-**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
+**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
 
 Le cycle de vie de conteneur inclut des actions, telles que le démarrage, l’arrêt et la suppression de conteneurs. Quand vous effectuez ces actions, il est possible que vous deviez également récupérer une liste d’images de conteneur, gérer la mise en réseau des conteneurs et limiter les ressources des conteneurs. Ce document décrit en détail les tâches de gestion des conteneurs de base à l’aide de PowerShell.
 
-Pour obtenir une documentation sur la gestion des conteneurs Windows avec Docker, consultez le document Docker [Utilisation de conteneurs](https://docs.docker.com/userguide/usingdocker/).
+Pour obtenir une documentation sur la gestion des conteneurs Windows avec Docker, consultez le document Docker [Utilisation de conteneurs]( https://docs.docker.com/userguide/usingdocker/).
 
 ## PowerShell
 
 ### Créer un conteneur
 
-Quand vous créez un conteneur, vous avez besoin du nom d’une image de conteneur qui servira de base de conteneur. Vous pouvez rechercher ce nom à l’aide de la commande `Get-ContainerImage`.
+Quand vous créez un conteneur, vous avez besoin du nom d’une image de conteneur qui servira de base de conteneur. Pour le trouver, utilisez la commande `Get-ContainerImage`.
 
 ```powershell
 PS C:\> Get-ContainerImage
@@ -25,7 +25,7 @@ NanoServer        CN=Microsoft 10.0.10584.1000 True
 WindowsServerCore CN=Microsoft 10.0.10584.1000 True
 ```
 
-Utilisez la commande `New-Container` pour créer un conteneur. Le conteneur peut également recevoir un nom NetBIOS à l’aide du paramètre `-ContainerComputerName`.
+Pour créer un conteneur, utilisez la commande `New-Container`. Le conteneur peut également recevoir un nom NetBIOS à l’aide du paramètre `-ContainerComputerName`.
 
 ```powershell
 PS C:\> New-Container -ContainerImageName WindowsServerCore -Name demo -ContainerComputerName demo
@@ -41,7 +41,7 @@ Une fois le conteneur créé, ajoutez-lui une carte réseau.
 PS C:\> Add-ContainerNetworkAdapter -ContainerName demo
 ```
 
-Pour pouvoir connecter la carte réseau du conteneur à un commutateur virtuel, vous avez besoin du nom du commutateur. Pour obtenir la liste des commutateurs virtuels, utilisez la commande `Get-VMSwitch`.
+Pour pouvoir connecter la carte réseau du conteneur à un commutateur virtuel, vous avez besoin du nom du commutateur. Pour obtenir la liste des commutateurs virtuels, utilisez la commande `Get-VMSwitch`. 
 
 ```powershell
 PS C:\> Get-VMSwitch
@@ -59,7 +59,6 @@ PS C:\> Connect-ContainerNetworkAdapter -ContainerName demo -SwitchName NAT
 ```
 
 ### Démarrer un conteneur
-
 Pour démarrer le conteneur, un objet PowerShell représentant ce conteneur est énuméré. Pour cela, placez la sortie de la commande `Get-Container` dans une variable PowerShell.
 
 ```powershell
@@ -80,13 +79,13 @@ PS C:\> Get-Container | Start-Container
 
 ### Se connecter à un conteneur
 
-PowerShell Direct peut être utilisé pour se connecter à un conteneur. Cela peut être utile si vous devez effectuer manuellement une tâche, telle que l’installation d’un logiciel, le démarrage d’un processus ou la résolution des problèmes d’un conteneur. PowerShell Direct étant utilisé, une session PowerShell peut être créée avec le conteneur, quelle que soit la configuration du réseau. Pour plus d’informations sur PowerShell Direct, consultez le [blog PowerShell Direct](http://blogs.technet.com/b/virtualization/archive/2015/05/14/powershell-direct-running-powershell-inside-a-virtual-machine-from-the-hyper-v-host.aspx).
+PowerShell Direct peut être utilisé pour se connecter à un conteneur. Cela peut être utile si vous devez effectuer manuellement une tâche, telle que l’installation d’un logiciel, le démarrage d’un processus ou la résolution des problèmes d’un conteneur. PowerShell Direct étant utilisé, une session PowerShell peut être créée avec le conteneur, quelle que soit la configuration du réseau. Pour plus d’informations sur PowerShell Direct, consultez le [guide d’utilisateur de PowerShell Direct](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/vmsession).
 
 Pour créer une session interactive avec le conteneur, utilisez la commande `Enter-PSSession`.
 
  ```powershell
 PS C:\> Enter-PSSession -ContainerName demo -RunAsAdministrator
- ```
+```
 
 Notez qu’une fois la session PowerShell à distance créée, l’invite PowerShell change pour refléter le nom du conteneur.
 
@@ -94,7 +93,7 @@ Notez qu’une fois la session PowerShell à distance créée, l’invite PowerS
 [demo]: PS C:\>
 ```
 
-Les commandes peuvent également être exécutées sur un conteneur sans créer de session PowerShell persistante. Pour ce faire, utilisez la commande `Invoke-Command`.
+Les commandes peuvent également être exécutées sur un conteneur sans créer de session PowerShell persistante. Pour ce faire, utilisez `Invoke-Command`.
 
 L’exemple suivant crée un dossier nommé « Application » dans le conteneur.
 
@@ -150,7 +149,7 @@ PS C:\> Get-Container | Remove-Container -Force
 
 ## Docker
 
-### Créer un conteneur
+### Créer un conteneur <!--docker-->
 
 Pour créer un conteneur avec Docker, utilisez la commande `docker run`.
 
@@ -158,9 +157,9 @@ Pour créer un conteneur avec Docker, utilisez la commande `docker run`.
 PS C:\> docker run -p 80:80 windowsservercoreiis
 ```
 
-Pour plus d’informations sur la commande docker run, voir la [référence sur docker run}( https://docs.docker.com/engine/reference/run/).
+Pour plus d’informations sur la commande docker run, consultez les [informations de référence sur docker run]( https://docs.docker.com/engine/reference/run/).
 
-### Arrêter un conteneur
+### Arrêter un conteneur <!--docker-->
 
 Pour arrêter un conteneur avec Docker, utilisez la commande `docker stop`.
 
@@ -179,7 +178,7 @@ fd9a978faac8
 b51e4be8132e
 ```
 
-### Supprimer un conteneur
+### Supprimer un conteneur <!--docker-->
 
 Pour supprimer un conteneur avec Docker, utilisez la commande `docker rm`.
 
@@ -187,7 +186,7 @@ Pour supprimer un conteneur avec Docker, utilisez la commande `docker rm`.
 PS C:\> docker rm prickly_pike
 
 prickly_pike
-```
+``` 
 
 Pour supprimer tous les conteneurs avec Docker
 
@@ -198,13 +197,9 @@ dc3e282c064d
 2230b0433370
 ```
 
-Pour plus d’informations sur la commande docker rm, consultez les [informations de référence sur docker rm](https://docs.docker.com/engine/reference/commandline/rm/).
+Pour plus d’informations sur la commande docker rm, consultez les [informations de référence sur docker rm](https://docs.docker.com/engine/reference/commandline/rm/).
 
 
-
-
-
-
-<!--HONumber=Feb16_HO4-->
+<!--HONumber=Mar16_HO1-->
 
 
