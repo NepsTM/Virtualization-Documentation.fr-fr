@@ -756,6 +756,9 @@
   "5c8977137b82b08bbd8a308dac97df307d329695": [
     "virtualization\\windowscontainers\\reference\\ps_docker_comparison.md"
   ],
+  "f95628d0947096b697f50857b2a33bd41e90407c": [
+    "virtualization\\windowscontainers\\TOC.md"
+  ],
   "4ef29f9ed13a15e72712b3cf81a9cc933437ed3c": [
     "virtualization\\windowscontainers\\TOC.md"
   ],
@@ -797,6 +800,9 @@
   ],
   "c368db13f720190f3fb4a8fbdb2301c6a8148cc8": [
     "virtualization\\community\\media\\GitHubCreatePR.png"
+  ],
+  "161aaeed6c625d92b45be59dde4357836934956b": [
+    "virtualization\\windowscontainers\\management\\container_networking.md"
   ],
   "8f6f2a03045cb7b487f46b4ca975e680a016c6f2": [
     "virtualization\\windowscontainers\\management\\container_networking.md"
@@ -1019,6 +1025,9 @@
   ],
   "e8789c3b127b6b142f245f306595d885a00f18bc": [
     "virtualization\\windowscontainers\\quick_start\\manage_docker_hyperv.md"
+  ],
+  "d98445932ccbe77b6a4e798c3c2edb9c63bd351b": [
+    "virtualization\\hyperv_on_windows\\user_guide\\setup_nat_network.md"
   ],
   "f5b069dc5918a91c7d8918889f44118e0b49a5e3": [
     "virtualization\\hyperv_on_windows\\user_guide\\setup_nat_network.md"
