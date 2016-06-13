@@ -1,70 +1,47 @@
 # À propos des conteneurs Windows
-
-## [Vue d’ensemble de la documentation sur les conteneurs](./containers_welcome.md)
-
-## [À propos des conteneurs Windows](about/about_overview.md)
-
-## [Travaux en cours](about/work_in_progress.md)
-
-## [Forum aux questions](about/faq.md)
+## [Vue d’ensemble des conteneurs Windows](about/about_overview.md)
+## [Travail en cours](about/work_in_progress.md)
+## [FAQ](about/faq.md)
 
 # Guide de démarrage rapide des conteneurs
-
-## [Conteneurs dans Azure](quick_start/azure_setup.md)
-
-## [Conteneurs dans une nouvelle machine virtuelle Hyper-V](quick_start/container_setup.md)
-
-## [Conteneurs dans un système existant](quick_start/inplace_setup.md)
-
-## [Démarrage rapide de PowerShell](quick_start/manage_powershell.md)
-
-## [Démarrage rapide de Docker](quick_start/manage_docker.md)
+## [1 – Concepts et terminologie](quick_start/quick_start.md)
+## [2 - Démarrage rapide Windows Server](quick_start/quick_start_windows_server.md)
+## [3 – Images Windows Server](quick_start/quick_start_images.md)
+## [4 – Démarrage rapide Windows 10](quick_start/quick_start_windows_10.md)
 
 # Déployer des conteneurs Windows
-
 ## [Configuration requise](deployment/system_requirements.md)
-
-## [Conteneurs sur Windows Server](deployment/deployment.md)
-
-## [Conteneurs sur Nao Server](deployment/deployment_nano.md)
-
-## [Docker sur Windows](deployment/docker_windows.md)
+## [Hôte de conteneur - Windows Server](deployment/deployment.md)
+## [Hôte de conteneur - Nano Server](deployment/deployment_nano.md)
 
 # Gérer des conteneurs Windows
-
-## [Gestion des conteneurs](management/manage_containers.md)
-
 ## [Conteneurs Hyper-V](management/hyperv_container.md)
-
 ## [Images de conteneur](management/manage_images.md)
-
-## [Mise en réseau de conteneurs](management/container_networking.md)
-
-## [Dossiers partagés de conteneur](management/manage_data.md)
-
+## [Mise en réseau de conteneur](management/container_networking.md)
+## [Volumes de données de conteneur](management/manage_data.md)
 ## [Contrôle des ressources de conteneur](management/manage_resources.md)
 
-## [Interopérabilité de la gestion](management/hcs_powershell.md)
+# Docker sur Windows
+## [Moteur Docker sur Windows](deployment/docker_windows.md)
+## [Fichiers Dockerfile sur Windows](docker/manage_windows_dockerfile.md)
+## [Optimiser les fichiers Dockerfile](docker/optimize_windows_dockerfile.md)
 
-# Exemples de déploiement de conteneur
-
-## [Créer une image de conteneur .Net 3.5](examples/dotnet35.md)
+# Exemples de conteneurs
+## [Fichiers Dockerfile – Windows Server principal](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/windowsservercore)
+## [Fichiers Dockerfile – Nano Server](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/nanoserver)
 
 # Communauté et Support
-
 ## [Forums sur les conteneurs](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
 
 # Référence
-
-## [Informations de référence sur PowerShell](https://technet.microsoft.com/en-us/library/mt433069.aspx)
-
-## [Comparaison entre PowerShell et Docker](reference/ps_docker_comparison.md)
-
+## [Fournisseur d’images de conteneur](https://github.com/PowerShell/ContainerProvider)
 ## [Compatibilité des applications](reference/app_compat.md)
-
+## [Optimisation de la protection antivirus](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 # [CLUF Windows Server](EULA.md)
-
 # [CLUF Nano Server](Nano_EULA.md)
 
 
-<!--HONumber=Feb16_HO1-->
+
+<!--HONumber=Jun16_HO1-->
+
+

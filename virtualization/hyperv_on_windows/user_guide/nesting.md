@@ -1,95 +1,89 @@
+---
+title: Virtualisation imbriquée
+description: Virtualisation imbriquée
+keywords: windows 10, hyper-v
+author: theodthompson
+manager: timlt
+ms.date: 05/02/2016
+ms.topic: article
+ms.prod: windows-10-hyperv
+ms.service: windows-10-hyperv
+ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
+---
+
 # Virtualisation imbriquée
 
-> **Remarque :** cette fonctionnalité préliminaire anticipée est uniquement disponible pour les Windows Insiders qui exécutent la Build 10565 ou version ultérieure. Elle n’inclut aucune garantie de performances ou de stabilité.
+La virtualisation imbriquée fournit la possibilité d’exécuter des hôtes Hyper-V dans un environnement virtualisé. En d’autres termes, avec la virtualisation imbriquée, un hôte Hyper-V peut être virtualisé. Certains cas d’utilisation de la virtualisation imbriquée consistent à exécuter un laboratoire Hyper-V dans un environnement virtualisé, pour fournir des services de virtualisation à d’autres personnes sans besoin de matériel, et la technologie de conteneur Windows repose sur la virtualisation imbriquée lors de l’exécution de conteneurs Hyper-V sur un hôte de conteneur virtualisé. Ce document décrit en détail la configuration matérielle et logicielle requise, les étapes de configuration et la résolution des problèmes.
 
-La virtualisation imbriquée exécute la virtualisation dans un environnement virtualisé. En d’autres termes, l’imbrication vous permet d’exécuter le rôle serveur Hyper-V au sein d’une machine virtuelle.
+> La virtualisation imbriquée est disponible en version préliminaire et ne doit pas être utilisée en production.
 
-![](./media/HyperVNesting.png)
+## Conditions préalables
 
-Hyper-V s’appuie sur la prise en charge de la virtualisation matérielle (par ex., Intel VT-x et AMD-V) pour exécuter des machines virtuelles. En règle générale, une fois qu’Hyper-V est installé, l’hyperviseur masque cette fonction sur les machines virtuelles invitées. Cela empêche les machines virtuelles invitées d’exécuter le rôle serveur Hyper-V sur d’autres hyperviseurs.
+- Windows Insiders (Windows Server 2016, Nano Server ou Windows 10) qui exécutent la Build 10565 ou version ultérieure.
+- Les deux hyperviseurs (parent et enfant) doivent exécuter des builds Windows identiques (10565 ou version ultérieure).
+- 4 Go de RAM disponible au minimum.
+- Processeur Intel avec la technologie Intel VT-x.
 
-La virtualisation imbriquée expose les composants de prise en charge de la virtualisation matérielle à la machine virtuelle invitée.
+## Configurer la virtualisation imbriquée
 
-Le diagramme ci-dessous illustre Hyper-V sans imbrication. L’hyperviseur Hyper-V prend le contrôle total des extensions de virtualisation matérielle (flèche orange) et ne les expose pas au système d’exploitation invité.
+Créez d’abord une machine virtuelle exécutant la même build que celle de votre hôte, **n’activez pas la machine virtuelle**. Pour plus d’informations, consultez [Créer une machine virtuelle](../quick_start/walkthrough_create_vm.md).
 
-![](./media/HVNoNesting.png)
+Une fois que la machine virtuelle a été créée, exécutez la commande suivante sur l’hyperviseur parent, ce qui permet d’activer la virtualisation imbriquée sur la machine virtuelle.
 
-En revanche, le diagramme ci-dessous illustre Hyper-V avec imbrication. Dans ce cas, Hyper-V expose les extensions de virtualisation matérielle à ses machines virtuelles. Quand l’imbrication est activée, une machine virtuelle invitée peut installer son propre hyperviseur et exécuter ses propres machines virtuelles invitées.
+```none
+Set-VMProcessor -VMName <virtual machine> -ExposeVirtualizationExtensions $true -Count 2
+```
 
-![](./media/HVNesting.png)
+Lors de l’exécution d’un hôte Hyper-V imbriqué, la mémoire dynamique doit être désactivée sur la machine virtuelle. Cette configuration peut être effectuée sur les propriétés de la machine virtuelle ou en utilisant la commande PowerShell suivante.
 
-## Configuration requise de la virtualisation imbriquée
+```none
+Set-VMMemory <virtual machine> -DynamicMemoryEnabled $false
+```
 
-Avant d’activer la virtualisation imbriquée, notez qu’il s’agit d’une version préliminaire. N’utilisez pas l’imbrication dans des environnements de production.
+Pour que les machines virtuelles imbriquées reçoivent des adresses IP, l’usurpation d’adresse MAC doit être activée. Pour cela, exécutez la commande PowerShell suivante.
 
-Configuration requise :
-* 4 Go de RAM disponible au minimum. La virtualisation imbriquée nécessite une quantité de mémoire importante.
-* Les deux hyperviseurs doivent être la dernière build de Windows Insider (10565 ou supérieure). Les autres hyperviseurs ne fonctionnent pas.
-* Cette fonctionnalité est actuellement exclusivement Intel. Intel VT-x est nécessaire.
+```none
+Get-VMNetworkAdapter -VMName <virtual machine> | Set-VMNetworkAdapter -MacAddressSpoofing On
+```
 
-## Activer la virtualisation imbriquée
+Une fois ces étapes terminées, la machine virtuelle peut être démarrée et Hyper-V installé. Pour plus d’informations sur l’installation d’Hyper-V, consultez [Installer Hyper-V]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_install).
 
-1. Créez une machine virtuelle exécutant la même build que celle de votre hôte. [Instructions ici](../quick_start/walkthrough_create_vm.md).
+## du périphérique VPN
 
-2. Exécutez [ce script](https://github.com/Microsoft/Virtualization-Documentation/blob/master/hyperv-tools/Nested/Enable-NestedVm.ps1) en tant qu’administrateur sur l’hôte Hyper-V.
+Le script suivant peut éventuellement être utilisé pour activer et configurer la virtualisation imbriquée. Les commandes suivantes téléchargent et exécutent le script.
+  
+```none
+# download script
+Invoke-WebRequest https://raw.githubusercontent.com/Microsoft/Virtualization-Documentation/master/hyperv-tools/Nested/Enable-NestedVm.ps1 -OutFile .\Enable-NestedVm.ps1 
 
-    Dans cette version préliminaire, l’imbrication inclut quelques exigences de configuration. Pour faciliter les choses, [ce script PowerShell](https://github.com/Microsoft/Virtualization-Documentation/blob/master/hyperv-tools/Nested/Enable-NestedVm.ps1) vérifie votre configuration, remplace tout ce qui est incorrect, puis active la virtualisation imbriquée pour la machine virtuelle spécifiée.
-
-  ``` PowerShell
-  Invoke-WebRequest https://raw.githubusercontent.com/Microsoft/Virtualization-Documentation/master/hyperv-tools/Nested/Enable-NestedVm.ps1 -OutFile ~/Enable-NestedVm.ps1 
-  ~/Enable-NestedVm.ps1 -VmName "DemoVM"
-  ```
-
-3. Installez Hyper-V dans la machine virtuelle.
-
-  ``` PowerShell
-  Invoke-Command -VMName "DemoVM" -ScriptBlock { Enable-WindowsOptionalFeature -FeatureName Microsoft-Hyper-V -Online; Restart-Computer }
-  ```
-
-4. Créez des machines virtuelles imbriquées.
+# run script
+.\Enable-NestedVm.ps1 -VmName "DemoVM"
+```
 
 ## Problèmes connus
 
-Voici une liste des problèmes connus :
-* Les hôtes sur lesquels la fonctionnalité Device Guard est activée ne peuvent pas exposer les extensions de virtualisation aux invités.
-
-* Les hôtes sur lesquels la sécurité basée sur la virtualisation est activée ne peuvent pas exposer les extensions de virtualisation aux invités. Vous devez d’abord désactiver la sécurité basée sur la virtualisation pour pouvoir afficher un aperçu de la virtualisation imbriquée.
-
-* Une fois la virtualisation imbriquée activée sur une machine virtuelle, les fonctionnalités suivantes ne sont plus compatibles avec cette machine virtuelle.  
-    Ces actions échouent ou empêchent la machine virtuelle de démarrer si elle héberge d’autres machines virtuelles :
-    * La mémoire dynamique doit être désactivée. Sinon la machine virtuelle ne peut pas démarrer.
-    * Le redimensionnement de la mémoire d’exécution échoue.
-    * L’application de points de contrôle à une machine virtuelle en cours d’exécution échoue.
-    * La migration dynamique échoue. En d’autres termes, une machine virtuelle qui héberge d’autres machines virtuelles ne peut pas être migrée dynamiquement.
-    * La sauvegarde/restauration échoue.
-
-    > **Remarque :** ces fonctionnalités fonctionnent toujours dans la machine virtuelle invitée la « plus interne ». Les restrictions s’appliquent uniquement à la première couche de machines virtuelles.
-
-* Une fois la virtualisation imbriquée activée, l’usurpation MAC doit être activée sur la machine virtuelle pour que la mise en réseau fonctionne sur les invités les « plus internes ».
+- Les hôtes sur lesquels la fonctionnalité Device Guard est activée ne peuvent pas exposer les extensions de virtualisation aux invités.
+- Les hôtes sur lesquels la sécurité basée sur la virtualisation est activée ne peuvent pas exposer les extensions de virtualisation aux invités. Vous devez d’abord désactiver la sécurité basée sur la virtualisation pour pouvoir utiliser la virtualisation imbriquée.
+- La connexion de la machine virtuelle peut être perdue si vous utilisez un mot de passe vide. Modifiez le mot de passe pour résoudre le problème.
+- Une fois la virtualisation imbriquée activée sur une machine virtuelle, les fonctionnalités suivantes ne sont plus compatibles avec cette machine virtuelle.  
+  * Redimensionnement de la mémoire d’exécution.
+  * Application d’un point de contrôle à une machine virtuelle en cours d’exécution.
+  * Une machine virtuelle qui héberge d’autres machines virtuelles ne peut pas faire l’objet d’une migration dynamique.
+  * L’enregistrement et la restauration ne fonctionnent pas.
 
 ## FAQ et résolution des problèmes
 
-### Ma machine virtuelle ne démarre pas, que dois-je faire ?
+Ma machine virtuelle ne démarre pas, que dois-je faire ?
 
 1. Assurez-vous que la mémoire dynamique est désactivée.
-2. Exécutez ce script PowerShell sur votre ordinateur hôte à partir d’une invite de commandes avec élévation de privilèges.
+2. Exécutez [ce script PowerShell](https://raw.githubusercontent.com/Microsoft/Virtualization-Documentation/master/hyperv-tools/Nested/Get-NestedVirtStatus.ps1) sur votre machine hôte à partir d’une invite de commandes avec élévation de privilèges.
+  
+## Commentaires
 
-    Ce script indique si votre hôte et les machines virtuelles sont configurés correctement pour l’imbrication.
+Indiquez tout autre problème dans l’application Commentaires sur Windows, les [forums sur la virtualisation](https://social.technet.microsoft.com/Forums/windowsserver/En-us/home?forum=winserverhyperv) ou sur [GitHub](https://github.com/Microsoft/Virtualization-Documentation).
 
-  ``` PowerShell
-  Invoke-WebRequest https://raw.githubusercontent.com/Microsoft/Virtualization-Documentation/master/hyperv-tools/Nested/Get-NestedVirtStatus.ps1 -OutFile ~/Get-NestedVirtStatus.ps1 
-  ~/Get-NestedVirtStatus.ps1
-  ```
 
-### La connexion à une machine virtuelle n’est pas rétablie.
 
-Si vous utilisez un mot de passe vide, il s’agit d’un problème connu. Modifiez votre mot de passe pour résoudre le problème.
-
-### Mon problème n’est pas indiqué ici.
-
-Votre problème n’est pas indiqué ? Vous avez des commentaires ? Contactez-nous.
-
-Indiquez-les dans l’application Commentaires sur Windows, les [forums sur la virtualisation](https://social.technet.microsoft.com/Forums/windowsserver/En-us/home?forum=winserverhyperv) ou sur [GitHub](https://github.com/Microsoft/Virtualization-Documentation).
-
+<!--HONumber=Jun16_HO2-->
 
 
