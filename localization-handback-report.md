@@ -1,11 +1,42 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 0
+ Total Files | 2
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\hyperv_on_windows\user_guide\nesting.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e0d3ffb3c2fab012cbf06d648105ecb4ae5ff240/virtualization/hyperv_on_windows/user_guide/nesting.md) | InSyncHandedBackSuccess | [Details](#b76ef12cd63c3abdcbef6e587232eb33e6c42d78203)
+ [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/cb689563fac8479fe9012cf41b183c1d1ef76657/virtualization/windowscontainers/TOC.md) | OutofSyncHandedBackSuccess | [Details](#a497db5e3d4b8dacf688b2578e39f92f418d2ac3322)
 
 ## Item Details
+##### <a name='b76ef12cd63c3abdcbef6e587232eb33e6c42d78203'></a> Source: [virtualization\hyperv_on_windows\user_guide\nesting.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e0d3ffb3c2fab012cbf06d648105ecb4ae5ff240/virtualization/hyperv_on_windows/user_guide/nesting.md)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\hyperv_on_windows\user_guide\nesting.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/53a4b66d544e4714ed824dbec1488a59003a261d/virtualization/hyperv_on_windows/user_guide/nesting.md)
+* Handoff File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/4da6e32f1041c752c75a1b3b74cb3d215ac3e347/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.fr-fr.xlf)
+* Handoff Datetime: 2016-06-08 17:02:13
+* Handoff Reason: Include
+* Archive File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/6be4210df46adb0cc16059bd5fef9613fc8b0820/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/archive/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.fr-fr.xlf)
+* Archive Datetime: 2016-06-09 07:18:54
+* Handback File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/3292a057bdc1a348831fac21d39276d57401d56c/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.fr-fr.xlf)
+* Handback Datetime: 2016-06-13 20:19:44
+* [Back to Top](#report-top)
+
+##### <a name='a497db5e3d4b8dacf688b2578e39f92f418d2ac3322'></a> Source: [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/cb689563fac8479fe9012cf41b183c1d1ef76657/virtualization/windowscontainers/TOC.md)
+* Status: OutofSyncHandedBackSuccess
+* Target File: 
+* Handoff File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/a6645be4daefc15bd40a6723bb7b580144cb8109/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.fr-fr.xlf)
+* Handoff Datetime: 2016-06-10 21:02:19
+* Handoff Reason: Include
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Current Target File: [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/53a4b66d544e4714ed824dbec1488a59003a261d/virtualization/windowscontainers/TOC.md)
+* Current Handback File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/3292a057bdc1a348831fac21d39276d57401d56c/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.fr-fr.xlf)
+* Current Handback Datetime: 2016-06-13 20:19:44
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
