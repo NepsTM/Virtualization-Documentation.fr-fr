@@ -1,3 +1,7 @@
+---
+redirect_url: http://aka.ms/upgradevmconfig
+---
+
 # Migrer et mettre à niveau des machines virtuelles
 
 Si vous déplacez vers votre hôte Windows 10 des machines virtuelles créées à l’origine avec Hyper-V dans Windows 8.1 ou une version antérieure, vous ne pouvez pas utiliser les nouvelles fonctionnalités de machine virtuelle à moins de mettre à jour manuellement la version de configuration des machines virtuelles.
@@ -106,5 +110,10 @@ Le tableau suivant répertorie les emplacements de fichier par défaut pour les 
 
 
 
+
+
+
+
+<!--HONumber=May16_HO1-->
 
 
