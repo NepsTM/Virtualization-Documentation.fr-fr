@@ -1,11 +1,41 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 0
+ Total Files | 2
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\windowscontainers\docker\configure_docker_daemon.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/cb689563fac8479fe9012cf41b183c1d1ef76657/virtualization/windowscontainers/docker/configure_docker_daemon.md) | InSyncHandedBackSuccess | [Details](#1b8c917e76e30a3a2a3fe908efab3c61e62a804e245)
+ [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/cb689563fac8479fe9012cf41b183c1d1ef76657/virtualization/windowscontainers/TOC.md) | InSyncHandedBackSuccess | [Details](#a497db5e3d4b8dacf688b2578e39f92f418d2ac3322)
 
 ## Item Details
+##### <a name='1b8c917e76e30a3a2a3fe908efab3c61e62a804e245'></a> Source: [virtualization\windowscontainers\docker\configure_docker_daemon.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/cb689563fac8479fe9012cf41b183c1d1ef76657/virtualization/windowscontainers/docker/configure_docker_daemon.md)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\windowscontainers\docker\configure_docker_daemon.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/7fa6205b4c0d577478cd5f624dd79fee5f6ff584/virtualization/windowscontainers/docker/configure_docker_daemon.md)
+* Handoff File: [configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/a6645be4daefc15bd40a6723bb7b580144cb8109/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.fr-fr.xlf)
+* Handoff Datetime: 2016-06-10 21:02:19
+* Handoff Reason: Include
+* Archive File: [configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/d226e587daebfb1d16b1d128a37deb0c03d0c07b/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/archive/configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.fr-fr.xlf)
+* Archive Datetime: 2016-06-16 07:17:52
+* Handback File: [configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/e095f4d766abf0289e88a97b15d852b772952d00/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.fr-fr.xlf)
+* Handback Datetime: 2016-06-20 14:16:17
+* [Back to Top](#report-top)
+
+##### <a name='a497db5e3d4b8dacf688b2578e39f92f418d2ac3322'></a> Source: [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/cb689563fac8479fe9012cf41b183c1d1ef76657/virtualization/windowscontainers/TOC.md)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/7fa6205b4c0d577478cd5f624dd79fee5f6ff584/virtualization/windowscontainers/TOC.md)
+* Handoff File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/a6645be4daefc15bd40a6723bb7b580144cb8109/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.fr-fr.xlf)
+* Handoff Datetime: 2016-06-10 21:02:19
+* Handoff Reason: Include
+* Archive File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/d226e587daebfb1d16b1d128a37deb0c03d0c07b/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/archive/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.fr-fr.xlf)
+* Archive Datetime: 2016-06-16 07:17:52
+* Handback File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/e095f4d766abf0289e88a97b15d852b772952d00/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.fr-fr.xlf)
+* Handback Datetime: 2016-06-20 14:16:17
+* Bilingual File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/3292a057bdc1a348831fac21d39276d57401d56c/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.fr-fr.xlf)
+* Bilingual Datetime: 2016-06-16 07:48:38
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
