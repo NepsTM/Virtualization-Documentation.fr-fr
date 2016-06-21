@@ -1,6 +1,19 @@
+---
+title: Invités Windows pris en charge
+description: Invités Windows pris en charge.
+keywords: windows 10, hyper-v
+author: scooley
+manager: timlt
+ms.date: 05/02/2016
+ms.topic: article
+ms.prod: &1649137728 windows-10-hyperv
+ms.service: windows-10-hyperv
+ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
+---
+
 # Invités Windows pris en charge
 
-Cet article répertorie les combinaisons de systèmes d’exploitation prises en charge dans Hyper-V sur Windows. Il présente également les services d’intégration et d’autres facteurs de prise en charge.
+Cet article répertorie les combinaisons de systèmes d’exploitation prises en charge dans Hyper-V sur Windows. Il sert également à présenter les services d’intégration et d’autres facteurs de prise en charge.
 
 ## Que signifie la prise en charge ?
 
@@ -9,7 +22,7 @@ La prise en charge signifie que Microsoft a testé ces combinaisons hôte/invit�
 Microsoft assure la prise en charge des systèmes d’exploitation invités de la façon suivante :
 * Les problèmes détectés dans les services d’intégration et systèmes d’exploitation Microsoft sont pris en charge par le support technique Microsoft.
 * En ce qui concerne les problèmes dans d’autres systèmes d’exploitation ayant été certifiés par le fournisseur de système d’exploitation comme fonctionnant sur Hyper-V, la prise en charge est assurée par le fournisseur.
-* En ce qui concerne les problèmes détectés dans d’autres systèmes d’exploitation, Microsoft soumet le problème à la communauté de support multifournisseur, [TASNet](http://www.tsanet.org/).
+* En ce qui concerne les problèmes détectés dans d’autres systèmes d’exploitation, Microsoft soumet le problème à la communauté de support multifournisseur, <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">TSANet</g><g id="2CapsExtId3" ctype="x-title"></g></g>.
 
 Pour pouvoir être pris en charge, l’hôte Hyper-V et l’invité doivent être mis à jour avec toutes les mises à jour critiques disponibles dans Windows Update.
 
@@ -17,7 +30,7 @@ Pour pouvoir être pris en charge, l’hôte Hyper-V et l’invité doivent êtr
 
 Pour bénéficier de la prise en charge, les systèmes d’exploitation invités Windows et le système d’exploitation hôte doivent être à jour avec toutes les mises à jour critiques disponibles dans Windows Update.
 
-| Systèmes d’exploitation invités| Nombre maximal de processeurs virtuels| Remarques|
+| Système d’exploitation invité| Nombre maximal de processeurs virtuels| Remarques|
 |:-----|:-----|:-----|
 | Windows 10| 32| |
 | Windows 8.1| 32| |
@@ -37,17 +50,22 @@ Pour bénéficier de la prise en charge, les systèmes d’exploitation invités
 
 ## Linux et FreeBSD pris en charge
 
-| Systèmes d’exploitation invités| |
+| Système d'exploitation invité| |
 |:-----|:------|
-| [CentOS et Red Hat Enterprise Linux ](https://technet.microsoft.com/library/dn531026.aspx)| |
-| [Machines virtuelles Debian sur Hyper-V](https://technet.microsoft.com/library/dn614985.aspx)| |
-| [SUSE](https://technet.microsoft.com/en-us/library/dn531027.aspx)| |
-| [Oracle Linux](https://technet.microsoft.com/en-us/library/dn609828.aspx)| |
-| [Ubuntu](https://technet.microsoft.com/en-us/library/dn531029.aspx)| |
-| [FreeBSD](https://technet.microsoft.com/library/dn848318.aspx)| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">CentOS et Red Hat Enterprise Linux </g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Machines virtuelles Debian sur Hyper-V</g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">SUSE</g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Oracle Linux</g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Ubuntu</g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">FreeBSD</g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
 
-Pour plus d’informations, notamment concernant la prise en charge sur des versions précédentes d’Hyper-V, voir [Machines virtuelles Linux et FreeBSD sur Hyper-V](https://technet.microsoft.com/library/dn531030.aspx).
+Pour plus d’informations, notamment concernant la prise en charge sur des versions précédentes d’Hyper-V, voir <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">Machines virtuelles Linux et FreeBSD sur Hyper-V</g><g id="2CapsExtId3" ctype="x-title"></g></g>.
 
 
+
+
+
+
+<!--HONumber=May16_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Conteneurs Windows Server - Démarrage rapide
-description: Démarrage rapide des conteneurs Windows Server.
+title: Conteneurs Hyper-V - Démarrage rapide
+description: Démarrage rapide des conteneurs Hyper-V.
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -8,12 +8,11 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.assetid: b2efa940-d5cc-4afd-a200-b71e1eeed5ed
-redirect_url: ./quick_start_windows_server
+ms.assetid: 7b907b0e-3fa8-4925-8615-bbb5812c2402
+redirect_url: ./quick_start
 ---
 
 # Le document a été déconseillé.
-
 
 <!--HONumber=May16_HO4-->
 

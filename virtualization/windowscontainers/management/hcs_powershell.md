@@ -1,18 +1,25 @@
-
-
-
+---
+title: HCS PowerShell
+description: Utilisez des conteneurs HCS PowerShell et Windows.
+keywords: docker, containers
+author: neilpeterson
+manager: timlt
+ms.date: 05/02/2016
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: 45144ec5-f76a-4460-abd1-9b60e47506d6
+---
 
 # Interopérabilité de gestion
 
-**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
-
-Dans l’ensemble, les conteneurs Windows créés avec PowerShell doivent être gérés avec PowerShell et ceux créés avec Docker doivent être gérés avec Docker. Ceci dit, le module PowerShell Host Computing offre la possibilité de détecter et d’arrêter les conteneurs **en cours d’exécution**, quelle que soit la façon dont ils ont été créés. Ce module se comporte comme un « gestionnaire des tâches » pour les conteneurs en cours d’exécution sur un hôte de conteneur.
+**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
 
 ## Afficher tous les conteneurs
 
-Pour retourner une liste de conteneurs, utilisez la commande `Get-ComputeProcess`
+Pour retourner une liste de conteneurs, utilisez la commande `Get-ComputeProcess`.
 
-```powershell
+```none
 PS C:\> Get-ComputeProcess
 
 Id                                                Name                                      Owner       Type
@@ -25,19 +32,15 @@ e49cd35542..                                      e49cd35542..                  
 
 ## Arrêter un conteneur
 
-Pour arrêter un conteneur, qu’il ait été créé avec PowerShell ou Docker, utilisez la commande `Stop-ComputeProcess`.
+Pour arrêter un conteneur créé avec PowerShell ou Docker, utilisez la commande `Stop-ComputeProcess`.
 
-> Au moment de la rédaction, le service VMMS devra être redémarré pour que les conteneurs s’affichent comme étant arrêtés lors de l’utilisation de la commande `Get-Container`.
+> À l’heure où nous écrivons cet article, le service VMMS doit être redémarré pour que les conteneurs apparaissent arrêtés lors de l’utilisation de la commande `Get-Container`.
 
-```powershell
+```none
 PS C:\> Stop-ComputeProcess -Id 2088E0FA-1F7C-44DE-A4BC-1E29445D082B -Force
 ```
 
 
-
-
-
-
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=May16_HO3-->
 
 

@@ -1,86 +1,111 @@
+---
+title: Volumes de données de conteneur
+description: Créez et gérez des volumes de données avec des conteneurs Windows.
+keywords: docker, containers
+author: neilpeterson
+manager: timlt
+ms.date: 05/02/2016
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: f5998534-917b-453c-b873-2953e58535b1
+---
 
+# Volumes de données de conteneur
 
+**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
 
+Lors de la création de conteneurs, vous devrez peut-être créer un répertoire de données, ou ajouter un répertoire existant au conteneur. Pour ce faire, vous pouvez ajouter des volumes de données. Les volumes de données sont visibles pour le conteneur et l’hôte de conteneur, et les données peuvent être partagées entre eux. Les volumes de données peuvent également être partagés entre plusieurs conteneurs sur le même hôte de conteneur. Ce document décrit en détail la création, l’examen et la suppression des volumes de données.
 
-# Dossiers partagés de conteneur
+## Volumes de données
 
-**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
+### Créer un volume de données
 
-Les dossiers partagés permettent aux données d’être partagées entre un hôte de conteneur et un conteneur. Une fois que le dossier partagé est créé, il est disponible dans le conteneur. Toutes les données qui se trouvent dans le dossier partagé de l’hôte sont disponibles dans le conteneur. Toutes les données qui se trouvent dans le dossier partagé du conteneur sont disponibles sur l’hôte. Un dossier unique sur l’hôte peut être partagé avec plusieurs conteneurs. Dans cette configuration, les données peuvent être partagées entre les conteneurs en cours d’exécution.
+Créez un volume de données à l’aide du paramètre `-v` de la commande `docker run`. Par défaut, les nouveaux volumes de données sont stockés sur l’hôte sous « c:\ProgramData\Docker\volumes ».
 
-## Gérer les données - PowerShell
+Cet exemple crée un volume de données nommé « new-data-volume ». Ce volume de données est accessible dans le conteneur en cours d’exécution sur « c:\new-data-volume ».
 
-### Créer un dossier partagé
-
-Pour créer un dossier partagé, utilisez la commande `Add-ContainerSharedFolder`. L’exemple ci-dessous crée un répertoire dans le conteneur `c:\shared_data`, qui est mappé à un répertoire sur l’hôte `c:\data_source`.
-
-> Un conteneur doit être dans un état arrêté pour pouvoir ajouter un dossier partagé.
-
-```powershell
-PS C:\> Add-ContainerSharedFolder -ContainerName DEMO -SourcePath c:\data_source -DestinationPath c:\shared_data
-
-ContainerName SourcePath       DestinationPath AccessMode
-------------- ----------       --------------- ----------
-DEMO          c:\data_source   c:\shared_data  ReadWrite
+```none
+docker run -it -v c:\new-data-volume windowsservercore cmd
 ```
 
-### Dossier partagé en lecture seule
+Pour plus d’informations sur la création de volumes, voir [Gérer les données dans les conteneurs sur docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#data-volumes).
 
-```powershell
-PS C:\> Add-ContainerSharedFolder -ContainerName DEMO -SourcePath c:\sf1 -DestinationPath c:\sf2 -AccessMode ReadOnly
+### Montage d’un répertoire existant
 
-ContainerName SourcePath DestinationPath AccessMode
-------------- ---------- --------------- ----------
-DEMO         c:\sf1     c:\sf2          ReadOnly
+Outre la création d’un volume de données, vous pouvez transmettre un répertoire existant à partir de l’hôte vers le conteneur. Pour ce faire, vous pouvez également utiliser le paramètre `-v` de la commande `docker run`. Tous les fichiers dans le répertoire hôte sont également disponibles dans le conteneur. Tous les fichiers créés par le conteneur dans le volume monté sont disponibles sur l’hôte. Le même répertoire peut être monté sur de nombreux conteneurs. Dans cette configuration, les données peuvent être partagées entre les conteneurs.
+
+Dans cet exemple, le répertoire source, « c:\source », est monté dans un conteneur en tant que « c:\destination ».
+
+```none
+docker run -it -v c:\source:c:\destination windowsservercore cmd
 ```
 
-### Liste des dossiers partagés
+Pour plus d’informations sur le montage de répertoires hôtes, voir [Gérer les données dans les conteneurs sur docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#mount-a-host-directory-as-a-data-volume).
 
-Pour afficher la liste des dossiers partagés d’un conteneur particulier, utilisez la commande `Get-ContainerSharedFolder`.
+### Monter des fichiers individuels
 
-```powershell
-PS C:\> Get-ContainerSharedFolder -ContainerName DEMO2
+Un seul fichier peut être monté dans un conteneur en spécifiant explicitement le nom de fichier. Dans cet exemple, le répertoire partagé comporte de nombreux fichiers, mais seul le fichier « config.ini » est disponible à l’intérieur du conteneur. 
 
-ContainerName SourcePath DestinationPath AccessMode
-------------- ---------- --------------- ----------
-DEMO         c:\source  c:\source       ReadWrite
+```none
+docker run -it -v c:\container-share\config.ini windowsservercore cmd
 ```
 
-### Modifier un dossier partagé
+Dans le conteneur en cours d’exécution, seul le fichier config.ini est visible.
 
-Pour modifier la configuration d’un dossier partagé existant, utilisez la commande `Set-ContainerSharedFolder`.
+```none
+c:\container-share>dir
+ Volume in drive C has no label.
+ Volume Serial Number is 7CD5-AC14
 
-```powershell
-PS C:\> Set-ContainerSharedFolder -ContainerName SFRO -SourcePath c:\sf1 -DestinationPath c:\sf1
+ Directory of c:\container-share
+
+04/04/2016  12:53 PM    <DIR>          .
+04/04/2016  12:53 PM    <DIR>          ..
+04/04/2016  12:53 PM    <SYMLINKD>     config.ini
+               0 File(s)              0 bytes
+               3 Dir(s)  21,184,208,896 bytes free
 ```
 
-### Supprimer un dossier partagé
+Pour plus d’informations sur le montage de fichiers individuels, voir [Gérer les données dans les conteneurs sur docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#mount-a-host-directory-as-a-data-volume).
 
-Pour supprimer un dossier partagé, utilisez la commande `Remove-ContainerSharedFolder`.
+### Conteneurs de volumes de données
 
-> Un conteneur doit être dans un état arrêté pour pouvoir supprimer un dossier partagé
+Les volumes de données peuvent être hérités d’autres conteneurs en cours d’exécution à l’aide du paramètre `--volumes-from` de la commande `docker run`. Un conteneur peut être créé à l’aide de cet héritage, avec l’objectif explicite d’héberger des volumes de données pour des applications en conteneur. 
 
-```powershell
-PS C:\> Remove-ContainerSharedFolder -ContainerName DEMO2 -SourcePath c:\source -DestinationPath c:\source
-```
-## Gérer les données - Docker
+Cet exemple monte les volumes de données à partir du conteneur « cocky_bell » dans un nouveau conteneur. Une fois que le nouveau conteneur a été démarré, les données de ce volume sont disponibles pour les applications en cours d’exécution dans le conteneur.  
 
-### Montage de volumes
-
-Quand vous gérez des conteneurs Windows avec Docker, vous pouvez monter des volumes à l’aide de l’option `-v`.
-
-Dans l’exemple ci-dessous, le dossier source est c:\source et le dossier destination c:\destination.
-
-```powershell
-PS C:\> docker run -it -v c:\source:c:\destination 1f62aaf73140 cmd
+```none
+docker run -it --volumes-from cocky_bell windowsservercore cmd
 ```
 
-Pour plus d’informations sur la gestion des données dans les conteneurs avec Docker, consultez [Volumes Docker sur Docker.com](https://docs.docker.com/userguide/dockervolumes/).
+Pour plus d’informations sur les conteneurs de données, voir [Gérer les données dans les conteneurs sur docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#mount-a-host-file-as-a-data-volume).
 
-## Vidéo de la procédure pas à pas
+### Examiner le volume de données partagées
 
-<iframe src="https://channel9.msdn.com/Blogs/containers/Container-Fundamentals--Part-3-Shared-Folders/player#ccLang=fr" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
+Les volumes montés peuvent être affichés à l’aide de la commande `docker inspect`.
+
+```none
+docker inspect backstabbing_kowalevski
+```
+
+Celle-ci retourne des informations sur le conteneur, y compris une section nommée « Mounts », qui contient des données sur les volumes montés comme le répertoire source et de destination.
+
+```none
+"Mounts": [
+    {
+        "Source": "c:\\container-share",
+        "Destination": "c:\\data",
+        "Mode": "",
+        "RW": true,
+        "Propagation": ""
+}
+```
+
+Pour plus d’informations sur l’examen de volumes, voir [Gérer les données dans les conteneurs sur docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#locating-a-volume).
 
 
 
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=May16_HO4-->
+
+

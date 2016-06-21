@@ -1,7 +1,8 @@
 ---
 author: scooley
-redirect_url: ./manage_docker
+redirect_url: ../quick_start/manage_docker
 ---
+
 
 # Comparaison entre Docker et PowerShell pour la gestion des conteneurs Windows
 
@@ -158,7 +159,7 @@ Vous pouvez afficher toutes les applets de commande de conteneurs à l’aide de
 
 Vous pouvez également obtenir de l’aide sur toutes les applets de commande en utilisant la commande <g id="2" ctype="x-code">Get-Help [nom de l’applet de commande]</g> ou <g id="4" ctype="x-code">[nom de l’applet de commande] -?</g>. Aujourd’hui, la sortie de l’aide est générée automatiquement et vous indique uniquement la syntaxe des commandes. Nous ajouterons plus de documentation à mesure que nous approcherons de la finalisation de la conception des applets de commande.
 
-Vous pouvez aussi vous référer à PowerShell ISE, un autre moyen agréable de découvrir la syntaxe que vous ne connaissez peut-être pas si vous n’avez pas encore souvent utilisé PowerShell. Si vous exécutez une référence qui l’autorise, essayez de démarrer ISE : ouvrez le volet Commandes, puis choisissez le module « Conteneurs », ce qui affiche une représentation graphique des applets de commande et leurs jeux de paramètres.
+Vous pouvez aussi vous référer à PowerShell ISE, un autre moyen agréable de découvrir la syntaxe que vous ne connaissez peut-être pas si vous n’avez pas encore souvent utilisé PowerShell. Si vous exécutez une référence qui l’autorise, essayez de démarrer ISE : ouvrez le volet Commandes, choisissez le module « Conteneurs », qui affiche une représentation graphique des applets de commande et leurs jeux de paramètres.
 
 PS : juste pour prouver que c’est faisable, voici une fonction PowerShell qui adapte certaines des applets de commande que nous avons déjà vues en un ersatz de <g id="2" ctype="x-code">docker run</g>. (En fait, c’est une preuve de concept qui n’est pas encore développée activement).
 

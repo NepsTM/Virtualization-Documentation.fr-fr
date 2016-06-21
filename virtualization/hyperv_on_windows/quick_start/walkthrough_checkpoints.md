@@ -1,8 +1,12 @@
-# Utiliser des points de contrôle dans Hyper-V sur Windows 10
+---
+redirect_url: ../user_guide/checkpoints
+---
 
-**Ce document a été abandonné.**
+# Redirigé - Sans titre
 
-Pour en savoir plus sur les points de contrôle, voir [ce guide de l’utilisateur](../user_guide/checkpoints.md).
 
+
+
+<!--HONumber=May16_HO1-->
 
 

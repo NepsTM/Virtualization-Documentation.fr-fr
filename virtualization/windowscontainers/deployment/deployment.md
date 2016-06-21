@@ -1,241 +1,134 @@
-
-
-
+---
+title: Déployer des conteneurs Windows sur Windows Server
+description: Déployer des conteneurs Windows sur Windows Server
+keywords: docker, containers
+author: neilpeterson
+manager: timlt
+ms.date: 05/26/2016
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
+---
 
 # Déploiement d’un hôte de conteneurs – Windows Server
 
-**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
+**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
 
-Les étapes du déploiement d’un hôte de conteneur Windows sont différentes selon le système d’exploitation et le type de système hôte (physique ou virtuel). Les étapes décrites dans ce document sont utilisées pour déployer un hôte de conteneurs Windows pour Windows Server 2016 ou Windows Server Core 2016, sur un système physique ou virtuel. Pour installer un hôte de conteneurs Windows sur Nano Server, consultez [Déploiement d’un hôte de conteneurs – Nano Server](./deployment_nano.md).
+Les étapes du déploiement d’un hôte de conteneur Windows sont différentes selon le système d’exploitation et le type de système hôte (physique ou virtuel). Ce document décrit en détail le déploiement d’un hôte de conteneur Windows vers Windows Server 2016 ou Windows Server Core 2016, sur un système physique ou virtuel.
 
-Pour plus d’informations sur la configuration requise, consultez [Configuration requise pour l’hôte de conteneurs Windows](./system_requirements.md).
+## Installer la fonctionnalité de conteneur
 
-Les scripts PowerShell sont également disponibles pour automatiser le déploiement d’un hôte de conteneurs Windows.
-- [Déployer un hôte de conteneurs dans une nouvelle machine virtuelle Hyper-V](../quick_start/container_setup.md).
-- [Déployer un hôte de conteneurs sur un système existant](../quick_start/inplace_setup.md).
+La fonctionnalité de conteneur doit être activée avant d’utiliser des conteneurs Windows. Pour ce faire, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges. 
 
-# Hôte Windows Server
-
-Les étapes répertoriées dans ce tableau peuvent servir à déployer un hôte de conteneur sur Windows Server 2016 et Windows Server 2016 Core. Voici les configurations requises pour les conteneurs Windows Server et Hyper-V.
-
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
-<tr valign="top">
-<td width="30%"><strong>Action de déploiement</strong></td>
-<td width="70%"><strong>Détails</strong></td>
-</tr>
-<tr>
-<td>[Installer la fonctionnalité de conteneur](#role)</td>
-<td>La fonctionnalité de conteneur permet l’utilisation du conteneur Windows Server et Hyper-V.</td>
-</tr>
-<tr>
-<td>[Créer un commutateur virtuel](#vswitch)</td>
-<td>Les conteneurs se connectent à un commutateur virtuel pour assurer la connectivité réseau.</td>
-</tr>
-<tr>
-<td>[Configurer NAT](#nat)</td>
-<td>Si un commutateur virtuel est configuré avec la traduction d’adresses réseau, NAT doit aussi être configuré.</td>
-</tr>
-<tr>
-<td>[Installer des images de système d’exploitation du conteneur](#img)</td>
-<td>Les images de système d’exploitation fournissent la base pour les déploiements de conteneurs.</td>
-</tr>
-<tr>
-<td>[Installer Docker](#docker)</td>
-<td>Facultatif, mais nécessaire pour créer et gérer des conteneurs Windows avec Docker.</td>
-</tr>
-</table>
-
-Ces étapes doivent être effectuées si des conteneurs Hyper-V seront utilisés. Remarque : Les opérations marquées d’un astérisque (*) sont nécessaires seulement si l’hôte de conteneurs est lui-même une machine virtuelle Hyper-V.
-
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
-<tr valign="top">
-<td width="30%"><strong>Action de déploiement</strong></td>
-<td width="70%"><strong>Détails</strong></td>
-</tr>
-<tr>
-<td>[Activer le rôle Hyper-V](#hypv) </td>
-<td>Hyper-V est requis uniquement si les conteneurs Hyper-V sont utilisés.</td>
-</tr>
-<tr>
-<td>[Activer la virtualisation imbriquée *](#nest)</td>
-<td>Si l’hôte de conteneur est lui-même une machine virtuelle Hyper-V, la virtualisation imbriquée doit être activée.</td>
-</tr>
-<tr>
-<td>[Configurer des processeurs virtuels *](#proc)</td>
-<td>Si l’hôte de conteneur est lui-même une machine virtuelle Hyper-V, au moins deux processeurs virtuels doivent être configurés.</td>
-</tr>
-<tr>
-<td>[Désactiver la mémoire dynamique *](#dyn)</td>
-<td>Si l’hôte de conteneur est lui-même une machine virtuelle Hyper-V, la mémoire dynamique doit être désactivée.</td>
-</tr>
-<tr>
-<td>[Configurer l’usurpation des adresses MAC *](#mac)</td>
-<td>Si l’hôte de conteneur est virtualisé, l’usurpation MAC doit être activée.</td>
-</tr>
-</table>
-
-## Étapes du déploiement
-
-### <a name=role></a>Installer la fonctionnalité de conteneur
-
-La fonctionnalité de conteneur peut être installée sur Windows Server 2016, ou Windows Server 2016 Core, à l’aide du Gestionnaire de serveur Windows ou de PowerShell.
-
-Pour installer le rôle à l’aide de PowerShell, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges.
-
-```powershell
-PS C:\> Install-WindowsFeature containers
-```
-Le système doit être redémarré après l’installation du rôle de conteneur.
-
-```powershell
-PS C:\> shutdown /r 
-```
-Une fois que le système a redémarré, utilisez la commande `Get-ContainerHost` pour vérifier que le rôle de conteneur est correctement installé :
-
-```powershell
-PS C:\> Get-ContainerHost
-
-Name            ContainerImageRepositoryLocation
-----            --------------------------------
-WIN-LJGU7HD7TEP C:\ProgramData\Microsoft\Windows\Hyper-V\Container Image Store
+```none
+Install-WindowsFeature containers
 ```
 
-### <a name=vswitch></a>Créer un commutateur virtuel
+Une fois l’installation de la fonctionnalité terminée, redémarrez l’ordinateur.
 
-Chaque conteneur doit être relié à un commutateur virtuel afin de communiquer via un réseau. Un commutateur virtuel est créé avec la commande `New-VMSwitch`. Les conteneurs prennent en charge un commutateur virtuel de type `Externe` ou `NAT`. Pour plus d’informations sur la mise en réseau des conteneurs Windows, consultez [Mise en réseau d’un conteneur](../management/container_networking.md).
+## Installer Docker
 
-Cet exemple crée un commutateur virtuel nommé « Commutateur virtuel », un type NAT et le sous-réseau NAT 172.16.0.0/12.
+Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. Pour cet exercice, les deux sont installés.
 
-```powershell
-PS C:\> New-VMSwitch -Name "Virtual Switch" -SwitchType NAT -NATSubnetAddress 172.16.0.0/12
+Créez un dossier pour les exécutables Docker.
+
+```none
+New-Item -Type Directory -Path 'C:\Program Files\docker\'
 ```
 
-### <a name=nat></a>Configurer NAT
+Téléchargez le démon Docker.
 
-Outre la création d’un commutateur virtuel, si le type de commutateur est NAT, un objet NAT doit être créé. Pour ce faire, utilisez la commande `New-NetNat`. Cet exemple crée un objet NAT, nommé `ContainerNat`, et un préfixe d’adresse qui correspond au sous-réseau NAT assigné au commutateur du conteneur.
-
-```powershell
-PS C:\> New-NetNat -Name ContainerNat -InternalIPInterfaceAddressPrefix "172.16.0.0/12"
-
-Name                             : ContainerNat
-ExternalIPInterfaceAddressPrefix :
-InternalIPInterfaceAddressPrefix : 172.16.0.0/12
-IcmpQueryTimeout                 : 30
-TcpEstablishedConnectionTimeout  : 1800
-TcpTransientConnectionTimeout    : 120
-TcpFilteringBehavior             : AddressDependentFiltering
-UdpFilteringBehavior             : AddressDependentFiltering
-UdpIdleSessionTimeout            : 120
-UdpInboundRefresh                : False
-Store                            : Local
-Active                           : True
+```none
+Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker\dockerd.exe
 ```
 
-### <a name=img></a>Installer les images de système d’exploitation
+Téléchargez le client Docker.
 
-Une image de système d’exploitation est utilisée comme base pour un conteneur Windows Server ou Hyper-V. L’image est utilisée pour déployer un conteneur, et peut ensuite être modifiée et capturée dans une nouvelle image de conteneur. Les images de système d’exploitation ont été créées avec Windows Server Core et Nano Server comme système d’exploitation sous-jacent.
-
-Les images de système d’exploitation du conteneur sont accessibles et installées à l’aide du module PowerShell ContainerProvider. Vous devez installer ce module avant de l’utiliser. Les commandes suivantes peuvent être utilisées pour installer le module.
-
-```powershell
-PS C:\> Install-PackageProvider ContainerProvider -Force
+```none
+Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:ProgramFiles\docker\docker.exe
 ```
 
-Utilisez `Find-ContainerImage` pour retourner une liste d’images depuis le gestionnaire de package PowerShell OneGet :
-```powershell
-PS C:\> Find-ContainerImage
+Ajoutez le répertoire Docker au chemin du système.
 
-Name                 Version                 Description
-----                 -------                 -----------
-NanoServer           10.0.10586.0            Container OS Image of Windows Server 2016 Techn...
-WindowsServerCore    10.0.10586.0            Container OS Image of Windows Server 2016 Techn...
-```
-Pour télécharger et installer l’image du système d’exploitation de base Nano Server, exécutez la commande suivante.
-
-```powershell
-PS C:\> Install-ContainerImage -Name NanoServer -Version 10.0.10586.0
-
-Downloaded in 0 hours, 0 minutes, 10 seconds.
+```none
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
 ```
 
-De même, cette commande télécharge et installe l’image de système d’exploitation de base Windows Server Core.
+Redémarrez la session PowerShell pour que le chemin modifié soit reconnu.
 
-```powershell
-PS C:\> Install-ContainerImage -Name WindowsServerCore -Version 10.0.10586.0
+Pour installer Docker comme service Windows, exécutez la commande suivante.
 
-Downloaded in 0 hours, 2 minutes, 28 seconds.
+```none
+dockerd --register-service
 ```
 
-**Problème :** les applets de commande Save-ContainerImage et Install-ContainerImage ne fonctionnent pas avec une image de conteneur WindowsServerCore à partir d’une session PowerShell à distance.<br /> **Solution de contournement :** ouvrez une session sur l’ordinateur à l’aide du Bureau à distance et utilisez directement l’applet de commande Save-ContainerImage.
+Une fois installé, le service peut être démarré.
 
-Utilisez la commande `Get-ContainerImage` pour vérifier que les images ont été installées.
-
-```powershell
-PS C:\> Get-ContainerImage
-
-Name              Publisher    Version      IsOSImage
-----              ---------    -------      ---------
-NanoServer        CN=Microsoft 10.0.10586.0 True
-WindowsServerCore CN=Microsoft 10.0.10586.0 True
+```none
+Start-Service Docker
 ```
-Pour plus d’informations sur la gestion des images de conteneur, consultez [Images de conteneur Windows](../management/manage_images.md).
 
+## Installer les images de conteneur de base
 
-### <a name=docker></a>Installer Docker
+Avant de pouvoir déployer un conteneur, une image de système d’exploitation de base de conteneur doit être téléchargée. L’exemple suivant télécharge l’image de système d’exploitation de base Windows Server Core. Cette même procédure peut être suivie pour installer l’image de base Nano Server. Cette même procédure peut être suivie pour installer l’image de base Nano Server. Pour plus d’informations sur les images de conteneur Windows, voir la rubrique relative à la [gestion des images de conteneur](../management/manage_images.md).
+    
+Tout d’abord, installez le fournisseur de package d’images de conteneur.
 
-Le démon Docker et l’interface de ligne de commande ne sont pas fournis avec Windows, et ne sont pas installés avec la fonctionnalité de conteneur Windows. Docker n’est pas obligatoire pour utiliser des conteneurs Windows. Si vous voulez installer Docker, suivez les instructions de l’article [Docker et Windows](./docker_windows.md).
+```none
+Install-PackageProvider ContainerImage -Force
+```
 
+Ensuite, installez l’image Windows Server Core. Ce processus peut prendre du temps. Faites une pause, puis reprenez une fois le téléchargement terminé.
+
+```none 
+Install-ContainerImage -Name WindowsServerCore    
+```
+
+Une fois l’image de base installée, le service Docker doit être redémarré.
+
+```none
+Restart-Service docker
+```
+
+Enfin, l’image doit être marquée avec une version de la balise « latest ». Pour ce faire, exécutez la commande suivante.
+
+```none
+docker tag windowsservercore:10.0.14300.1000 windowsservercore:latest
+```
 
 ## Hôte de conteneurs Hyper-V
 
-### <a name=hypv></a>Activer le rôle Hyper-V
+Pour déployer des conteneurs Hyper-V, le rôle Hyper-V est nécessaire. Si l’hôte de conteneur Windows est lui-même une machine virtuelle Hyper-V, la virtualisation imbriquée doit être activée avant d’installer le rôle Hyper-V. Pour plus d’informations sur la virtualisation imbriquée, voir [Virtualisation imbriquée]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting).
 
-Si des conteneurs de Hyper-V doivent être déployés, le rôle Hyper-V doit être activé sur l’hôte du conteneur. Le rôle Hyper-V peut être installé sur Windows Server 2016 ou Windows Server 2016 Core à l’aide de la commande `Install-WindowsFeature`. Si l’hôte de conteneurs est lui-même une machine virtuelle Hyper-V, la virtualisation imbriquée doit être activée en premier. Pour ce faire, consultez [Configurer la virtualisation imbriquée](#nest).
+### Virtualisation imbriquée
 
-```powershell
-PS C:\> Install-WindowsFeature hyper-v
+Le script suivant configure la virtualisation imbriquée pour l’hôte de conteneur. Ce script est exécuté sur l’ordinateur Hyper-V qui héberge la machine virtuelle de l’hôte de conteneur. Vérifiez que la machine virtuelle de l’hôte de conteneur est désactivée lors de l’exécution de ce script.
+
+```none
+#replace with the virtual machine name
+$vm = "<virtual-machine>"
+
+#configure virtual processor
+Set-VMProcessor -VMName $vm -ExposeVirtualizationExtensions $true -Count 2
+
+#disable dynamic memory
+Set-VMMemory $vm -DynamicMemoryEnabled $false
+
+#enable mac spoofing
+Get-VMNetworkAdapter -VMName $vm | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
 
-### <a name=nest></a>Virtualisation imbriquée
+### Activer le rôle Hyper-V
 
-Si l’hôte de conteneur est exécuté sur une machine virtuelle Hyper-V et héberge également des conteneurs Hyper-V, la virtualisation imbriquée doit être activée. Vous pouvez pour cela exécuter la commande PowerShell suivante.
+Pour activer la fonctionnalité Hyper-V à l’aide de PowerShell, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges.
 
-**Remarque** : Les machines virtuelles doivent être arrêtées lors de l’exécution de cette commande.
-
-```powershell
-PS C:\> Set-VMProcessor -VMName <VM Name> -ExposeVirtualizationExtensions $true
-```
-
-### <a name=proc></a>Configurer les processeurs virtuels
-
-Si l’hôte de conteneur est exécuté sur une machine virtuelle Hyper-V et héberge également des conteneurs Hyper-V, la machine virtuelle requiert au moins deux processeurs. Cette configuration peut être effectuée via les paramètres de la machine virtuelle ou avec la commande suivante.
-
-**Remarque** : Les machines virtuelles doivent être arrêtées lors de l’exécution de cette commande.
-
-```poweshell
-PS C:\> Set-VMProcessor -VMName <VM Name> -Count 2
-```
-
-### <a name=dyn></a>Désactiver la mémoire dynamique
-
-Si l’hôte de conteneur est lui-même une machine virtuelle Hyper-V, la mémoire dynamique doit être désactivée sur la machine virtuelle de l’hôte de conteneur. Cette configuration peut être effectuée via les paramètres de la machine virtuelle ou avec la commande suivante.
-
-**Remarque** : Les machines virtuelles doivent être arrêtées lors de l’exécution de cette commande.
-
-```poweshell
-PS C:\> Set-VMMemory <VM Name> -DynamicMemoryEnabled $false
-```
-
-### <a name=mac></a>Usurpation des adresses MAC
-
-Enfin, si l’hôte du conteneur s’exécute à l’intérieur d’une machine virtuelle Hyper-V, l’usurpation MAC doit être activée. Chaque conteneur reçoit ainsi une adresse IP. Pour activer l’usurpation des adresses MAC, exécutez la commande suivante sur l’hôte Hyper-V. La propriété VMName sera le nom de l’hôte de conteneur.
-
-```powershell
-PS C:\> Get-VMNetworkAdapter -VMName <VM Name> | Set-VMNetworkAdapter -MacAddressSpoofing On
+```none
+Install-WindowsFeature hyper-v
 ```
 
 
 
+<!--HONumber=May16_HO4-->
 
 
-<!--HONumber=Feb16_HO4-->

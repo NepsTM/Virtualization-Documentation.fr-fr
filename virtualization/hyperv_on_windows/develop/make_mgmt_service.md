@@ -1,23 +1,36 @@
+---
+title: Créez vos propres services d’intégration
+description: Services d’intégration Windows 10.
+keywords: windows 10, hyper-v
+author: scooley
+manager: timlt
+ms.date: 05/02/2016
+ms.topic: article
+ms.prod: &1668342391 windows-10-hyperv
+ms.service: windows-10-hyperv
+ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
+---
+
 # Créez vos propres services d’intégration
 
 À partir de Windows 10, tout le monde peut rendre un service très similaire aux services d’intégration Hyper-V prédéfinis en utilisant un nouveau canal de communication par socket entre l’hôte Hyper-V et les machines virtuelles qui s’y exécutent. Grâce à ces sockets Hyper-V, les services peuvent s’exécuter indépendamment de la pile réseau et toutes les données restent sur la même mémoire physique.
 
 Ce document décrit la création d’une application simple basée sur les sockets Hyper-V et explique comment commencer à les utiliser.
 
-[PowerShell Direct](../user_guide/vmsession.md) est un exemple d’application (ici un service Windows prédéfini) qui utilise des sockets Hyper-V pour communiquer.
+<g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">PowerShell Direct</g><g id="1CapsExtId3" ctype="x-title"></g></g> est un exemple d’application (ici un service Windows prédéfini) qui utilise des sockets Hyper-V pour communiquer.
 
-**Système d’exploitation hôte pris en charge**
+<g id="1" ctype="x-strong">Système d’exploitation hôte pris en charge</g>
 * Windows 10 build 14290 et ultérieures
 * Windows Server Technical Preview 4 et versions ultérieures
 * Versions futures (après Server 2016)
 
-**Système d’exploitation invité pris en charge**
+<g id="1" ctype="x-strong">Système d’exploitation invité pris en charge</g>
 * Windows 10
 * Windows Server Technical Preview 4 et versions ultérieures
 * Versions futures (après Server 2016)
-* Invités Linux avec services d’intégration Linux (consultez [Machines virtuelles Linux et FreeBSD prises en charge pour Hyper-V sur Windows](https://technet.microsoft.com/library/dn531030(ws.12).aspx))
+* Invités Linux avec services d’intégration Linux (consultez <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">Machines virtuelles Linux et FreeBSD prises en charge pour Hyper-V sur Windows</g><g id="2CapsExtId3" ctype="x-title"></g></g>
 
-**Fonctionnalités et limitations**
+<g id="1" ctype="x-strong">Fonctionnalités et limitations</g>
 * Prend en charge les actions du mode utilisateur ou du mode noyau
 * Flux de données uniquement
 * Aucune mémoire de bloc (ce qui n’est pas optimal pour la sauvegarde/vidéo)
@@ -30,24 +43,24 @@ Ce document décrit la création d’une application simple basée sur les socke
 Pour le moment, les sockets Hyper-V sont disponibles en code natif (C/C++).
 
 Pour écrire une application simple, vous avez besoin des éléments suivants :
-* Compilateur C. Si vous n’en avez pas, consultez [Code Visual Studio](https://aka.ms/vs).
+* Compilateur C. Si vous n’en avez pas, consultez <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">Visual Studio Community</g><g id="2CapsExtId3" ctype="x-title"></g></g>
 * Ordinateur exécutant Hyper-V et une machine virtuelle.
   * Le système d’exploitation hôte et invité (machine virtuelle) doit être Windows 10, Windows Server Technical Preview 3, ou version ultérieure.
-* [SDK Windows 10](http://aka.ms/flightingSDK) installé sur l’hôte Hyper-V
+* <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">SDK Windows 10</g><g id="1CapsExtId3" ctype="x-title"></g></g> installé sur l’hôte Hyper-V
 
-**Détails sur le SDK Windows**
+<g id="1" ctype="x-strong">Détails sur le SDK Windows</g>
 
 Liens vers le SDK Windows :
-* [SDK Windows 10 pour la version préliminaire Windows Insiders](http://aka.ms/flightingSDK)
-* [SDK Windows 10](https://dev.windows.com/en-us/downloads/windows-10-sdk)
+* <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">SDK Windows 10 pour la version préliminaire Windows Insiders</g><g id="1CapsExtId3" ctype="x-title"></g></g>
+* <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">SDK Windows 10</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
 L’API pour les sockets Hyper-V est disponible depuis Windows 10 build 14290 : le téléchargement de la version d’évaluation correspond à la dernière build d’évaluation Fast Track interne.  
-Si vous êtes confronté à un comportement étrange, faites-le nous savoir dans le [forum TechNet](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home "Forums TechNet"). Dans votre billet, indiquez :
+Si vous êtes confronté à un comportement étrange, faites-le nous savoir dans le <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">forum TechNet</g><g id="2CapsExtId3" ctype="x-title">Forums TechNet</g></g>. Dans votre billet, indiquez :
 * le comportement inattendu ;
 * les numéros de build et de système d’exploitation pour l’hôte, l’invité et le Kit de développement logiciel.
 
   Le numéro de build du Kit de développement logiciel est visible dans le titre du programme d’installation du Kit de développement logiciel :  
-  ![](./media/flightingSDK.png)
+  <g id="1" ctype="x-linkText"></g>
 
 
 ## Inscrire une nouvelle application
@@ -73,7 +86,7 @@ $service.SetValue("ElementName", $friendlyName)
 $service.PSChildName | clip.exe
 ```
 
-** Emplacement du Registre et informations **
+<g id="1" ctype="x-em">* Emplacement du Registre et informations *</g>
 
 ``` 
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices\
@@ -81,8 +94,8 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 Vous voyez plusieurs GUID à cet emplacement du Registre. Il s’agit des services que nous fournissons.
 
 Informations dans le Registre pour chaque service :
-* `GUID du service`
-    * `ElementName (REG_SZ)` : nom convivial du service
+* <g id="1" ctype="x-code">GUID du service</g>
+    * <g id="1" ctype="x-code">ElementName (REG_SZ)</g> : nom convivial du service
 
 Pour inscrire votre propre service, créez une clé de Registre à l’aide de vos propre GUID et nom convivial.
 
@@ -97,7 +110,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
         ElementName REG_SZ  Your Service Friendly Name
 ```
 
-> ** Conseil : ** pour générer un GUID dans PowerShell et le copier dans le Presse-papiers, exécutez :
+> <g id="1" ctype="x-em">* Conseil : *</g> pour générer un GUID dans PowerShell et le copier dans le Presse-papiers, exécutez :
 ``` PowerShell
 (New-Guid).Guid | clip.exe
 ```
@@ -119,9 +132,9 @@ SOCKET WSAAPI socket(
 ```
 
 Pour un socket Hyper-V :
-* Famille d’adresses : `AF_HYPERV`
-* type : `SOCK_STREAM`
-* protocole : `HV_PROTOCOL_RAW`
+* Famille d’adresses : <g id="2" ctype="x-code">AF_HYPERV</g>
+* type : <g id="2" ctype="x-code">SOCK_STREAM</g>
+* protocole : <g id="2" ctype="x-code">HV_PROTOCOL_RAW</g>
 
 
 Voici un exemple de déclaration/d’instanciation :
@@ -134,7 +147,7 @@ SOCKET sock = socket(AF_HYPERV, SOCK_STREAM, HV_PROTOCOL_RAW);
 
 La fonction bind associe un socket à des informations de connexion.
 
-La définition de fonction est copiée ci-dessous par souci de commodité. Pour en savoir plus sur bind, cliquez [ici](https://msdn.microsoft.com/en-us/library/windows/desktop/ms737550.aspx).
+La définition de fonction est copiée ci-dessous par souci de commodité. Pour en savoir plus sur bind, cliquez <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">ici</g><g id="2CapsExtId3" ctype="x-title"></g></g>.
 
 ``` C
 int bind(
@@ -144,7 +157,7 @@ int bind(
 );
 ```
 
-Contrairement à l’adresse de socket (sockaddr) pour une famille d’adresses IP (Internet Protocol) standard (`AF_INET`) qui se compose de l’adresse IP de l’ordinateur hôte et d’un numéro de port sur cet hôte, l’adresse de socket pour `AF_HYPERV` utilise les ID de la machine virtuelle et de l’application définis ci-dessus pour établir une connexion.
+Contrairement à l’adresse de socket (sockaddr) pour une famille d’adresses IP (Internet Protocol) standard (<g id="2" ctype="x-code">AF_INET</g>) qui se compose de l’adresse IP de l’ordinateur hôte et d’un numéro de port sur cet hôte, l’adresse de socket pour <g id="4" ctype="x-code">AF_HYPERV</g> utilise les ID de la machine virtuelle et de l’application définis ci-dessus pour établir une connexion.
 
 Comme les sockets Hyper-V ne dépendent pas, entre autres, d’une pile réseau, de TCP/IP ni de DNS, le point de terminaison de socket exigeait un format autre qu’un nom d’hôte ou qu’une adresse IP qui décrive toujours sans ambiguïté la connexion.
 
@@ -165,7 +178,7 @@ struct SOCKADDR_HV
   ```PowerShell
   (Get-VM -Name $VMName).Id
   ```
-* ID de service : GUID, [décrit ci-dessus](#RegisterANewApplication), avec lequel l’application est inscrite dans le Registre de l’hôte Hyper-V.
+* ID de service : GUID, <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">décrit ci-dessus</g><g id="2CapsExtId3" ctype="x-title"></g></g>, avec lequel l’application est inscrite dans le Registre de l’hôte Hyper-V.
 
 Il existe également un ensemble de caractères génériques VMID disponibles quand une connexion n’est pas propre à une machine virtuelle spécifique.
 
@@ -181,7 +194,7 @@ Il existe également un ensemble de caractères génériques VMID disponibles qu
 | HV_GUID_PARENT| a42e7cda-d03f-480c-9cc2-a4de20abb878| Adresse parente.L’utilisation de ce VMID permet de se connecter à la partition parente du connecteur.*|
 
 
-***HV_GUID_PARENT**  
+<g id="1" ctype="x-strong">*HV_GUID_PARENT</g>  
 Le parent d’une machine virtuelle est son hôte. Le parent d’un conteneur est l’hôte du conteneur.  
 Une connexion à partir d’un conteneur exécuté dans une machine virtuelle permet de se connecter à la machine virtuelle qui héberge le conteneur.  
 L’écoute sur ce VMID permet d’accepter une connexion depuis :  
@@ -198,7 +211,7 @@ Send()
 Listen()
 Accept()
 
-[API WinSock complète](https://msdn.microsoft.com/en-us/library/windows/desktop/ms741394.aspx)
+<g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">API WinSock complète</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
 ## Travail en cours
 
@@ -210,6 +223,6 @@ sans perte de données
 
 
 
-<!--HONumber=Mar16_HO4-->
+<!--HONumber=May16_HO1-->
 
 
