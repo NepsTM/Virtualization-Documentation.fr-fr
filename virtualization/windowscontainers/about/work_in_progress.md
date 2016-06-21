@@ -1,6 +1,15 @@
-
-
-
+---
+title: Conteneurs Windows - Travail en cours
+description: Conteneurs Windows - Travail en cours
+keywords: docker, containers
+author: scooley
+manager: timlt
+ms.date: 05/26/2016
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: 5d9f1cb4-ffb3-433d-8096-b085113a9d7b
+---
 
 # Travail en cours
 
@@ -8,31 +17,26 @@ Si votre problème n’est pas traité ici ou si vous avez des questions, faites
 
 -----------------------
 
-
 ## Fonctionnalité générale
 
 ### Correspondance du numéro de build entre le conteneur et l’hôte
-
 Un conteneur Windows nécessite une image de système d’exploitation qui correspond à l’hôte de conteneur en matière de niveau de build et de correctif. Toute discordance peut aboutir à une instabilité et/ou un comportement imprévisible pour le conteneur et/ou l’hôte.
 
 Si vous installez des mises à jour sur le système d’exploitation de l’hôte de conteneur Windows, vous devez mettre à jour l’image du système d’exploitation de base du conteneur pour disposer des mises à jour correspondantes.
-
+<!-- Can we give examples of behavior or errors?  Makes it more searchable -->
 
 **Solution de contournement :**   
 Téléchargez et installez une image de base de conteneur correspondant à la version et au niveau de correctif du système d’exploitation de l’hôte de conteneur.
 
 ### Comportement par défaut du pare-feu
-
 Dans un environnement comprenant un hôte de conteneur et des conteneurs, il n’y a que le pare-feu de l’hôte de conteneur. Toutes les règles de pare-feu configurées dans l’hôte de conteneur sont propagées à tous ses conteneurs.
 
 ### Les conteneurs Windows démarrent lentement
-
 Si le démarrage de votre conteneur prend plus de 30 secondes, il est possible qu’il effectue plusieurs analyses antivirus en double.
 
-De nombreuses solutions anti-programme malveillant, comme Windows Defender, peuvent inutilement analyser les fichiers figurant dans les images de conteneur, en particulier les fichiers binaires du système d’exploitation et les fichiers de l’image du système d’exploitation du conteneur. Cela se produit chaque fois qu’un conteneur est créé. En effet, pour le logiciel anti-programme malveillant, tous les « fichiers du conteneur » ressemblent à des nouveaux fichiers qui n’ont pas encore été analysés. Par conséquent, quand le processus dans le conteneur tente de lire ces fichiers, les composants du logiciel anti-programme malveillant les analysent avant d’autoriser l’accès aux fichiers. En réalité, ces fichiers ont été déjà analysés quand l’image de conteneur a été importée ou extraite sur le serveur. Les versions préliminaires à venir bénéficieront d’une nouvelle infrastructure pour que les solutions anti-programme malveillant, comme Windows Defender, tiennent compte de ces situations et agissent en conséquence pour éviter plusieurs analyses.
+De nombreuses solutions anti-programme malveillant, comme Windows Defender, peuvent inutilement analyser les fichiers figurant dans les images de conteneur, en particulier tous les fichiers binaires du système d’exploitation et les fichiers de l’image de système d’exploitation du conteneur.  Cela se produit chaque fois qu’un conteneur est créé. En effet, pour le logiciel anti-programme malveillant, tous les « fichiers du conteneur » ressemblent à des nouveaux fichiers qui n’ont pas encore été analysés.  Par conséquent, quand le processus dans le conteneur tente de lire ces fichiers, les composants du logiciel anti-programme malveillant les analysent avant d’autoriser l’accès aux fichiers.  En réalité, ces fichiers ont été déjà analysés quand l’image de conteneur a été importée ou extraite sur le serveur. À partir de Windows Server Technical Preview 5, l’infrastructure disponible permet aux solutions anti-programme malveillant, comme Windows Defender, de tenir compte des situations et d’agir en conséquence pour éviter plusieurs analyses. Les solutions anti-programme malveillant peuvent mettre à jour leur solution à l’aide des instructions fournies [ici](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers) et éviter plusieurs analyses. 
 
 ### La commande start/stop se solde parfois par un échec si la mémoire est limitée à moins de 48 Mo
-
 Les conteneurs Windows se heurtent à des erreurs aléatoires et incohérentes quand la mémoire est limitée à moins de 48 Mo.
 
 Si vous exécutez plusieurs fois les commandes PowerShell start et stop, des échecs se produisent lors du démarrage ou de l’arrêt.
@@ -44,13 +48,13 @@ stop-container test
 ```
 
 **Solution de contournement :**  
-Remplacez la valeur de la mémoire par 48 Mo.
+Remplacez la valeur de la mémoire par 48 Mo. 
 
 
 ### Échec de start-container quand le nombre de processeurs est de 1 ou 2 sur une machine virtuelle à 4 cœurs
 
 Les conteneurs Windows ne démarrent pas et génèrent l’erreur suivante :  
-« Échec du démarrage : cette opération s’est terminée car le délai d’attente a expiré (0x800705B4). »
+`failed to start: This operation returned because the timeout period expired. (0x800705B4).`
 
 Cela se produit quand le nombre de processeurs est de 1 ou 2 sur une machine virtuelle à 4 cœurs.
 
@@ -78,104 +82,77 @@ Augmentez les processeurs accessibles au conteneur, ne spécifiez pas explicitem
 
 --------------------------
 
-
 ## Mise en réseau
 
-### Compartiments réseau limités
+### Isolation des compartiments réseau et implications
+Chaque conteneur utilise un compartiment réseau pour assurer une isolation. Toutes les cartes réseau de conteneur (points de terminaison) attachés à un conteneur donné résident dans le même compartiment réseau. En fonction du mode de mise en réseau (pilote) utilisé, il peut arriver que vous ne puissiez pas à accéder à deux points de terminaison de conteneur différents à l’aide de la même adresse IP ou du même port. De plus, les règles de pare-feu Windows ne prennent pas en charge les compartiments ou les conteneurs. Par conséquent, toutes les règles de pare-feu ajoutées s’appliquent à tous les conteneurs situés sur l’hôte du conteneur, quel que soit le point de terminaison.
 
-Dans cette version, nous prenons en charge un compartiment réseau par conteneur. Cela signifie que si vous avez un conteneur avec plusieurs cartes réseau, vous ne pouvez pas accéder au même port réseau sur chaque carte (par exemple, 192.168.0.1:80 et 192.168.0.2:80 appartenant au même conteneur).
+*** Mise en réseau transparente ***
 
-**Solution de contournement : **  
-Si plusieurs points de terminaison doivent être exposés par un conteneur, utilisez le mappage de port NAT.
+
+*** Mise en réseau NAT *** Vous pouvez exposer plusieurs points de terminaison attachés à un seul conteneur à l’aide de règles de réacheminement de port NAT qui sont appliquées pour chaque point de terminaison. Ces règles de réacheminement doivent utiliser des ports externes différents (sur l’hôte du conteneur) en cas de mappage au même port interne (dans le conteneur).  Toutefois, comme indiqué ci-dessus, les règles de pare-feu ajoutées ont une portée globale sur l’hôte du conteneur.
+
 
 
 ### Les mappages NAT statiques peuvent entrer en conflit avec les mappages de ports via Docker
+À compter de Windows Server Technical Preview 5, les règles de création de NAT et de mappage de port sont intégrées aux applets de commande *ContainerNetwork* et aux commandes Docker. Le service de réseau hôte (HNS, Host Network Service) Windows gère la NAT (traduction d’adresses réseau) pour votre compte. Toutefois, il est possible qu’un client externe essaie de créer une règle de mappage de port en double en utilisant la même NAT que celle créée par HNS.
 
-Si vous créez des conteneurs à l’aide de Windows PowerShell et que vous ajoutez des mappages NAT statiques, ils peuvent provoquer des conflits si vous ne les supprimez pas avant de démarrer un conteneur en utilisant `docker -p &lt;src&gt;:&lt;dst&gt;`
 
-Voici un exemple d’un conflit avec un mappage statique sur le port 80
+Voici un exemple de conflit avec un mappage statique sur le port 80 et l’erreur signalée par Docker quand cela se produit.
 ```
-PS C:\IISDemo> Add-NetNatStaticMapping -NatName "ContainerNat" -Protocol TCP -ExternalIPAddress 0.0.0.0 -InternalIPAddress
- 172.16.0.2 -InternalPort 80 -ExternalPort 80
-
-
-StaticMappingID               : 1
-NatName                       : ContainerNat
-Protocol                      : TCP
-RemoteExternalIPAddressPrefix : 0.0.0.0/0
-ExternalIPAddress             : 0.0.0.0
-ExternalPort                  : 80
-InternalIPAddress             : 172.16.0.2
-InternalPort                  : 80
-InternalRoutingDomainId       : {00000000-0000-0000-0000-000000000000}
-Active                        : True
-
-
-
-PS C:\IISDemo> docker run -it -p 80:80 microsoft/iis cmd
-docker: Error response from daemon: Cannot start container 30b17cbe85539f08282340cc01f2797b42517924a70c8133f9d8db83707a2c66: 
-HCSShim::CreateComputeSystem - Win32 API call returned error r1=2147942452 err=You were not connected because a 
-duplicate name exists on the network. If joining a domain, go to System in Control Panel to change the computer name
- and try again. If joining a workgroup, choose another workgroup name. 
- id=30b17cbe85539f08282340cc01f2797b42517924a70c8133f9d8db83707a2c66 configuration= {"SystemType":"Container",
- "Name":"30b17cbe85539f08282340cc01f2797b42517924a70c8133f9d8db83707a2c66","Owner":"docker","IsDummy":false,
- "VolumePath":"\\\\?\\Volume{4b239270-c94f-11e5-a4c6-00155d016f0a}","Devices":[{"DeviceType":"Network","Connection":
- {"NetworkName":"Virtual Switch","EnableNat":false,"Nat":{"Name":"ContainerNAT","PortBindings":[{"Protocol":"TCP",
- InternalPort":80,"ExternalPort":80}]}},"Settings":null}],"IgnoreFlushesDuringBoot":true,
- "LayerFolderPath":"C:\\ProgramData\\docker\\windowsfilter\\30b17cbe85539f08282340cc01f2797b42517924a70c8133f9d8db83707a2c66",
- "Layers":[{"ID":"4b91d267-ecbc-53fa-8392-62ac73812c7b","Path":"C:\\ProgramData\\docker\\windowsfilter\\39b8f98ccaf1ed6ae267fa3e98edcfe5e8e0d5414c306f6c6bb1740816e536fb"},
- {"ID":"ff42c322-58f2-5dbe-86a0-8104fcb55c2a",
-"Path":"C:\\ProgramData\\docker\\windowsfilter\\6a182c7eba7e87f917f4806f53b2a7827d2ff0c8a22d200706cd279025f830f5"},
-{"ID":"84ea5d62-64ed-574d-a0b6-2d19ec831a27",
-"Path":"C:\\ProgramData\\Microsoft\\Windows\\Images\\CN=Microsoft_WindowsServerCore_10.0.10586.0"}],
-"HostName":"30b17cbe8553","MappedDirectories":[],"SandboxPath":"","HvPartition":false}.
+C:\Users\Administrator>docker run -it -p 80:80 windowsservercore cmd
+docker: Error response from daemon: failed to create endpoint berserk_bassi on network nat: hnsCall failed in Win32: The remote procedure call failed. (0x6be).
 ```
 
 
-***Solution éventuelle***
-Supprimer le mappage de port à l’aide de PowerShell résoudra peut-être le problème, car il n’y aura plus de conflit avec le port 80 provoqué dans l’exemple ci-dessus.
+***Prévention*** En général, il est très improbable que cela se produise car HNS gère la NAT (traduction d’adresses réseau). Toutes les règles de mappage/de réacheminement de port doivent être créées à l’aide de `docker run -p <external>:<internal>` ou d’Add-ContainerNetworkAdapterStaticMapping. Toutefois, si les mappages ne sont pas automatiquement nettoyés par HNS, cette erreur peut être résolue en supprimant le mappage de port à l’aide de PowerShell. En effet, il n’y aura plus de conflit avec le port 80 provoqué dans l’exemple ci-dessus.
 ```powershell
 Get-NetNatStaticMapping | ? ExternalPort -eq 80 | Remove-NetNatStaticMapping
 ```
 
 
 ### Les conteneurs Windows n’obtiennent pas d’adresses IP
-
 Si vous vous connectez aux conteneurs Windows avec des commutateurs de machine virtuelle DHCP, il est possible que l’hôte de conteneur reçoive une adresse IP, mais pas les conteneurs.
 
-Les conteneurs obtiennent une adresse IP APIPA 169.254.***.***.
+Les conteneurs obtiennent une adresse IP APIPA 169.254.***.***  
 
-**Solution de contournement :**
-Il s’agit d’un effet secondaire du partage du noyau. Tous les conteneurs possèdent effectivement la même adresse MAC.
+**Solution de contournement :** il s’agit d’un effet secondaire du partage du noyau.  Tous les conteneurs possèdent effectivement la même adresse MAC.
 
-Activez l’usurpation des adresses MAC sur l’hôte de conteneur.
+Activez l’usurpation des adresses MAC sur l’hôte physique qui héberge la machine virtuelle d’hôte de conteneur.
 
 Pour cela, vous pouvez utiliser PowerShell.
 ```
 Get-VMNetworkAdapter -VMName "[YourVMNameHere]"  | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
-### HTTPS et TLS ne sont pas pris en charge
-
-Les conteneurs Windows Server et Hyper-V ne prennent pas en charge HTTPS ni TLS. Nous travaillons à rendre cette prise en charge possible à l’avenir.
-
 --------------------------
-
 
 ## Compatibilité des applications
 
-Face aux nombreuses questions qui se posent sur le fonctionnement ou non des applications dans les conteneurs Windows, nous avons décidé de consacrer [un article](../reference/app_compat.md) aux informations de compatibilité des applications.
+Face aux nombreuses questions qui se posent sur le fonctionnement, ou non, des applications dans les conteneurs Windows, nous avons décidé de consacrer [un article](../reference/app_compat.md) aux informations de compatibilité des applications.
 
 Quelques-uns des problèmes les plus courants sont également répertoriés ici.
 
-### Une erreur inattendue s’est produite dans un appel de méthode d’API à une instance localdb
+### Les journaux des événements ne sont pas disponibles dans le conteneur
 
+Les commandes PowerShell comme `get-eventlog Application` et les API qui interrogent le journal des événements retournent une erreur semblable à ceci :
+```
+get-eventlog : Cannot open log Application on machine .. Windows has not provided an error code.
+At line:1 char:1
+```
+
+Pour résoudre ce problème, vous pouvez ajouter l’étape suivante à un fichier Dockerfile. La journalisation des événements sera activée pour les images créées quand cette étape est incluse.
+```
+RUN powershell.exe -command Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\WMI\Autologger\EventLog-Application Start 1
+```
+
+
+### Une erreur inattendue s’est produite dans un appel de méthode d’API à une instance localdb.
 Une erreur inattendue s’est produite dans un appel de méthode d’API à une instance localdb.
 
 ### RTerm ne fonctionne pas
-
 RTerm est installé, mais il ne démarre pas dans un conteneur Windows Server.
 
-Erreur :
+Erreur :  
 ```
 'C:\Program' is not recognized as an internal or external command,
 operable program or batch file.
@@ -184,8 +161,7 @@ operable program or batch file.
 
 ### Conteneur : Visual C++ Runtime x64/x86 2015 n’est pas installé
 
-Comportement observé :
-Dans un conteneur :
+Comportement observé : dans un conteneur :
 ```
 C:\build\vcredist_2015_x64.exe /q /norestart
 C:\build>echo %errorlevel%
@@ -202,29 +178,20 @@ Pour plus d’informations sur les applications pouvant être placées dans des 
 --------------------------
 
 
-
 ## Gestion de Docker
 
-### Clients docker non sécurisés
-
-Dans cette version préliminaire, les communications Docker sont publiques si vous savez où regarder.
-
 ### Les commandes Docker ne fonctionnent pas toutes
-
 * Docker Exec échoue dans les conteneurs Hyper-V.
-* Les commandes liées à DockerHub ne sont pas encore prises en charge.
 
 Si vous êtes confronté à un échec qui ne figure pas dans cette liste (ou si une commande échoue de manière imprévue), faites-le nous savoir via les [forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
 
-### Le collage de commandes dans une session Docker interactive est limitée à 50 caractères
-
-Le collage de commandes dans une session Docker interactive est limitée à 50 caractères.  
+### Le collage de commandes dans une session Docker interactive est limité à 50 caractères
+Le collage de commandes dans une session Docker interactive est limité à 50 caractères.  
 Si vous copiez une ligne de commande dans une session Docker interactive, elle est actuellement limitée à 50 caractères. La chaîne collée est simplement tronquée.
 
 Ce n’est pas délibéré, et nous travaillons à lever cette restriction.
 
 ### Erreurs net use
-
 Net use retourne l’erreur système 1223 au lieu de demander le nom de l’utilisateur ou le mot de passe.
 
 **Solution de contournement :**  
@@ -232,63 +199,46 @@ Spécifiez le nom de l’utilisateur et le mot de passe lors de l’exécution d
 
 ``` PowerShell
 net use S: \\your\sources\here /User:shareuser [yourpassword]
-```
+``` 
 
 
 --------------------------
 
 
 
+## Bureau à distance 
 
-## Bureau à distance
-
-Il n’est pas possible de gérer les conteneurs Windows ni d’interagir avec eux par le biais d’une session RDP dans TP4.
+Il n’est pas possible de gérer les conteneurs Windows ni d’interagir avec eux par le biais d’une session RDP dans TP5.
 
 --------------------------
-
-
-## Gestion de PowerShell
-
-### Les sessions *-PSSession n’ont pas toutes un argument containerid
-
-C’est exact. Nous prévoyons de prendre entièrement en charge cimsession à l’avenir.
 
 ### La sortie d’un conteneur dans un hôte de conteneur Nano Server n’est pas possible avec « exit »
-
 Si vous essayez de quitter un conteneur qui se trouve dans un hôte de conteneur Nano Server avec « exit », vous êtes déconnecté de l’hôte de conteneur Nano Server, mais ne quittez pas le conteneur.
 
-**Solution de contournement :**
-Utilisez Exit-PSSession à la place pour quitter le conteneur.
+**Solution de contournement :** utilisez Exit-PSSession à la place pour quitter le conteneur.
 
-N’hésitez pas à nous faire part de vos demandes de fonctionnalités via les [forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
+N’hésitez pas à nous faire part de vos demandes de fonctionnalités via les [forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers). 
 
 
 --------------------------
-
 
 
 ## Utilisateurs et domaines
 
 ### Utilisateurs locaux
-
 Des comptes d’utilisateurs locaux peuvent être créés et utilisés pour l’exécution des services et applications Windows dans des conteneurs.
 
 
 ### Appartenance au domaine
-
-Les conteneurs ne peuvent pas joindre des domaines Active Directory ni exécuter des services ou applications en tant qu’utilisateurs du domaine, comptes de service ni comptes d’ordinateurs.
+Les conteneurs ne peuvent pas joindre des domaines Active Directory ni exécuter des services ou applications en tant qu’utilisateurs du domaine, comptes de service ni comptes d’ordinateurs. 
 
 Les conteneurs sont conçus pour démarrer rapidement dans un état cohérent connu qui est en grande partie indépendant de l’environnement. La jonction à un domaine et l’application de paramètres de stratégie de groupe du domaine augmentent le temps nécessaire au démarrage d’un conteneur, modifient son mode de fonctionnement au fil du temps et limitent la possibilité de déplacer ou de partager des images entre les développeurs et les déploiements.
 
-Nous examinons soigneusement les commentaires sur la façon dont les applications et services utilisent Active Directory et sur leur déploiement dans les conteneurs. Si vous avez plus d’informations sur ce qui vous convient le mieux, partagez-les avec nous dans les [ forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
+Nous examinons soigneusement les commentaires sur la façon dont les applications et services utilisent Active Directory et sur leur déploiement dans les conteneurs. Si vous avez plus d’informations sur ce qui vous convient le mieux, partagez-les avec nous dans les [forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers). 
 
 Nous étudions activement des solutions pour prendre en charge ces types de scénarios.
 
 
-
-
-
-
-<!--HONumber=Feb16_HO4-->
+<!--HONumber=May16_HO4-->
 
 
