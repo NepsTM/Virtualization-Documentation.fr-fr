@@ -101,14 +101,14 @@ RUN ["<executable", "<param 1>", "<param 2>"
 RUN <command>
 ```
 
-La différence entre la forme exec et la forme shell réside dans le mode d’exécution de l’instruction `RUN`. Quand vous utilisez la méthode exec, le programme spécifié est exécuté explicitement. 
+La différence entre la forme exec et la forme shell réside dans la façon dont l’instruction `RUN` est exécutée. Quand vous utilisez la forme exec, le programme spécifié est exécuté explicitement. 
 
 L’exemple suivant a utilisé la forme exec.
 
 ```none
 FROM windowsservercore
 
-RUN ["powershell","New-Item","c:/test"]
+RUN ["powershell", "New-Item", "c:/test"]
 ```
 
 En examinant l’image obtenue, la commande exécutée est `powershell new-item c:/test`.
@@ -142,7 +142,7 @@ IMAGE               CREATED             CREATED BY                              
 Sur Windows, quand vous utilisez l’instruction `RUN` avec le format exec, les barres obliques inverses doivent être placées dans une séquence d’échappement.
 
 ```none
-RUN ["powershell","New-Item","c:\\test"]
+RUN ["powershell", "New-Item", "c:\\test"]
 ```
 
 **Exemples**
@@ -159,9 +159,9 @@ RUN powershell.exe -Command c:\vcredist_x86.exe /quiet
 
 Pour plus d’informations sur l’instruction RUN, voir les [informations de référence sur RUN sur Docker.com]( https://docs.docker.com/engine/reference/builder/#run). 
 
-### COPIER
+### COPY
 
-L’instruction `COPY` copie les fichiers et répertoires sur le système de fichiers du conteneur. Les fichiers et répertoires doivent se trouver dans un chemin relatif au fichier Dockerfile.
+L’instruction `COPY` copie les fichiers et les répertoires sur le système de fichiers du conteneur. Les fichiers et répertoires doivent se trouver dans un chemin relatif au fichier Dockerfile.
 
 **Format**
 
@@ -179,7 +179,7 @@ COPY ["<source>" "<destination>"]
 
 **Considérations relatives à Windows**
  
-Sur Windows, le format de destination doit utiliser des barres obliques. Voici, par exemple, des instructions `ADD` valides.
+Sur Windows, le format de destination doit utiliser des barres obliques. Voici, par exemple, des instructions `COPY` valides.
 
 ```none
 COPY test1.txt /temp/
@@ -204,9 +204,11 @@ Cet exemple ajoute tous les fichiers qui commencent par config au répertoire `c
 COPY config* c:/temp/
 ```
 
-### AJOUTER
+Pour plus d’informations sur l’instruction `COPY`, voir les [informations de référence sur COPY sur Docker.com]( https://docs.docker.com/engine/reference/builder/#copy).
 
-L’instruction ADD est très similaire à l’instruction COPY, mais inclut des fonctionnalités supplémentaires. En plus de copier des fichiers à partir de l’hôte dans l’image de conteneur, l’instruction `ADD` peut également copier des fichiers depuis un emplacement distant avec une spécification d’URL.
+### ADD
+
+L’instruction ADD est très similaire à l’instruction COPY, mais elle inclut des fonctionnalités supplémentaires. En plus de copier des fichiers à partir de l’hôte dans l’image de conteneur, l’instruction `ADD` peut également copier des fichiers depuis un emplacement distant avec une spécification d’URL.
 
 **Format**
 
@@ -297,7 +299,7 @@ L’instruction `CMD` se présente sous le format suivant :
 ```none
 # exec form
 
-CMD ["<executable";"<param>"]
+CMD ["<executable", "<param>"]
 
 # shell form
 
@@ -311,7 +313,7 @@ Sur Windows, les chemins de fichiers spécifiés dans l’instruction `CMD` doiv
 ```none
 # exec form
 
-CMD ["c:\\Apache24\\bin\\httpd.exe","-w"]
+CMD ["c:\\Apache24\\bin\\httpd.exe", "-w"]
 
 # shell form
 
@@ -371,7 +373,7 @@ RUN powershell.exe -Command \
 
 Dans certains cas, il peut être utile de copier un script dans le conteneur utilisé au cours du processus de création d’image, puis de l’exécuter à partir du conteneur. Remarque : Vous limitez ainsi la mise en cache des couches d’images et réduisez la lisibilité du fichier Dockerfile.
 
-Cet exemple copie un script à partir de l’ordinateur de build dans le conteneur à l’aide de l’instruction `ADD`. Ce script est exécuté à l’aide de l’instruction RUN.
+Cet exemple copie un script à partir de l’ordinateur de build dans le conteneur à l’aide de l’instruction `ADD`. Ce script est alors exécuté à l’aide de l’instruction RUN.
 
 ```
 FROM windowsservercore
@@ -379,9 +381,9 @@ ADD script.ps1 /windows/temp/script.ps1
 RUN powershell.exe -executionpolicy bypass c:\windows\temp\script.ps1
 ```
 
-## docker build 
+## Docker Build 
 
-Une fois qu’un fichier Dockerfile a été créé et enregistré sur disque, la commande `docker build` peut être exécutée pour créer l’image. La commande `docker build` accepte plusieurs paramètres facultatifs et un chemin d’accès au fichier Dockerfile. Pour obtenir une documentation complète sur docker build, notamment une liste de toutes les options de génération, voir les [informations de référence sur docker build sur docker.com](https://docs.docker.com/engine/reference/commandline/build/#build-with).
+Une fois qu’un fichier Dockerfile a été créé et enregistré sur disque, la commande `docker build` peut être exécutée pour créer l’image. La commande `docker build` accepte plusieurs paramètres facultatifs et un chemin d’accès au fichier Dockerfile. Pour obtenir une documentation complète sur Docker Build, notamment une liste de toutes les options de build, voir les [informations de référence sur build sur Docker.com](https://docs.docker.com/engine/reference/commandline/build/#build).
 
 ```none
 Docker build [OPTIONS] PATH
@@ -440,6 +442,6 @@ windowsservercore   latest              6801d964fda5        4 months ago        
 [Informations de référence sur les fichiers Dockerfile sur docker.com](https://docs.docker.com/engine/reference/builder/)
 
 
-<!--HONumber=May16_HO4-->
+<!--HONumber=Jun16_HO3-->
 
 
