@@ -47,12 +47,12 @@ Défini sur Point de contrôle standard :
 Set-VM -Name <vmname> -CheckpointType Standard
 ```
 
-Défini sur Point de contrôle de production, en cas d’échec du point de contrôle production, un point de contrôle standard est créé :
+Défini sur Point de contrôle de production, en cas d’échec du point de contrôle de production, un point de contrôle standard est créé :
 ```powershell
 Set-VM -Name <vmname> -CheckpointType Production
 ```
 
-Défini sur Point de contrôle de production, en cas d’échec du point de contrôle production, un point de contrôle standard n’est pas créé. 
+Défini sur Point de contrôle de production, en cas d’échec du point de contrôle de production, un point de contrôle standard n’est pas créé. 
 ```powershell
 Set-VM -Name <vmname> -CheckpointType ProductionOnly
 ```
@@ -162,7 +162,7 @@ Une exportation regroupe le point de contrôle en tant que machine virtuelle afi
 
 **À l'aide de PowerShell**
 ``` powershell
-Export-VMCheckpoint -VMName <virtual machine name>  -Name <checkpoint name> -Path <path for export>
+Export-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name> -Path <path for export>
 ```
 
 ## Activer ou désactiver des points de contrôle
@@ -245,6 +245,6 @@ Une fois le point de contrôle de production appliqué, notez que la machine vir
 2. Vous pouvez constater que le fichier texte a été restauré. Mais contrairement au point de contrôle standard, le Bloc-notes n’est pas ouvert.   
 
 
-<!--HONumber=May16_HO3-->
+<!--HONumber=Jun16_HO3-->
 
 

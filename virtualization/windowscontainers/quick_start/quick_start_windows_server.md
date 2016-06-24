@@ -13,9 +13,9 @@ ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 
 # Conteneurs Windows sur Windows Server
 
-**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
+**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
 
-Cet exercice vous guide lors du déploiement et l’utilisation de base de la fonctionnalité de conteneur Windows sur Windows Server. Une fois terminé, vous aurez installé le rôle de conteneur et déployé un conteneur Windows Server simple. Avant de commencer ce démarrage rapide, familiarisez-vous avec la terminologie et les concepts de base des conteneurs. Ces informations figurent dans la [Présentation du démarrage rapide](./quick_start.md). 
+Cet exercice vous guide lors du déploiement et l’utilisation de base de la fonctionnalité de conteneur Windows sur Windows Server. Une fois terminé, vous aurez installé le rôle de conteneur et déployé un conteneur Windows Server simple. Avant de commencer ce démarrage rapide, familiarisez-vous avec la terminologie et les concepts de base des conteneurs. Ces informations figurent dans la [Présentation du démarrage rapide](./quick_start.md).
 
 Ce démarrage rapide est spécifique aux conteneurs Windows Server sur Windows Server 2016. Une documentation de démarrage rapide supplémentaire est disponible dans la table des matières affichée à gauche dans cette page.
 
@@ -25,7 +25,7 @@ Ce démarrage rapide est spécifique aux conteneurs Windows Server sur Windows S
 
 ## 1. Installer la fonctionnalité de conteneur
 
-La fonctionnalité de conteneur doit être activée avant d’utiliser des conteneurs Windows. Pour ce faire, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges. 
+La fonctionnalité de conteneur doit être activée avant d’utiliser des conteneurs Windows. Pour ce faire, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges.
 
 ```none
 Install-WindowsFeature containers
@@ -33,9 +33,13 @@ Install-WindowsFeature containers
 
 Une fois l’installation de la fonctionnalité terminée, redémarrez l’ordinateur.
 
+```none
+Restart-Computer -Force
+```
+
 ## 2. Installer Docker
 
-Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. Pour cet exercice, les deux seront installés.
+Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. Pour cet exercice, les deux sont installés.
 
 Créez un dossier pour les exécutables Docker.
 
@@ -70,13 +74,13 @@ dockerd --register-service
 Une fois installé, le service peut être démarré.
 
 ```none
-Start-Service Docker
+Start-Service docker
 ```
 
 ## 3. Installer les images de conteneur de base
 
-Les conteneurs Windows sont déployés à partir de modèles ou d’images. Avant de pouvoir déployer un conteneur, une image de système d’exploitation de base doit être téléchargée. Les commandes suivantes téléchargent l’image de base Windows Server Core. 
-    
+Les conteneurs Windows sont déployés à partir de modèles ou d’images. Avant de pouvoir déployer un conteneur, une image de système d’exploitation de base doit être téléchargée. Les commandes suivantes téléchargent l’image de base Windows Server Core.
+
 Tout d’abord, installez le fournisseur de package d’images de conteneur.
 
 ```none
@@ -85,7 +89,7 @@ Install-PackageProvider ContainerImage -Force
 
 Ensuite, installez l’image Windows Server Core. Ce processus peut prendre du temps. Faites une pause, puis reprenez une fois le téléchargement terminé.
 
-```none 
+```none
 Install-ContainerImage -Name WindowsServerCore    
 ```
 
@@ -175,6 +179,8 @@ CONTAINER ID    IMAGE                             COMMAND               CREATED 
 
 À partir d’un autre ordinateur, ouvrez un navigateur web et entrez l’adresse IP de l’hôte du conteneur. Si tout a été configuré correctement, vous devez voir l’écran de démarrage d’IIS. Cela s’effectue à partir de l’instance IIS hébergée dans le conteneur Windows.
 
+**Remarque :** Si vous travaillez dans Azure, une règle de groupe de sécurité réseau doit exister pour autoriser le trafic sur le port 80. Pour plus d’informations, voir [Créer une règle dans un groupe de sécurité réseau]( https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-nsg-arm-pportal/#create-rules-in-an-existing-nsg).
+
 ![](media/iis1.png)
 
 De retour sur l’hôte de conteneur, utilisez la commande `docker rm` pour supprimer le conteneur. Remarque : Remplacez le nom de conteneur indiqué dans cet exemple par le nom de conteneur réel.
@@ -189,6 +195,6 @@ docker rm -f grave_jang
 [Conteneurs Windows sur Windows 10](./quick_start_windows_10.md)
 
 
-<!--HONumber=May16_HO4-->
+<!--HONumber=Jun16_HO3-->
 
 

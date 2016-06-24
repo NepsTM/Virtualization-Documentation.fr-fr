@@ -13,19 +13,23 @@ ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
 
 # Déploiement d’un hôte de conteneurs – Windows Server
 
-**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
+**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
 
 Les étapes du déploiement d’un hôte de conteneur Windows sont différentes selon le système d’exploitation et le type de système hôte (physique ou virtuel). Ce document décrit en détail le déploiement d’un hôte de conteneur Windows vers Windows Server 2016 ou Windows Server Core 2016, sur un système physique ou virtuel.
 
 ## Installer la fonctionnalité de conteneur
 
-La fonctionnalité de conteneur doit être activée avant d’utiliser des conteneurs Windows. Pour ce faire, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges. 
+La fonctionnalité de conteneur doit être activée avant d’utiliser des conteneurs Windows. Pour ce faire, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges.
 
 ```none
 Install-WindowsFeature containers
 ```
 
 Une fois l’installation de la fonctionnalité terminée, redémarrez l’ordinateur.
+
+```none
+Restart-Computer -Force
+```
 
 ## Installer Docker
 
@@ -71,8 +75,8 @@ Start-Service Docker
 
 ## Installer les images de conteneur de base
 
-Avant de pouvoir déployer un conteneur, une image de système d’exploitation de base de conteneur doit être téléchargée. L’exemple suivant télécharge l’image de système d’exploitation de base Windows Server Core. Cette même procédure peut être suivie pour installer l’image de base Nano Server. Cette même procédure peut être suivie pour installer l’image de base Nano Server. Pour plus d’informations sur les images de conteneur Windows, voir la rubrique relative à la [gestion des images de conteneur](../management/manage_images.md).
-    
+Avant de pouvoir déployer un conteneur, une image de système d’exploitation de base de conteneur doit être téléchargée. L’exemple suivant télécharge l’image de système d’exploitation de base Windows Server Core. Cette même procédure peut être suivie pour installer l’image de base Nano Server. Pour plus d’informations sur les images de conteneur Windows, voir la rubrique relative à la [gestion des images de conteneur](../management/manage_images.md).
+
 Tout d’abord, installez le fournisseur de package d’images de conteneur.
 
 ```none
@@ -81,7 +85,7 @@ Install-PackageProvider ContainerImage -Force
 
 Ensuite, installez l’image Windows Server Core. Ce processus peut prendre du temps. Faites une pause, puis reprenez une fois le téléchargement terminé.
 
-```none 
+```none
 Install-ContainerImage -Name WindowsServerCore    
 ```
 
@@ -99,11 +103,11 @@ docker tag windowsservercore:10.0.14300.1000 windowsservercore:latest
 
 ## Hôte de conteneurs Hyper-V
 
-Pour déployer des conteneurs Hyper-V, le rôle Hyper-V est nécessaire. Si l’hôte de conteneur Windows est lui-même une machine virtuelle Hyper-V, la virtualisation imbriquée doit être activée avant d’installer le rôle Hyper-V. Pour plus d’informations sur la virtualisation imbriquée, voir [Virtualisation imbriquée]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting).
+Pour exécuter des conteneurs Hyper-V, le rôle Hyper-V est nécessaire. Si l’hôte de conteneur Windows est lui-même une machine virtuelle Hyper-V, la virtualisation imbriquée doit être activée avant d’installer le rôle Hyper-V. Pour plus d’informations sur la virtualisation imbriquée, voir [Virtualisation imbriquée]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting).
 
 ### Virtualisation imbriquée
 
-Le script suivant configure la virtualisation imbriquée pour l’hôte de conteneur. Ce script est exécuté sur l’ordinateur Hyper-V qui héberge la machine virtuelle de l’hôte de conteneur. Vérifiez que la machine virtuelle de l’hôte de conteneur est désactivée lors de l’exécution de ce script.
+Le script suivant configure la virtualisation imbriquée pour l’hôte de conteneur. Ce script est exécuté sur l’ordinateur Hyper-V parent. Vérifiez que la machine virtuelle de l’hôte de conteneur est désactivée lors de l’exécution de ce script.
 
 ```none
 #replace with the virtual machine name
@@ -128,7 +132,6 @@ Install-WindowsFeature hyper-v
 ```
 
 
-
-<!--HONumber=May16_HO4-->
+<!--HONumber=Jun16_HO2-->
 
 
