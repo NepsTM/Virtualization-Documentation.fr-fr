@@ -24,12 +24,12 @@ Configuration requise :
 * Windows build 14295 ou ultérieures
 * Le rôle Hyper-V est activé (instructions [ici](../quick_start/walkthrough_create_vm.md))
 
-> **Remarque :** Actuellement, Hyper-V vous permet uniquement de créer un réseau NAT.
+> **Remarque :** Actuellement, Hyper-V vous permet uniquement de créer un réseau NAT. Pour plus d’informations sur l’implémentation de NAT Windows (WinNAT), les fonctionnalités et les limitations, lisez le billet de blog [WinNAT capabilities and limitations](https://blogs.technet.microsoft.com/virtualization/2016/05/25/windows-nat-winnat-capabilities-and-limitations/)
 
 ## Vue d’ensemble de NAT
-NAT permet à une machine virtuelle d’accéder à des ressources réseau à l’aide de l’adresse IP de l’ordinateur hôte et d’un port.
+NAT permet à une machine virtuelle d’accéder à des ressources réseau à l’aide de l’adresse IP de l’ordinateur hôte et d’un port via un commutateur virtuel Hyper-V interne.
 
-La traduction d’adresses réseau (NAT) est un mode de mise en réseau conçu pour conserver des adresses IP en mappant une adresse IP et un port externes à un ensemble beaucoup plus vaste d’adresses IP internes.  Fondamentalement, un commutateur NAT utilise une table de mappage NAT pour acheminer le trafic à partir d’une adresse IP et d’un numéro de port vers l’adresse IP interne appropriée associée à un appareil sur le réseau (machine virtuelle, ordinateur, conteneur, etc.).
+La traduction d’adresses réseau (NAT) est un mode de mise en réseau conçu pour conserver des adresses IP en mappant une adresse IP et un port externes à un ensemble beaucoup plus vaste d’adresses IP internes.  Fondamentalement, NAT utilise une table de flux pour acheminer le trafic à partir d’une adresse IP (hôte) externe et d’un numéro de port vers l’adresse IP interne appropriée associée à un point de terminaison sur le réseau (machine virtuelle, ordinateur, conteneur, etc.)
 
 De plus, NAT autorise que plusieurs machines virtuelles hébergent des applications qui exigent des ports de communication (internes) identiques en les mappant à des ports externes uniques.
 
@@ -121,6 +121,88 @@ Félicitations !  Vous avez maintenant un réseau NAT virtuel !  Pour ajouter 
 
 Pour connecter une machine virtuelle à votre nouveau réseau NAT, connectez le commutateur interne que vous avez créé à la première étape de la section de [configuration d’un réseau NAT](setup_nat_network.md#create-a-nat-virtual-network) à votre machine virtuelle à l’aide du menu Paramètres de la machine virtuelle.
 
+Étant donné que WinNAT par lui-même ne peut pas allouer ni affecter des adresses IP à un point de terminaison (par exemple, une machine virtuelle), vous devez le faire manuellement à partir de la machine virtuelle elle-même, autrement dit définir une adresse IP dans la plage de préfixe interne NAT, définir une adresse IP de passerelle par défaut et définir des informations sur le serveur DNS. Vous devez être attentif quand le point de terminaison est associé à un conteneur. Dans ce cas, le service HNS (Host Network Service) alloue et utilise le service HCS (Host Compute Service) pour affecter l’adresse IP, l’adresse IP de passerelle et les informations DNS directement au conteneur.
+
+
+## Exemple de configuration : Association de machines virtuelles et de conteneurs à un réseau NAT
+_Si vous devez associer plusieurs machines virtuelles et conteneurs à un seul réseau NAT, vous devrez vous assurer que le préfixe de sous-réseau interne NAT est suffisamment important pour englober les plages IP affectées par différents services ou applications (par exemple, Docker pour Windows et conteneur Windows – HNS). Cela nécessite une affectation d’adresses IP au niveau de l’application et une configuration réseau ou une configuration manuelle à exécuter par un administrateur et qui ne doit pas réutiliser les affectations d’adresses IP existantes sur le même hôte._
+
+### Docker pour Windows (machine virtuelle Linux) et conteneurs Windows
+La solution ci-dessous permet à la fois à Docker pour Windows (machine virtuelle Linux exécutant des conteneurs Linux) et aux conteneurs Windows de partager la même instance WinNAT à l’aide de commutateurs virtuels internes distincts. La connectivité entre les conteneurs Windows et Linux fonctionne.
+
+L’utilisateur a connecté des machines virtuelles à un réseau NAT via un commutateur virtuel interne nommé « VMNAT » et veut maintenant installer la fonctionnalité de conteneur Windows avec le moteur Docker
+```none
+PS C:\> Get-NetNat “VMNAT”| Remove-NetNat (this will remove the NAT but keep the internal vSwitch).
+Install Windows Container Feature
+DO NOT START Docker Service (daemon)
+Edit the arguments passed to the docker daemon (dockerd) by adding –fixed-cidr=<container prefix> parameter. This tells docker to create a default nat network with the IP subnet <container prefix> (e.g. 192.168.1.0/24) so that HNS can allocate IPs from this prefix.
+PS C:\> Start-Service Docker; Stop-Service Docker
+PS C:\> Get-NetNat | Remove-NetNAT (again, this will remove the NAT but keep the internal vSwitch)
+PS C:\> New-NetNat -Name SharedNAT -InternalIPInterfaceAddressPrefix <shared prefix>
+PS C:\> Start-Service docker
+```
+Docker/HNS affecte des adresses IP aux conteneurs Windows à partir du <container prefix> L’administrateur affecte des adresses IP aux machines virtuelles à partir de l’ensemble différentiel du <shared prefix> et <container prefix>
+
+L’utilisateur a installé la fonctionnalité de conteneur Windows avec le moteur Docker en cours d’exécution et veut maintenant connecter les machines virtuelles au réseau NAT
+```none
+PS C:\> Stop-Service docker
+PS C:\> Get-ContainerNetwork | Remove-ContainerNetwork -force
+PS C:\> Get-NetNat | Remove-NetNat (this will remove the NAT but keep the internal vSwitch)
+Edit the arguments passed to the docker daemon (dockerd) by adding -b “none” option to the end of docker daemon (dockerd) command to tell docker not to create a default NAT network.
+PS C:\> New-ContainerNetwork –name nat –Mode NAT –subnetprefix <container prefix> (create a new NAT and internal vSwitch – HNS will allocate IPs to container endpoints attached to this network from the <container prefix>)
+PS C:\> Get-Netnat | Remove-NetNAT (again, this will remove the NAT but keep the internal vSwitch)
+PS C:\> New-NetNat -Name SharedNAT -InternalIPInterfaceAddressPrefix <shared prefix>
+PS C:\> New-VirtualSwitch -Type internal (attach VMs to this new vSwitch)
+PS C:\> Start-Service docker
+```
+Docker/HNS affecte des adresses IP aux conteneurs Windows à partir du <container prefix> L’administrateur affecte des adresses IP aux machines virtuelles à partir de l’ensemble différentiel du <shared prefix> et <container prefix>
+
+Au final, vous devez disposer de deux commutateurs de machine virtuelle internes et d’un réseau NAT partagé entre eux.
+
+## Résolution des problèmes
+Vérifiez que vous avez une seule NAT
+```none
+Get-NetNat
+```
+Si une NAT existe déjà, supprimez-la
+```none
+Get-NetNat | Remove-NetNat
+```
+Vérifiez que vous avez uniquement un commutateur de machine virtuelle « interne » pour l’application ou la fonctionnalité (par exemple, des conteneurs Windows). Enregistrez le nom du commutateur virtuel
+```none
+Get-VMSwitch
+```
+Vérifiez s’il existe des adresses IP privées (par exemple, l’adresse IP de la passerelle par défaut NAT, généralement *.1) de l’ancien NAT toujours affectées à un adaptateur
+```none
+Get-NetIPAddress -InterfaceAlias "vEthernet(<name of vSwitch>)"
+```
+Si une ancienne adresse IP privée est en cours d’utilisation, supprimez-la
+```none
+Remove-NetIPAddress -InterfaceAlias "vEthernet(<name of vSwitch>)" -IPAddress <IPAddress>
+```
+Suppression de plusieurs NAT Nous avons vu des rapports concernant plusieurs réseaux NAT créés par inadvertance. Cela est dû à un bogue dans les builds récentes (notamment Windows Server 2016 Technical Preview 5 et Windows 10 Insider Preview). Si vous voyez plusieurs réseaux NAT après avoir exécuté docker network ls ou Get-ContainerNetwork, exécutez ce qui suit à partir d’une invite PowerShell avec élévation des privilèges :
+
+```none
+PS> $KeyPath = "HKLM:\SYSTEM\CurrentControlSet\Services\vmsmp\parameters\SwitchList"
+PS> $keys = get-childitem $KeyPath
+PS> foreach($key in $keys)
+PS> {
+PS>    if ($key.GetValue("FriendlyName") -eq 'nat')
+PS>    {
+PS>       $newKeyPath = $KeyPath+"\"+$key.PSChildName
+PS>       Remove-Item -Path $newKeyPath -Recurse
+PS>    }
+PS> }
+PS> remove-netnat -Confirm:$false
+PS> Get-ContainerNetwork | Remove-ContainerNetwork
+PS> Get-VmSwitch -Name nat | Remove-VmSwitch (_failure is expected_)
+PS> Stop-Service docker
+PS> Set-Service docker -StartupType Disabled
+Reboot Host
+PS> Get-NetNat | Remove-NetNat
+PS> Set-Service docker -StartupType automaticac
+PS> Start-Service docker 
+```
 
 ## Résolution des problèmes
 
@@ -190,6 +272,6 @@ Au final, vous devez avoir deux commutateurs virtuels internes : l’un nommé 
 En savoir plus sur les [réseaux NAT](https://en.wikipedia.org/wiki/Network_address_translation)
 
 
-<!--HONumber=May16_HO5-->
+<!--HONumber=Jun16_HO1-->
 
 
