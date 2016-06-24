@@ -1,31 +1,11 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\docker\manage_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/960b40e8c1eda9c19ebff0972df2c87e70c7e8f6/virtualization/windowscontainers/docker/manage_windows_dockerfile.md) | OutofSyncHandedBackSuccess | [Details](#71e0fb430498f8a5ae4ac5b297cf5e4a2c904098246)
 
 ## Item Details
-##### <a name='71e0fb430498f8a5ae4ac5b297cf5e4a2c904098246'></a> Source: [virtualization\windowscontainers\docker\manage_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/960b40e8c1eda9c19ebff0972df2c87e70c7e8f6/virtualization/windowscontainers/docker/manage_windows_dockerfile.md)
-* Status: OutofSyncHandedBackSuccess
-* Target File: 
-* Handoff File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/667ad40880b5ead21cce1ec8a5db31f863c5bc59/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.fr-fr.xlf)
-* Handoff Datetime: 2016-06-23 00:45:02
-* Handoff Reason: Include
-* Archive File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/198312936c73bb6e757d4df154bbb4eb2b8b2c69/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/archive/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.fr-fr.xlf)
-* Archive Datetime: 2016-06-23 19:28:56
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\docker\manage_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/eb5db77fec1015aaf2f14b400874602b0feb88d5/virtualization/windowscontainers/docker/manage_windows_dockerfile.md)
-* Current Handback File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/1146c9e32b190655fe846f0e0fb1caf373b42020/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.fr-fr.xlf)
-* Current Handback Datetime: 2016-06-24 07:06:36
-* Bilingual File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/d4ab5a9389e8f8997a0c4460948b40f9450211dd/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.fr-fr.xlf)
-* Bilingual Datetime: 2016-06-21 16:03:46
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
