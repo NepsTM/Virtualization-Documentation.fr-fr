@@ -3074,8 +3074,8 @@
 * Archive Datetime: 2016-06-09 07:18:54
 * Handback File: [setup_nat_network.910a966b84616e203e5739d5dde1b65115f14a37.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/fbe9fad756a20cbf5e2c82209779438e9820ecfd/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/setup_nat_network.910a966b84616e203e5739d5dde1b65115f14a37.fr-fr.xlf)
 * Handback Datetime: 2016-06-24 17:00:28
-* Bilingual File: [setup_nat_network.910a966b84616e203e5739d5dde1b65115f14a37.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/157f255b5046c9d842b58a7155ebe69fd697d63b/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/setup_nat_network.910a966b84616e203e5739d5dde1b65115f14a37.fr-fr.xlf)
-* Bilingual Datetime: 2016-06-21 15:09:02
+* Bilingual File: [setup_nat_network.910a966b84616e203e5739d5dde1b65115f14a37.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/fbe9fad756a20cbf5e2c82209779438e9820ecfd/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/setup_nat_network.910a966b84616e203e5739d5dde1b65115f14a37.fr-fr.xlf)
+* Bilingual Datetime: 2016-06-24 17:01:06
 * [Back to Top](#report-top)
 
 ##### <a name='97ae940c03df2ab18350a31c56c93da85a348110206'></a> Source: [virtualization\hyperv_on_windows\user_guide\troubleshooting.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e14ede0a2b13de08cea0a955b37a21a150fb88cf/virtualization/hyperv_on_windows/user_guide/troubleshooting.md)
@@ -3661,8 +3661,8 @@
 * Archive Datetime: 2016-06-09 07:18:54
 * Handback File: [container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/fbe9fad756a20cbf5e2c82209779438e9820ecfd/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.fr-fr.xlf)
 * Handback Datetime: 2016-06-24 17:00:28
-* Bilingual File: [container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/157f255b5046c9d842b58a7155ebe69fd697d63b/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.fr-fr.xlf)
-* Bilingual Datetime: 2016-06-21 15:09:02
+* Bilingual File: [container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/fbe9fad756a20cbf5e2c82209779438e9820ecfd/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.fr-fr.xlf)
+* Bilingual Datetime: 2016-06-24 17:01:06
 * [Back to Top](#report-top)
 
 ##### <a name='03ceaa83723db0870623cbc579d81b8d4ee6e813250'></a> Source: [virtualization\windowscontainers\management\docker-powershell.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/9d9bd347e20cdd57bf107b9d859ac0fe096e359e/virtualization/windowscontainers/management/docker-powershell.md)
