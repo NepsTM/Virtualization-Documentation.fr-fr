@@ -299,9 +299,6 @@
   "161aaeed6c625d92b45be59dde4357836934956b": [
     "virtualization\\windowscontainers\\management\\container_networking.md"
   ],
-  "8f6f2a03045cb7b487f46b4ca975e680a016c6f2": [
-    "virtualization\\windowscontainers\\management\\container_networking.md"
-  ],
   "4d662bf6e123797b4670dfdf6a6aee32e4e95e54": [
     "virtualization\\windowscontainers\\management\\media\\nat1.png"
   ],
@@ -372,9 +369,6 @@
     "virtualization\\windowscontainers\\quick_start\\manage_docker_hyperv.md"
   ],
   "d98445932ccbe77b6a4e798c3c2edb9c63bd351b": [
-    "virtualization\\hyperv_on_windows\\user_guide\\setup_nat_network.md"
-  ],
-  "f5b069dc5918a91c7d8918889f44118e0b49a5e3": [
     "virtualization\\hyperv_on_windows\\user_guide\\setup_nat_network.md"
   ],
   "eee61e546594e20f523be53f4d7081b4bec37dc1": [
