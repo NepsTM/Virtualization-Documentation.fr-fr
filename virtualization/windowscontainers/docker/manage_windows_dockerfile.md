@@ -1,6 +1,6 @@
 ---
 title: Fichier Dockerfile et conteneurs Windows
-description: Créez des fichiers Dockerfile pour les conteneurs Windows.
+description: "Créez des fichiers Dockerfile pour les conteneurs Windows."
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,6 +9,9 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
+ms.sourcegitcommit: 960b40e8c1eda9c19ebff0972df2c87e70c7e8f6
+ms.openlocfilehash: 71e0fb430498f8a5ae4ac5b297cf5e4a2c904098
+
 ---
 
 # Fichier Dockerfile sur Windows
@@ -327,6 +330,40 @@ CMD c:\Apache24\bin\httpd.exe -w
 
 Pour plus d’informations sur l’instruction `CMD`, voir les [informations de référence sur CMD sur Docker.com]( https://docs.docker.com/engine/reference/builder/#cmd). 
 
+## Caractère d’échappement
+
+Dans de nombreux cas, une instruction de fichier Dockerfile doit s’étendre sur plusieurs lignes ; pour cela, utilisez un caractère d’échappement. Le caractère d’échappement de fichier Dockerfile par défaut est une barre oblique inverse `\`. Étant donné que la barre oblique inverse est également un séparateur de chemin de fichier dans Windows, cela peut être problématique. Pour modifier le caractère d’échappement par défaut, une directive d’analyseur peut être utilisée. Pour plus d’informations sur les directives d’analyseur, voir [Directives d’analyseur sur Docker.com]( https://docs.docker.com/engine/reference/builder/#parser-directives).
+
+L’exemple suivant montre une instruction RUN unique qui s’étend sur plusieurs lignes à l’aide du caractère d’échappement par défaut.
+
+```none
+FROM windowsservercore
+
+RUN powershell.exe -Command \
+    $ErrorActionPreference = 'Stop'; \
+    wget https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe -OutFile c:\python-3.5.1.exe ; \
+    Start-Process c:\python-3.5.1.exe -ArgumentList '/quiet InstallAllUsers=1 PrependPath=1' -Wait ; \
+    Remove-Item c:\python-3.5.1.exe -Force
+```
+
+Pour modifier le caractère d’échappement, placez une directive d’analyseur d’échappement sur la toute première ligne du fichier Dockerfile. Une illustration figure dans l’exemple ci-dessous.
+
+> Notez que deux valeurs seulement peuvent être utilisées en tant que caractères d’échappement, `\` et `` ` ``.
+
+```none
+# escape=`
+
+FROM windowsservercore
+
+RUN powershell.exe -Command `
+    $ErrorActionPreference = 'Stop'; `
+    wget https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe -OutFile c:\python-3.5.1.exe ; `
+    Start-Process c:\python-3.5.1.exe -ArgumentList '/quiet InstallAllUsers=1 PrependPath=1' -Wait ; `
+    Remove-Item c:\python-3.5.1.exe -Force
+```
+
+Pour plus d’informations sur la directive d’analyseur d’échappement, voir [Directive d’analyseur d’échappement sur Docker.com]( https://docs.docker.com/engine/reference/builder/#escape).
+
 ## PowerShell dans un fichier Dockerfile
 
 ### Commandes PowerShell
@@ -442,6 +479,7 @@ windowsservercore   latest              6801d964fda5        4 months ago        
 [Informations de référence sur les fichiers Dockerfile sur docker.com](https://docs.docker.com/engine/reference/builder/)
 
 
-<!--HONumber=Jun16_HO3-->
+
+<!--HONumber=Jun16_HO4-->
 
 
