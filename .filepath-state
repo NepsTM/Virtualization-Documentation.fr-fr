@@ -99,9 +99,6 @@
   "d2fbf3b714ac70e096ba80aadd9533c62cf0c34e": [
     "virtualization\\hyperv_on_windows\\user_guide\\managing_ics.md"
   ],
-  "9bdf1c6cc52982df0a5d6f59057bf07492d5c53b": [
-    "virtualization\\hyperv_on_windows\\user_guide\\managing_ics.md"
-  ],
   "cfd2050910aa411e608428c9f4ae570de2924123": [
     "virtualization\\hyperv_on_windows\\user_guide\\media\\HyperVManager-OpenVMSettings.png"
   ],
@@ -118,12 +115,6 @@
     "virtualization\\hyperv_on_windows\\user_guide\\nesting.md"
   ],
   "2d1679ffe4876ddd4eefe1b457098e8797899492": [
-    "virtualization\\hyperv_on_windows\\user_guide\\nesting.md"
-  ],
-  "7270493b8c42935434f72b01524530079d5fb539": [
-    "virtualization\\hyperv_on_windows\\user_guide\\nesting.md"
-  ],
-  "b76ef12cd63c3abdcbef6e587232eb33e6c42d78": [
     "virtualization\\hyperv_on_windows\\user_guide\\nesting.md"
   ],
   "060c57fb79f3009dc486d1bd500361ec7b22e735": [
@@ -221,12 +212,6 @@
   "505cc64fa19fb9fc8c2d5c109830f460f09332dd": [
     "virtualization\\windowscontainers\\management\\manage_images.md"
   ],
-  "b84b4b501ce18409561abfc5aae3ca0fa1c7c541": [
-    "virtualization\\windowscontainers\\management\\manage_images.md"
-  ],
-  "617a8a951d11850c899d8013a9d602a695ee9a68": [
-    "virtualization\\windowscontainers\\management\\manage_images.md"
-  ],
   "82cc37e4bcf001e938dcff7308be16978fa955e2": [
     "virtualization\\windowscontainers\\management\\manage_resources.md"
   ],
@@ -302,9 +287,6 @@
   "f2790186aa641378b1981a1f946665ca46fdbd73": [
     "virtualization\\windowscontainers\\deployment\\deployment_nano.md"
   ],
-  "f3b742c80f4eceaaabfbed12d37cc4b2dd8441e9": [
-    "virtualization\\windowscontainers\\deployment\\deployment_nano.md"
-  ],
   "54974198eb9f9f9ea840b99e83eab5952f3f6b9a": [
     "virtualization\\community\\media\\GitFromWinCMD.png"
   ],
@@ -330,9 +312,6 @@
     "virtualization\\hyperv_on_windows\\user_guide\\create_pre-release_vm.md"
   ],
   "71e0fb430498f8a5ae4ac5b297cf5e4a2c904098": [
-    "virtualization\\windowscontainers\\docker\\manage_windows_dockerfile.md"
-  ],
-  "9e12a0a1ff4e77ddcd4933dea1828bea87b5f3b6": [
     "virtualization\\windowscontainers\\docker\\manage_windows_dockerfile.md"
   ],
   "4822ff2f0248b2d7752299ea55b08e3499e2e2f7": [
