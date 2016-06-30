@@ -1,5 +1,5 @@
 ---
-title: À propos des conteneurs Windows
+title: "À propos des conteneurs Windows"
 description: En savoir plus sur les conteneurs Windows.
 keywords: docker, containers
 author: neilpeterson
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
+translationtype: Human Translation
+ms.sourcegitcommit: cfa3c14e932f8b86edf6667200ac028ea0a16b67
+ms.openlocfilehash: 180ebc929e4203973ac5e0b4e108777b6c90b0fc
+
 ---
 
 # Conteneurs Windows
@@ -86,6 +90,7 @@ src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-an
 
 
 
-<!--HONumber=May16_HO3-->
+
+<!--HONumber=Jun16_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Conteneurs Hyper-V - Démarrage rapide
-description: Démarrage rapide des conteneurs Hyper-V.
+title: "Conteneurs Hyper-V - Démarrage rapide"
+description: "Démarrage rapide des conteneurs Hyper-V."
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -10,10 +10,15 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 7b907b0e-3fa8-4925-8615-bbb5812c2402
 redirect_url: ./quick_start
+translationtype: Human Translation
+ms.sourcegitcommit: 96c7d1b9e72f574ad66577a09ca1cd382e75f290
+ms.openlocfilehash: 3b788e7e393323d8f010b5c1a75a5cc20524c162
+
 ---
 
 # Le document a été déconseillé.
 
-<!--HONumber=May16_HO4-->
+
+<!--HONumber=Jun16_HO4-->
 
 

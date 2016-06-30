@@ -1,6 +1,6 @@
 ---
 title: Gestion des ressources de conteneur
-description: Gérez les ressources de conteneur avec des conteneurs Windows.
+description: "Gérez les ressources de conteneur avec des conteneurs Windows."
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b2192e64-9d74-474e-8af0-2d8b3ad1deee
+translationtype: Human Translation
+ms.sourcegitcommit: cfa3c14e932f8b86edf6667200ac028ea0a16b67
+ms.openlocfilehash: 82cc37e4bcf001e938dcff7308be16978fa955e2
+
 ---
 
 # Gestion des ressources de conteneur
@@ -34,6 +38,7 @@ docker run -it --cpu-shares 2 --name dockerdemo windowsservercore cmd
 - Les contrôles de ressources de processeur et d’E/S ne sont pas pris en charge par les conteneurs Hyper-V.
 - Les contrôles de ressources d’E/S ne sont pas pris en charge par les volumes de données de conteneur.
 
-<!--HONumber=May16_HO3-->
+
+<!--HONumber=Jun16_HO4-->
 
 

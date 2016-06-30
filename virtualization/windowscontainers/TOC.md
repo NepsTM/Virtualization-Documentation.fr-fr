@@ -1,6 +1,5 @@
 # À propos des conteneurs Windows
 ## [Vue d’ensemble des conteneurs Windows](about/about_overview.md)
-## [Travail en cours](about/work_in_progress.md)
 ## [FAQ](about/faq.md)
 
 # Guide de démarrage rapide des conteneurs
@@ -42,6 +41,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Jun16_HO4-->
 
 
