@@ -1,6 +1,6 @@
 ---
-title: Essayer les fonctionnalités de la préversion pour Hyper-V
-description: Essayer les fonctionnalités de la préversion pour Hyper-V
+title: "Essayer les fonctionnalités de la préversion pour Hyper-V"
+description: "Essayer les fonctionnalités de la préversion pour Hyper-V"
 keywords: windows 10, hyper-v
 author: scooley
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 426c87cc-fa50-4b8d-934e-0b653d7dea7d
+translationtype: Human Translation
+ms.sourcegitcommit: 7d97a2177a14f455ed5b54b0773e3003969303e2
+ms.openlocfilehash: 7dee9e53f0e95b0c3b0ec0afc5b9d510c1962dbc
+
 ---
 
 # Essayer les fonctionnalités de la préversion pour Hyper-V
@@ -48,6 +52,7 @@ Autres exemples d’utilisation de l’indicateur -Prerelease :
 - [Versions de configuration de machines virtuelles prises en charge](https://technet.microsoft.com/library/mt695898.aspx#BKMK_SupportedConfigVersions) : Apprenez à vérifier la version de configuration de la machine virtuelle et les versions prises en charge par Microsoft.
 
 
-<!--HONumber=May16_HO5-->
+
+<!--HONumber=Jun16_HO4-->
 
 

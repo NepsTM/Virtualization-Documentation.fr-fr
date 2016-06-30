@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide des conteneurs Windows
-description: Démarrage rapide des conteneurs Windows.
+title: "Démarrage rapide des conteneurs Windows"
+description: "Démarrage rapide des conteneurs Windows."
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-contianers
 ms.service: windows-containers
 ms.assetid: 4878f5d2-014f-4f3c-9933-97f03348a147
+translationtype: Human Translation
+ms.sourcegitcommit: 4ea609a6e4636e53cc8632bb700e37ba58f3cc72
+ms.openlocfilehash: c0176d4f5445263a5fd522a80ce2a9dca7ac90e6
+
 ---
 
 # Démarrage rapide des conteneurs Windows
@@ -29,9 +33,9 @@ Si vous étiez à l’intérieur d’un conteneur, vous vous sentiriez comme dan
 
 Les conteneurs Windows incluent deux types de conteneurs différents, ou runtimes.
 
-**Conteneurs Windows Server** : ils assurent l’isolation des applications via une technologie d’isolation des processus et des espaces de noms. Un conteneur Windows Server partage un noyau avec l’hôte de conteneur et tous les conteneurs exécutés sur l’hôte.
+**Conteneurs Windows Server** : Ils assurent l’isolation des applications via une technologie d’isolation des processus et des espaces de noms. Un conteneur Windows Server partage un noyau avec l’hôte de conteneur et tous les conteneurs exécutés sur l’hôte.
 
-**Conteneurs Hyper-V** : ils développent l’isolation fournie par les conteneurs Windows Server en exécutant chaque conteneur dans une machine virtuelle hautement optimisée. Dans cette configuration, le noyau de l’hôte de conteneur n’est pas partagé avec les conteneurs Hyper-V.
+**Conteneurs Hyper-V** : Ils développent l’isolation fournie par les conteneurs Windows Server en exécutant chaque conteneur dans une machine virtuelle hautement optimisée. Dans cette configuration, le noyau de l’hôte de conteneur n’est pas partagé avec les conteneurs Hyper-V.
 
 ## 3. Notions de base sur les conteneurs
 
@@ -55,6 +59,7 @@ Quand vous commencez à utiliser des conteneurs, vous remarquez de nombreuses si
 
 
 
-<!--HONumber=May16_HO4-->
+
+<!--HONumber=Jun16_HO4-->
 
 

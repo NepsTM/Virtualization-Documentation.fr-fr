@@ -1,6 +1,6 @@
 ---
-title: Utilisation des points de contrôle
-description: Utilisation des points de contrôle
+title: "Utilisation des points de contrôle"
+description: "Utilisation des points de contrôle"
 keywords: windows 10, hyper-v
 author: scooley
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9c398c4-ee72-45c6-9ce8-4f06569dae6c
+translationtype: Human Translation
+ms.sourcegitcommit: 4cdf81cace246c5de041d378391dca9b9d318dd5
+ms.openlocfilehash: bd0ee06f4e5eab4f33bb7e7c6dd71119dddde5c9
+
 ---
 
 # Utilisation de points de contrôle pour restaurer des machines virtuelles à un état antérieur
@@ -245,6 +249,7 @@ Une fois le point de contrôle de production appliqué, notez que la machine vir
 2. Vous pouvez constater que le fichier texte a été restauré. Mais contrairement au point de contrôle standard, le Bloc-notes n’est pas ouvert.   
 
 
-<!--HONumber=Jun16_HO3-->
+
+<!--HONumber=Jun16_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Déployer Docker sur Windows
-description: Déployer Docker sur Windows
+title: "Déployer Docker sur Windows"
+description: "Déployer Docker sur Windows"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -10,6 +10,10 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bdfa4545-2291-4827-8165-2d6c98d72d37
 redirect_url: ../docker/configure_docker_daemon
+translationtype: Human Translation
+ms.sourcegitcommit: cb689563fac8479fe9012cf41b183c1d1ef76657
+ms.openlocfilehash: 387789ee9169d2affb9b9ed8e4e0e607071ac29b
+
 ---
 
 # Docker et Windows
@@ -298,6 +302,7 @@ docker daemon -D —exec-opt isolation=hyperv
 
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Jun16_HO4-->
 
 

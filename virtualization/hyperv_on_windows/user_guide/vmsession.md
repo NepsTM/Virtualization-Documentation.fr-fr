@@ -1,6 +1,6 @@
 ---
-title: Gérer des machines virtuelles Windows avec PowerShell Direct
-description: Gérer des machines virtuelles Windows avec PowerShell Direct
+title: "Gérer des machines virtuelles Windows avec PowerShell Direct"
+description: "Gérer des machines virtuelles Windows avec PowerShell Direct"
 keywords: windows 10, hyper-v
 author: scooley
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
+translationtype: Human Translation
+ms.sourcegitcommit: 6eb26eda92217917a3abe7d9dd4c77c48283c8dc
+ms.openlocfilehash: 91927b751021efa9ba2cf696516ba50af28c6e05
+
 ---
 
 # Gérer des machines virtuelles Windows avec PowerShell Direct
@@ -276,6 +280,7 @@ Pour obtenir des exemples, consultez [GitHub](https://github.com/Microsoft/Virtu
 Pour obtenir de nombreux exemples d’utilisation de PowerShell Direct dans votre environnement, ainsi que des conseils et astuces pour écrire des scripts Hyper-V avec PowerShell, consultez [Extraits de code PowerShell Direct](../develop/powershell_snippets.md).
 
 
-<!--HONumber=May16_HO4-->
+
+<!--HONumber=Jun16_HO4-->
 
 

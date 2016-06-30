@@ -1,6 +1,6 @@
 ---
-title: Configurer un réseau NAT
-description: Configurer un réseau NAT
+title: "Configurer un réseau NAT"
+description: "Configurer un réseau NAT"
 keywords: windows 10, hyper-v
 author: jmesser81
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1f8a691c-ca75-42da-8ad8-a35611ad70ec
+translationtype: Human Translation
+ms.sourcegitcommit: b22150198f199f9b2be38a9c08e0e08972781f6e
+ms.openlocfilehash: d98445932ccbe77b6a4e798c3c2edb9c63bd351b
+
 ---
 
 # Configurer un réseau NAT
@@ -272,6 +276,7 @@ Au final, vous devez avoir deux commutateurs virtuels internes : l’un nommé 
 En savoir plus sur les [réseaux NAT](https://en.wikipedia.org/wiki/Network_address_translation)
 
 
-<!--HONumber=Jun16_HO1-->
+
+<!--HONumber=Jun16_HO4-->
 
 
