@@ -1,14 +1,18 @@
 ---
-title: Conteneur Windows sur Windows 10
-description: Démarrage rapide du déploiement de conteneurs
+title: "Conteneur Windows sur Windows 10"
+description: "Démarrage rapide du déploiement de conteneurs"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
-ms.date: 05/26/2016
+ms.date: 06/28/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
+translationtype: Human Translation
+ms.sourcegitcommit: 3fc388632dee4d714ab5a7869fa852c079c11910
+ms.openlocfilehash: e2d86c6f1aba07c7c40d1f932b3884c99bfd8f0a
+
 ---
 
 # Conteneurs Windows sur Windows 10
@@ -160,7 +164,13 @@ Pour obtenir des informations détaillées sur la commande Docker Run, voir [Do
 docker run --isolation=hyperv --rm microsoft/sample-dotnet
 ```
 
-Le résultat de cette commande est qu’un conteneur Hyper-V a été créé à partir de l’image sample-dotnet, un exemple d’application a été exécuté (sortie répercutée sur l’interpréteur de commandes), puis le conteneur s’est arrêté et a été supprimé. Les démarrages rapides suivants de Windows 10 et des conteneurs exploreront la création et le déploiement d’applications dans des conteneurs sur Windows 10.
+**Remarque** : Si une erreur indiquant un événement de dépassement de délai d’attente s’affiche, exécutez le script PowerShell suivant et recommencez l’opération.
+
+```none
+Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 1 -Force
+```
+
+Le résultat de la commande `docker run` est qu’un conteneur Hyper-V a été créé à partir de l’image sample-dotnet, un exemple d’application a été exécuté (sortie répercutée sur l’interpréteur de commandes), puis le conteneur s’est arrêté et a été supprimé. Les démarrages rapides suivants de Windows 10 et des conteneurs exploreront la création et le déploiement d’applications dans des conteneurs sur Windows 10.
 
 ## Étapes suivantes
 
@@ -169,6 +179,7 @@ Le résultat de cette commande est qu’un conteneur Hyper-V a été créé à p
 
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Jun16_HO4-->
 
 

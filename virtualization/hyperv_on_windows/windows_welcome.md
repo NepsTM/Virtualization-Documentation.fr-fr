@@ -1,21 +1,25 @@
 ---
-title: &1142520440 Hyper-V sur Windows 10
-description: Hyper-V sur Windows 10
+title: "Hyper-V sur Windows 10"
+description: "Hyper-V sur Windows 10"
 keywords: windows 10, hyper-v
 author: neilpeterson
 manager: timlt
 ms.date: 05/02/2016
 ms.topic: article
-ms.prod: &1324061433 windows-10-hyperv
+ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 05269ce0-a54f-4ad8-af75-2ecf5142b866
+translationtype: Human Translation
+ms.sourcegitcommit: e14ede0a2b13de08cea0a955b37a21a150fb88cf
+ms.openlocfilehash: 4d5c2ad7515b8b536da30ad2dd3b4ffc2cee5832
+
 ---
 
-# Hyper-V sur Windows 10
+# Hyper-V sur Windows 10 
 
 Intégrée à plusieurs versions de Windows 10, la technologie de virtualisation Hyper-V permet d’exécuter des systèmes informatiques virtualisés sur un hôte physique. Vous pouvez utiliser et gérer ces systèmes virtualisés au même titre que des systèmes informatiques physiques, à la différence près qu’ils existent dans un environnement virtualisé et isolé. Pour gérer l’accès entre les systèmes virtuels et les ressources matérielles physiques, vous utilisez un logiciel spécial appelé un « hyperviseur ». Grâce à la virtualisation, vous pouvez rapidement déployer des systèmes informatiques, les restaurer à un état valide antérieur et les migrer entre différents hôtes physiques.
 
-Dans les documents suivants, vous trouverez une présentation détaillée de la fonctionnalité Hyper-V dans Windows 10, un guide de démarrage rapide interactif, ainsi que des liens vers des forums communautaires et d’autres ressources.
+Dans les documents suivants, vous trouverez une présentation détaillée de la fonctionnalité Hyper-V dans Windows 10, un guide de démarrage rapide interactif, ainsi que des liens vers des forums communautaires et d’autres ressources. 
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="15" cellspacing="3">
     <tr valign="top">
@@ -24,7 +28,7 @@ Dans les documents suivants, vous trouverez une présentation détaillée de la 
             <p><strong>À propos d’Hyper-V sur Windows</strong></p>
             <p>Les articles suivants offrent une présentation d’Hyper-V sur Windows et des informations.</p>
             <ul>
-                <li class="unordered">[Présentation d’Hyper-V](./about/hyperv_on_windows.md)<br /><br /></li>
+                <li class="unordered">[Présentation d'Hyper-V](./about/hyperv_on_windows.md)<br /><br /></li>
                 <li class="unordered">[Systèmes d’exploitation invités pris en charge](about\supported_guest_os.md)<br /><br /></li>
             </ul>   
         </td>
@@ -58,9 +62,6 @@ Dans les documents suivants, vous trouverez une présentation détaillée de la 
 
 
 
-
-
-
-<!--HONumber=May16_HO1-->
+<!--HONumber=Jun16_HO4-->
 
 

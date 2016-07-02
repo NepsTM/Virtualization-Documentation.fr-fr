@@ -1,21 +1,25 @@
 ---
-title: &371992512 Installer Hyper-V sur Windows 10
-description: Installer Hyper-V sur Windows 10
+title: "Installer Hyper-V sur Windows 10"
+description: "Installer Hyper-V sur Windows 10"
 keywords: windows 10, hyper-v
 author: neilpeterson
 manager: timlt
 ms.date: 05/02/2016
 ms.topic: article
-ms.prod: &628576697 windows-10-hyperv
+ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
+translationtype: Human Translation
+ms.sourcegitcommit: e14ede0a2b13de08cea0a955b37a21a150fb88cf
+ms.openlocfilehash: 9e2b16f3e6c9882246a5a4c21683112eaa089ce8
+
 ---
 
 # Installer Hyper-V sur Windows 10
 
 Avant de pouvoir créer des machines virtuelles sur Windows 10, vous devez activer le rôle Hyper-V. Pour cela, vous pouvez utiliser le Panneau de configuration Windows 10, PowerShell ou l’outil de gestion et de maintenance des images de déploiement (DISM). Ce document présente chacune de ces options.
 
-> Avant d’activer Hyper-V, vérifiez que votre système est compatible. Pour plus d’informations, consultez [Configuration système requise pour Hyper-V dans Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility).
+> Avant d’activer Hyper-V, vérifiez que votre système est compatible. Pour plus d’informations, voir [Configuration système requise pour Hyper-V dans Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility).
 
 ## Installer manuellement le rôle Hyper-V
 
@@ -23,7 +27,7 @@ Avant de pouvoir créer des machines virtuelles sur Windows 10, vous devez acti
 
 2. Sélectionnez **Activer ou désactiver des fonctionnalités Windows**.
 
-3. Sélectionnez **Hyper-V**, puis cliquez sur **OK**.
+3. Sélectionnez **Hyper-V**, puis cliquez sur **OK**.  
 
 ![](media/enable_role_upd.png)
 
@@ -44,7 +48,7 @@ Une fois l’installation terminée, vous devez redémarrer votre ordinateur.
 
 ## Installer Hyper-V avec DISM
 
-À l’aide de l’outil de gestion et de maintenance des images de déploiement (DISM), vous pouvez traiter des images Windows et préparer des environnements de préinstallation Windows. Vous pouvez également utiliser DISM pour activer des fonctionnalités Windows pendant que le système d’exploitation est en cours d’exécution. Pour plus d’informations, consultez [Informations techniques de référence sur DISM](https://technet.microsoft.com/en-us/library/hh824821.aspx).
+À l’aide de l’outil de gestion et de maintenance des images de déploiement (DISM), vous pouvez traiter des images Windows et préparer des environnements de préinstallation Windows. Vous pouvez également utiliser DISM pour activer des fonctionnalités Windows pendant que le système d’exploitation est en cours d’exécution. Pour plus d’informations, voir [Informations techniques de référence sur DISM](https://technet.microsoft.com/en-us/library/hh824821.aspx).
 
 Pour activer le rôle Hyper-V à l’aide de DISM :
 
@@ -59,14 +63,10 @@ DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 
 
 ## Étape suivante : créer un commutateur virtuel
-
 [Créer un commutateur virtuel](walkthrough_virtual_switch.md)
 
 
 
-
-
-
-<!--HONumber=May16_HO1-->
+<!--HONumber=Jun16_HO4-->
 
 

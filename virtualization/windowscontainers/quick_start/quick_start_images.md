@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide du déploiement de conteneurs - Images
-description: Démarrage rapide du déploiement de conteneurs
+title: "Démarrage rapide du déploiement de conteneurs - Images"
+description: "Démarrage rapide du déploiement de conteneurs"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,17 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
+translationtype: Human Translation
+ms.sourcegitcommit: eae45c2c81c7edc94d963da69dcdee2b6f08f37d
+ms.openlocfilehash: ac9596d210e72b9fd576f728e8e6bbdc293597d7
+
 ---
 
 # Images de conteneur sur Windows Server
 
 **Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
 
-Dans le démarrage rapide de Windows Server précédent, un conteneur Windows était créé à partir d’une image de conteneur préexistante. Cet exercice décrit en détail la création manuelle de vos propres images de conteneur et la création d’images à l’aide d’un fichier Dockerfile.
+Dans le démarrage rapide de Windows Server précédent, un conteneur Windows était créé à partir d’une image de conteneur préexistante. Cet exercice décrit en détail la création manuelle d’images de conteneur personnalisées et l’utilisation d’un fichier Dockerfile.
 
 Ce démarrage rapide est spécifique aux conteneurs Windows Server sur Windows Server 2016. Une documentation de démarrage rapide supplémentaire est disponible dans la table des matières affichée à gauche dans cette page. 
 
@@ -161,6 +165,7 @@ docker rm -f cranky_brown
 
 [Conteneurs Windows sur Windows 10](./quick_start_windows_10.md)
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Jun16_HO5-->
 
 

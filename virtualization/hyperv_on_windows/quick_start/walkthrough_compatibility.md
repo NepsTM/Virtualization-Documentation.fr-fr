@@ -1,14 +1,18 @@
 ---
-title: &800776548 Configuration requise pour Hyper-V sur Windows 10
-description: Configuration requise pour Hyper-V sur Windows 10
+title: "Configuration requise pour Hyper-V sur Windows 10"
+description: "Configuration requise pour Hyper-V sur Windows 10"
 keywords: windows 10, hyper-v
 author: scooley
 manager: timlt
 ms.date: 05/02/2016
 ms.topic: article
-ms.prod: &635667630 windows-10-hyperv
+ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6e5e6b01-7a9d-4123-8cc7-f986e10cd372
+translationtype: Human Translation
+ms.sourcegitcommit: e14ede0a2b13de08cea0a955b37a21a150fb88cf
+ms.openlocfilehash: 6364ecd2df13f5abc96fc22da03c9bca65d353b2
+
 ---
 
 # Configuration requise pour Hyper-V sur Windows 10
@@ -23,18 +27,18 @@ Le rôle Hyper-V peut être activé sur ces versions de Windows 10 :
 - Windows 10 Professionnel
 - Windows 10 Éducation
 
-Le rôle Hyper-V <g id="2" ctype="x-strong">ne peut pas</g> être installé sur :
+Le rôle Hyper-V **ne peut pas** être installé sur :
 
 - Windows 10 Famille
 - Windows 10 Mobile
 - Windows 10 Mobile Entreprise
 
->Windows 10 Famille peut être mis à niveau vers Windows 10 Professionnel. Pour cela, ouvrez <g id="2" ctype="x-strong">Paramètres</g> > <g id="4" ctype="x-strong">Mise à jour et sécurité</g> > <g id="6" ctype="x-strong">Activation</g>. Vous pouvez alors visiter le magasin et acheter la mise à niveau.
+>Windows 10 Famille peut être mis à niveau vers Windows 10 Professionnel. Pour cela, ouvrez **Paramètres** > **Mise à jour et sécurité** > **Activation**. Vous pouvez alors visiter le magasin et acheter la mise à niveau.
 
 ## Configuration matérielle requise
 
 Bien que ce document ne fournisse pas la liste complète du matériel compatible avec Hyper-V, vous devez disposer des éléments suivants :
-
+    
 - Processeur 64 bits avec traduction d’adresse de second niveau (SLAT).
 - Processeur prenant en charge les extensions de mode du moniteur de machine virtuelle (VT-c sur les processeurs Intel).
 - Au minimum 4 Go de mémoire. Étant donné que les machines virtuelles partagent la mémoire avec l’hôte Hyper-V, vous devez fournir suffisamment de mémoire pour gérer la charge de travail virtuelle attendue.
@@ -45,25 +49,21 @@ Les éléments suivants doivent être activés dans le BIOS système :
 
 ## Vérifier la compatibilité matérielle
 
-Pour vérifier la compatibilité, ouvrez PowerShell ou une invite de commandes (cmd.exe), puis tapez <g id="2" ctype="x-strong">systeminfo.exe</g>. Si tous les éléments de la configuration requise pour Hyper-V ont la valeur <g id="2" ctype="x-strong">Oui</g>, votre système peut exécuter le rôle Hyper-V. Si l’un des éléments a la valeur <g id="2" ctype="x-strong">Non</g>, passez en revue la configuration requise figurant dans ce document et apportez des ajustements dans la mesure du possible.
+Pour vérifier la compatibilité, ouvrez PowerShell ou une invite de commandes (cmd.exe), puis tapez **systeminfo.exe**. Si tous les éléments de la configuration requise pour Hyper-V ont la valeur **Oui**, votre système peut exécuter le rôle Hyper-V. Si l’un des éléments a la valeur **Non**, passez en revue la configuration requise figurant dans ce document et apportez des ajustements dans la mesure du possible.
 
-<g id="1" ctype="x-linkText"></g>
+![](media/SystemInfo_upd.png)
 
-Si vous exécutez <g id="2" ctype="x-strong">systeminfo.exe</g> sur un hôte Hyper-V existant, la section Configuration requise pour Hyper-V indique ce qui suit :
+Si vous exécutez **systeminfo.exe** sur un hôte Hyper-V existant, la section Configuration requise pour Hyper-V indique ce qui suit :
 
 ```
 Hyper-V Requirements: A hypervisor has been detected. Features required for Hyper-V are not be displayed.
 ```
 
 ## Étape suivante : installer Hyper-V
-
-<g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Installer Hyper-V</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
+[Installer Hyper-V](walkthrough_install.md)
 
 
 
-
-
-<!--HONumber=May16_HO1-->
+<!--HONumber=Jun16_HO4-->
 
 

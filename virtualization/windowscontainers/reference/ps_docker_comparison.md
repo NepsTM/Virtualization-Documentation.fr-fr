@@ -1,64 +1,63 @@
 ---
 author: scooley
 redirect_url: ./manage_docker
+translationtype: Human Translation
+ms.sourcegitcommit: 745b0b26e15ec1179e8b55cd1b3d2ab3e3fe34d2
+ms.openlocfilehash: f01125a9e6f8a952ae6a82fb2d1df20bb5f6c900
+
 ---
 
 # Comparaison entre Docker et PowerShell pour la gestion des conteneurs Windows
 
 Il existe plusieurs méthodes pour gérer des conteneurs Windows à l’aide d’outils Windows intégrés (PowerShell, dans cette version préliminaire) et d’outils de gestion Open Source tels que Docker.  
 Pour en savoir plus sur chaque type d’outils, voir :
-* <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Gérer les conteneurs Windows avec Docker</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-* <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Gérer les conteneurs Windows avec PowerShell</g><g id="1CapsExtId3" ctype="x-title"></g></g>
+* [Gérer les conteneurs Windows avec Docker](../quick_start/manage_docker.md)
+* [Gérer les conteneurs Windows avec PowerShell](../quick_start/manage_powershell.md) 
 
 Cette page offre des informations de référence plus détaillées sur la comparaison entre les outils Docker et les outils de gestion PowerShell.
 
 ## Comparaison entre PowerShell pour les conteneurs et les machines virtuelles Hyper-V
-
 Vous pouvez créer et exécuter des conteneurs Windows, et interagir avec eux, à l’aide d’applets de commande PowerShell. Tout ce dont vous avez besoin est fourni avec Windows.
 
-Si vous avez utilisé Hyper-V PowerShell, vous devez déjà être à l’aise avec la conception des applets de commande. Une grande partie du flux de travail est le même que pour gérer une machine virtuelle avec le module Hyper-V. Les commandes <g id="2" ctype="x-code">New-VM</g>, <g id="4" ctype="x-code">Get-VM</g>, <g id="6" ctype="x-code">Start-VM</g> et <g id="8" ctype="x-code">Stop-VM</g> sont remplacées par les commandes <g id="10" ctype="x-code">New-Container</g>, <g id="12" ctype="x-code">Get-Container</g>, <g id="14" ctype="x-code">Start-Container</g> et <g id="16" ctype="x-code">Stop-Container</g>. Il existe quelques applets de commande et paramètres spécifiques des conteneurs, mais le cycle de vie général et la gestion d’un conteneur Windows ressemblent à peu près à ceux d’une machine virtuelle Hyper-V.
+Si vous avez utilisé Hyper-V PowerShell, vous devez déjà être à l’aise avec la conception des applets de commande. Une grande partie du flux de travail est le même que pour gérer une machine virtuelle avec le module Hyper-V. Au lieu de `New-VM`, `Get-VM`, `Start-VM`, `Stop-VM`, vous avez `New-Container`, `Get-Container`, `Start-Container`, `Stop-Container`.  Il existe quelques applets de commande et paramètres spécifiques des conteneurs, mais le cycle de vie général et la gestion d’un conteneur Windows ressemblent à peu près à ceux d’une machine virtuelle Hyper-V.
 
-## Quelles sont les différences de gestion entre PowerShell et Docker ?
-
+## Quelles sont les différences de gestion entre PowerShell et Docker ? 
 Les applets de commande PowerShell des conteneurs exposent une API qui n’est pas tout à fait identique à celle de Docker. En règle générale, les applets de commande fonctionnent de manière plus précise. Certaines commandes Docker ont des homologues assez directs dans PowerShell :
 
-| Commande docker| Applet de commande PowerShell|
+| Commande docker |  Applet de commande PowerShell |
 |----|----|
-| <g id="1" ctype="x-code">docker ps -a</g>| <g id="1" ctype="x-code">Get-Container</g>|
-| <g id="1" ctype="x-code">docker images</g>| <g id="1" ctype="x-code">Get-ContainerImage</g>|
-| <g id="1" ctype="x-code">docker rm</g>| <g id="1" ctype="x-code">Remove-Container</g>|
-| <g id="1" ctype="x-code">docker rmi</g>| <g id="1" ctype="x-code">Remove-ContainerImage</g>|
-| <g id="1" ctype="x-code">docker create</g>| <g id="1" ctype="x-code">New-Container</g>|
-| <g id="1" ctype="x-code">docker commit <ID_conteneur></g>| <g id="1" ctype="x-code">New-ContainerImage -Container &lt;conteneur&gt;</g>|
-| <g id="1" ctype="x-code">docker load &lt;tarball&gt;</g>| <g id="1" ctype="x-code">Import-ContainerImage <package_AppX></g>|
-| <g id="1" ctype="x-code">docker save</g>| <g id="1" ctype="x-code">Export-ContainerImage</g>|
-| <g id="1" ctype="x-code">docker start</g>| <g id="1" ctype="x-code">Start-Container</g>|
-| <g id="1" ctype="x-code">docker stop</g>| <g id="1" ctype="x-code">Stop-Container</g>|
+| `docker ps -a`    | `Get-Container` |
+| `docker images`   | `Get-ContainerImage` |
+| `docker rm`   | `Remove-Container` |
+| `docker rmi` | `Remove-ContainerImage` |
+| `docker create`   | `New-Container` |
+| `docker commit <container ID>` | `New-ContainerImage -Container <container>` |
+| `docker load <tarball>` | `Import-ContainerImage <AppX package>` |
+| `docker save` |   `Export-ContainerImage` |
+| `docker start` |  `Start-Container` |
+| `docker stop` |   `Stop-Container` |
 
-Toutes les commandes Docker n’ont pas leur équivalent dans les applets de commande PowerShell, et il existe un certain nombre de commandes pour lesquelles nous ne fournissons pas de remplacements PowerShell* (notamment <g id="2" ctype="x-code">docker build</g> et <g id="4" ctype="x-code">docker cp</g>). Mais ce qui peut sauter aux yeux est qu’il n’existe aucun remplacement en une seule ligne pour <g id="2" ctype="x-code">docker run</g>.
+Toutes les commandes Docker n’ont pas leur équivalent dans les applets de commande PowerShell, et il existe un certain nombre de commandes pour lesquelles nous ne fournissons pas de remplacements PowerShell* (notamment `docker build` et `docker cp`). Mais ce qui peut sauter aux yeux est qu’il n’existe aucun remplacement en une seule ligne pour `docker run`.
 
 \* Susceptible d’être modifié.
 
-### Mais nous ne pouvons pas nous passer de docker run ! Comment faire ?
-
+### Mais nous ne pouvons pas nous passer de docker run ! Comment faire ?  
 Nous allons vous présenter quelques astuces qui permettent d’obtenir un modèle d’interaction plus familier pour les utilisateurs qui sont déjà à l’aise avec PowerShell. Bien entendu, si vous êtes habitué à la façon dont docker fonctionne, vous allez devoir changer un peu votre vision des choses.
 
-1.  Le cycle de vie d’un conteneur dans le modèle PowerShell est légèrement différent. Dans le module PowerShell des conteneurs, nous présentons les opérations les plus granulaires de <g id="2" ctype="x-code">New-Container</g> (qui crée un nouveau conteneur arrêté) et <g id="4" ctype="x-code">Start-Container</g>.
-
+1.  Le cycle de vie d’un conteneur dans le modèle PowerShell est légèrement différent. Dans le module PowerShell des conteneurs, nous présentons les opérations les plus granulaires de `New-Container` (qui crée un nouveau conteneur arrêté) et `Start-Container`.
+  
   Entre la création et le démarrage du conteneur, vous pouvez également configurer les paramètres du conteneur. Pour TP3, la seule autre configuration que nous comptons exposer est la possibilité de définir la connexion réseau pour le conteneur à l’aide des applets de commande (Add/Remove/Connect/Disconnect/Get/Set)-ContainerNetworkAdapter.
 
-2.  Vous ne pouvez actuellement pas transmettre une commande à exécuter à l’intérieur du conteneur au démarrage. Toutefois, vous pouvez toujours obtenir une session PowerShell interactive vers un conteneur en cours d’exécution à l’aide de la commande <g id="2" ctype="x-code">Enter-PSSession -ContainerId <ID d’un conteneur en cours d’exécution></g>, et vous pouvez exécuter une commande à l’intérieur d’un conteneur en cours d’exécution à l’aide de la commande <g id="4" ctype="x-code">Invoke-Command -ContainerId <id de conteneur> -ScriptBlock { code à exécuter à l’intérieur du conteneur }</g> ou <g id="6" ctype="x-code">Invoke-Command -ContainerId <id de conteneur> -FilePath <chemin du script></g>.  
-Ces deux commandes autorisent l’indicateur <g id="2" ctype="x-code">-RunAsAdministrator</g> facultatif pour les actions qui nécessitent des privilèges élevés.
+2.  Vous ne pouvez actuellement pas transmettre une commande à exécuter à l’intérieur du conteneur au démarrage. Toutefois, vous pouvez toujours obtenir une session PowerShell interactive avec un conteneur en cours d’exécution à l’aide de `Enter-PSSession -ContainerId <ID of a running container>`, et exécuter une commande à l’intérieur d’un conteneur en cours d’exécution à l’aide de `Invoke-Command -ContainerId <container id> -ScriptBlock { code to run inside the container }` ou de `Invoke-Command -ContainerId <container id> -FilePath <path to script>`.  
+Ces deux commandes autorisent l’indicateur `-RunAsAdministrator` facultatif pour les actions qui nécessitent des privilèges élevés.  
 
 
 ## Problèmes connus et avertissements
-
 1.  Pour l’instant, il n’y a aucune communication entre les applets de commande de conteneurs et les conteneurs ou images créés avec Docker, et inversement, Docker n’a aucun lien avec les conteneurs et images créés avec PowerShell. Si vous avez créé un conteneur dans Docker, vous devez le gérer avec Docker. Si vous l’avez créé avec PowerShell, vous devez le gérer avec PowerShell.
 
 2.  Il nous reste un peu de travail pour améliorer l’expérience de l’utilisateur final : les messages d’erreur, le signalement de la progression, les chaînes d’événements non valides, etc. Si vous vous trouvez dans une situation où vous aimeriez avoir plus d’informations, n’hésitez pas à envoyer vos suggestions sur les forums.
 
 ## Révision rapide
-
 Voici une présentation de certains flux de travail courants.
 
 Nous supposons que vous avez installé une image du système d’exploitation de conteneur nommée « ServerDatacenterCore » et créé un commutateur virtuel nommé « Virtual Switch » (à l’aide de New-VMSwitch).
@@ -152,15 +151,14 @@ Start-Container -Container $container2
 ```
 
 ### Créer votre propre exemple
+Vous pouvez afficher toutes les applets de commande de conteneurs à l’aide de `Get-Command -Module Containers`.  Il existe plusieurs autres applets de commande qui ne sont pas décrites ici et que vous pouvez découvrir par vous-même.    
+**Remarque** Cette commande ne retourne pas les applets de commande `Enter-PSSession` et `Invoke-Command` qui font partie du noyau PowerShell.
 
-Vous pouvez afficher toutes les applets de commande de conteneurs à l’aide de la commande <g id="2" ctype="x-code">Get-Command -Module Containers</g>. Il existe plusieurs autres applets de commande qui ne sont pas décrites ici et que vous pouvez découvrir par vous-même.    
-<g id="1" ctype="x-strong">Remarque</g> Cette commande ne retourne pas les applets de commande <g id="3" ctype="x-code">Enter-PSSession</g> et <g id="5" ctype="x-code">Invoke-Command</g>, qui font partie du noyau PowerShell.
+Vous pouvez également obtenir de l’aide sur toutes les applets de commande grâce à la commande `Get-Help [cmdlet name]` ou à son équivalent `[cmdlet name] -?`.  Aujourd’hui, la sortie de l’aide est générée automatiquement et vous indique uniquement la syntaxe des commandes. Nous ajouterons plus de documentation à mesure que nous approcherons de la finalisation de la conception des applets de commande.
 
-Vous pouvez également obtenir de l’aide sur toutes les applets de commande en utilisant la commande <g id="2" ctype="x-code">Get-Help [nom de l’applet de commande]</g> ou <g id="4" ctype="x-code">[nom de l’applet de commande] -?</g>. Aujourd’hui, la sortie de l’aide est générée automatiquement et vous indique uniquement la syntaxe des commandes. Nous ajouterons plus de documentation à mesure que nous approcherons de la finalisation de la conception des applets de commande.
+Vous pouvez aussi vous référer à PowerShell ISE, un autre moyen agréable de découvrir la syntaxe que vous ne connaissez peut-être pas si vous n’avez pas encore souvent utilisé PowerShell. Si vous exécutez une référence qui l’autorise, essayez de démarrer ISE : ouvrez le volet Commandes, choisissez le module « Conteneurs », qui affiche une représentation graphique des applets de commande et leurs jeux de paramètres.
 
-Vous pouvez aussi vous référer à PowerShell ISE, un autre moyen agréable de découvrir la syntaxe que vous ne connaissez peut-être pas si vous n’avez pas encore souvent utilisé PowerShell. Si vous exécutez une référence qui l’autorise, essayez de démarrer ISE : ouvrez le volet Commandes, puis choisissez le module « Conteneurs », ce qui affiche une représentation graphique des applets de commande et leurs jeux de paramètres.
-
-PS : juste pour prouver que c’est faisable, voici une fonction PowerShell qui adapte certaines des applets de commande que nous avons déjà vues en un ersatz de <g id="2" ctype="x-code">docker run</g>. (En fait, c’est une preuve de concept qui n’est pas encore développée activement).
+PS : juste pour prouver que c’est faisable, voici une fonction PowerShell qui adapte certaines des applets de commande que nous avons déjà vues en un ersatz de `docker run`. (En fait, c’est une preuve de concept qui n’est pas encore développée activement).
 
 ``` PowerShell
 function Run-Container ([string]$ContainerImageName, [string]$Name="fancy_name", [switch]$Remove, [switch]$Interactive, [scriptblock]$Command) {
@@ -183,18 +181,14 @@ function Run-Container ([string]$ContainerImageName, [string]$Name="fancy_name",
 ```
 
 ## Docker
+Les conteneurs Windows peuvent être gérés avec des commandes Docker.  Bien que les conteneurs Windows devraient pouvoir être comparés à leurs homologues Linux et avoir la même expérience de gestion avec Docker, il existe certaines commandes Docker qui n’ont tout simplement aucun sens pour un conteneur Windows.  D’autres commandes n’ont tout simplement pas été testées (nous allons y parvenir).
 
-Les conteneurs Windows peuvent être gérés avec des commandes Docker. Bien que les conteneurs Windows devraient pouvoir être comparés à leurs homologues Linux et avoir la même expérience de gestion avec Docker, il existe certaines commandes Docker qui n’ont tout simplement aucun sens pour un conteneur Windows. D’autres commandes n’ont tout simplement pas été testées (nous allons y parvenir).
-
-Pour ne pas dupliquer la documentation sur les API disponibles dans Docker, <g id="2" ctype="x-html"></g>voici<g id="4" ctype="x-html"></g> un lien vers les API de gestion correspondantes. Les procédures pas à pas sont formidables.
+Pour ne pas dupliquer la documentation sur les API disponible dans Docker, <a href="https://docs.docker.com/engine/reference/commandline/cli/" >voici</a> un lien vers les API de gestion correspondantes.  Les procédures pas à pas sont formidables.
 
 Nous consignons ce qui fonctionne et ce qui ne fonctionne pas dans les API Docker dans notre document Travail en cours.
 
 
 
-
-
-
-<!--HONumber=Apr16_HO4-->
+<!--HONumber=Jun16_HO4-->
 
 

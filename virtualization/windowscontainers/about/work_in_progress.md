@@ -1,6 +1,6 @@
 ---
-title: Conteneurs Windows - Travail en cours
-description: Conteneurs Windows - Travail en cours
+title: "Conteneurs Windows - Travail en cours"
+description: "Conteneurs Windows - Travail en cours"
 keywords: docker, containers
 author: scooley
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5d9f1cb4-ffb3-433d-8096-b085113a9d7b
+redirect_url: ../containers_welcome
+ms.sourcegitcommit: e3f5535594123f6b4f8931e41a91d92f3b837814
+ms.openlocfilehash: 085bb8c0158aedf4270cf2423114ec1901af1ebd
+
 ---
 
 # Travail en cours
@@ -114,7 +118,7 @@ Get-NetNatStaticMapping | ? ExternalPort -eq 80 | Remove-NetNatStaticMapping
 ### Les conteneurs Windows n’obtiennent pas d’adresses IP
 Si vous vous connectez aux conteneurs Windows avec des commutateurs de machine virtuelle DHCP, il est possible que l’hôte de conteneur reçoive une adresse IP, mais pas les conteneurs.
 
-Les conteneurs obtiennent une adresse IP APIPA 169.254.***.***  
+Les conteneurs obtiennent une adresse IP APIPA 169.254.***.*** Adresse IP APIPA.
 
 **Solution de contournement :** il s’agit d’un effet secondaire du partage du noyau.  Tous les conteneurs possèdent effectivement la même adresse MAC.
 
@@ -239,6 +243,7 @@ Nous examinons soigneusement les commentaires sur la façon dont les application
 Nous étudions activement des solutions pour prendre en charge ces types de scénarios.
 
 
-<!--HONumber=May16_HO4-->
+
+<!--HONumber=Jun16_HO4-->
 
 
