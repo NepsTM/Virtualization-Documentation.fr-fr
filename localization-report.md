@@ -9,8 +9,8 @@
 [ Archive Failed Files ](#archive-failed-list)| 0
 [ Archive Success Files ](#archive-success-list)| 1
 [ Handback Failed Files ](#handback-failed-list)| 2
-[ Out Of Sync Handback Files ](#outofsync-handback-success-list)| 46
-[ In Sync Handback Files ](#insync-handback-success-list)| 89
+[ Out Of Sync Handback Files ](#outofsync-handback-success-list)| 41
+[ In Sync Handback Files ](#insync-handback-success-list)| 94
 [ Ignored Files ](#ignored-list)| 331
 
 ## <a name='handoff-failed-list'></a> Handoff Failed File List
@@ -35,11 +35,6 @@
  ----------- | ------ | ------- 
  [virtualization\community\media\editDoc.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/0ff140ad320a9fbdfe51db03f443086e01f96942/virtualization/community/media/editDoc.png) | OutofSyncHandedBackSuccess | [Details](#462549855f0dc3ac092960bf1709fb01c3a02b3a78)
  [virtualization\community\media\GitFromWinCMD.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fa55bc88cc5bea21b3af2c0cbd76435e4c1a4b4b/virtualization/community/media/GitFromWinCMD.png) | OutofSyncHandedBackSuccess | [Details](#54974198eb9f9f9ea840b99e83eab5952f3f6b9a79)
- [virtualization\community\media\GitHubCreatePR.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/23cc84f27047bb3eddac2aaf4cece2eb9636c942/virtualization/community/media/GitHubCreatePR.png) | OutofSyncHandedBackSuccess | [Details](#c368db13f720190f3fb4a8fbdb2301c6a8148cc880)
- [virtualization\community\media\GitHubEdit.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/3159040b68e16ad8fd1c001ef5d195d40f1dea7c/virtualization/community/media/GitHubEdit.png) | OutofSyncHandedBackSuccess | [Details](#85d871f168742e3e1fcb2d260e42863b96c3f1f981)
- [virtualization\community\media\GitHubEditor.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c568292104446fd18fc82c20687d7ef4de363e21/virtualization/community/media/GitHubEditor.png) | OutofSyncHandedBackSuccess | [Details](#9c6a41fac79a6f72b721a2b2928aef0f10cb938382)
- [virtualization\community\media\GitHubProposeChange.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/722053b7db662b0d046f6eea87b7569fac0ee125/virtualization/community/media/GitHubProposeChange.png) | OutofSyncHandedBackSuccess | [Details](#691e0ac052b6fbf09f2245ceb2eea32dac6621a584)
- [virtualization\community\media\GitHubView.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/3159040b68e16ad8fd1c001ef5d195d40f1dea7c/virtualization/community/media/GitHubView.png) | OutofSyncHandedBackSuccess | [Details](#065cffd9e2e4355f0c575a80c81537e77ee7a10a85)
  [virtualization\hyperv_on_windows\quick_start\media\command_grid.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/9bb8a189705dca3a9dab6b9facea345998146bfa/virtualization/hyperv_on_windows/quick_start/media/command_grid.png) | OutofSyncHandedBackSuccess | [Details](#44a0686f5ce5d1544b8a61bcad0a06eb1e1ce9d4110)
  [virtualization\hyperv_on_windows\quick_start\media\dism_upd.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/87244905a359766bf4c058efc88805e55725b552/virtualization/hyperv_on_windows/quick_start/media/dism_upd.png) | OutofSyncHandedBackSuccess | [Details](#a303041e7915293e2affe84599cab647d43119a8116)
  [virtualization\hyperv_on_windows\quick_start\media\enable_role_upd.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e7ff2c884993be9ee02f8b60974f9faa7f193c79/virtualization/hyperv_on_windows/quick_start/media/enable_role_upd.png) | OutofSyncHandedBackSuccess | [Details](#1323985a77d40a39f3191207c703e3b426a55795117)
@@ -84,6 +79,11 @@
  Source File | Status | Details 
  ----------- | ------ | ------- 
  [virtualization\community\contribute_to_docs.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e14ede0a2b13de08cea0a955b37a21a150fb88cf/virtualization/community/contribute_to_docs.md) | InSyncHandedBackSuccess | [Details](#5d41a694d4b6cac6b6381379bda4a8f959ec485476)
+ [virtualization\community\media\GitHubCreatePR.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/23cc84f27047bb3eddac2aaf4cece2eb9636c942/virtualization/community/media/GitHubCreatePR.png) | InSyncHandedBackSuccess | [Details](#c368db13f720190f3fb4a8fbdb2301c6a8148cc880)
+ [virtualization\community\media\GitHubEdit.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/3159040b68e16ad8fd1c001ef5d195d40f1dea7c/virtualization/community/media/GitHubEdit.png) | InSyncHandedBackSuccess | [Details](#85d871f168742e3e1fcb2d260e42863b96c3f1f981)
+ [virtualization\community\media\GitHubEditor.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c568292104446fd18fc82c20687d7ef4de363e21/virtualization/community/media/GitHubEditor.png) | InSyncHandedBackSuccess | [Details](#9c6a41fac79a6f72b721a2b2928aef0f10cb938382)
+ [virtualization\community\media\GitHubProposeChange.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/722053b7db662b0d046f6eea87b7569fac0ee125/virtualization/community/media/GitHubProposeChange.png) | InSyncHandedBackSuccess | [Details](#691e0ac052b6fbf09f2245ceb2eea32dac6621a584)
+ [virtualization\community\media\GitHubView.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/3159040b68e16ad8fd1c001ef5d195d40f1dea7c/virtualization/community/media/GitHubView.png) | InSyncHandedBackSuccess | [Details](#065cffd9e2e4355f0c575a80c81537e77ee7a10a85)
  [virtualization\community\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/3159040b68e16ad8fd1c001ef5d195d40f1dea7c/virtualization/community/TOC.md) | InSyncHandedBackSuccess | [Details](#24a1d42fcc8316abe4da25996c694d16cc8695e487)
  [virtualization\hyperv_on_windows\about\hyperv_on_windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/9f1073ecfa4cf836295de81f2bcf9622274ca034/virtualization/hyperv_on_windows/about/hyperv_on_windows.md) | InSyncHandedBackSuccess | [Details](#ea19b576219755e09a4064d0fa6bfde5367967e188)
  [virtualization\hyperv_on_windows\about\supported_guest_os.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/645b15f32e731b6d4044e8f66d8ab2374870904c/virtualization/hyperv_on_windows/about/supported_guest_os.md) | InSyncHandedBackSuccess | [Details](#19ecce49df066c5816741f375c4610b79d7ad80291)
@@ -1474,42 +1474,42 @@
 * [Back to Top](#report-top)
 
 ##### <a name='c368db13f720190f3fb4a8fbdb2301c6a8148cc880'></a> Source: [virtualization\community\media\GitHubCreatePR.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/23cc84f27047bb3eddac2aaf4cece2eb9636c942/virtualization/community/media/GitHubCreatePR.png)
-* Status: OutofSyncHandedBackSuccess
-* Target File: [virtualization\community\media\GitHubCreatePR.png](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/f51111c1b8bc906178c0d6f882eb8ddce3552f64/virtualization/community/media/GitHubCreatePR.png)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\community\media\GitHubCreatePR.png](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/8a43b4bae94d0271de60e04c941802a521317a62/virtualization/community/media/GitHubCreatePR.png)
 * Handoff File: [c368db13f720190f3fb4a8fbdb2301c6a8148cc8.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/2398dadb3a57633314ede01167969972468d49dd/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/c368db13f720190f3fb4a8fbdb2301c6a8148cc8.png)
 * Handoff Datetime: 2016-06-28 17:45:45
 * Handoff Reason: IsDependency
 * Dependency From: virtualization\community\contribute_to_docs.md
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
-* Handback File: [c368db13f720190f3fb4a8fbdb2301c6a8148cc8.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/80522310213fceac06860495f24105ec901c9f0d/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/c368db13f720190f3fb4a8fbdb2301c6a8148cc8.png)
-* Handback Datetime: 2016-01-04 21:50:42
+* Handback File: [c368db13f720190f3fb4a8fbdb2301c6a8148cc8.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/1702c585319a19470b9e914268271a20e16b5de8/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/c368db13f720190f3fb4a8fbdb2301c6a8148cc8.png)
+* Handback Datetime: 2016-07-07 10:14:35
 * [Back to Top](#report-top)
 
 ##### <a name='85d871f168742e3e1fcb2d260e42863b96c3f1f981'></a> Source: [virtualization\community\media\GitHubEdit.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/3159040b68e16ad8fd1c001ef5d195d40f1dea7c/virtualization/community/media/GitHubEdit.png)
-* Status: OutofSyncHandedBackSuccess
-* Target File: [virtualization\community\media\GitHubEdit.png](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/f51111c1b8bc906178c0d6f882eb8ddce3552f64/virtualization/community/media/GitHubEdit.png)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\community\media\GitHubEdit.png](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/8a43b4bae94d0271de60e04c941802a521317a62/virtualization/community/media/GitHubEdit.png)
 * Handoff File: [85d871f168742e3e1fcb2d260e42863b96c3f1f9.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/2398dadb3a57633314ede01167969972468d49dd/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/85d871f168742e3e1fcb2d260e42863b96c3f1f9.png)
 * Handoff Datetime: 2016-06-28 17:45:45
 * Handoff Reason: IsDependency
 * Dependency From: virtualization\community\contribute_to_docs.md
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
-* Handback File: [85d871f168742e3e1fcb2d260e42863b96c3f1f9.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/80522310213fceac06860495f24105ec901c9f0d/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/85d871f168742e3e1fcb2d260e42863b96c3f1f9.png)
-* Handback Datetime: 2016-01-04 21:50:42
+* Handback File: [85d871f168742e3e1fcb2d260e42863b96c3f1f9.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/1702c585319a19470b9e914268271a20e16b5de8/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/85d871f168742e3e1fcb2d260e42863b96c3f1f9.png)
+* Handback Datetime: 2016-07-07 10:14:35
 * [Back to Top](#report-top)
 
 ##### <a name='9c6a41fac79a6f72b721a2b2928aef0f10cb938382'></a> Source: [virtualization\community\media\GitHubEditor.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c568292104446fd18fc82c20687d7ef4de363e21/virtualization/community/media/GitHubEditor.png)
-* Status: OutofSyncHandedBackSuccess
-* Target File: [virtualization\community\media\GitHubEditor.png](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/f51111c1b8bc906178c0d6f882eb8ddce3552f64/virtualization/community/media/GitHubEditor.png)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\community\media\GitHubEditor.png](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/8a43b4bae94d0271de60e04c941802a521317a62/virtualization/community/media/GitHubEditor.png)
 * Handoff File: [9c6a41fac79a6f72b721a2b2928aef0f10cb9383.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/2398dadb3a57633314ede01167969972468d49dd/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/9c6a41fac79a6f72b721a2b2928aef0f10cb9383.png)
 * Handoff Datetime: 2016-06-28 17:45:45
 * Handoff Reason: IsDependency
 * Dependency From: virtualization\community\contribute_to_docs.md
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
-* Handback File: [9c6a41fac79a6f72b721a2b2928aef0f10cb9383.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/80522310213fceac06860495f24105ec901c9f0d/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/9c6a41fac79a6f72b721a2b2928aef0f10cb9383.png)
-* Handback Datetime: 2016-01-04 21:50:42
+* Handback File: [9c6a41fac79a6f72b721a2b2928aef0f10cb9383.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/1702c585319a19470b9e914268271a20e16b5de8/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/9c6a41fac79a6f72b721a2b2928aef0f10cb9383.png)
+* Handback Datetime: 2016-07-07 10:14:35
 * [Back to Top](#report-top)
 
 ##### <a name='cc076518815cc7ac821ae2cd3b1c52e7de60b18d83'></a> Source: [virtualization\community\media\GitHubPR.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e035a45e22eee04263861d935b338089d8009e92/virtualization/community/media/GitHubPR.png)
@@ -1525,29 +1525,29 @@
 * [Back to Top](#report-top)
 
 ##### <a name='691e0ac052b6fbf09f2245ceb2eea32dac6621a584'></a> Source: [virtualization\community\media\GitHubProposeChange.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/722053b7db662b0d046f6eea87b7569fac0ee125/virtualization/community/media/GitHubProposeChange.png)
-* Status: OutofSyncHandedBackSuccess
-* Target File: [virtualization\community\media\GitHubProposeChange.png](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/f51111c1b8bc906178c0d6f882eb8ddce3552f64/virtualization/community/media/GitHubProposeChange.png)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\community\media\GitHubProposeChange.png](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/8a43b4bae94d0271de60e04c941802a521317a62/virtualization/community/media/GitHubProposeChange.png)
 * Handoff File: [691e0ac052b6fbf09f2245ceb2eea32dac6621a5.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/2398dadb3a57633314ede01167969972468d49dd/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/691e0ac052b6fbf09f2245ceb2eea32dac6621a5.png)
 * Handoff Datetime: 2016-06-28 17:45:45
 * Handoff Reason: IsDependency
 * Dependency From: virtualization\community\contribute_to_docs.md
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
-* Handback File: [691e0ac052b6fbf09f2245ceb2eea32dac6621a5.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/80522310213fceac06860495f24105ec901c9f0d/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/691e0ac052b6fbf09f2245ceb2eea32dac6621a5.png)
-* Handback Datetime: 2016-01-04 21:50:42
+* Handback File: [691e0ac052b6fbf09f2245ceb2eea32dac6621a5.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/1702c585319a19470b9e914268271a20e16b5de8/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/691e0ac052b6fbf09f2245ceb2eea32dac6621a5.png)
+* Handback Datetime: 2016-07-07 10:14:35
 * [Back to Top](#report-top)
 
 ##### <a name='065cffd9e2e4355f0c575a80c81537e77ee7a10a85'></a> Source: [virtualization\community\media\GitHubView.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/3159040b68e16ad8fd1c001ef5d195d40f1dea7c/virtualization/community/media/GitHubView.png)
-* Status: OutofSyncHandedBackSuccess
-* Target File: [virtualization\community\media\GitHubView.png](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/f51111c1b8bc906178c0d6f882eb8ddce3552f64/virtualization/community/media/GitHubView.png)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\community\media\GitHubView.png](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/8a43b4bae94d0271de60e04c941802a521317a62/virtualization/community/media/GitHubView.png)
 * Handoff File: [065cffd9e2e4355f0c575a80c81537e77ee7a10a.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/2398dadb3a57633314ede01167969972468d49dd/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/065cffd9e2e4355f0c575a80c81537e77ee7a10a.png)
 * Handoff Datetime: 2016-06-28 17:45:45
 * Handoff Reason: IsDependency
 * Dependency From: virtualization\community\contribute_to_docs.md
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
-* Handback File: [065cffd9e2e4355f0c575a80c81537e77ee7a10a.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/80522310213fceac06860495f24105ec901c9f0d/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/065cffd9e2e4355f0c575a80c81537e77ee7a10a.png)
-* Handback Datetime: 2016-01-04 21:50:42
+* Handback File: [065cffd9e2e4355f0c575a80c81537e77ee7a10a.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/1702c585319a19470b9e914268271a20e16b5de8/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/065cffd9e2e4355f0c575a80c81537e77ee7a10a.png)
+* Handback Datetime: 2016-07-07 10:14:35
 * [Back to Top](#report-top)
 
 ##### <a name='53f32345480e69c09324a8965ed62988423e4abe86'></a> Source: [virtualization\community\media\HyperVPMs.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e035a45e22eee04263861d935b338089d8009e92/virtualization/community/media/HyperVPMs.png)
