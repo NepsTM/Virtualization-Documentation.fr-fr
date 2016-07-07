@@ -10,6 +10,7 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5d9f1cb4-ffb3-433d-8096-b085113a9d7b
 redirect_url: ../containers_welcome
+translationtype: Human Translation
 ms.sourcegitcommit: e3f5535594123f6b4f8931e41a91d92f3b837814
 ms.openlocfilehash: 085bb8c0158aedf4270cf2423114ec1901af1ebd
 
@@ -244,6 +245,6 @@ Nous étudions activement des solutions pour prendre en charge ces types de scé
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jul16_HO1-->
 
 
