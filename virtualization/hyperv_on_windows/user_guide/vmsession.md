@@ -1,7 +1,7 @@
 ---
 title: "Gérer des machines virtuelles Windows avec PowerShell Direct"
 description: "Gérer des machines virtuelles Windows avec PowerShell Direct"
-keywords: windows 10, hyper-v
+keywords: windows 10, hyper-v, powershell, integration services, integration components, automation, powershell direct
 author: scooley
 manager: timlt
 ms.date: 05/02/2016
@@ -10,14 +10,14 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
 translationtype: Human Translation
-ms.sourcegitcommit: 6eb26eda92217917a3abe7d9dd4c77c48283c8dc
-ms.openlocfilehash: 91927b751021efa9ba2cf696516ba50af28c6e05
+ms.sourcegitcommit: 87f8fb2ae8958c9c6177f6eda90678708054fce7
+ms.openlocfilehash: 75186d48346efbaaac264b00f0f92fe82fcfe424
 
 ---
 
-# Gérer des machines virtuelles Windows avec PowerShell Direct
+# Gestion et automatisation de machines virtuelles avec PowerShell
  
-PowerShell Direct permet de gérer à distance une machine virtuelle Windows 10 ou Windows Server Technical Preview à partir d’un hôte Hyper-V Windows 10 ou Windows Server Technical. Grâce à PowerShell Direct, vous pouvez gérer PowerShell dans une machine virtuelle, indépendamment de la configuration du réseau ou des paramètres de gestion à distance sur l’hôte Hyper-V ou la machine virtuelle. Pour les administrateurs Hyper-V, cela facilite l’automatisation et la définition par script des tâches de gestion et de configuration.
+PowerShell Direct vous permet d’exécuter du code PowerShell arbitraire dans une machine virtuelle Windows 10 ou Windows Server Technical Preview à partir d’un hôte Hyper-V, indépendamment de la configuration réseau ou des paramètres de gestion à distance.
 
 **Façons d’exécuter PowerShell Direct :**  
 * En tant que session interactive : [cliquez ici](vmsession.md#create-and-exit-an-interactive-powershell-session) pour créer et quitter une session PowerShell interactive à l’aide d’Enter-PSSession.
@@ -281,6 +281,6 @@ Pour obtenir de nombreux exemples d’utilisation de PowerShell Direct dans votr
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jul16_HO1-->
 
 

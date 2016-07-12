@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
 translationtype: Human Translation
-ms.sourcegitcommit: 960b40e8c1eda9c19ebff0972df2c87e70c7e8f6
-ms.openlocfilehash: 71e0fb430498f8a5ae4ac5b297cf5e4a2c904098
+ms.sourcegitcommit: daf82c943f9e19ec68e37207bba69fb0bf46f46f
+ms.openlocfilehash: ace5fd12856cdcff3a380eb35e4982c4c1ce4c5a
 
 ---
 
@@ -98,7 +98,7 @@ L’instruction RUN se présente sous le format suivant :
 ```none
 # exec form
 
-RUN ["<executable", "<param 1>", "<param 2>"
+RUN ["<executable", "<param 1>", "<param 2>"]
 
 # shell form
 
@@ -149,6 +149,8 @@ Sur Windows, quand vous utilisez l’instruction `RUN` avec le format exec, les 
 RUN ["powershell", "New-Item", "c:\\test"]
 ```
 
+Quand le programme cible est un programme Windows Installer, une étape supplémentaire est nécessaire avant de lancer la procédure d’installation réelle (sans assistance) : l’extraction du programme d’installation, via l’indicateur `/x:<directory>`. Vous devez attendre la fin de la commande pour quitter, sinon le processus se termine prématurément sans avoir installé quoi que ce soit. Pour plus d’informations, consultez l’exemple ci-dessous.
+
 **Exemples**
 
 Cet exemple utilise DISM pour installer IIS dans l’image de conteneur.
@@ -160,6 +162,13 @@ Cet exemple installe le package redistribuable Visual Studio.
 ```none
 RUN powershell.exe -Command c:\vcredist_x86.exe /quiet
 ``` 
+
+Cet exemple installe .NET Framework 4.5.2 Developer Pack, en l’extrayant tout d’abord, puis en lançant le programme d’installation réel. 
+```none
+RUN start /wait C:\temp\NDP452-KB2901951-x86-x64-DevPack.exe /q /x:C:\temp\NDP452DevPackSetupDir && \
+    start /wait C:\temp\NDP452DevPackSetupDir\Setup.exe /norestart /q /log %TEMP%\ndp452_install_log.txt && \
+    rmdir /s /q C:\temp\NDP452DevPackSetupDir
+```
 
 Pour plus d’informations sur l’instruction RUN, voir les [informations de référence sur RUN sur Docker.com]( https://docs.docker.com/engine/reference/builder/#run). 
 
@@ -481,6 +490,6 @@ windowsservercore   latest              6801d964fda5        4 months ago        
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jul16_HO1-->
 
 
