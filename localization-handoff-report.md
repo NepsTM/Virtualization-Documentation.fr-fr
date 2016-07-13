@@ -6,24 +6,24 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\quick_start\quick_start_windows_10.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5f42cae373b1f8f0484ffac82f5ebc761c37d050/virtualization/windowscontainers/quick_start/quick_start_windows_10.md) | OutofSyncHandedBackSuccess | [Details](#9ef41ff031e8b7bc463e71f39ee6a3b8e4fd846e317)
+ [virtualization\hyperv_on_windows\reference\ic_info.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/61baf3d6abd47e7c83b4bb8c533610e8a1dccd5b/virtualization/hyperv_on_windows/reference/ic_info.md) | OutofSyncHandedBackSuccess | [Details](#3afd8c4948927a72dbbbf57f1373900249a766e4179)
 
 ## Item Details
-##### <a name='9ef41ff031e8b7bc463e71f39ee6a3b8e4fd846e317'></a> Source: [virtualization\windowscontainers\quick_start\quick_start_windows_10.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5f42cae373b1f8f0484ffac82f5ebc761c37d050/virtualization/windowscontainers/quick_start/quick_start_windows_10.md)
+##### <a name='3afd8c4948927a72dbbbf57f1373900249a766e4179'></a> Source: [virtualization\hyperv_on_windows\reference\ic_info.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/61baf3d6abd47e7c83b4bb8c533610e8a1dccd5b/virtualization/hyperv_on_windows/reference/ic_info.md)
 * Status: OutofSyncHandedBackSuccess
 * Target File: 
-* Handoff File: [quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/ca026b5e4d1b51c39c2256d16e348147bafc4128/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf)
-* Handoff Datetime: 2016-07-11 05:46:58
+* Handoff File: [ic_info.98dd018260e2c766210a8b9aa82efa377f584781.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/57eee900f3d3573c418e1683d025e70736be04e9/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/ic_info.98dd018260e2c766210a8b9aa82efa377f584781.fr-fr.xlf)
+* Handoff Datetime: 2016-07-13 17:48:54
 * Handoff Reason: Include
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\quick_start\quick_start_windows_10.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/5199783a063964589397e29fb6e6f012b81d4a49/virtualization/windowscontainers/quick_start/quick_start_windows_10.md)
-* Current Handback File: [quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c1f937a765ef52505d31d82d47e0d687423a031b/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf)
-* Current Handback Datetime: 2016-07-07 08:15:45
-* Bilingual File: [quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c1f937a765ef52505d31d82d47e0d687423a031b/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf)
-* Bilingual Datetime: 2016-07-07 08:17:26
+* Current Target File: [virtualization\hyperv_on_windows\reference\ic_info.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/c04c8210651243ca4d860d3ec623f56aba046d72/virtualization/hyperv_on_windows/reference/ic_info.md)
+* Current Handback File: [ic_info.98dd018260e2c766210a8b9aa82efa377f584781.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/9702742ee087f04775cdb6a4f0dfbe0d7648f894/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/ic_info.98dd018260e2c766210a8b9aa82efa377f584781.fr-fr.xlf)
+* Current Handback Datetime: 2016-07-12 11:03:45
+* Bilingual File: [ic_info.98dd018260e2c766210a8b9aa82efa377f584781.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/9702742ee087f04775cdb6a4f0dfbe0d7648f894/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/ic_info.98dd018260e2c766210a8b9aa82efa377f584781.fr-fr.xlf)
+* Bilingual Datetime: 2016-07-12 11:04:27
 * [Back to Top](#report-top)
 
 
