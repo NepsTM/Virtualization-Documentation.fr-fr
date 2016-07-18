@@ -1,11 +1,41 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 0
+ Total Files | 2
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\hyperv_on_windows\develop\media\flightingSDK.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4b739fb7cafe89a2bb61e4ede944f41617a1f589/virtualization/hyperv_on_windows/develop/media/flightingSDK.png) | InSyncHandedBackSuccess | [Details](#224b91fc286f31a5c23fe3d7c9d36b178f6b04c394)
+ [virtualization\windowscontainers\quick_start\media\hello.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/80238e2f42ed6c21f7e84b38cfe99bdbe6f9e27f/virtualization/windowscontainers/quick_start/media/hello.png) | InSyncHandedBackSuccess | [Details](#19c1070cee496d52eba1b2ce80f4f939edccdffd297)
 
 ## Item Details
+##### <a name='224b91fc286f31a5c23fe3d7c9d36b178f6b04c394'></a> Source: [virtualization\hyperv_on_windows\develop\media\flightingSDK.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4b739fb7cafe89a2bb61e4ede944f41617a1f589/virtualization/hyperv_on_windows/develop/media/flightingSDK.png)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\hyperv_on_windows\develop\media\flightingSDK.png](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/65f90778e4cbdb43a564e4fca1345ba4ee3a1934/virtualization/hyperv_on_windows/develop/media/flightingSDK.png)
+* Handoff File: [224b91fc286f31a5c23fe3d7c9d36b178f6b04c3.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/6a7ecd30687c01c832e7045f2d18dbaff3cd937a/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/224b91fc286f31a5c23fe3d7c9d36b178f6b04c3.png)
+* Handoff Datetime: 2016-03-22 00:54:13
+* Handoff Reason: IsDependency
+* Dependency From: virtualization\hyperv_on_windows\develop\make_mgmt_service.md
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: [224b91fc286f31a5c23fe3d7c9d36b178f6b04c3.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/cee6dc0feab5412a5f0d04890b6c7165fa923ebe/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/poison/224b91fc286f31a5c23fe3d7c9d36b178f6b04c3.png)
+* Handback Datetime: 2016-07-18 08:44:49
+* [Back to Top](#report-top)
+
+##### <a name='19c1070cee496d52eba1b2ce80f4f939edccdffd297'></a> Source: [virtualization\windowscontainers\quick_start\media\hello.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/80238e2f42ed6c21f7e84b38cfe99bdbe6f9e27f/virtualization/windowscontainers/quick_start/media/hello.png)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\windowscontainers\quick_start\media\hello.png](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/65f90778e4cbdb43a564e4fca1345ba4ee3a1934/virtualization/windowscontainers/quick_start/media/hello.png)
+* Handoff File: [19c1070cee496d52eba1b2ce80f4f939edccdffd.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/f56fff52d988f4976de205b6c3912050a28c2d2c/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/19c1070cee496d52eba1b2ce80f4f939edccdffd.png)
+* Handoff Datetime: 2016-04-27 13:40:20
+* Handoff Reason: IsDependency
+* Dependency From: virtualization\windowscontainers\quick_start\manage_docker.md, virtualization\windowscontainers\quick_start\quick_start_images.md
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: [19c1070cee496d52eba1b2ce80f4f939edccdffd.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/cee6dc0feab5412a5f0d04890b6c7165fa923ebe/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/poison/19c1070cee496d52eba1b2ce80f4f939edccdffd.png)
+* Handback Datetime: 2016-07-18 08:44:49
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
