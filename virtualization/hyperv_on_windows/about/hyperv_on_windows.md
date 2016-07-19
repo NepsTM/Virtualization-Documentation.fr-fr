@@ -10,82 +10,79 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: eb2b827c-4a6c-4327-9354-50d14fee7ed8
 translationtype: Human Translation
-ms.sourcegitcommit: 9f1073ecfa4cf836295de81f2bcf9622274ca034
-ms.openlocfilehash: ea19b576219755e09a4064d0fa6bfde5367967e1
+ms.sourcegitcommit: 53539a0325b3f07e542ca1dd0a4352239e8a65b3
+ms.openlocfilehash: 25295b8a2888e25090439a3490c9ff7c3214f23a
 
 ---
 
 # Introduction à Hyper-V sur Windows 10
 
-Nombreux sont les développeurs de logiciels, professionnels de l’informatique ou passionnés de technologies qui doivent exécuter plusieurs systèmes d’exploitation, parfois sur différentes machines. Mais tout le monde ne dispose pas de l’espace suffisant pour loger toutes ces machines. Au lieu de dédier un matériel physique à l’exécution de chacun de vos ordinateurs, exécutez-les comme *machines virtuelles* Hyper-V. Cette technologie de virtualisation vous fera économiser du temps et de l’espace.
+Nombreux sont les développeurs de logiciels, professionnels de l’informatique ou passionnés de technologies qui doivent exécuter plusieurs systèmes d’exploitation.  Au lieu d’affecter du matériel spécifique à chaque système d’exploitation, vous pouvez utiliser Hyper-V pour exécuter plusieurs machines virtuelles sur un même ordinateur Windows.
 
-> Microsoft Virtual PC disparaîtra en avril 2017. Hyper-V sur Windows 10 le remplacera. 
+> Microsoft Virtual PC disparaîtra en avril 2017. Hyper-V sur Windows 10 Enterprise et Windows 10 Professionnel sera la solution de remplacement prise en charge.  
 
-## Utilisations de la virtualisation
-La virtualisation permet à tout utilisateur de gérer facilement plusieurs environnements de test comprenant de nombreux systèmes d’exploitation, des configurations logicielles et des configurations matérielles.  Hyper-V offre la virtualisation sur Windows ainsi qu’un mécanisme simple pour basculer rapidement entre ces environnements sans encourir de frais matériels supplémentaires.    
+## Raisons justifiant la virtualisation
+La virtualisation permet à tout utilisateur d’exécuter plusieurs systèmes d’exploitation, configurations logicielles et configurations matérielles sur la même machine physique.  Hyper-V offre la technologie de virtualisation et les outils nécessaires pour gérer vos machines virtuelles.
 
 Hyper-V peut être utilisé de nombreuses manières. Exemple :
 
-- Un environnement de test comportant plusieurs machines virtuelles peut être créé sur un seul ordinateur de bureau ou portable. Une fois le test terminé, ces machines virtuelles peuvent être exportées, puis importées dans un autre système Hyper-V.
+* Exécuter un logiciel nécessitant une version antérieure de Windows ou des systèmes d’exploitation non-Windows. 
 
-- Les développeurs peuvent utiliser Hyper-V sur leur ordinateur pour tester un logiciel sur plusieurs systèmes d’exploitation. Par exemple, si vous avez une application qui doit être testée sur un système d’exploitation Windows 8, Windows 7 et Linux, vous pouvez créer plusieurs machines virtuelles sur votre système de développement, chacune contenant chacun de ces systèmes d’exploitation.
+* Se familiariser avec d’autres systèmes d’exploitation. Hyper-V permet de créer et de supprimer très facilement différents systèmes d’exploitation.
 
-- Vous pouvez utiliser Hyper-V sur Windows 10 pour résoudre les problèmes des machines virtuelles à partir de n’importe quel déploiement Hyper-V. Vous pouvez exporter une machine virtuelle à partir de votre environnement de production, l’ouvrir sur votre bureau exécutant Hyper-V, effectuer le dépannage requis, puis la replacer dans l’environnement de production. 
+* Tester des logiciels sur plusieurs systèmes d’exploitation à l’aide de plusieurs machines virtuelles. Grâce à Hyper-V, vous pouvez les exécuter sur un seul ordinateur de bureau ou portable. Ces machines virtuelles peuvent être exportées, puis importées dans un autre système Hyper-V, notamment Azure.
 
-- La mise en réseau virtuelle vous permet de créer un environnement avec plusieurs machines de test/développement/démonstration sans risquer d’affecter le réseau de production.
+* Résoudre les problèmes liés aux machines virtuelles à partir de n’importe quel déploiement Hyper-V. Vous pouvez exporter une machine virtuelle à partir de votre environnement de production, l’ouvrir sur un ordinateur de bureau exécutant Hyper-V, résoudre les problèmes liés à la machine virtuelle, puis la réexporter dans l’environnement de production. 
 
-- Les passionnés peuvent utiliser Hyper-V pour essayer d’autres systèmes d’exploitation. Hyper-V permet d’afficher et de supprimer très facilement différents systèmes d’exploitation.
-
-- Vous pouvez utiliser Hyper-V sur un ordinateur portable pour une démonstration des versions antérieures de Windows ou des systèmes d’exploitation autres que Windows. 
-
+* La mise en réseau virtuelle vous permet de créer un environnement avec plusieurs machines de test/développement/démonstration sans risquer d’affecter le réseau de production.
 
 ## Configuration requise
-Hyper-V nécessite un système 64 bits avec la traduction d’adresses de second niveau. La traduction d’adresses de second niveau est une fonctionnalité présente dans la génération actuelle de processeurs 64 bits Intel et AMD. Vous aurez également besoin d’une version 64 bits de Windows 8 ou supérieur et d’au moins 4 Go de RAM. Hyper-V prend en charge la création de systèmes d’exploitation 32 bits et 64 bits sur les machines virtuelles.
+Hyper-V est uniquement disponible dans les éditions Professionnel, Entreprise et Éducation de Windows 8 et versions ultérieures.
 
-La mémoire dynamique d’Hyper-V permet d’allouer et de libérer la mémoire requise par la machine virtuelle dynamiquement (vous spécifiez un minimum et un maximum) ainsi que de partager la mémoire inutilisée entre les machines virtuelles. Vous pouvez exécuter 3 ou 4 machines virtuelles sur un ordinateur qui dispose de 4 Go de RAM, mais vous aurez besoin de davantage de RAM pour 5 machines virtuelles ou plus. En revanche, vous pouvez également créer des machines virtuelles de grande taille avec 32 processeurs et 512 Go de RAM, selon votre matériel physique.
+Il nécessite un système 64 bits avec la traduction d’adresses de second niveau. La traduction d’adresses de second niveau est une fonctionnalité présente dans la génération actuelle de processeurs 64 bits Intel et AMD.  Vous devez également exécuter une version 64 bits de Windows.  
+Cela étant dit, Hyper-V prend en charge les systèmes d’exploitation 32 bits et 64 bits au sein des machines virtuelles.
+
+Vous pouvez exécuter trois ou quatre machines virtuelles de base sur un hôte disposant de 4 Go de RAM. Pour exécuter plus de machines virtuelles, davantage de ressources sont nécessaires. En revanche, vous pouvez créer des machines virtuelles de grande taille avec 32 processeurs et 512 Go de RAM, selon votre matériel physique.
+
+Pour plus d’informations sur la configuration requise pour Hyper-V et la procédure à suivre pour vérifier que Hyper-V s’exécute sur votre machine, consultez [Procédure pas à pas : Configuration requise pour Hyper-V sur Windows 10](..\quick_start\walkthrough_install.md)
+
 
 ## Systèmes d’exploitation que vous pouvez exécuter dans une machine virtuelle
-Le terme « invité » fait référence à une machine virtuelle et « hôte » fait référence à l’ordinateur qui exécute la machine virtuelle. Hyper-V sur Windows prend en charge de nombreux systèmes d’exploitation invités différents, dont plusieurs versions de Linux, FreeBSD et Windows. Pour plus d’informations sur les systèmes d’exploitation pris en charge comme invités dans Hyper-V sur Windows, voir [Systèmes d’exploitation invités Windows pris en charge](supported_guest_os.md) et [Machines virtuelles Linux et FreeBSD sur Hyper-V](https://technet.microsoft.com/library/dn531030.aspx). 
+Le terme « invité » fait référence à une machine virtuelle et « hôte » fait référence à l’ordinateur qui exécute la machine virtuelle. Hyper-V sur Windows prend en charge de nombreux systèmes d’exploitation invités différents, dont plusieurs versions de Linux, FreeBSD et Windows. 
+
+À titre de rappel, vous devez avoir une licence valide pour les systèmes d’exploitation que vous utilisez dans les machines virtuelles. 
+
+Pour plus d’informations sur les systèmes d’exploitation pris en charge comme invités dans Hyper-V sur Windows, voir [Systèmes d’exploitation invités Windows pris en charge](supported_guest_os.md) et [Machines virtuelles Linux et FreeBSD sur Hyper-V](https://technet.microsoft.com/library/dn531030.aspx). 
+
 
 ## Différences entre Hyper-V sur Windows et Hyper-V sur Windows Server
-Certaines fonctionnalités se comportent différemment dans Hyper-V sur Windows et Hyper-V sur Windows Server. Notamment :
+Certaines fonctionnalités se comportent différemment dans Hyper-V sur Windows et Hyper-V sur Windows Server. 
 
-- Le modèle de gestion de mémoire est différent pour Hyper-V sur Windows. Sur un serveur, la mémoire Hyper-V est gérée en partant du principe que seules les machines virtuelles sont exécutées sur le serveur. Dans Hyper-V sur Windows, la mémoire est gérée en prévoyant que la plupart des machines clientes exécutent des logiciels en plus des machines virtuelles. Par exemple, un développeur peut exécuter Visual Studio ainsi que plusieurs machines virtuelles sur le même ordinateur.
+Le modèle de gestion de mémoire est différent pour Hyper-V sur Windows. Sur un serveur, la mémoire Hyper-V est gérée en partant du principe que seules les machines virtuelles sont exécutées sur le serveur. Dans Hyper-V sur Windows, la mémoire est gérée en prévision du fait que la plupart des machines clientes exécutent des logiciels sur l’hôte en plus des machines virtuelles. Par exemple, un développeur peut exécuter Visual Studio ainsi que plusieurs machines virtuelles sur le même ordinateur.
 
-- SR-IOV sur un invité 64 bits fonctionne normalement, mais la version 32 bits ne fonctionne pas et n’est pas prise en charge.
+### Fonctionnalités Hyper-V disponibles dans Windows Server uniquement
+Certaines fonctionnalités incluses dans Hyper-V sur Windows Server ne figurent pas dans Hyper-V sur Windows. Par exemple :
 
-### Fonctionnalités Windows Server non disponibles dans Windows Hyper-V
-Certaines fonctionnalités incluses dans Hyper-V sur Windows Server ne figurent pas dans Hyper-V sur Windows. Notamment :
-
-- Virtualisation de GPU à l’aide de RemoteFX 
-
-- Migration dynamique des machines virtuelles d’un hôte vers un autre
-
-- Réplication Hyper-V
-
-- Fibre Channel virtuel
-
-- Mise en réseau SR-IOV
-
-- .VHDX partagé
-
-> **Avertissement** : Les machines virtuelles s’exécutant sur Hyper-V ne gèrent pas automatiquement le passage d’une connexion câblée à une connexion sans fil. Vous devez modifier les paramètres de carte réseau des machines virtuelles manuellement.
+* Virtualisation de GPU à l’aide de RemoteFX 
+* Migration dynamique des machines virtuelles d’un hôte vers un autre
+* Réplication Hyper-V
+* Fibre Channel virtuel
+* Mise en réseau SR-IOV
+* .VHDX partagé
 
 ## Limitations
-L’utilisation de la virtualisation présente certaines limitations. Les fonctionnalités ou applications qui dépendent d’un matériel spécifique ne fonctionnent pas correctement dans une machine virtuelle. Par exemple, les jeux ou applications qui nécessitent un traitement avec des GPU (sans fournir de procédure de secours logicielle) risquent de ne pas fonctionner correctement. Par ailleurs, les applications basées sur les minuteurs sous 10 ms, telles que les applications de haute précision sensibles à la latence comme les applications de mixage de concert notamment, peuvent être confrontées à des problèmes d’exécution dans une machine virtuelle.
+L’utilisation de la virtualisation présente certaines limitations. Les fonctionnalités ou applications qui dépendent d’un matériel spécifique ne fonctionnent pas correctement dans une machine virtuelle. Par exemple, les jeux ou applications qui nécessitent un traitement avec des GPU risquent de ne pas fonctionner correctement. Par ailleurs, les applications basées sur les minuteurs sous 10 ms, notamment les applications de mixage de concert et les minuteurs de haute précision, peuvent être confrontées à des problèmes d’exécution dans une machine virtuelle.
 
-En outre, si la virtualisation est activée, les applications de haute précision sensibles à la latence peuvent également être confrontées à des problèmes d’exécution dans le système d’exploitation hôte. (En effet, quand la virtualisation est activée, le système d’exploitation hôte est également exécuté sur la couche de virtualisation Hyper-V, tout comme les systèmes d’exploitation invités. Toutefois, contrairement aux invités, le système d’exploitation hôte présente la particularité d’avoir un accès direct à l’ensemble du matériel, ce qui signifie que les applications avec une configuration matérielle requise spéciale continuent de fonctionner sans problème dans le système d’exploitation hôte.)
-
-À titre de rappel, vous devez avoir une licence valide pour les systèmes d’exploitation que vous utilisez dans les machines virtuelles.
+En outre, si Hyper-V est activé, les applications de haute précision sensibles à la latence peuvent également être confrontées à des problèmes d’exécution dans l’hôte.  En effet, quand la virtualisation est activée, le système d’exploitation hôte est également exécuté sur la couche de virtualisation Hyper-V, tout comme les systèmes d’exploitation invités. Toutefois, contrairement aux invités, le système d’exploitation hôte présente la particularité d’avoir un accès direct à l’ensemble du matériel, ce qui signifie que les applications avec une configuration matérielle requise spéciale continuent de fonctionner sans problème dans le système d’exploitation hôte.
 
 ## Étape suivante
-[Procédure pas à pas : Hyper-V sur Windows 10](..\quick_start\walkthrough.md) 
+[Procédure pas à pas : Installer Hyper-V sur Windows 10](..\quick_start\walkthrough_install.md) 
 
 Consultez [Nouveautés](whats_new.md) dans Hyper-V sur Windows 10.
 
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jul16_HO2-->
 
 

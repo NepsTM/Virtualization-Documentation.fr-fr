@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
 translationtype: Human Translation
-ms.sourcegitcommit: eae8f504039a1b3732ecfb31b8068667aab104f9
-ms.openlocfilehash: 633a6b2f3fe737a6e7515fd3f923335e39cf9d17
+ms.sourcegitcommit: 94e00095a41163c5f635685af01c215f4b4efce5
+ms.openlocfilehash: e1c0404ee45ad8e775dc2319359cd16c6487ef12
 
 ---
 
@@ -20,6 +20,13 @@ ms.openlocfilehash: 633a6b2f3fe737a6e7515fd3f923335e39cf9d17
 Les services d’intégration (souvent appelés composants d’intégration) sont des services qui permettent à la machine virtuelle de communiquer avec l’hôte Hyper-V. Plusieurs de ces services sont pratiques, mais d’autres peuvent être très importants dans le fonctionnement de la machine virtuelle.
 
 Cet article est une référence pour chaque service d’intégration disponible dans Windows.  Il représente également un point de départ pour toutes les informations relatives à des services d’intégration spécifiques ou à leur historique.
+
+**Guides de l’utilisateur :**  
+* [Activer ou désactiver les services d’intégration à partir de l’hôte Hyper-V](../user_guide/managing_ics.md#enable-or-disable-integration-services-using-powershell)
+* Activer ou désactiver les services d’intégration à partir de la machine virtuelle.
+  * [Windows](../user_guide/managing_ics.md#manage-integration-services-from-guest-os-windows)
+  * [Linux](../user_guide/managing_ics.md#manage-integration-services-from-guest-os-linux)
+* [Maintenance et mise à jour des services d’intégration](../user_guide/managing_ics.md#integration-service-maintenance)
 
 
 ## Référence rapide
@@ -149,16 +156,7 @@ Grâce à PowerShell Direct, vous pouvez gérer PowerShell dans une machine virt
 * [Copie de fichiers vers et depuis une machine virtuelle](../user_guide/vmsession.md#copy-files-with-new-pssession-and-copy-item)
 
 
-## Ressources supplémentaires
 
-**Guides de l’utilisateur :**  
-* [Activer ou désactiver les services d’intégration à partir de l’hôte Hyper-V](../user_guide/managing_ics.md#enable-or-disable-integration-services-using-powershell)
-* Activer ou désactiver les services d’intégration à partir de la machine virtuelle.
-** [Windows](../user_guide/managing_ics.md#manage-integration-services-from-guest-os-windows)
-** [Linux](../user_guide/managing_ics.md#manage-integration-services-from-guest-os-linux)
-* [Maintenance et mise à jour des services d’intégration](../user_guide/managing_ics.md#integration-service-maintenance)
-
-
-<!--HONumber=Jul16_HO1-->
+<!--HONumber=Jul16_HO2-->
 
 
