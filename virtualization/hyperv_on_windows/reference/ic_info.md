@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
 translationtype: Human Translation
-ms.sourcegitcommit: 94e00095a41163c5f635685af01c215f4b4efce5
-ms.openlocfilehash: e1c0404ee45ad8e775dc2319359cd16c6487ef12
+ms.sourcegitcommit: 03c3ede85ff8b2fe4783581c717c1c97810b3bdd
+ms.openlocfilehash: a2fc8845bdc3e5f977d50b99ca9687b3dafd0cb6
 
 ---
 
@@ -76,9 +76,9 @@ Le champ `Status` est déterminé par le service Pulsation.
 
 **Nom du service Windows :** vmicshutdown  
 **Nom de démon Linux :** hv_utils  
-**Description :** permet à l’hôte Hyper-V de demander l’arrêt de la machine virtuelle.  L’hôte peut toujours forcer l’arrêt de la machine virtuelle, mais cela revient à utiliser le bouton marche/arrêt au lieu de sélectionner Arrêter.
+**Description :** permet à l’hôte Hyper-V de demander l’arrêt de la machine virtuelle.  L’hôte peut toujours forcer l’arrêt de la machine virtuelle, mais cela revient à utiliser le bouton marche/arrêt au lieu de sélectionner Arrêter.  
 **Ajout dans :** Windows Server 2012, Windows 8  
-**Impact :** **Impact élevé** Quand il est désactivé, l’hôte ne peut pas déclencher un arrêt convivial à l’intérieur de la machine virtuelle.  Tous les arrêts sont des mises hors tension brutales qui peuvent entraîner une perte ou un endommagement des données.
+**Impact :** **Impact élevé** Quand il est désactivé, l’hôte ne peut pas déclencher un arrêt convivial à l’intérieur de la machine virtuelle.  Tous les arrêts sont des mises hors tension brutales qui peuvent entraîner une perte ou un endommagement des données.  
 
 
 ## Service Synchronisation date/heure Microsoft Hyper-V
@@ -96,7 +96,7 @@ Le champ `Status` est déterminé par le service Pulsation.
 **Nom de démon Linux :** hv_kvp_daemon  
 **Description :** fournit un mécanisme pour échanger des métadonnées de base entre la machine virtuelle et l’hôte.  
 **Ajout dans :** Windows Server 2012, Windows 8  
-**Impact :** quand il est désactivé, les machines virtuelles exécutant Windows 8 ou Windows Server 2012 ou version antérieure ne reçoivent pas les mises à jour des services d’intégration Hyper-V.  La désactivation de l’échange de données peut également affecter certains types de diagnostics d’analyse et côté hôte.
+**Impact :** quand il est désactivé, les machines virtuelles exécutant Windows 8 ou Windows Server 2012 ou version antérieure ne reçoivent pas les mises à jour des services d’intégration Hyper-V.  La désactivation de l’échange de données peut également affecter certains types de diagnostics d’analyse et côté hôte.  
 
 Le service Échange de données (parfois appelé paire clé/valeur) partage de petites quantités d’informations sur l’ordinateur entre la machine virtuelle et l’hôte Hyper-V à l’aide de paires clé/valeur (KVP) via le Registre Windows.  Le même mécanisme peut également servir à partager des données personnalisées entre la machine virtuelle et l’hôte.
 
@@ -106,7 +106,7 @@ Le service Échange de données est un excellent outil pour conserver les inform
 
 
 **Guides de l’utilisateur :**  
-* [Utilisation de paires clé/valeur pour partager des informations entre l’hôte et l’invité sur Hyper-V](https://technet.microsoft.com/en-us/library/dn798287.aspx).
+* [Utilisation de paires clé/valeur pour partager des informations entre l’hôte et l’invité sur Hyper-V](https://technet.microsoft.com/en-us/library/dn798287.aspx).  
 
 
 ## Requête du service VSS Microsoft Hyper-V
