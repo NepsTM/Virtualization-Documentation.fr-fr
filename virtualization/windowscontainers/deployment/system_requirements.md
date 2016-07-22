@@ -1,7 +1,7 @@
 ---
 title: Configuration requise pour un conteneur Windows
 description: Configuration requise pour un conteneur Windows.
-keywords: metadata, containers
+keywords: "métadonnées, conteneurs"
 author: neilpeterson
 manager: timlt
 ms.date: 05/26/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
 translationtype: Human Translation
-ms.sourcegitcommit: cc216f56acd5e547d05a48beea57450ba5fcb28b
-ms.openlocfilehash: 12ae565f012dc87a2cab883c0486322db42b1dcc
+ms.sourcegitcommit: 6f1d9c09774adde047508835caf9dcf54deab9d2
+ms.openlocfilehash: 9d015a570a0b1a9d7304e601daa7ace73df4e827
 
 ---
 
@@ -23,7 +23,7 @@ Ces guides fournissent la configuration requise pour un hôte de conteneur Windo
 
 ## Configuration requise du système d’exploitation
 
-- Le rôle de conteneur Windows est uniquement disponible sur Windows Server 2016 TP5 (Full et Core), Nano Server et Windows 10 (Insiders build 14352 et ultérieures).
+- La fonctionnalité de conteneur Windows est disponible uniquement sur Windows Server 2016 (Core et avec expérience utilisateur), Nano Server ainsi que Windows 10 Professionnel et Entreprise (build Insiders 14352 et versions ultérieures).
 - Si les conteneurs Hyper-V sont exécutés, le rôle Hyper-V doit être installé.
 - Windows doit être installé sur C:\\ sur les hôtes de conteneur Windows Server. Si seuls les conteneurs Hyper-V sont déployés, cette restriction ne s’applique pas.
 
@@ -74,6 +74,6 @@ Windows Server Technical Preview 5 est fourni avec deux images de système d’
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jul16_HO3-->
 
 

@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: f5998534-917b-453c-b873-2953e58535b1
 translationtype: Human Translation
-ms.sourcegitcommit: 111a4ca9f5d693cd1159f7597110409d670f0f5c
-ms.openlocfilehash: b8eca51e347f17e787095b7e4349337cc3ae69a7
+ms.sourcegitcommit: 493b669bc47fc589486a82cfea73a0bb1e88cf79
+ms.openlocfilehash: 26c010e79a4913b2e138f6d1d78f9406dbacbc6b
 
 ---
 
@@ -73,6 +73,20 @@ c:\container-share>dir
 
 Pour plus d’informations sur le montage de fichiers individuels, voir [Gérer les données dans les conteneurs sur docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#mount-a-host-directory-as-a-data-volume).
 
+### Monter un lecteur entier
+
+Un lecteur complet peut être monté en utilisant une commande semblable à celle-ci. Veillez à ne pas inclure de barre oblique inverse.
+
+```none
+docker run -it -v d: windowsservercore cmd
+```
+
+À ce stade, le montage d’une partie du second lecteur ne fonctionne pas. Par exemple, l’opération suivante n’est pas possible.
+
+```none
+docker run -it -v d:\source:d:\destination windowsservercore cmd
+```
+
 ### Conteneurs de volumes de données
 
 Les volumes de données peuvent être hérités d’autres conteneurs en cours d’exécution à l’aide du paramètre `--volumes-from` de la commande `docker run`. Un conteneur peut être créé à l’aide de cet héritage, avec l’objectif explicite d’héberger des volumes de données pour des applications en conteneur. 
@@ -111,6 +125,6 @@ Pour plus d’informations sur l’examen de volumes, voir [Gérer les données 
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jul16_HO3-->
 
 

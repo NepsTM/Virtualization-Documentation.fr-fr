@@ -4,14 +4,14 @@ description: Configurer Docker dans Windows
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
-ms.date: 06/02/2016
+ms.date: 07/15/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: 2d6f2c24624883457302c925c2bb47e6c867b730
-ms.openlocfilehash: 533f3a3277e3d9654f0d425c9c0f442c93e2d24a
+ms.sourcegitcommit: 475240afdf97af117519cfaa287f1e4fec8837a5
+ms.openlocfilehash: 5b86442643fb5937b62a67d144ae0d1c98373b41
 
 ---
 
@@ -121,8 +121,6 @@ De même, cet exemple configure le démon Docker pour accepter uniquement les co
 }
 ```
 
-
-
 ## Gestionnaire de contrôle des services
 
 Le démon Docker peut également être configuré en modifiant le service de Docker avec `sc config`. À l’aide de cette méthode, les indicateurs du démon Docker sont définis directement sur le service de Docker.
@@ -156,6 +154,21 @@ Quand vous êtes connecté à l’hôte Docker et que vous exécutez des command
 }
 ```
 
+## Configuration du proxy
+
+Pour définir des informations de proxy pour `docker search` et `docker pull`, créez une variable d’environnement Windows nommée `HTTP_PROXY` ou `HTTPS_PROXY`, et une valeur des informations de proxy. Vous pouvez effectuer cette opération dans PowerShell en utilisant une commande semblable à celle-ci :
+
+```none
+[Environment]::SetEnvironmentVariable("HTTP_PROXY”, “http://username:password@proxy:port/”, [EnvironmentVariableTarget]::Machine)
+```
+
+Une fois que la variable a été définie, redémarrez le service Docker.
+
+```none
+restart-service docker
+```
+
+Pour plus d’informations, voir [Options de socket du démon sur Docker.com](https://docs.docker.com/v1.10/engine/reference/commandline/daemon/#daemon-socket-option).
 
 ## Collecte de journaux
 Les journaux du démon Docker sont consignés dans le journal des événements des applications Windows, plutôt que dans un fichier. Ces journaux peuvent facilement être lus, triés et filtrés à l’aide de Windows PowerShell
@@ -171,6 +184,6 @@ Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-3
 
 
 
-<!--HONumber=Jul16_HO1-->
+<!--HONumber=Jul16_HO3-->
 
 
