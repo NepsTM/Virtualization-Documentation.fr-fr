@@ -1,7 +1,7 @@
 ---
 title: "Conteneur Windows sur Windows 10"
 description: "Démarrage rapide du déploiement de conteneurs"
-keywords: docker, containers
+keywords: docker, conteneurs
 author: neilpeterson
 manager: timlt
 ms.date: 07/13/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: edf2c2597e57909a553eb5e6fcc75cdb820fce68
-ms.openlocfilehash: b37d402f2e6c950db061f5de0c86f0e9aace62b4
+ms.sourcegitcommit: 6c7ce9f1767c6c6391cc6d33a553216bd815ff72
+ms.openlocfilehash: bd93f5a73268b552710304d7da568e1497239679
 
 ---
 
@@ -58,22 +58,16 @@ Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtua
 
 Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. Pour cet exercice, les deux seront installés. Pour ce faire, exécutez la commande suivante. 
 
-Créez un dossier pour les exécutables Docker.
+Téléchargez le moteur Docker et le client au format d’archive zip.
 
 ```none
-New-Item -Type Directory -Path $env:ProgramFiles\docker\
+Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile "$env:TEMP\docker-1.12.0.zip" -UseBasicParsing
 ```
 
-Téléchargez le démon Docker.
+Développez l’archive zip dans Program Files, le contenu de l’archive est déjà dans le répertoire de docker.
 
 ```none
-Invoke-WebRequest https://master.dockerproject.org/windows/amd64/dockerd.exe -OutFile $env:ProgramFiles\docker\dockerd.exe
-```
-
-Téléchargez le client Docker.
-
-```none
-Invoke-WebRequest https://master.dockerproject.org/windows/amd64/docker.exe -OutFile $env:ProgramFiles\docker\docker.exe
+Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:ProgramFiles
 ```
 
 Ajoutez le répertoire Docker au chemin du système.
@@ -87,7 +81,7 @@ Redémarrez la session PowerShell pour que le chemin modifié soit reconnu.
 Pour installer Docker comme service Windows, exécutez la commande suivante.
 
 ```none
-dockerd --register-service
+& $env:ProgramFiles\docker\dockerd.exe --register-service
 ```
 
 Une fois installé, le service peut être démarré.
@@ -187,6 +181,6 @@ Le résultat de la commande `docker run` est qu’un conteneur Hyper-V a été c
 
 
 
-<!--HONumber=Jul16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

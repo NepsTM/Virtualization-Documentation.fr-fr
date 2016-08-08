@@ -1,7 +1,7 @@
 ---
 title: "Mise en réseau de conteneurs Windows"
 description: "Configurez la mise en réseau pour les conteneurs Windows."
-keywords: docker, containers
+keywords: docker, conteneurs
 author: jmesser81
 manager: timlt
 ms.date: 05/02/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
 translationtype: Human Translation
-ms.sourcegitcommit: cd344ef02f03149129171b99bfdd92338ffdf24f
-ms.openlocfilehash: 161aaeed6c625d92b45be59dde4357836934956b
+ms.sourcegitcommit: 5cb7dca9469a687add1348753d89d04dc4a633b7
+ms.openlocfilehash: 406966a2bc80cdfc6fbe7461bf478fab317ed7e5
 
 ---
 
@@ -145,7 +145,7 @@ PS> Stop-Service docker
 PS> Set-Service docker -StartupType Disabled
 Reboot Host
 PS> Get-NetNat | Remove-NetNat
-PS> Set-Service docker -StartupType automaticac
+PS> Set-Service docker -StartupType automatic
 PS> Start-Service docker 
 ```
 
@@ -220,6 +220,11 @@ Vous pouvez personnaliser davantage un réseau de conteneurs via Docker à l’a
 Pour spécifier la carte réseau dans l’hôte de conteneur à utiliser pour un réseau Transparent, L2Bridge ou L2 Tunnel, spécifiez l’option *com.docker.network.windowsshim.interface*. 
 ```none
 docker network create -d transparent -o com.docker.network.windowsshim.interface="Ethernet 2" "TransparentNetTwo"
+```
+
+La valeur pour *com.docker.network.windowsshim.interface* est le *Nom* de la carte provenant de : 
+```none
+Get-NetAdapter
 ```
 
 > Les réseaux de conteneurs qui sont créés via PowerShell ne sont pas disponibles dans Docker jusqu’au redémarrage du démon Docker. Toutes les autres modifications apportées à un réseau de conteneurs via PowerShell nécessitent également un redémarrage du démon Docker.
@@ -338,6 +343,6 @@ Les options réseau suivantes ne sont pas prises en charge sur Windows Docker à
  * --ip-range
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jul16_HO5-->
 
 

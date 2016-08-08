@@ -1,7 +1,7 @@
 ---
 title: "Déployer des conteneurs Windows sur Windows Server"
 description: "Déployer des conteneurs Windows sur Windows Server"
-keywords: docker, containers
+keywords: docker, conteneurs
 author: neilpeterson
 manager: timlt
 ms.date: 05/26/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
 translationtype: Human Translation
-ms.sourcegitcommit: eae45c2c81c7edc94d963da69dcdee2b6f08f37d
-ms.openlocfilehash: cbbff2bf4a68ee348bcc33979ef4469daf54a8a7
+ms.sourcegitcommit: 6c7ce9f1767c6c6391cc6d33a553216bd815ff72
+ms.openlocfilehash: ce387b29f1bd311c70c17f3e7a98ae4f625bd3c2
 
 ---
 
@@ -45,24 +45,18 @@ Restart-Computer -Force
 
 ## Installer Docker
 
-Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. Pour cet exercice, les deux sont installés.
+Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. Pour cet exercice, les deux seront installés.
 
-Créez un dossier pour les exécutables Docker.
+Téléchargez le moteur Docker et le client au format d’archive zip.
 
 ```none
-New-Item -Type Directory -Path 'C:\Program Files\docker\'
+Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile "$env:TEMP\docker-1.12.0.zip" -UseBasicParsing
 ```
 
-Téléchargez le démon Docker.
+Développez l’archive zip dans Program Files, le contenu de l’archive est déjà dans le répertoire de docker.
 
 ```none
-Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker\dockerd.exe
-```
-
-Téléchargez le client Docker.
-
-```none
-Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:ProgramFiles\docker\docker.exe
+Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:ProgramFiles
 ```
 
 Ajoutez le répertoire Docker au chemin du système.
@@ -76,7 +70,7 @@ Redémarrez la session PowerShell pour que le chemin modifié soit reconnu.
 Pour installer Docker comme service Windows, exécutez la commande suivante.
 
 ```none
-dockerd --register-service
+& $env:ProgramFiles\docker\dockerd.exe --register-service
 ```
 
 Une fois installé, le service peut être démarré.
@@ -145,6 +139,6 @@ Install-WindowsFeature hyper-v
 
 
 
-<!--HONumber=Jun16_HO5-->
+<!--HONumber=Aug16_HO1-->
 
 
