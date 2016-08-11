@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: 6c7ce9f1767c6c6391cc6d33a553216bd815ff72
-ms.openlocfilehash: bd93f5a73268b552710304d7da568e1497239679
+ms.sourcegitcommit: 9aa443b24e5c8a004b08203f67e578dd2d104746
+ms.openlocfilehash: 0ee1231b923e25975a4dfddb70c16366a86c9565
 
 ---
 
@@ -54,6 +54,8 @@ Une fois la sauvegarde effectuée, exécutez la commande suivante pour résoudre
 Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 1 -Force
 ```
 
+> Dans les versions actuelles, vous devez désactiver OpLocks pour utiliser des conteneurs Hyper-V de façon fiable. Pour réactiver OpLocks, utilisez la commande suivante :  `Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 0 -Force`
+
 ## 2. Installer Docker
 
 Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. Pour cet exercice, les deux seront installés. Pour ce faire, exécutez la commande suivante. 
@@ -93,34 +95,20 @@ Start-Service Docker
 ## 3. Installer les images de conteneur de base
 
 Les conteneurs Windows sont déployés à partir de modèles ou d’images. Avant de pouvoir déployer un conteneur, une image de système d’exploitation de base de conteneur doit être téléchargée. Les commandes suivantes téléchargent l’image de base Nano Server.
-    
-> Cette procédure, qui s’applique aux builds Windows Insider ultérieures à 14372, est temporaire tant que la commande « pull docker » n’est pas fonctionnelle.
 
-Téléchargez l’image de base Nano Server. 
+Extrayez l’image de base Nano Server. 
 
 ```none
-Start-BitsTransfer https://aka.ms/tp5/6b/docker/nanoserver -Destination nanoserver.tar.gz
+docker pull microsoft/nanoserver
 ```
 
-Installez l’image de base.
-
-```none  
-docker load -i nanoserver.tar.gz
-```
-
-À ce stade, l’exécution de la commande `docker images` retourne une liste d’images installées ; dans le cas présent, l’image Nano Server.
+Une fois l’image extraite, l’exécution de la commande `docker images` retourne une liste d’images installées ; dans le cas présent, l’image Nano Server.
 
 ```none
 docker images
 
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-nanoserver          10.0.14300.1030     3f5112ddd185        3 weeks ago         810.2 MB
-```
-
-Avant de poursuivre, cette image doit être marquée de la balise « latest ». Pour ce faire, exécutez la commande suivante.
-
-```none
-docker tag microsoft/nanoserver:10.0.14300.1030 nanoserver:latest
+REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
+microsoft/nanoserver   latest              3a703c6e97a2        7 weeks ago         969.8 MB
 ```
 
 Pour obtenir des informations détaillées sur les images de conteneur Windows, voir la rubrique relative à la [gestion des images de conteneur](../management/manage_images.md).
