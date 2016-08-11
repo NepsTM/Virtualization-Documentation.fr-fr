@@ -260,9 +260,6 @@
   "e680dac160c5da92a2329babefb397faa8654c91": [
     "virtualization\\windowscontainers\\management\\container_networking.md"
   ],
-  "406966a2bc80cdfc6fbe7461bf478fab317ed7e5": [
-    "virtualization\\windowscontainers\\management\\container_networking.md"
-  ],
   "4d662bf6e123797b4670dfdf6a6aee32e4e95e54": [
     "virtualization\\windowscontainers\\management\\media\\nat1.png"
   ],
@@ -338,16 +335,7 @@
   "0ee1231b923e25975a4dfddb70c16366a86c9565": [
     "virtualization\\windowscontainers\\quick_start\\quick_start_windows_10.md"
   ],
-  "14047db25cada5fcb0c2feb76a966353582e5187": [
-    "virtualization\\windowscontainers\\quick_start\\quick_start_windows_10.md"
-  ],
-  "bd93f5a73268b552710304d7da568e1497239679": [
-    "virtualization\\windowscontainers\\quick_start\\quick_start_windows_10.md"
-  ],
   "808436ba179daa09fbc45ee7f7708a505bd1b4c8": [
-    "virtualization\\windowscontainers\\quick_start\\quick_start_windows_server.md"
-  ],
-  "4e7123dcff2564bd264c91f228941e86a0723674": [
     "virtualization\\windowscontainers\\quick_start\\quick_start_windows_server.md"
   ],
   "5b86442643fb5937b62a67d144ae0d1c98373b41": [
