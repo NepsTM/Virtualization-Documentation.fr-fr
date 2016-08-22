@@ -1,7 +1,7 @@
 ---
 title: "Déployer des conteneurs Windows sur Nano Server"
 description: "Déployer des conteneurs Windows sur Nano Server"
-keywords: docker, containers
+keywords: docker, conteneurs
 author: neilpeterson
 manager: timlt
 ms.date: 07/06/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
 translationtype: Human Translation
-ms.sourcegitcommit: e035a45e22eee04263861d935b338089d8009e92
-ms.openlocfilehash: 876ffb4f4da32495fb77b735391203c33c78cff3
+ms.sourcegitcommit: fac57150de3ffd6c7d957dd628b937d5c41c1b35
+ms.openlocfilehash: d2f19e96f06ba18ab7e23e62652f569265c6f43f
 
 ---
 
@@ -74,7 +74,7 @@ Une fois la sauvegarde effectuée, rétablissez la connexion PowerShell distante
 
 ## Installer Docker
 
-Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. Installez le client et le démon Docker en suivant ces étapes.
+Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. Installez le moteur et le client Docker en suivant ces étapes.
 
 Créez un dossier sur l’hôte Nano Server pour les exécutables Docker.
 
@@ -82,7 +82,7 @@ Créez un dossier sur l’hôte Nano Server pour les exécutables Docker.
 New-Item -Type Directory -Path $env:ProgramFiles'\docker\'
 ```
 
-Téléchargez le client et le démon Docker, puis copiez-les dans 'C:\Program Files\docker\' sur l’hôte de conteneur. 
+Téléchargez le client et le moteur Docker, puis copiez-les dans 'C:\Program Files\docker\' sur l’hôte de conteneur. 
 
 **Remarque :** Nano Server ne prenant pas en charge `Invoke-WebRequest`, les téléchargements doivent être effectués à partir d’un système distant, puis copiés sur l’hôte Nano Server.
 
@@ -96,7 +96,7 @@ Téléchargez le client Docker.
 Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile .\docker.exe
 ```
 
-Une fois que le client et le démon Docker ont été téléchargés, copiez-les dans le dossier C:\Program Files\docker\' dans l’hôte de conteneur Nano Server. Vous devez configurer le pare-feu Nano Server pour autoriser les connexions SMB entrantes. Pour cela, utilisez PowerShell ou la console de récupération Nano Server. 
+Une fois que le client et le moteur Docker ont été téléchargés, copiez-les dans le dossier C:\Program Files\docker\' dans l’hôte de conteneur Nano Server. Vous devez configurer le pare-feu Nano Server pour autoriser les connexions SMB entrantes. Pour cela, utilisez PowerShell ou la console de récupération Nano Server. 
 
 ```none
 Set-NetFirewallRule -Name FPS-SMB-In-TCP -Enabled True
@@ -158,7 +158,7 @@ Créez une règle de pare-feu sur l’hôte de conteneur pour la connexion Docke
 netsh advfirewall firewall add rule name="Docker daemon " dir=in action=allow protocol=TCP localport=2376
 ```
 
-Configurez le démon Docker pour accepter une connexion entrante via TCP.
+Configurez le moteur Docker pour accepter une connexion entrante via TCP.
 
 Tout d’abord, créez un fichier `daemon.json` dans `c:\ProgramData\docker\config\daemon.json` sur l’hôte Nano Server.
 
@@ -166,7 +166,7 @@ Tout d’abord, créez un fichier `daemon.json` dans `c:\ProgramData\docker\conf
 new-item -Type File c:\ProgramData\docker\config\daemon.json
 ```
 
-Exécutez ensuite la commande suivante pour ajouter la configuration de connexion au fichier `daemon.json`. Vous configurez ainsi le démon Docker pour accepter les connexions entrantes sur le port TCP 2375. Cette connexion n’est pas sécurisée et est déconseillée, mais peut être utilisée pour un test isolé. Pour plus d’informations sur la sécurisation de cette connexion, voir [Protéger le démon Docker sur Docker.com](https://docs.docker.com/engine/security/https/).
+Exécutez ensuite la commande suivante pour ajouter la configuration de connexion au fichier `daemon.json`. Vous configurez ainsi le moteur Docker pour accepter les connexions entrantes sur le port TCP 2375. Cette connexion n’est pas sécurisée et est déconseillée, mais peut être utilisée pour un test isolé. Pour plus d’informations sur la sécurisation de cette connexion, voir [Protéger le démon Docker sur Docker.com](https://docs.docker.com/engine/security/https/).
 
 ```none
 Add-Content 'c:\programdata\docker\config\daemon.json' '{ "hosts": ["tcp://0.0.0.0:2375", "npipe://"] }'
@@ -238,6 +238,6 @@ Restart-Computer
 ```
 
 
-<!--HONumber=Jul16_HO1-->
+<!--HONumber=Aug16_HO3-->
 
 

@@ -4,14 +4,14 @@ description: Configuration requise pour un conteneur Windows.
 keywords: "métadonnées, conteneurs"
 author: neilpeterson
 manager: timlt
-ms.date: 05/26/2016
+ms.date: 08/17/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
 translationtype: Human Translation
-ms.sourcegitcommit: 6f1d9c09774adde047508835caf9dcf54deab9d2
-ms.openlocfilehash: 9d015a570a0b1a9d7304e601daa7ace73df4e827
+ms.sourcegitcommit: fac57150de3ffd6c7d957dd628b937d5c41c1b35
+ms.openlocfilehash: f76dc45e6035c72fd7b07f25d4b4c55f2a95aafb
 
 ---
 
@@ -23,7 +23,7 @@ Ces guides fournissent la configuration requise pour un hôte de conteneur Windo
 
 ## Configuration requise du système d’exploitation
 
-- La fonctionnalité de conteneur Windows est disponible uniquement sur Windows Server 2016 (Core et avec expérience utilisateur), Nano Server ainsi que Windows 10 Professionnel et Entreprise (build Insiders 14352 et versions ultérieures).
+- La fonctionnalité de conteneur Windows est disponible uniquement sur Windows Server 2016 (Core et avec expérience utilisateur), Nano Server ainsi que Windows 10 Professionnel et Entreprise (Édition anniversaire).
 - Si les conteneurs Hyper-V sont exécutés, le rôle Hyper-V doit être installé.
 - Windows doit être installé sur C:\\ sur les hôtes de conteneur Windows Server. Si seuls les conteneurs Hyper-V sont déployés, cette restriction ne s’applique pas.
 
@@ -65,7 +65,7 @@ Windows Server Technical Preview 5 est fourni avec deux images de système d’
 <td><center>Image Nano Server</center></td>
 </tr>
 <tr valign="top">
-<td><center>Versions de Windows 10 Insider</center></td>
+<td><center>Windows 10 Édition anniversaire</center></td>
 <td><center>Non disponible</center></td>
 <td><center>Image Nano Server</center></td>
 </tr>
@@ -74,6 +74,6 @@ Windows Server Technical Preview 5 est fourni avec deux images de système d’
 
 
 
-<!--HONumber=Jul16_HO3-->
+<!--HONumber=Aug16_HO3-->
 
 

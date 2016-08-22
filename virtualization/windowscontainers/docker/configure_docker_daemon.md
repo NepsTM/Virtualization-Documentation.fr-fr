@@ -1,23 +1,23 @@
 ---
 title: Configurer Docker dans Windows
 description: Configurer Docker dans Windows
-keywords: docker, containers
+keywords: docker, conteneurs
 author: neilpeterson
 manager: timlt
-ms.date: 07/15/2016
+ms.date: 08/17/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: 475240afdf97af117519cfaa287f1e4fec8837a5
-ms.openlocfilehash: 5b86442643fb5937b62a67d144ae0d1c98373b41
+ms.sourcegitcommit: fac57150de3ffd6c7d957dd628b937d5c41c1b35
+ms.openlocfilehash: 7ba03dbcedbe42d54c955ff321e9f3f180a5a674
 
 ---
 
-# Démon Docker sur Windows
+# Moteur Docker sur Windows
 
-Le moteur Docker n’est pas inclus avec Windows et doit être installé et configuré individuellement. De plus, le démon Docker peut accepter de nombreuses configurations personnalisées. Certains exemples incluent la configuration de la façon dont le démon accepte les requêtes entrantes, les options de mise en réseau par défaut et les paramètres de débogage/du journal. Sur Windows, ces configurations peuvent être spécifiées dans un fichier de configuration ou à l’aide du Gestionnaire de contrôle des services Windows. Ce document décrit en détail comment installer et configurer le démon Docker et fournit également quelques exemples de configurations fréquemment utilisées.
+Le moteur et le client Docker ne sont pas inclus avec Windows et doivent être installés et configurés individuellement. De plus, le moteur Docker accepte de nombreuses configurations personnalisées. Certains exemples incluent la configuration de la façon dont le démon accepte les requêtes entrantes, les options de mise en réseau par défaut et les paramètres de débogage/du journal. Sur Windows, ces configurations peuvent être spécifiées dans un fichier de configuration ou à l’aide du Gestionnaire de contrôle des services Windows. Ce document décrit en détail comment installer et configurer le moteur Docker, et fournit également quelques exemples de configurations fréquemment utilisées.
 
 ## Installer Docker
 
@@ -29,7 +29,7 @@ Créez un dossier pour les exécutables Docker.
 New-Item -Type Directory -Path 'C:\Program Files\docker\'
 ```
 
-Téléchargez le démon Docker.
+Téléchargez le moteur Docker.
 
 ```none
 Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker\dockerd.exe
@@ -63,9 +63,9 @@ Pour que Docker puissent être utilisé, des images de conteneur doivent au pré
 
 ## Fichier de configuration de Docker
 
-La méthode privilégiée pour configurer le démon Docker sur Windows consiste à utiliser un fichier de configuration. Ce fichier de configuration se trouve dans C:\ProgramData\docker\config\daemon.json. Si ce fichier n’existe pas encore, il peut être créé.
+La méthode privilégiée pour configurer le moteur Docker sur Windows consiste à utiliser un fichier de configuration. Ce fichier de configuration se trouve dans C:\ProgramData\docker\config\daemon.json. Si ce fichier n’existe pas encore, il peut être créé.
 
-Remarque : Toutes les options de configuration de Docker disponibles ne s’appliquent pas à Docker sur Windows. L’exemple ci-dessous montre celles qui le sont. Pour obtenir une documentation complète sur la configuration du démon Docker, notamment pour Linux, voir la rubrique relative au [Démon Docker]( https://docs.docker.com/v1.10/engine/reference/commandline/daemon/).
+Remarque : Toutes les options de configuration de Docker disponibles ne s’appliquent pas à Docker sur Windows. L’exemple ci-dessous montre celles qui le sont. Pour obtenir une documentation complète sur la configuration du moteur Docker, notamment pour Linux, voir la rubrique relative au [Démon Docker]( https://docs.docker.com/v1.10/engine/reference/commandline/daemon/).
 
 ```none
 {
@@ -101,7 +101,7 @@ Remarque : Toutes les options de configuration de Docker disponibles ne s’app
 }
 ```
 
-Seules les modifications de configuration souhaitées doivent être ajoutées au fichier de configuration. Ainsi, le présent exemple configure le démon Docker pour accepter les connexions entrantes sur le port 2375. Toutes les autres options de configuration utiliseront les valeurs par défaut.
+Seules les modifications de configuration souhaitées doivent être ajoutées au fichier de configuration. Ainsi, le présent exemple configure le moteur Docker pour accepter les connexions entrantes sur le port 2375. Toutes les autres options de configuration utiliseront les valeurs par défaut.
 
 ```none
 {
@@ -123,7 +123,7 @@ De même, cet exemple configure le démon Docker pour accepter uniquement les co
 
 ## Gestionnaire de contrôle des services
 
-Le démon Docker peut également être configuré en modifiant le service de Docker avec `sc config`. À l’aide de cette méthode, les indicateurs du démon Docker sont définis directement sur le service de Docker.
+Le moteur Docker peut également être configuré en modifiant le service de Docker avec `sc config`. Avec cette méthode, les indicateurs du moteur Docker sont définis directement sur le service de Docker.
 
 
 ```none
@@ -136,7 +136,7 @@ Les exemples de fichiers de configuration suivants présentent des configuration
 
 ### Création de réseau par défaut 
 
-Pour configurer le démon Docker de sorte qu’un réseau NAT par défaut ne soit pas créé, utilisez le code suivant. Pour plus d’informations, voir la rubrique indiquant comment [gérer les réseaux Docker](../management/container_networking.md).
+Pour configurer le moteur Docker de sorte qu’un réseau NAT par défaut ne soit pas créé, utilisez le code suivant. Pour plus d’informations, voir la rubrique indiquant comment [gérer les réseaux Docker](../management/container_networking.md).
 
 ```none
 {
@@ -146,7 +146,7 @@ Pour configurer le démon Docker de sorte qu’un réseau NAT par défaut ne soi
 
 ### Définir un groupe de sécurité Docker
 
-Quand vous êtes connecté à l’hôte Docker et que vous exécutez des commandes Docker localement, ces commandes sont exécutées via un canal nommé. Par défaut, seuls les membres du groupe Administrateurs peuvent accéder au démon Docker via le canal nommé. Pour spécifier un groupe de sécurité bénéficiant de cet accès, utilisez l’indicateur `group`.
+Quand vous êtes connecté à l’hôte Docker et que vous exécutez des commandes Docker localement, ces commandes sont exécutées via un canal nommé. Par défaut, seuls les membres du groupe Administrateurs peuvent accéder au moteur Docker via le canal nommé. Pour spécifier un groupe de sécurité bénéficiant de cet accès, utilisez l’indicateur `group`.
 
 ```none
 {
@@ -171,19 +171,19 @@ restart-service docker
 Pour plus d’informations, voir [Options de socket du démon sur Docker.com](https://docs.docker.com/v1.10/engine/reference/commandline/daemon/#daemon-socket-option).
 
 ## Collecte de journaux
-Les journaux du démon Docker sont consignés dans le journal des événements des applications Windows, plutôt que dans un fichier. Ces journaux peuvent facilement être lus, triés et filtrés à l’aide de Windows PowerShell
+Les enregistrements du moteur Docker sont consignés dans le journal des événements des applications Windows, plutôt que dans un fichier. Ces enregistrements peuvent facilement être lus, triés et filtrés à l’aide de Windows PowerShell
 
-Par exemple, cette commande affiche les journaux du démon Docker des 5 dernières minutes en commençant par le plus ancien.
+Par exemple, cette commande affiche les enregistrements du moteur Docker des 5 dernières minutes en commençant par le plus ancien.
 ```
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-5) | Sort-Object Time 
 ```
 
-Ces journaux peuvent aussi être facilement redirigés dans un fichier CSV pour être lus par un autre outil ou une feuille de calcul.
+Ces enregistrements peuvent aussi être facilement redirigés dans un fichier CSV pour être lus par un autre outil ou une feuille de calcul.
 ```
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-30)  | Sort-Object Time | Export-CSV ~/last30minutes.csv ```
 
 
 
-<!--HONumber=Jul16_HO3-->
+<!--HONumber=Aug16_HO3-->
 
 
