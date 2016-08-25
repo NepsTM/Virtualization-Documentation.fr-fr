@@ -4,14 +4,14 @@ description: "Configurez la mise en réseau pour les conteneurs Windows."
 keywords: docker, conteneurs
 author: jmesser81
 manager: timlt
-ms.date: 05/02/2016
+ms.date: 08/22/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
 translationtype: Human Translation
-ms.sourcegitcommit: c412171773e9c66569eab2252b5adfc187eedafd
-ms.openlocfilehash: eb7d2c25d929cb51abfad17c26a89105f6574a48
+ms.sourcegitcommit: 7b5cf299109a967b7e6aac839476d95c625479cd
+ms.openlocfilehash: 2e26177f3e653e9102dc91070b987e28ef713bed
 
 ---
 
@@ -37,7 +37,7 @@ Il est possible de créer des réseaux supplémentaires sur le même hôte de co
 
 - **L2 Tunnel** - _ : Ce mode doit uniquement être utilisé dans une pile Microsoft Cloud Stack_.
 
-> Pour savoir comment connecter des points de terminaison de conteneur à un réseau virtuel de superposition avec la pile Microsoft SDN, consultez la rubrique relative à l’[attachement de conteneurs à un réseau virtuel](location).
+> Pour savoir comment connecter des points de terminaison de conteneur à un réseau virtuel de superposition avec la pile Microsoft SDN, consultez la rubrique relative à l’[attachement de conteneurs à un réseau virtuel](https://technet.microsoft.com/en-us/windows-server-docs/networking/sdn/manage/connect-container-endpoints-to-a-tenant-virtual-network).
 
 ## Nœud unique
 
@@ -182,7 +182,7 @@ C:\> docker network create -d l2bridge --subnet=192.168.1.0/24 --gateway=192.168
 
 Seule l’attribution IP statique est prise en charge pour les réseaux l2bridge. 
 
-> Si vous utilisez un réseau l2bridge sur une structure SDN, seule l’attribution IP dynamique est prise en charge. Pour plus d’informations, consultez la rubrique relative à l’[attachement de conteneurs à un réseau virtuel](location).
+> Si vous utilisez un réseau l2bridge sur une structure SDN, seule l’attribution IP dynamique est prise en charge. Pour plus d’informations, consultez la rubrique relative à l’[attachement de conteneurs à un réseau virtuel](https://technet.microsoft.com/en-us/windows-server-docs/networking/sdn/manage/connect-container-endpoints-to-a-tenant-virtual-network).
 
 ## Autres opérations et configurations
 
@@ -291,6 +291,6 @@ Start-Service docker
 
 
 
-<!--HONumber=Aug16_HO3-->
+<!--HONumber=Aug16_HO4-->
 
 

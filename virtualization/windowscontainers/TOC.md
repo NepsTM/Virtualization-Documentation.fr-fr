@@ -12,6 +12,7 @@
 ## [Configuration requise](deployment/system_requirements.md)
 ## [Hôte de conteneur - Windows Server](deployment/deployment.md)
 ## [Hôte de conteneur - Nano Server](deployment/deployment_nano.md)
+## [Optimisation de la protection antivirus](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 
 # Docker sur Windows
 ## [Moteur Docker sur Windows](docker/configure_docker_daemon.md)
@@ -30,17 +31,13 @@
 ## [Fichiers Dockerfile – Nano Server](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/nanoserver)
 
 # Communauté et Support
-## [Forums sur les conteneurs](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
+## [Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
 
-# Référence
-## [Fournisseur d’images de conteneur](https://github.com/PowerShell/ContainerProvider)
-## [Compatibilité des applications](reference/app_compat.md)
-## [Optimisation de la protection antivirus](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 # [CLUF Windows Server](EULA.md)
 # [CLUF Nano Server](Nano_EULA.md)
 
 
 
-<!--HONumber=Aug16_HO3-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -1,17 +1,18 @@
 ---
 title: "Compatibilité des applications dans les conteneurs Windows"
 description: "Compatibilité des applications dans les conteneurs Windows."
-keywords: docker, containers
+keywords: docker, conteneurs
 author: scooley
 manager: timlt
-ms.date: 05/02/2016
+ms.date: 08/19/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 3e524458-bd03-400e-913f-210335add8dc
+redirect_url: ../containers_welcome
 translationtype: Human Translation
-ms.sourcegitcommit: cfa3c14e932f8b86edf6667200ac028ea0a16b67
-ms.openlocfilehash: 2830dc81317311dd54dfcca45251b668f3d2cc29
+ms.sourcegitcommit: 3a65fd7630ca1399d7bfd9e0a8b10f0cbd4febcc
+ms.openlocfilehash: 48d455079f0668d95ac31d36c644dabb8d716eda
 
 ---
 
@@ -29,17 +30,17 @@ Un élément ne figure pas dans cette liste ?  Faites-nous part de ce qui a fon
 
 Nous avons tenté d’exécuter les applications suivantes dans un conteneur Windows Server.  Ces résultats ne garantissent pas le bon fonctionnement de l’application.
 
-| **Nom** | **Version** | **Image de base Windows Server Core** | **Image de base Nano Server** | **Commentaire** |
+| **Nom** | **Version** | **Image de base Windows Server Core** | **Image de base Nano Server** | **Comment** |
 |:-----|:-----|:-----|:-----|:-----|
-| .NET | 3.5 | Oui | Unknown |  | 
-| .NET | 4.6 | Oui | Unknown |  | 
+| .NET | 3.5 | Oui | Inconnu |  | 
+| .NET | 4.6 | Oui | Inconnu |  | 
 | CLR .NET | 5 bêta 6 | Oui | Oui| Les deux, x64 et x86 | 
 | ActivePython | 3.4.1 | Oui | Oui | |
 | Apache Cassandra || Oui | Inconnu | 
 | Apache CouchDB | 1.6.1 | Non | Non | |
 | Apache Hadoop | | Oui | Non | |
 | Apache HTTPD | 2.4 | Oui | Oui | Le runtime VC++ n’est pas installé si le filtre de déduplication est chargé. Déchargez la déduplication avec `fltmc unload dedup` |
-| Apache Tomcat | 8.0.24 x64 | Oui | Unknown | |
+| Apache Tomcat | 8.0.24 x64 | Oui | Inconnu | |
 | ASP.NET | 4.6 | Oui | Inconnu | |
 | ASP.NET | 5 bêta 6 | Oui | Oui | Les deux, x64 et x86 |
 | Django | |Oui|Oui| |
@@ -67,7 +68,7 @@ Nous avons tenté d’exécuter les applications suivantes dans un conteneur Win
 
 Nous avons tenté d’exécuter les applications suivantes dans un conteneur Hyper-V.  Ces résultats ne garantissent pas un fonctionnement correct de l’application.
 
-| **Nom** | **Version** | **Image de base Nano Server** | **Commentaire** |
+| **Nom** | **Version** | **Image de base Nano Server** | **Comment** |
 |:-----|:-----|:-----|:-----|
 | Apache Hadoop | | Non | |
 | Apache HTTPD | 2.4 | Oui | Le runtime VC++ n’est pas installé si le filtre de déduplication est chargé. Déchargez la déduplication avec `fltmc unload dedup` |
@@ -90,6 +91,6 @@ Un élément ne figure pas dans cette liste ?  Faites-nous part de ce qui a fon
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Aug16_HO3-->
 
 
