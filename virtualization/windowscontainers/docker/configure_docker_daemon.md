@@ -4,14 +4,14 @@ description: Configurer Docker dans Windows
 keywords: docker, conteneurs
 author: neilpeterson
 manager: timlt
-ms.date: 08/17/2016
+ms.date: 08/23/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: fac57150de3ffd6c7d957dd628b937d5c41c1b35
-ms.openlocfilehash: 7ba03dbcedbe42d54c955ff321e9f3f180a5a674
+ms.sourcegitcommit: 4dded90462c5438a6836ec32a165a9cc1019d6ec
+ms.openlocfilehash: 6ae49d82a89b2f30198de05aa4915726853172f5
 
 ---
 
@@ -23,25 +23,19 @@ Le moteur et le client Docker ne sont pas inclus avec Windows et doivent être i
 
 Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. Pour cet exercice, les deux sont installés.
 
-Créez un dossier pour les exécutables Docker.
-
-```none
-New-Item -Type Directory -Path 'C:\Program Files\docker\'
-```
-
 Téléchargez le moteur Docker.
 
 ```none
-Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker\dockerd.exe
+Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile "$env:TEMP\docker-1.12.0.zip" -UseBasicParsing
 ```
 
-Téléchargez le client Docker.
+Développez l’archive zip dans Program Files.
 
-```none
-Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:ProgramFiles\docker\docker.exe
+```
+Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:ProgramFiles
 ```
 
-Ajoutez le répertoire Docker au chemin d’accès système. Quand vous avez terminé, redémarrez la session PowerShell pour que le chemin d’accès modifié soit reconnu.
+Ajoutez le répertoire Docker au chemin du système. Quand vous avez terminé, redémarrez la session PowerShell pour que le chemin d’accès modifié soit reconnu.
 
 ```none
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
@@ -184,6 +178,6 @@ Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-3
 
 
 
-<!--HONumber=Aug16_HO3-->
+<!--HONumber=Aug16_HO4-->
 
 
