@@ -1,7 +1,7 @@
 ---
 title: Optimiser les fichiers Dockerfile Windows
 description: Optimisez des fichiers Dockerfile pour les conteneurs Windows.
-keywords: docker, containers
+keywords: docker, conteneurs
 author: neilpeterson
 manager: timlt
 ms.date: 05/26/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb2848ca-683e-4361-a750-0d1d14ec8031
 translationtype: Human Translation
-ms.sourcegitcommit: cc216f56acd5e547d05a48beea57450ba5fcb28b
-ms.openlocfilehash: 4822ff2f0248b2d7752299ea55b08e3499e2e2f7
+ms.sourcegitcommit: 7ebd83d5d3a098fc8760f5dfba7e350c3f167232
+ms.openlocfilehash: 19a363aa013b51e0c80d56572de77e94f27e546f
 
 ---
 # Optimiser les fichiers Dockerfile Windows
@@ -65,7 +65,7 @@ Pour plus d’informations sur les bonnes pratiques Dockerfile, voir [Best pract
 
 Les deux exemples suivants montrent la même opération, qui génère des images de conteneur de fonctionnalité identique. Toutefois, les deux fichiers Dockerfile sont construits différemment. Les images obtenues sont également comparées.  
 
-Ce premier exemple télécharge, extrait et nettoie le package redistribuable Visual Studio. Chacune de ces actions est exécutée dans sa propre instruction `RUN`.
+Ce premier exemple télécharge et installe Python pour Windows, puis nettoie en supprimant le fichier d’installation téléchargé. Chacune de ces actions est exécutée dans sa propre instruction `RUN`.
 
 ```none
 FROM windowsservercore
@@ -305,6 +305,6 @@ RUN powershell -Command \
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Aug16_HO5-->
 
 

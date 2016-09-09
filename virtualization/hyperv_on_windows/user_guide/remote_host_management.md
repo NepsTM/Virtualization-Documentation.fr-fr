@@ -1,7 +1,7 @@
 ---
 title: "Gérer des hôtes Hyper-V distants avec le Gestionnaire Hyper-V"
 description: "Gérer des hôtes Hyper-V distants avec le Gestionnaire Hyper-V"
-keywords: windows 10, hyper-v
+keywords: "Windows 10, Hyper-V"
 author: scooley
 manager: timlt
 ms.date: 05/02/2016
@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 translationtype: Human Translation
-ms.sourcegitcommit: eb6c8e904b9cd2c5d1ed25583ffbcdbdf0b9139c
-ms.openlocfilehash: fee2b24469b45efae982f4dfca4afb9f737b5bdf
+ms.sourcegitcommit: 07a07c790484c05ea49229a770ef75c80fad3cfa
+ms.openlocfilehash: 8a84da80199479907c3bf4cf0c7b1cfb1b44bf9d
 
 ---
 
@@ -117,12 +117,12 @@ Sur le PC de gestion, exécutez la commande suivante en tant qu’administrateur
 2. [Enable-WSManCredSSP](https://technet.microsoft.com/en-us/library/hh849872.aspx) -Role client -DelegateComputer "fqdn-of-hyper-v-host"
   * Vous pouvez aussi permettre à tous les hôtes d’être approuvés pour la gestion avec la commande suivante :
   * [Enable-WSManCredSSP](https://technet.microsoft.com/en-us/library/hh849872.aspx) -Role client -DelegateComputer *
-3. En outre, vous devrez peut-être configurer la stratégie de groupe suivante : ** Configuration de l’ordinateur | Modèles d’administration | Système | Délégation d’informations d’identification | Autoriser les nouvelles informations d’identification avec l’authentification du serveur NTLM uniquement **
+3. En outre, vous devrez peut-être configurer la stratégie de groupe suivante : ** Configuration de l’ordinateur | Modèles d’administration | Système | Délégation d’informations d’identification | Autoriser la délégation des nouvelles informations d’identification avec l’authentification du serveur NTLM uniquement **
     * Cliquez sur **Activer** et ajoutez *wsman/fqdn-of-hyper-v-host*
     * Vous pouvez aussi permettre à tous les hôtes d’être approuvés pour la gestion en ajoutant _wsman/*_
 
 
 
-<!--HONumber=Jun16_HO5-->
+<!--HONumber=Aug16_HO5-->
 
 
