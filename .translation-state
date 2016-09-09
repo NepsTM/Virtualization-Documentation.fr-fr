@@ -23993,9 +23993,9 @@
       "ArchiveFileCommit": "5c26d167e328c6a60eca8f8c0e9e8e32fa67d62e",
       "ArchiveFileDateTime": "2016-09-01T07:07:16.0233418Z",
       "ArchiveException": null,
-      "BilingualFilePath": null,
-      "BilingualFileCommit": null,
-      "BilingualDateTime": "0001-01-01T00:00:00",
+      "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.fr-fr.xlf",
+      "BilingualFileCommit": "22812c811c24421c817ce400600f3722afdcd6a7",
+      "BilingualDateTime": "2016-09-09T22:27:21.7389264Z",
       "BilingualException": null
     },
     "19a363aa013b51e0c80d56572de77e94f27e546f": {
@@ -24028,9 +24028,9 @@
       "ArchiveFileCommit": "5c26d167e328c6a60eca8f8c0e9e8e32fa67d62e",
       "ArchiveFileDateTime": "2016-09-01T07:07:16.0233418Z",
       "ArchiveException": null,
-      "BilingualFilePath": null,
-      "BilingualFileCommit": null,
-      "BilingualDateTime": "0001-01-01T00:00:00",
+      "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.fr-fr.xlf",
+      "BilingualFileCommit": "22812c811c24421c817ce400600f3722afdcd6a7",
+      "BilingualDateTime": "2016-09-09T22:27:21.7389264Z",
       "BilingualException": null
     },
     "bb99d0c15d6d1dd9e126fde05207431153b4f94a": {
