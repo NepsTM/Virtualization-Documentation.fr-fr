@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
 translationtype: Human Translation
-ms.sourcegitcommit: deaed93924d4c8bff55e1f95342381bf4621076e
-ms.openlocfilehash: 4e71c39c98a61365b3b4f9c0ac55ace9c47cf10c
+ms.sourcegitcommit: 939a1b69f159504b998792adb95ccabc326db333
+ms.openlocfilehash: 538fb27d6170f0a8dab5c189b90040e40c546e14
 
 ---
 
@@ -195,7 +195,7 @@ $env:path += ";c:\program files\docker"
 Quand vous avez terminé, l’hôte Docker distant est accessible avec le paramètre `docker -H`.
 
 ```none
-docker -H tcp://<IPADDRESS>:2375 run -it nanoserver cmd
+docker -H tcp://<IPADDRESS>:2375 run -it microsoft/nanoserver cmd
 ```
 
 Une variable d’environnement `DOCKER_HOST` peut être créée pour supprimer la nécessité du paramètre `-H`. Vous pouvez pour cela exécuter la commande PowerShell suivante.
@@ -207,7 +207,7 @@ $env:DOCKER_HOST = "tcp://<ipaddress of server>:2375"
 Quand cette variable est définie, la commande ressemble maintenant à ceci.
 
 ```none
-docker run -it nanoserver cmd
+docker run -it microsoft/nanoserver cmd
 ```
 
 ## Hôte de conteneurs Hyper-V
@@ -230,6 +230,7 @@ Restart-Computer
 ```
 
 
-<!--HONumber=Aug16_HO4-->
+
+<!--HONumber=Sep16_HO2-->
 
 
