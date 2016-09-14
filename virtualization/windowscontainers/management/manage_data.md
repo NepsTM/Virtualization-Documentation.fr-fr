@@ -1,7 +1,7 @@
 ---
 title: "Volumes de données de conteneur"
 description: "Créez et gérez des volumes de données avec des conteneurs Windows."
-keywords: docker, containers
+keywords: docker, conteneurs
 author: neilpeterson
 manager: timlt
 ms.date: 05/02/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: f5998534-917b-453c-b873-2953e58535b1
 translationtype: Human Translation
-ms.sourcegitcommit: 493b669bc47fc589486a82cfea73a0bb1e88cf79
-ms.openlocfilehash: 26c010e79a4913b2e138f6d1d78f9406dbacbc6b
+ms.sourcegitcommit: 08f893b646046d18def65602eb926bc0ea211804
+ms.openlocfilehash: a175091c943cf596b2a810245b1b73b8baddb0c6
 
 ---
 
@@ -49,29 +49,17 @@ Pour plus d’informations sur le montage de répertoires hôtes, voir [Gérer l
 
 ### Monter des fichiers individuels
 
-Un seul fichier peut être monté dans un conteneur en spécifiant explicitement le nom de fichier. Dans cet exemple, le répertoire partagé comporte de nombreux fichiers, mais seul le fichier « config.ini » est disponible à l’intérieur du conteneur. 
+Un fichier individuel ne peut pas être monté dans un conteneur de Windows. L’exécution de la commande suivante n’échoue pas, mais le conteneur résultant ne contient pas le fichier. 
 
 ```none
-docker run -it -v c:\container-share\config.ini windowsservercore cmd
+docker run -it -v c:\config\config.ini microsoft/windowsservercore cmd
 ```
 
-Dans le conteneur en cours d’exécution, seul le fichier config.ini est visible.
+Une solution de contournement est que tout fichier à monter dans un conteneur doit l’être à partir d’un répertoire.
 
 ```none
-c:\container-share>dir
- Volume in drive C has no label.
- Volume Serial Number is 7CD5-AC14
-
- Directory of c:\container-share
-
-04/04/2016  12:53 PM    <DIR>          .
-04/04/2016  12:53 PM    <DIR>          ..
-04/04/2016  12:53 PM    <SYMLINKD>     config.ini
-               0 File(s)              0 bytes
-               3 Dir(s)  21,184,208,896 bytes free
+docker run -it -v c:\config:c:\config microsoft/windowsservercore cmd
 ```
-
-Pour plus d’informations sur le montage de fichiers individuels, voir [Gérer les données dans les conteneurs sur docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#mount-a-host-directory-as-a-data-volume).
 
 ### Monter un lecteur entier
 
@@ -125,6 +113,6 @@ Pour plus d’informations sur l’examen de volumes, voir [Gérer les données 
 
 
 
-<!--HONumber=Jul16_HO3-->
+<!--HONumber=Sep16_HO1-->
 
 
