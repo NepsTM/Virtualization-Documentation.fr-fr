@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: d8163185-9860-4ee4-9e96-17b40fb508bc
 translationtype: Human Translation
-ms.sourcegitcommit: 7b5cf299109a967b7e6aac839476d95c625479cd
-ms.openlocfilehash: 8b9ec6370d1f9f9187fbb6d74168e9e88391b657
+ms.sourcegitcommit: eccce83d7e376be592694162f54ccb67be9d3c12
+ms.openlocfilehash: bb99d0c15d6d1dd9e126fde05207431153b4f94a
 
 ---
 
@@ -19,7 +19,7 @@ ms.openlocfilehash: 8b9ec6370d1f9f9187fbb6d74168e9e88391b657
 
 **Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
 
->Les conteneurs Windows sont gérés avec Docker. La documentation des conteneurs Windows s’ajoute à la documentation disponible sur [docker.com](https://www.docker.com/).
+>Les conteneurs Windows sont gérés avec Docker. La documentation des conteneurs Windows s’ajoute à la documentation disponible sur [docsdocker.com](https://docs.docker.com/).
 
 Les images de conteneur sont utilisées pour déployer des conteneurs. Ces images peuvent inclure des applications et toutes les dépendances d’application. Par exemple, vous pouvez développer une image de conteneur qui a été préconfigurée avec Nano Server, IIS et une application s’exécutant dans IIS. Cette image de conteneur peut alors être stockée dans un Registre de conteneur pour être utilisée plus tard, déployée sur un hôte de conteneur Windows (localement, dans le cloud, ou même dans un service de conteneur) et utilisée également comme base pour une nouvelle image de conteneur.
 
@@ -177,6 +177,6 @@ latest: digest: sha256:ae3a2971628c04d5df32c3bbbfc87c477bb814d5e73e2787900da1322
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO1-->
 
 
