@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "617a59f55c5ff97cfe39b924714d6550f816a1cb",
+  "LastProcessedCommit": "440ce216cc49d8598c62c09bb0f0ace8a632903e",
   "LastTranslatedCommit": "e164a0b9e114dc7a95e2ff05db39029767d31faf",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
@@ -24591,6 +24591,41 @@
       "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.fr-fr.xlf",
       "BilingualFileCommit": "854b5bfab2f9c184d37d0a299757958f578fcf94",
       "BilingualDateTime": "2016-09-16T01:43:19.6272762Z",
+      "BilingualException": null
+    },
+    "3fbcdb7b93941a0ccc1cdbe659e70f3881b9d0cd": {
+      "FileHash": "3fbcdb7b93941a0ccc1cdbe659e70f3881b9d0cd",
+      "SourceFileCommit": "c73e1fa48b21a4daf2821ba3aae756d9a46e9f94",
+      "SourceFilePath": "virtualization\\hyperv_on_windows\\user_guide\\remote_host_management.md",
+      "HandoffReason": 1,
+      "DependencyFrom": null,
+      "TokenReference": null,
+      "FilePathList": [
+        "virtualization\\hyperv_on_windows\\user_guide\\remote_host_management.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.fr-fr.xlf",
+      "HandoffFileCommit": "a2d58f7bb0871c0c8876dd4c17a2f10362295330",
+      "HandoffDateTime": "2016-09-19T13:39:34.3483255Z",
+      "HandoffPriority": "",
+      "HandoffException": null,
+      "HandoffFailureTimes": 0,
+      "TargetFileCommit": null,
+      "TargetFilePath": null,
+      "HandbackFilePath": null,
+      "HandbackFileCommit": null,
+      "HandbackDateTime": "0001-01-01T00:00:00",
+      "HandbackException": null,
+      "HandbackFailureTimes": 0,
+      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "ArchiveFilePath": null,
+      "ArchiveFileCommit": null,
+      "ArchiveFileDateTime": "0001-01-01T00:00:00",
+      "ArchiveException": null,
+      "BilingualFilePath": null,
+      "BilingualFileCommit": null,
+      "BilingualDateTime": "0001-01-01T00:00:00",
       "BilingualException": null
     }
   }
