@@ -1,7 +1,7 @@
 ---
 title: Documentation sur les conteneurs Windows
 description: Documentation sur les conteneurs Windows
-keywords: docker, containers
+keywords: docker, conteneurs
 author: neilpeterson
 manager: timlt
 ms.date: 05/02/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
 translationtype: Human Translation
-ms.sourcegitcommit: 9070126c8cc944f9db0f8bacee8dbf135a3a23db
-ms.openlocfilehash: b50c27e723fb8db13adec37d6b969e93d607243e
+ms.sourcegitcommit: 59626096d428072dec098c7817e2d6b39c10e9cf
+ms.openlocfilehash: 2c9821ef7ac414640790b3cfdb7fd457710a67f4
 
 ---
 
@@ -40,24 +40,25 @@ Découvrez comment déployer les conteneurs Windows sur Windows Server 2016 et 
 <li>[Configuration requise](deployment/system_requirements.md)<br /><br /></li>
 <li>[Déployer l’hôte de conteneur - Windows Server](deployment/deployment.md)<br /><br /></li>
 <li>[Déployer l’hôte de conteneur - Nano Server](deployment/deployment_nano.md)<br /><br /></li>
-
+<li>[Optimisation de la protection antivirus](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)<br /><br /></li>
 </ul>
 </td>
 </tr>
 
 <tr>
 <td ><center>![](media/explore.png)</center></td>
-<td>**Management**<br /><br />
-Découvrez comment gérer les conteneurs Windows dans Windows Server 2016 et Nano Server.<br /><br />
+<td>**Docker sur Windows**<br /><br />
+Découvrez comment gérer Docker sur Windows.<br /><br />
 <ul>
-<li>[Gérer les images](management/manage_images.md)<br /><br /></li>
-<li>[Gérer la mise en réseau](management/container_networking.md)<br /><br /></li>
+<li>[Moteur Docker sur Windows](docker/configure_docker_daemon.md)<br /><br /></li>
+<li>[Fichiers Dockerfile sur Windows](docker/manage_windows_dockerfile.md)<br /><br /></li>
 <li>[Gérer les données de conteneur](management/manage_data.md)<br /><br /></li>
-<li>[Gérer les conteneurs Hyper-V](management/hyperv_container.md)<br /><br /></li>
-<li>[Gérer les ressources de conteneur](management/manage_resources.md)<br /><br /></li>
+<li>[Optimiser les fichiers Dockerfile](docker/optimize_windows_dockerfile.md)<br /><br /></li>
+<li>[Mise en réseau de conteneur](management/container_networking.md)<br /><br /></li>
 </ul>
 </td>
 </tr>
+
 <tr>
 <td ><center>![](media/video.png)</center></td>
 <td>**Regardez**<br /><br />
@@ -68,6 +69,7 @@ Vous êtes intéressé par des démonstrations et des interviews de l’équipe 
 <br />
 </td>
 </tr>
+
 <tr>
 <td ><center>![](media/question.png)</center></td>
 <td>**Communauté**<br /><br />
@@ -82,6 +84,6 @@ Interagissez avec la communauté, testez des exemples et trouvez d’autres ress
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Sep16_HO2-->
 
 
