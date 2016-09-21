@@ -1,7 +1,7 @@
 ---
 title: "Gestion des services d’intégration Hyper-V"
 description: "Gestion des services d’intégration Hyper-V"
-keywords: windows 10, hyper-v, integration services, integration components
+keywords: "windows 10, hyper-v, services d’intégration, composants d’intégration"
 author: scooley
 manager: timlt
 ms.date: 05/02/2016
@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
 translationtype: Human Translation
-ms.sourcegitcommit: 852f7fafe7192d85b0e9840ea3767a1206a1c285
-ms.openlocfilehash: e7abf05c899e2acca07312813b7808a5db00a9f7
+ms.sourcegitcommit: 22d29dbde56319a2a9d7fbc8afd041d1dc224101
+ms.openlocfilehash: 0779ef5b3f83bcf99f5681c13d445bcd33720dc6
 
 ---
 
@@ -32,7 +32,9 @@ Pour plus d’informations sur chaque service d’intégration, voir [Services d
   
   ![](./media/HyperVManager-IntegrationServices.png)
   
-  Dans cet onglet sont affichés tous les services d’intégration disponibles sur cet hôte Hyper-V.  Il est important de noter que le système d’exploitation invité peut ou ne peut pas prendre en charge la totalité des services d’intégration répertoriés.
+  Dans cet onglet sont affichés tous les services d’intégration disponibles sur cet hôte Hyper-V.  Il est important de noter que le système d’exploitation invité peut ou ne peut pas prendre en charge la totalité des services d’intégration répertoriés. Pour déterminer la version d’un système d’exploitation invité, ouvrez une session sur le système d’exploitation invité et exécutez la commande suivante à partir de l’invite de commandes.
+
+REG QUERY "HKLM\Software\Microsoft\Virtual Machine\Auto" /v IntegrationServicesVersion
 
 ## Activer ou désactiver les services d’intégration à l’aide de PowerShell
 
@@ -208,11 +210,11 @@ En tenant les services d’intégration à jour, vous bénéficiez des meilleure
 | Windows 10 | Windows Update | |
 | Windows 8.1 | Windows Update | |
 | Windows 8 | Windows Update | Nécessite le service d’intégration Échange de données.* |
-| Windows 7 | Windows Update | Nécessite le service d’intégration Échange de données.* |
+| Windows 7 | Windows Update | Nécessite le service d’intégration Échange de données.* |
 | Windows Vista (SP2) | Windows Update | Nécessite le service d’intégration Échange de données.* |
 | - | | |
-| Windows Server 2012 R2 | Windows Update | |
-| Windows Server 2012 | Windows Update | Nécessite le service d’intégration Échange de données.* |
+| Windows Server 2012 R2 | Windows Update | |
+| Windows Server 2012 | Windows Update | Nécessite le service d’intégration Échange de données.* |
 | Windows Server 2008 R2 (SP1) | Windows Update | Nécessite le service d’intégration Échange de données.* |
 | Windows Server 2008 (SP2) | Windows Update | Support étendu uniquement dans Server 2016 ([en savoir plus](https://support.microsoft.com/en-us/lifecycle?p1=12925)). |
 | Windows Home Server 2011 | Windows Update | Pas de support dans Server 2016 ([en savoir plus](https://support.microsoft.com/en-us/lifecycle?p1=15820)). |
@@ -231,13 +233,13 @@ En tenant les services d’intégration à jour, vous bénéficiez des meilleure
 | Windows 10 | Windows Update | |
 | Windows 8.1 | Windows Update | |
 | Windows 8 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
-| Windows 7 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows 7 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows Vista (SP2) | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows XP (SP2, SP3) | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | - | | |
 | Windows Server 2012 R2 | Windows Update | |
-| Windows Server 2012 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
-| Windows Server 2008 R2 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Server 2012 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Server 2008 R2 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows Server 2008 (SP2) | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows Home Server 2011 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows Small Business Server 2011 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
@@ -253,13 +255,13 @@ En tenant les services d’intégration à jour, vous bénéficiez des meilleure
 |:---------|:---------|:---------|
 | Windows 8.1 | Windows Update | |
 | Windows 8 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
-| Windows 7 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows 7 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows Vista (SP2) | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows XP (SP2, SP3) | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | - | | |
 | Windows Server 2012 R2 | Windows Update | |
-| Windows Server 2012 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
-| Windows Server 2008 R2 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4).|
+| Windows Server 2012 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Server 2008 R2 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4).|
 | Windows Server 2008 (SP2) | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows Home Server 2011 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows Small Business Server 2011 | Disque des services d’intégration | Instructions disponibles [ici](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
@@ -272,6 +274,6 @@ En tenant les services d’intégration à jour, vous bénéficiez des meilleure
 
 
 
-<!--HONumber=Jul16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

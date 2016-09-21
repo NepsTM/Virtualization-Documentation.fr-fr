@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 translationtype: Human Translation
-ms.sourcegitcommit: 07a07c790484c05ea49229a770ef75c80fad3cfa
-ms.openlocfilehash: 8a84da80199479907c3bf4cf0c7b1cfb1b44bf9d
+ms.sourcegitcommit: c73e1fa48b21a4daf2821ba3aae756d9a46e9f94
+ms.openlocfilehash: 3fbcdb7b93941a0ccc1cdbe659e70f3881b9d0cd
 
 ---
 
@@ -30,26 +30,30 @@ Le Gestionnaire Hyper-V dans Windows 10 vous permet de gérer les hôtes Hyper-
 * Windows 10
 * Windows 8.1
 * Windows 8
-* Windows Server 2016 + Windows Server Core, Nano Server et Hyper-V Server
-* Windows Server 2012 R2 + Windows Server Core, Datacenter et Hyper-V Server
-* Windows Server 2012 + Windows Server Core, Datacenter et Hyper-V Server
+* Windows Server 2016 : toutes les éditions et options d’installation, y compris Nano Server et la version correspondante du serveur Hyper-V
+* Windows Server 2012 R2 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V
+* Windows Server 2012 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V
 
 Le Gestionnaire Hyper-V dans Windows 8.1 et Windows Server 2012 R2 vous permet de gérer les hôtes suivants :
 * Windows 8.1
 * Windows 8
-* Windows Server 2012 R2 + Windows Server Core, Datacenter et Hyper-V Server
-* Windows Server 2012 + Windows Server Core, Datacenter et Hyper-V Server
+* Windows Server 2012 R2 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V
+* Windows Server 2012 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V
 
-Le Gestionnaire Hyper-V dans Windows 8 et Windows Server 2012 vous permet de gérer les hôtes suivants :
+Le Gestionnaire Hyper-V dans Windows 8 et Windows Server 2012 vous permet de gérer les hôtes suivants :
 * Windows 8
-* Windows Server 2012 + Windows Server Core, Datacenter et Hyper-V Server
+* Windows Server 2012 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V
 
-Hyper-V est désormais disponible dans Windows 8.  Avant Windows 8.1/Windows Server 2012, le Gestionnaire Hyper-V ne gérait que les versions correspondantes d’Hyper-V.
+Le Gestionnaire Hyper-V dans Windows 7 et Windows Server 2008 R2 vous permet de gérer les hôtes suivants :
+* Windows Server 2008 R2 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V
 
-> **Remarque :** La fonctionnalité du Gestionnaire Hyper-V correspond à la fonctionnalité disponible pour la version que vous gérez.  En d’autres termes, si vous gérez un hôte Windows Server 2012 distant à partir de Windows Server 2012 R2, les nouveaux outils du Gestionnaire Hyper-V de Windows Server 2012 R2 ne sont pas disponibles.
+Le Gestionnaire Hyper-V dans Windows Vista et Windows Server 2008 vous permet de gérer les hôtes suivants :
+* Windows Server 2008 : toutes les éditions et options d’installation, et la version correspondante du serveur Hyper-V
 
-## Gérer localhost ##
-Pour ajouter localhost au Gestionnaire Hyper-V en tant qu’hôte Hyper-V, dans la boîte de dialogue **Sélectionner un ordinateur**, sélectionnez **Ordinateur local**.
+> **Remarque :** La fonctionnalité du Gestionnaire Hyper-V correspond à la fonctionnalité disponible pour la version que vous gérez. En d’autres termes, si vous gérez un hôte Windows Server 2012 distant à partir de Windows Server 2012 R2, les nouvelles fonctionnalités du Gestionnaire Hyper-V de Windows Server 2012 R2 ne sont pas disponibles.
+
+## Gérer l’hôte local ##
+Pour ajouter l’hôte local au Gestionnaire Hyper-V en tant qu’hôte Hyper-V, dans la boîte de dialogue **Sélectionner un ordinateur**, sélectionnez **Ordinateur local**.
 
 ![](media/HyperVManager-ConnectToLocalHost.png)
 
@@ -70,7 +74,7 @@ Pour gérer les hôtes Hyper-V distants, la gestion à distance doit être activ
 Pour cela, accédez à `System Properties -> Remote Management Settings` ou exécutez la commande PowerShell suivante en tant qu’administrateur :  
 
 ``` PowerShell
-winrm quickconfig
+Enable-PSRemoting
 ```
 
 Si votre compte d’utilisateur actuel correspond à un compte Administrateur Hyper-V sur l’hôte distant, continuez et appuyez sur **OK** pour établir la connexion.  
@@ -83,7 +87,7 @@ Vous pouvez désormais vous connecter à un hôte distant Windows 10 ou version
 
 
 ### Se connecter à l’hôte distant en tant qu’autre utilisateur
-> Cela est possible uniquement quand vous vous connectez à un hôte distant Windows 10 ou Windows Server 2016 Technical Preview 3 ou version ultérieure
+> Cela est possible uniquement quand vous vous connectez à un hôte distant Windows 10 ou Windows Server 2016 Technical Preview 3 ou version ultérieure
 
 Dans Windows 10, si vous n’avez pas ouvert de session avec le compte d’utilisateur approprié pour l’hôte distant, vous pouvez vous connecter en tant qu’autre utilisateur avec d’autres informations d’identification.
 
@@ -93,15 +97,15 @@ Pour spécifier les informations d’identification de l’hôte Hyper-V distant
 
 
 ### Se connecter à l’hôte distant à l’aide de l’adresse IP
-> Cela est possible uniquement quand vous vous connectez à un hôte distant Windows 10 ou Windows Server 2016 Technical Preview 3 ou version ultérieure
+> Cela est possible uniquement quand vous vous connectez à un hôte distant Windows 10 ou Windows Server 2016 Technical Preview 3 ou version ultérieure
 
-Il est parfois plus facile de se connecter à l’aide de l’adresse IP que du nom d’hôte.  Windows 10 vous permet de le faire.
+Il est parfois plus facile de se connecter à l’aide de l’adresse IP que du nom d’hôte. Windows 10 vous permet de le faire.
 
 Pour vous connecter à l’aide de l’adresse IP, entrez l’adresse IP dans le champ de texte **Autre ordinateur**.
 
 
 ## Gérer un hôte Hyper-V en dehors de votre domaine (ou sans domaine) ##
-> Cela est possible uniquement quand vous vous connectez à un hôte distant Windows 10 ou Windows Server 2016 Technical Preview 3 ou version ultérieure
+> Cela est possible uniquement quand vous vous connectez à un hôte distant Windows 10 ou Windows Server 2016 Technical Preview 3 ou version ultérieure
 
 Sur l’hôte Hyper-V à gérer, exécutez les commandes suivantes en tant qu’administrateur :
 
@@ -123,6 +127,6 @@ Sur le PC de gestion, exécutez la commande suivante en tant qu’administrateur
 
 
 
-<!--HONumber=Aug16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

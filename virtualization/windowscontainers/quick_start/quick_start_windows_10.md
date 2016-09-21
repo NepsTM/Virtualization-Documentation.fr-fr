@@ -10,16 +10,16 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: 39e480b8bf3f90cfe9b7d4d17141b9dbec5f93e5
-ms.openlocfilehash: 78c67351f3e5606b8225c71d221a871e58530e57
+ms.sourcegitcommit: 16630b534367791114a4844c3c1f582f13d09d6d
+ms.openlocfilehash: 02b4e01e404fe5ab3a6fadbb3481c741cb4aa563
 
 ---
 
 # Conteneurs Windows sur Windows 10
 
-**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
+**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.**
 
-L’exercice vous guide tout au long du déploiement et de l’utilisation de base de la fonctionnalité de conteneur Windows 10 Professionnel ou Entreprise (Édition anniversaire). Une fois terminé, vous aurez installé le rôle de conteneur et déployé un conteneur Hyper-V simple. Avant de commencer ce démarrage rapide, familiarisez-vous avec la terminologie et les concepts de base des conteneurs. Ces informations figurent dans la [Présentation du démarrage rapide](./quick_start.md). 
+L’exercice vous guide tout au long du déploiement et de l’utilisation de base de la fonctionnalité de conteneur Windows 10 Professionnel ou Entreprise (Édition anniversaire). Une fois terminé, vous aurez installé le rôle de conteneur et déployé un conteneur Hyper-V simple. Avant de commencer ce démarrage rapide, familiarisez-vous avec la terminologie et les concepts de base des conteneurs. Ces informations figurent dans la [Présentation du démarrage rapide](./quick_start.md).
 
 Ce démarrage rapide est spécifique aux conteneurs Hyper-V sur Windows 10. Une documentation de démarrage rapide supplémentaire est disponible dans la table des matières affichée à gauche dans cette page.
 
@@ -30,7 +30,7 @@ Ce démarrage rapide est spécifique aux conteneurs Hyper-V sur Windows 10. Une
 
 ## 1. Installer la fonctionnalité de conteneur
 
-La fonctionnalité de conteneur doit être activée avant d’utiliser des conteneurs Windows. Pour ce faire, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges. 
+La fonctionnalité de conteneur doit être activée avant d’utiliser des conteneurs Windows. Pour ce faire, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges.
 
 ```none
 Enable-WindowsOptionalFeature -Online -FeatureName containers -All
@@ -48,7 +48,7 @@ Une fois l’installation terminée, redémarrez l’ordinateur.
 Restart-Computer -Force
 ```
 
-Une fois la sauvegarde effectuée, exécutez la commande suivante pour résoudre un problème connu lié à la version d’évaluation technique des conteneurs Windows.  
+Une fois la sauvegarde effectuée, exécutez la commande suivante pour résoudre un problème connu lié aux conteneurs Windows dans Windows 10.  
 
  ```none
 Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 1 -Force
@@ -58,7 +58,7 @@ Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtua
 
 ## 2. Installer Docker
 
-Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. Pour cet exercice, les deux seront installés. Pour ce faire, exécutez la commande suivante. 
+Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. Pour cet exercice, les deux seront installés. Pour ce faire, exécutez la commande suivante.
 
 Téléchargez le moteur Docker et le client au format d’archive zip.
 
@@ -78,7 +78,7 @@ Ajoutez le répertoire Docker au chemin du système.
 # For quick use, does not require shell to be restarted.
 $env:path += ";c:\program files\docker"
 
-# For persistent use, will apply even after a reboot. 
+# For persistent use, will apply even after a reboot.
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
 ```
 
@@ -100,7 +100,7 @@ Start-Service Docker
 
 Les conteneurs Windows sont déployés à partir de modèles ou d’images. Avant de pouvoir déployer un conteneur, une image de système d’exploitation de base de conteneur doit être téléchargée. Les commandes suivantes téléchargent l’image de base Nano Server.
 
-Extrayez l’image de base Nano Server. 
+Extrayez l’image de base Nano Server.
 
 ```none
 docker pull microsoft/nanoserver
@@ -163,7 +163,8 @@ Enfin, pour exécuter le conteneur, utilisez la commande `docker run`.
 docker run --rm helloworld powershell c:\helloworld.ps1
 ```
 
-Le résultat de la commande `docker run` est qu’un conteneur Hyper-V a été créé à partir de l’image « Hello World », un exemple de script « Hello World » a été exécuté (sortie répercutée sur l’interface de commande), puis le conteneur s’est arrêté et a été supprimé. Les démarrages rapides suivants de Windows 10 et des conteneurs exploreront la création et le déploiement d’applications dans des conteneurs sur Windows 10.
+Le résultat de la commande `docker run` est qu’un conteneur Hyper-V a été créé à partir de l’image « Hello World », un exemple de script « Hello World » a été exécuté (sortie répercutée sur l’interface de commande), puis le conteneur s’est arrêté et a été supprimé.
+Les démarrages rapides suivants de Windows 10 et des conteneurs exploreront la création et le déploiement d’applications dans des conteneurs sur Windows 10.
 
 ## Étapes suivantes
 
@@ -171,8 +172,6 @@ Le résultat de la commande `docker run` est qu’un conteneur Hyper-V a été c
 
 
 
-
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 
