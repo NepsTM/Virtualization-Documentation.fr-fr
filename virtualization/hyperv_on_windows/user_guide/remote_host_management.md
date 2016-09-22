@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 translationtype: Human Translation
-ms.sourcegitcommit: c73e1fa48b21a4daf2821ba3aae756d9a46e9f94
-ms.openlocfilehash: 3fbcdb7b93941a0ccc1cdbe659e70f3881b9d0cd
+ms.sourcegitcommit: e0d957ebb953f1e5b3e56de9764c7c3e560024c1
+ms.openlocfilehash: 852800b19fb39737f0d7104eb2d50521b6cca982
 
 ---
 
@@ -115,15 +115,10 @@ Sur l’hôte Hyper-V à gérer, exécutez les commandes suivantes en tant qu’
 
 Sur le PC de gestion, exécutez la commande suivante en tant qu’administrateur :
 
-1. Set-Item WSMan:\localhost\Client\TrustedHosts -value "fqdn-of-hyper-v-host"
-  * Vous pouvez aussi permettre à tous les hôtes d’être approuvés pour la gestion avec la commande suivante :
-  * Set-Item WSMan:\localhost\Client\TrustedHosts -value * -force
+1. Set-Item WSMan:\localhost\Client\TrustedHosts -Value "fqdn-of-hyper-v-host"
 2. [Enable-WSManCredSSP](https://technet.microsoft.com/en-us/library/hh849872.aspx) -Role client -DelegateComputer "fqdn-of-hyper-v-host"
-  * Vous pouvez aussi permettre à tous les hôtes d’être approuvés pour la gestion avec la commande suivante :
-  * [Enable-WSManCredSSP](https://technet.microsoft.com/en-us/library/hh849872.aspx) -Role client -DelegateComputer *
 3. En outre, vous devrez peut-être configurer la stratégie de groupe suivante : ** Configuration de l’ordinateur | Modèles d’administration | Système | Délégation d’informations d’identification | Autoriser la délégation des nouvelles informations d’identification avec l’authentification du serveur NTLM uniquement **
     * Cliquez sur **Activer** et ajoutez *wsman/fqdn-of-hyper-v-host*
-    * Vous pouvez aussi permettre à tous les hôtes d’être approuvés pour la gestion en ajoutant _wsman/*_
 
 
 
