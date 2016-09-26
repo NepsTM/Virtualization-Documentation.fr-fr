@@ -2696,8 +2696,8 @@
 * Archive Datetime: 2016-09-21 00:07:45
 * Handback File: [walkthrough_powershell.f20d7c387d05f1e6da38e694c8255c1b0044b10b.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/354e97d1dc53741db9434b9ba739cce68a180e2f/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/walkthrough_powershell.f20d7c387d05f1e6da38e694c8255c1b0044b10b.fr-fr.xlf)
 * Handback Datetime: 2016-09-26 14:25:21
-* Bilingual File: [walkthrough_powershell.f20d7c387d05f1e6da38e694c8255c1b0044b10b.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/2c393b27246abfc37e5dea6caf520a4c1e6cc632/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/walkthrough_powershell.f20d7c387d05f1e6da38e694c8255c1b0044b10b.fr-fr.xlf)
-* Bilingual Datetime: 2016-07-02 00:11:22
+* Bilingual File: [walkthrough_powershell.f20d7c387d05f1e6da38e694c8255c1b0044b10b.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/354e97d1dc53741db9434b9ba739cce68a180e2f/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/walkthrough_powershell.f20d7c387d05f1e6da38e694c8255c1b0044b10b.fr-fr.xlf)
+* Bilingual Datetime: 2016-09-26 14:26:41
 * [Back to Top](#report-top)
 
 ##### <a name='44470901a9149666c15982a728037a95fc28aaa5178'></a> Source: [virtualization\hyperv_on_windows\quick_start\walkthrough_virtual_switch.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4885ad982804d17c8b3643f8a855fb3f3f834505/virtualization/hyperv_on_windows/quick_start/walkthrough_virtual_switch.md)
