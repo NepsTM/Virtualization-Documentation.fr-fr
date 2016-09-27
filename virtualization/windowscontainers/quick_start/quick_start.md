@@ -1,7 +1,7 @@
 ---
 title: "Démarrage rapide des conteneurs Windows"
 description: "Démarrage rapide des conteneurs Windows."
-keywords: docker, containers
+keywords: docker, conteneurs
 author: neilpeterson
 manager: timlt
 ms.date: 05/26/2016
@@ -10,14 +10,12 @@ ms.prod: windows-contianers
 ms.service: windows-containers
 ms.assetid: 4878f5d2-014f-4f3c-9933-97f03348a147
 translationtype: Human Translation
-ms.sourcegitcommit: 4ea609a6e4636e53cc8632bb700e37ba58f3cc72
-ms.openlocfilehash: c0176d4f5445263a5fd522a80ce2a9dca7ac90e6
+ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
+ms.openlocfilehash: f795cfde1174a62b85aefd58c6bd07e81e196718
 
 ---
 
 # Démarrage rapide des conteneurs Windows
-
-**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
 
 La rubrique Démarrage rapide des conteneurs Windows présente la terminologie propre au produit et aux conteneurs, passe en revue des exemples de déploiement de conteneurs simples et fournit également des informations de référence concernant des rubriques plus avancées. Si vous n’êtes pas familiarisé avec les conteneurs ou les conteneurs Windows, suivez chaque étape de cette rubrique de démarrage rapide pour obtenir une expérience pratique de cette technologie.
 
@@ -60,6 +58,6 @@ Quand vous commencez à utiliser des conteneurs, vous remarquez de nombreuses si
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 
