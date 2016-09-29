@@ -4,14 +4,14 @@ description: "Déployer des conteneurs Windows sur Nano Server"
 keywords: docker, conteneurs
 author: neilpeterson
 manager: timlt
-ms.date: 08/23/2016
+ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
 translationtype: Human Translation
-ms.sourcegitcommit: 939a1b69f159504b998792adb95ccabc326db333
-ms.openlocfilehash: 538fb27d6170f0a8dab5c189b90040e40c546e14
+ms.sourcegitcommit: 185c83b69972765a72af2dbbf5d0c7d2551212ce
+ms.openlocfilehash: 6ada7de02bbdfab8986fdfeeda60b6373a6e2d96
 
 ---
 
@@ -91,13 +91,13 @@ Téléchargez le client et le moteur Docker, puis copiez-les dans 'C:\Program Fi
 > Nano Server ne prend actuellement pas en charge `Invoke-WebRequest`. Le téléchargement doit être effectué sur un système distant, et les fichiers copiés sur l’hôte Nano Server.
 
 ```none
-Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile .\docker-1.12.0.zip -UseBasicParsing
+Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip" -OutFile .\docker.zip -UseBasicParsing
 ```
 
 Effectuez l’extraction du package téléchargé. Une fois l’extraction terminée, vous disposerez d’un répertoire contenant **dockerd.exe** et **docker.exe**. Copiez ces deux fichiers dans le dossier **C:\Program Files\docker\** dans l’hôte du conteneur Nano Server. 
 
 ```none
-Expand-Archive .\docker-1.12.0.zip
+Expand-Archive .\docker.zip
 ```
 
 Ajoutez le répertoire Docker au chemin du système dans Nano Server.
@@ -126,15 +126,19 @@ Start-Service Docker
 
 ## Installer les images de conteneur de base
 
-Les images de système d’exploitation de base sont utilisées comme base pour un conteneur Windows Server ou Hyper-V. Les images de système d’exploitation de base sont disponibles avec Windows Server Core et Nano Server comme système d’exploitation sous-jacent et peuvent être installées à l’aide de `docker pull`. Pour plus d’informations sur les images de conteneur Windows, voir la rubrique relative à la [gestion des images de conteneur](../management/manage_images.md).
+Les images de système d’exploitation de base sont utilisées comme base pour un conteneur Windows Server ou Hyper-V. Les images de système d’exploitation de base sont disponibles avec Windows Server Core et Nano Server comme système d’exploitation sous-jacent et peuvent être installées à l’aide de `docker pull`. Pour plus d’informations sur les images de conteneur Docker, consultez [Build your own images (Créer vos propres images) sur docker.com](https://docs.docker.com/engine/tutorials/dockerimages/).
 
-Pour télécharger et installer l’image de base Nano Server, exécutez la commande suivante :
+Pour télécharger et installer l’image de base Windows Server et Nano Server, exécutez les commandes suivantes.
 
 ```none
 docker pull microsoft/nanoserver
 ```
 
-> Pour l’instant, seule l’image de base Nano Server est compatible avec un hôte de conteneur Nano Server.
+```none
+docker pull microsoft/windowsservercore
+```
+
+> Veuillez lire les termes du contrat de licence applicables à l’image de système d’exploitation des conteneurs Windows, disponibles [ici](../Images_EULA.md).
 
 ## Gérer Docker sur Nano Server
 
@@ -173,13 +177,13 @@ Restart-Service docker
 Sur le système distant sur lequel vous allez travailler, téléchargez le client Docker.
 
 ```none
-Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile "$env:TEMP\docker-1.12.0.zip" -UseBasicParsing
+Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
 ```
 
 Extrayez le package compressé.
 
 ```none
-Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:ProgramFiles
+Expand-Archive -Path "$env:TEMP\docker.zip" -DestinationPath $env:ProgramFiles
 ```
 
 Exécutez les deux commandes suivantes pour ajouter le répertoire Docker au chemin d’accès système.
@@ -231,6 +235,6 @@ Restart-Computer
 
 
 
-<!--HONumber=Sep16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

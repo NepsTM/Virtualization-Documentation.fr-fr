@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
 translationtype: Human Translation
-ms.sourcegitcommit: 59626096d428072dec098c7817e2d6b39c10e9cf
-ms.openlocfilehash: 2c9821ef7ac414640790b3cfdb7fd457710a67f4
+ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
+ms.openlocfilehash: 1ee40d330234f8800ba73d0c4abe36859cfa2989
 
 ---
 
@@ -23,12 +23,16 @@ Les conteneurs Windows offrent une virtualisation au niveau du système d’expl
 <tr>
 <td ><center>![](media/try.png)</center></td>
 <td>**Démarrage rapide de la**<br /><br />
-Testez les conteneurs Windows Server et Hyper-V en utilisant les guides de démarrage rapide suivants.<br /><br />
+Démarrage rapide de Windows Server<br /><br />
 <ul>
-<li>[1 - Concepts et terminologie](quick_start/quick_start.md)<br /><br /></li>
-<li>[2 - Conteneurs sur Windows Server](quick_start/quick_start_windows_server.md)<br /><br /></li>
-<li>[3 - Images de conteneur sur Windows Server](quick_start/quick_start_images.md)<br /><br /></li>
-<li>[4 - Conteneurs sur Windows 10](quick_start/quick_start_windows_10.md)<br /><br /></li>
+<li>[Étape 1 : Concepts et terminologie](quick_start/quick_start.md)<br /><br /></li>
+<li>[Étape 2 : Configurer Windows Server et le premier conteneur](quick_start/quick_start_windows_server.md)<br /><br /></li>
+<li>[Étape 3 : Créer et transférer (push) des images de conteneur](quick_start/quick_start_images.md)<br /><br /></li>
+</ul>
+Démarrage rapide de Windows 10<br /><br />
+<ul>
+<li>[Étape 1 : Concepts et terminologie](quick_start/quick_start.md)<br /><br /></li>
+<li>[Étape 2 : Configurer Windows 10 et le premier conteneur](quick_start/quick_start_windows_10.md)<br /><br /></li>
 </ul>
 </td>
 </tr>
@@ -84,6 +88,6 @@ Interagissez avec la communauté, testez des exemples et trouvez d’autres ress
 
 
 
-<!--HONumber=Sep16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

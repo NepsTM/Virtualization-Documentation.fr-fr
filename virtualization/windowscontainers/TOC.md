@@ -1,12 +1,14 @@
 # À propos des conteneurs Windows
 ## [Vue d’ensemble des conteneurs Windows](about/about_overview.md)
-## [FAQ](about/faq.md)
 
-# Guide de démarrage rapide des conteneurs
-## [1 – Concepts et terminologie](quick_start/quick_start.md)
-## [2 - Démarrage rapide Windows Server](quick_start/quick_start_windows_server.md)
-## [3 – Images Windows Server](quick_start/quick_start_images.md)
-## [4 – Démarrage rapide Windows 10](quick_start/quick_start_windows_10.md)
+# Démarrage rapide de Windows Server
+## [Étape 1 : Concepts](quick_start/quick_start.md)
+## [Étape 2 : Premier conteneur](quick_start/quick_start_windows_server.md)
+## [Étape 3 : Images de conteneur](quick_start/quick_start_images.md)
+
+# Démarrage rapide de Windows 10
+## [Étape 1 : Concepts](quick_start/quick_start.md)
+## [Étape 2 : Premier conteneur](quick_start/quick_start_windows_10.md)
 
 # Déployer des conteneurs Windows
 ## [Configuration requise](deployment/system_requirements.md)
@@ -27,11 +29,9 @@
 # Communauté et Support
 ## [Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
 
-# [CLUF Windows Server](EULA.md)
-# [CLUF Nano Server](Nano_EULA.md)
+# [Termes du contrat de licence applicables à l’image de système d’exploitation des conteneurs](Images_EULA.md)
 
 
-
-<!--HONumber=Sep16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

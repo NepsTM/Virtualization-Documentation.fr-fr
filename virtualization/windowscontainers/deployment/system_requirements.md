@@ -4,20 +4,18 @@ description: Configuration requise pour un conteneur Windows.
 keywords: "métadonnées, conteneurs"
 author: neilpeterson
 manager: timlt
-ms.date: 08/17/2016
+ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
 translationtype: Human Translation
-ms.sourcegitcommit: fac57150de3ffd6c7d957dd628b937d5c41c1b35
-ms.openlocfilehash: f76dc45e6035c72fd7b07f25d4b4c55f2a95aafb
+ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
+ms.openlocfilehash: a17a0e4eca2596c8cebbef93ea91c854f09d0b76
 
 ---
 
 # Configuration requise pour un conteneur Windows
-
-**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
 
 Ces guides fournissent la configuration requise pour un hôte de conteneur Windows.
 
@@ -25,20 +23,20 @@ Ces guides fournissent la configuration requise pour un hôte de conteneur Windo
 
 - La fonctionnalité de conteneur Windows est disponible uniquement sur Windows Server 2016 (Core et avec expérience utilisateur), Nano Server ainsi que Windows 10 Professionnel et Entreprise (Édition anniversaire).
 - Si les conteneurs Hyper-V sont exécutés, le rôle Hyper-V doit être installé.
-- Windows doit être installé sur C:\\ sur les hôtes de conteneur Windows Server. Si seuls les conteneurs Hyper-V sont déployés, cette restriction ne s’applique pas.
+- Windows doit être installé sur les hôtes de conteneur Windows Server, sur C:\. Si seuls des conteneurs Hyper-V sont déployés, cette restriction ne s’applique pas.
 
 ## Hôtes de conteneurs virtualisés
 
 Si un hôte de conteneur Windows est exécuté sur une machine virtuelle Hyper-V et héberge également des conteneurs Hyper-V, la virtualisation imbriquée doit être activée. La configuration requise pour la virtualisation imbriquée est la suivante :
 
 - Au moins 4 Go de RAM disponible pour l’hôte Hyper-V virtualisé.
-- Windows Server 2016 Technical Preview 5 ou Windows 10 build 10565 sur le système hôte, et Windows Server Technical Preview 5 (Full, Core) ou Nano Server sur la machine virtuelle.
+- Windows Server 2016 ou Windows 10 sur le système hôte, et Windows Server (Full, Core) ou Nano Server sur la machine virtuelle.
 - Un processeur Intel VT-x (cette fonctionnalité est actuellement disponible pour les processeurs Intel uniquement).
 - La machine virtuelle de l’hôte de conteneur doit aussi disposer d’au moins 2 processeurs virtuels.
 
-## Images de système d’exploitation prises en charge
+## Images de base prises en charge
 
-Windows Server Technical Preview 5 est fourni avec deux images de système d’exploitation de conteneur, Windows Server Core et Nano Server. Les configurations ne prennent pas toutes en charge les deux images de système d’exploitation. Ce tableau détaille les configurations prises en charge.
+Les conteneurs Windows fournissent deux images de base de conteneur (Windows Server Core et Nano Server). Les configurations ne prennent pas toutes en charge les deux images de système d’exploitation. Ce tableau détaille les configurations prises en charge.
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:75%" cellpadding="5" cellspacing="5">
 <thead>
@@ -50,30 +48,30 @@ Windows Server Technical Preview 5 est fourni avec deux images de système d’
 </thead>
 <tbody>
 <tr valign="top">
-<td><center>Interface utilisateur Windows Server 2016 Full</center></td>
-<td><center>Image Server Core</center></td>
-<td><center>Image Nano Server</center></td>
+<td><center>Windows Server 2016 avec Expérience utilisateur</center></td>
+<td><center>Server Core / Nano Server</center></td>
+<td><center>Server Core / Nano Server</center></td>
 </tr>
 <tr valign="top">
 <td><center>Windows Server 2016 Core</center></td>
-<td><center>Image Server Core</center></td>
-<td><center> Image Nano Server</center></td>
+<td><center>Server Core / Nano Server</center></td>
+<td><center>Server Core / Nano Server</center></td>
 </tr>
 <tr valign="top">
-<td><center>Windows Server 2016 Nano</center></td>
-<td><center> Image Nano Server</center></td>
-<td><center>Image Nano Server</center></td>
+<td><center>Nano Server</center></td>
+<td><center> Nano Server</center></td>
+<td><center>Server Core / Nano Server</center></td>
 </tr>
 <tr valign="top">
-<td><center>Windows 10 Édition anniversaire</center></td>
+<td><center>Windows 10 Professionnel / Entreprise</center></td>
 <td><center>Non disponible</center></td>
-<td><center>Image Nano Server</center></td>
+<td><center>Server Core / Nano Server</center></td>
 </tr>
 </tbody>
 </table>
 
 
 
-<!--HONumber=Aug16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

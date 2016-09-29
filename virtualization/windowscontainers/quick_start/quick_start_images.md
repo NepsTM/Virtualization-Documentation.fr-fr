@@ -4,29 +4,28 @@ description: "Démarrage rapide du déploiement de conteneurs"
 keywords: docker, conteneurs
 author: neilpeterson
 manager: timlt
-ms.date: 05/26/2016
+ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
 translationtype: Human Translation
-ms.sourcegitcommit: f2a3eec656acf5a3cd48a2be71169b76ce25400b
-ms.openlocfilehash: a9bc0b1511e161ef9b648bfafd4d0456966d8f9f
+ms.sourcegitcommit: eaac6eff4496421e1a6866c164ee032ae0e153d3
+ms.openlocfilehash: 616b9cc09a70e927dce151f7ff5de44206da929f
 
 ---
 
 # Images de conteneur sur Windows Server
 
-**Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
+Dans le démarrage rapide précédent de Windows Server, un conteneur Windows était créé à partir d’un exemple .Net Core préalablement créé. Cet exercice explique en détail comment créer manuellement des images de conteneur personnalisées, automatiser la création d’images de conteneur à l’aide d’un fichier Dockerfile et stocker des images de conteneur dans le Registre public Docker Hub.
 
-Dans le démarrage rapide de Windows Server précédent, un conteneur Windows était créé à partir d’une image de conteneur préexistante. Cet exercice décrit en détail la création manuelle d’images de conteneur personnalisées et l’utilisation d’un fichier Dockerfile.
-
-Ce démarrage rapide est spécifique aux conteneurs Windows Server sur Windows Server 2016. Une documentation de démarrage rapide supplémentaire est disponible dans la table des matières affichée à gauche dans cette page. 
+Ce guide de démarrage rapide concerne les conteneurs Windows Server sur Windows Server 2016 et utilise l’image de base du conteneur Windows Server Core. Une documentation de démarrage rapide supplémentaire est disponible dans la table des matières affichée à gauche dans cette page.
 
 **Conditions préalables :**
 
-- Un système informatique (physique ou virtuel) exécutant [Windows Server 2016 Technical Preview 5](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview).
+- Un système informatique (physique ou virtuel) exécutant Windows Server 2016.
 - Configurez ce système avec la fonctionnalité de conteneur Windows et Docker. Pour obtenir une procédure pas à pas décrivant ces étapes, voir [Conteneurs Windows sur Windows Server](./quick_start_windows_server.md).
+- Un ID Docker, utilisé pour transférer (push) une image de conteneur vers Docker Hub. Si vous n’avez pas encore d’ID Docker, demandez-en un sur [Docker Cloud]( https://cloud.docker.com/).
 
 ## 1. Images de conteneur - Manuelle
 
@@ -34,9 +33,13 @@ Pour une expérience optimale, parcourez cet exercice à partir d’une interfac
 
 La première étape de la création manuelle d’une image de conteneur consiste à déployer un conteneur. Pour cet exemple, déployez un conteneur IIS à partir de l’image IIS précréée. Une fois le conteneur déployé, vous allez travailler dans une session d’interpréteur de commandes à partir du conteneur. La session interactive est initialisée avec l’indicateur `-it`. Pour obtenir plus de détails sur la commande Docker Run, voir [Docker Run Reference]( https://docs.docker.com/engine/reference/run/) sur Docker.com. 
 
+> Cette étape peut prendre du temps en raison de la taille de l’image de base Windows Server Core.
+
 ```none
 docker run -it -p 80:80 microsoft/iis cmd
 ```
+
+Après le téléchargement, le conteneur démarre, et une session de l’interpréteur de commandes est démarrée.
 
 Ensuite, une modification sera apportée au conteneur. Exécutez la commande suivante pour supprimer l’écran de démarrage IIS.
 
@@ -93,7 +96,7 @@ Cette image peut maintenant être déployée. Le conteneur obtenu inclut toutes 
 
 ## 2. Image de conteneur - Fichier Dockerfile
 
-Dans l’exercice précédent, un conteneur a été manuellement créé, modifié, puis capturé dans une nouvelle image de conteneur. Docker inclut une méthode pour automatiser ce processus à l’aide de ce que l’on appelle un « fichier Dockerfile ». Cet exercice permet d’obtenir presque les mêmes résultats que le précédent, mais avec un processus automatisé.
+Dans l’exercice précédent, un conteneur a été manuellement créé, modifié, puis capturé dans une nouvelle image de conteneur. Docker inclut une méthode pour automatiser ce processus à l’aide d’un fichier Dockerfile. Cet exercice permet d’obtenir presque les mêmes résultats que le précédent, mais avec un processus automatisé. Pour effectuer cet exercice, vous avez besoin d’un ID Docker. Si vous n’avez pas encore d’ID Docker, demandez-en un sur [Docker Cloud]( https://cloud.docker.com/).
 
 Sur l’hôte de conteneur, créez un répertoire `c:\build` dans lequel vous créez un fichier nommé `Dockerfile`. Remarque : Le fichier ne doit pas avoir d’extension de fichier.
 
@@ -116,10 +119,10 @@ FROM microsoft/iis
 RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 ```
 
-La commande `docker build` démarre le processus de génération de l’image. Le paramètre `-t` indique au processus de génération de nommer la nouvelle image `iis-dockerfile`.
+La commande `docker build` démarre le processus de génération de l’image. Le paramètre `-t` indique au processus de génération de nommer la nouvelle image `iis-dockerfile`. **Remplacez « user » par le nom d’utilisateur de votre compte Docker**. Si vous n’avez pas encore de compte Docker, demandez-en un sur [Docker Cloud]( https://cloud.docker.com/).
 
 ```none
-docker build -t iis-dockerfile c:\Build
+docker build -t <user>/iis-dockerfile c:\Build
 ```
 
 Une fois l’opération terminée, vous pouvez vérifier que l’image a été créée à l’aide de la commande `docker images`.
@@ -134,10 +137,10 @@ windowsservercore   10.0.14300.1000     dbfee88ee9fd        8 weeks ago         
 windowsservercore   latest              dbfee88ee9fd        8 weeks ago         9.344 GB
 ```
 
-Déployez maintenant un conteneur à l’aide de la commande suivante. 
+Maintenant, déployez un conteneur avec la commande suivante, en remplaçant « user » par votre ID Docker.
 
 ```none
-docker run -d -p 80:80 iis-dockerfile ping -t localhost
+docker run -d -p 80:80 <user>/iis-dockerfile ping -t localhost
 ```
 
 Une fois le conteneur créé, accédez à l’adresse IP de l’hôte de conteneur. Vous devez voir l’application hello world.
@@ -158,7 +161,54 @@ c1dc6c1387b9   iis-dockerfile   "ping -t localhost"   About a minute ago   Up Ab
 Supprimez le conteneur.
 
 ```none
-docker rm -f cranky_brown
+docker rm -f <container name>
+```
+
+## 3. docker push
+
+Les images de conteneur Docker peuvent être stockées dans un Registre de conteneur. Une fois stockée dans un Registre, une image peut être récupérée pour être utilisée ultérieurement sur plusieurs hôtes de conteneur. Docker fournit un Registre public pour le stockage des images de conteneur sur [Docker Hub](https://hub.docker.com/).
+
+Dans cet exercice, l’image personnalisée « Hello World » est transférée (pushed) vers votre compte sur Docker Hub.
+
+Tout d’abord, connectez-vous à votre compte Docker en utilisant la `docker login command`.
+
+```none
+docker login
+
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+
+Username: user
+Password: Password
+
+Login Succeeded
+```
+
+Une fois que vous êtes connecté, vous pouvez transférer (push) l’image de conteneur vers Docker Hub. Pour ce faire, utilisez la commande `docker push`. **Remplacez « user » par votre ID Docker**. 
+
+```none
+docker push <user>/iis-dockerfile
+```
+
+L’image de conteneur peut maintenant être téléchargée à partir de Docker Hub sur n’importe quel hôte de conteneur Windows à l’aide de la commande `docker pull`. Pour ce didacticiel, nous allons supprimer l’image existante et l’extraire (pull) de Docker Hub. 
+
+```none
+docker rmi <user>/iis-dockerfile
+```
+
+L’exécution de `docker images` montre que l’image a été supprimée.
+
+```none
+docker images
+
+REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+modified-iis              latest              51f1fe8470b3        5 minutes ago       7.69 GB
+microsoft/iis             latest              e4525dda8206        3 hours ago         7.61 GB
+```
+
+Pour finir, nous pouvons utiliser la commande « docker pull » pour extraire l’image et la remettre sur l’hôte de conteneur. Remplacez « user » par le nom d’utilisateur de votre compte Docker. 
+
+```none
+docker pull <user>/iis-dockerfile
 ```
 
 ## Étapes suivantes
@@ -167,6 +217,6 @@ docker rm -f cranky_brown
 
 
 
-<!--HONumber=Aug16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

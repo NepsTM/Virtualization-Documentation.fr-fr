@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: 4dded90462c5438a6836ec32a165a9cc1019d6ec
-ms.openlocfilehash: 6ae49d82a89b2f30198de05aa4915726853172f5
+ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
+ms.openlocfilehash: f3eceaa84de7dfb4e6783835939a498a3e798e91
 
 ---
 
@@ -26,13 +26,13 @@ Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le 
 Téléchargez le moteur Docker.
 
 ```none
-Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile "$env:TEMP\docker-1.12.0.zip" -UseBasicParsing
+Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
 ```
 
 Développez l’archive zip dans Program Files.
 
 ```
-Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:ProgramFiles
+Expand-Archive -Path "$env:TEMP\docker.zip" -DestinationPath $env:ProgramFiles
 ```
 
 Ajoutez le répertoire Docker au chemin du système. Quand vous avez terminé, redémarrez la session PowerShell pour que le chemin d’accès modifié soit reconnu.
@@ -55,7 +55,7 @@ Start-Service Docker
 
 Pour que Docker puissent être utilisé, des images de conteneur doivent au préalable être installées. Pour plus d’informations, voir [Gérer des images de conteneur](../management/manage_images.md).
 
-## Fichier de configuration de Docker
+## Configurer Docker avec un fichier de configuration
 
 La méthode privilégiée pour configurer le moteur Docker sur Windows consiste à utiliser un fichier de configuration. Ce fichier de configuration se trouve dans C:\ProgramData\docker\config\daemon.json. Si ce fichier n’existe pas encore, il peut être créé.
 
@@ -115,7 +115,7 @@ De même, cet exemple configure le démon Docker pour accepter uniquement les co
 }
 ```
 
-## Gestionnaire de contrôle des services
+## Configurer Docker sur le service Docker
 
 Le moteur Docker peut également être configuré en modifiant le service de Docker avec `sc config`. Avec cette méthode, les indicateurs du moteur Docker sont définis directement sur le service de Docker.
 
@@ -165,19 +165,22 @@ restart-service docker
 Pour plus d’informations, voir [Options de socket du démon sur Docker.com](https://docs.docker.com/v1.10/engine/reference/commandline/daemon/#daemon-socket-option).
 
 ## Collecte de journaux
+
 Les enregistrements du moteur Docker sont consignés dans le journal des événements des applications Windows, plutôt que dans un fichier. Ces enregistrements peuvent facilement être lus, triés et filtrés à l’aide de Windows PowerShell
 
 Par exemple, cette commande affiche les enregistrements du moteur Docker des 5 dernières minutes en commençant par le plus ancien.
+
 ```
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-5) | Sort-Object Time 
 ```
 
 Ces enregistrements peuvent aussi être facilement redirigés dans un fichier CSV pour être lus par un autre outil ou une feuille de calcul.
+
 ```
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-30)  | Sort-Object Time | Export-CSV ~/last30minutes.csv ```
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 
