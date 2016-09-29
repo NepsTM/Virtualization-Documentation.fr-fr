@@ -88,7 +88,7 @@
       "ArchivedDateTime": "2016-09-29T00:16:57.8113164Z",
       "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\6d242d2706280e70ae2c09939ee5b0c8e13aa418.374c8b1b3b3da57846fce7435a3ee428d1601dde.xml",
       "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf",
-      "LocXliffCommit": "dd9c816164711d0c8ab850d9f8d776844b33c2d9"
+      "LocXliffCommit": "1a7e829e4964288c9dd578128b8063e7542ad71f"
     },
     "virtualization\\windowscontainers\\Images_EULA.md.15eeec3a8c378a93563839ec35fb71aa78c0c4d4.HT": {
       "SourceFilename": "virtualization\\windowscontainers\\Images_EULA.md",
