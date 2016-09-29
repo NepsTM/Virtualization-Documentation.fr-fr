@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
 translationtype: Human Translation
-ms.sourcegitcommit: 4eb3e733990ca86f28620e23bf408ff71b879173
-ms.openlocfilehash: c94b7f2c9c90eaf2834a1d0c54fb1f9b2a8f9669
+ms.sourcegitcommit: 6f003c6e78fb6a0977f30611b7da135a30268f51
+ms.openlocfilehash: 46c43a38dc3a3ee56ac3136cda60c41019cc733d
 
 ---
 
@@ -30,8 +30,9 @@ La virtualisation imbriquée est une fonctionnalité qui vous permet d’exécut
 
 1. Créer une machine virtuelle. Consultez la configuration requise ci-dessus pour les versions de système d’exploitation et les machines virtuelles.
 2. Pendant que la machine virtuelle est à l’état DÉSACTIVÉ, exécutez la commande suivante sur l’hôte Hyper-V physique. Cela permet d’activer la virtualisation imbriquée de la machine virtuelle.
+
 ```none
-    Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
+Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
 ```
 3. Démarrez l'ordinateur virtuel.
 4. Installez Hyper-V sur la machine virtuelle, comme vous le feriez sur un serveur physique. Pour plus d’informations sur l’installation d’Hyper-V, consultez [Installer Hyper-V]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_install).
@@ -79,6 +80,6 @@ Les applications de virtualisation autres que Hyper-V ne sont pas prises en char
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 
