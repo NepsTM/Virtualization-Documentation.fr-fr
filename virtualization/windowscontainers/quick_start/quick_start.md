@@ -10,8 +10,8 @@ ms.prod: windows-contianers
 ms.service: windows-containers
 ms.assetid: 4878f5d2-014f-4f3c-9933-97f03348a147
 translationtype: Human Translation
-ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
-ms.openlocfilehash: f795cfde1174a62b85aefd58c6bd07e81e196718
+ms.sourcegitcommit: b5e52d567bcfafbdd412d4fcf24a14481f51c080
+ms.openlocfilehash: b11167ae429d4529a6bec679a4cd6b0ad6538e39
 
 ---
 
@@ -33,7 +33,7 @@ Les conteneurs Windows incluent deux types de conteneurs différents, ou runtime
 
 **Conteneurs Windows Server** : Ils assurent l’isolation des applications via une technologie d’isolation des processus et des espaces de noms. Un conteneur Windows Server partage un noyau avec l’hôte de conteneur et tous les conteneurs exécutés sur l’hôte.
 
-**Conteneurs Hyper-V** : Ils développent l’isolation fournie par les conteneurs Windows Server en exécutant chaque conteneur dans une machine virtuelle hautement optimisée. Dans cette configuration, le noyau de l’hôte de conteneur n’est pas partagé avec les conteneurs Hyper-V.
+**Conteneurs Hyper-V** : Ils développent l’isolation fournie par les conteneurs Windows Server en exécutant chaque conteneur dans une machine virtuelle hautement optimisée. Dans cette configuration, le noyau de l’hôte de conteneur n’est pas partagé avec d’autres conteneurs Hyper-V.
 
 ## 3. Notions de base sur les conteneurs
 
@@ -58,6 +58,6 @@ Quand vous commencez à utiliser des conteneurs, vous remarquez de nombreuses si
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 
