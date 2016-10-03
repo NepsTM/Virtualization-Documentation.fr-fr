@@ -297,8 +297,8 @@
       "IsArchived": true,
       "ArchivedDateTime": "2016-10-03T00:18:53.1999431Z",
       "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\b11167ae429d4529a6bec679a4cd6b0ad6538e39.68e0acf797af7c5f00b58333df01a4b7a03d8e73.xml",
-      "LocXliff": null,
-      "LocXliffCommit": null
+      "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\quick_start.95cf1adf4b4529454f2de8a25554a6b86638acc7.fr-fr.xlf",
+      "LocXliffCommit": "6ace37fd7b5b33138d1de453b76234c41cc9bd86"
     },
     "virtualization\\windowscontainers\\docker\\configure_docker_daemon.md.3d99fdd00911f48f07f0b4f0ee79f3370d1e6c3c.HT": {
       "SourceFilename": "virtualization\\windowscontainers\\docker\\configure_docker_daemon.md",
@@ -307,8 +307,8 @@
       "IsArchived": true,
       "ArchivedDateTime": "2016-10-03T00:18:53.1999431Z",
       "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\3ee39f57890248951b69887edc87c9fedb13c285.a0293729434198df8df9298a9b7359ed202778f2.xml",
-      "LocXliff": null,
-      "LocXliffCommit": null
+      "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.fr-fr.xlf",
+      "LocXliffCommit": "6ace37fd7b5b33138d1de453b76234c41cc9bd86"
     }
   }
 }
