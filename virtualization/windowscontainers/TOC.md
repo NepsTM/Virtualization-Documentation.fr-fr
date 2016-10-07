@@ -24,13 +24,18 @@
 ## [Gérer Docker avec PowerShell](https://github.com/Microsoft/Docker-PowerShell)
 
 # Exemples de conteneurs
-## [Fichiers Dockerfile – Windows Server principal](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/windowsservercore)
-## [Fichiers Dockerfile – Nano Server](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/nanoserver)
+## [Infrastructures des applications](samples.md#Application-Frameworks)
+## [Langages de programmation](samples.md#Programing-Languages)
+## [Bases de données](samples.md#Databases)
+## [Infrastructure et outils d’intégration continue](samples.md#Infrastructure-and-CI-Tools)
+## [Pour vous amuser](samples.md#Just-for-Fun)
+## [Autre](samples.md#Other)
+
 
 # Communauté et Support
 ## [Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
 
-# [Termes du contrat de licence applicables à l’image de système d’exploitation des conteneurs](Images_EULA.md)
+# [CLUF de l’image de système d’exploitation des conteneurs](Images_EULA.md)
 
 
 <!--HONumber=Oct16_HO1-->
