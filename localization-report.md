@@ -5,9 +5,9 @@
  -------- | ----- 
  Total Files | 463
 [ Handoff Failed Files ](#handoff-failed-list)| 0
-[ Handoff Success Files ](#handoff-success-list)| 2
+[ Handoff Success Files ](#handoff-success-list)| 0
 [ Archive Failed Files ](#archive-failed-list)| 0
-[ Archive Success Files ](#archive-success-list)| 2
+[ Archive Success Files ](#archive-success-list)| 4
 [ Handback Failed Files ](#handback-failed-list)| 0
 [ Out Of Sync Handback Files ](#outofsync-handback-success-list)| 0
 [ In Sync Handback Files ](#insync-handback-success-list)| 122
@@ -16,16 +16,14 @@
 ## <a name='handoff-failed-list'></a> Handoff Failed File List
 
 ## <a name='handoff-success-list'></a> Handoff Success File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\hyperv_on_windows\user_guide\checkpoints.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/54f3855efd820d77b17c171b5b4c2a0c66957bc3/virtualization/hyperv_on_windows/user_guide/checkpoints.md) | HandedOffSuccess | [Details](#d3340019629a3ad92f856372345e4c2ceef85b6c182)
- [virtualization\windowscontainers\quick_start\quick_start_windows_10.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c1c16d94bade83e8623ad89aae0abb356a829e1e/virtualization/windowscontainers/quick_start/quick_start_windows_10.md) | HandedOffSuccess | [Details](#4322b650b511a8b2a8e926c1fca69971528dc07c309)
 
 ## <a name='archive-failed-list'></a> Archive Failed File List
 
 ## <a name='archive-success-list'></a> Archive Success File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
+ [virtualization\hyperv_on_windows\user_guide\checkpoints.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/54f3855efd820d77b17c171b5b4c2a0c66957bc3/virtualization/hyperv_on_windows/user_guide/checkpoints.md) | ArchivedSuccess | [Details](#d3340019629a3ad92f856372345e4c2ceef85b6c182)
+ [virtualization\windowscontainers\quick_start\quick_start_windows_10.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c1c16d94bade83e8623ad89aae0abb356a829e1e/virtualization/windowscontainers/quick_start/quick_start_windows_10.md) | ArchivedSuccess | [Details](#4322b650b511a8b2a8e926c1fca69971528dc07c309)
  [virtualization\windowscontainers\quick_start\quick_start_windows_server.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/0fae34a5a85678a25c47b0312650e67aa6cd7efd/virtualization/windowscontainers/quick_start/quick_start_windows_server.md) | ArchivedSuccess | [Details](#4d02d6423cc910c2bd2fe0691cbb62bddcabb117310)
  [virtualization\windowscontainers\samples.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/839a3608cb6a36289330b3ef3c3fbafe6efb2f13/virtualization/windowscontainers/samples.md) | ArchivedSuccess | [Details](#4d0fb2ee5ce2be3fe1b616ff38f14269192f3fc9311)
 
@@ -2753,13 +2751,13 @@
 * [Back to Top](#report-top)
 
 ##### <a name='d3340019629a3ad92f856372345e4c2ceef85b6c182'></a> Source: [virtualization\hyperv_on_windows\user_guide\checkpoints.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/54f3855efd820d77b17c171b5b4c2a0c66957bc3/virtualization/hyperv_on_windows/user_guide/checkpoints.md)
-* Status: HandedOffSuccess
+* Status: ArchivedSuccess
 * Target File: 
 * Handoff File: [checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/45b1cc48690463dbc4a1f93d17433c595bb75399/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.fr-fr.xlf)
 * Handoff Datetime: 2016-10-10 20:19:06
 * Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
+* Archive File: [checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/5ea7a151357b22296add99d851abd28239cd25f2/ol-archive/Microsoft/Virtualization-Documentation-Private.fr-fr/live/checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.fr-fr.xlf)
+* Archive Datetime: 2016-10-12 12:07:24
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Current Target File: [virtualization\hyperv_on_windows\user_guide\checkpoints.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/e6a689192a623eb9e4b9cef693dc8caa3a6e1106/virtualization/hyperv_on_windows/user_guide/checkpoints.md)
@@ -4390,13 +4388,13 @@
 * [Back to Top](#report-top)
 
 ##### <a name='4322b650b511a8b2a8e926c1fca69971528dc07c309'></a> Source: [virtualization\windowscontainers\quick_start\quick_start_windows_10.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c1c16d94bade83e8623ad89aae0abb356a829e1e/virtualization/windowscontainers/quick_start/quick_start_windows_10.md)
-* Status: HandedOffSuccess
+* Status: ArchivedSuccess
 * Target File: 
 * Handoff File: [quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/45b1cc48690463dbc4a1f93d17433c595bb75399/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf)
 * Handoff Datetime: 2016-10-10 20:19:06
 * Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
+* Archive File: [quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/5ea7a151357b22296add99d851abd28239cd25f2/ol-archive/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf)
+* Archive Datetime: 2016-10-12 12:07:24
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Current Target File: [virtualization\windowscontainers\quick_start\quick_start_windows_10.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/286125cd50f82d460a7756913ba46ce52c965dd9/virtualization/windowscontainers/quick_start/quick_start_windows_10.md)
