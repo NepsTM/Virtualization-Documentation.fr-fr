@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 translationtype: Human Translation
-ms.sourcegitcommit: 891c9e9805bf2089fd11f86420de5ed251916c3f
-ms.openlocfilehash: 77dca1499abf406b1d599c28afdb19dd823b8401
+ms.sourcegitcommit: ac962391cd3b82be2dd18b145ee5e6d7a483a91a
+ms.openlocfilehash: 334f19fa645ad50eb59ad61890842f0b6a43dce2
 
 ---
 
@@ -24,6 +24,8 @@ Ce démarrage rapide est spécifique aux conteneurs Windows Server sur Windows S
 **Conditions préalables :**
 
 Un système informatique (physique ou virtuel) exécutant Windows Server 2016. Si vous utilisez Windows Server 2016 TP5, effectuez une mise à jour vers la [version d’évaluation de Windows Server 2016](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 ). 
+
+> Les mises à jour critiques sont nécessaires au fonctionnement de la fonctionnalité Conteneur Windows. Installez toutes les mises à jour avant de suivre ce didacticiel.
 
 ## 1. Installer la fonctionnalité de conteneur
 
@@ -46,7 +48,7 @@ Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le 
 Téléchargez la version Release Candidate du moteur et du client Docker pris en charge, fournis sous forme d’archive ZIP.
 
 ```none
-Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
+Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker-1.12.2.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
 ```
 
 Développez l’archive zip dans Program Files.
@@ -139,6 +141,7 @@ Pour obtenir des informations détaillées sur la commande Docker Run, voir [Do
 [Conteneurs Windows sur Windows 10](./quick_start_windows_10.md)
 
 
-<!--HONumber=Sep16_HO4-->
+
+<!--HONumber=Oct16_HO2-->
 
 
