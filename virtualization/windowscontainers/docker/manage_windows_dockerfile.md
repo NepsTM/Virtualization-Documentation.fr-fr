@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
 translationtype: Human Translation
-ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
-ms.openlocfilehash: ea84ac6c688fa258c9b72f50565ec6e21e8051db
+ms.sourcegitcommit: a21a9ad1cd94a62f8fcd87e7c221cacd0b9d0782
+ms.openlocfilehash: 4fdd93badef908d694c5fbcd335645f565454091
 
 ---
 
@@ -179,7 +179,7 @@ COPY <source> <destination>
 Si la source ou la destination contient des espaces, placez le chemin entre crochets et guillemets doubles.
  
 ```none
-COPY ["<source>" "<destination>"]
+COPY ["<source>", "<destination>"]
 ```
 
 **Considérations relatives à Windows**
@@ -226,7 +226,7 @@ ADD <source> <destination>
 Si la source ou la destination contient des espaces, placez le chemin entre crochets et guillemets doubles.
  
 ```none
-ADD ["<source>" "<destination>"]
+ADD ["<source>", "<destination>"]
 ```
 
 **Considérations relatives à Windows**
@@ -482,6 +482,6 @@ windowsservercore   latest              6801d964fda5        4 months ago        
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO2-->
 
 
