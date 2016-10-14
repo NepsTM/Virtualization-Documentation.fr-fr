@@ -1,7 +1,7 @@
 ---
 title: "Utilisation des points de contrôle"
 description: "Utilisation des points de contrôle"
-keywords: windows 10, hyper-v
+keywords: "Windows 10, Hyper-V"
 author: scooley
 manager: timlt
 ms.date: 05/02/2016
@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9c398c4-ee72-45c6-9ce8-4f06569dae6c
 translationtype: Human Translation
-ms.sourcegitcommit: 4cdf81cace246c5de041d378391dca9b9d318dd5
-ms.openlocfilehash: bd0ee06f4e5eab4f33bb7e7c6dd71119dddde5c9
+ms.sourcegitcommit: 54f3855efd820d77b17c171b5b4c2a0c66957bc3
+ms.openlocfilehash: d3340019629a3ad92f856372345e4c2ceef85b6c
 
 ---
 
@@ -21,7 +21,7 @@ L’un des principaux avantages de la virtualisation est la possibilité d’enr
 
 Dans Windows 10, Hyper-V comprend deux types de points de contrôle :
 
-* **Points de contrôle standard** : une capture instantanée de la machine virtuelle et de l’état de sa mémoire est prise lors de l’initiation du point de contrôle. Un instantané n’étant pas une sauvegarde complète, il peut entraîner des problèmes de cohérence des données avec les systèmes qui répliquent les données entre différents nœuds (comme Active Directory).  Avant Windows 10, Hyper-V offrait uniquement des points de contrôle standard (anciennement nommés captures instantanées).
+* **Points de contrôle standard** : une capture instantanée de la machine virtuelle et de l’état de sa mémoire est prise lors de l’initiation du point de contrôle. Une capture instantanée n’étant pas une sauvegarde complète, il peut entraîner des problèmes de cohérence des données avec les systèmes qui répliquent les données entre différents nœuds (comme Active Directory).  Avant Windows 10, Hyper-V offrait uniquement des points de contrôle standard (anciennement nommés captures instantanées).
 
 * **Points de contrôle de production** : ils utilisent le service VSS (Volume Shadow Copy Service) ou File System Freeze sur une machine virtuelle Linux pour créer une sauvegarde cohérente des données de la machine virtuelle. Aucune capture instantanée de l’état de la mémoire de la machine virtuelle n’est prise.
 
@@ -250,6 +250,6 @@ Une fois le point de contrôle de production appliqué, notez que la machine vir
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Oct16_HO2-->
 
 

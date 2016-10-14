@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: e77f17158f75a335201b82d467c8b59e669bd165
-ms.openlocfilehash: 6d242d2706280e70ae2c09939ee5b0c8e13aa418
+ms.sourcegitcommit: c1c16d94bade83e8623ad89aae0abb356a829e1e
+ms.openlocfilehash: 4322b650b511a8b2a8e926c1fca69971528dc07c
 
 ---
 
@@ -25,6 +25,10 @@ Ce démarrage rapide est spécifique aux conteneurs Hyper-V sur Windows 10. Une
 
 - Un système d’ordinateur physique exécutant Windows 10 Édition anniversaire (Professionnel ou Entreprise).   
 - Ce démarrage rapide peut être exécuté sur une machine virtuelle Windows 10. Toutefois, la virtualisation imbriquée doit être activée. Pour plus d’informations, voir le [Guide de la virtualisation imbriquée](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting).
+
+> Vous devez installer les mises à jour critiques pour que les conteneurs Windows fonctionnent. 
+> Pour vérifier la version de votre système d’exploitation, exécutez `winver.exe` et comparez la version indiquée dans [l’historique des mises à jour Windows 10](https://support.microsoft.com/en-us/help/12387/windows-10-update-history). 
+> Assurez-vous d’avoir la version 14393.222 ou ultérieure avant de continuer.
 
 ## 1. Installer la fonctionnalité de conteneur
 
@@ -164,6 +168,6 @@ Les démarrages rapides suivants de Windows 10 et des conteneurs exploreront la
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO2-->
 
 
