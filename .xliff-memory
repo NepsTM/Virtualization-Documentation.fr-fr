@@ -447,8 +447,8 @@
       "IsArchived": true,
       "ArchivedDateTime": "2016-10-18T00:11:55.5820657Z",
       "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\bfa0c5b7bc57aea14d8cce658b6bdf9901e30cbb.db7e2722ad8cf752b8d539f6fccc225a1b5b9b40.xml",
-      "LocXliff": null,
-      "LocXliffCommit": null
+      "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.fr-fr.xlf",
+      "LocXliffCommit": "b3df08553c6f239ac6b5b10008660141739d4fff"
     },
     "virtualization\\windowscontainers\\troubleshooting.md.66f86e9bf3baf29899efd877a642d3ed21375a1e.HT": {
       "SourceFilename": "virtualization\\windowscontainers\\troubleshooting.md",
