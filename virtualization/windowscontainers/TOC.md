@@ -34,10 +34,11 @@
 
 # Communauté et Support
 ## [Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
+## [Résolution des problèmes](troubleshooting.md)
 
 # [CLUF de l’image de système d’exploitation des conteneurs](Images_EULA.md)
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 
