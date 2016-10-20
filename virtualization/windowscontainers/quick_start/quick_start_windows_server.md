@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 translationtype: Human Translation
-ms.sourcegitcommit: ac962391cd3b82be2dd18b145ee5e6d7a483a91a
-ms.openlocfilehash: 334f19fa645ad50eb59ad61890842f0b6a43dce2
+ms.sourcegitcommit: af648c1235ab9af181a88a65901401bfbd40656e
+ms.openlocfilehash: 791de65ac6e4222c4cae77fe9dd24f4e07e5a936
 
 ---
 
@@ -27,59 +27,30 @@ Un système informatique (physique ou virtuel) exécutant Windows Server 2016. 
 
 > Les mises à jour critiques sont nécessaires au fonctionnement de la fonctionnalité Conteneur Windows. Installez toutes les mises à jour avant de suivre ce didacticiel.
 
-## 1. Installer la fonctionnalité de conteneur
+## 1. Installer Docker
 
-La fonctionnalité de conteneur doit être activée avant d’utiliser des conteneurs Windows. Pour ce faire, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges.
+Pour installer Docker, nous allons utiliser le [module PowerShell de fournisseur OneGet](https://github.com/oneget/oneget). Le fournisseur active la fonctionnalité de conteneurs sur votre ordinateur et installe Docker. Cette opération nécessite un redémarrage. Docker est nécessaire pour utiliser les conteneurs Windows. Il est constitué du moteur Docker et du client Docker.
+
+Ouvrez une session PowerShell avec élévation de privilèges, puis exécutez les commandes suivantes.
+
+Nous allons d’abord installer le module PowerShell OneGet.
 
 ```none
-Install-WindowsFeature containers
+Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
 ```
 
-Une fois l’installation de la fonctionnalité terminée, redémarrez l’ordinateur.
+Ensuite, nous utilisons OneGet pour installer la dernière version de Docker.
+```none
+Install-Package -Name docker -ProviderName DockerMsftProvider
+```
+
+Quand PowerShell vous demande si la source du package « DockerDefault » doit être approuvée, tapez A pour poursuivre l’installation. Une fois l’installation terminée, redémarrez l’ordinateur.
 
 ```none
 Restart-Computer -Force
 ```
 
-## 2. Installer Docker
-
-Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. Pour cet exercice, les deux seront installés.
-
-Téléchargez la version Release Candidate du moteur et du client Docker pris en charge, fournis sous forme d’archive ZIP.
-
-```none
-Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker-1.12.2.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
-```
-
-Développez l’archive zip dans Program Files.
-
-```none
-Expand-Archive -Path "$env:TEMP\docker.zip" -DestinationPath $env:ProgramFiles
-```
-
-Ajoutez le répertoire Docker au chemin du système.
-
-```none
-# For quick use, does not require shell to be restarted.
-$env:path += ";c:\program files\docker"
-
-# For persistent use, will apply even after a reboot. 
-[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
-```
-
-Pour installer Docker en tant que service Windows, exécutez la commande suivante.
-
-```none
-dockerd.exe --register-service
-```
-
-Une fois installé, le service peut être démarré.
-
-```none
-Start-Service docker
-```
-
-## 3. Déployer votre premier conteneur
+## 2. Déployer votre premier conteneur
 
 Dans cet exercice, vous allez télécharger un exemple d’image .NET préalablement créée à partir du Registre Docker Hub, puis déployer un conteneur simple qui exécute une application .Net « Hello World ».  
 
