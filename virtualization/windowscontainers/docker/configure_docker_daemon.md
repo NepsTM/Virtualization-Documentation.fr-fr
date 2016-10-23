@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: 38d9f06af87cf1d69529d28e30cab60f16e0982b
-ms.openlocfilehash: 185831094b63a1b7fb1931db7fb82a6c59c2b060
+ms.sourcegitcommit: ea86e2dd88413569e4329ab27a8b6a4d3a7afca9
+ms.openlocfilehash: d2fe856b9d00c5f7ac33d683f1c2204dc06d4a11
 
 ---
 
@@ -166,7 +166,7 @@ Quand vous êtes connecté à l’hôte Docker et que vous exécutez des command
 Pour définir des informations de proxy pour `docker search` et `docker pull`, créez une variable d’environnement Windows nommée `HTTP_PROXY` ou `HTTPS_PROXY`, et une valeur des informations de proxy. Vous pouvez effectuer cette opération dans PowerShell en utilisant une commande semblable à celle-ci :
 
 ```none
-[Environment]::SetEnvironmentVariable("HTTP_PROXY”, “http://username:password@proxy:port/”, [EnvironmentVariableTarget]::Machine)
+[Environment]::SetEnvironmentVariable("HTTP_PROXY", "http://username:password@proxy:port/", [EnvironmentVariableTarget]::Machine)
 ```
 
 Une fois que la variable a été définie, redémarrez le service Docker.
@@ -175,7 +175,8 @@ Une fois que la variable a été définie, redémarrez le service Docker.
 restart-service docker
 ```
 
-Pour plus d’informations, voir [Options de socket du démon sur Docker.com](https://docs.docker.com/v1.10/engine/reference/commandline/daemon/#daemon-socket-option).
+Pour plus d’informations, consultez [Fichier de configuration Windows sur Docker.com](https://docs.docker.com/engine/reference/commandline/dockerd/#/windows-configuration-file).
+
 
 
 
