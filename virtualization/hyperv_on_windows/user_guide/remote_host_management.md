@@ -3,15 +3,14 @@ title: "Gérer des hôtes Hyper-V distants avec le Gestionnaire Hyper-V"
 description: "Gérer des hôtes Hyper-V distants avec le Gestionnaire Hyper-V"
 keywords: "Windows 10, Hyper-V"
 author: scooley
-manager: timlt
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 translationtype: Human Translation
-ms.sourcegitcommit: e0d957ebb953f1e5b3e56de9764c7c3e560024c1
-ms.openlocfilehash: 852800b19fb39737f0d7104eb2d50521b6cca982
+ms.sourcegitcommit: 906eba05c921757b9655505c3f419fcf003d5160
+ms.openlocfilehash: 9ae09f49af4a0d7a3dd91b739ec30d4989615799
 
 ---
 
@@ -71,7 +70,7 @@ Pour ajouter un hôte Hyper-V distant au Gestionnaire Hyper-V, dans la boîte de
 
 Pour gérer les hôtes Hyper-V distants, la gestion à distance doit être activée sur l’ordinateur local et l’hôte distant.
 
-Pour cela, accédez à `System Properties -> Remote Management Settings` ou exécutez la commande PowerShell suivante en tant qu’administrateur :  
+Pour cela, accédez à `Server Manager -> Remote management` ou exécutez la commande PowerShell suivante en tant qu’administrateur : 
 
 ``` PowerShell
 Enable-PSRemoting
@@ -122,6 +121,6 @@ Sur le PC de gestion, exécutez la commande suivante en tant qu’administrateur
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO4-->
 
 
