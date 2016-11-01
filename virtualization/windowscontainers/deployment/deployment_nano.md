@@ -2,16 +2,15 @@
 title: "Déployer des conteneurs Windows sur Nano Server"
 description: "Déployer des conteneurs Windows sur Nano Server"
 keywords: docker, conteneurs
-author: neilpeterson
-manager: timlt
+author: enderb-ms
 ms.date: 09/28/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
 translationtype: Human Translation
-ms.sourcegitcommit: a2c78d3945f1d5b0ebe2a4af480802f8c0c656c2
-ms.openlocfilehash: a9d398de94cb0d6c54c2e82f4a024bb65de9806d
+ms.sourcegitcommit: fa073b0347ee6c580f0a658b3cbdb471f0bbf909
+ms.openlocfilehash: ef5b189a56502ce8b76c094ecbd0c6174bb1bc4f
 
 ---
 
@@ -90,11 +89,13 @@ Restart-Computer -Force
 
 Les images de système d’exploitation de base sont utilisées comme base pour un conteneur Windows Server ou Hyper-V. Les images de système d’exploitation de base sont disponibles avec Windows Server Core et Nano Server comme système d’exploitation sous-jacent et peuvent être installées à l’aide de `docker pull`. Pour plus d’informations sur les images de conteneur Docker, consultez [Build your own images (Créer vos propres images) sur docker.com](https://docs.docker.com/engine/tutorials/dockerimages/).
 
-Pour télécharger et installer l’image de base Windows Server et Nano Server, exécutez les commandes suivantes.
+Pour télécharger et installer l’image de base Windows Nano Server, exécutez la commande suivante.
 
 ```none
 docker pull microsoft/nanoserver
 ```
+
+Si vous prévoyez d’utiliser le conteneur Hyper-V et que vous avez l’hyperviseur Hyper-V installé sur votre hôte Nano Server, vous pouvez aussi extraire l’image de Server Core. Si vous exécutez Azure Gallery Server 2016 Nano, attendez-vous à ce que Hyper-V ne soit pas installé.
 
 ```none
 docker pull microsoft/windowsservercore
@@ -197,6 +198,6 @@ Restart-Computer
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Oct16_HO4-->
 
 
