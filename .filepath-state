@@ -72,9 +72,6 @@
   "5f9bd47898d4249346449681fbb74d65101d4dc7": [
     "virtualization\\hyperv_on_windows\\quick_start\\walkthrough_export_import.md"
   ],
-  "dee716ee6468fdbc3a81518ccf47e6e4072c3645": [
-    "virtualization\\hyperv_on_windows\\quick_start\\walkthrough_export_import.md"
-  ],
   "7bf27630a2d429116b694b5c9bc93cf0505b735b": [
     "virtualization\\hyperv_on_windows\\quick_start\\walkthrough_install.md"
   ],
@@ -228,9 +225,6 @@
     "virtualization\\windowscontainers\\about\\faq.md"
   ],
   "38dc2f5257196adfdf3be04e77f0ea74a77bfcff": [
-    "virtualization\\windowscontainers\\about\\work_in_progress.md"
-  ],
-  "3017c03c1ce5d5ff46deda0cd147cc10de77f249": [
     "virtualization\\windowscontainers\\about\\work_in_progress.md"
   ],
   "144532bf835f8f8a67d378ec03e707b9517d5653": [
