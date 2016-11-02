@@ -2,16 +2,15 @@
 title: Configuration requise pour un conteneur Windows
 description: Configuration requise pour un conteneur Windows.
 keywords: "métadonnées, conteneurs"
-author: neilpeterson
-manager: timlt
+author: enderb-ms
 ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
 translationtype: Human Translation
-ms.sourcegitcommit: d4c453e800d4057b3ad0be06c28e7f23b81443f0
-ms.openlocfilehash: 008eff4731a8835b0b3f664edc9955f85c12a629
+ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
+ms.openlocfilehash: af8d8a05fc953dcc93672a0f936caca5e37f0de3
 
 ---
 
@@ -89,6 +88,6 @@ PS C:\Users\Administrator> (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows N
 Contrairement aux conteneurs Windows Server qui partagent le noyau entre les conteneurs et l’ordinateur hôte, chaque conteneur Hyper-V utilise sa propre instance du noyau Windows.  C’est pourquoi vous pouvez utiliser des versions d’hôte de conteneur et d’image de conteneur non compatibles.  À ce stade, les builds avec un numéro de build égal ou supérieur à celui de Windows Server 2016 GA (10.0.14393.206) peuvent exécuter les images Windows Server 2016 GA de Windows Server Core ou Nano Server dans une configuration prise en charge, quel que soit le numéro de révision.  À l’avenir et en fonction des commentaires des clients, nous fournirons des instructions spécifiques sur les écarts possibles entre les numéros de build.  Il est important de comprendre que pour disposer de toutes les fonctionnalités, de la fiabilité et des garanties de sécurité fournies avec les mises à jour Windows, vous devez toujours avoir les versions les plus récentes sur tous les systèmes.  
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Oct16_HO4-->
 
 

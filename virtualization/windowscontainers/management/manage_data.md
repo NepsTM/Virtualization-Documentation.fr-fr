@@ -2,8 +2,7 @@
 title: "Volumes de données de conteneur"
 description: "Créez et gérez des volumes de données avec des conteneurs Windows."
 keywords: docker, conteneurs
-author: neilpeterson
-manager: timlt
+author: scooley
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-containers
@@ -11,14 +10,14 @@ ms.service: windows-containers
 ms.assetid: f5998534-917b-453c-b873-2953e58535b1
 redirect_url: https://docs.docker.com/engine/tutorials/dockervolumes/
 translationtype: Human Translation
-ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
-ms.openlocfilehash: 65600c93a5b3523b22ccd77ce207349f6f0a503d
+ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
+ms.openlocfilehash: 2fff6ab777fab77496b18cc101ad42102d3e4654
 
 ---
 
 # Le document a été déconseillé.
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO4-->
 
 

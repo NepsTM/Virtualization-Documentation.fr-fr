@@ -1,17 +1,16 @@
 ---
 title: "Résoudre les problèmes liés à Hyper-V sur Windows 10"
 description: "Résoudre les problèmes liés à Hyper-V sur Windows 10"
-keywords: windows 10, hyper-v
+keywords: "Windows 10, Hyper-V"
 author: scooley
-manager: timlt
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: f0ec8eb4-ffc4-4bf1-9a19-7a8c3975b359
 translationtype: Human Translation
-ms.sourcegitcommit: e14ede0a2b13de08cea0a955b37a21a150fb88cf
-ms.openlocfilehash: 97ae940c03df2ab18350a31c56c93da85a348110
+ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
+ms.openlocfilehash: eff2016da5c76489c7e0607d92509a63ff6153b1
 
 ---
 
@@ -40,6 +39,6 @@ Si vous essayez uniquement d’installer les outils de gestion, désélectionnez
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Oct16_HO4-->
 
 

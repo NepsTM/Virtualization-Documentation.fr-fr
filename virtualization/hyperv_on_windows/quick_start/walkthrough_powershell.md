@@ -2,16 +2,15 @@
 title: "Utilisation d’Hyper-V et de Windows PowerShell"
 description: "Utilisation d’Hyper-V et de Windows PowerShell"
 keywords: "Windows 10, Hyper-V"
-author: neilpeterson
-manager: timlt
+author: scooley
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6d1ae036-0841-4ba5-b7e0-733aad31e9a7
 translationtype: Human Translation
-ms.sourcegitcommit: cb573c6ecb658fc8f314d66d70a62558b183209d
-ms.openlocfilehash: 8b688e666c7189888af3a7f182002f06fa2e2c0b
+ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
+ms.openlocfilehash: 520ef410eddad61c40d31655e6bf7ede7846d4b2
 
 ---
 
@@ -122,6 +121,6 @@ Dans ce document, nous avons effectué quelques étapes simples pour explorer le
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO4-->
 
 

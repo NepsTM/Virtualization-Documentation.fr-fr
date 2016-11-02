@@ -3,15 +3,14 @@ title: "Gestion des services d’intégration Hyper-V"
 description: "Gestion des services d’intégration Hyper-V"
 keywords: "windows 10, hyper-v, services d’intégration, composants d’intégration"
 author: scooley
-manager: timlt
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
 translationtype: Human Translation
-ms.sourcegitcommit: 22d29dbde56319a2a9d7fbc8afd041d1dc224101
-ms.openlocfilehash: 0779ef5b3f83bcf99f5681c13d445bcd33720dc6
+ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
+ms.openlocfilehash: e74e4b30b439120bd5e557bf385cf32789497a14
 
 ---
 
@@ -274,6 +273,6 @@ En tenant les services d’intégration à jour, vous bénéficiez des meilleure
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO4-->
 
 

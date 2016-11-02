@@ -1,17 +1,16 @@
 ---
 title: Extraits de code PowerShell
 description: Extraits de code PowerShell
-keywords: windows 10, hyper-v
+keywords: "Windows 10, Hyper-V"
 author: scooley
-manager: timlt
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: dc33c703-c5bc-434e-893b-0c0976b7cb88
 translationtype: Human Translation
-ms.sourcegitcommit: e14ede0a2b13de08cea0a955b37a21a150fb88cf
-ms.openlocfilehash: 4b8a6905e3497b5fbecf938ea35b6cc57ae37be2
+ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
+ms.openlocfilehash: ff356c8dad96b5705c6d698480c6f435cedd7bd9
 
 ---
 
@@ -102,6 +101,6 @@ Il existe plusieurs méthodes pour y parvenir avec PowerShell Direct ou la commu
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Oct16_HO4-->
 
 

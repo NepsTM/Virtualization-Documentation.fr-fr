@@ -2,16 +2,15 @@
 title: "Conteneur Windows sur Windows 10"
 description: "Démarrage rapide du déploiement de conteneurs"
 keywords: docker, conteneurs
-author: neilpeterson
-manager: timlt
+author: enderb-ms
 ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: c1c16d94bade83e8623ad89aae0abb356a829e1e
-ms.openlocfilehash: 4322b650b511a8b2a8e926c1fca69971528dc07c
+ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
+ms.openlocfilehash: 34ab361ea415ab2d8d5133927beafc7911f1aaf1
 
 ---
 
@@ -168,6 +167,6 @@ Les démarrages rapides suivants de Windows 10 et des conteneurs exploreront la
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Oct16_HO4-->
 
 
