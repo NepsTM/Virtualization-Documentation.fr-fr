@@ -9,8 +9,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 7d7aee3d87237b93887ac7303c70cf6c9a02285d
+ms.sourcegitcommit: 8f08c85921b9d41f10f3b8cff5e4bafe945bd4af
+ms.openlocfilehash: c562e1a1370e9286680afa1b498d625195edebb2
 
 ---
 
@@ -18,7 +18,7 @@ ms.openlocfilehash: 7d7aee3d87237b93887ac7303c70cf6c9a02285d
 
 Le Gestionnaire Hyper-V est un outil intégré à Windows pour diagnostiquer et gérer votre hôte Hyper-V local et un petit nombre d’hôtes distants.  Cet article décrit les étapes de configuration pour se connecter aux hôtes Hyper-V à l’aide du Gestionnaire Hyper-V dans toutes les configurations prises en charge.
 
-> Le Gestionnaire Hyper-V est disponible dans **Programmes et fonctionnalités** en tant qu’**Outils de gestion Hyper-V** sur [n’importe quel système d’exploitation Windows incluant Hyper-V](../quick_start/walkthrough_compatibility.md#OperatingSystemRequirements).  La plateforme Hyper-V n’a pas besoin d’être activée pour gérer les hôtes distants.
+> Le Gestionnaire Hyper-V est disponible dans **Programmes et fonctionnalités** en tant qu’**Outils de gestion Hyper-V** sur [n’importe quel système d’exploitation Windows incluant Hyper-V](../quick_start/walkthrough_compatibility.md#operating-system-requirements).  La plateforme Hyper-V n’a pas besoin d’être activée pour gérer les hôtes distants.
 
 Pour vous connecter à un hôte Hyper-V dans le Gestionnaire Hyper-V, assurez-vous que **Gestionnaire Hyper-V** est sélectionné dans le volet gauche, puis sélectionnez **Se connecter au serveur...** dans le volet droit.
 
@@ -121,6 +121,6 @@ Sur le PC de gestion, exécutez la commande suivante en tant qu’administrateur
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO1-->
 
 
