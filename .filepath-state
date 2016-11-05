@@ -120,9 +120,6 @@
   "c562e1a1370e9286680afa1b498d625195edebb2": [
     "virtualization\\hyperv_on_windows\\user_guide\\remote_host_management.md"
   ],
-  "7d7aee3d87237b93887ac7303c70cf6c9a02285d": [
-    "virtualization\\hyperv_on_windows\\user_guide\\remote_host_management.md"
-  ],
   "5f21c845594a8663b7458e86c121563d3b199e4d": [
     "virtualization\\hyperv_on_windows\\user_guide\\media\\HyperVManager-ConnectToHost.png"
   ],
@@ -330,9 +327,6 @@
     "virtualization\\windowscontainers\\samples.md"
   ],
   "71ce38a8d6cd75079558827c806fdbbc5a2bcfd2": [
-    "virtualization\\windowscontainers\\troubleshooting.md"
-  ],
-  "b13bdde63b55be50771d63bb0baa146cf4661e66": [
     "virtualization\\windowscontainers\\troubleshooting.md"
   ],
   "0c841b3134550b4b11d720dd91e43c1088211092": [

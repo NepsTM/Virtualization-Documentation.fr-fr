@@ -458,7 +458,7 @@
       "ArchivedDateTime": "2016-11-05T00:08:17.2408937Z",
       "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\71ce38a8d6cd75079558827c806fdbbc5a2bcfd2.114c17c2fe909ce25ea227f2488bddace9b17f48.xml",
       "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.fr-fr.xlf",
-      "LocXliffCommit": "34399c24073c513ccb31f5b3c12aaf6b719aa800"
+      "LocXliffCommit": "6bae7d0ad040373434f78416ec6a6be6e0e023ff"
     },
     "virtualization\\windowscontainers\\docker\\configure_docker_daemon.md.a4f27b8ee00aa8249f747f31e80b2546ded00d1a.HT": {
       "SourceFilename": "virtualization\\windowscontainers\\docker\\configure_docker_daemon.md",
@@ -797,8 +797,8 @@
       "IsArchived": true,
       "ArchivedDateTime": "2016-11-05T00:08:17.2408937Z",
       "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\c562e1a1370e9286680afa1b498d625195edebb2.e8a400d8a859bfac4c57ea29e26a76fdb16e9489.xml",
-      "LocXliff": null,
-      "LocXliffCommit": null
+      "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.fr-fr.xlf",
+      "LocXliffCommit": "6bae7d0ad040373434f78416ec6a6be6e0e023ff"
     },
     "virtualization\\hyperv_on_windows\\user_guide\\checkpoints.md.8d51291597c6bb814ef47edc4b3c35c1a9dd9a05.HT": {
       "SourceFilename": "virtualization\\hyperv_on_windows\\user_guide\\checkpoints.md",
