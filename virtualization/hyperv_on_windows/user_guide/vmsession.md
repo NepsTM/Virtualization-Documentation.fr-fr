@@ -9,8 +9,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 16624e181bec81d90c960df30e89f25eab23f7ea
+ms.sourcegitcommit: 8f08c85921b9d41f10f3b8cff5e4bafe945bd4af
+ms.openlocfilehash: 807043a744c4735158720371ec3afb22ebe7fc24
 
 ---
 
@@ -21,7 +21,7 @@ PowerShell Direct vous permet d’exécuter du code PowerShell arbitraire dans u
 **Façons d’exécuter PowerShell Direct :**  
 * En tant que session interactive : [cliquez ici](vmsession.md#create-and-exit-an-interactive-powershell-session) pour créer et quitter une session PowerShell interactive à l’aide d’Enter-PSSession.
 * En tant que session à usage unique pour exécuter une seule commande ou un seul script : [cliquez ici](vmsession.md#run-a-script-or-command-with-invoke-command) pour exécuter un script ou une commande à l’aide d’Invoke-Command.
-* En tant que session persistante (build 14280 et ultérieures) : [cliquez ici](vmsession.md#copy-files-with-New-PSSession-and-Copy-Item) pour créer une session persistante à l’aide de New-PSSession.  
+* En tant que session persistante (build 14280 et ultérieures) : [cliquez ici](vmsession.md#copy-files-with-new-pssession-and-copy-item) pour créer une session persistante à l’aide de New-PSSession.  
 Poursuivez en copiant un fichier vers et à partir de la machine virtuelle à l’aide de la commande Copy-Item, puis déconnectez-vous à l’aide de Remove-PSSession.
 
 ## Configuration requise
@@ -280,6 +280,6 @@ Pour obtenir de nombreux exemples d’utilisation de PowerShell Direct dans votr
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO1-->
 
 
