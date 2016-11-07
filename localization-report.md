@@ -5,9 +5,9 @@
  -------- | ----- 
  Total Files | 486
 [ Handoff Failed Files ](#handoff-failed-list)| 0
-[ Handoff Success Files ](#handoff-success-list)| 2
+[ Handoff Success Files ](#handoff-success-list)| 0
 [ Archive Failed Files ](#archive-failed-list)| 0
-[ Archive Success Files ](#archive-success-list)| 10
+[ Archive Success Files ](#archive-success-list)| 12
 [ Handback Failed Files ](#handback-failed-list)| 0
 [ Out Of Sync Handback Files ](#outofsync-handback-success-list)| 0
 [ In Sync Handback Files ](#insync-handback-success-list)| 117
@@ -16,10 +16,6 @@
 ## <a name='handoff-failed-list'></a> Handoff Failed File List
 
 ## <a name='handoff-success-list'></a> Handoff Success File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\about\faq.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/2ab9a4b09a2db72e5e2be71ced5d5400761a5ad8/virtualization/windowscontainers/about/faq.md) | HandedOffSuccess | [Details](#b084bf179d9360e4a72e8e88b4fec80eafb2906c221)
- [virtualization\windowscontainers\docker\manage_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/31515396358c124212b53540af8a0dcdad3580e4/virtualization/windowscontainers/docker/manage_windows_dockerfile.md) | HandedOffSuccess | [Details](#20dcc6d263488673bf0a025058c3dee8d30168a2255)
 
 ## <a name='archive-failed-list'></a> Archive Failed File List
 
@@ -28,9 +24,11 @@
  ----------- | ------ | ------- 
  [virtualization\community\contribute_to_docs.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ffdf89b0ae346197b9ae631ee5260e0565261c55/virtualization/community/contribute_to_docs.md) | ArchivedSuccess | [Details](#e5dc449ef7ecebffc060bab10c0341d84d4d329184)
  [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/8f08c85921b9d41f10f3b8cff5e4bafe945bd4af/virtualization/hyperv_on_windows/user_guide/vmsession.md) | ArchivedSuccess | [Details](#807043a744c4735158720371ec3afb22ebe7fc24217)
+ [virtualization\windowscontainers\about\faq.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/2ab9a4b09a2db72e5e2be71ced5d5400761a5ad8/virtualization/windowscontainers/about/faq.md) | ArchivedSuccess | [Details](#b084bf179d9360e4a72e8e88b4fec80eafb2906c221)
  [virtualization\windowscontainers\communitylinks.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/a06a7fe0aa77819a3ab004ce1c511dc93f1f1bde/virtualization/windowscontainers/communitylinks.md) | ArchivedSuccess | [Details](#0c841b3134550b4b11d720dd91e43c1088211092233)
  [virtualization\windowscontainers\containers_welcome.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/1787637fdd2c3bf8ef453a7425dc965e65e5ce12/virtualization/windowscontainers/containers_welcome.md) | ArchivedSuccess | [Details](#a1b876d01b8076ee9feb275bd09247775bfcef69234)
  [virtualization\windowscontainers\docker\configure_docker_daemon.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ffdf89b0ae346197b9ae631ee5260e0565261c55/virtualization/windowscontainers/docker/configure_docker_daemon.md) | ArchivedSuccess | [Details](#569b8861ca01ee8a0b794e01b0acb1a1c501fa55254)
+ [virtualization\windowscontainers\docker\manage_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/31515396358c124212b53540af8a0dcdad3580e4/virtualization/windowscontainers/docker/manage_windows_dockerfile.md) | ArchivedSuccess | [Details](#20dcc6d263488673bf0a025058c3dee8d30168a2255)
  [virtualization\windowscontainers\management\container_networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/f489d3e6f98fd77739a2016813506be6962b34d1/virtualization/windowscontainers/management/container_networking.md) | ArchivedSuccess | [Details](#499788666f306494c894b2e82f65ab68c9fc295a259)
  [virtualization\windowscontainers\management\manage_serviceaccounts.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/804008c172b80a4f354a92cd4d12a4e23e1d4328/virtualization/windowscontainers/management/manage_serviceaccounts.md) | ArchivedSuccess | [Details](#00a43f8d4d27327c61e318f3a915047106ad2aca266)
  [virtualization\windowscontainers\management\media\serviceaccount_diagram.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/804008c172b80a4f354a92cd4d12a4e23e1d4328/virtualization/windowscontainers/management/media/serviceaccount_diagram.png) | ArchivedSuccess | [Details](#80a945647722718ba676f98512c9ad7875e7a414273)
@@ -3290,13 +3288,13 @@
 * [Back to Top](#report-top)
 
 ##### <a name='b084bf179d9360e4a72e8e88b4fec80eafb2906c221'></a> Source: [virtualization\windowscontainers\about\faq.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/2ab9a4b09a2db72e5e2be71ced5d5400761a5ad8/virtualization/windowscontainers/about/faq.md)
-* Status: HandedOffSuccess
+* Status: ArchivedSuccess
 * Target File: 
 * Handoff File: [faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/75cde7030478ae5422bb5c5aab7bda3911edfaa4/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf)
 * Handoff Datetime: 2016-11-06 21:10:14
 * Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
+* Archive File: [faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/4499216d503987577fbc75fd9af2dfefe3546f95/ol-archive/Microsoft/Virtualization-Documentation-Private.fr-fr/live/faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf)
+* Archive Datetime: 2016-11-07 01:08:28
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Current Target File: [virtualization\windowscontainers\about\faq.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/9211e992261f8a77867366606bd397d10a51620f/virtualization/windowscontainers/about/faq.md)
@@ -3732,13 +3730,13 @@
 * [Back to Top](#report-top)
 
 ##### <a name='20dcc6d263488673bf0a025058c3dee8d30168a2255'></a> Source: [virtualization\windowscontainers\docker\manage_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/31515396358c124212b53540af8a0dcdad3580e4/virtualization/windowscontainers/docker/manage_windows_dockerfile.md)
-* Status: HandedOffSuccess
+* Status: ArchivedSuccess
 * Target File: 
 * Handoff File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/75cde7030478ae5422bb5c5aab7bda3911edfaa4/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.fr-fr.xlf)
 * Handoff Datetime: 2016-11-06 21:10:14
 * Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
+* Archive File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/4499216d503987577fbc75fd9af2dfefe3546f95/ol-archive/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.fr-fr.xlf)
+* Archive Datetime: 2016-11-07 01:08:28
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Current Target File: [virtualization\windowscontainers\docker\manage_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/9211e992261f8a77867366606bd397d10a51620f/virtualization/windowscontainers/docker/manage_windows_dockerfile.md)
