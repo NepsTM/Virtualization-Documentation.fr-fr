@@ -257,12 +257,6 @@
   "20dcc6d263488673bf0a025058c3dee8d30168a2": [
     "virtualization\\windowscontainers\\docker\\manage_windows_dockerfile.md"
   ],
-  "fc39e4ee3d3e5857237b36c96df212a13984c850": [
-    "virtualization\\windowscontainers\\docker\\manage_windows_dockerfile.md"
-  ],
-  "6603289599e7ca51558d54f35ab809528f53bcd7": [
-    "virtualization\\windowscontainers\\docker\\manage_windows_dockerfile.md"
-  ],
   "73c445a896e76d54e002184ae1235c4c5c38ad9d": [
     "virtualization\\windowscontainers\\docker\\optimize_windows_dockerfile.md"
   ],
