@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 6603289599e7ca51558d54f35ab809528f53bcd7
+ms.sourcegitcommit: 31515396358c124212b53540af8a0dcdad3580e4
+ms.openlocfilehash: 20dcc6d263488673bf0a025058c3dee8d30168a2
 
 ---
 
@@ -43,7 +43,7 @@ Sous sa forme la plus basique, un fichier Dockerfile peut être très simple. L�
 # Sample Dockerfile
 
 # Indicates that the windowsservercore image will be used as the base image.
-FROM windowsservercore
+FROM microsoft/windowsservercore
 
 # Metadata indicating an image maintainer.
 MAINTAINER jshelton@contoso.com
@@ -51,7 +51,7 @@ MAINTAINER jshelton@contoso.com
 # Uses dism.exe to install the IIS role.
 RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
 
-# Creates an html file and adds content to this file.
+# Creates an HTML file and adds content to this file.
 RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 
 # Sets a command or process that will run each time a container is run from the new image.
@@ -112,7 +112,7 @@ FROM windowsservercore
 RUN ["powershell", "New-Item", "c:/test"]
 ```
 
-En examinant l’image obtenue, la commande exécutée est `powershell new-item c:/test`.
+En examinant l’image obtenue, la commande exécutée est `powershell New-Item c:/test`.
 
 ```none
 docker history doc-exe-method
@@ -126,16 +126,16 @@ En revanche, l’exemple suivant exécute la même opération, mais en utilisant
 ```none
 FROM windowsservercore
 
-RUN powershell new-item c:\test
+RUN powershell New-Item c:\test
 ```
 
-Le résultat est l’instruction d’exécution `cmd /S /C powershell new-item c:\test`. 
+Le résultat est l’instruction d’exécution `cmd /S /C powershell New-Item c:\test`. 
 
 ```none
 docker history doc-shell-method
 
 IMAGE               CREATED             CREATED BY                              SIZE                COMMENT
-062a543374fc        19 seconds ago      cmd /S /C powershell new-item c:\test   30.76 MB
+062a543374fc        19 seconds ago      cmd /S /C powershell New-Item c:\test   30.76 MB
 ```
 
 **Considérations relatives à Windows**
@@ -155,10 +155,10 @@ Cet exemple utilise DISM pour installer IIS dans l’image de conteneur.
 RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
 ```
 
-Cet exemple installe le package redistribuable Visual Studio. Notez ici que `start-process` et le paramètre `-wait` sont utilisés pour exécuter le programme d’installation. Cela permet de garantir que l’installation est terminée avant de passer à l’étape suivante dans le fichier Dockerfile.
+Cet exemple installe le package redistribuable Visual Studio. Notez ici que `Start-Process` et le paramètre `-Wait` sont utilisés pour exécuter le programme d’installation. Cela permet de garantir que l’installation est terminée avant de passer à l’étape suivante dans le fichier Dockerfile.
 
 ```none
-RUN start-Process c:\vcredist_x86.exe -ArgumentList '/quiet' -Wait
+RUN Start-Process c:\vcredist_x86.exe -ArgumentList '/quiet' -Wait
 ``` 
 
 Pour plus d’informations sur l’instruction RUN, voir les [informations de référence sur RUN sur Docker.com]( https://docs.docker.com/engine/reference/builder/#run). 
@@ -393,7 +393,7 @@ RUN powershell.exe -Command \
 
 > La commande Invoke-WebRequest n’est pas prise en charge dans Nano Server
 
-Une autre possibilité d’utiliser PowerShell pour télécharger les fichiers pendant le processus de création d’image consiste à employer la bibliothèque WebClient .Net. Cela peut améliorer les performances en matière de téléchargement. L’exemple suivant télécharge le logiciel Python à l’aide de la bibliothèque WebClient.
+Pour télécharger les fichiers avec PowerShell pendant le processus de création d’image, une autre option consiste à employer la bibliothèque WebClient .NET. Cela peut améliorer les performances en matière de téléchargement. L’exemple suivant télécharge le logiciel Python à l’aide de la bibliothèque WebClient.
 
 ```none
 FROM windowsservercore
@@ -481,6 +481,6 @@ windowsservercore   latest              6801d964fda5        4 months ago        
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO1-->
 
 
