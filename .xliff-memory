@@ -857,8 +857,8 @@
       "IsArchived": true,
       "ArchivedDateTime": "2016-11-07T01:08:28.5130605Z",
       "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\b084bf179d9360e4a72e8e88b4fec80eafb2906c.8d587cda792c9683cabb7148e12bced9c50d8b5f.xml",
-      "LocXliff": null,
-      "LocXliffCommit": null
+      "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf",
+      "LocXliffCommit": "630e6808069b38920d4cb95c4f47ae9354da9374"
     }
   }
 }
