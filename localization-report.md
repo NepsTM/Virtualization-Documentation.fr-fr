@@ -3317,8 +3317,8 @@
 * Archive Datetime: 2016-11-07 01:08:28
 * Handback File: [faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/630e6808069b38920d4cb95c4f47ae9354da9374/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf)
 * Handback Datetime: 2016-11-09 16:49:18
-* Bilingual File: [faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/cb7fbee570b0d6644912480a435b58bbe83ef916/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf)
-* Bilingual Datetime: 2016-11-04 21:51:36
+* Bilingual File: [faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/630e6808069b38920d4cb95c4f47ae9354da9374/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf)
+* Bilingual Datetime: 2016-11-09 16:49:57
 * [Back to Top](#report-top)
 
 ##### <a name='7b2b5200e2da1b82e01c596da837387233322bf1224'></a> Source: [virtualization\windowscontainers\about\media\ContainerCreationLifeCycle.PNG](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/efd7727b5285caa0840a932e2da49314fd9676dc/virtualization/windowscontainers/about/media/ContainerCreationLifeCycle.PNG)

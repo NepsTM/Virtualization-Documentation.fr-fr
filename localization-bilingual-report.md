@@ -1,11 +1,28 @@
 # <a name='report-top'></a> Localization Bilingual Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\windowscontainers\about\faq.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/2ab9a4b09a2db72e5e2be71ced5d5400761a5ad8/virtualization/windowscontainers/about/faq.md) | InSyncHandedBackSuccess | [Details](#b084bf179d9360e4a72e8e88b4fec80eafb2906c223)
 
 ## Item Details
+##### <a name='b084bf179d9360e4a72e8e88b4fec80eafb2906c223'></a> Source: [virtualization\windowscontainers\about\faq.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/2ab9a4b09a2db72e5e2be71ced5d5400761a5ad8/virtualization/windowscontainers/about/faq.md)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\windowscontainers\about\faq.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/47f1ce82e59102317f8b4ae461b3536963a07b03/virtualization/windowscontainers/about/faq.md)
+* Handoff File: [faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/75cde7030478ae5422bb5c5aab7bda3911edfaa4/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf)
+* Handoff Datetime: 2016-11-06 21:10:14
+* Handoff Reason: Include
+* Archive File: [faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/4499216d503987577fbc75fd9af2dfefe3546f95/ol-archive/Microsoft/Virtualization-Documentation-Private.fr-fr/live/faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf)
+* Archive Datetime: 2016-11-07 01:08:28
+* Handback File: [faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/630e6808069b38920d4cb95c4f47ae9354da9374/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf)
+* Handback Datetime: 2016-11-09 16:49:18
+* Bilingual File: [faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/630e6808069b38920d4cb95c4f47ae9354da9374/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.fr-fr.xlf)
+* Bilingual Datetime: 2016-11-09 16:49:57
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
