@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 569b8861ca01ee8a0b794e01b0acb1a1c501fa55
+ms.sourcegitcommit: 16220e5afd42ecbbef648c469822c68570f8577c
+ms.openlocfilehash: dee119983c9dca1cd9ce5caff1c4f87d4accab2a
 
 ---
 
@@ -35,19 +35,19 @@ Télécharger le moteur Docker
 
 Vous trouverez la dernière version à l’adresse https://master.dockerproject.org. Cet exemple utilise la toute dernière version de la branche de développement v1.13. 
 
-```none
+```powershell
 Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
 ```
 
 Développez l’archive zip dans Program Files.
 
-```
+```powershell
 Expand-Archive -Path "$env:TEMP\docker.zip" -DestinationPath $env:ProgramFiles
 ```
 
 Ajoutez le répertoire Docker au chemin du système. Quand vous avez terminé, redémarrez la session PowerShell pour que le chemin d’accès modifié soit reconnu.
 
-```none
+```powershell
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
 ```
 
@@ -59,7 +59,7 @@ dockerd --register-service
 
 Une fois installé, le service peut être démarré.
 
-```none
+```powershell
 Start-Service Docker
 ```
 
@@ -135,7 +135,7 @@ De même, cet exemple configure le démon Docker pour accepter uniquement les co
 
 ## Configurer Docker sur le service Docker
 
-Le moteur Docker peut également être configuré en modifiant le service de Docker avec `sc config`. Avec cette méthode, les indicateurs du moteur Docker sont définis directement sur le service de Docker. Exécutez la commande suivante dans une invite de commandes (cmd.exe, pas Powershell) :
+Le moteur Docker peut également être configuré en modifiant le service de Docker avec `sc config`. Avec cette méthode, les indicateurs du moteur Docker sont définis directement sur le service de Docker. Exécutez la commande suivante dans une invite de commandes (cmd.exe, pas PowerShell) :
 
 
 ```none
@@ -172,14 +172,14 @@ Quand vous êtes connecté à l’hôte Docker et que vous exécutez des command
 
 Pour définir des informations de proxy pour `docker search` et `docker pull`, créez une variable d’environnement Windows nommée `HTTP_PROXY` ou `HTTPS_PROXY`, et une valeur des informations de proxy. Vous pouvez effectuer cette opération dans PowerShell en utilisant une commande semblable à celle-ci :
 
-```none
+```powershell
 [Environment]::SetEnvironmentVariable("HTTP_PROXY", "http://username:password@proxy:port/", [EnvironmentVariableTarget]::Machine)
 ```
 
 Une fois que la variable a été définie, redémarrez le service Docker.
 
-```none
-restart-service docker
+```powershell
+Restart-Service docker
 ```
 
 Pour plus d’informations, consultez [Fichier de configuration Windows sur Docker.com](https://docs.docker.com/engine/reference/commandline/dockerd/#/windows-configuration-file).
@@ -187,6 +187,6 @@ Pour plus d’informations, consultez [Fichier de configuration Windows sur Dock
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 
