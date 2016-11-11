@@ -917,8 +917,8 @@
       "IsArchived": true,
       "ArchivedDateTime": "2016-11-11T01:07:55.6563863Z",
       "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\dee119983c9dca1cd9ce5caff1c4f87d4accab2a.6e7a220ad339da047cbf41a29e47c7680849d166.xml",
-      "LocXliff": null,
-      "LocXliffCommit": null
+      "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.fr-fr.xlf",
+      "LocXliffCommit": "08d5c4e442bdbb8dc10de3a76be468f9071ebf74"
     }
   }
 }
