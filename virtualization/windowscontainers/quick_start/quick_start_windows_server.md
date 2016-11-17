@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 translationtype: Human Translation
-ms.sourcegitcommit: 13a33a6003cfa77d81a6e8e2afdf1da8d017ee30
-ms.openlocfilehash: a5537a4cb56127e51e0a550220995cd5f6b93722
+ms.sourcegitcommit: 295199bbb8c93f26562ef918df30082e1dd78f6d
+ms.openlocfilehash: bb61ccfb9756b341be2e989cb7c5bbe571072aab
 
 ---
 
@@ -25,6 +25,12 @@ Ce démarrage rapide est spécifique aux conteneurs Windows Server sur Windows S
 Un système informatique (physique ou virtuel) exécutant Windows Server 2016. Si vous utilisez Windows Server 2016 TP5, effectuez une mise à jour vers la [version d’évaluation de Windows Server 2016](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 ). 
 
 > Les mises à jour critiques sont nécessaires au fonctionnement de la fonctionnalité Conteneur Windows. Installez toutes les mises à jour avant de suivre ce didacticiel.
+
+Si vous souhaitez effectuer un déploiement sur Azure, ce [modèle](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-server-container-tools/containers-azure-template) peut vous aider.<br/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FVirtualization-Documentation%2Fmaster%2Fwindows-server-container-tools%2Fcontainers-azure-template%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
+
 
 ## 1. Installer Docker
 
@@ -140,6 +146,6 @@ Pour obtenir des informations détaillées sur la commande Docker Run, voir [Do
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 
