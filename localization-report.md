@@ -4633,9 +4633,9 @@
 * Archive Datetime: 2016-11-11 01:07:55
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\quick_start\quick_start_windows_10.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/68eb9c1faeb2eba64ea0eca5184729785bfa88a0/virtualization/windowscontainers/quick_start/quick_start_windows_10.md)
-* Current Handback File: [quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/366c848ac7c811c7569a3269b99aac998927fa56/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf)
-* Current Handback Datetime: 2016-11-03 03:45:00
+* Current Target File: [virtualization\windowscontainers\quick_start\quick_start_windows_10.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/0ef50141075c27f1a8bf948dd8d346fa4236eba5/virtualization/windowscontainers/quick_start/quick_start_windows_10.md)
+* Current Handback File: [quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/42deb38d1c8a13ff349f3484fee60a01f199f0a0/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf)
+* Current Handback Datetime: 2016-11-17 14:15:12
 * Bilingual File: [quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/366c848ac7c811c7569a3269b99aac998927fa56/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.fr-fr.xlf)
 * Bilingual Datetime: 2016-11-03 03:46:46
 * [Back to Top](#report-top)
@@ -4650,9 +4650,9 @@
 * Archive Datetime: 2016-11-10 08:09:27
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\quick_start\quick_start_windows_server.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/3c3b9c254338f18a80f9d01c92212dc0d55b5089/virtualization/windowscontainers/quick_start/quick_start_windows_server.md)
-* Current Handback File: [quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/415fc3847d0fa5656cd362b0c47e14482de33047/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.fr-fr.xlf)
-* Current Handback Datetime: 2016-11-07 23:50:48
+* Current Target File: [virtualization\windowscontainers\quick_start\quick_start_windows_server.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/0ef50141075c27f1a8bf948dd8d346fa4236eba5/virtualization/windowscontainers/quick_start/quick_start_windows_server.md)
+* Current Handback File: [quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/42deb38d1c8a13ff349f3484fee60a01f199f0a0/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.fr-fr.xlf)
+* Current Handback Datetime: 2016-11-17 14:15:12
 * Bilingual File: [quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/415fc3847d0fa5656cd362b0c47e14482de33047/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.fr-fr.xlf)
 * Bilingual Datetime: 2016-11-07 23:51:18
 * [Back to Top](#report-top)
