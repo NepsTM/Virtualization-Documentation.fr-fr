@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: ccd1e0fc96b96349a04e6f3f33b97e5dc28582cd
+ms.sourcegitcommit: 9b99982abfbbda12758bb1c922ed1bd431ecca20
+ms.openlocfilehash: b90120bb085f0f44fde2eadd13cfa1b93011c5a7
 
 ---
 
@@ -105,7 +105,9 @@ docker pull microsoft/windowsservercore
 
 ## Gérer Docker sur Nano Server
 
-Pour une expérience optimale et une bonne pratique, gérez Docker sur Nano Server à partir d’un système distant. Pour ce faire, vous devez effectuer les opérations suivantes.
+Pour une expérience optimale et une bonne pratique, gérez Docker sur Nano Server à partir d’un système distant. La raison est que la communication à distance PowerShell ne peut pas actuellement rediriger la sortie de terminal TTY d’un shell interactif de conteneur vers l’invite du client initiale. Des conteneurs détachés peuvent être démarrés et exécutés en arrière-plan à l’aide de `docker run -dt`, mais les conteneurs interactifs utilisant `docker run -it` ne fonctionneront pas comme prévu. PowerShell ISE a également des problèmes avec une sortie interactive pour des raisons similaires.
+
+Les éléments suivants sont nécessaires pour gérer un serveur Docker distant.
 
 ### Préparer l’hôte de conteneur
 
@@ -198,6 +200,6 @@ Restart-Computer
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 
