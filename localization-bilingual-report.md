@@ -1,11 +1,31 @@
 # <a name='report-top'></a> Localization Bilingual Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\community\community_overview.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6ffedfe75e2c82991fb3a85d9a49d2c32ce45472/virtualization/community/community_overview.md) | HandedOffSuccess | [Details](#41ec8d50af4b7ab2ec7e94b30397f4301502d37285)
 
 ## Item Details
+##### <a name='41ec8d50af4b7ab2ec7e94b30397f4301502d37285'></a> Source: [virtualization\community\community_overview.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6ffedfe75e2c82991fb3a85d9a49d2c32ce45472/virtualization/community/community_overview.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/11aa8b783bdae7487f5a702b99114875830f4b84/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.fr-fr.xlf)
+* Handoff Datetime: 2016-11-21 21:43:54
+* Handoff Reason: Include
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Current Target File: [virtualization\community\community_overview.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/f51111c1b8bc906178c0d6f882eb8ddce3552f64/virtualization/community/community_overview.md)
+* Current Handback File: [community_overview.4d3cb46b3cb0b5d520b8240070543e6c2549b923.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/80522310213fceac06860495f24105ec901c9f0d/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/community_overview.4d3cb46b3cb0b5d520b8240070543e6c2549b923.fr-fr.xlf)
+* Current Handback Datetime: 2016-01-04 21:50:42
+* Bilingual File: [community_overview.4d3cb46b3cb0b5d520b8240070543e6c2549b923.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/80522310213fceac06860495f24105ec901c9f0d/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/community_overview.4d3cb46b3cb0b5d520b8240070543e6c2549b923.fr-fr.xlf)
+* Bilingual Datetime: 2016-11-22 16:01:57
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
