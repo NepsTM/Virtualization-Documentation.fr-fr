@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: b7cd9b43f001fe8625b0c4ea8cc507c8f11de7ef
-ms.openlocfilehash: 1b57ad289368fb7d5f628e605cfc320748854c30
+ms.sourcegitcommit: 9b99982abfbbda12758bb1c922ed1bd431ecca20
+ms.openlocfilehash: c9f3a7669ae82e0b3a91956336d67225687c715b
 
 ---
 
@@ -116,7 +116,9 @@ Pour obtenir des informations détaillées sur les images de conteneur Windows, 
 
 ## 4. Déployer votre premier conteneur
 
-Pour ce simple exemple, une image de conteneur « Hello World » est créée et déployée. Pour une expérience optimale, exécutez ces commandes dans une interface de commande Windows élevée.
+Pour ce simple exemple, une image de conteneur « Hello World » est créée et déployée. Pour une expérience optimale, exécutez ces commandes dans une interface de commande Windows ou PowerShell élevée.
+
+> Windows PowerShell ISE ne fonctionne pas pour les sessions interactives avec des conteneurs. Même si le conteneur est en cours d’exécution, il apparaît comme étant bloqué.
 
 Commencez par démarrer un conteneur avec une session interactive à partir de l’image `nanoserver`. Une fois que le conteneur a démarré, une interface de commande s’affiche à partir du conteneur.  
 
