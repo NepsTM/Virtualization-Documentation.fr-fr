@@ -1,5 +1,4 @@
-# À propos des conteneurs Windows
-## [Vue d’ensemble des conteneurs Windows](about/about_overview.md)
+# [À propos des conteneurs Windows](about/index.md)
 
 # Démarrage rapide de Windows Server
 ## [Étape 1 : Concepts](quick_start/quick_start.md)
@@ -10,7 +9,7 @@
 ## [Étape 1 : Concepts](quick_start/quick_start.md)
 ## [Étape 2 : Premier conteneur](quick_start/quick_start_windows_10.md)
 
-# Déployer des conteneurs Windows
+# Déployer un conteneur Windows
 ## [Configuration requise](deployment/system_requirements.md)
 ## [Hôte de conteneur - Windows Server](deployment/deployment.md)
 ## [Hôte de conteneur - Nano Server](deployment/deployment_nano.md)
@@ -42,6 +41,6 @@
 # [CLUF de l’image de système d’exploitation des conteneurs](Images_EULA.md)
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

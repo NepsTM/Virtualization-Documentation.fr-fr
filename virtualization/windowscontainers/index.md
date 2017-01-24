@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
 translationtype: Human Translation
-ms.sourcegitcommit: 1787637fdd2c3bf8ef453a7425dc965e65e5ce12
-ms.openlocfilehash: a1b876d01b8076ee9feb275bd09247775bfcef69
+ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
+ms.openlocfilehash: 9b630e372b575ef1721c0d0926ec2caec3e5ec34
 
 ---
 
@@ -24,14 +24,14 @@ Les conteneurs Windows offrent une virtualisation au niveau du système d’expl
 <td>**Démarrage rapide de la**<br /><br />
 Démarrage rapide de Windows Server<br /><br />
 <ul>
-<li>[Étape 1 : Concepts et terminologie](quick_start/quick_start.md)<br /><br /></li>
-<li>[Étape 2 : Configurer Windows Server et le premier conteneur](quick_start/quick_start_windows_server.md)<br /><br /></li>
-<li>[Étape 3 : Créer et transférer (push) des images de conteneur](quick_start/quick_start_images.md)<br /><br /></li>
+<li>[Étape 1 : Concepts et terminologie](quick-start/index.md)<br /><br /></li>
+<li>[Étape 2 : Configurer Windows Server et le premier conteneur](quick-start/quick-start-windows-server.md)<br /><br /></li>
+<li>[Étape 3 : Créer et transférer (push) des images de conteneur](quick-start/quick-start-images.md)<br /><br /></li>
 </ul>
 Démarrage rapide de Windows 10<br /><br />
 <ul>
-<li>[Étape 1 : Concepts et terminologie](quick_start/quick_start.md)<br /><br /></li>
-<li>[Étape 2 : Configurer Windows 10 et le premier conteneur](quick_start/quick_start_windows_10.md)<br /><br /></li>
+<li>[Étape 1 : Concepts et terminologie](quick-start/index.md)<br /><br /></li>
+<li>[Étape 2 : Configurer Windows 10 et le premier conteneur](quick-start/quick-start-windows-10.md)<br /><br /></li>
 </ul>
 </td>
 </tr>
@@ -40,9 +40,9 @@ Démarrage rapide de Windows 10<br /><br />
 <td>**Déploiement**<br /><br />
 Découvrez comment déployer les conteneurs Windows sur Windows Server 2016 et Nano Server.<br /><br />
 <ul>
-<li>[Configuration requise](deployment/system_requirements.md)<br /><br /></li>
-<li>[Déployer l’hôte de conteneur - Windows Server](deployment/deployment.md)<br /><br /></li>
-<li>[Déployer l’hôte de conteneur - Nano Server](deployment/deployment_nano.md)<br /><br /></li>
+<li>[Configuration requise](deploy-containers/system-requirements.md)<br /><br /></li>
+<li>[Déployer l’hôte de conteneur - Windows Server](deploy-containers/deploy-containers-on-server.md)<br /><br /></li>
+<li>[Déployer l’hôte de conteneur - Nano Server](deploy-containers/deploy-containers-on-nano.md)<br /><br /></li>
 <li>[Optimisation de la protection antivirus](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)<br /><br /></li>
 </ul>
 </td>
@@ -53,18 +53,17 @@ Découvrez comment déployer les conteneurs Windows sur Windows Server 2016 et 
 <td>**Docker sur Windows**<br /><br />
 Découvrez comment gérer Docker sur Windows.<br /><br />
 <ul>
-<li>[Moteur Docker sur Windows](docker/configure_docker_daemon.md)<br /><br /></li>
-<li>[Fichiers Dockerfile sur Windows](docker/manage_windows_dockerfile.md)<br /><br /></li>
-<li>[Gérer les données de conteneur](management/manage_data.md)<br /><br /></li>
-<li>[Optimiser les fichiers Dockerfile](docker/optimize_windows_dockerfile.md)<br /><br /></li>
-<li>[Mise en réseau de conteneur](management/container_networking.md)<br /><br /></li>
+<li>[Moteur Docker sur Windows](manage-docker/configure-docker-daemon.md)<br /><br /></li>
+<li>[Fichiers Dockerfile sur Windows](manage-docker/manage-windows-dockerfile.md)<br /><br /></li>
+<li>[Optimiser les fichiers Dockerfile](manage-docker/optimize-windows-dockerfile.md)<br /><br /></li>
+<li>[Mise en réseau de conteneur](manage-containers/container-networking.md)<br /><br /></li>
 </ul>
 </td>
 </tr>
 
 <tr>
 <td ><center>![](media/video.png)</center></td>
-<td>**Regardez**<br /><br />
+<td>**Regarder**<br /><br />
 Vous êtes intéressé par des démonstrations et des interviews de l’équipe des conteneurs Windows ?<br /><br />
 <ul>
 <li>[Chaîne Conteneurs](https://channel9.msdn.com/Blogs/containers)</li>
@@ -88,6 +87,6 @@ Interagissez avec la communauté, testez des exemples et trouvez d’autres ress
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

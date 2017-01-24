@@ -1,11 +1,27 @@
+---
+title: "Résolution des problèmes liés aux conteneurs Windows"
+description: "Conseils de dépannage, scripts automatisés et informations de journal pour les conteneurs Windows et Docker"
+keywords: "Docker, conteneurs, résolution des problèmes, journaux"
+author: PatrickLang
+ms.date: 12/19/2016
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
+translationtype: Human Translation
+ms.sourcegitcommit: c65353d0b6dff233819dcc8f4f92eb186bf3b8fc
+ms.openlocfilehash: 9f28c35c6eaddd8bcf3883863b63251378f845a7
+
+---
+
 # Résolution des problèmes
 
 Vous rencontrez des difficultés pour configurer votre ordinateur ou exécuter un conteneur ? Nous avons créé un script PowerShell pour rechercher les problèmes courants. Commencez par le tester pour voir ce qu’il trouve, puis partagez vos résultats.
 
 ```PowerShell
-Invoke-WebRequest https://raw.githubusercontent.com/Microsoft/Virtualization-Documentation/master/windows-server-container-tools/Debug-ContainerHost/Debug-ContainerHost.ps1 -UseBasicParsing | Invoke-Expression
+Invoke-WebRequest https://aka.ms/Debug-ContainerHost.ps1 -UseBasicParsing | Invoke-Expression
 ```
-La liste de tous les tests qu’il exécute avec des solutions courantes est disponible dans le [fichier Lisez-moi](https://github.com/Microsoft/Virtualization-Documentation/blob/master/windows-server-container-tools/Debug-ContainerHost/README.md) du script.
+La liste de tous les tests qu’il exécute avec des solutions courantes est disponible dans le [fichier Lisez-moi](https://github.com/Microsoft/Virtualization-Documentation/blob/live/windows-server-container-tools/Debug-ContainerHost/README.md) du script.
 
 Si cela ne permet pas de trouver la source du problème, publiez la sortie de votre script sur le [Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers). C’est l’endroit idéal pour obtenir de l’aide de la Communauté, notamment des Windows Insiders et des développeurs Windows.
 
@@ -84,6 +100,7 @@ Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Operational
 
 
 
-<!--HONumber=Nov16_HO1-->
+
+<!--HONumber=Jan17_HO4-->
 
 

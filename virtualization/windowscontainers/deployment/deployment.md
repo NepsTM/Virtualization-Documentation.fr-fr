@@ -1,99 +1,13 @@
 ---
-title: "Déployer des conteneurs Windows sur Windows Server"
-description: "Déployer des conteneurs Windows sur Windows Server"
-keywords: docker, conteneurs
-author: enderb-ms
-ms.date: 09/26/2016
-ms.topic: article
-ms.prod: windows-containers
-ms.service: windows-containers
-ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
+redirect_url: ../deploy-containers/deploy-containers-on-server
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 1392cb13798c96f91b7daa036e529c97e560edbb
+ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
+ms.openlocfilehash: 60d7b6cf3fdce3c988da7c16c0367013be2cafec
 
 ---
 
-# Déploiement d’un hôte de conteneurs – Windows Server
-
-Les étapes du déploiement d’un hôte de conteneur Windows sont différentes selon le système d’exploitation et le type de système hôte (physique ou virtuel). Ce document décrit en détail le déploiement d’un hôte de conteneur Windows vers Windows Server 2016 ou Windows Server Core 2016, sur un système physique ou virtuel.
-
-## Installer Docker
-
-Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. 
-
-Pour installer Docker, nous allons utiliser le [module PowerShell de fournisseur OneGet](https://github.com/oneget/oneget). Le fournisseur active la fonctionnalité de conteneurs sur votre ordinateur et installe Docker. Cette opération nécessite un redémarrage. 
-
-Ouvrez une session PowerShell avec élévation de privilèges, puis exécutez les commandes suivantes.
-
-Nous allons d’abord installer le module PowerShell OneGet.
-
-```none
-Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
-```
-
-Ensuite, nous utilisons OneGet pour installer la dernière version de Docker.
-
-```none
-Install-Package -Name docker -ProviderName DockerMsftProvider
-```
-
-Une fois l’installation terminée, redémarrez l’ordinateur.
-
-```none
-Restart-Computer -Force
-```
-
-## Installer les images de conteneur de base
-
-Avant de travailler avec des conteneurs Windows, une image de base doit être installée. Les images de base sont disponibles avec Windows Server Core ou Nano Server comme système d’exploitation sous-jacent. Pour plus d’informations sur les images de conteneur Docker, consultez [Build your own images (Créer vos propres images) sur docker.com](https://docs.docker.com/engine/tutorials/dockerimages/).
-
-Exécutez la commande suivante pour installer l’image de base Windows Server Core :
-
-```none
-docker pull microsoft/windowsservercore
-```
-
-Pour installer l’image de base Nano Server, exécutez la commande suivante :
-
-```none
-docker pull microsoft/nanoserver
-```
-
-> Veuillez lire les termes du contrat de licence applicables à l’image de système d’exploitation des conteneurs Windows, disponibles [ici](../Images_EULA.md).
-
-## Hôte de conteneurs Hyper-V
-
-Pour exécuter des conteneurs Hyper-V, le rôle Hyper-V est nécessaire. Si l’hôte de conteneur Windows est lui-même une machine virtuelle Hyper-V, la virtualisation imbriquée doit être activée avant d’installer le rôle Hyper-V. Pour plus d’informations sur la virtualisation imbriquée, voir [Virtualisation imbriquée]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting).
-
-### Virtualisation imbriquée
-
-Le script suivant configure la virtualisation imbriquée pour l’hôte de conteneur. Ce script est exécuté sur l’ordinateur Hyper-V parent. Vérifiez que la machine virtuelle de l’hôte de conteneur est désactivée lors de l’exécution de ce script.
-
-```none
-#replace with the virtual machine name
-$vm = "<virtual-machine>"
-
-#configure virtual processor
-Set-VMProcessor -VMName $vm -ExposeVirtualizationExtensions $true -Count 2
-
-#disable dynamic memory
-Set-VMMemory $vm -DynamicMemoryEnabled $false
-
-#enable mac spoofing
-Get-VMNetworkAdapter -VMName $vm | Set-VMNetworkAdapter -MacAddressSpoofing On
-```
-
-### Activer le rôle Hyper-V
-
-Pour activer la fonctionnalité Hyper-V à l’aide de PowerShell, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges.
-
-```none
-Install-WindowsFeature hyper-v
-```
 
 
-
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

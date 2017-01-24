@@ -1,3 +1,19 @@
+---
+title: Exemples de conteneurs Windows
+description: "Découvrez des liens vers des projets populaires et des exemples de code utilisant des conteneurs Windows."
+keywords: Docker, conteneurs, Windows, exemples
+author: enderb-ms
+ms.date: 12/19/2016
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: 5c6f6350-f8d6-4426-b53d-9fb09c2bf267
+translationtype: Human Translation
+ms.sourcegitcommit: b2950dca4b29e97eb951379645c118468a1fb403
+ms.openlocfilehash: eac2026cff552315a4cb256b595f1bd3317ee11c
+
+---
+
 # Exemples de conteneurs Windows
 
 Il s’agit d’une collection d’exemples soumis par l’équipe Windows et les membres de la communauté.  Ces exemples sont fournis en l’état et sans aucune garantie.  N’hésitez pas à ajouter d’autres exemples ou à améliorer la collection actuelle.
@@ -64,6 +80,7 @@ Il s’agit d’une collection d’exemples soumis par l’équipe Windows et le
 ## Autre
 
 
-<!--HONumber=Oct16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 

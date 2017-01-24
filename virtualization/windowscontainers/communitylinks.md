@@ -1,5 +1,21 @@
+---
+title: "Vidéos et blogs de la communauté"
+description: "Liens vers des vidéos et des blogs très intéressants proposés par la communauté sur les conteneurs Windows"
+keywords: Docker, conteneurs, Windows, exemples
+author: taylorb-microsoft
+ms.date: 12/19/2016
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: cfbb2542-fead-48e7-8318-4da92a7b5b6f
+translationtype: Human Translation
+ms.sourcegitcommit: b721971f1ba0ab5369dc8b0917f57dfe187a618c
+ms.openlocfilehash: 81f84901bdbd9764db8d73b8e01527f49beeb774
+
+---
+
 # Vidéos et blogs de la communauté
-Cette page contient des liens vers les vidéos et les blogs créés par les membres de la communauté sur les conteneurs.  Si vous connaissez une ressource intéressante ou si vous en avez vous-même créé une, envoyez une demande de publication pour l’ajouter à cette liste.
+Cette page contient des liens vers des vidéos et des blogs créés par des membres de la communauté sur les conteneurs.  Si vous connaissez une ressource intéressante ou si vous en avez vous-même créé une, envoyez une demande de publication pour l’ajouter à cette liste.
 
 ## Démarrage
 [Exécuter des conteneurs Linux et Windows sur Windows 10](https://stefanscherer.github.io/run-linux-and-windows-containers-on-windows-10/) - Stefan Scherer
@@ -22,13 +38,15 @@ Cette page contient des liens vers les vidéos et les blogs créés par les memb
 
 [Mettre les charges de travail Windows dans des conteneurs avec Image2Docker](https://blog.docker.com/2016/10/containerize-windows-workloads-image2docker/) - Mano Marks
 
-[Utiliser Docker Compose et la découverte de service sur Windows pour monter en charger votre application de conteneur multiservice](https://blogs.technet.microsoft.com/virtualization/2016/10/18/use-docker-compose-and-service-discovery-on-windows-to-scale-out-your-multi-service-container-application/) - Kallie Bracken et Jason Messer
+[Utiliser Docker Compose et la découverte de service sur Windows pour monter en charge votre application de conteneur multiservice](https://blogs.technet.microsoft.com/virtualization/2016/10/18/use-docker-compose-and-service-discovery-on-windows-to-scale-out-your-multi-service-container-application/) - Kallie Bracken et Jason Messer
 
+[Exécution de Neo4j dans les conteneurs Windows](http://glennsarti.github.io/blog/neo4j-nano-containers) -Glenn Sarti
 
 ## Configuration et gestion
 [Comment protéger un moteur Windows 2016 Docker avec TLS](https://stefanscherer.github.io/protecting-a-windows-2016-docker-engine-with-tls/) - Stefan Scherer
 
 
-<!--HONumber=Nov16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 
