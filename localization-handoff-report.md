@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\manage-containers\container-networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/13c409e0d83850d3e99593497b3e338582d5be1e/virtualization/windowscontainers/manage-containers/container-networking.md) | HandedOffSuccess | [Details](#7205dce0aef50e9e907092f722232e866083b9a0287)
+ [virtualization\windowscontainers\manage-containers\manage-serviceaccounts.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/1a327806514f1e1b5d2d234b0aa4ce300e26456f/virtualization/windowscontainers/manage-containers/manage-serviceaccounts.md) | HandedOffSuccess | [Details](#0e692f7521e4a15e3e56d4b98f7ca15fe94ee167289)
 
 ## Item Details
-##### <a name='7205dce0aef50e9e907092f722232e866083b9a0287'></a> Source: [virtualization\windowscontainers\manage-containers\container-networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/13c409e0d83850d3e99593497b3e338582d5be1e/virtualization/windowscontainers/manage-containers/container-networking.md)
+##### <a name='0e692f7521e4a15e3e56d4b98f7ca15fe94ee167289'></a> Source: [virtualization\windowscontainers\manage-containers\manage-serviceaccounts.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/1a327806514f1e1b5d2d234b0aa4ce300e26456f/virtualization/windowscontainers/manage-containers/manage-serviceaccounts.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [container-networking.925e90f386932bf7a0a7f6b1b149c3456acbb560.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/16d3fa89aa2477d3d3a9b8c43a6c722a187f73ea/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/container-networking.925e90f386932bf7a0a7f6b1b149c3456acbb560.fr-fr.xlf)
-* Handoff Datetime: 2017-01-25 05:18:04
+* Handoff File: [manage-serviceaccounts.5fcb2b4d167ce751e9a350a047d30c781c75d75a.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/3da97bd04ff0d563790ac6d9c30c5d95a2be155d/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/manage-serviceaccounts.5fcb2b4d167ce751e9a350a047d30c781c75d75a.fr-fr.xlf)
+* Handoff Datetime: 2017-01-26 22:33:24
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
