@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\hyper-v-on-windows\user-guide\setup-nat-network.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/57c69e8d19a9b87e230b760eb86b7b6b701ff983/virtualization/hyper-v-on-windows/user-guide/setup-nat-network.md) | HandedOffSuccess | [Details](#235d804310cac38a4628bc2d931371d390e2d991226)
+ [virtualization\windowscontainers\manage-containers\swarm-mode.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/34838841fab06f0928bece4283c38f6185222dfe/virtualization/windowscontainers/manage-containers/swarm-mode.md) | HandedOffSuccess | [Details](#f7d87c296a2695b8b44479e01e957f63b2f8b5c7299)
 
 ## Item Details
-##### <a name='235d804310cac38a4628bc2d931371d390e2d991226'></a> Source: [virtualization\hyper-v-on-windows\user-guide\setup-nat-network.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/57c69e8d19a9b87e230b760eb86b7b6b701ff983/virtualization/hyper-v-on-windows/user-guide/setup-nat-network.md)
+##### <a name='f7d87c296a2695b8b44479e01e957f63b2f8b5c7299'></a> Source: [virtualization\windowscontainers\manage-containers\swarm-mode.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/34838841fab06f0928bece4283c38f6185222dfe/virtualization/windowscontainers/manage-containers/swarm-mode.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [setup-nat-network.569fba8d30bc800503603312f9faf0554f426411.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/3ac096c3492f30e961770e0044abd9ff8976a00b/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/setup-nat-network.569fba8d30bc800503603312f9faf0554f426411.fr-fr.xlf)
-* Handoff Datetime: 2017-02-16 07:26:16
+* Handoff File: [swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/d28993f9310fb1fd937a3ac71ddc712900a29752/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.fr-fr.xlf)
+* Handoff Datetime: 2017-02-16 18:25:20
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
@@ -21,11 +21,6 @@
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Handback Name: 
-* Current Target File: [virtualization\hyper-v-on-windows\user-guide\setup-nat-network.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/095f790efff1966ec633ba3523d3f6c424273f6f/virtualization/hyper-v-on-windows/user-guide/setup-nat-network.md)
-* Current Handback File: [setup-nat-network.569fba8d30bc800503603312f9faf0554f426411.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/setup-nat-network.569fba8d30bc800503603312f9faf0554f426411.fr-fr.xlf)
-* Current Handback Datetime: 2017-01-24 13:19:03
-* Bilingual File: [setup-nat-network.569fba8d30bc800503603312f9faf0554f426411.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/setup-nat-network.569fba8d30bc800503603312f9faf0554f426411.fr-fr.xlf)
-* Bilingual Datetime: 2017-01-24 13:21:39
 * [Back to Top](#report-top)
 
 
