@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\images-eula.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/2457cb2140020709858156dd2980836b58aa846e/virtualization/windowscontainers/images-eula.md) | HandedOffSuccess | [Details](#a1553a32f6e2e7ae25473352671a666e20232638283)
+ [virtualization\windowscontainers\communitylinks.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ff1ef85258a31a5c5a2a065b65019e39cab93125/virtualization/windowscontainers/communitylinks.md) | HandedOffSuccess | [Details](#b6c25285c3cee3a863bef40c34a1cf13b66b42fb255)
 
 ## Item Details
-##### <a name='a1553a32f6e2e7ae25473352671a666e20232638283'></a> Source: [virtualization\windowscontainers\images-eula.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/2457cb2140020709858156dd2980836b58aa846e/virtualization/windowscontainers/images-eula.md)
+##### <a name='b6c25285c3cee3a863bef40c34a1cf13b66b42fb255'></a> Source: [virtualization\windowscontainers\communitylinks.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ff1ef85258a31a5c5a2a065b65019e39cab93125/virtualization/windowscontainers/communitylinks.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [images-eula.fff511a62eeca8d3e2fcf559a34f9c106073c65a.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/c93d11862df827e9a06c134af7381fbd75b40b2a/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/images-eula.fff511a62eeca8d3e2fcf559a34f9c106073c65a.fr-fr.xlf)
-* Handoff Datetime: 2017-02-21 23:25:19
+* Handoff File: [communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/6f8bc77161604953ad9a1640c6e63212111d074b/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.fr-fr.xlf)
+* Handoff Datetime: 2017-02-22 00:25:46
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
@@ -21,11 +21,11 @@
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Handback Name: 
-* Current Target File: [virtualization\windowscontainers\Images_EULA.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/f132b69d2af2797ad6669749eeead64e7f8f6da7/virtualization/windowscontainers/Images_EULA.md)
-* Current Handback File: [Images_EULA.8442f49b25e0f024a1a1a85c9b96eefeb0dead97.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dd9c816164711d0c8ab850d9f8d776844b33c2d9/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/Images_EULA.8442f49b25e0f024a1a1a85c9b96eefeb0dead97.fr-fr.xlf)
-* Current Handback Datetime: 2016-09-29 10:35:59
-* Bilingual File: [Images_EULA.8442f49b25e0f024a1a1a85c9b96eefeb0dead97.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dd9c816164711d0c8ab850d9f8d776844b33c2d9/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/Images_EULA.8442f49b25e0f024a1a1a85c9b96eefeb0dead97.fr-fr.xlf)
-* Bilingual Datetime: 2016-09-29 10:36:34
+* Current Target File: [virtualization\windowscontainers\communitylinks.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/095f790efff1966ec633ba3523d3f6c424273f6f/virtualization/windowscontainers/communitylinks.md)
+* Current Handback File: [communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.fr-fr.xlf)
+* Current Handback Datetime: 2017-01-24 13:19:03
+* Bilingual File: [communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.fr-fr.xlf)
+* Bilingual Datetime: 2017-01-24 13:21:39
 * [Back to Top](#report-top)
 
 
