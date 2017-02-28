@@ -5978,19 +5978,16 @@
 
 ##### <a name='091a3570291624a3be40e3aabb9f99a482cb6470363'></a> Source: [virtualization\windowscontainers\quick-start\quick-start-windows-10.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/996d3b1a8f7c8325ac66d331e1d62208c0cf6b53/virtualization/windowscontainers/quick-start/quick-start-windows-10.md)
 * Status: HandedOffSuccess
-* Target File: 
+* Target File: [virtualization\windowscontainers\quick-start\quick-start-windows-10.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/095f790efff1966ec633ba3523d3f6c424273f6f/virtualization/windowscontainers/quick-start/quick-start-windows-10.md)
 * Handoff File: [quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/77c3582bbe3eb8bdd279db767f9412cf9c28ed69/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.fr-fr.xlf)
 * Handoff Datetime: 2017-02-27 19:25:09
 * Handoff Reason: Include
-* Handoff Name: 
+* Handoff Name: AutoHB or PrioChange:
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Handback Name: 
-* Current Target File: [virtualization\windowscontainers\quick-start\quick-start-windows-10.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/095f790efff1966ec633ba3523d3f6c424273f6f/virtualization/windowscontainers/quick-start/quick-start-windows-10.md)
-* Current Handback File: [quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.fr-fr.xlf)
-* Current Handback Datetime: 2017-01-24 13:19:03
+* Handback File: [quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.fr-fr.xlf)
+* Handback Datetime: 2017-01-24 13:19:03
+* Handback Name: AutoHB or PrioChange:
 * Bilingual File: [quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.fr-fr.xlf)
 * Bilingual Datetime: 2017-01-24 13:21:39
 * [Back to Top](#report-top)
