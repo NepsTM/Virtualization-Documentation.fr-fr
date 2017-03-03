@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "b1fc1b294413d6d450df6a27adc115e0cb54eace",
+  "LastProcessedCommit": "4558a3aa5b052f22124a4688f8afee4c17f12571",
   "LastTranslatedCommit": "095f790efff1966ec633ba3523d3f6c424273f6f",
   "LastTansformerVersion": null,
   "LastConfigHash": "97aa9891b5f8be1205922c8335678705b15f1e5b",
@@ -35940,7 +35940,7 @@
     },
     "495bd9228e93a1981a646f13e2e583a741eec217": {
       "FileHash": "495bd9228e93a1981a646f13e2e583a741eec217",
-      "SourceFileCommit": "b2699f1ec29e4b84b6c6af3b64969457ce7b58b6",
+      "SourceFileCommit": "a193002059a4f1fd0e81689deae02846da01736f",
       "SourceFilePath": "virtualization\\hyper-v-on-windows\\reference\\tlfs.md",
       "HandoffReason": 1,
       "DependencyFrom": null,
@@ -35951,8 +35951,8 @@
       "HasMetadata": true,
       "TranslationType": 1,
       "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\tlfs.1bc1ee9abc2adf060143e30b11346b0456729304.fr-fr.xlf",
-      "HandoffFileCommit": "298406cabe7d9adc5ad2836188f678c2dce4d9b8",
-      "HandoffDateTime": "2017-02-27T21:23:35.4227065Z",
+      "HandoffFileCommit": "5d0a26b762cf5b7ab1cc30633370873fa6a63d42",
+      "HandoffDateTime": "2017-03-03T01:11:42.9368192Z",
       "HandoffXliffHash": "0a10b6ef47fde14840a338e410c1d4425177f8e1",
       "HandoffName": null,
       "HandoffPriority": "",
