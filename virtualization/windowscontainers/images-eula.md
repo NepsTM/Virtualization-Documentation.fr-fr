@@ -9,21 +9,14 @@ Microsoft Corporation (ou en fonction du lieu où vous vivez, l’un de ses affi
 
 ## AUTRES CONDITIONS DE LICENCE ET/OU DROITS D’UTILISATION 
 
-L’utilisation du Supplément comme spécifié dans le paragraphe précédent peut entraîner la création ou la modification d’une image de conteneur (« Image de Conteneur ») qui inclut certains composants du Supplément. Pour plus de clarté, une Image de Conteneur est séparée et distincte d’une image d’appliance virtuelle ou de machine virtuelle.  Conformément à ces termes de licence, nous vous accordons des droits limités pour redistribuer ces 
+L’utilisation du Supplément comme spécifié dans le paragraphe précédent peut entraîner la création ou la modification d’une image de conteneur (« Image de Conteneur ») qui inclut certains composants du Supplément. Pour plus de clarté, une Image de Conteneur est séparée et distincte d’une image d’appliance virtuelle ou de machine virtuelle.  Conformément à ces termes du contrat de licence, nous vous accordons des droits limités pour redistribuer ces composants du Supplément dans les conditions suivantes :
 
-composants du Supplément dans les conditions suivantes :
-    
-    - (i) vous êtes autorisé à utiliser les composants du Supplément uniquement pour l’usage prévu dans votre Image de Conteneur ;
-    - (ii) vous êtes autorisé à utiliser ces composants du Supplément dans votre Image de Conteneur à condition que les fonctionnalités importantes et majeures utilisées dans votre Image de Conteneur soient matériellement séparées et distinctes du Supplément ; et 
-    - (iii) vous acceptez d’inclure ces termes du contrat de licence (ou d’autres termes similaires exigés par Microsoft ou un hébergeur) avec votre Image de Conteneur pour accorder une licence d’utilisation des composants du Supplément à vos utilisateurs finaux.
+  - (i) vous êtes autorisé à utiliser les composants du Supplément uniquement pour l’usage prévu dans votre Image de Conteneur ;
+  - (ii) vous êtes autorisé à utiliser ces composants du Supplément dans votre Image de Conteneur à condition que les fonctionnalités importantes et majeures utilisées dans votre Image de Conteneur soient matériellement séparées et distinctes du Supplément ; et 
+  - (iii) vous acceptez d’inclure ces termes du contrat de licence (ou d’autres termes similaires exigés par Microsoft ou un hébergeur) avec votre Image de Conteneur pour accorder une licence d’utilisation des composants du Supplément à vos utilisateurs finaux.
 
 Tous les droits qui ne sont pas expressément concédés par ce contrat sont réservés par Microsoft.
 
 En utilisant ce Supplément, vous reconnaissez accepter ces termes de contrat. Si vous ne les acceptez pas, n’utilisez pas ce Supplément.
 
 Conformément aux Termes supplémentaires du Contrat de licence de cette Image de système d’exploitation de conteneur pour les conteneurs Windows, vous êtes également soumis aux termes du contrat de licence du logiciel hôte Windows Server sous-jacent, qui sont décrits sur https://www.microsoft.com/fr-fr/useterms.  
-
-
-<!--HONumber=Sep16_HO4-->
-
-

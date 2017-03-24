@@ -9,8 +9,9 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 532195c6-564b-4954-97c2-5a5795368c09
 translationtype: Human Translation
-ms.sourcegitcommit: 2cf6d04c4a8de0148a2f981d21bec72cff23f6e8
-ms.openlocfilehash: 8cba7f02a0633b50d239a414d408cef81bea9c6b
+ms.sourcegitcommit: f6ff0ec825091ad30016be958ff7f55ff6a907ed
+ms.openlocfilehash: 67513f6ee7d990f4d9086dfd63fb719374377b1f
+ms.lasthandoff: 03/01/2017
 
 ---
 
@@ -30,27 +31,29 @@ Cet exercice montre comment créer un commutateur virtuel externe. Lorsque vous 
 1. Ouvrez le Gestionnaire Hyper-V.  Une méthode rapide consiste à appuyer sur la touche ou le bouton Windows, puis à taper « Gestionnaire Hyper-V ».  
 Si la recherche ne trouve pas le Gestionnaire Hyper-V, cela signifie qu’Hyper-V ou les outils de gestion Hyper-V ne sont pas activés.  Consultez les instructions d’activation d’Hyper-V [ici](enable-hyper-v.md).
 
-2. Dans le Gestionnaire Hyper-V, sélectionnez **Gestionnaire de commutateur virtuel...** dans le menu « Actions » sur la droite.
+2. Sélectionnez le serveur dans le volet gauche ou cliquez sur « Se connecter au serveur... » dans le volet droit.
 
-3. Dans la section « Commutateurs virtuels », sélectionnez **Nouveau commutateur réseau virtuel**.
+3. Dans le Gestionnaire Hyper-V, sélectionnez **Gestionnaire de commutateur virtuel...** dans le menu « Actions » situé sur la droite. 
 
-4. Sous « Quel type de commutateur virtuel voulez-vous créer ? », sélectionnez **Externe**.
+4. Dans la section « Commutateurs virtuels », sélectionnez **Nouveau commutateur réseau virtuel**.
 
-5. Sélectionnez le bouton **Créer un commutateur virtuel**.
+5. Sous « Quel type de commutateur virtuel voulez-vous créer ? », sélectionnez **Externe**.
 
-6. Sous « Propriétés du commutateur virtuel », attribuez un nom au nouveau commutateur, par exemple **Commutateur de machine virtuelle externe**.
+6. Sélectionnez le bouton **Créer un commutateur virtuel**.
 
-7. Sous « Type de connexion », vérifiez que l’option **Réseau externe** est sélectionnée.
+7. Sous « Propriétés du commutateur virtuel », attribuez un nom au nouveau commutateur, par exemple **Commutateur de machine virtuelle externe**.
 
-8. Sélectionnez la carte réseau physique à associer au nouveau commutateur virtuel. Il s’agit de la carte réseau qui est physiquement connectée au réseau.  
+8. Sous « Type de connexion », vérifiez que l’option **Réseau externe** est sélectionnée.
+
+9. Sélectionnez la carte réseau physique à associer au nouveau commutateur virtuel. Il s’agit de la carte réseau qui est physiquement connectée au réseau.  
 
     ![](media/newSwitch_upd.png)
 
-9. Sélectionnez **Appliquer** pour créer le commutateur virtuel. À ce stade, il est probable que le message ci-dessous s’affiche. Cliquez sur **Oui** pour continuer.
+10. Sélectionnez **Appliquer** pour créer le commutateur virtuel. À ce stade, il est probable que le message ci-dessous s’affiche. Cliquez sur **Oui** pour continuer.
 
     ![](media/pen_changes_upd.png)  
 
-10. Sélectionnez **OK** pour fermer la fenêtre Gestionnaire de commutateur virtuel.
+11. Sélectionnez **OK** pour fermer la fenêtre Gestionnaire de commutateur virtuel.
 
 
 ### Créer un commutateur virtuel avec PowerShell
@@ -98,9 +101,4 @@ Si vous exécutez Windows 10 Hyper-V sur un ordinateur portable et que vous bas
 
 ## Étape suivante : créer une machine virtuelle
 [Créer une machine virtuelle Windows](create-virtual-machine.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

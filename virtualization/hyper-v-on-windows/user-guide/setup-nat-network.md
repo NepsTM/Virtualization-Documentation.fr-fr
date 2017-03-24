@@ -9,8 +9,9 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1f8a691c-ca75-42da-8ad8-a35611ad70ec
 translationtype: Human Translation
-ms.sourcegitcommit: 2cf6d04c4a8de0148a2f981d21bec72cff23f6e8
-ms.openlocfilehash: 4e758b9ca6b318930e397685097a7769a9600099
+ms.sourcegitcommit: 57c69e8d19a9b87e230b760eb86b7b6b701ff983
+ms.openlocfilehash: 235d804310cac38a4628bc2d931371d390e2d991
+ms.lasthandoff: 02/16/2017
 
 ---
 
@@ -24,10 +25,10 @@ Ce guide vous aidera tout au long des processus suivants :
 * Vérification que la machine virtuelle est correctement connectée
 
 Configuration requise :
-* Windows build 14295 ou ultérieures
-* Le rôle Hyper-V est activé (instructions [ici](../quick-start/enable-hyper-v.md))
+* Mise à jour anniversaire Windows 10 ou ultérieure
+* Hyper-V est activé (instructions [ici](../quick-start/enable-hyper-v.md))
 
-> **Remarque :** Actuellement, Hyper-V vous permet uniquement de créer un réseau NAT. Pour plus d’informations sur l’implémentation de NAT Windows (WinNAT), les fonctionnalités et les limitations, lisez le billet de blog [WinNAT capabilities and limitations](https://blogs.technet.microsoft.com/virtualization/2016/05/25/windows-nat-winnat-capabilities-and-limitations/)
+> **Remarque :** pour le moment, vous devez créer un réseau NAT par hôte. Pour plus d’informations sur l’implémentation, les fonctionnalités et les limitations de NAT Windows (WinNAT), reportez-vous au billet de blog [Fonctionnalités et limitations de WinNAT](https://blogs.technet.microsoft.com/virtualization/2016/05/25/windows-nat-winnat-capabilities-and-limitations/)
 
 ## Vue d’ensemble de NAT
 NAT permet à une machine virtuelle d’accéder à des ressources réseau à l’aide de l’adresse IP de l’ordinateur hôte et d’un port via un commutateur virtuel Hyper-V interne.
@@ -239,8 +240,8 @@ PS>    }
 PS> }
 PS> remove-netnat -Confirm:$false
 PS> Get-ContainerNetwork | Remove-ContainerNetwork
-PS> Get-VmSwitch -Name nat | Remove-VmSwitch (_failure is expected_)
-PS> Stop-Service docker
+PS>    Get-VmSwitch -Name nat | Remove-VmSwitch (_failure is expected_)
+PS>    Stop-Service docker
 PS> Set-Service docker -StartupType Disabled
 Reboot Host
 PS> Get-NetNat | Remove-NetNat
@@ -252,9 +253,4 @@ Consultez ce [guide d’installation concernant l’utilisation du même NAT par
 
 ## Références
 En savoir plus sur les [réseaux NAT](https://en.wikipedia.org/wiki/Network_address_translation)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

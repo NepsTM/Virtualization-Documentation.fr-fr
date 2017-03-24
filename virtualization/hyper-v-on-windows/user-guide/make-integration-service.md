@@ -1,7 +1,7 @@
 ---
 title: "Créez vos propres services d’intégration"
 description: "Services d’intégration Windows 10."
-keywords: "Windows 10, Hyper-V"
+keywords: "windows 10, hyper-v, HVSocket, AF_HYPERV"
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
@@ -9,22 +9,21 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
 translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: 9e4be610f02e12f48fb88464eb8075b97996d5b2
+ms.sourcegitcommit: b6b63318ed71931c2b49039e57685414f869a945
+ms.openlocfilehash: 19e8cf269b0bef127fb06d2c99391107cd8683b1
+ms.lasthandoff: 02/16/2017
 
 ---
 
 # Créez vos propres services d’intégration
 
-À partir de Windows 10, tout le monde peut rendre un service très similaire aux services d’intégration Hyper-V prédéfinis en utilisant un nouveau canal de communication par socket entre l’hôte Hyper-V et les machines virtuelles qui s’y exécutent.  Grâce à ces sockets Hyper-V, les services peuvent s’exécuter indépendamment de la pile réseau et toutes les données restent sur la même mémoire physique.
+Depuis la Mise à jour anniversaire Windows 10, tous les utilisateurs peuvent créer des applications qui communiquent entre l’hôte Hyper-V et ses ordinateurs virtuels à l’aide de sockets Hyper-V (socket Windows doté d’une nouvelle famille d’adresses et d’un point de terminaison spécialisé pour cibler des ordinateurs virtuels).  Toute la communication sur les sockets Hyper-V s’exécute sans l’aide de la mise en réseau, et toutes les données restent sur la même mémoire physique.   Les applications utilisant des sockets Hyper-V sont semblables aux services d’intégration de Hyper-V.
 
-Ce document décrit la création d’une application simple basée sur les sockets Hyper-V et explique comment commencer à les utiliser.
-
-[PowerShell Direct](../user-guide/powershell-direct.md) est un exemple d’application (ici un service Windows prédéfini) qui utilise des sockets Hyper-V pour communiquer.
+Ce document décrit la création d’un programme simple qui repose sur les sockets Hyper-V.
 
 **Système d’exploitation hôte pris en charge**
-* Windows 10 build 14290 et ultérieures
-* Windows Server Technical Preview 4 et versions ultérieures
+* Prise en charge assurée sur Windows 10
+* Windows Server 2016
 * Versions futures (après Server 2016)
 
 **Système d’exploitation invité pris en charge**
@@ -36,33 +35,18 @@ Ce document décrit la création d’une application simple basée sur les socke
 **Fonctionnalités et limitations**  
 * Prend en charge les actions du mode utilisateur ou du mode noyau  
 * Flux de données uniquement      
-* Aucune mémoire de bloc (ce qui n’est pas optimal pour la sauvegarde/vidéo)   
+* Aucune mémoire de bloc (ce qui n’est pas optimal pour la sauvegarde/vidéo) 
 
 --------------
 
-## Mise en route
-Pour le moment, les sockets Hyper-V sont disponibles en code natif (C/C++).  
+## Prise en main
 
-Pour écrire une application simple, vous avez besoin des éléments suivants :
-* Compilateur C.  Si vous n’en avez pas, voir [Visual Studio Community](https://aka.ms/vs)
-* Ordinateur exécutant Hyper-V et une machine virtuelle.  
-  * Le système d’exploitation hôte et invité (machine virtuelle) doit être Windows 10, Windows Server Technical Preview 3, ou version ultérieure.
-* [SDK Windows 10](http://aka.ms/flightingSDK) installé sur l’hôte Hyper-V
+Configuration requise :
+* Compilateur C/C++.  Si vous n’en avez pas, voir [Visual Studio Community](https://aka.ms/vs)
+* [Kit de développement logiciel (SDK) Windows 10](https://developer.microsoft.com/windows/downloads/windows-10-sdk) -- préinstallé dans Visual Studio 2015 avec Update 3 et versions ultérieures.
+* Un ordinateur exécutant l’un des systèmes d’exploitation hôtes indiqués ci-dessus avec au moins un ordinateur virtuel. -- cela convient pour le test de votre application.
 
-**Détails sur le SDK Windows**
-
-Liens vers le SDK Windows :
-* [SDK Windows 10 pour la version préliminaire Windows Insiders](http://aka.ms/flightingSDK)
-* [SDK Windows 10](https://dev.windows.com/en-us/downloads/windows-10-sdk)
-
-L’API pour les sockets Hyper-V est disponible depuis Windows 10 build 14290 : le téléchargement de la version d’évaluation correspond à la dernière build d’évaluation Fast Track interne.  
-Si vous êtes confronté à un comportement étrange, faites-le nous savoir dans le [forum TechNet](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home "TechNet Forums").  Dans votre billet, indiquez :
-* le comportement inattendu ; 
-* les numéros de build et de système d’exploitation pour l’hôte, l’invité et le Kit de développement logiciel.  
-  
-  Le numéro de build du Kit de développement logiciel est visible dans le titre du programme d’installation du Kit de développement logiciel :  
-  ![](./media/flightingSDK.png)
-
+> **Remarque :** l’API des sockets Hyper-V a été mise à la disposition du public dans Windows 10 peu de temps après.  Les applications qui utilisent HVSocket s’exécutent sur n’importe quel hôte ou invité Windows 10, mais elles ne peuvent être développées qu’avec un SDK Windows ultérieur à la build 14290.  
 
 ## Inscrire une nouvelle application
 Pour utiliser des sockets Hyper-V, l’application doit être inscrite auprès du Registre de l’hôte Hyper-V.
@@ -76,18 +60,18 @@ La commande PowerShell suivante inscrit une nouvelle application appelée « HV
 ``` PowerShell
 $friendlyName = "HV Socket Demo"
 
-# Create a new random GUID and add it to the services list then add the name as a value
-
+# Create a new random GUID.  Add it to the services list
 $service = New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices" -Name ((New-Guid).Guid)
 
+# Set a friendly name 
 $service.SetValue("ElementName", $friendlyName)
 
 # Copy GUID to clipboard for later use
 $service.PSChildName | clip.exe
 ```
 
-** Emplacement du Registre et informations **  
 
+**Emplacement du Registre et informations :**  
 ``` 
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices\
 ```  
@@ -105,17 +89,17 @@ L’entrée de Registre doit ressembler à ceci :
 ```
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices\
     999E53D4-3D5C-4C3E-8779-BED06EC056E1\
-        ElementName REG_SZ  VM Session Service
+        ElementName    REG_SZ    VM Session Service
     YourGUID\
-        ElementName REG_SZ  Your Service Friendly Name
+        ElementName    REG_SZ    Your Service Friendly Name
 ```
 
-> ** Conseil : ** pour générer un GUID dans PowerShell et le copier dans le Presse-papiers, exécutez :  
+> **Conseil : ** pour générer un GUID dans PowerShell et le copier dans le Presse-papiers, exécutez :  
 ``` PowerShell
 (New-Guid).Guid | clip.exe
 ```
 
-## Création d’un socket Hyper-V
+## Créer un socket Hyper-V
 
 Dans le cas le plus simple, la définition d’un socket exige une famille d’adresses, un type de connexion et un protocole.
 
@@ -143,7 +127,7 @@ SOCKET sock = socket(AF_HYPERV, SOCK_STREAM, HV_PROTOCOL_RAW);
 ```
 
 
-## Liaison à un socket Hyper-V
+## Lier à un socket Hyper-V
 
 La fonction bind associe un socket à des informations de connexion.
 
@@ -194,7 +178,7 @@ Il existe également un ensemble de caractères génériques VMID disponibles qu
 | HV_GUID_PARENT | a42e7cda-d03f-480c-9cc2-a4de20abb878 | Adresse parente. L’utilisation de ce VMID permet de se connecter à la partition parente du connecteur.* |
 
 
-***HV_GUID_PARENT**  
+\* `HV_GUID_PARENT`  
 Le parent d’une machine virtuelle est son hôte.  Le parent d’un conteneur est l’hôte du conteneur.  
 Une connexion à partir d’un conteneur exécuté dans une machine virtuelle permet de se connecter à la machine virtuelle qui héberge le conteneur.  
 L’écoute sur ce VMID permet d’accepter une connexion depuis :  
@@ -211,10 +195,7 @@ Send()
 Listen()  
 Accept()  
 
+## Liens utiles
 [API WinSock complète](https://msdn.microsoft.com/en-us/library/windows/desktop/ms741394.aspx)
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-
+[Informations de référence sur les services d’intégration Hyper-V](../reference/integration-services.md)

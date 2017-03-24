@@ -21,7 +21,9 @@
 ## [Fichiers Dockerfile sur Windows](docker/manage_windows_dockerfile.md)
 ## [Optimiser les fichiers Dockerfile](docker/optimize_windows_dockerfile.md)
 ## [Mise en réseau de conteneur](management/container_networking.md)
+## [Prise en main du mode Swarm](manage-containers/swarm-mode.md)
 ## [Gérer Docker avec PowerShell](https://github.com/Microsoft/Docker-PowerShell)
+## [Gestion à distance d’un hôte Windows Docker](management/manage_remotehost.md)
 
 # Exemples de conteneurs
 ## [Infrastructures des applications](samples.md#Application-Frameworks)
@@ -39,8 +41,3 @@
 
 
 # [CLUF de l’image de système d’exploitation des conteneurs](Images_EULA.md)
-
-
-<!--HONumber=Nov16_HO3-->
-
-

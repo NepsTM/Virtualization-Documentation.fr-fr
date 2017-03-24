@@ -9,8 +9,9 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
 translationtype: Human Translation
-ms.sourcegitcommit: 2cf6d04c4a8de0148a2f981d21bec72cff23f6e8
-ms.openlocfilehash: c87e964aac32183eddf000d84d96ffa1122075f7
+ms.sourcegitcommit: 359e29de50a51e0d3db263c46861ae6814f277d2
+ms.openlocfilehash: 8b2f4103ad0048a99e9befeb47d370a9b5cd092f
+ms.lasthandoff: 03/01/2017
 
 ---
 
@@ -52,7 +53,7 @@ Une fois l’installation terminée, vous devez redémarrer votre ordinateur.
 
 ### Activer Hyper-V avec CMD et DISM
 
-L’outil Gestion et maintenance des images de déploiement (DISM, Deployment Image Servicing and Management) vous aide à configurer Windows et les images Windows.  DSIM permet, entre autres, d’activer des fonctionnalités Windows pendant que le système d’exploitation est en cours d’exécution.  
+L’outil Gestion et maintenance des images de déploiement (DISM) vous aide à configurer Windows et les images Windows.  DSIM permet, entre autres, d’activer des fonctionnalités Windows pendant que le système d’exploitation est en cours d’exécution.  
 
 Pour activer le rôle Hyper-V à l’aide de DISM :
 1. Ouvrez une session PowerShell ou CMD en tant qu’administrateur.
@@ -82,9 +83,4 @@ Une fois l’installation terminée, vous êtes invité à redémarrer votre ord
 
 ## Étape suivante : configurer un réseau
 [Connectez-vous à Internet.](connect-to-network.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -9,8 +9,9 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: b0903a3e00b92bc60e26282dde072b66030ada09
+ms.sourcegitcommit: e714d4dc22c0049d3365d4a4f3c11d072f46a161
+ms.openlocfilehash: 7d16fcf22187ae3ace25fe1bedbc02f3c6b63eb8
+ms.lasthandoff: 02/14/2017
 
 ---
 
@@ -34,7 +35,7 @@ La virtualisation imbriquée est une fonctionnalité qui vous permet d’exécut
 Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
 ```
 3. Démarrez l'ordinateur virtuel.
-4. Installez Hyper-V sur la machine virtuelle, comme vous le feriez sur un serveur physique. Pour plus d’informations sur l’installation d’Hyper-V, consultez [Installer Hyper-V]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_install).
+4. Installez Hyper-V sur la machine virtuelle, comme vous le feriez sur un serveur physique. Pour plus d’informations sur l’installation d’Hyper-V, consultez [Installer Hyper-V](../quick-start/enable-hyper-v.md).
 
 ## Désactiver la virtualisation imbriquée
 Vous pouvez désactiver la virtualisation imbriquée d’une machine virtuelle à l’arrêt à l’aide de la commande PowerShell suivante :
@@ -76,9 +77,4 @@ Netsh interface ip add dnsserver “Ethernet” address=<my DNS server>
 
 ## Applications de virtualisation tierces
 Les applications de virtualisation autres que Hyper-V ne sont pas prises en charge sur les machines virtuelles Hyper-V et sont susceptibles d’échouer. Cela inclut tout logiciel qui requiert des extensions matérielles pour la virtualisation.
-
-
-
-<!--HONumber=Oct16_HO4-->
-
 

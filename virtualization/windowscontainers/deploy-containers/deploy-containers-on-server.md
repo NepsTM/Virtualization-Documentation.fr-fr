@@ -9,8 +9,9 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
 translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: 6e113b5ddc74b5a4e6ee23b06ef635a7ba0d4693
+ms.sourcegitcommit: c08793b0f9cc7e6f34696dd2e843ef6e6deea2a4
+ms.openlocfilehash: 12c7c713468618a9fedc82ec5a1c488f57edcfd7
+ms.lasthandoff: 02/08/2017
 
 ---
 
@@ -22,17 +23,17 @@ Les étapes du déploiement d’un hôte de conteneur Windows sont différentes 
 
 Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. 
 
-Pour installer Docker, nous allons utiliser le [module PowerShell de fournisseur OneGet](https://github.com/oneget/oneget). Le fournisseur active la fonctionnalité de conteneurs sur votre ordinateur et installe Docker. Cette opération nécessite un redémarrage. 
+Pour installer Docker, nous allons utiliser le [module PowerShell de fournisseur OneGet](https://github.com/OneGet/MicrosoftDockerProvider). Le fournisseur active la fonctionnalité de conteneurs sur votre ordinateur et installe Docker. Cette opération nécessite un redémarrage. 
 
 Ouvrez une session PowerShell avec élévation de privilèges, puis exécutez les commandes suivantes.
 
-Nous allons d’abord installer le module PowerShell OneGet.
+Installez le module PowerShell OneGet.
 
 ```none
 Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
 ```
 
-Ensuite, nous utilisons OneGet pour installer la dernière version de Docker.
+Utilisez OneGet pour installer la dernière version de Docker.
 
 ```none
 Install-Package -Name docker -ProviderName DockerMsftProvider
@@ -46,7 +47,7 @@ Restart-Computer -Force
 
 ## Installer les images de conteneur de base
 
-Avant de travailler avec des conteneurs Windows, une image de base doit être installée. Les images de base sont disponibles avec Windows Server Core ou Nano Server comme système d’exploitation sous-jacent. Pour plus d’informations sur les images de conteneur Docker, consultez [Build your own images (Créer vos propres images) sur docker.com](https://docs.docker.com/engine/tutorials/dockerimages/).
+Avant de travailler avec des conteneurs Windows, une image de base doit être installée. Les images de base sont disponibles avec Windows Server Core ou Nano Server comme système d’exploitation de conteneur. Pour plus d’informations sur les images de conteneur Docker, consultez [Créer vos propres images sur docker.com](https://docs.docker.com/engine/tutorials/dockerimages/).
 
 Exécutez la commande suivante pour installer l’image de base Windows Server Core :
 
@@ -91,9 +92,4 @@ Pour activer la fonctionnalité Hyper-V à l’aide de PowerShell, exécutez la 
 ```none
 Install-WindowsFeature hyper-v
 ```
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

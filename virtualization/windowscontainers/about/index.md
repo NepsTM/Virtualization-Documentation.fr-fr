@@ -9,8 +9,9 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: f4e1102cc7338739e396dadba17150e41716ed93
+ms.sourcegitcommit: 59621ca2db190d5c13034752a08c291e3dc19daa
+ms.openlocfilehash: d68be61b1d462b70986df5cfd6df052b388cec1d
+ms.lasthandoff: 02/08/2017
 
 ---
 
@@ -18,21 +19,19 @@ ms.openlocfilehash: f4e1102cc7338739e396dadba17150e41716ed93
 
 **Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
 
-À l’ère du mobile et du cloud, les applications sont vecteurs d’innovation. Les conteneurs, et l’écosystème qui se développe autour, encouragent les développeurs de logiciels à créer la prochaine génération d’expériences d’applications.
+## Présentation des conteneurs
 
 Regardez une présentation rapide ici : [Conteneurs Windows : développement d’applications modernes avec un contrôle de niveau professionnel](https://youtu.be/Ryx3o0rD5lY).
 
-## Présentation des conteneurs
-
 Ils constituent un environnement d’exploitation isolé, mobile et contrôlé par les ressources.
 
-En fait, un conteneur est un endroit isolé dans lequel une application peut s’exécuter sans affecter le reste du système et sans que le système n’affecte l’application. Les conteneurs sont la prochaine étape de la virtualisation.
+Pour schématiser, un conteneur est un endroit isolé dans lequel une application peut s’exécuter sans toucher les ressources (mémoire, disque, réseau, etc.), des autres conteneurs ou de l'hôte.
 
-Si vous étiez à l’intérieur d’un conteneur, vous vous sentiriez comme dans une machine virtuelle ou un ordinateur physique nouvellement installé. Enfin, pour [Docker](https://www.docker.com/), un conteneur Windows Server peut être géré de la même façon que n’importe quel autre conteneur.
+Un conteneur se présente et agit comme un ordinateur physique ou virtuel nouvellement installé. Un conteneur Windows Server peut être géré avec [Docker](https://www.docker.com/) comme tout autre conteneur.
 
-## Types de conteneurs Windows
+## Types de conteneur Windows
 
-Les conteneurs Windows incluent deux types de conteneurs différents, ou runtimes.
+Les conteneurs Windows incluent deux types de conteneurs différents, ou runtimes.
 
 **Conteneurs Windows Server** : Ils assurent l’isolation des applications via une technologie d’isolation des processus et des espaces de noms. Un conteneur Windows Server partage un noyau avec l’hôte de conteneur et tous les conteneurs exécutés sur l’hôte.
 
@@ -86,10 +85,5 @@ src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-an
 ## Essayer les conteneurs Windows Server
 
 [Présentation du démarrage rapide des conteneurs](../quick_start/quick_start.md)
-
-
-
-
-<!--HONumber=Oct16_HO4-->
 
 

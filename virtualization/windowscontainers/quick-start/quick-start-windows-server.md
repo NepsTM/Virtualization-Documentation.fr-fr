@@ -9,8 +9,9 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: 31a55ead81e05f7dee1d1f4f8a2101114d1ca017
+ms.sourcegitcommit: 76e041aac426604280208f616f7994181112215a
+ms.openlocfilehash: 766a99a74738fa41ef77410c70aefa7e664f014e
+ms.lasthandoff: 03/01/2017
 
 ---
 
@@ -27,7 +28,7 @@ Un système informatique (physique ou virtuel) exécutant Windows Server 2016. 
 > Les mises à jour critiques sont nécessaires au fonctionnement de la fonctionnalité Conteneur Windows. Installez toutes les mises à jour avant de suivre ce didacticiel.
 
 Si vous souhaitez effectuer un déploiement sur Azure, ce [modèle](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-server-container-tools/containers-azure-template) peut vous aider.<br/>
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FVirtualization-Documentation%2Fmaster%2Fwindows-server-container-tools%2Fcontainers-azure-template%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FVirtualization-Documentation%2Flive%2Fwindows-server-container-tools%2Fcontainers-azure-template%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
@@ -38,18 +39,18 @@ Pour installer Docker, nous allons utiliser le [module PowerShell de fournisseur
 
 Ouvrez une session PowerShell avec élévation de privilèges, puis exécutez les commandes suivantes.
 
-Installez d’abord le module PowerShell OneGet.
+Commencez par installer le fournisseur Docker-Microsoft PackageManagement à partir de la galerie PowerShell.
 
 ```none
 Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
 ```
 
-Vous utilisez ensuite OneGet pour installer la dernière version de Docker.
+Utilisez ensuite le module PowerShell PackageManagement pour installer la dernière version de Docker.
 ```none
 Install-Package -Name docker -ProviderName DockerMsftProvider
 ```
 
-Quand PowerShell vous demande si la source du package « DockerDefault » doit être approuvée, tapez A pour poursuivre l’installation. Une fois l’installation terminée, redémarrez l’ordinateur.
+Quand PowerShell vous demande si la source du package « DockerDefault » doit être approuvée, tapez `A` pour poursuivre l’installation. Une fois l’installation terminée, redémarrez l’ordinateur.
 
 ```none
 Restart-Computer -Force
@@ -148,9 +149,4 @@ Pour obtenir des informations détaillées sur la commande Docker Run, voir [Do
 [Images de conteneur sur Windows Server](./quick-start-images.md)
 
 [Conteneurs Windows sur Windows 10](./quick-start-windows-10.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

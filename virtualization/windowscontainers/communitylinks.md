@@ -9,8 +9,9 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: cfbb2542-fead-48e7-8318-4da92a7b5b6f
 translationtype: Human Translation
-ms.sourcegitcommit: b721971f1ba0ab5369dc8b0917f57dfe187a618c
-ms.openlocfilehash: 81f84901bdbd9764db8d73b8e01527f49beeb774
+ms.sourcegitcommit: ff1ef85258a31a5c5a2a065b65019e39cab93125
+ms.openlocfilehash: b6c25285c3cee3a863bef40c34a1cf13b66b42fb
+ms.lasthandoff: 02/22/2017
 
 ---
 
@@ -40,13 +41,12 @@ Cette page contient des liens vers des vidéos et des blogs créés par des memb
 
 [Utiliser Docker Compose et la découverte de service sur Windows pour monter en charge votre application de conteneur multiservice](https://blogs.technet.microsoft.com/virtualization/2016/10/18/use-docker-compose-and-service-discovery-on-windows-to-scale-out-your-multi-service-container-application/) - Kallie Bracken et Jason Messer
 
-[Exécution de Neo4j dans les conteneurs Windows](http://glennsarti.github.io/blog/neo4j-nano-containers) -Glenn Sarti
+[Configuration d’état souhaité PowerShell dans les conteneurs Windows utilisant Docker](http://dille.name/blog/2016/06/17/powershell-desired-state-configuration-psdsc-in-windows-containers-using-docker/) - Nicholas Dille
+
+[Exécution de Neo4j dans les conteneurs Windows](http://glennsarti.github.io/blog/neo4j-nano-containers) - Glenn Sarti
 
 ## Configuration et gestion
 [Comment protéger un moteur Windows 2016 Docker avec TLS](https://stefanscherer.github.io/protecting-a-windows-2016-docker-engine-with-tls/) - Stefan Scherer
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+[Windows #Conteneur Performances des couches](http://dille.name/blog/2017/01/13/windows-container-performance-of-layers/) - Nicholas Dille
 

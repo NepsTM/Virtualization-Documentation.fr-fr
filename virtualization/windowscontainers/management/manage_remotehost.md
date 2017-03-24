@@ -1,0 +1,73 @@
+---
+title: "Gestion à distance d’un hôte Windows Docker"
+description: "Comment gérer en toute sécurité un hôte Docker distant exécutant Windows Server."
+keywords: docker, conteneurs
+author: taylorb-microsoft
+ms.date: 02/14/2017
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: 0cc1b621-1a92-4512-8716-956d7a8fe495
+translationtype: Human Translation
+ms.sourcegitcommit: ac6ee9737fb779debc02eb11bb44fcdb7a8e28d4
+ms.openlocfilehash: f837ef05dec3bd610409389cbf1bfbf9804d9d49
+ms.lasthandoff: 02/14/2017
+
+---
+# Gestion à distance d’un hôte Windows Docker
+
+Même en l’absence de `docker-machine`, il est toujours possible de créer un hôte Docker accessible à distance sur un ordinateur virtuel Windows Server 2016.
+
+Les étapes sont très simples :
+
+* Créez les certificats sur le serveur à l’aide de [dockertls](https://hub.docker.com/r/stefanscherer/dockertls-windows/). Si vous créez les certificats avec une adresse IP, vous voudrez peut-être utiliser une adresse IP statique pour éviter d’avoir à recréer des certificats si l’adresse IP est modifiée.
+
+* Redémarrer le service Docker `Restart-Service Docker`
+* Rendez les ports TLS 2375 et 2376 de Docker disponibles en créant une règle NSG permettant le trafic entrant. Notez que pour les connexions sécurisées, vous devez uniquement autoriser le port 2376. Le portail doit présenter une configuration NSG semblable à ce qui suit : ![NGS](images/nsg.png)
+* Autorisez les connexions entrantes via le Pare-feu Windows. 
+```
+New-NetFirewallRule -DisplayName 'Docker SSL Inbound' -Profile @('Domain', 'Public', 'Private') -Direction Inbound -Action Allow -Protocol TCP -LocalPort 2376
+```
+* Copiez les fichiers `ca.pem`, cert.pem et key.pem contenus dans le dossier Docker de vos utilisateurs sur votre ordinateur, par exemple, `c:\users\chris\.docker` et collez-les sur l’ordinateur local. Par exemple, vous pouvez copier (ctrl-c), puis coller (ctrl-v) les fichiers d’une session RDP. 
+* Vérifiez que vous pouvez vous connecter à l’hôte Docker distant. Exécuter
+```
+docker -D -H tcp://wsdockerhost.southcentralus.cloudapp.azure.com:2376 --tlsverify --tlscacert=c:\
+users\foo\.docker\client\ca.pem --tlscert=c:\users\foo\.docker\client\cert.pem --tlskey=c:\users\foo\.doc
+ker\client\key.pem ps
+```
+
+
+## Résolution des problèmes
+### Essayez de vous connecter sans TLS pour vérifier que les paramètres du pare-feu NSG sont corrects
+Des erreurs de connexion se traduisent généralement par des erreurs telles que :
+```
+error during connect: Get https://wsdockerhost.southcentralus.cloudapp.azure.com:2376/v1.25/version: dial tcp 13.85.27.177:2376: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+```
+
+Autorisez des connexions non chiffrées en ajoutant 
+```
+{
+    "tlsverify":  false,
+}
+```
+à `c"\programdata\docker\config\daemon.json`, puis redémarrez le service.
+
+Connectez-vous à l’hôte distant avec une ligne de commande comme :
+```
+docker -H tcp://wsdockerhost.southcentralus.cloudapp.azure.com:2376 --tlsverify=0 version
+```
+
+### Problèmes de certificat
+L’accès à l’hôte Docker avec un certificat non créé pour l’adresse IP ou le nom DNS se traduira par une erreur :
+```
+error during connect: Get https://w.x.y.c.z:2376/v1.25/containers/json: x509: certificate is valid for 127.0.0.1, a.b.c.d, not w.x.y.z
+```
+Vérifiez que w.x.y.z est le nom DNS correspondant à l’adresse IP publique de l’hôte et que le nom DNS correspond à celui du certificat [Nom commun](https://www.ssl.com/faqs/common-name/), qui était la variable d’environnement `SERVER_NAME` ou l’une des adresses IP dans la variable `IP_ADDRESSES` fournie à dockertls
+
+### avertissement crypto/x509
+Vous pouvez recevoir un avertissement 
+```
+level=warning msg="Unable to use system certificate pool: crypto/x509: system root pool is not available on Windows"
+```
+Cet avertissement est bénin.
+
