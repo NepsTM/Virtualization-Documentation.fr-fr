@@ -1,28 +1,11 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\hyper-v-on-windows\user-guide\refactor-wmiv1-to-wmiv2.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/a424c11258e47f224e14c4349b852b9e37b7604f/virtualization/hyper-v-on-windows/user-guide/refactor-wmiv1-to-wmiv2.md) | HandedOffSuccess | [Details](#e2d6faabe77346199a5d292fcfd92cdfd63909b8236)
 
 ## Item Details
-##### <a name='e2d6faabe77346199a5d292fcfd92cdfd63909b8236'></a> Source: [virtualization\hyper-v-on-windows\user-guide\refactor-wmiv1-to-wmiv2.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/a424c11258e47f224e14c4349b852b9e37b7604f/virtualization/hyper-v-on-windows/user-guide/refactor-wmiv1-to-wmiv2.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [refactor-wmiv1-to-wmiv2.00c218523b0eae13d86068f9df91d6000b811dcd.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/fbd4d254e2c644701036f7636da9ec1c1f9f68e4/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/refactor-wmiv1-to-wmiv2.00c218523b0eae13d86068f9df91d6000b811dcd.fr-fr.xlf)
-* Handoff Datetime: 2017-05-10 22:47:39
-* Handoff Reason: Include
-* Handoff Name: 
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Handback Name: 
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
