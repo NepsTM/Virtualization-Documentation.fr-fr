@@ -1,33 +1,11 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\manage-containers\swarm-mode.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/f01f17620319222f88ae1dd47f00ec149737f2a8/virtualization/windowscontainers/manage-containers/swarm-mode.md) | HandedOffSuccess | [Details](#9acb433e0165d0ca97012dc73363036804298d2d322)
 
 ## Item Details
-##### <a name='9acb433e0165d0ca97012dc73363036804298d2d322'></a> Source: [virtualization\windowscontainers\manage-containers\swarm-mode.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/f01f17620319222f88ae1dd47f00ec149737f2a8/virtualization/windowscontainers/manage-containers/swarm-mode.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/ba370b13e65287d62308e1a2625daf62c136f11e/ol-handoff/Microsoft/Virtualization-Documentation-Private.fr-fr/live/swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.fr-fr.xlf)
-* Handoff Datetime: 2017-05-23 00:06:49
-* Handoff Reason: Include
-* Handoff Name: 
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Handback Name: 
-* Current Target File: [virtualization\windowscontainers\manage-containers\swarm-mode.md](https://github.com/Microsoft/Virtualization-Documentation-Private.fr-fr/blob/f26914161b3ad0309d88eb88793f5348ea6f3cf4/virtualization/windowscontainers/manage-containers/swarm-mode.md)
-* Current Handback File: [swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/153d2e388619f6795ecec235dddf19417f923c92/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.fr-fr.xlf)
-* Current Handback Datetime: 2017-03-24 13:49:56
-* Bilingual File: [swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.fr-fr.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/153d2e388619f6795ecec235dddf19417f923c92/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.fr-fr.xlf)
-* Bilingual Datetime: 2017-03-24 13:53:03
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
