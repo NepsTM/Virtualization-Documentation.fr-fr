@@ -1,49 +1,47 @@
 ---
 title: "Créer un réseau virtuel"
 description: "Créer un commutateur virtuel"
-keywords: "Windows 10, Hyper-V, mise en réseau"
+keywords: "Windows10, Hyper-V, mise en réseau"
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 532195c6-564b-4954-97c2-5a5795368c09
-translationtype: Human Translation
-ms.sourcegitcommit: f6ff0ec825091ad30016be958ff7f55ff6a907ed
-ms.openlocfilehash: 67513f6ee7d990f4d9086dfd63fb719374377b1f
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 12792da23a9e9f85674e8878f5bf81f8bc7ab4e4
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ---
+# <a name="create-a-virtual-network"></a>Créer un réseau virtuel
 
-# Créer un réseau virtuel
-
-Vos machines virtuelles auront besoin d’un réseau virtuel pour le partage d’un réseau avec votre ordinateur.  La création d’un réseau virtuel est facultative ; si votre machine virtuelle ne doit pas nécessairement être connectée à Internet ou à un réseau, passez directement à l’étape de [création d’une machine virtuelle Windows](create-virtual-machine.md).
+Vos machines virtuelles auront besoin d’un réseau virtuel pour le partage d’un réseau avec votre ordinateur.  La création d’un réseau virtuel est facultative; si votre machine virtuelle ne doit pas nécessairement être connectée à Internet ou à un réseau, passez directement à l’étape de [création d’une machine virtuelle Windows](create-virtual-machine.md).
 
 
-## Connecter des machines virtuelles à Internet
+## <a name="connect-virtual-machines-to-the-internet"></a>Connecter des machines virtuelles à Internet
 
-Hyper-V dispose de trois types de commutateurs virtuels : externes, internes et privés. Créez un commutateur externe pour partager le réseau de votre ordinateur avec les machines virtuelles en cours d’exécution sur ce dernier.
+Hyper-V dispose de trois types de commutateurs virtuels: externes, internes et privés. Créez un commutateur externe pour partager le réseau de votre ordinateur avec les machines virtuelles en cours d’exécution sur ce dernier.
 
 Cet exercice montre comment créer un commutateur virtuel externe. Lorsque vous l’aurez terminé, votre hôte Hyper-V disposera d’un commutateur virtuel capable de connecter des machines virtuelles à Internet via une connexion réseau de votre ordinateur. 
 
-### Créer un commutateur virtuel avec le Gestionnaire Hyper-V
+### <a name="create-a-virtual-switch-with-hyper-v-manager"></a>Créer un commutateur virtuel avec le Gestionnaire Hyper-V
 
-1. Ouvrez le Gestionnaire Hyper-V.  Une méthode rapide consiste à appuyer sur la touche ou le bouton Windows, puis à taper « Gestionnaire Hyper-V ».  
+1. Ouvrez le Gestionnaire Hyper-V.  Une méthode rapide consiste à appuyer sur la touche ou le bouton Windows, puis à taper «Gestionnaire Hyper-V».  
 Si la recherche ne trouve pas le Gestionnaire Hyper-V, cela signifie qu’Hyper-V ou les outils de gestion Hyper-V ne sont pas activés.  Consultez les instructions d’activation d’Hyper-V [ici](enable-hyper-v.md).
 
-2. Sélectionnez le serveur dans le volet gauche ou cliquez sur « Se connecter au serveur... » dans le volet droit.
+2. Sélectionnez le serveur dans le volet gauche ou cliquez sur «Se connecter au serveur...» dans le volet droit.
 
-3. Dans le Gestionnaire Hyper-V, sélectionnez **Gestionnaire de commutateur virtuel...** dans le menu « Actions » situé sur la droite. 
+3. Dans le Gestionnaire Hyper-V, sélectionnez **Gestionnaire de commutateur virtuel...** dans le menu «Actions» situé sur la droite. 
 
-4. Dans la section « Commutateurs virtuels », sélectionnez **Nouveau commutateur réseau virtuel**.
+4. Dans la section «Commutateurs virtuels», sélectionnez **Nouveau commutateur réseau virtuel**.
 
-5. Sous « Quel type de commutateur virtuel voulez-vous créer ? », sélectionnez **Externe**.
+5. Sous «Quel type de commutateur virtuel voulez-vous créer?», sélectionnez **Externe**.
 
 6. Sélectionnez le bouton **Créer un commutateur virtuel**.
 
-7. Sous « Propriétés du commutateur virtuel », attribuez un nom au nouveau commutateur, par exemple **Commutateur de machine virtuelle externe**.
+7. Sous «Propriétés du commutateur virtuel», attribuez un nom au nouveau commutateur, par exemple **Commutateur de machine virtuelle externe**.
 
-8. Sous « Type de connexion », vérifiez que l’option **Réseau externe** est sélectionnée.
+8. Sous «Type de connexion», vérifiez que l’option **Réseau externe** est sélectionnée.
 
 9. Sélectionnez la carte réseau physique à associer au nouveau commutateur virtuel. Il s’agit de la carte réseau qui est physiquement connectée au réseau.  
 
@@ -56,11 +54,11 @@ Si la recherche ne trouve pas le Gestionnaire Hyper-V, cela signifie qu’Hyper-
 11. Sélectionnez **OK** pour fermer la fenêtre Gestionnaire de commutateur virtuel.
 
 
-### Créer un commutateur virtuel avec PowerShell
+### <a name="create-a-virtual-switch-with-powershell"></a>Créer un commutateur virtuel avec PowerShell
 
 Pour créer un commutateur virtuel avec une connexion externe à l’aide de PowerShell, effectuez les étapes suivantes. 
 
-1. Pour obtenir la liste des cartes réseau connectées au système Windows 10, utilisez la commande **Get-NetAdapter**.
+1. Pour obtenir la liste des cartes réseau connectées au système Windows10, utilisez la commande **Get-NetAdapter**.
 
     ```powershell
     PS C:\> Get-NetAdapter
@@ -83,22 +81,21 @@ Pour créer un commutateur virtuel avec une connexion externe à l’aide de Pow
     New-VMSwitch -Name "External VM Switch" -AllowManagementOS $True -NetAdapterName $net.Name
     ```
 
-## Configuration d’un réseau virtuel sur un ordinateur portable
+## <a name="virtual-networking-on-a-laptop"></a>Configuration d’un réseau virtuel sur un ordinateur portable
 
-### Mise en réseau NAT
-La traduction d’adresses réseau (NAT, Network Address Translation) permet à une machine virtuelle d’accéder au réseau de votre ordinateur en combinant l’adresse IP de l’ordinateur hôte avec un port par le biais d’un commutateur virtuel Hyper-V interne.
+### <a name="nat-networking"></a>Mise en réseau NAT
+La traduction d’adresses réseau (NAT, Network Address Translation) permet à une machine virtuelle d’accéder au réseau de votre ordinateur en combinant l’adresseIP de l’ordinateur hôte avec un port par le biais d’un commutateur virtuel Hyper-V interne.
 
-Ce mécanisme est utile à divers égards :
-1. NAT préserve les adresses IP en mappant une combinaison d’adresse IP externe et de numéro de port avec un jeu beaucoup plus large d’adresses IP internes. 
+Ce mécanisme est utile à divers égards:
+1. NAT préserve les adressesIP en mappant une combinaison d’adresseIP externe et de numéro de port avec un jeu beaucoup plus large d’adressesIP internes. 
 2. De plus, NAT permet à plusieurs machines virtuelles d’héberger des applications nécessitant des ports de communication (internes) identiques en les mappant à des ports externes uniques.
-3. NAT utilise un commutateur interne ; la création d’un commutateur interne ne vous oblige pas à utiliser la connexion réseau et tend à interférer dans une moindre mesure avec les fonctions réseau de l’ordinateur.
+3. NAT utilise un commutateur interne; la création d’un commutateur interne ne vous oblige pas à utiliser la connexion réseau et tend à interférer dans une moindre mesure avec les fonctions réseau de l’ordinateur.
 
 Pour configurer un réseau NAT et le connecter à une machine virtuelle, reportez-vous au [guide de l’utilisateur consacré à la configuration d’un réseau NAT](../user-guide/setup-nat-network.md).
 
-### L’approche à deux commutateurs
-Si vous exécutez Windows 10 Hyper-V sur un ordinateur portable et que vous basculez fréquemment entre un réseau sans fil et un réseau câblé, vous voudrez peut-être créer un commutateur virtuel pour les cartes réseau sans fil et Ethernet. Dans cette configuration, vous pouvez faire basculer vos machines virtuelles entre ces commutateurs en fonction de la façon dont l’ordinateur portable est connecté au réseau. Les machines virtuelles ne basculent pas automatiquement entre une connexion filaire et une connexion sans fil.
+### <a name="the-two-switch-approach"></a>L’approche à deux commutateurs
+Si vous exécutez Windows10 Hyper-V sur un ordinateur portable et que vous basculez fréquemment entre un réseau sans fil et un réseau câblé, vous voudrez peut-être créer un commutateur virtuel pour les cartes réseau sans fil et Ethernet. Dans cette configuration, vous pouvez faire basculer vos machines virtuelles entre ces commutateurs en fonction de la façon dont l’ordinateur portable est connecté au réseau. Les machines virtuelles ne basculent pas automatiquement entre une connexion filaire et une connexion sans fil.
 
 
-## Étape suivante : créer une machine virtuelle
+## <a name="next-step---create-a-virtual-machine"></a>Étape suivante: créer une machine virtuelle
 [Créer une machine virtuelle Windows](create-virtual-machine.md)
-

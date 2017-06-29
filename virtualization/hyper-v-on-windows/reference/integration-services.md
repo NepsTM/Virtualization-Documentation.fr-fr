@@ -8,27 +8,22 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
-translationtype: Human Translation
-ms.sourcegitcommit: 06782d73418afaa15d036c5cff09b3167cd3f1b6
-ms.openlocfilehash: 647c47998334600dc4f143d2471c0104e5d4e9a9
-
+ms.openlocfilehash: 2e2289bbb7801824c13e5ba4cb17d51beb26fbfa
+ms.sourcegitcommit: b55d4d31a5706e2f65f4c4a029c2f55a76711253
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ---
-
-# Services d’intégration Hyper-V
+# <a name="hyper-v-integration-services"></a>Services d’intégration Hyper-V
 
 Les services d’intégration (souvent appelés composants d’intégration) sont des services qui permettent à la machine virtuelle de communiquer avec l’hôte Hyper-V. Plusieurs de ces services sont pratiques, mais d’autres peuvent être très importants dans le fonctionnement de la machine virtuelle.
 
 Cet article est une référence pour chaque service d’intégration disponible dans Windows.  Il représente également un point de départ pour toutes les informations relatives à des services d’intégration spécifiques ou à leur historique.
 
-**Guides de l’utilisateur :**  
-* [Activer ou désactiver les services d’intégration à partir de l’hôte Hyper-V](../user-guide/managing-integration-services.md#enable-or-disable-integration-services-using-powershell)
-* Activer ou désactiver les services d’intégration à partir de la machine virtuelle.
-  * [Windows](../user-guide/managing-integration-services.md#manage-integration-services-from-guest-os-windows)
-  * [Linux](../user-guide/managing-integration-services.md#manage-integration-services-from-guest-os-linux)
-* [Maintenance et mise à jour des services d’intégration](../user-guide/managing-integration-services.md#integration-service-maintenance)
+**Guides de l’utilisateur:**  
+* [Gestion des services d’intégration](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/manage/manage-Hyper-V-integration-services)
 
 
-## Référence rapide
+## <a name="quick-reference"></a>Référence rapide
 
 | Nom | Nom du service Windows | Nom de démon Linux |  Description | Impact de sa désactivation sur la machine virtuelle |
 |:---------|:---------|:---------|:---------|:---------|
@@ -41,26 +36,26 @@ Cet article est une référence pour chaque service d’intégration disponible 
 | [Service PowerShell Direct Hyper-V](#hyper-v-powershell-direct-service) | vmicvmsession | non disponibles | Fournit un moyen de gérer la machine virtuelle avec PowerShell sans connexion réseau. | Faible |  
 
 
-## Service Pulsation Microsoft Hyper-V
+## <a name="hyper-v-heartbeat-service"></a>Service Pulsation Microsoft Hyper-V
 
-**Nom du service Windows :** vmicheartbeat  
-**Nom de démon Linux :** hv_utils  
-**Description :** indique à l’hôte Hyper-V que la machine virtuelle dispose d’un système d’exploitation et a démarré correctement.  
-**Ajout dans :** Windows Server 2012, Windows 8  
-**Impact :** quand il est désactivé, la machine virtuelle ne peut pas signaler que le système d’exploitation à l’intérieur de la machine virtuelle fonctionne correctement.  Cela peut affecter certains types de diagnostics d’analyse et côté hôte.  
+**Nom du service Windows:** vmicheartbeat  
+**Nom de démon Linux:** hv_utils  
+**Description:** indique à l’hôte Hyper-V que la machine virtuelle dispose d’un système d’exploitation et a démarré correctement.  
+**Ajout dans:** Windows Server2012, Windows8  
+**Impact:** quand il est désactivé, la machine virtuelle ne peut pas signaler que le système d’exploitation à l’intérieur de la machine virtuelle fonctionne correctement.  Cela peut affecter certains types de diagnostics d’analyse et côté hôte.  
 
-Le service Pulsation permet de répondre à des questions de base comme « est-ce que la machine virtuelle a démarré ? ».  
+Le service Pulsation permet de répondre à des questions de base comme «est-ce que la machine virtuelle a démarré?».  
 
-Quand Hyper-V signale que l’état d’une machine virtuelle est « en cours d’exécution » (voir l’exemple ci-dessous), cela signifie que Hyper-V a réservé des ressources pour une machine virtuelle, mais pas qu’un système d’exploitation est installé ou en train de fonctionner.  C’est là où le service Pulsation devient utile.  Le service Pulsation indique à Hyper-V que le système d’exploitation à l’intérieur de la machine virtuelle a démarré.  
+Quand Hyper-V signale que l’état d’une machine virtuelle est «en cours d’exécution» (voir l’exemple ci-dessous), cela signifie que Hyper-V a réservé des ressources pour une machine virtuelle, mais pas qu’un système d’exploitation est installé ou en train de fonctionner.  C’est là où le service Pulsation devient utile.  Le service Pulsation indique à Hyper-V que le système d’exploitation à l’intérieur de la machine virtuelle a démarré.  
 
-### Vérifier les pulsations avec PowerShell
+### <a name="check-heartbeat-with-powershell"></a>Vérifier les pulsations avec PowerShell
 
-Exécutez [Get-VM](https://technet.microsoft.com/en-us/library/hh848479.aspx) en tant qu’administrateur pour afficher les pulsations d’une machine virtuelle :
+Exécutez [Get-VM](https://technet.microsoft.com/en-us/library/hh848479.aspx) en tant qu’administrateur pour afficher les pulsations d’une machine virtuelle:
 ``` PowerShell
 Get-VM -VMName $VMName | select Name, State, Status
 ```
 
-Votre sortie doit ressembler à ceci :
+Votre sortie doit ressembler à ceci:
 ```
 Name    State    Status
 ----    -----    ------
@@ -71,90 +66,84 @@ Le champ `Status` est déterminé par le service Pulsation.
 
 
 
-## Service Arrêt de l’invité Microsoft Hyper-V
+## <a name="hyper-v-guest-shutdown-service"></a>Service Arrêt de l’invité Microsoft Hyper-V
 
-**Nom du service Windows :** vmicshutdown  
-**Nom de démon Linux :** hv_utils  
-**Description :** permet à l’hôte Hyper-V de demander l’arrêt de la machine virtuelle.  L’hôte peut toujours forcer l’arrêt de la machine virtuelle, mais cela revient à utiliser le bouton marche/arrêt au lieu de sélectionner Arrêter.  
-**Ajout dans :** Windows Server 2012, Windows 8  
-**Impact :** **Impact élevé** Quand il est désactivé, l’hôte ne peut pas déclencher un arrêt convivial à l’intérieur de la machine virtuelle.  Tous les arrêts sont des mises hors tension brutales qui peuvent entraîner une perte ou un endommagement des données.  
-
-
-## Service Synchronisation date/heure Microsoft Hyper-V
-
-**Nom du service Windows :** vmictimesync  
-**Nom de démon Linux :** hv_utils  
-**Description :** synchronise l’horloge système de la machine virtuelle avec celle de l’ordinateur physique.  
-**Ajout dans :** Windows Server 2012, Windows 8  
-**Impact :** **Impact élevé** Quand il est désactivé, l’horloge de la machine virtuelle dérive de manière irrégulière.  
+**Nom du service Windows:** vmicshutdown  
+**Nom de démon Linux:** hv_utils  
+**Description:** permet à l’hôte Hyper-V de demander l’arrêt de la machine virtuelle.  L’hôte peut toujours forcer l’arrêt de la machine virtuelle, mais cela revient à utiliser le bouton marche/arrêt au lieu de sélectionner Arrêter.  
+**Ajout dans:** Windows Server2012, Windows8  
+**Impact:** **Impact élevé** Quand il est désactivé, l’hôte ne peut pas déclencher un arrêt convivial à l’intérieur de la machine virtuelle.  Tous les arrêts sont des mises hors tension brutales qui peuvent entraîner une perte ou un endommagement des données.  
 
 
-## Service Échange de données Microsoft Hyper-V
+## <a name="hyper-v-time-synchronization-service"></a>Service Synchronisation date/heure Microsoft Hyper-V
 
-**Nom du service Windows :** vmickvpexchange  
-**Nom de démon Linux :** hv_kvp_daemon  
-**Description :** fournit un mécanisme pour échanger des métadonnées de base entre la machine virtuelle et l’hôte.  
-**Ajout dans :** Windows Server 2012, Windows 8  
-**Impact :** quand il est désactivé, les machines virtuelles exécutant Windows 8 ou Windows Server 2012 ou version antérieure ne reçoivent pas les mises à jour des services d’intégration Hyper-V.  La désactivation de l’échange de données peut également affecter certains types de diagnostics d’analyse et côté hôte.  
+**Nom du service Windows:** vmictimesync  
+**Nom de démon Linux:** hv_utils  
+**Description:** synchronise l’horloge système de la machine virtuelle avec celle de l’ordinateur physique.  
+**Ajout dans:** Windows Server2012, Windows8  
+**Impact:** **Impact élevé** Quand il est désactivé, l’horloge de la machine virtuelle dérive de manière irrégulière.  
+
+
+## <a name="hyper-v-data-exchange-service-kvp"></a>Service Échange de données Microsoft Hyper-V
+
+**Nom du service Windows:** vmickvpexchange  
+**Nom de démon Linux:** hv_kvp_daemon  
+**Description:** fournit un mécanisme pour échanger des métadonnées de base entre la machine virtuelle et l’hôte.  
+**Ajout dans:** Windows Server2012, Windows8  
+**Impact:** quand il est désactivé, les machines virtuelles exécutant Windows8 ou Windows Server2012 ou version antérieure ne reçoivent pas les mises à jour des services d’intégration Hyper-V.  La désactivation de l’échange de données peut également affecter certains types de diagnostics d’analyse et côté hôte.  
 
 Le service Échange de données (parfois appelé paire clé/valeur) partage de petites quantités d’informations sur l’ordinateur entre la machine virtuelle et l’hôte Hyper-V à l’aide de paires clé/valeur (KVP) via le Registre Windows.  Le même mécanisme peut également servir à partager des données personnalisées entre la machine virtuelle et l’hôte.
 
-Les paires clé/valeur sont constituées d’une « clé » et d’une « valeur ». La clé et la valeur sont toutes deux des chaînes ; aucun autre type de données n’est pris en charge. Lors de la création ou modification d’une paire clé/valeur, elle est visible pour l’invité et pour l’hôte. Les informations sur la paire clé/valeur sont transférées sur le bus VMBus Hyper-V et ne nécessitent aucun type de connexion réseau entre l’invité et l’hôte Hyper-V. 
+Les paires clé/valeur sont constituées d’une «clé» et d’une «valeur». La clé et la valeur sont toutes deux des chaînes; aucun autre type de données n’est pris en charge. Lors de la création ou modification d’une paire clé/valeur, elle est visible pour l’invité et pour l’hôte. Les informations sur la paire clé/valeur sont transférées sur le bus VMBus Hyper-V et ne nécessitent aucun type de connexion réseau entre l’invité et l’hôte Hyper-V. 
 
-Le service Échange de données est un excellent outil pour conserver les informations sur la machine virtuelle ; pour le partage de données interactif ou le transfert de données, utilisez [PowerShell Direct](#hyper-v-powershell-direct-service). 
+Le service Échange de données est un excellent outil pour conserver les informations sur la machine virtuelle; pour le partage de données interactif ou le transfert de données, utilisez [PowerShell Direct](#hyper-v-powershell-direct-service). 
 
 
-**Guides de l’utilisateur :**  
+**Guides de l’utilisateur:**  
 * [Utilisation de paires clé/valeur pour partager des informations entre l’hôte et l’invité sur Hyper-V](https://technet.microsoft.com/en-us/library/dn798287.aspx).  
 
 
-## Requête du service VSS Microsoft Hyper-V
+## <a name="hyper-v-volume-shadow-copy-requestor"></a>Requête du service VSS Microsoft Hyper-V
 
-**Nom du service Windows :** vmicvss  
-**Nom de démon Linux :** hv_vss_daemon  
-**Description :** autorise le service VSS à sauvegarder des données et applications sur la machine virtuelle.  
-**Ajout dans :** Windows Server 2012, Windows 8  
-**Impact :** quand il est désactivé, la machine virtuelle ne peut pas être sauvegardée pendant qu’elle est en cours d’exécution (avec VSS).  
+**Nom du service Windows:** vmicvss  
+**Nom de démon Linux:** hv_vss_daemon  
+**Description:** autorise le service VSS à sauvegarder des données et applications sur la machine virtuelle.  
+**Ajout dans:** Windows Server2012, Windows8  
+**Impact:** quand il est désactivé, la machine virtuelle ne peut pas être sauvegardée pendant qu’elle est en cours d’exécution (avec VSS).  
 
 Le service d’intégration Requête du service VSS est nécessaire pour le service VSS ([VSS](https://msdn.microsoft.com/en-us/library/aa384589.aspx)).  Le service VSS capture et copie des images pour la sauvegarde sur les systèmes en cours d’exécution, notamment les serveurs, sans trop dégrader les performances et la stabilité des services fournis.  Ce service d’intégration rend cela possible en coordonnant les charges de travail de la machine virtuelle avec le processus de sauvegarde de l’hôte.
 
 En savoir plus sur le service VSS [ici](https://msdn.microsoft.com/en-us/library/dd405549.aspx).
 
 
-## Interface de services d’invité Hyper-V
+## <a name="hyper-v-guest-service-interface"></a>Interface de services d’invité Hyper-V
 
-**Nom du service Windows :** vmicguestinterface  
-**Nom de démon Linux :** hv_fcopy_daemon  
-**Description :** fournit une interface pour que l’hôte Hyper-V copie de façon bidirectionnelle des fichiers vers ou depuis la machine virtuelle.  
-**Ajout dans :** Windows Server 2012 R2, Windows 8.1  
-**Impact :** quand il est désactivé, l’hôte ne peut pas effectuer la copie de fichiers vers et depuis l’invité avec `Copy-VMFile`.  En savoir plus sur l’[applet de commande Copy-VMFile](https://technet.microsoft.com/library/dn464282.aspx).  
+**Nom du service Windows:** vmicguestinterface  
+**Nom de démon Linux:** hv_fcopy_daemon  
+**Description:** fournit une interface pour que l’hôte Hyper-V copie de façon bidirectionnelle des fichiers vers ou depuis la machine virtuelle.  
+**Ajout dans:** Windows Server2012R2, Windows8.1  
+**Impact:** quand il est désactivé, l’hôte ne peut pas effectuer la copie de fichiers vers et depuis l’invité avec `Copy-VMFile`.  En savoir plus sur l’[applet de commande Copy-VMFile](https://technet.microsoft.com/library/dn464282.aspx).  
 
-**Remarques :**  
+**Remarques:**  
 Désactivé par défaut.  Voir [PowerShell Direct avec Copy-Item](../user-guide/powershell-direct.md#copy-files-with-new-pssession-and-copy-item). 
 
 
-## Service PowerShell Direct Hyper-V
+## <a name="hyper-v-powershell-direct-service"></a>Service PowerShell Direct Hyper-V
 
-**Nom du service Windows :** vmicvmsession  
-**Nom de démon Linux :** non applicable  
-**Description :** fournit un mécanisme de gestion de machine virtuelle avec PowerShell via la session de machine virtuelle sans réseau virtuel.    
-**Ajout dans :** Windows Server TP3, Windows 10  
-**Impact :** la désactivation de ce service empêche l’hôte d’être en mesure de se connecter à la machine virtuelle avec PowerShell Direct.  
+**Nom du service Windows:** vmicvmsession  
+**Nom de démon Linux:** non applicable  
+**Description:** fournit un mécanisme de gestion de machine virtuelle avec PowerShell via la session de machine virtuelle sans réseau virtuel.    
+**Ajout dans:** Windows ServerTP3, Windows10  
+**Impact:** la désactivation de ce service empêche l’hôte d’être en mesure de se connecter à la machine virtuelle avec PowerShell Direct.  
 
-**Remarques :**  
+**Remarques:**  
 Le nom du service était à l’origine Service de session d’ordinateur virtuel Hyper-V.  
-PowerShell Direct est en cours de développement actif et disponible uniquement sur Windows 10 et Windows Server Technical Preview 3 ou hôtes/invités ultérieurs.
+PowerShell Direct est en cours de développement actif et disponible uniquement sur Windows10 et Windows Server Technical Preview3 ou hôtes/invités ultérieurs.
 
 Grâce à PowerShell Direct, vous pouvez gérer PowerShell dans une machine virtuelle à partir de l’hôte Hyper-V, indépendamment de la configuration réseau ou des paramètres de gestion à distance sur l’hôte Hyper-V ou la machine virtuelle. Pour les administrateurs Hyper-V, cela facilite l’automatisation et la définition par script des tâches de gestion et de configuration.
 
 [En savoir plus sur PowerShell Direct](../user-guide/powershell-direct.md).  
 
-**Guides de l’utilisateur :**  
+**Guides de l’utilisateur:**  
 * [Exécution de script dans une machine virtuelle](../user-guide/powershell-direct.md#run-a-script-or-command-with-invoke-command)
 * [Copie de fichiers vers et depuis une machine virtuelle](../user-guide/powershell-direct.md#copy-files-with-new-pssession-and-copy-item)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

@@ -8,25 +8,24 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
-translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: b9a02184a98f392d5ee323dc3e939d137ce7e4e6
-
+ms.openlocfilehash: 247cf1703b429fbd7ef41553d2f46c1e99785477
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ---
-
-# Déploiement d’un hôte de conteneur – Nano Server
+# <a name="container-host-deployment---nano-server"></a>Déploiement d’un hôte de conteneur–Nano Server
 
 Ce document présente les étapes d’un déploiement Nano Server très simple avec la fonctionnalité de conteneur Windows. Il s’agit d’une rubrique avancée qui suppose des connaissances globales de Windows et des conteneurs Windows. Pour obtenir une présentation des conteneurs Windows, voir [Démarrage rapide des conteneurs Windows](../quick-start/index.md).
 
-## Préparer Nano Server
+## <a name="prepare-nano-server"></a>Préparer Nano Server
 
 La section suivante décrit en détail le déploiement d’une configuration Nano Server très simple. Pour obtenir une description plus complète des options de déploiement et de configuration pour Nano Server, voir [Prise en main de Nano Server] (https://technet.microsoft.com/en-us/library/mt126167.aspx).
 
-### Créer une machine virtuelle Nano Server
+### <a name="create-nano-server-vm"></a>Créer une machine virtuelle Nano Server
 
 Tout d’abord, téléchargez le disque dur virtuel d’évaluation de Nano Server à partir de [cet emplacement](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016). Créez une machine virtuelle à partir de ce disque dur virtuel, démarrez la machine virtuelle et connectez-vous à celle-ci à l’aide de l’option de connexion Hyper-V, ou d’une option équivalente basée sur la plateforme de virtualisation utilisée.
 
-### Créer une session PowerShell distante
+### <a name="create-remote-powershell-session"></a>Créer une session PowerShell distante
 
 Comme Nano Server ne dispose pas de fonctionnalités de connexion interactives, toute la gestion s’effectue à partir d’un système distant utilisant PowerShell.
 
@@ -44,7 +43,7 @@ Enter-PSSession -ComputerName 192.168.1.50 -Credential ~\Administrator
 
 Une fois ces étapes terminées, une session PowerShell distante est établie avec le système Nano Server. Le reste de ce document, sauf indication contraire, se déroule à partir de la session distante.
 
-### Installer les mises à jour Windows
+### <a name="install-windows-updates"></a>Installer les mises à jour Windows
 
 Les mises à jour critiques sont nécessaires au fonctionnement de la fonctionnalité Conteneur Windows. Ces mises à jour peuvent être installées en exécutant les commandes suivantes.
 
@@ -61,7 +60,7 @@ Restart-Computer
 
 Une fois la sauvegarde effectuée, rétablissez la connexion PowerShell distante.
 
-## Installer Docker
+## <a name="install-docker"></a>Installer Docker
 
 Docker est nécessaire pour utiliser les conteneurs Windows. Pour installer Docker, nous allons utiliser le [module PowerShell de fournisseur OneGet](https://github.com/oneget/oneget). Le fournisseur active la fonctionnalité de conteneurs sur votre ordinateur et installe Docker. Cette opération nécessite un redémarrage. 
 
@@ -85,7 +84,7 @@ Une fois l’installation terminée, redémarrez l’ordinateur.
 Restart-Computer -Force
 ```
 
-## Installer les images de conteneur de base
+## <a name="install-base-container-images"></a>Installer les images de conteneur de base
 
 Les images de système d’exploitation de base sont utilisées comme base pour un conteneur Windows Server ou Hyper-V. Les images de système d’exploitation de base sont disponibles avec Windows Server Core et Nano Server comme système d’exploitation sous-jacent et peuvent être installées à l’aide de `docker pull`. Pour plus d’informations sur les images de conteneur Docker, consultez [Build your own images (Créer vos propres images) sur docker.com](https://docs.docker.com/engine/tutorials/dockerimages/).
 
@@ -95,7 +94,7 @@ Pour télécharger et installer l’image de base Windows Nano Server, exécutez
 docker pull microsoft/nanoserver
 ```
 
-Si vous prévoyez d’utiliser le conteneur Hyper-V et que vous avez l’hyperviseur Hyper-V installé sur votre hôte Nano Server, vous pouvez aussi extraire l’image de Server Core. Si vous exécutez Azure Gallery Server 2016 Nano, attendez-vous à ce que Hyper-V ne soit pas installé.
+Si vous prévoyez d’utiliser le conteneur Hyper-V et que vous avez l’hyperviseur Hyper-V installé sur votre hôte Nano Server, vous pouvez aussi extraire l’image de Server Core. Si vous exécutez Azure Gallery Server2016 Nano, attendez-vous à ce que Hyper-V ne soit pas installé.
 
 ```none
 docker pull microsoft/windowsservercore
@@ -103,13 +102,13 @@ docker pull microsoft/windowsservercore
 
 > Veuillez lire les termes du contrat de licence applicables à l’image de système d’exploitation des conteneurs Windows, disponibles [ici](../images-eula.md).
 
-## Gérer Docker sur Nano Server
+## <a name="manage-docker-on-nano-server"></a>Gérer Docker sur Nano Server
 
 Pour une expérience optimale et une bonne pratique, gérez Docker sur Nano Server à partir d’un système distant. La raison est que la communication à distance PowerShell ne peut pas actuellement rediriger la sortie de terminal TTY d’un shell interactif de conteneur vers l’invite du client initiale. Des conteneurs détachés peuvent être démarrés et exécutés en arrière-plan à l’aide de `docker run -dt`, mais les conteneurs interactifs utilisant `docker run -it` ne fonctionneront pas comme prévu. PowerShell ISE a également des problèmes avec une sortie interactive pour des raisons similaires.
 
 Les éléments suivants sont nécessaires pour gérer un serveur Docker distant.
 
-### Préparer l’hôte de conteneur
+### <a name="prepare-container-host"></a>Préparer l’hôte de conteneur
 
 Créez une règle de pare-feu sur l’hôte de conteneur pour la connexion Docker. Il s’agit du port `2375` pour une connexion non sécurisée ou du port `2376` pour une connexion sécurisée.
 
@@ -125,7 +124,7 @@ Tout d’abord, créez un fichier `daemon.json` dans `c:\ProgramData\docker\conf
 new-item -Type File c:\ProgramData\docker\config\daemon.json
 ```
 
-Exécutez ensuite la commande suivante pour ajouter la configuration de connexion au fichier `daemon.json`. Vous configurez ainsi le moteur Docker pour accepter les connexions entrantes sur le port TCP 2375. Cette connexion n’est pas sécurisée et est déconseillée, mais peut être utilisée pour un test isolé. Pour plus d’informations sur la sécurisation de cette connexion, voir [Protéger le démon Docker sur Docker.com](https://docs.docker.com/engine/security/https/).
+Exécutez ensuite la commande suivante pour ajouter la configuration de connexion au fichier `daemon.json`. Vous configurez ainsi le moteur Docker pour accepter les connexions entrantes sur le port TCP2375. Cette connexion n’est pas sécurisée et est déconseillée, mais peut être utilisée pour un test isolé. Pour plus d’informations sur la sécurisation de cette connexion, voir [Protéger le démon Docker sur Docker.com](https://docs.docker.com/engine/security/https/).
 
 ```none
 Add-Content 'c:\programdata\docker\config\daemon.json' '{ "hosts": ["tcp://0.0.0.0:2375", "npipe://"] }'
@@ -137,7 +136,7 @@ Redémarrez le service Docker.
 Restart-Service docker
 ```
 
-### Préparer le client distant
+### <a name="prepare-remote-client"></a>Préparer le client distant
 
 Sur le système distant sur lequel vous allez travailler, téléchargez le client Docker.
 
@@ -179,7 +178,7 @@ Quand cette variable est définie, la commande ressemble maintenant à ceci.
 docker run -it microsoft/nanoserver cmd
 ```
 
-## Hôte de conteneurs Hyper-V
+## <a name="hyper-v-container-host"></a>Hôte de conteneurs Hyper-V
 
 Pour déployer des conteneurs Hyper-V, le rôle Hyper-V est nécessaire sur l’hôte de conteneur. Pour plus d’informations sur les conteneurs Hyper-V, voir [Conteneurs Hyper-V](../manage-containers/hyperv-container.md).
 
@@ -197,9 +196,3 @@ L’hôte Nano Server doit être redémarré après l’installation du rôle Hy
 ```none
 Restart-Computer
 ```
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

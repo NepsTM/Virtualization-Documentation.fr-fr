@@ -1,72 +1,69 @@
 ---
-title: "Installer Hyper-V sur Windows 10"
-description: "Installer Hyper-V sur Windows 10"
-keywords: "Windows 10, Hyper-V"
+title: Activer Hyper-V sur Windows10
+description: Installer Hyper-V sur Windows10
+keywords: Windows10, Hyper-V
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
-ms.service: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-translationtype: Human Translation
-ms.sourcegitcommit: 359e29de50a51e0d3db263c46861ae6814f277d2
-ms.openlocfilehash: 8b2f4103ad0048a99e9befeb47d370a9b5cd092f
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: fd660b0869e853e4e9050dea345694b0f048df0a
+ms.sourcegitcommit: 646bad3f5331abea515b4bb3f6c8566d1b77e275
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ---
+# <a name="install-hyper-v-on-windows-10"></a>Installer Hyper-V sur Windows10
 
-# Installer Hyper-V sur Windows 10
+Activez Hyper-V pour créer des machines virtuelles sur Windows10.  
+Hyper-V peut être activé de nombreuses manières, y compris à l’aide du Panneau de configuration de Windows10, de PowerShell (mon favori) ou de l’outil Gestion et maintenance des images de déploiement (DISM). Ce document présente chacune de ces options.
 
-Activez Hyper-V pour créer des machines virtuelles sur Windows 10.  
-Hyper-V peut être activé de nombreuses manières, y compris à l’aide du Panneau de configuration de Windows 10, de PowerShell (mon favori) ou de l’outil Gestion et maintenance des images de déploiement (DISM). Ce document présente chacune de ces options.
+> **Remarque:** Hyper-V est intégré à Windows en tant que fonctionnalité facultative; il n’est pas disponible en téléchargement ni sous la forme de composant installable. 
 
-> **Remarque :** Hyper-V est intégré à Windows en tant que fonctionnalité facultative ; il n’est pas disponible en téléchargement ni sous la forme de composant installable. 
+## <a name="check-requirements"></a>Vérifier la configuration requise
 
-## Vérifier la configuration requise
-
-* Windows 10 Entreprise, Professionnel ou Éducation
-* Processeur 64 bits avec traduction d’adresse de second niveau (SLAT).
+* Windows10 Entreprise, Professionnel ou Éducation
+* Processeur 64bits avec traduction d’adresse de second niveau (SLAT).
 * Processeur prenant en charge les extensions de mode du moniteur de machine virtuelle (VT-c sur les processeurs Intel).
-* Au minimum 4 Go de mémoire.
+* Au minimum 4Go de mémoire.
 
-Le rôle Hyper-V **ne peut pas** être installé sur Windows 10 Famille.  
-Mettez à niveau l’édition Windows 10 Famille vers Windows 10 Professionnel en ouvrant **Paramètres** > **Mise à jour et sécurité** > **Activation**.
+Le rôle Hyper-V **ne peut pas** être installé sur Windows10 Famille.  
+Mettez à niveau l’édition Windows10 Famille vers Windows10 Professionnel en ouvrant **Paramètres** > **Mise à jour et sécurité** > **Activation**.
 
-Pour plus d’informations et pour connaître les étapes de résolution des problèmes, voir [Configuration requise pour Hyper-V sur Windows 10](../reference/hyper-v-requirements.md).
+Pour plus d’informations et pour connaître les étapes de résolution des problèmes, voir [Configuration requise pour Hyper-V sur Windows10](../reference/hyper-v-requirements.md).
 
 
-## Installer Hyper-V 
-Hyper-V est intégré à Windows en tant que fonctionnalité facultative ; il n’est pas disponible en téléchargement ni sous la forme de composant installable.  Le rôle Hyper-V intégré peut être activé de diverses façons.
+## <a name="install-hyper-v"></a>InstallerHyper-V 
+Hyper-V est intégré à Windows en tant que fonctionnalité facultative; il n’est pas disponible en téléchargement ni sous la forme de composant installable.  Le rôle Hyper-V intégré peut être activé de diverses façons.
 
-### Activer Hyper-V à l’aide de PowerShell
+### <a name="enable-hyper-v-using-powershell"></a>Activer Hyper-V à l’aide de PowerShell
 
 1. Ouvrez une console PowerShell en tant qu’administrateur.
 
-2. Exécutez la commande suivante :
+2. Exécutez la commande suivante:
   ```powershell
-  Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+  Enable-WindowsOptionalFeature -Online -FeatureName:Microsoft-Hyper-V -All
   ```  
 
   Si la commande est introuvable, assurez-vous que vous exécutez PowerShell en tant qu’administrateur.  
 
 Une fois l’installation terminée, vous devez redémarrer votre ordinateur.  
 
-### Activer Hyper-V avec CMD et DISM
+### <a name="enable-hyper-v-with-cmd-and-dism"></a>Activer Hyper-V avec CMD et DISM
 
 L’outil Gestion et maintenance des images de déploiement (DISM) vous aide à configurer Windows et les images Windows.  DSIM permet, entre autres, d’activer des fonctionnalités Windows pendant que le système d’exploitation est en cours d’exécution.  
 
-Pour activer le rôle Hyper-V à l’aide de DISM :
+Pour activer le rôle Hyper-V à l’aide de DISM:
 1. Ouvrez une session PowerShell ou CMD en tant qu’administrateur.
 
-2. Tapez la commande suivante :  
+2. Tapez la commande suivante:  
   ```powershell
   DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
   ```  
   ![](media/dism_upd.png)
 
-Pour plus d’informations sur DSIM, voir [DISM - Informations techniques de référence sur l’outil Gestion et maintenance des images de déploiement](https://technet.microsoft.com/en-us/library/hh824821.aspx).
+Pour plus d’informations sur DSIM, voir [DISM- Informations techniques de référence sur l’outil Gestion et maintenance des images de déploiement](https://technet.microsoft.com/en-us/library/hh824821.aspx).
 
-### Activer manuellement le rôle Hyper-V
+### <a name="manually-enable-the-hyper-v-role"></a>Activer manuellement le rôle Hyper-V
 
 1. Cliquez avec le bouton droit sur le bouton Windows et sélectionnez Programmes et fonctionnalités.
 
@@ -81,6 +78,5 @@ Une fois l’installation terminée, vous êtes invité à redémarrer votre ord
 ![](media/restart_upd.png)
 
 
-## Étape suivante : configurer un réseau
-[Connectez-vous à Internet.](connect-to-network.md)
-
+## <a name="make-virtual-machines"></a>Créer des machines virtuelles
+[Créez votre première machine virtuelle](quick-create-virtual-machine.md)

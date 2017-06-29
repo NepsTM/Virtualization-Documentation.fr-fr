@@ -8,17 +8,16 @@ ms.topic: article
 ms.prod: virtualization
 ms.service: virtualization
 ms.assetid: 731ed95a-ce13-4c6e-a450-49563bdc498c
-translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
-
+ms.openlocfilehash: b5fe1a2e4c59007fbbb679c9050e28a5e076b08f
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ---
+# <a name="contribute-to-the-docs"></a>Contribution à la documentation
 
-# Contribution à la documentation
+> **Remarque:** Pour pouvoir contribuer, vous devez avoir un compte [GitHub](https://www.github.com).
 
-> **Remarque :** Pour pouvoir contribuer, vous devez avoir un compte [GitHub](https://www.github.com).
-
-## Modification d’un document existant
+## <a name="edit-an-existing-doc"></a>Modification d’un document existant
 
 1. Recherchez le document à modifier.  
 
@@ -37,7 +36,7 @@ ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
 
 4. Apportez les modifications en ligne.
   
-  Actions possibles :
+  Actions possibles:
   1. Modifier le fichier
   2. Prévisualiser les modifications
   3. Renommer le fichier (il est peu probable que vous souhaitiez le faire)
@@ -51,7 +50,7 @@ ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
 6. Réviser vos modifications
   
   **Ce que nous recherchons dans une requête de tirage**  
-  * La modification est correcte : elle représente réellement la technologie
+  * La modification est correcte: elle représente réellement la technologie
   * L’orthographe et la grammaire sont correctes
   * Emplacement logique dans la documentation
     
@@ -59,20 +58,20 @@ ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
 
 7. Créer une [requête de tirage](contribute-to-docs.md#pull-requests)  
 
-## Requêtes de tirage
+## <a name="pull-requests"></a>Requêtes de tirage
 
 La plupart des modifications sont validées par une requête de tirage.  Une requête de tirage permet de réviser un ensemble de modifications avec plusieurs réviseurs, ainsi que de modifier et commenter le contenu actuel.
 
 
-## Répliquer le dépôt et modifier localement
+## <a name="fork-the-repo-and-edit-locally"></a>Répliquer le dépôt et modifier localement
 
 Pour le travail sur la documentation à long terme, clonez le dépôt localement et travaillez sur votre ordinateur.
 
 Le guide suivant vous montre comment émuler ma configuration (celle de Sarah Cooley).  Il existe de nombreuses autres configurations qui fonctionnent tout aussi bien.
 
-> **Remarque :** Tous ces outils de documentation fonctionnent aussi bien sur Linux/OSX.  Si vous souhaitez d’autres guides, demandez.
+> **Remarque:** Tous ces outils de documentation fonctionnent aussi bien sur Linux/OSX.  Si vous souhaitez d’autres guides, demandez.
 
-Ce guide est constitué de trois sections :
+Ce guide est constitué de trois sections:
 * [Configurer Git](contribute-to-docs.md#set-up-git)
   * installation de Git
   * configuration initiale
@@ -85,11 +84,11 @@ Ce guide est constitué de trois sections :
   * description de quelques fonctionnalités pratiques avec VSCode pour Git
   * effectuer une première validation.
 
-### Configurer Git
+### <a name="set-up-git"></a>Configurer Git
 
 1. Installer Git (sur Windows) à partir d’[ici](https://git-for-windows.github.io/)
 
-  Vous ne devez modifier qu’une seule valeur dans l’installation :
+  Vous ne devez modifier qu’une seule valeur dans l’installation:
 
   **Ajustement de votre environnement PATH** Utiliser Git à partir de l’invite de commandes Windows
 
@@ -99,7 +98,7 @@ Ce guide est constitué de trois sections :
 
 2. Configurer votre identité Git
 
-  Ouvrez une fenêtre PowerShell et exécutez :
+  Ouvrez une fenêtre PowerShell et exécutez:
 
   ``` PowerShell
   git config --global user.name "User Name"
@@ -118,14 +117,14 @@ Ce guide est constitué de trois sections :
    Installez un assistant d’identification pour n’avoir à entrer le nom d’utilisateur et le mot de passe qu’une seule fois (au moins sur cet ordinateur).
    J’utilise cet [assistant d’identification Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows#download-and-install) de base
 
-   Une fois l’installation terminée, exécutez les commandes suivantes pour activer l’assistant d’identification et définir votre comportement de type Push :
+   Une fois l’installation terminée, exécutez les commandes suivantes pour activer l’assistant d’identification et définir votre comportement de type Push:
    ```
    git config --global credential.helper manager
    git config --global push.default simple
    ```
 
    La première fois que vous devez vous authentifier auprès de GitHub, le système vous demande votre nom d’utilisateur et le code d’authentification à deux facteurs si vous l’avez activé.
-   Exemple :
+   Exemple:
    ```
    C:\Users\plang\Source\Repos\Virtualization-Documentation [master]> git pull
    Please enter your GitHub credentials for https://github.com/
@@ -179,7 +178,7 @@ Ce guide est constitué de trois sections :
   }
   ```
 
-### Valider et dissimuler les informations d’identification
+### <a name="validate-and-stash-credentials"></a>Valider et dissimuler les informations d’identification
 
   Pour valider que le dépôt est correctement configuré, essayez d’extraire un nouveau contenu.
 
@@ -188,17 +187,11 @@ Ce guide est constitué de trois sections :
   ```
 
 
-### Configurer l’environnement d’édition Markdown
+### <a name="set-up-markdown-editing-environment"></a>Configurer l’environnement d’édition Markdown
 
 1. Téléchargez VSCode
 
 6. Effectuez un test de validation.  Si vos informations d’identification sont correctement dissimulées, tout devrait parfaitement fonctionner.
 
-
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

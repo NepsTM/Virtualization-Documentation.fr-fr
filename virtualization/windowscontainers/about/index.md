@@ -8,37 +8,35 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-translationtype: Human Translation
-ms.sourcegitcommit: 59621ca2db190d5c13034752a08c291e3dc19daa
-ms.openlocfilehash: d68be61b1d462b70986df5cfd6df052b388cec1d
-ms.lasthandoff: 02/08/2017
-
+ms.openlocfilehash: 1699bec6515608c722c28babd26719b27baa53c6
+ms.sourcegitcommit: b13a29758013a21215ee6e21e7e7ed7f58b62485
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ---
-
-# Conteneurs Windows
+# <a name="windows-containers"></a>Conteneurs Windows
 
 **Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
 
-## Présentation des conteneurs
+## <a name="what-are-containers"></a>Présentation des conteneurs
 
-Regardez une présentation rapide ici : [Conteneurs Windows : développement d’applications modernes avec un contrôle de niveau professionnel](https://youtu.be/Ryx3o0rD5lY).
+Regardez une présentation rapide ici: [Conteneurs Windows: développement d’applications modernes avec un contrôle de niveau professionnel](https://youtu.be/Ryx3o0rD5lY).
 
-Ils constituent un environnement d’exploitation isolé, mobile et contrôlé par les ressources.
+Les conteneurs constituent un environnement d’exploitation isolé, mobile et contrôlé par les ressources.
 
 Pour schématiser, un conteneur est un endroit isolé dans lequel une application peut s’exécuter sans toucher les ressources (mémoire, disque, réseau, etc.), des autres conteneurs ou de l'hôte.
 
 Un conteneur se présente et agit comme un ordinateur physique ou virtuel nouvellement installé. Un conteneur Windows Server peut être géré avec [Docker](https://www.docker.com/) comme tout autre conteneur.
 
-## Types de conteneur Windows
+## <a name="windows-container-types"></a>Types de conteneur Windows
 
-Les conteneurs Windows incluent deux types de conteneurs différents, ou runtimes.
+Les conteneurs Windows incluent deuxtypes de conteneurs différents, ou runtimes.
 
-**Conteneurs Windows Server** : Ils assurent l’isolation des applications via une technologie d’isolation des processus et des espaces de noms. Un conteneur Windows Server partage un noyau avec l’hôte de conteneur et tous les conteneurs exécutés sur l’hôte.
+**Conteneurs Windows Server**: Ils assurent l’isolation des applications via une technologie d’isolation des processus et des espaces de noms. Un conteneur Windows Server partage un noyau avec l’hôte de conteneur et tous les conteneurs exécutés sur l’hôte.  Ces conteneurs ne créent pas de frontière de sécurité contre le code hostile et ne doivent pas être utilisés pour isoler du code non fiable.
 
-**Conteneurs Hyper-V** : Ils développent l’isolation fournie par les conteneurs Windows Server en exécutant chaque conteneur dans une machine virtuelle hautement optimisée. Dans cette configuration, le noyau de l’hôte de conteneur n’est pas partagé avec les conteneurs Hyper-V.
+**Isolation Hyper-V**: développe l’isolation fournie par les conteneurs Windows Server en exécutant chaque conteneur dans une machine virtuelle hautement optimisée. Dans cette configuration, le noyau de l’hôte de conteneur n’est pas partagé avec d’autres conteneurs sur le même hôte.  Ces conteneurs sont conçus pour un hébergement mutualisé hostile avec les mêmes garanties de sécurité qu’une machine virtuelle.
 
 
-## Notions de base sur les conteneurs
+## <a name="container-fundamentals"></a>Notions de base sur les conteneurs
 
 Quand vous commencez à utiliser des conteneurs, vous remarquez de nombreuses similitudes entre un conteneur et une machine virtuelle. Un conteneur exécute un système d’exploitation, a un système de fichiers et est accessible via un réseau comme s’il s’agissait d’un système d’ordinateur physique ou virtuel. Ceci dit, la technologie et les concepts derrière les conteneurs sont très différents de ceux des machines virtuelles.  
 
@@ -46,44 +44,43 @@ Quand vous commencez à utiliser des conteneurs, vous remarquez de nombreuses si
 
 Les concepts clés suivants peuvent s’avérer utiles quand vous commencez à créer des conteneurs Windows et à les utiliser. 
 
-**Hôte de conteneur :** système d’ordinateur physique ou virtuel configuré avec la fonctionnalité de conteneur Windows. L’hôte de conteneur exécute un ou plusieurs conteneurs Windows.
+**Hôte de conteneur:** système d’ordinateur physique ou virtuel configuré avec la fonctionnalité de conteneur Windows. L’hôte de conteneur exécute un ou plusieurs conteneurs Windows.
 
-**Image de conteneur :** quand des modifications sont apportées au système de fichiers ou au Registre d’un conteneur, par exemple lors de l’installation d’un logiciel, elles sont capturées dans un bac à sable (sandbox).  Dans de nombreux cas, vous pouvez capturer cet état pour que des conteneurs qui héritent de ces modifications puissent être créés. C’est ce qui constitue une image : une fois le conteneur arrêté, vous pouvez ignorer ce bac à sable (sandbox) ou vous pouvez le convertir en une nouvelle image de conteneur. Par exemple, imaginons que vous avez déployé un conteneur à partir de l’image de système d’exploitation Windows Server Core. Vous installez ensuite MySQL dans ce conteneur. La création d’une image à partir de ce conteneur fait office de version pouvant être déployée du conteneur. Cette image contient uniquement les modifications apportées (MySQL), mais fonctionne toutefois comme une couche sur l’image de système d’exploitation de conteneur.
+**Image de conteneur:** quand des modifications sont apportées au système de fichiers ou au Registre d’un conteneur, par exemple lors de l’installation d’un logiciel, elles sont capturées dans un bac à sable (sandbox).  Dans de nombreux cas, vous pouvez capturer cet état pour que des conteneurs qui héritent de ces modifications puissent être créés. C’est ce qui constitue une image: une fois le conteneur arrêté, vous pouvez ignorer ce bac à sable (sandbox) ou vous pouvez le convertir en une nouvelle image de conteneur. Par exemple, imaginons que vous avez déployé un conteneur à partir de l’image de système d’exploitation Windows Server Core. Vous installez ensuite MySQL dans ce conteneur. La création d’une image à partir de ce conteneur fait office de version pouvant être déployée du conteneur. Cette image contient uniquement les modifications apportées (MySQL), mais fonctionne toutefois comme une couche sur l’image de système d’exploitation de conteneur.
 
-**Bac à sable (sandbox) :** Une fois un conteneur démarré, toutes les actions d’écriture, telles que les modifications du système de fichiers, les modifications du Registre ou les installations de logiciels, sont capturées dans cette couche.  
+**Bac à sable (sandbox):** Une fois un conteneur démarré, toutes les actions d’écriture, telles que les modifications du système de fichiers, les modifications du Registre ou les installations de logiciels, sont capturées dans cette couche.  
  
-**Image de système d’exploitation de conteneur :** Les conteneurs sont déployés à partir d’images. L’image de système d’exploitation de conteneur est la première couche d’un nombre éventuellement important de couches d’images qui constituent un conteneur. Cette image fournit l’environnement du système d’exploitation. Une image de système d’exploitation de conteneur est immuable et ne peut pas être modifiée.
+**Image de système d’exploitation de conteneur:** Les conteneurs sont déployés à partir d’images. L’image de système d’exploitation de conteneur est la première couche d’un nombre éventuellement important de couches d’images qui constituent un conteneur. Cette image fournit l’environnement du système d’exploitation. Une image de système d’exploitation de conteneur est immuable et ne peut pas être modifiée.
 
-**Référentiel de conteneurs :** Chaque fois qu’une image de conteneur est créée, cette image et ses dépendances sont stockées dans un référentiel local. Ces images peuvent être réutilisées plusieurs fois sur l’hôte de conteneur. Les images de conteneur peuvent également être stockées dans un registre public ou privé, tel que Docker Hub, afin de pouvoir être utilisées sur plusieurs hôtes de conteneurs différents.
+**Référentiel de conteneurs:** Chaque fois qu’une image de conteneur est créée, cette image et ses dépendances sont stockées dans un référentiel local. Ces images peuvent être réutilisées plusieurs fois sur l’hôte de conteneur. Les images de conteneur peuvent également être stockées dans un registre public ou privé, tel que Docker Hub, afin de pouvoir être utilisées sur plusieurs hôtes de conteneurs différents.
 
 <center>![](media/containerfund.png)</center>
 
-## Conteneurs pour les développeurs
+## <a name="containers-for-developers"></a>Conteneurs pour les développeurs
 
-Qu’il s’agisse de l’ordinateur de bureau d’un développeur, d’un ordinateur de test ou d’un groupe de machines de production, il est possible de créer une image Docker qui sera déployée de façon identique dans tous les environnements en quelques secondes. De là est né un solide écosystème de plus en plus important d’applications empaquetées dans des conteneurs Docker avec Docker Hub, registre public d’applications en conteneur géré par Docker qui publie actuellement plus de 180 000 applications dans le référentiel de la communauté publique.  
+Qu’il s’agisse de l’ordinateur de bureau d’un développeur, d’un ordinateur de test ou d’un groupe de machines de production, il est possible de créer une image Docker qui sera déployée de façon identique dans tous les environnements en quelques secondes. De là est né un solide écosystème de plus en plus important d’applications empaquetées dans des conteneurs Docker avec Docker Hub, registre public d’applications en conteneur géré par Docker qui publie actuellement plus de 180000 applications dans le référentiel de la communauté publique.  
 
-Quand vous mettez une application en conteneur, seule l’application et les composants nécessaires pour exécuter l’application sont combinés en une « image ». Les conteneurs sont ensuite créés à partir de cette image si vous en avez besoin. Vous pouvez également utiliser une image comme référence pour créer une autre image, ce qui accélère encore davantage la création d’images.  Plusieurs conteneurs peuvent partager la même image, ce qui signifie que les conteneurs démarrent très rapidement et utilisent moins de ressources. Par exemple, vous pouvez utiliser des conteneurs pour faire tourner des composants d’application légers et mobiles (ou « micro-services ») pour les applications distribuées et adapter rapidement chaque service séparément.
+Quand vous mettez une application en conteneur, seule l’application et les composants nécessaires pour exécuter l’application sont combinés en une «image». Les conteneurs sont ensuite créés à partir de cette image si vous en avez besoin. Vous pouvez également utiliser une image comme référence pour créer une autre image, ce qui accélère encore davantage la création d’images.  Plusieurs conteneurs peuvent partager la même image, ce qui signifie que les conteneurs démarrent très rapidement et utilisent moins de ressources. Par exemple, vous pouvez utiliser des conteneurs pour faire tourner des composants d’application légers et mobiles (ou «micro-services») pour les applications distribuées et adapter rapidement chaque service séparément.
 
-Étant donné que le conteneur dispose de tout ce dont il a besoin pour exécuter votre application, il est très mobile et peut être exécuté sur n’importe quel ordinateur qui exécute Windows Server 2016. Vous pouvez créer et tester localement des conteneurs, puis déployer cette même image de conteneur sur le cloud privé, le cloud public ou le fournisseur de services de votre société. De nature souple, les conteneurs prennent en charge les modèles de développement d’applications modernes dans des environnements cloud, virtualisés et à grande échelle.
+Étant donné que le conteneur dispose de tout ce dont il a besoin pour exécuter votre application, il est très mobile et peut être exécuté sur n’importe quel ordinateur qui exécute Windows Server2016. Vous pouvez créer et tester localement des conteneurs, puis déployer cette même image de conteneur sur le cloud privé, le cloud public ou le fournisseur de services de votre société. De nature souple, les conteneurs prennent en charge les modèles de développement d’applications modernes dans des environnements cloud, virtualisés et à grande échelle.
 
 Les conteneurs permettent aux développeurs de créer une application dans n’importe quel langage. Ces applications sont entièrement mobiles et peuvent être exécutées n’importe où (ordinateur portable, ordinateur de bureau, serveur, cloud privé, cloud public ou fournisseur de services) sans aucune modification du code.  
 
 Les conteneurs aident les développeurs à générer et livrer des applications de meilleure qualité, plus rapidement.
 
-## Conteneurs pour les professionnels de l’informatique ##
+## <a name="containers-for-it-professionals"></a>Conteneurs pour les professionnels de l’informatique ##
 
 Les professionnels de l’informatique peuvent utiliser des conteneurs pour fournir des environnements standardisés à leurs équipes de développement, d’assurance qualité et de production. Ils n’ont plus à se soucier des procédures d’installation et de configuration complexes. En utilisant des conteneurs, les administrateurs système font abstraction des différences dans les installations du système d’exploitation et l’infrastructure sous-jacente.
 
 Les conteneurs aident les administrateurs à créer une infrastructure qui est plus simple à mettre à jour et à gérer.
 
-## Vidéo de présentation
+## <a name="video-overview"></a>Vidéo de présentation
 
 <iframe 
 src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-and-Docker/player" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
-## Essayer les conteneurs Windows Server
+## <a name="try-windows-server-containers"></a>Essayer les conteneurs Windows Server
 
 [Présentation du démarrage rapide des conteneurs](../quick_start/quick_start.md)
-
 

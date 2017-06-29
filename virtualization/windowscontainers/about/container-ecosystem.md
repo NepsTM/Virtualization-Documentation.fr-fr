@@ -8,30 +8,29 @@ ms.topic: about-article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 29fbe13a-228a-4eaa-9d4d-90ae60da5965
-translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 02e6869b2f242df29aed13fcc8a69ed641958727
-
+ms.openlocfilehash: a06a92bce8f985e463a4b33a09a71d21e264a036
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ---
-
-# Création d’un écosystème de conteneurs
+# <a name="building-a-container-ecosystem"></a>Création d’un écosystème de conteneurs
 
 Pour comprendre pourquoi la création d’un écosystème de conteneurs est si importante, parlons tout d’abord de Docker.
 
-## Appel de Docker
+## <a name="dockers-appeal"></a>Appel de Docker
 
 Le concept de conteneurs (isolation des espaces de noms et gouvernance des ressources) est connu depuis longtemps et remonte aux jails BSD, aux zones Solaris et au mécanisme chroot (change root) UNIX de base.   La contribution de Docker a consisté à fournir un ensemble d’outils communs, un modèle de package et un mécanisme de déploiement.  En procédant ainsi, Docker a considérablement simplifié la mise en conteneur et la distribution des applications.  Ces applications peuvent ensuite être exécutées n’importe où sur tout hôte Linux, une fonctionnalité que nous fournissons également sur Windows.
 
 Cette technologie très répandue simplifie non seulement la gestion en offrant les mêmes commandes d’administration par rapport à n’importe quel hôte, mais crée également une opportunité unique pour les opérations de développement transparentes.
 
-Depuis le bureau d’un développeur jusqu’à un ordinateur de test et un ensemble de machines de production, il est possible de créer une image Docker qui sera déployée de façon identique dans tous les environnements en quelques secondes. Cette histoire a généré un écosystème croissant et à grande échelle d’applications empaquetées dans des conteneurs Docker, avec Docker Hub, le registre public des applications en conteneur géré par Docker.
+Qu’il s’agisse de l’ordinateur de bureau d’un développeur, d’un ordinateur de test ou d’un groupe de machines de production, il est possible de créer une image Docker qui sera déployée de façon identique dans tous les environnements en quelques secondes. Cette histoire a généré un écosystème croissant et à grande échelle d’applications empaquetées dans des conteneurs Docker, avec Docker Hub, le registre public des applications en conteneur géré par Docker.
 
 Docker pose des fondements solides pour le développement.
 
 Parlons maintenant de cet écosystème d’applications et de la façon dont vous pouvez vous baser sur les concepts de Docker pour créer un workflow de développement et de déploiement adapté à vos besoins.
 
 
-## Composants d’un écosystème de conteneurs
+## <a name="components-in-a-container-ecosystem"></a>Composants d’un écosystème de conteneurs
 
 Les conteneurs Windows sont un composant clé d’un important écosystème de conteneurs. Nous travaillons dans toute l’industrie pour offrir les choix des développeurs à chaque niveau de la pile de solution.
 
@@ -44,9 +43,3 @@ Microsoft souhaite encourager la productivité et les choix des développeurs à
 Microsoft s’engage à se montrer ouvert et soucieux des écosystèmes.  Nous supportons de façon active l’union de plusieurs écosystèmes de développeurs dignes d’intérêt, tels que Windows et Linux, pour stimuler l’innovation.
 
 Dans les prochains mois, nous vous fournirons des informations supplémentaires sur d’autres partenaires dans cet écosystème en expansion.
-
-
-
-<!--HONumber=Oct16_HO4-->
-
-

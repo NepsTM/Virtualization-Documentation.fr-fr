@@ -8,13 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
-translationtype: Human Translation
-ms.sourcegitcommit: fe1e5d1f35e088581d44c43108c843347111eaef
-ms.openlocfilehash: 622c8f638a815e19a54aa75b6b5ea0688d966ae3
-
+ms.openlocfilehash: af819955c06b2db405f230cf3b7fee4c13e7c87c
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ---
-
-# Historique des images de base des conteneurs Windows
+# <a name="windows-container-base-image-history"></a>Historique des images de base des conteneurs Windows
 
 Chaque conteneur Windows repose sur un système d’exploitation de base fourni par Microsoft. Si vous n’êtes pas certain de la version de Windows pour laquelle un conteneur a été conçu, vous pouvez exécuter `docker inspect <tag>` et mettre en correspondance la première ligne ou les deux premières lignes obtenues avec le tableau ci-dessous.
 
@@ -32,7 +31,7 @@ Par exemple, `docker inspect microsoft/windowsservercore:10.0.14393.447` affiche
 ```
 Il s’agit des deux couches de l’image fournie par Microsoft.
 
-Si vous voulez savoir ce qui a changé dans une version particulière, recherchez celle-ci dans l’article [Historique des mises à jour de Windows 10 et de Windows Server 2016](https://support.microsoft.com/en-us/help/12387/windows-10-update-history) de la base de connaissances.
+Si vous voulez savoir ce qui a changé dans une version particulière, recherchez celle-ci dans l’article [Historique des mises à jour de Windows10 et de Windows Server2016](https://support.microsoft.com/en-us/help/12387/windows-10-update-history) de la base de connaissances.
 
 
 <table>
@@ -75,10 +74,4 @@ Si vous voulez savoir ce qui a changé dans une version particulière, recherche
         sha256:dd33c5d8d8b3c230886132c328a7801547f13de1dac9a629e2739164a285b3ab</td>
     </tr>
 </table>
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

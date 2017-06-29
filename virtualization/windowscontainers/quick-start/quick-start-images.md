@@ -1,5 +1,5 @@
 ---
-title: "Démarrage rapide du déploiement de conteneurs - Images"
+title: "Démarrage rapide du déploiement de conteneurs- Images"
 description: "Démarrage rapide du déploiement de conteneurs"
 keywords: docker, conteneurs
 author: enderb-ms
@@ -8,29 +8,28 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-translationtype: Human Translation
-ms.sourcegitcommit: 5d746be15856aad683bf684d2eef573d732ab457
-ms.openlocfilehash: 6add396bea629d5438cde5892458f6c8405bf644
-
+ms.openlocfilehash: 355daae1b673f0b05f08d0706664967a825de6f7
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ---
+# <a name="container-images-on-windows-server"></a>Images de conteneur sur Windows Server
 
-# Images de conteneur sur Windows Server
+Dans le démarrage rapide précédent de Windows Server, un conteneur Windows était créé à partir d’un exemple .NetCore préalablement créé. Cet exercice explique en détail comment créer manuellement des images de conteneur personnalisées, automatiser la création d’images de conteneur à l’aide d’un fichier Dockerfile et stocker des images de conteneur dans le Registre public Docker Hub.
 
-Dans le démarrage rapide précédent de Windows Server, un conteneur Windows était créé à partir d’un exemple .Net Core préalablement créé. Cet exercice explique en détail comment créer manuellement des images de conteneur personnalisées, automatiser la création d’images de conteneur à l’aide d’un fichier Dockerfile et stocker des images de conteneur dans le Registre public Docker Hub.
+Ce guide de démarrage rapide concerne les conteneurs Windows Server sur Windows Server2016 et utilise l’image de base du conteneur Windows Server Core. Une documentation de démarrage rapide supplémentaire est disponible dans la table des matières affichée à gauche dans cette page.
 
-Ce guide de démarrage rapide concerne les conteneurs Windows Server sur Windows Server 2016 et utilise l’image de base du conteneur Windows Server Core. Une documentation de démarrage rapide supplémentaire est disponible dans la table des matières affichée à gauche dans cette page.
+**Conditions préalables:**
 
-**Conditions préalables :**
-
-- Un système informatique (physique ou virtuel) exécutant Windows Server 2016.
+- Un système informatique (physique ou virtuel) exécutant Windows Server2016.
 - Configurez ce système avec la fonctionnalité de conteneur Windows et Docker. Pour obtenir une procédure pas à pas décrivant ces étapes, voir [Conteneurs Windows sur Windows Server](./quick-start-windows-server.md).
 - Un ID Docker, utilisé pour transférer (push) une image de conteneur vers Docker Hub. Si vous n’avez pas encore d’ID Docker, demandez-en un sur [Docker Cloud](https://cloud.docker.com/).
 
-## 1. Images de conteneur - Manuelle
+## <a name="1-container-image---manual"></a>1. Images de conteneur- Manuelle
 
 Pour une expérience optimale, parcourez cet exercice à partir d’une interface de commande Windows (cmd.exe).
 
-La première étape de la création manuelle d’une image de conteneur consiste à déployer un conteneur. Pour cet exemple, déployez un conteneur IIS à partir de l’image IIS précréée. Une fois le conteneur déployé, vous allez travailler dans une session d’interpréteur de commandes à partir du conteneur. La session interactive est initialisée avec l’indicateur `-it`. Pour obtenir plus de détails sur la commande Docker Run, voir [Docker Run Reference](https://docs.docker.com/engine/reference/run/) sur Docker.com. 
+La première étape de la création manuelle d’une image de conteneur consiste à déployer un conteneur. Pour cet exemple, déployez un conteneurIIS à partir de l’imageIIS précréée. Une fois le conteneur déployé, vous allez travailler dans une session d’interpréteur de commandes à partir du conteneur. La session interactive est initialisée avec l’indicateur `-it`. Pour obtenir plus de détails sur la commande DockerRun, voir [Docker Run Reference](https://docs.docker.com/engine/reference/run/) sur Docker.com. 
 
 > Cette étape peut prendre du temps en raison de la taille de l’image de base Windows Server Core.
 
@@ -52,15 +51,15 @@ Ensuite, vous pouvez apporter une modification au conteneur en cours d’exécut
 del C:\inetpub\wwwroot\iisstart.htm
 ```
 
-Exécutez également la commande suivante pour remplacer le site IIS par défaut par un nouveau site statique.
+Exécutez également la commande suivante pour remplacer le siteIIS par défaut par un nouveau site statique.
 
 ```none
 echo "Hello World From a Windows Server Container" > C:\inetpub\wwwroot\index.html
 ```
 
-À partir d’un autre système, accédez à l’adresse IP de l’hôte du conteneur. Vous voyez maintenant l’application « Hello World ».
+À partir d’un autre système, accédez à l’adresseIP de l’hôte du conteneur. Vous voyez maintenant l’application «HelloWorld».
 
-**Remarque :** Si vous travaillez dans Azure, une règle de groupe de sécurité réseau doit exister pour autoriser le trafic sur le port 80. Pour plus d’informations, voir [Créer une règle dans un groupe de sécurité réseau](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-nsg-arm-pportal/#create-rules-in-an-existing-nsg).
+**Remarque:** Si vous travaillez dans Azure, une règle de groupe de sécurité réseau doit exister pour autoriser le trafic sur le port80. Pour plus d’informations, voir [Créer une règle dans un groupe de sécurité réseau](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-nsg-arm-pportal/#create-rules-in-an-existing-nsg).
 
 ![](media/hello.png)
 
@@ -79,7 +78,7 @@ CONTAINER ID     IMAGE                             COMMAND   CREATED            
 489b0b447949     microsoft/iis   "cmd"     About an hour ago   Exited           pedantic_lichterman
 ```
 
-Pour créer la nouvelle image du conteneur, utilisez la commande `docker commit`. La commande docker commit prend la forme « docker commit nom_conteneur nom_nouvelle_image ». Remarque : Remplacez le nom de conteneur indiqué dans cet exemple par le nom de conteneur réel.
+Pour créer la nouvelle image du conteneur, utilisez la commande `docker commit`. La commande dockercommit prend la forme «dockercommit nom_conteneur nom_nouvelle_image». Remarque: Remplacez le nom de conteneur indiqué dans cet exemple par le nom de conteneur réel.
 
 ```none
 docker commit pedantic_lichterman modified-iis
@@ -99,11 +98,11 @@ windowsservercore   latest              dbfee88ee9fd        8 weeks ago         
 
 Cette image peut maintenant être déployée. Le conteneur obtenu inclut toutes les modifications capturées.
 
-## 2. Image de conteneur - Fichier Dockerfile
+## <a name="2-container-image---dockerfile"></a>2. Image de conteneur- Fichier Dockerfile
 
 Dans l’exercice précédent, un conteneur a été manuellement créé, modifié, puis capturé dans une nouvelle image de conteneur. Docker inclut une méthode pour automatiser ce processus à l’aide d’un fichier Dockerfile. Cet exercice permet d’obtenir presque les mêmes résultats que le précédent, mais avec un processus automatisé. Pour effectuer cet exercice, vous avez besoin d’un ID Docker. Si vous n’avez pas encore d’ID Docker, demandez-en un sur [Docker Cloud]( https://cloud.docker.com/).
 
-Sur l’hôte de conteneur, créez un répertoire `c:\build` dans lequel vous créez un fichier nommé `Dockerfile`. Remarque : Le fichier ne doit pas avoir d’extension de fichier.
+Sur l’hôte de conteneur, créez un répertoire `c:\build` dans lequel vous créez un fichier nommé `Dockerfile`. Remarque: Le fichier ne doit pas avoir d’extension de fichier.
 
 ```none
 powershell new-item c:\build\Dockerfile -Force
@@ -124,7 +123,7 @@ FROM microsoft/iis
 RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 ```
 
-La commande `docker build` démarre le processus de génération de l’image. Le paramètre `-t` indique au processus de génération de nommer la nouvelle image `iis-dockerfile`. **Remplacez « user » par le nom d’utilisateur de votre compte Docker**. Si vous n’avez pas encore de compte Docker, demandez-en un sur [Docker Cloud](https://cloud.docker.com/).
+La commande `docker build` démarre le processus de génération de l’image. Le paramètre `-t` indique au processus de génération de nommer la nouvelle image `iis-dockerfile`. **Remplacez «user» par le nom d’utilisateur de votre compte Docker**. Si vous n’avez pas encore de compte Docker, demandez-en un sur [Docker Cloud](https://cloud.docker.com/).
 
 ```none
 docker build -t <user>/iis-dockerfile c:\Build
@@ -142,7 +141,7 @@ windowsservercore   10.0.14300.1000     dbfee88ee9fd        8 weeks ago         
 windowsservercore   latest              dbfee88ee9fd        8 weeks ago         9.344 GB
 ```
 
-Maintenant, déployez un conteneur avec la commande suivante, en remplaçant « user » par votre ID Docker.
+Maintenant, déployez un conteneur avec la commande suivante, en remplaçant «user» par votre ID Docker.
 
 ```none
 docker run -d -p 80:80 <user>/iis-dockerfile ping -t localhost
@@ -152,7 +151,7 @@ Une fois le conteneur créé, accédez à l’adresse IP de l’hôte de contene
 
 ![](media/dockerfile2.png)
 
-De retour sur l’hôte de conteneur, utilisez `docker ps` pour obtenir le nom du conteneur, puis `docker rm` pour supprimer le conteneur. Remarque : Remplacez le nom de conteneur indiqué dans cet exemple par le nom de conteneur réel.
+De retour sur l’hôte de conteneur, utilisez `docker ps` pour obtenir le nom du conteneur, puis `docker rm` pour supprimer le conteneur. Remarque: Remplacez le nom de conteneur indiqué dans cet exemple par le nom de conteneur réel.
 
 Obtenez le nom du conteneur.
 
@@ -169,11 +168,11 @@ Supprimez le conteneur.
 docker rm -f <container name>
 ```
 
-## 3. docker push
+## <a name="3-docker-push"></a>3. docker push
 
 Les images de conteneur Docker peuvent être stockées dans un Registre de conteneur. Une fois stockée dans un Registre, une image peut être récupérée pour être utilisée ultérieurement sur plusieurs hôtes de conteneur. Docker fournit un Registre public pour le stockage des images de conteneur sur [Docker Hub](https://hub.docker.com/).
 
-Dans cet exercice, l’image personnalisée « Hello World » est transférée (pushed) vers votre compte sur Docker Hub.
+Dans cet exercice, l’image personnalisée «Hello World» est transférée (pushed) vers votre compte sur Docker Hub.
 
 Tout d’abord, connectez-vous à votre compte Docker en utilisant la `docker login command`.
 
@@ -188,7 +187,7 @@ Password: Password
 Login Succeeded
 ```
 
-Une fois que vous êtes connecté, vous pouvez transférer (push) l’image de conteneur vers Docker Hub. Pour ce faire, utilisez la commande `docker push`. **Remplacez « user » par votre ID Docker**. 
+Une fois que vous êtes connecté, vous pouvez transférer (push) l’image de conteneur vers Docker Hub. Pour ce faire, utilisez la commande `docker push`. **Remplacez «user» par votre ID Docker**. 
 
 ```none
 docker push <user>/iis-dockerfile
@@ -210,18 +209,12 @@ modified-iis              latest              51f1fe8470b3        5 minutes ago 
 microsoft/iis             latest              e4525dda8206        3 hours ago         7.61 GB
 ```
 
-Pour finir, nous pouvons utiliser la commande « docker pull » pour extraire l’image et la remettre sur l’hôte de conteneur. Remplacez « user » par le nom d’utilisateur de votre compte Docker. 
+Pour finir, nous pouvons utiliser la commande «docker pull» pour extraire l’image et la remettre sur l’hôte de conteneur. Remplacez «user» par le nom d’utilisateur de votre compte Docker. 
 
 ```none
 docker pull <user>/iis-dockerfile
 ```
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
-[Conteneurs Windows sur Windows 10](./quick-start-windows-10.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-
+[Conteneurs Windows sur Windows10](./quick-start-windows-10.md)
