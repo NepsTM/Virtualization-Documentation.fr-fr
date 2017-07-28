@@ -8,16 +8,17 @@ ms.topic: article
 ms.prod: virtualization
 ms.service: virtualization
 ms.assetid: 731ed95a-ce13-4c6e-a450-49563bdc498c
-ms.openlocfilehash: b5fe1a2e4c59007fbbb679c9050e28a5e076b08f
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="contribute-to-the-docs"></a>Contribution à la documentation
+# Contribution à la documentation
 
 > **Remarque:** Pour pouvoir contribuer, vous devez avoir un compte [GitHub](https://www.github.com).
 
-## <a name="edit-an-existing-doc"></a>Modification d’un document existant
+## Modification d’un document existant
 
 1. Recherchez le document à modifier.  
 
@@ -58,12 +59,12 @@ ms.contentlocale: fr-FR
 
 7. Créer une [requête de tirage](contribute-to-docs.md#pull-requests)  
 
-## <a name="pull-requests"></a>Requêtes de tirage
+## Requêtes de tirage
 
 La plupart des modifications sont validées par une requête de tirage.  Une requête de tirage permet de réviser un ensemble de modifications avec plusieurs réviseurs, ainsi que de modifier et commenter le contenu actuel.
 
 
-## <a name="fork-the-repo-and-edit-locally"></a>Répliquer le dépôt et modifier localement
+## Répliquer le dépôt et modifier localement
 
 Pour le travail sur la documentation à long terme, clonez le dépôt localement et travaillez sur votre ordinateur.
 
@@ -84,7 +85,7 @@ Ce guide est constitué de trois sections:
   * description de quelques fonctionnalités pratiques avec VSCode pour Git
   * effectuer une première validation.
 
-### <a name="set-up-git"></a>Configurer Git
+### Configurer Git
 
 1. Installer Git (sur Windows) à partir d’[ici](https://git-for-windows.github.io/)
 
@@ -178,7 +179,7 @@ Ce guide est constitué de trois sections:
   }
   ```
 
-### <a name="validate-and-stash-credentials"></a>Valider et dissimuler les informations d’identification
+### Valider et dissimuler les informations d’identification
 
   Pour valider que le dépôt est correctement configuré, essayez d’extraire un nouveau contenu.
 
@@ -187,7 +188,7 @@ Ce guide est constitué de trois sections:
   ```
 
 
-### <a name="set-up-markdown-editing-environment"></a>Configurer l’environnement d’édition Markdown
+### Configurer l’environnement d’édition Markdown
 
 1. Téléchargez VSCode
 

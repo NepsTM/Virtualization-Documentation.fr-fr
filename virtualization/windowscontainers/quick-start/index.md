@@ -8,16 +8,17 @@ ms.topic: article
 ms.prod: windows-contianers
 ms.service: windows-containers
 ms.assetid: 4878f5d2-014f-4f3c-9933-97f03348a147
-ms.openlocfilehash: 577618112339e274b3d25908afc5428bd1c36173
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: fb97f1d0f533b28acfb711e52bd021b29212f66e
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="windows-containers-quick-start"></a>Démarrage rapide des conteneurs Windows
+# Démarrage rapide des conteneurs Windows
 
 La rubrique Démarrage rapide des conteneurs Windows présente la terminologie propre au produit et aux conteneurs, passe en revue des exemples de déploiement de conteneurs simples et fournit également des informations de référence concernant des rubriques plus avancées. Si vous n’êtes pas familiarisé avec les conteneurs ou les conteneurs Windows, suivez chaque étape de cette rubrique de démarrage rapide pour obtenir une expérience pratique de cette technologie.
 
-## <a name="1-what-are-containers"></a>1. Présentation des conteneurs
+## 1. Présentation des conteneurs
 
 Ils constituent un environnement d’exploitation isolé, mobile et contrôlé par les ressources.
 
@@ -25,15 +26,15 @@ En fait, un conteneur est un emplacement isolé dans lequel une application peut
 
 Si vous étiez à l’intérieur d’un conteneur, vous vous sentiriez comme dans une machine virtuelle ou un ordinateur physique nouvellement installé. Enfin, pour [Docker](https://www.docker.com/), un conteneur Windows Server peut être géré de la même façon que n’importe quel autre conteneur.
 
-## <a name="2-windows-container-types"></a>2. Types de conteneurs Windows
+## 2. Types de conteneurs Windows
 
 Les conteneurs Windows incluent deux types de conteneurs différents, ou runtimes.
 
-**Conteneurs Windows Server**: Ils assurent l’isolation des applications via une technologie d’isolation des processus et des espaces de noms. Un conteneur Windows Server partage un noyau avec l’hôte de conteneur et tous les conteneurs exécutés sur l’hôte.
+**Conteneurs Windows Server**: Ils assurent l’isolation des applications via une technologie d’isolation des processus et des espaces de noms. Un conteneur Windows Server partage un noyau avec l’hôte de conteneur et tous les conteneurs exécutés sur l’hôte.  Ces conteneurs ne créent pas de frontière de sécurité contre le code hostile et ne doivent pas être utilisés pour isoler du code non fiable.  Ces conteneurs partagent l’espace de noyau avec l’hôte et les autres conteneurs exécutés sur l’hôte. Par conséquent, le noyau doit être cohérent, avec la même version et configuration.
 
-**Conteneurs Hyper-V**: Ils développent l’isolation fournie par les conteneurs Windows Server en exécutant chaque conteneur dans une machine virtuelle hautement optimisée. Dans cette configuration, le noyau de l’hôte de conteneur n’est pas partagé avec d’autres conteneurs Hyper-V.
+**Isolation Hyper-V**: développe l’isolation fournie par les conteneurs WindowsServer en exécutant chaque conteneur dans une machine virtuelle hautement optimisée. Dans cette configuration, le noyau de l’hôte de conteneur n’est pas partagé avec d’autres conteneurs exécutés sur l’hôte.  Ces conteneurs sont conçus pour un hébergement mutualisé hostile avec les mêmes garanties de sécurité qu’une machine virtuelle. Dans la mesure où ces conteneurs ne partagent pas le noyau avec l’hôte et les autres conteneurs exécutés sur l’hôte, ils peuvent exécuter des noyaux ayant des versions et des configurations différentes (dans les versions prises en charge): par exemple, tous les conteneurs Windows sur Windows10 utilisent l’isolation Hyper-V afin d’utiliser la version et la configuration du noyau WindowsServer.
 
-## <a name="3-container-fundamentals"></a>3. Notions de base sur les conteneurs
+## 3. Notions de base sur les conteneurs
 
 Quand vous commencez à utiliser des conteneurs, vous remarquez de nombreuses similitudes entre un conteneur et une machine virtuelle. Un conteneur exécute un système d’exploitation, a un système de fichiers et est accessible via un réseau comme s’il s’agissait d’un système d’ordinateur physique ou virtuel. Ceci dit, la technologie et les concepts derrière les conteneurs sont très différents de ceux des machines virtuelles. Les concepts clés suivants peuvent s’avérer utiles quand vous commencez à créer des conteneurs Windows et à les utiliser. 
 
@@ -47,7 +48,7 @@ Quand vous commencez à utiliser des conteneurs, vous remarquez de nombreuses si
 
 **Dockerfile:** les fichiers Dockerfile sont utilisés pour automatiser la création d’images de conteneur.
 
-## <a name="next-step"></a>Étape suivante:
+## Étape suivante:
 
 [Démarrage rapide des conteneurs Windows Server](quick-start-windows-server.md)  
 

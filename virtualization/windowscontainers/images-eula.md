@@ -1,13 +1,13 @@
 
-# <a name="microsoft-software-supplemental-license-terms"></a>TERMES SUPPLÉMENTAIRES DU CONTRAT DE LICENCE LOGICIEL MICROSOFT
+# TERMES SUPPLÉMENTAIRES DU CONTRAT DE LICENCE LOGICIEL MICROSOFT
 
 Licence: En demandant et en utilisant cette Image de système d’exploitation de conteneur pour les conteneurs Windows, vous reconnaissez comprendre et accepter les Termes supplémentaires du Contrat de licence suivants:
 
-## <a name="container-os-image"></a>IMAGE DE SYSTÈME D’EXPLOITATION DE CONTENEUR 
+## IMAGE DE SYSTÈME D’EXPLOITATION DE CONTENEUR 
 
 Microsoft Corporation (ou en fonction du lieu où vous vivez, l’un de ses affiliés) (désignée sous les termes «nous» ou «Microsoft») vous concède sous licence ce supplément Image de système d’exploitation de conteneur (le «Supplément»). Vous êtes autorisé à utiliser ce Supplément conjointement avec le logiciel de système d’exploitation hôte sous-jacent (le «Logiciel Hôte») uniquement dans le but de permettre l’exécution des fonctionnalités de conteneur dans le Logiciel Hôte.  Les termes du contrat de licence du Logiciel Hôte s’appliquent à votre utilisation du Supplément. Vous n’êtes pas autorisé à l’utiliser si vous n’avez pas de licence pour le Logiciel Hôte. Vous êtes autorisé à utiliser ce Supplément avec chaque version sous licence valide du Logiciel Hôte.
 
-## <a name="additional-licensing-requirements-andor-use-rights"></a>AUTRES CONDITIONS DE LICENCE ET/OU DROITS D’UTILISATION 
+## AUTRES CONDITIONS DE LICENCE ET/OU DROITS D’UTILISATION 
 
 L’utilisation du Supplément comme spécifié dans le paragraphe précédent peut entraîner la création ou la modification d’une image de conteneur («Image de Conteneur») qui inclut certains composants du Supplément. Pour plus de clarté, une Image de Conteneur est séparée et distincte d’une image d’appliance virtuelle ou de machine virtuelle.  Conformément à ces termes du contrat de licence, nous vous accordons des droits limités pour redistribuer ces composants du Supplément dans les conditions suivantes:
 

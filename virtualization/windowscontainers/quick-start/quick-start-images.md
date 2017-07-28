@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: 355daae1b673f0b05f08d0706664967a825de6f7
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: 6add396bea629d5438cde5892458f6c8405bf644
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="container-images-on-windows-server"></a>Images de conteneur sur Windows Server
+# Images de conteneur sur Windows Server
 
 Dans le démarrage rapide précédent de Windows Server, un conteneur Windows était créé à partir d’un exemple .NetCore préalablement créé. Cet exercice explique en détail comment créer manuellement des images de conteneur personnalisées, automatiser la création d’images de conteneur à l’aide d’un fichier Dockerfile et stocker des images de conteneur dans le Registre public Docker Hub.
 
@@ -25,7 +26,7 @@ Ce guide de démarrage rapide concerne les conteneurs Windows Server sur Windows
 - Configurez ce système avec la fonctionnalité de conteneur Windows et Docker. Pour obtenir une procédure pas à pas décrivant ces étapes, voir [Conteneurs Windows sur Windows Server](./quick-start-windows-server.md).
 - Un ID Docker, utilisé pour transférer (push) une image de conteneur vers Docker Hub. Si vous n’avez pas encore d’ID Docker, demandez-en un sur [Docker Cloud](https://cloud.docker.com/).
 
-## <a name="1-container-image---manual"></a>1. Images de conteneur- Manuelle
+## 1. Images de conteneur- Manuelle
 
 Pour une expérience optimale, parcourez cet exercice à partir d’une interface de commande Windows (cmd.exe).
 
@@ -98,7 +99,7 @@ windowsservercore   latest              dbfee88ee9fd        8 weeks ago         
 
 Cette image peut maintenant être déployée. Le conteneur obtenu inclut toutes les modifications capturées.
 
-## <a name="2-container-image---dockerfile"></a>2. Image de conteneur- Fichier Dockerfile
+## 2. Image de conteneur- Fichier Dockerfile
 
 Dans l’exercice précédent, un conteneur a été manuellement créé, modifié, puis capturé dans une nouvelle image de conteneur. Docker inclut une méthode pour automatiser ce processus à l’aide d’un fichier Dockerfile. Cet exercice permet d’obtenir presque les mêmes résultats que le précédent, mais avec un processus automatisé. Pour effectuer cet exercice, vous avez besoin d’un ID Docker. Si vous n’avez pas encore d’ID Docker, demandez-en un sur [Docker Cloud]( https://cloud.docker.com/).
 
@@ -168,7 +169,7 @@ Supprimez le conteneur.
 docker rm -f <container name>
 ```
 
-## <a name="3-docker-push"></a>3. docker push
+## 3. docker push
 
 Les images de conteneur Docker peuvent être stockées dans un Registre de conteneur. Une fois stockée dans un Registre, une image peut être récupérée pour être utilisée ultérieurement sur plusieurs hôtes de conteneur. Docker fournit un Registre public pour le stockage des images de conteneur sur [Docker Hub](https://hub.docker.com/).
 
@@ -215,6 +216,6 @@ Pour finir, nous pouvons utiliser la commande «docker pull» pour extraire l’
 docker pull <user>/iis-dockerfile
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
 
 [Conteneurs Windows sur Windows10](./quick-start-windows-10.md)

@@ -8,16 +8,17 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
-ms.openlocfilehash: b01c1112ed119908bdabfa0eeee16f4ba11a47f6
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: 12c7c713468618a9fedc82ec5a1c488f57edcfd7
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="container-host-deployment---windows-server"></a>Déploiement d’un hôte de conteneurs–Windows Server
+# Déploiement d’un hôte de conteneurs–Windows Server
 
 Les étapes du déploiement d’un hôte de conteneur Windows sont différentes selon le système d’exploitation et le type de système hôte (physique ou virtuel). Ce document décrit en détail le déploiement d’un hôte de conteneur Windows vers Windows Server2016 ou Windows Server Core2016, sur un système physique ou virtuel.
 
-## <a name="install-docker"></a>Installer Docker
+## Installer Docker
 
 Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. 
 
@@ -43,7 +44,7 @@ Une fois l’installation terminée, redémarrez l’ordinateur.
 Restart-Computer -Force
 ```
 
-## <a name="install-base-container-images"></a>Installer les images de conteneur de base
+## Installer les images de conteneur de base
 
 Avant de travailler avec des conteneurs Windows, une image de base doit être installée. Les images de base sont disponibles avec Windows Server Core ou Nano Server comme système d’exploitation de conteneur. Pour plus d’informations sur les images de conteneur Docker, consultez [Créer vos propres images sur docker.com](https://docs.docker.com/engine/tutorials/dockerimages/).
 
@@ -61,11 +62,11 @@ docker pull microsoft/nanoserver
 
 > Veuillez lire les termes du contrat de licence applicables à l’image de système d’exploitation des conteneurs Windows, disponibles [ici](../images-eula.md).
 
-## <a name="hyper-v-container-host"></a>Hôte de conteneurs Hyper-V
+## Hôte de conteneurs Hyper-V
 
 Pour exécuter des conteneurs Hyper-V, le rôle Hyper-V est nécessaire. Si l’hôte de conteneur Windows est lui-même une machine virtuelle Hyper-V, la virtualisation imbriquée doit être activée avant d’installer le rôle Hyper-V. Pour plus d’informations sur la virtualisation imbriquée, voir [Virtualisation imbriquée]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting).
 
-### <a name="nested-virtualization"></a>Virtualisation imbriquée
+### Virtualisation imbriquée
 
 Le script suivant configure la virtualisation imbriquée pour l’hôte de conteneur. Ce script est exécuté sur l’ordinateur Hyper-V parent. Vérifiez que la machine virtuelle de l’hôte de conteneur est désactivée lors de l’exécution de ce script.
 
@@ -83,7 +84,7 @@ Set-VMMemory $vm -DynamicMemoryEnabled $false
 Get-VMNetworkAdapter -VMName $vm | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
 
-### <a name="enable-the-hyper-v-role"></a>Activer le rôle Hyper-V
+### Activer le rôle Hyper-V
 
 Pour activer la fonctionnalité Hyper-V à l’aide de PowerShell, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges.
 

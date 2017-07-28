@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-ms.openlocfilehash: ac6e99800fcabef31464a81799fc9e329438b0ae
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: 9b630e372b575ef1721c0d0926ec2caec3e5ec34
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="windows-containers-documentation"></a>Documentation sur les conteneurs Windows
+# Documentation sur les conteneurs Windows
 
 Les conteneurs Windows offrent une virtualisation au niveau du système d’exploitation qui permet à plusieurs applications isolées d’être exécutées sur un seul système. Deux types de runtime de conteneurs différents sont compris dans la fonctionnalité, chacun avec un degré différent d’isolation d’application. Pour procéder à l’isolation, les conteneurs Windows Server passent par l’isolation de processus et d’espace de noms. Les conteneurs Hyper-V encapsulent chaque conteneur dans une machine virtuelle légère. L’ensemble de cette documentation fournit des guides de démarrage rapide, des guides de déploiement et des détails techniques sur les opérations de gestion.
 

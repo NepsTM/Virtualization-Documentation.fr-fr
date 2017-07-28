@@ -8,24 +8,25 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.openlocfilehash: 9aa9e4a0415a89762438a8e8a85a901ca5360c6f
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: f266404f12e47c8605436af44e636c54ec6ef8e5
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="docker-engine-on-windows"></a>Moteur Docker sur Windows
+# Moteur Docker sur Windows
 
 Le moteur et le client Docker ne sont pas inclus avec Windows et doivent être installés et configurés individuellement. De plus, le moteur Docker accepte de nombreuses configurations personnalisées. Certains exemples incluent la configuration de la façon dont le démon accepte les requêtes entrantes, les options de mise en réseau par défaut et les paramètres de débogage/du journal. Sur Windows, ces configurations peuvent être spécifiées dans un fichier de configuration ou à l’aide du Gestionnaire de contrôle des services Windows. Ce document décrit en détail comment installer et configurer le moteur Docker, et fournit également quelques exemples de configurations fréquemment utilisées.
 
 
-## <a name="install-docker"></a>Installer Docker
+## Installer Docker
 Vous devez installer Docker pour utiliser les conteneurs Windows. Docker comprend le moteur Docker (dockerd.exe) et le client Docker (docker.exe). Vous trouverez le moyen le plus simple de tout installer dans les guides de démarrage rapide. Ces guides vous aideront à tout configurer et à exécuter votre premier conteneur. 
 
 * [Conteneurs Windows sur Windows Server2016](../quick-start/quick-start-windows-server.md)
 * [Conteneurs Windows sur Windows10](../quick-start/quick-start-windows-10.md)
 
 
-### <a name="manual-installation"></a>Installation manuelle
+### Installation manuelle
 Si vous souhaitez plutôt utiliser une version en développement du client et du moteur Docker, vous pouvez effectuer les étapes qui suivent. Elles vous permettront d’installer à la fois le client et le moteur Docker. Si, en tant que développeur, vous testez de nouvelles fonctionnalités ou utilisez une build de Windows Insider, vous devrez peut-être utiliser une version en développement de Docker. Autrement, suivez les étapes décrites dans la section «Installer Docker» ci-dessus pour obtenir les dernières versions officielles.
 
 > Si vous avez installé Docker pour Windows, veillez à le supprimer avant de suivre ces étapes d’installation manuelles. 
@@ -36,7 +37,7 @@ Vous trouverez la dernière version à l’adresse https://master.dockerproject.
 
 ```powershell
 $version = (Invoke-WebRequest -UseBasicParsing https://raw.githubusercontent.com/docker/docker/master/VERSION).Content.Trim()
-Invoke-WebRequest "https://master.dockerproject.org/windows/amd64/docker-$($version).zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
+Invoke-WebRequest "https://master.dockerproject.org/windows/x86_64/docker-$($version).zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
 ```
 
 Développez l’archive zip dans Program Files.
@@ -70,9 +71,9 @@ Start-Service Docker
 
 Pour que Docker puisse être utilisé, des images de conteneur doivent au préalable être installées. Pour plus d’informations, voir le [guide de démarrage rapide consacré à l’utilisation d’images](../quick-start/quick-start-images.md).
 
-## <a name="configure-docker-with-configuration-file"></a>Configurer Docker avec un fichier de configuration
+## Configurer Docker avec un fichier de configuration
 
-La méthode privilégiée pour configurer le moteur Docker sur Windows consiste à utiliser un fichier de configuration. Ce fichier de configuration se trouve dans C:\ProgramData\docker\config\daemon.json. Si ce fichier n’existe pas encore, il peut être créé.
+La méthode privilégiée pour configurer le moteur Docker sur Windows consiste à utiliser un fichier de configuration. Ce fichier de configuration se trouve dans C:\ProgramData\Docker\config\daemon.json. Si ce fichier n’existe pas encore, il peut être créé.
 
 Remarque: Toutes les options de configuration de Docker disponibles ne s’appliquent pas à Docker sur Windows. L’exemple ci-dessous montre celles qui le sont. Pour obtenir une documentation complète sur la configuration du moteur Docker, voir la rubrique relative au [fichier de configuration du démon Docker](https://docs.docker.com/engine/reference/commandline/dockerd/#/windows-configuration-file).
 
@@ -138,7 +139,7 @@ De même, cet exemple configure le démon Docker pour accepter uniquement les co
 }
 ```
 
-## <a name="configure-docker-on-the-docker-service"></a>Configurer Docker sur le service Docker
+## Configurer Docker sur le service Docker
 
 Le moteur Docker peut également être configuré en modifiant le service de Docker avec `sc config`. Avec cette méthode, les indicateurs du moteur Docker sont définis directement sur le service de Docker. Exécutez la commande suivante dans une invite de commandes (cmd.exe, pas PowerShell):
 
@@ -149,11 +150,11 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 
 Remarque: Vous n’avez pas besoin d’exécuter cette commande si votre fichier daemon.json contient déjà l’entrée `"hosts": ["tcp://0.0.0.0:2375"]`.
 
-## <a name="common-configuration"></a>Configuration commune
+## Configuration commune
 
 Les exemples de fichiers de configuration suivants présentent des configurations courantes de Docker. Elles peuvent être combinées en un seul fichier de configuration.
 
-### <a name="default-network-creation"></a>Création de réseau par défaut 
+### Création de réseau par défaut 
 
 Pour configurer le moteur Docker de sorte qu’un réseau NAT par défaut ne soit pas créé, utilisez le code suivant. Pour plus d’informations, voir la rubrique indiquant comment [gérer les réseaux Docker](../manage-containers/container-networking.md).
 
@@ -163,7 +164,7 @@ Pour configurer le moteur Docker de sorte qu’un réseau NAT par défaut ne soi
 }
 ```
 
-### <a name="set-docker-security-group"></a>Définir un groupe de sécurité Docker
+### Définir un groupe de sécurité Docker
 
 Quand vous êtes connecté à l’hôte Docker et que vous exécutez des commandes Docker localement, ces commandes sont exécutées via un canal nommé. Par défaut, seuls les membres du groupe Administrateurs peuvent accéder au moteur Docker via le canal nommé. Pour spécifier un groupe de sécurité bénéficiant de cet accès, utilisez l’indicateur `group`.
 
@@ -173,7 +174,7 @@ Quand vous êtes connecté à l’hôte Docker et que vous exécutez des command
 }
 ```
 
-## <a name="proxy-configuration"></a>Configuration du proxy
+## Configuration du proxy
 
 Pour définir des informations de proxy pour `docker search` et `docker pull`, créez une variable d’environnement Windows nommée `HTTP_PROXY` ou `HTTPS_PROXY`, et une valeur des informations de proxy. Vous pouvez effectuer cette opération dans PowerShell en utilisant une commande semblable à celle-ci:
 

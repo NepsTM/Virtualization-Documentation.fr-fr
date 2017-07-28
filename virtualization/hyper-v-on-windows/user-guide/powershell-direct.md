@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
-ms.openlocfilehash: 6e9a70e370f1c13a69dd617d4564be9d6c2f6017
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: 1eea533459b565ffceca23ca7454e9678abc52e9
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="virtual-machine-automation-and-management-using-powershell"></a>Gestion et automatisation de machines virtuelles avec PowerShell
+# Gestion et automatisation de machines virtuelles avec PowerShell
  
 PowerShell Direct vous permet d’exécuter du code PowerShell arbitraire dans une machine virtuelle Windows10 ou Windows Server Technical Preview à partir d’un hôte Hyper-V, indépendamment de la configuration réseau ou des paramètres de gestion à distance.
 
@@ -23,7 +24,7 @@ PowerShell Direct vous permet d’exécuter du code PowerShell arbitraire dans u
 * En tant que session persistante (build14280 et ultérieures): [cliquez ici](#copy-files-with-new-pssession-and-copy-item) pour créer une session persistante à l’aide de New-PSSession.  
 Poursuivez en copiant un fichier vers et à partir de la machine virtuelle à l’aide de la commande Copy-Item, puis déconnectez-vous à l’aide de Remove-PSSession.
 
-## <a name="requirements"></a>Configuration requise
+## Configuration requise
 **Configuration requise pour le système d’exploitation:**
 * Hôte: Windows10, Windows Server Technical Preview2 ou version ultérieure exécutant Hyper-V.
 * Invité/Machine virtuelle: Windows10, Windows Server Technical Preview2 ou version ultérieure.
@@ -38,7 +39,7 @@ Si vous gérez des machines virtuelles plus anciennes, utilisez Connexion à une
 
 -------------
 
-## <a name="create-and-exit-an-interactive-powershell-session"></a>Créer et quitter une session PowerShell interactive
+## Créer et quitter une session PowerShell interactive
 
 Pour exécuter des commandes PowerShell dans une machine virtuelle, le plus simple consiste à démarrer une session interactive.
 
@@ -79,7 +80,7 @@ Pour en savoir plus sur ces applets de commande, consultez [Enter-PSSession](htt
 
 -------------
 
-## <a name="run-a-script-or-command-with-invoke-command"></a>Exécuter un script ou une commande avec Invoke-Command
+## Exécuter un script ou une commande avec Invoke-Command
 
 PowerShell Direct avec Invoke-Command est parfait pour les situations où vous devez exécuter une commande ou un script sur une machine virtuelle, mais où vous n’avez pas besoin de continuer d’interagir avec la machine virtuelle au-delà de ce point.
 
@@ -118,7 +119,7 @@ Pour en savoir plus sur cette applet de commande, voir [Invoke-Command](http://t
 
 -------------
 
-## <a name="copy-files-with-new-pssession-and-copy-item"></a>Copier des fichiers avec New-PSSession et Copy-Item
+## Copier des fichiers avec New-PSSession et Copy-Item
 
 > **Remarque:** PowerShell Direct ne prend en charge les sessions persistantes que dans Windows build14280 et ultérieures.
 
@@ -166,11 +167,11 @@ De la même manière, les sessions conservent l’état.  Étant donné que les 
   
 -------------
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## Résolution des problèmes
 
 Les messages d’erreur liés à l’utilisation de PowerShell Direct sont peu nombreux.  Voici les plus courants, les causes possibles et les outils à utiliser pour diagnostiquer les problèmes.
 
-### <a name="-vmname-or--vmid-parameters-dont-exist"></a>Les paramètres -VMName ou -VMID n’existent pas
+### Les paramètres -VMName ou -VMID n’existent pas
 **Problème:**  
 `Enter-PSSession`, `Invoke-Command` ou `New-PSSession` n’ont pas de paramètre `-VMName` ou `-VMId`.
 
@@ -192,7 +193,7 @@ $PSVersionTable.PSVersion
 ```
 
 
-### <a name="error-a-remote-session-might-have-ended"></a>Erreur: une session à distance a peut-être pris fin.
+### Erreur: une session à distance a peut-être pris fin.
 > **Remarque:**  
 Pour Enter-PSSession entre les builds d’hôte 10240 et 12400, toutes les erreurs ci-dessous sont signalées sous la forme «Une session à distance a peut-être pris fin».
 
@@ -226,7 +227,7 @@ Pour contourner le problème des informations d’identification, connectez-vous
 Restart-Service -Name vmicvmsession
 ```
 
-### <a name="error-parameter-set-cannot-be-resolved"></a>Erreur: le jeu de paramètres ne peut pas être résolu
+### Erreur: le jeu de paramètres ne peut pas être résolu
 **Message d'erreur:**  
 ``` 
 Enter-PSSession : Parameter set cannot be resolved using the specified named parameters.
@@ -240,7 +241,7 @@ Enter-PSSession : Parameter set cannot be resolved using the specified named par
 Les informations d’identification d’administrateur peuvent être passées à la machine virtuelle avec le paramètre `-Credential` ou en les entrant manuellement quand vous y êtes invité.
 
 
-### <a name="error-the-credential-is-invalid"></a>Erreur: Les informations d’identification ne sont pas valides.
+### Erreur: Les informations d’identification ne sont pas valides.
 
 **Message d'erreur:**  
 ```
@@ -253,7 +254,7 @@ Enter-PSSession : The credential is invalid.
   * Aucun compte d’utilisateur n’existe dans l’invité (le système d’exploitation n’a pas encore démarré)
   * Si vous vous connectez en tant qu’administrateur: l’administrateur n’a pas été défini comme un utilisateur actif.  Pour en savoir plus, cliquez [ici](https://technet.microsoft.com/en-us/library/hh825104.aspx).
   
-### <a name="error-the-input-vmname-parameter-does-not-resolve-to-any-virtual-machine"></a>Erreur: Impossible de résoudre le paramètre d’entrée VMName en une machine virtuelle quelconque.
+### Erreur: Impossible de résoudre le paramètre d’entrée VMName en une machine virtuelle quelconque.
 
 **Message d'erreur:**  
 ```
@@ -269,7 +270,7 @@ Vous pouvez utiliser l’applet de commande [Get-VM](http://technet.microsoft.co
 
 -------------
 
-## <a name="samples-and-user-guides"></a>Exemples et guides de l’utilisateur
+## Exemples et guides de l’utilisateur
 
 PowerShell Direct prend en charge JEA (Just Enough Administration).  Consultez ce guide de l’utilisateur pour l’essayer.
 

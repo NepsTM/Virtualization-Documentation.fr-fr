@@ -8,16 +8,17 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: 1699bec6515608c722c28babd26719b27baa53c6
-ms.sourcegitcommit: b13a29758013a21215ee6e21e7e7ed7f58b62485
+ms.openlocfilehash: a70564f565a69f15ef4d668ccab0aa3b18c758ae
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="windows-containers"></a>Conteneurs Windows
+# Conteneurs Windows
 
 **Il s’agit d’un contenu préliminaire qui peut faire l’objet de modifications.** 
 
-## <a name="what-are-containers"></a>Présentation des conteneurs
+## Présentation des conteneurs
 
 Regardez une présentation rapide ici: [Conteneurs Windows: développement d’applications modernes avec un contrôle de niveau professionnel](https://youtu.be/Ryx3o0rD5lY).
 
@@ -27,16 +28,16 @@ Pour schématiser, un conteneur est un endroit isolé dans lequel une applicatio
 
 Un conteneur se présente et agit comme un ordinateur physique ou virtuel nouvellement installé. Un conteneur Windows Server peut être géré avec [Docker](https://www.docker.com/) comme tout autre conteneur.
 
-## <a name="windows-container-types"></a>Types de conteneur Windows
+## Types de conteneur Windows
 
 Les conteneurs Windows incluent deuxtypes de conteneurs différents, ou runtimes.
 
-**Conteneurs Windows Server**: Ils assurent l’isolation des applications via une technologie d’isolation des processus et des espaces de noms. Un conteneur Windows Server partage un noyau avec l’hôte de conteneur et tous les conteneurs exécutés sur l’hôte.  Ces conteneurs ne créent pas de frontière de sécurité contre le code hostile et ne doivent pas être utilisés pour isoler du code non fiable.
+**Conteneurs Windows Server**: Ils assurent l’isolation des applications via une technologie d’isolation des processus et des espaces de noms. Un conteneur Windows Server partage un noyau avec l’hôte de conteneur et tous les conteneurs exécutés sur l’hôte.  Ces conteneurs ne créent pas de frontière de sécurité contre le code hostile et ne doivent pas être utilisés pour isoler du code non fiable.  Ces conteneurs partagent l’espace de noyau avec l’hôte et les autres conteneurs exécutés sur l’hôte. Par conséquent, le noyau doit être cohérent, avec la même version et configuration.
 
-**Isolation Hyper-V**: développe l’isolation fournie par les conteneurs Windows Server en exécutant chaque conteneur dans une machine virtuelle hautement optimisée. Dans cette configuration, le noyau de l’hôte de conteneur n’est pas partagé avec d’autres conteneurs sur le même hôte.  Ces conteneurs sont conçus pour un hébergement mutualisé hostile avec les mêmes garanties de sécurité qu’une machine virtuelle.
+**Isolation Hyper-V**: développe l’isolation fournie par les conteneurs WindowsServer en exécutant chaque conteneur dans une machine virtuelle hautement optimisée. Dans cette configuration, le noyau de l’hôte de conteneur n’est pas partagé avec d’autres conteneurs exécutés sur l’hôte.  Ces conteneurs sont conçus pour un hébergement mutualisé hostile avec les mêmes garanties de sécurité qu’une machine virtuelle. Dans la mesure où ces conteneurs ne partagent pas le noyau avec l’hôte et les autres conteneurs exécutés sur l’hôte, ils peuvent exécuter des noyaux ayant des versions et des configurations différentes (dans les versions prises en charge): par exemple, tous les conteneurs Windows sur Windows10 utilisent l’isolation Hyper-V afin d’utiliser la version et la configuration du noyau WindowsServer.
 
 
-## <a name="container-fundamentals"></a>Notions de base sur les conteneurs
+## Notions de base sur les conteneurs
 
 Quand vous commencez à utiliser des conteneurs, vous remarquez de nombreuses similitudes entre un conteneur et une machine virtuelle. Un conteneur exécute un système d’exploitation, a un système de fichiers et est accessible via un réseau comme s’il s’agissait d’un système d’ordinateur physique ou virtuel. Ceci dit, la technologie et les concepts derrière les conteneurs sont très différents de ceux des machines virtuelles.  
 
@@ -56,7 +57,7 @@ Les concepts clés suivants peuvent s’avérer utiles quand vous commencez à c
 
 <center>![](media/containerfund.png)</center>
 
-## <a name="containers-for-developers"></a>Conteneurs pour les développeurs
+## Conteneurs pour les développeurs
 
 Qu’il s’agisse de l’ordinateur de bureau d’un développeur, d’un ordinateur de test ou d’un groupe de machines de production, il est possible de créer une image Docker qui sera déployée de façon identique dans tous les environnements en quelques secondes. De là est né un solide écosystème de plus en plus important d’applications empaquetées dans des conteneurs Docker avec Docker Hub, registre public d’applications en conteneur géré par Docker qui publie actuellement plus de 180000 applications dans le référentiel de la communauté publique.  
 
@@ -68,19 +69,19 @@ Les conteneurs permettent aux développeurs de créer une application dans n’i
 
 Les conteneurs aident les développeurs à générer et livrer des applications de meilleure qualité, plus rapidement.
 
-## <a name="containers-for-it-professionals"></a>Conteneurs pour les professionnels de l’informatique ##
+## Conteneurs pour les professionnels de l’informatique ##
 
 Les professionnels de l’informatique peuvent utiliser des conteneurs pour fournir des environnements standardisés à leurs équipes de développement, d’assurance qualité et de production. Ils n’ont plus à se soucier des procédures d’installation et de configuration complexes. En utilisant des conteneurs, les administrateurs système font abstraction des différences dans les installations du système d’exploitation et l’infrastructure sous-jacente.
 
 Les conteneurs aident les administrateurs à créer une infrastructure qui est plus simple à mettre à jour et à gérer.
 
-## <a name="video-overview"></a>Vidéo de présentation
+## Vidéo de présentation
 
 <iframe 
 src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-and-Docker/player" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
-## <a name="try-windows-server-containers"></a>Essayer les conteneurs Windows Server
+## Essayer les conteneurs Windows Server
 
 [Présentation du démarrage rapide des conteneurs](../quick_start/quick_start.md)
 

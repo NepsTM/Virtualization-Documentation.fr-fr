@@ -1,4 +1,4 @@
-# <a name="windows-server-eula"></a>EULA Windows Server
+# EULA Windows Server
 
 CONDITIONS DE LICENCE MICROSOFT POUR UNE IMAGE DE DISQUE DUR VIRTUEL DU LOGICIEL SUIVANT:  
 MICROSOFT WINDOWS SERVER 
@@ -54,10 +54,10 @@ Si vous vous conformez aux présents termes du contrat de licence, vous disposez
 
   LA LICENCE DE CE PRODUIT EST ACCORDÉE CONFORMÉMENT AUX LICENCES VISUELLES AVC, VC-1, MPEG-4 PART2, ET VIDÉO MPEG-2 BREVETÉES POUR UN USAGE PERSONNEL ET NON COMMERCIAL EN VUE DE (i)ENCODER UNE VIDÉO CONFORMÉMENT AUX NORMES CI-DESSUS (LES «NORMES VIDÉO») ET/OU DE (ii)DÉCODER UNE VIDÉO AVC, VC-1, MPEG-4 PART2 ET MPEG-2 QUI A ÉTÉ ENCODÉE PAR UN UTILISATEUR ENGAGÉ DANS UNE ACTIVITÉ PERSONNELLE ET NON COMMERCIALE ET/OU A ÉTÉ OBTENUE AUPRÈS D’UN FOURNISSEUR DE VIDÉO AUTORISÉ À FOURNIR CES VIDÉOS. AUCUNE LICENCE NE POURRA ÊTRE ACCORDÉE OU ÊTRE CONSIDÉRÉE COMME IMPLICITE POUR TOUTE AUTRE UTILISATION. DES INFORMATIONS SUPPLÉMENTAIRES PEUVENT ÊTRE OBTENUES AUPRÈS DE MPEGLA, L.L.C. POUR CELA, CONSULTEZ LE SITE WWW.MPEGLA.COM.
   
-10.    **ADOBE FLASH PLAYER** Le logiciel peut inclure une version d’Adobe Flash Player. Vous acceptez que votre utilisation d’Adobe Flash Player soit régie par les termes du contrat de licence d’Adobe Systems Incorporated, disponibles à l’adresse go.microsoft.com/fwlink/?LinkID=248532. Adobe et Flash sont des marques déposées ou commerciales d’Adobe Systems Incorporated aux États-Unis et/ou dans d’autres pays.
+10. **ADOBE FLASH PLAYER** Le logiciel peut inclure une version d’Adobe Flash Player. Vous acceptez que votre utilisation d’Adobe Flash Player soit régie par les termes du contrat de licence d’Adobe Systems Incorporated, disponibles à l’adresse go.microsoft.com/fwlink/?LinkID=248532. Adobe et Flash sont des marques déposées ou commerciales d’Adobe Systems Incorporated aux États-Unis et/ou dans d’autres pays.
   
-11.    **ÉTENDUE DE LA LICENCE**
-  Le logiciel n’est pas vendu mais concédé sous licence. Le présent contrat vous confère certains droits d’utilisation du logiciel. Microsoft se réserve tous les autres droits. Sauf si la réglementation applicable vous confère d’autres droits, nonobstant la présente limitation, vous n’êtes autorisé à utiliser le logiciel qu’en conformité avec les termes du présent contrat. Pour ce faire, vous devez vous mettre en conformité avec les limitations techniques du logiciel qui restreignent les conditions de son utilisation. Vous n’êtes pas autorisé à:
+11. **ÉTENDUE DE LA LICENCE**
+  Le logiciel n’est pas vendu mais concédé sous licence. Le présent contrat vous confère certains droits d’utilisation du logiciel. Microsoft se réserve tous les autres droits. Sauf si la réglementation applicable vous confère d’autres droits, nonobstant la présente limitation, vous n’êtes autorisé à utiliser le logiciel qu’en conformité avec les termes du présent contrat. À cette fin, vous devez vous conformer aux restrictions techniques contenues dans le logiciel qui vous permettent de l’utiliser d’une certaine façon. Vous n’êtes pas autorisé à:
   * divulguer les résultats des tests d’évaluation du logiciel, autres que ceux de Microsoft.NETFramework (voir les termes distincts plus haut), à tout tiers sans l’accord écrit préalable de Microsoft;
   * contourner les restrictions techniques contenues dans le logiciel;
   * reconstituer la logique du logiciel, le décompiler ou le désassembler, sauf dans la mesure où ces opérations seraient expressément permises par la réglementation applicable nonobstant la présente limitation;
@@ -67,26 +67,26 @@ Si vous vous conformez aux présents termes du contrat de licence, vous disposez
   * transférer le logiciel ou le présent contrat à un tiers; ou
   * utiliser le logiciel en association avec des services d’hébergement commercial.
   
-12.    **RESTRICTIONS À L'EXPORTATION**
-  Le logiciel est soumis aux législations et réglementations sur l’exportation en vigueur aux États-Unis. Vous devez vous conformer à toutes les lois et réglementations nationales et internationales en matière d’exportation concernant le logiciel. Ces lois comportent des restrictions sur les destinations, les utilisateurs finaux et les utilisations finales. Pour plus d’informations, consultez le site www.microsoft.com/exporting.
+12. **RESTRICTIONS À L'EXPORTATION**
+  Le logiciel est soumis aux lois et à la réglementation des États-Unis en matière d’exportation. Vous devez vous conformer à toutes les lois et réglementations nationales et internationales en matière d’exportation concernant le logiciel. Ces lois comportent des restrictions sur les destinations, les utilisateurs finaux et les utilisations finales. Pour plus d’informations, consultez le site www.microsoft.com/exporting.
   
-13.    **SERVICES DE SUPPORT**
+13. **SERVICES DE SUPPORT**
   Ce logiciel étant fourni «en l’état», Microsoft ne fournira aucun service d’assistance.
   
-14.    **INTÉGRALITÉ DES ACCORDS**
+14. **INTÉGRALITÉ DES ACCORDS**
   Le présent contrat ainsi que les termes concernant les suppléments, les mises à jour, les services Internet et l’assistance technique que vous utilisez constituent l’intégralité des accords en ce qui concerne le logiciel et les services d’assistance technique.
   
-15.    **LOI APPLICABLE**  
+15. **LOI APPLICABLE**  
   a.  États-Unis. Si vous avez acquis le logiciel aux États-Unis, les lois de l’État de Washington, États-Unis d’Amérique, régissent l’interprétation de ce contrat et s’appliquent en cas de réclamation pour manquement aux termes du contrat, nonobstant les conflits de principes juridiques. Les lois de l’État dans lequel vous vivez régissent toutes les autres réclamations, notamment les réclamations fondées sur les lois fédérales en matière de protection des consommateurs, de concurrence déloyale et de délits.  
   b.  En dehors des États-Unis. Si vous avez acquis le logiciel dans un autre pays, les lois de ce pays s’appliquent.
   
-16.    **EFFET JURIDIQUE**
-  Le présent contrat décrit certains droits légaux. Il se peut que vous ayez d’autres droits sous les lois de votre pays. Vous pourriez également avoir des droits à l’égard de la partie de qui vous avez acquis de logiciel. Le présent contrat ne modifie pas les droits que vous confèrent les lois de votre pays si celles-ci ne le permettent pas.
+16. **EFFET JURIDIQUE**
+  Le présent contrat décrit certains droits légaux. Vous pouvez bénéficier d’autres droits prévus par les lois de votre État ou pays. Vous pouvez également bénéficier de certains droits en ce qui concerne la partie auprès de laquelle vous avez acquis le logiciel. Le présent contrat ne modifie pas les droits que vous confèrent les lois de votre pays si celles-ci ne le permettent pas.
   
-17.    **EXCLUSION DE GARANTIE. LE LOGICIEL EST CONCÉDÉ SOUS LICENCE «ENL’ÉTAT». VOUS ASSUMEZ TOUS LES RISQUES LIÉS À SON UTILISATION. MICROSOFT N’ACCORDE AUCUNE GARANTIE OU CONDITION EXPRESSE. VOUS POUVEZ BÉNÉFICIER DE DROITS DES CONSOMMATEURS SUPPLÉMENTAIRES OU DE GARANTIES LÉGALES DANS LE CADRE DU DROIT LOCAL QUE CE CONTRAT NE PEUT MODIFIER. LORSQUE CELA EST AUTORISÉ PAR VOTRE LÉGISLATION LOCALE, MICROSOFT EXCLUT LES GARANTIES IMPLICITES DE QUALITÉ, D’ADÉQUATION À UN USAGE PARTICULIER ET D’ABSENCE DE CONTREFAÇON.
+17. **EXCLUSION DE GARANTIE. LE LOGICIEL EST CONCÉDÉ SOUS LICENCE «ENL’ÉTAT». VOUS ASSUMEZ TOUS LES RISQUES LIÉS À SON UTILISATION. MICROSOFT N’ACCORDE AUCUNE GARANTIE OU CONDITION EXPRESSE. VOUS POUVEZ BÉNÉFICIER DE DROITS DES CONSOMMATEURS SUPPLÉMENTAIRES OU DE GARANTIES LÉGALES DANS LE CADRE DU DROIT LOCAL QUE CE CONTRAT NE PEUT MODIFIER. LORSQUE CELA EST AUTORISÉ PAR VOTRE LÉGISLATION LOCALE, MICROSOFT EXCLUT LES GARANTIES IMPLICITES DE QUALITÉ, D’ADÉQUATION À UN USAGE PARTICULIER ET D’ABSENCE DE CONTREFAÇON.
 POUR L’AUSTRALIE: IL EXISTE DES GARANTIES LÉGALES PRÉVUES PAR LA LOI AUSTRALIENNE SUR LA PROTECTION DES CONSOMMATEURS ET AUCUNE DÉCLARATION FIGURANT DANS CES CONDITIONS D’UTILISATION N’EST DESTINÉE À AFFECTER CES DROITS.**
 
-18.    **LIMITATION ET EXCLUSION DES RECOURS ET DES DOMMAGES. VOUS POUVEZ OBTENIR DE MICROSOFT ET DE SES FOURNISSEURS UNE INDEMNISATION EN CAS DE DOMMAGES DIRECTS LIMITÉE À 5,00USD. VOUS NE POUVEZ PRÉTENDRE À AUCUNE INDEMNISATION POUR LES AUTRES DOMMAGES, Y COMPRIS LES DOMMAGES SPÉCIAUX, INDIRECTS, INCIDENTS OU ACCESSOIRES ET LES PERTES DE BÉNÉFICES.**  
+18. **LIMITATION ET EXCLUSION DES RECOURS ET DES DOMMAGES. VOUS POUVEZ OBTENIR DE MICROSOFT ET DE SES FOURNISSEURS UNE INDEMNISATION EN CAS DE DOMMAGES DIRECTS LIMITÉE À 5,00USD. VOUS NE POUVEZ PRÉTENDRE À AUCUNE INDEMNISATION POUR LES AUTRES DOMMAGES, Y COMPRIS LES DOMMAGES SPÉCIAUX, INDIRECTS, INCIDENTS OU ACCESSOIRES ET LES PERTES DE BÉNÉFICES.**  
 
   Cette limitation s'applique à
   * toute affaire liée au logiciel, aux services ou au contenu (y compris le code) figurant sur des sites Internet tiers ou dans des programmes tiers, et

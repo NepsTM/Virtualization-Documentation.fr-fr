@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
-ms.openlocfilehash: af819955c06b2db405f230cf3b7fee4c13e7c87c
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: 622c8f638a815e19a54aa75b6b5ea0688d966ae3
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="windows-container-base-image-history"></a>Historique des images de base des conteneurs Windows
+# Historique des images de base des conteneurs Windows
 
 Chaque conteneur Windows repose sur un système d’exploitation de base fourni par Microsoft. Si vous n’êtes pas certain de la version de Windows pour laquelle un conteneur a été conçu, vous pouvez exécuter `docker inspect <tag>` et mettre en correspondance la première ligne ou les deux premières lignes obtenues avec le tableau ci-dessous.
 

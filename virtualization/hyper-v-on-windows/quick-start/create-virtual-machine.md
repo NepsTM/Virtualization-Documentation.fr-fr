@@ -7,16 +7,17 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 66723f33-b12c-49d1-82cf-71ba9d6087e9
-ms.openlocfilehash: 200ec68011628262950362620ae5b438f1b6b86c
-ms.sourcegitcommit: c8e6bf83ee873fe19b522ba9e416ecf5d29f4c95
+ms.openlocfilehash: fc6228253c2ad5fe8a01db283f578abbfbee716c
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="create-virtual-machine-with-hyper-v-on-windows-10"></a>Créer une machine virtuelle avec Hyper-V sur Windows10
+# Créer une machine virtuelle avec Hyper-V sur Windows10
 
 Découvrez comment créer une machine virtuelle et y installer un système d’exploitation.  Vous aurez besoin d'un fichier .iso du système d’exploitation que vous souhaitez exécuter. Si nécessaire, téléchargez une copie d’évaluation de Windows10 à partir du [Centre d’évaluation TechNet](http://www.microsoft.com/en-us/evalcenter/).
 
-## <a name="create-a-virtual-machine-with-hyper-v-manager"></a>Créer une machine virtuelle avec le Gestionnaire Hyper-V
+## Créer une machine virtuelle avec le Gestionnaire Hyper-V
 
 1. Ouvrez le Gestionnaire Hyper-V soit en appuyant sur la touche Windows et en tapant «Gestionnaire Hyper-V», soit en recherchant **Gestionnaire Hyper-V** dans vos applications.
 
@@ -61,7 +62,7 @@ Découvrez comment créer une machine virtuelle et y installer un système d’e
   
 10. Passez en revue les détails de la machine virtuelle, puis cliquez sur **Terminer** pour terminer la création de la machine virtuelle.
 
-## <a name="create-a-virtual-machine-with-powershell"></a>Créer une machine virtuelle avec PowerShell
+## Créer une machine virtuelle avec PowerShell
 
 1. Ouvrez PowerShell ISE en tant qu’administrateur.
 
@@ -87,7 +88,7 @@ Découvrez comment créer une machine virtuelle et y installer un système d’e
   Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
   ```
   
-## <a name="complete-the-operating-system-deployment"></a>Terminer le déploiement du système d’exploitation
+## Terminer le déploiement du système d’exploitation
 
 Pour terminer la création de votre machine virtuelle, vous devez la démarrer et suivre les étapes d’installation du système d’exploitation.
 

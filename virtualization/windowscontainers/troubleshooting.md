@@ -9,12 +9,12 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
 ms.openlocfilehash: 5230080386081bda8b54656d15f33b4986cfa6e3
-ms.sourcegitcommit: ca64c1aceccd97c6315b28ff814ec7ac91fba9da
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="troubleshooting"></a>Résolution des problèmes
+# Résolution des problèmes
 
 Vous rencontrez des difficultés pour configurer votre ordinateur ou exécuter un conteneur? Nous avons créé un script PowerShell pour rechercher les problèmes courants. Commencez par le tester pour voir ce qu’il trouve, puis partagez vos résultats.
 
@@ -26,10 +26,10 @@ La liste de tous les tests qu’il exécute avec des solutions courantes est dis
 Si cela ne permet pas de trouver la source du problème, publiez la sortie de votre script sur le [Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers). C’est l’endroit idéal pour obtenir de l’aide de la Communauté, notamment des Windows Insiders et des développeurs Windows.
 
 
-## <a name="finding-logs"></a>Où trouver les journaux
+## Où trouver les journaux
 Plusieurs services sont utilisés pour gérer les conteneurs Windows. Les sections suivantes indiquent où obtenir les journaux de chaque service.
 
-### <a name="docker-engine"></a>Moteur Docker
+### Moteur Docker
 Les enregistrements du moteur Docker sont consignés dans le journal des événements des applications Windows, plutôt que dans un fichier. Ces enregistrements peuvent facilement être lus, triés et filtrés à l’aide de Windows PowerShell
 
 Par exemple, cette commande affiche les enregistrements du moteur Docker des 5dernières minutes en commençant par le plus ancien.
@@ -44,7 +44,7 @@ Ces enregistrements peuvent aussi être facilement redirigés dans un fichier CS
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-30)  | Sort-Object Time | Export-CSV ~/last30minutes.CSV
 ```
 
-#### <a name="enabling-debug-logging"></a>Activation de la journalisation du débogage
+#### Activation de la journalisation du débogage
 Vous pouvez également activer la journalisation au niveau du débogage sur le moteur Docker. Cette opération peut être utile pour la résolution des problèmes si les journaux ordinaires ne contiennent pas suffisamment de détails.
 
 Tout d’abord, ouvrez une invite de commandes avec élévation de privilèges, puis exécutez `sc.exe qc docker` pour obtenir la ligne de commande actuelle pour le service Docker.
@@ -90,7 +90,7 @@ sc.exe stop docker
 <path\to\>dockerd.exe -D > daemon.log 2>&1
 ```
 
-#### <a name="obtaining-stack-dump-and-daemon-data"></a>Obtention du vidage de pile et des données du démon.
+#### Obtention du vidage de pile et des données du démon.
 
 En règle générale, cela n'est utile que si le support Microsoft ou les développeurs du docker le demandent explicitement. Ces données peuvent servir à diagnostiquer une situation dans laquelle le docker semble bloqué. 
 
@@ -110,7 +110,7 @@ Les fichiers seront `goroutine-stacks-<timestamp>.log` et `daemon-data-<timestam
 Notez que `daemon-data*.log` peut contenir des informations personnelles et doit généralement être partagé uniquement avec des intervenants de support fiables. `goroutine-stacks*.log` ne contient aucune information personnelle.
 
 
-### <a name="host-container-service"></a>Service de conteneur hôte
+### Service de conteneur hôte
 Le moteur Docker dépend d’un service de conteneur hôte spécifique à Windows. Il a des journaux distincts: 
 - Microsoft-Windows-Hyper-V-Compute-Admin
 - Microsoft-Windows-Hyper-V-Compute-Operational
@@ -123,7 +123,7 @@ Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Admin
 Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Operational 
 ```
 
-#### <a name="capturing-hcs-analyticdebug-logs"></a>Enregistrement des journaux d’analyse/débogage HCS
+#### Enregistrement des journaux d’analyse/débogage HCS
 
 Pour activer les journaux d’analyse/débogage de calcul Hyper-V et les enregistrer sur `hcslog.evtx`.
 
@@ -140,7 +140,7 @@ wevtutil.exe epl Microsoft-Windows-Hyper-V-Compute-Analytic <hcslog.evtx>
 wevtutil.exe sl Microsoft-Windows-Hyper-V-Compute-Analytic /e:false /q:true
 ```
 
-#### <a name="capturing-hcs-verbose-tracing"></a>Capturer le suivi HCS en clair
+#### Capturer le suivi HCS en clair
 
 En règle générale, cela n'est utile que si le support Microsoft le demande. 
 

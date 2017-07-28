@@ -8,15 +8,16 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: cfbb2542-fead-48e7-8318-4da92a7b5b6f
-ms.openlocfilehash: b074692369719f32acf04714f539f03fb521e85d
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: b6c25285c3cee3a863bef40c34a1cf13b66b42fb
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="community-videos-and-blogs"></a>Vidéos et blogs de la communauté
+# Vidéos et blogs de la communauté
 Cette page contient des liens vers des vidéos et des blogs créés par des membres de la communauté sur les conteneurs.  Si vous connaissez une ressource intéressante ou si vous en avez vous-même créé une, envoyez une demande de publication pour l’ajouter à cette liste.
 
-## <a name="getting-started"></a>Démarrage
+## Démarrage
 [Exécuter des conteneurs Linux et Windows sur Windows10](https://stefanscherer.github.io/run-linux-and-windows-containers-on-windows-10/) - Stefan Scherer
 
 [Créer et exécuter votre premier conteneur Docker Windows Server](https://blog.docker.com/2016/09/build-your-first-docker-windows-server-container/) - Michael Friis
@@ -24,7 +25,7 @@ Cette page contient des liens vers des vidéos et des blogs créés par des memb
 [Exécuter IIS + ASP.NET sur Windows10 avec Docker](http://blog.alexellis.io/run-iis-asp-net-on-windows-10-with-docker/) - Alex Ellis
 
 
-## <a name="building-and-examples"></a>Création et exemples
+## Création et exemples
 [Vue d’ensemble de .NET et des conteneurs](http://blog.alexellis.io/docker-dotnet-containers/) - Alex Ellis
 
 [Docker avec Microsoft SQL2016 + ASP.NET](http://blog.alexellis.io/docker-does-sql2016-aspnet/) - Alex Ellis
@@ -43,7 +44,7 @@ Cette page contient des liens vers des vidéos et des blogs créés par des memb
 
 [Exécution de Neo4j dans les conteneurs Windows](http://glennsarti.github.io/blog/neo4j-nano-containers) - Glenn Sarti
 
-## <a name="configuration-and-managment"></a>Configuration et gestion
+## Configuration et gestion
 [Comment protéger un moteur Windows2016 Docker avec TLS](https://stefanscherer.github.io/protecting-a-windows-2016-docker-engine-with-tls/) - Stefan Scherer
 
 [Windows #Conteneur Performances des couches](http://dille.name/blog/2017/01/13/windows-container-performance-of-layers/) - Nicholas Dille

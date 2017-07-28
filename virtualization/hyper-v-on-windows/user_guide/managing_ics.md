@@ -9,12 +9,13 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
 redirect_url: https://technet.microsoft.com/windows-server-docs/compute/hyper-v/manage/manage-Hyper-V-integration-services
-ms.openlocfilehash: 83bcc4c2f47e2a3921be257f45a3a0e22dcba89a
-ms.sourcegitcommit: fd6c5ec419aae425af7ce6c6a44d59c98f62502a
+ms.openlocfilehash: 374ce6f8c4aede7190916675698551eb667458f9
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: fr-FR
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="managing-hyper-v-integration-services"></a>Gestion des services d’intégration Hyper-V
+# Gestion des services d’intégration Hyper-V
 
 Les services d’intégration (souvent appelés composants d’intégration) sont des services qui permettent à la machine virtuelle de communiquer avec l’hôte Hyper-V. Plusieurs de ces services sont pratiques (comme la copie de fichier de l’invité), mais d’autres peuvent être très importants dans le fonctionnement de la machine virtuelle (synchronisation date/heure).
 
@@ -22,7 +23,7 @@ Cet article décrit en détail comment gérer les services d’intégration à l
 
 Pour plus d’informations sur chaque service d’intégration, voir [Services d’intégration](../reference/integration-services.md).
 
-## <a name="enable-or-disable-integration-services-using-hyper-v-manager"></a>Activer ou désactiver les services d’intégration à l’aide du Gestionnaire Hyper-V
+## Activer ou désactiver les services d’intégration à l’aide du Gestionnaire Hyper-V
 
 1. Sélectionnez une machine virtuelle et ouvrez les paramètres.
   
@@ -32,7 +33,7 @@ Pour plus d’informations sur chaque service d’intégration, voir [Services d
 
 REG QUERY "HKLM\Software\Microsoft\Virtual Machine\Auto" /v IntegrationServicesVersion
 
-## <a name="enable-or-disable-integration-services-using-powershell"></a>Activer ou désactiver les services d’intégration à l’aide de PowerShell
+## Activer ou désactiver les services d’intégration à l’aide de PowerShell
 
 Les services d’intégration peuvent également être activés et désactivés avec PowerShell en exécutant [`Enable-VMIntegrationService`](https://technet.microsoft.com/en-us/library/hh848500.aspx) et [`Disable-VMIntegrationService`](https://technet.microsoft.com/en-us/library/hh848488.aspx).
 
@@ -73,7 +74,7 @@ Dans cet exemple, nous activons et désactivons le service d’intégration de c
 Les services d’intégration ont été conçus de telle sorte qu’ils ont besoin d’être activés dans l’hôte et l’invité pour fonctionner.  Bien que tous les services d’intégration soient activés par défaut sur les systèmes d’exploitation Windows invités, ils peuvent être désactivés.  Pour en savoir plus, voir la section suivante.
 
 
-## <a name="manage-integration-services-from-guest-os-windows"></a>Gérer les services d’intégration à partir du système d’exploitation invité (Windows)
+## Gérer les services d’intégration à partir du système d’exploitation invité (Windows)
 
 > **Remarque:** La désactivation des services d’intégration peut avoir un impact considérable sur la capacité de l’hôte à gérer votre machine virtuelle.  Les services d’intégration doivent être activés sur l’hôte et l’invité pour fonctionner.
 
@@ -110,7 +111,7 @@ Par exemple, pour désactiver PowerShell Direct, vous pouvez exécuter `Stop-Ser
 
 Par défaut, tous les services d’intégration sont activés dans le système d’exploitation invité.
 
-## <a name="manage-integration-services-from-guest-os-linux"></a>Gérer les services d’intégration à partir du système d’exploitation invité (Linux)
+## Gérer les services d’intégration à partir du système d’exploitation invité (Linux)
 
 Les services d’intégration Linux sont généralement fournis par le noyau Linux.
 
@@ -191,7 +192,7 @@ sudo hv_kvp_daemon
 Si vous réexécutez `ps -ef | hv`, vous découvrez un processus `hv_kvp_daemon` avec un nouvelID de processus.
 
 
-## <a name="integration-service-maintenance"></a>Maintenance des services d’intégration
+## Maintenance des services d’intégration
 
 La maintenance des services d’intégration dans Windows10 se déroule par défaut tant que les machines virtuelles peuvent recevoir des mises à jour importantes à partir de Windows Update.  
 

@@ -1,4 +1,4 @@
-# <a name="hyper-v-architecture"></a>Architecture Hyper-V
+# Architecture Hyper-V
 
 Hyper-V est une technologie de virtualisation basée sur un hyperviseur pour certaines versions de x64 de Windows.  L’hyperviseur est essentiel à la virtualisation.  Cette plateforme de virtualisation spécifique du processeur permet à plusieurs systèmes d’exploitation isolés de partager une seule plateforme matérielle.  
 
@@ -14,7 +14,7 @@ Le schéma suivant fournit une vue d’ensemble de l’architecture d’un envir
 
 ![](./media/hv_architecture.png)
 
-## <a name="glossary"></a>Glossaire
+## Glossaire
 * **APIC** (Advanced Programmable Interrupt Controller): le contrôleur d'interruption programmable avancé est un appareil qui permet d'attribuer des niveaux de priorité à ses sorties d’interruption.
 * **Partition enfant**: partition qui héberge un système d’exploitation invité. Tous les accès d'une partition enfant à la mémoire physique et aux appareils sont fournis par l’intermédiaire du bus VMBus ou de l’hyperviseur.
 * **Hypercall**: interface de communication avec l’hyperviseur. L’interface hypercall gère l’accès aux optimisations fournies par l’hyperviseur.
