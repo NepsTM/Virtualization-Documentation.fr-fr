@@ -1,19 +1,20 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 2
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\troubleshooting.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/1cbc3a15428d7912596fdb3489f4529aaa9af3dd/virtualization/windowscontainers/troubleshooting.md) | HandedOffSuccess | [Details](#2f0d0d9f7e7cfc97427deeab9b42c0e684028c28404)
+ [virtualization\windowscontainers\quick-start\building-sample-app.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4f5b9f70804bf6282af8bef603cc343c524c3102/virtualization/windowscontainers/quick-start/building-sample-app.md) | HandedOffSuccess | [Details](#2ba3e6409fc60022a55d21c187bfcaefd962908b350)
+ [virtualization\windowscontainers\quick-start\quick-start-images.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4f5b9f70804bf6282af8bef603cc343c524c3102/virtualization/windowscontainers/quick-start/quick-start-images.md) | HandedOffSuccess | [Details](#0d247989294de59ed599aba3ab982cac772efcf6394)
 
 ## Item Details
-##### <a name='2f0d0d9f7e7cfc97427deeab9b42c0e684028c28404'></a> Source: [virtualization\windowscontainers\troubleshooting.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/1cbc3a15428d7912596fdb3489f4529aaa9af3dd/virtualization/windowscontainers/troubleshooting.md)
+##### <a name='2ba3e6409fc60022a55d21c187bfcaefd962908b350'></a> Source: [virtualization\windowscontainers\quick-start\building-sample-app.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4f5b9f70804bf6282af8bef603cc343c524c3102/virtualization/windowscontainers/quick-start/building-sample-app.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/3be5faabc3e722fdece8c9eef88917866486c65f/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.fr-fr.xlf)
-* Handoff Datetime: 2017-08-04 00:08:28
+* Handoff File: [building-sample-app.957afdd492b872efb91595b513db655c559f8646.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/9342089e7272af03b9a65658b1e8ed1b52ebf066/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/building-sample-app.957afdd492b872efb91595b513db655c559f8646.fr-fr.xlf)
+* Handoff Datetime: 2017-08-04 17:45:49
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
@@ -21,10 +22,24 @@
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Handback Name: 
-* Current Target File: [virtualization\windowscontainers\troubleshooting.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/blob/095f790efff1966ec633ba3523d3f6c424273f6f/virtualization/windowscontainers/troubleshooting.md)
-* Current Handback File: [troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.fr-fr.xlf)
+* [Back to Top](#report-top)
+
+##### <a name='0d247989294de59ed599aba3ab982cac772efcf6394'></a> Source: [virtualization\windowscontainers\quick-start\quick-start-images.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4f5b9f70804bf6282af8bef603cc343c524c3102/virtualization/windowscontainers/quick-start/quick-start-images.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [quick-start-images.e5904b6fd8770efb91af0e77142fe3e655c268ad.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/9342089e7272af03b9a65658b1e8ed1b52ebf066/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/quick-start-images.e5904b6fd8770efb91af0e77142fe3e655c268ad.fr-fr.xlf)
+* Handoff Datetime: 2017-08-04 17:45:49
+* Handoff Reason: Include
+* Handoff Name: 
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Handback Name: 
+* Current Target File: [virtualization\windowscontainers\quick-start\quick-start-images.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/blob/095f790efff1966ec633ba3523d3f6c424273f6f/virtualization/windowscontainers/quick-start/quick-start-images.md)
+* Current Handback File: [quick-start-images.e5904b6fd8770efb91af0e77142fe3e655c268ad.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick-start-images.e5904b6fd8770efb91af0e77142fe3e655c268ad.fr-fr.xlf)
 * Current Handback Datetime: 2017-01-24 13:19:03
-* Bilingual File: [troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.fr-fr.xlf)
+* Bilingual File: [quick-start-images.e5904b6fd8770efb91af0e77142fe3e655c268ad.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/quick-start-images.e5904b6fd8770efb91af0e77142fe3e655c268ad.fr-fr.xlf)
 * Bilingual Datetime: 2017-01-24 13:21:39
 * [Back to Top](#report-top)
 
