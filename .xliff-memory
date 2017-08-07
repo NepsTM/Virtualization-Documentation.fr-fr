@@ -1500,7 +1500,7 @@
       "SourceFilename": "virtualization\\windowscontainers\\manage-docker\\optimize-windows-dockerfile.md",
       "XliffHash": "983f81d7495e50f9bfb70dd0543668aa4fc0cc86",
       "TranslationType": 1,
-      "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\2077f7cf0428e08ce915470ac4cc3b0ccc9c6369.39bb7cbab196837ebceed8864a78701c8dc77b41.xml",
+      "SkeletonFile": "ol-xliffcache\\MicrosoftDocs\\Virtualization-Documentation-Private.fr-fr\\live\\b0e916520b3cbcf4fdd0e02bc8a4fd7042fd2b8b.0b875503f84e61d4fe7ce5f5823ad0e10f82e533.xml",
       "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.fr-fr\\live\\optimize-windows-dockerfile.d1e84ff888241bdefbb9c9503a660b5ffd457b21.fr-fr.xlf",
       "LocXliffCommit": "610aa47ac3da0b0b55b3f9b73c145c245886ca61"
     },
