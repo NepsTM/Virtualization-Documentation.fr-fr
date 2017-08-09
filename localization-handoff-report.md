@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\manage-docker\optimize-windows-dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/48470217e479c49528d4d855c9aeeb89b68d6513/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile.md) | HandedOffSuccess | [Details](#b0e916520b3cbcf4fdd0e02bc8a4fd7042fd2b8b330)
+ [virtualization\windowscontainers\quick-start\index.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/0cedf11fb43391659f5af58d383bceda86482fca/virtualization/windowscontainers/quick-start/index.md) | HandedOffSuccess | [Details](#ac974db72707ec9b7889335d75d57d14e953e6c8351)
 
 ## Item Details
-##### <a name='b0e916520b3cbcf4fdd0e02bc8a4fd7042fd2b8b330'></a> Source: [virtualization\windowscontainers\manage-docker\optimize-windows-dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/48470217e479c49528d4d855c9aeeb89b68d6513/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile.md)
+##### <a name='ac974db72707ec9b7889335d75d57d14e953e6c8351'></a> Source: [virtualization\windowscontainers\quick-start\index.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/0cedf11fb43391659f5af58d383bceda86482fca/virtualization/windowscontainers/quick-start/index.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [optimize-windows-dockerfile.d1e84ff888241bdefbb9c9503a660b5ffd457b21.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/484d1a184ffb7155f7937e2fc1902c3a5f183194/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/optimize-windows-dockerfile.d1e84ff888241bdefbb9c9503a660b5ffd457b21.fr-fr.xlf)
-* Handoff Datetime: 2017-08-07 18:46:19
+* Handoff File: [index.552a1d84b9bbb9d1528652f489195a6cbae1e9d1.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/c6c2afa6a24c8f7aa9e131d1cf2a4c8708d4e779/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/index.552a1d84b9bbb9d1528652f489195a6cbae1e9d1.fr-fr.xlf)
+* Handoff Datetime: 2017-08-09 00:47:47
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
@@ -21,10 +21,10 @@
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Handback Name: 
-* Current Target File: [virtualization\windowscontainers\manage-docker\optimize-windows-dockerfile.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/blob/095f790efff1966ec633ba3523d3f6c424273f6f/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile.md)
-* Current Handback File: [optimize-windows-dockerfile.d1e84ff888241bdefbb9c9503a660b5ffd457b21.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/optimize-windows-dockerfile.d1e84ff888241bdefbb9c9503a660b5ffd457b21.fr-fr.xlf)
+* Current Target File: [virtualization\windowscontainers\quick-start\index.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/blob/095f790efff1966ec633ba3523d3f6c424273f6f/virtualization/windowscontainers/quick-start/index.md)
+* Current Handback File: [index.552a1d84b9bbb9d1528652f489195a6cbae1e9d1.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/index.552a1d84b9bbb9d1528652f489195a6cbae1e9d1.fr-fr.xlf)
 * Current Handback Datetime: 2017-01-24 13:19:03
-* Bilingual File: [optimize-windows-dockerfile.d1e84ff888241bdefbb9c9503a660b5ffd457b21.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/optimize-windows-dockerfile.d1e84ff888241bdefbb9c9503a660b5ffd457b21.fr-fr.xlf)
+* Bilingual File: [index.552a1d84b9bbb9d1528652f489195a6cbae1e9d1.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/index.552a1d84b9bbb9d1528652f489195a6cbae1e9d1.fr-fr.xlf)
 * Bilingual Datetime: 2017-01-24 13:21:39
 * [Back to Top](#report-top)
 
