@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "b3b6bef634ddcaa6ecc162ab53d68390f8926051",
+  "LastProcessedCommit": "63e890ad2caae3ce55503af81c6c5ff0d1e630f6",
   "LastTranslatedCommit": "f26914161b3ad0309d88eb88793f5348ea6f3cf4",
   "LastConfigHash": "c2c732afb7c3f4c37d58d495724fd755011bf7a0",
   "Items": {
@@ -21063,6 +21063,22 @@
       "HandoffFileCommit": "704db9e38a3ecbf93033c9b73fe5ab63b8b5b838",
       "HandoffDateTime": "2017-08-15T22:25:03.3482073Z",
       "HandoffXliffHash": "66651beaf46001671a3dc29f515e428f53ebc3b7",
+      "HandoffPriority": ""
+    },
+    "ac1ec3740cfa75acd8c005df3f67531c693cd914": {
+      "FileHash": "ac1ec3740cfa75acd8c005df3f67531c693cd914",
+      "SourceFileCommit": "63e890ad2caae3ce55503af81c6c5ff0d1e630f6",
+      "SourceFilePath": "virtualization\\hyper-v-on-windows\\about\\supported-guest-os.md",
+      "HandoffReason": 1,
+      "FilePathList": [
+        "virtualization\\hyper-v-on-windows\\about\\supported-guest-os.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.fr-fr\\live\\supported-guest-os.bb959c20ec9b6ee9dc1f4b9e0d1abaad551c0a11.fr-fr.xlf",
+      "HandoffFileCommit": "b1fa484474e130d295b1b12edc6aa8202a3e67f2",
+      "HandoffDateTime": "2017-08-17T20:23:52.1977325Z",
+      "HandoffXliffHash": "ebfc65804d9f0687e1de9b47a5f13147ba78e4de",
       "HandoffPriority": ""
     }
   }
