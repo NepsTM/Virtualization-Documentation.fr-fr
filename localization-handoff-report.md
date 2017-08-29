@@ -1,11 +1,33 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\hyper-v-on-windows\user-guide\nested-virtualization.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6eddc44b18109df52a02c01ce2661db621882e7d/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md) | HandedOffSuccess | [Details](#fb790611ea994c68f3e3a3b0404a297c595f0646235)
 
 ## Item Details
+##### <a name='fb790611ea994c68f3e3a3b0404a297c595f0646235'></a> Source: [virtualization\hyper-v-on-windows\user-guide\nested-virtualization.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6eddc44b18109df52a02c01ce2661db621882e7d/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [nested-virtualization.b6c03a13724acb15bc74c70fdf9c4b440a2b28d4.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/a12fcf2b90154855fdead580392c99c7911c38b2/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/nested-virtualization.b6c03a13724acb15bc74c70fdf9c4b440a2b28d4.fr-fr.xlf)
+* Handoff Datetime: 2017-08-29 17:16:11
+* Handoff Reason: Include
+* Handoff Name: 
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Handback Name: 
+* Current Target File: [virtualization\hyper-v-on-windows\user-guide\nested-virtualization.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/blob/f26914161b3ad0309d88eb88793f5348ea6f3cf4/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md)
+* Current Handback File: [nested-virtualization.b6c03a13724acb15bc74c70fdf9c4b440a2b28d4.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/153d2e388619f6795ecec235dddf19417f923c92/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/nested-virtualization.b6c03a13724acb15bc74c70fdf9c4b440a2b28d4.fr-fr.xlf)
+* Current Handback Datetime: 2017-03-24 13:49:56
+* Bilingual File: [nested-virtualization.b6c03a13724acb15bc74c70fdf9c4b440a2b28d4.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/153d2e388619f6795ecec235dddf19417f923c92/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/nested-virtualization.b6c03a13724acb15bc74c70fdf9c4b440a2b28d4.fr-fr.xlf)
+* Bilingual Datetime: 2017-03-24 13:53:03
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
