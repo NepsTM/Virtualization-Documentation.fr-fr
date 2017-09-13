@@ -1,63 +1,63 @@
-# Utilisation d’images de conteneur Insider
+# Using Insider Container Images
 
-Cet exercice va vous guider tout au long du déploiement et de l’utilisation de la fonctionnalité de conteneur Windows de la dernière build Insider de WindowsServer du programme WindowsInsiderPreview. Au cours de cet exercice, vous allez installer le rôle de conteneur et déployer une version d’évaluation des images de système d’exploitation de base. Avant de commencer ce démarrage rapide, familiarisez-vous avec la terminologie et les concepts de base des conteneurs. Vous trouverez ces informations dans la [Présentation du démarrage rapide](./index.md).
+This exercise will walk you through the deployment and use of the Windows container feature on the latest insider build of Windows Server from the Windows Insider Preview program. During this exercise, you will install the container role and deploy a preview edition of the base OS images. Si vous voulez vous familiariser avec les conteneurs, vous trouverez des informations dans la rubrique [À propos des conteneurs](../about/index.md).
 
-Ce démarrage rapide est spécifique aux conteneurs WindowsServer du programme WindowsServerInsiderPreview. Familiarisez-vous avec le programme avant de poursuivre ce démarrage rapide.
+Ce démarrage rapide est spécifique aux conteneurs WindowsServer du programme WindowsServerInsiderPreview. Please familiarize yourself with the program before continuing this quick start.
 
-**Conditions préalables:**
+**Prerequisites:**
 
-- Être membre du [programme Windows Insider](https://insider.windows.com/GettingStarted) et avoir consulté les conditions d’utilisation. 
-- Utiliser un système informatique (physique ou virtuel) qui exécute la dernière version de WindowsServer du programme WindowsInsider et/ou la dernière version de Windows10 du programme WindowsInsider.
+- Become a part of the [Windows Insider Program](https://insider.windows.com/GettingStarted) and review the Terms of Use.
+- One computer system (physical or virtual) running the latest build of Windows Server from the Windows Insider program and/or the latest build of Windows 10 from the Windows Insider program.
 
->Vous devez utiliser une build de WindowsServer du programme WindowsServerInsiderPreview ou une build de Windows10 du programme WindowsInsiderPreview pour utiliser l’image de base décrite ci-dessous. Si vous n’utilisez pas l’une de ces builds, la création d’un conteneur échouera lors de l’utilisation de ces images de base.
+>It is required that you use a build of Windows Server from the Windows Server Insider Preview program, or a build of Windows 10 from the Windows Insider Preview program, to use the base image described below. If you are not using one of these builds, the use of these base images will result in failure to start a container.
 
-## Installer Docker
-Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. Vous devez également utiliser une version de Docker qui prend en charge les créations échelonnées pour une expérience optimale à l’aide de l’image NanoServer optimisée pour les conteneurs.
+## Install Docker
+Docker is required in order to work with Windows containers. Docker consists of the Docker Engine, and the Docker client. You will also need a version of Docker that supports multi-stage builds for the best experience using the Container-optimized Nano Server image.
 
-Pour installer Docker, nous allons utiliser le module PowerShell de fournisseur OneGet. Le fournisseur active la fonctionnalité de conteneurs sur votre ordinateur et installe Docker. Cette opération nécessite un redémarrage. Notez qu’il existe plusieurs canaux avec une version différente de Docker, selon le cas d’utilisation. Dans cet exercice, nous allons utiliser la dernière version Community Edition de Docker du canal Stable. Un canal Edge est également disponible si vous souhaitez tester les dernières évolutions dans Docker. 
+To install Docker, we'll use the OneGet provider PowerShell module. The provider will enable the containers feature on your machine and install Docker - this will require a reboot. Note that there are multiple channels with different version of docker to use in different cases. For this exercise, we will be using the latest Community Edition version of Docker from the Stable channel. There is also an Edge channel available if you would like to test the latest developments in Docker.
 
-Ouvrez une session PowerShell avec élévation de privilèges, puis exécutez les commandes suivantes.
+Open an elevated PowerShell session and run the following commands.
 
->Remarque: l’installation de Docker dans les builds Insider requiert un fournisseur autre que celui utilisé en temps normal à compter d’aujourd’hui. Notez la différence ci-dessous.
+>Note: Installing Docker in the insider builds requires a different provider than the one normally used as of today. Please note the difference below.
 
-Installez le module PowerShell OneGet.
+Install the OneGet PowerShell module.
 ```powershell
 Install-Module -Name DockerMsftProviderInsider -Repository PSGallery -Force
 ```
-Utilisez OneGet pour installer la dernière version de Docker.
+Use OneGet to install the latest version of Docker.
 ```powershell
 Install-Package -Name docker -ProviderName DockerMsftProviderInsider -RequiredVersion 17.06.0-ce
 ```
-Une fois l’installation terminée, redémarrez l’ordinateur.
+When the installation is complete, reboot the computer.
 ```none
 Restart-Computer -Force
 ```
 
-## Installer l’image de conteneur de base
+## Install Base Container Image
 
-Avant d’utiliser des conteneurs Windows, une image de base doit être installée. En tant que membre du programme WindowsInsider, vous pouvez également tester les images de base de nos builds les plus récentes. Les images de base Insider comptent désormais 4images de base basées sur WindowsServer. Reportez-vous au tableau ci-dessous pour vérifier dans quel contexte les utiliser:
+Before working with Windows containers, a base image needs to be installed. By being part of the Windows Insider program, you can also test our latest builds for the base images. With the Insider base images, there are now 4 available base images based on Windows Server. Refer to the table below to check for what purposes each should be used:
 
-| Image de système d’exploitation de base                       | Utilisation                      |
+| Base OS Image                       | Usage                      |
 |-------------------------------------|----------------------------|
-| microsoft/windowsservercore         | Production et développement |
-| microsoft/nanoserver                | Production et développement |
-| microsoft/windowsservercore-insider | Développement uniquement           |
-| microsoft/nanoserver-insider        | Développement uniquement           |
+| microsoft/windowsservercore         | Production and Development |
+| microsoft/nanoserver                | Production and Development |
+| microsoft/windowsservercore-insider | Development only           |
+| microsoft/nanoserver-insider        | Development only           |
 
-Pour extraire l’image de base Insider NanoServer, exécutez la commande suivante:
+To pull the Nano Server Insider base image run the following:
 
 ```none
 docker pull microsoft/nanoserver-insider
 ```
 
-Exécutez la commande suivante pour extraire l’image de base Insider WindowsServerCore:
+To pull the Windows Server Core insider base image run the following:
 
 ```none
 docker pull microsoft/windowsservercore-insider
 ```
 
-Veuillez lire le Contrat de Licence Utilisateur Final (CLUF) applicable à l’image de système d’exploitation des conteneurs Windows, disponible ici: [CLUF](../EULA.md ) et les conditions d’utilisation du programme WindowsInsider disponibles ici: [Conditions d’utilisation](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver). 
+Please read the Windows Containers OS Image EULA which can be found here – [EULA](../EULA.md ), and the Windows Insider program Terms of Use which can be found here – [Terms of Use](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).
 
-## Étapes suivantes
+## Next Steps
 
-[Créer et exécuter une application avec ou sans .NETCore2.0 ou PowerShellCore6](./Nano-RS3-.NET-Core-and-PS.md)
+[Build and run an application with or without .NET Core 2.0 or PowerShell Core 6](./Nano-RS3-.NET-Core-and-PS.md)

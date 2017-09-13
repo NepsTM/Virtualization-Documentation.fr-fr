@@ -1,72 +1,67 @@
 ---
-title: Documentation sur les conteneurs Windows
-description: Documentation sur les conteneurs Windows
-keywords: docker, conteneurs
+title: Windows Containers Documentation
+description: Windows containers documentation
+keywords: docker, containers
 author: enderb-ms
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-ms.openlocfilehash: 9b630e372b575ef1721c0d0926ec2caec3e5ec34
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: 2a38e8cac3c05530a301eeccff3eb4264ec1d702
+ms.sourcegitcommit: 015f8c438cd1e1331e5388280facce4b9ec939ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 ---
-# Documentation sur les conteneurs Windows
+# Windows Containers Documentation
 
-Les conteneurs Windows offrent une virtualisation au niveau du système d’exploitation qui permet à plusieurs applications isolées d’être exécutées sur un seul système. Deux types de runtime de conteneurs différents sont compris dans la fonctionnalité, chacun avec un degré différent d’isolation d’application. Pour procéder à l’isolation, les conteneurs Windows Server passent par l’isolation de processus et d’espace de noms. Les conteneurs Hyper-V encapsulent chaque conteneur dans une machine virtuelle légère. L’ensemble de cette documentation fournit des guides de démarrage rapide, des guides de déploiement et des détails techniques sur les opérations de gestion.
+Les conteneurs Windows offrent une virtualisation au niveau du système d’exploitation qui permet à plusieurs applications isolées d’être exécutées sur un seul système. L’ensemble de cette documentation fournit des guides de démarrage rapide, des guides de déploiement et des détails techniques sur les opérations de gestion.
 
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:90%" cellpadding="25" cellspacing="5">
+<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:90%; margin-top: 20px" cellpadding="25" cellspacing="5">
 <tr>
 <td ><center>![](media/try.png)</center></td>
-<td>**Démarrage rapide de la**<br /><br />
-Démarrage rapide de Windows Server<br /><br />
+<td>**Démarrage**<br /><br />
+Découvrez les conteneurs, puis commencez à les utiliser.<br /><br />
 <ul>
-<li>[Étape1: Concepts et terminologie](quick-start/index.md)<br /><br /></li>
-<li>[Étape2: Configurer Windows Server et le premier conteneur](quick-start/quick-start-windows-server.md)<br /><br /></li>
-<li>[Étape3: Créer et transférer (push) des images de conteneur](quick-start/quick-start-images.md)<br /><br /></li>
-</ul>
-Démarrage rapide de Windows10<br /><br />
-<ul>
-<li>[Étape1: Concepts et terminologie](quick-start/index.md)<br /><br /></li>
-<li>[Étape2: Configurer Windows10 et le premier conteneur](quick-start/quick-start-windows-10.md)<br /><br /></li>
+<li>[À propos des conteneurs Windows](about/index.md)<br /><br /></li>
+<li>[Utilisation de conteneurs sur WindowsServer](quick-start/quick-start-windows-server.md)<br /><br /></li>
+<li>[Utilisation de conteneurs sur Windows10](quick-start/quick-start-windows-10.md)<br /><br /></li>
 </ul>
 </td>
 </tr>
 <tr>
 <td ><center>![](media/1.png)</center></td>
 <td>**Déploiement**<br /><br />
-Découvrez comment déployer les conteneurs Windows sur Windows Server2016 et Nano Server.<br /><br />
+Learn how to deploy Windows Containers on Windows Server 2016 and Nano Server..<br /><br />
 <ul>
-<li>[Configuration requise](deploy-containers/system-requirements.md)<br /><br /></li>
-<li>[Déployer l’hôte de conteneur-Windows Server](deploy-containers/deploy-containers-on-server.md)<br /><br /></li>
-<li>[Déployer l’hôte de conteneur-Nano Server](deploy-containers/deploy-containers-on-nano.md)<br /><br /></li>
-<li>[Optimisation de la protection antivirus](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)<br /><br /></li>
+<li>[System Requirements](deploy-containers/system-requirements.md)<br /><br /></li>
+<li>[Deploy Container Host - Windows Server](deploy-containers/deploy-containers-on-server.md)<br /><br /></li>
+<li>[Deploy Container Host - Nano Server](deploy-containers/deploy-containers-on-nano.md)<br /><br /></li>
+<li>[Anti-Virus Optimization](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)<br /><br /></li>
 </ul>
 </td>
 </tr>
 
 <tr>
 <td ><center>![](media/explore.png)</center></td>
-<td>**Docker sur Windows**<br /><br />
-Découvrez comment gérer Docker sur Windows.<br /><br />
+<td>**Docker on Windows**<br /><br />
+Learn about managing Docker on Windows.<br /><br />
 <ul>
-<li>[Moteur Docker sur Windows](manage-docker/configure-docker-daemon.md)<br /><br /></li>
-<li>[Fichiers Dockerfile sur Windows](manage-docker/manage-windows-dockerfile.md)<br /><br /></li>
-<li>[Optimiser les fichiers Dockerfile](manage-docker/optimize-windows-dockerfile.md)<br /><br /></li>
-<li>[Mise en réseau de conteneur](manage-containers/container-networking.md)<br /><br /></li>
+<li>[Docker Engine on Windows](manage-docker/configure-docker-daemon.md)<br /><br /></li>
+<li>[Dockerfiles on Windows](manage-docker/manage-windows-dockerfile.md)<br /><br /></li>
+<li>[Optimize Dockerfiles](manage-docker/optimize-windows-dockerfile.md)<br /><br /></li>
+<li>[Container Networking](manage-containers/container-networking.md)<br /><br /></li>
 </ul>
 </td>
 </tr>
 
 <tr>
 <td ><center>![](media/video.png)</center></td>
-<td>**Regarder**<br /><br />
-Vous êtes intéressé par des démonstrations et des interviews de l’équipe des conteneurs Windows?<br /><br />
+<td>**Watch**<br /><br />
+Interested in demos and interviews from the Windows Container team?<br /><br />
 <ul>
-<li>[Chaîne Conteneurs](https://channel9.msdn.com/Blogs/containers)</li>
+<li>[Containers Channel](https://channel9.msdn.com/Blogs/containers)</li>
 </ul>
 <br />
 </td>
@@ -74,12 +69,12 @@ Vous êtes intéressé par des démonstrations et des interviews de l’équipe 
 
 <tr>
 <td ><center>![](media/question.png)</center></td>
-<td>**Communauté**<br /><br />
-Interagissez avec la communauté, testez des exemples et trouvez d’autres ressources.<br /><br />
+<td>**Community**<br /><br />
+Interact with the community, try samples, and find additional resources.<br /><br />
 <ul>
-<li>[Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)<br /><br /></li>
-<li>[Vidéos et blogs de la communauté](communitylinks.md)<br /><br /></li>
-<li>[Ressources de conteneur](https://msdn.microsoft.com/virtualization/community/community_overview)<br /><br /></li>
+<li>[Container Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)<br /><br /></li>
+<li>[Community Videos and Blogs](communitylinks.md)<br /><br /></li>
+<li>[Container Resources](https://msdn.microsoft.com/virtualization/community/community_overview)<br /><br /></li>
 </ul>
 </td>
 </tr>

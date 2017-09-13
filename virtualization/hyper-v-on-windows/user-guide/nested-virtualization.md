@@ -1,78 +1,78 @@
 ---
-title: "Virtualisation imbriquée"
-description: "Virtualisation imbriquée"
-keywords: Windows10, Hyper-V
+title: Nested Virtualization
+description: Nested Virtualization
+keywords: windows 10, hyper-v
 author: theodthompson
 ms.date: 06/20/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
-ms.openlocfilehash: 7d16fcf22187ae3ace25fe1bedbc02f3c6b63eb8
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: fb790611ea994c68f3e3a3b0404a297c595f0646
+ms.sourcegitcommit: 6eddc44b18109df52a02c01ce2661db621882e7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/29/2017
 ---
-# Exécuter Hyper-V dans une machine virtuelle avec la virtualisation imbriquée
+# Run Hyper-V in a Virtual Machine with Nested Virtualization
 
-La virtualisation imbriquée est une fonctionnalité qui vous permet d’exécuter Hyper-V à l’intérieur d’une machine virtuelle Hyper-V. En d’autres termes, avec la virtualisation imbriquée, un hôte Hyper-V peut être virtualisé. Certains cas d’utilisation de la virtualisation imbriquée consistent à exécuter un conteneur Hyper-V dans un hôte de conteneur virtualisé, configurer un laboratoire Hyper-V dans un environnement virtualisé ou tester des scénarios sur plusieurs machines sans besoin de matériel. Ce document décrit en détail la configuration matérielle et logicielle requise, les étapes de configuration et les limitations. 
+Nested virtualization is a feature that allows you to run Hyper-V inside of a Hyper-V virtual machine. In other words, with nested virtualization, a Hyper-V host itself can be virtualized. Some use cases for nested virtualization would be to run a Hyper-V Container in a virtualized container host, set-up a Hyper-V lab in a virtualized environment, or to test multi-machine scenarios without the need for individual hardware. This document will detail software and hardware prerequisites, configuration steps, and limitations. 
 
-## Conditions préalables
+## Prerequisites
 
-- Un hôte Hyper-V exécutant WindowsServer2016 ou la mise à jour anniversaire Windows 10.
-- Une machine virtuelle Hyper-V exécutant WindowsServer2016 ou la mise à jour anniversaire Windows 10.
-- Une machine virtuelle Hyper-V avec une configuration8.0 ou version ultérieure.
-- Processeur Intel avec la technologie VT-x et EPT.
+- A Hyper-V host running Windows Server 2016 or Windows 10 Anniversary Update.
+- A Hyper-V VM running Windows Server 2016 or Windows 10 Anniversary Update.
+- A Hyper-V VM with configuration version 8.0 or greater.
+- An Intel processor with VT-x and EPT technology.
 
-## Configurer la virtualisation imbriquée
+## Configure Nested Virtualization
 
-1. Créer une machine virtuelle. Consultez la configuration requise ci-dessus pour les versions de système d’exploitation et les machines virtuelles.
-2. Pendant que la machine virtuelle est à l’état DÉSACTIVÉ, exécutez la commande suivante sur l’hôte Hyper-V physique. Cela permet d’activer la virtualisation imbriquée de la machine virtuelle.
+1. Create a virtual machine. See the prerequisites above for the required OS and VM versions.
+2. While the virtual machine is in the OFF state, run the following command on the physical Hyper-V host. This enables nested virtualization for the virtual machine.
 
 ```none
 Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
 ```
-3. Démarrez l'ordinateur virtuel.
-4. Installez Hyper-V sur la machine virtuelle, comme vous le feriez sur un serveur physique. Pour plus d’informations sur l’installation d’Hyper-V, consultez [Installer Hyper-V](../quick-start/enable-hyper-v.md).
+3. Start the virtual machine.
+4. Install Hyper-V within the virtual machine, just like you would for a physical server. For more information on installing Hyper-V see, [Install Hyper-V](../quick-start/enable-hyper-v.md).
 
-## Désactiver la virtualisation imbriquée
-Vous pouvez désactiver la virtualisation imbriquée d’une machine virtuelle à l’arrêt à l’aide de la commande PowerShell suivante:
+## Disable Nested Virtualization
+You can disable nested virtualization for a stopped virtual machine using the following PowerShell command:
 ```none
 Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $false
 ```
 
-## Mémoire dynamique et redimensionnement de la mémoire d’exécution
-Hyper-V est en cours d’exécution dans une machine virtuelle, la machine virtuelle doit être désactivée pour ajuster sa mémoire. Cela signifie que même si la mémoire dynamique est activée, la quantité de mémoire ne varie pas. Pour les machines virtuelles dont la mémoire dynamique n’est pas activée, toute tentative d’ajustement de la quantité de mémoire en fonctionnement échouera. 
+## Dynamic Memory and Runtime Memory Resize
+When Hyper-V is running inside a virtual machine, the virtual machine must be turned off to adjust its memory. This means that even if dynamic memory is enabled, the amount of memory will not fluctuate. For virtual machines without dynamic memory enabled, any attempt to adjust the amount of memory while it's on will fail. 
 
-Notez que la simple activation de la virtualisation imbriquée n’a aucun effet sur la mémoire dynamique ou le redimensionnement de la mémoire runtime. L’incompatibilité se produit uniquement lorsque Hyper-V s’exécute dans la machine virtuelle Hyper-V.
+Note that simply enabling nested virtualization will have no effect on dynamic memory or runtime memory resize. The incompatibility only occurs while Hyper-V is running in the VM.
 
-## Options de mise en réseau
-Il existe deux options pour la mise en réseau des machines virtuelles imbriquées: l’usurpation des adresses MAC et le mode NAT.
+## Networking Options
+There are two options for networking with nested virtual machines: MAC address spoofing and NAT mode.
 
-### Usurpation des adresses MAC
-Pour que les paquets réseau puissent être acheminés via deux commutateurs virtuels, l’usurpation des adresses MAC doit être activée sur le premier niveau du commutateur virtuel. Pour cela, exécutez la commande PowerShell suivante.
+### MAC Address Spoofing
+In order for network packets to be routed through two virtual switches, MAC address spoofing must be enabled on the first level of virtual switch. This is completed with the following PowerShell command.
 
 ```none
 Get-VMNetworkAdapter -VMName <VMName> | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
-### Traduction d’adresses réseau
-La deuxième option s’appuie sur la traduction d’adresses réseau (NAT). Cette approche est idéale pour les cas où l’usurpation des adresses MAC n’est pas possible, comme dans un environnement de cloud public.
+### Network Address Translation
+The second option relies on network address translation (NAT). This approach is best suited for cases where MAC address spoofing is not possible, like in a public cloud environment.
 
-Tout d’abord, un commutateur NAT virtuel doit être créé dans la machine virtuelle hôte (machine virtuelle «intermédiaire»). Notez que les adressesIP ne sont qu’un exemple et peuvent varier entre les environnements:
+First, a virtual NAT switch must be created in the host virtual machine (the "middle" VM). Note that the IP addresses are just an example, and will vary across environments:
 ```none
-new-vmswitch -name VmNAT -SwitchType Internal
+New-VMSwitch -Name VmNAT -SwitchType Internal
 New-NetNat –Name LocalNAT –InternalIPInterfaceAddressPrefix “192.168.100.0/24”
 ```
-Affectez ensuite une adresseIP à la carte réseau:
+Next, assign an IP address to the net adapter:
 ```none
-get-netadapter "vEthernet (VmNat)" | New-NetIPAddress -IPAddress 192.168.100.1 -AddressFamily IPv4 -PrefixLength 24
+Get-NetAdapter "vEthernet (VmNat)" | New-NetIPAddress -IPAddress 192.168.100.1 -AddressFamily IPv4 -PrefixLength 24
 ```
-Une adresseIP et une passerelle doivent être affectées à chaque machine virtuelle imbriquée. Notez que l’adresseIP de la passerelle doit pointer vers la carte NAT de l’étape précédente. Vous pouvez également affecter un serveur DNS:
+Each nested virtual machine must have an IP address and gateway assigned to it. Note that the gateway IP must point to the NAT adapter from the previous step. You may also want to assign a DNS server:
 ```none
-get-netadapter "Ethernet" | New-NetIPAddress -IPAddress 192.168.100.2 -DefaultGateway 192.168.100.1 -AddressFamily IPv4 -PrefixLength 24
+Get-NetAdapter "Ethernet" | New-NetIPAddress -IPAddress 192.168.100.2 -DefaultGateway 192.168.100.1 -AddressFamily IPv4 -PrefixLength 24
 Netsh interface ip add dnsserver “Ethernet” address=<my DNS server>
 ```
 
-## Applications de virtualisation tierces
-Les applications de virtualisation autres que Hyper-V ne sont pas prises en charge sur les machines virtuelles Hyper-V et sont susceptibles d’échouer. Cela inclut tout logiciel qui requiert des extensions matérielles pour la virtualisation.
+## 3rd Party Virtualization Apps
+Virtualization applications other than Hyper-V are not supported in Hyper-V virtual machines, and are likely to fail. This includes any software that requires hardware virtualization extensions.

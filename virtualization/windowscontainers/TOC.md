@@ -1,50 +1,47 @@
 # [À propos des conteneurs Windows](about/index.md)
 
-# Démarrage rapide de Windows Server
-## [Étape1: Concepts](quick_start/quick_start.md)
-## [Étape2: Premier conteneur](quick_start/quick_start_windows_server.md)
-## [Étape3: Images de conteneur](quick_start/quick_start_images.md)
-
 # Démarrage rapide de Windows10
-## [Étape1: Concepts](quick_start/quick_start.md)
-## [Étape2: Premier conteneur](quick_start/quick_start_windows_10.md)
+## [Exécuter votre premier conteneur](quick-start/quick-start-windows-10.md)
+## [Créer un exemple d’application](quick-start/building-sample-app.md)
+
+# Démarrage rapide de WindowsServer
+## [Exécuter votre premier conteneur](quick-start/quick-start-windows-server.md)
+## [Automatisation de builds de conteneur](quick-start/quick-start-images.md)
 
 # Démarrage rapide de WindowsInsider
-## [Étape1: Utilisation d'images Insider](quick-start/Using-Insider-Container-Images.md)
-## [Étape2: Créer et exécuter une application](quick-start/Nano-RS3-.NET-Core-and-PS.md)
-## [Étape3: Problèmes connus](quick-start/Insider-Known-Issues.md)
+## [Step 1 - Using the Insider images](quick-start/Using-Insider-Container-Images.md)
+## [Step 2 - Build and Run an Application](quick-start/Nano-RS3-.NET-Core-and-PS.md)
+## [Step 3 - Known Issues](quick-start/Insider-Known-Issues.md)
 
-# Déployer un conteneur Windows
-## [Configuration système](deployment/system_requirements.md)
-## [Isolation Hyper-V](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/hyperv-container)
-## [Hôte de conteneur-Windows Server](deployment/deployment.md)
-## [Hôte de conteneur-Nano Server](deployment/deployment_nano.md)
+# Deploy Windows Container
+## [Configuration système](deploy-containers/system-requirements.md)
+## [Déploiement](deploy-containers/deploy-containers-on-server.md)
 ## [Isolation Hyper-V](manage-containers/hyperv-container.md)
+## [Comptes de Service Active Directory](manage-containers/manage-serviceaccounts.md)
 ## [Optimisation de la protection antivirus](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
-## [Comptes de Service Active Directory](management/manage_serviceaccounts.md)
 
 # Gérer Docker sur Windows
-## [Moteur Docker sur Windows](docker/configure_docker_daemon.md)
-## [Fichiers Dockerfile sur Windows](docker/manage_windows_dockerfile.md)
-## [Optimiser les fichiers Dockerfile](docker/optimize_windows_dockerfile.md)
-## [Mise en réseau de conteneur](management/container_networking.md)
-## [Prise en main du mode Swarm](manage-containers/swarm-mode.md)
-## [Gérer Docker avec PowerShell](https://github.com/Microsoft/Docker-PowerShell)
-## [Gestion à distance d’un hôte WindowsDocker](management/manage_remotehost.md)
+## [Docker Engine on Windows](docker/configure_docker_daemon.md)
+## [Dockerfiles on Windows](docker/manage_windows_dockerfile.md)
+## [Optimize Dockerfiles](docker/optimize_windows_dockerfile.md)
+## [Container Networking](management/container_networking.md)
+## [Getting Started with Swarm Mode](manage-containers/swarm-mode.md)
+## [Manage Docker with PowerShell](https://github.com/Microsoft/Docker-PowerShell)
+## [Remote Management of a Windows Docker Host](management/manage_remotehost.md)
 
-# Exemples de conteneurs
-## [Infrastructures des applications](samples.md#Application-Frameworks)
-## [Langages de programmation](samples.md#Programing-Languages)
-## [Bases de données](samples.md#Databases)
-## [Infrastructure et outils d’intégration continue](samples.md#Infrastructure-and-CI-Tools)
-## [Pour vous amuser](samples.md#Just-for-Fun)
-## [Autre](samples.md#Other)
-
-
-# Communauté et Support
-## [Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
-## [Vidéos et blogs de la communauté](communitylinks.md)
-## [Résolution des problèmes](troubleshooting.md)
+# Container Samples
+## [Application Frameworks](samples.md#Application-Frameworks)
+## [Programing Languages](samples.md#Programing-Languages)
+## [Databases](samples.md#Databases)
+## [Infrastructure and CI Tools](samples.md#Infrastructure-and-CI-Tools)
+## [Just for Fun](samples.md#Just-for-Fun)
+## [Other](samples.md#Other)
 
 
-# [CLUF de l’image de système d’exploitation des conteneurs](Images_EULA.md)
+# Community and Support
+## [Container Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
+## [Community Videos and Blogs](communitylinks.md)
+## [Troubleshooting](troubleshooting.md)
+
+
+# [Container OS Image EULA](Images_EULA.md)
