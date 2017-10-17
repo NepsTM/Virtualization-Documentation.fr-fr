@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "8ce23ca36f3dbae96a09f73d8c2f235943f8cd47",
+  "LastProcessedCommit": "eb111c328266fe72a780cfd53c5e0e55de1ec084",
   "LastTranslatedCommit": "f26914161b3ad0309d88eb88793f5348ea6f3cf4",
   "LastConfigHash": "8a1020b7136b784cdc0f8c9eca877ab77b2a9c5f",
   "Items": {
@@ -21267,6 +21267,22 @@
       "HandoffFileCommit": "4eb5ce4d7d18ea51a599302164eb212a28db2f4a",
       "HandoffDateTime": "2017-10-17T18:35:51.1954027Z",
       "HandoffXliffHash": "a811fb8e8051fceefe896da89edd3e0dac1fb10d",
+      "HandoffPriority": ""
+    },
+    "dce6004b66ac085354d906bc09f57f037c5dd138": {
+      "FileHash": "dce6004b66ac085354d906bc09f57f037c5dd138",
+      "SourceFileCommit": "eb111c328266fe72a780cfd53c5e0e55de1ec084",
+      "SourceFilePath": "virtualization\\windowscontainers\\deploy-containers\\version-compatibility.md",
+      "HandoffReason": 1,
+      "FilePathList": [
+        "virtualization\\windowscontainers\\deploy-containers\\version-compatibility.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.fr-fr\\live\\version-compatibility.83af55c933bbdc2ff700d51b89b918de7276cc54.fr-fr.xlf",
+      "HandoffFileCommit": "119cefe8cf0dfac8ba4bddc19117c3f1b4519ecc",
+      "HandoffDateTime": "2017-10-17T19:35:29.2105527Z",
+      "HandoffXliffHash": "99610d16a0a0978559e0690fd3d77edcd255d3ea",
       "HandoffPriority": ""
     }
   }
