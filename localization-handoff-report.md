@@ -1,28 +1,11 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\quick-start\building-sample-app.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/04c78918c77d2ad6053e6a95dc57bc488efbbf8b/virtualization/windowscontainers/quick-start/building-sample-app.md) | HandedOffSuccess | [Details](#b1d0c4bcf35cd40e9ca058d4e2a51fa028cade2c360)
 
 ## Item Details
-##### <a name='b1d0c4bcf35cd40e9ca058d4e2a51fa028cade2c360'></a> Source: [virtualization\windowscontainers\quick-start\building-sample-app.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/04c78918c77d2ad6053e6a95dc57bc488efbbf8b/virtualization/windowscontainers/quick-start/building-sample-app.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [building-sample-app.957afdd492b872efb91595b513db655c559f8646.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/881877abfef27778825a794d11ba048fffa7589f/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/building-sample-app.957afdd492b872efb91595b513db655c559f8646.fr-fr.xlf)
-* Handoff Datetime: 2017-10-31 17:37:07
-* Handoff Reason: Include
-* Handoff Name: 
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Handback Name: 
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
