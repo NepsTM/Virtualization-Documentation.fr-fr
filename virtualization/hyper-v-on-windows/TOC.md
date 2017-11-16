@@ -3,6 +3,7 @@
 # [Créer une machine virtuelle](quick-start/quick-create-virtual-machine.md)
 # Gérer des machines virtuelles avec Hyper-V
 ## [Hyper-V et PowerShell](quick-start/try-hyper-v-powershell.md)
+## [Partager des périphériques avec des ordinateurs virtuels](user-guide/enhanced-session-mode.md)
 ## [Utiliser des points de contrôle](user-guide/checkpoints.md)
 ## [Se connecter à PowerShell Direct](user-guide/powershell-direct.md)
 ## [Créer des machines virtuelles en préversion](user-guide/create-pre-release-vm.md) 

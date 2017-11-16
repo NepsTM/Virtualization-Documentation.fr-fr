@@ -8,13 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
-ms.openlocfilehash: 622c8f638a815e19a54aa75b6b5ea0688d966ae3
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: 1c506016175a8be2608e10063a788d55aa792ce4
+ms.sourcegitcommit: 8ce23ca36f3dbae96a09f73d8c2f235943f8cd47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 10/17/2017
 ---
-# Historique des images de base des conteneurs Windows
+# <a name="windows-container-base-image-history"></a>Historique des images de base des conteneurs Windows
 
 Chaque conteneur Windows repose sur un système d’exploitation de base fourni par Microsoft. Si vous n’êtes pas certain de la version de Windows pour laquelle un conteneur a été conçu, vous pouvez exécuter `docker inspect <tag>` et mettre en correspondance la première ligne ou les deux premières lignes obtenues avec le tableau ci-dessous.
 
@@ -30,10 +30,18 @@ Par exemple, `docker inspect microsoft/windowsservercore:10.0.14393.447` affiche
     ]
 }
 ```
-Il s’agit des deux couches de l’image fournie par Microsoft.
+
+Il s’agit des deux couches de l’image fournie par Microsoft. La première est constante et représente la version de Windows Server d’origine, tandis que la deuxième change en fonction de la dernière mise à jour cumulative incluse.
 
 Si vous voulez savoir ce qui a changé dans une version particulière, recherchez celle-ci dans l’article [Historique des mises à jour de Windows10 et de Windows Server2016](https://support.microsoft.com/en-us/help/12387/windows-10-update-history) de la base de connaissances.
 
+
+## <a name="tools-to-simplify-this-process"></a>Outils permettant de simplifier ce processus
+
+Stefan Scherer a créé un outil capable de lire le manifeste de l’image et de déterminer la version sans télécharger le conteneur complet. Consultez son [blog](https://stefanscherer.github.io/winspector/) et son référentiel [GitHub](https://github.com/StefanScherer/winspector) pour en savoir plus.
+
+
+## <a name="image-versions"></a>Versions d’image
 
 <table>
     <tr>

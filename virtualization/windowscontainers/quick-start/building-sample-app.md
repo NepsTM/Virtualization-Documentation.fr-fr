@@ -7,13 +7,13 @@ ms.date: 07/25/2017
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: 2ba3e6409fc60022a55d21c187bfcaefd962908b
-ms.sourcegitcommit: 4f5b9f70804bf6282af8bef603cc343c524c3102
+ms.openlocfilehash: b9f20e6b3f071b9c71a387fce9640b244e9a95b5
+ms.sourcegitcommit: fa9ec91b14c612df03c5b7bb094eb1fabf421715
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 10/11/2017
 ---
-# Créer un exemple d’application
+# <a name="build-a-sample-app"></a>Créer un exemple d’application
 
 Cet exercice vous guidera tandis que vous utilisez un exemple d’application ASP.net, puis le convertissez afin de l’exécuter dans un conteneur. Pour vous familiariser avec les conteneurs et leur exécution dans Windows10, consultez le [démarrage rapide Windows10](./quick-start-windows-10.md).
 
@@ -21,7 +21,7 @@ Ce démarrage rapide est spécifique à Windows10. Une documentation de démarra
 
 Si le contrôle de code de source Git n’est pas installé sur votre ordinateur, vous pouvez l’obtenir ici: [Git](https://git-scm.com/download)
 
-## Démarrage
+## <a name="getting-started"></a>Démarrage
 
 Cet exemple de projet a été configuré avec [VSCode](https://code.visualstudio.com/). Nous utiliserons également PowerShell. Commençons par récupérer le code de démonstration à partir de github. Vous pouvez cloner le référentiel à l’aide de git ou télécharger le projet directement à partir de [SampleASPContainerApp](https://github.com/cwilhit/SampleASPContainerApp).
 
@@ -36,7 +36,7 @@ Nous allons maintenant accéder au répertoire du projet et créer le fichier Do
 New-Item C:/Your/Proj/Location/Dockerfile -type file
 ```
 
-## Écriture du fichier Dockerfile
+## <a name="writing-our-dockerfile"></a>Écriture du fichier Dockerfile
 
 Nous allons ouvrir le fichier Dockerfile que nous avons créé dans le dossier racine du projet (avec l’éditeur de texte de votre choix) et lui ajouter une logique. Ensuite, nous l’examinerons ligne par ligne pour expliquer ce qui se passe.
 
@@ -94,7 +94,7 @@ ENTRYPOINT ["dotnet", "MvcMovie.dll"]
 
 Nous venons de réaliser ce que l’on appelle une _création échelonnée_. Nous avons utilisé le conteneur temporaire pour créer l’image, puis déplacé la dll publiée dans un autre conteneur afin de réduire l’encombrement du résultat final. Nous voulons que ce conteneur utilise le moins de dépendances possible pour s’exécuter. Si nous avions continué à utiliser la première image, celle-ci comporterait d’autres couches (pour la création d’applications ASP.NET) non essentielles, ce qui aurait pour conséquence d’augmenter la taille de l’image.
 
-## Exécution de l’application
+## <a name="running-the-app"></a>Exécution de l’application
 
 Maintenant que nous avons écrit le fichier Dockerfile, il ne reste plus qu’à demander à Docker de créer l’application et d’exécuter le conteneur. Nous spécifions le port de publication, puis ajoutons la balise «myapp» au conteneur. Exécutez les commandes suivantes dans PowerShell:
 
@@ -103,10 +103,10 @@ docker build -t myasp .
 docker run -d -p 5000:80 --name myapp myasp
 ```
 
-Pour voir l’application en cours d’exécution, nous devons accéder à l’adresse à laquelle il est en cours d’exécution. Nous pouvons obtenir l’adresseIP en exécutant la commande suivante.
+Pour voir l’application en cours d’exécution, nous devons accéder à l’adresse à laquelle elle est en cours d’exécution. Nous pouvons obtenir l’adresseIP en exécutant la commande suivante.
 
 ```Powershell
- docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" myapp
+ docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" myasp
 ```
 
 L’exécution de cette commande génère l’adresseIP du conteneur en cours d’exécution. Voici un exemple de ce à quoi peut ressembler la sortie:
@@ -121,7 +121,7 @@ Entrez cette adresseIP dans le navigateur web de votre choix et vous êtes accue
 
 En cliquant sur «MvcMovie» dans la barre de navigation, vous êtes redirigé vers une page web où vous pouvez saisir, modifier et supprimer des entrées de vidéo.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Après avoir récupéré une application web ASP.NET, nous l’avons correctement configurée et générée à l’aide de Docker, puis nous l’avons déployée dans un conteneur en cours d’exécution. Vous pouvez aller encore plus loin! Ainsi, vous pouvez diviser l’application web en plusieurs composants avec, par exemple, un conteneur qui exécute l’API web, un conteneur qui exécute le serveur frontal et un autre conteneur qui exécute le serveur SQL Server.
 
