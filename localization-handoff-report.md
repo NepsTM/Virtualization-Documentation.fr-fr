@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\samples.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c2def00b88a411d25d2d4e97ff020db8dc228581/virtualization/windowscontainers/samples.md) | HandedOffSuccess | [Details](#45ee10cb8353c1b293b75628f1d023008b2bf150413)
+ [virtualization\windowscontainers\deploy-containers\version-compatibility.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/14236080ca22d6d47d7a3e52c339cd4fb18899bd/virtualization/windowscontainers/deploy-containers/version-compatibility.md) | HandedOffSuccess | [Details](#abeaab44d1683cbae2edb6a26c4adfe8f77e100a302)
 
 ## Item Details
-##### <a name='45ee10cb8353c1b293b75628f1d023008b2bf150413'></a> Source: [virtualization\windowscontainers\samples.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c2def00b88a411d25d2d4e97ff020db8dc228581/virtualization/windowscontainers/samples.md)
+##### <a name='abeaab44d1683cbae2edb6a26c4adfe8f77e100a302'></a> Source: [virtualization\windowscontainers\deploy-containers\version-compatibility.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/14236080ca22d6d47d7a3e52c339cd4fb18899bd/virtualization/windowscontainers/deploy-containers/version-compatibility.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [samples.31014494d9f148c358b40bd77949cf0f75f2ea75.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/5f4e8b5d8c7eb04111cabab2b1a911101bdb098c/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/samples.31014494d9f148c358b40bd77949cf0f75f2ea75.fr-fr.xlf)
-* Handoff Datetime: 2017-12-03 22:07:15
+* Handoff File: [version-compatibility.83af55c933bbdc2ff700d51b89b918de7276cc54.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/c01bfb0fe560af56fdf0b95804da2586addc446e/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/version-compatibility.83af55c933bbdc2ff700d51b89b918de7276cc54.fr-fr.xlf)
+* Handoff Datetime: 2017-12-04 19:06:53
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
@@ -21,11 +21,6 @@
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Handback Name: 
-* Current Target File: [virtualization\windowscontainers\samples.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/blob/095f790efff1966ec633ba3523d3f6c424273f6f/virtualization/windowscontainers/samples.md)
-* Current Handback File: [samples.31014494d9f148c358b40bd77949cf0f75f2ea75.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/samples.31014494d9f148c358b40bd77949cf0f75f2ea75.fr-fr.xlf)
-* Current Handback Datetime: 2017-01-24 13:19:03
-* Bilingual File: [samples.31014494d9f148c358b40bd77949cf0f75f2ea75.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/610aa47ac3da0b0b55b3f9b73c145c245886ca61/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/samples.31014494d9f148c358b40bd77949cf0f75f2ea75.fr-fr.xlf)
-* Bilingual Datetime: 2017-01-24 13:21:39
 * [Back to Top](#report-top)
 
 
