@@ -30,6 +30,7 @@
 ## [Prise en main du mode Swarm](manage-containers/swarm-mode.md)
 ## [Gérer Docker avec PowerShell](https://github.com/Microsoft/Docker-PowerShell)
 ## [Gestion à distance d’un hôte WindowsDocker](management/manage_remotehost.md)
+## [Contrôles de ressources](manage-containers/resource-controls.md)
 
 # Exemples de conteneurs
 ## [Infrastructures des applications](samples.md#Application-Frameworks)

@@ -7,11 +7,11 @@ ms.date: 07/25/2017
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: b9f20e6b3f071b9c71a387fce9640b244e9a95b5
-ms.sourcegitcommit: fa9ec91b14c612df03c5b7bb094eb1fabf421715
+ms.openlocfilehash: b1d0c4bcf35cd40e9ca058d4e2a51fa028cade2c
+ms.sourcegitcommit: 04c78918c77d2ad6053e6a95dc57bc488efbbf8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="build-a-sample-app"></a>Créer un exemple d’application
 
@@ -96,7 +96,9 @@ Nous venons de réaliser ce que l’on appelle une _création échelonnée_. Nou
 
 ## <a name="running-the-app"></a>Exécution de l’application
 
-Maintenant que nous avons écrit le fichier Dockerfile, il ne reste plus qu’à demander à Docker de créer l’application et d’exécuter le conteneur. Nous spécifions le port de publication, puis ajoutons la balise «myapp» au conteneur. Exécutez les commandes suivantes dans PowerShell:
+Maintenant que nous avons écrit le fichier Dockerfile, il ne reste plus qu’à demander à Docker de créer l’application et d’exécuter le conteneur. Nous spécifions le port de publication, puis ajoutons la balise «myapp» au conteneur. Exécutez les commandes suivantes dans PowerShell.
+
+_Remarque_: le répertoire de travail actuel de votre console PowerShell doit être le répertoire où réside le fichier dockerfile créé ci-dessus.
 
 ```Powershell
 docker build -t myasp .
@@ -106,7 +108,7 @@ docker run -d -p 5000:80 --name myapp myasp
 Pour voir l’application en cours d’exécution, nous devons accéder à l’adresse à laquelle elle est en cours d’exécution. Nous pouvons obtenir l’adresseIP en exécutant la commande suivante.
 
 ```Powershell
- docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" myasp
+ docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" myapp
 ```
 
 L’exécution de cette commande génère l’adresseIP du conteneur en cours d’exécution. Voici un exemple de ce à quoi peut ressembler la sortie:

@@ -7,11 +7,11 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: f4ee9346db77e29f9d3366634b8b6ad07d0fec08
-ms.sourcegitcommit: 380dd8e78780995b96def2e2ec6e22e3387e82e0
+ms.openlocfilehash: 6ae690ff6592198bc16cbaf60489d3ed5aceeeb0
+ms.sourcegitcommit: 64f5f8d838f72ea8e0e66a72eeb4ab78d982b715
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="windows-container-requirements"></a>Configuration requise pour un conteneur Windows
 
@@ -51,7 +51,7 @@ Les conteneurs Windows fournissent deux images de base de conteneur (Windows Ser
 <td><center>Server Core / Nano Server</center></td>
 </tr>
 <tr valign="top">
-<td><center>Nano Server</center></td>
+<td><center>NanoServer*</center></td>
 <td><center> Nano Server</center></td>
 <td><center>Server Core / Nano Server</center></td>
 </tr>
@@ -62,6 +62,23 @@ Les conteneurs Windows fournissent deux images de base de conteneur (Windows Ser
 </tr>
 </tbody>
 </table>
+* À compter de WindowsServerversion1709, NanoServer n’est plus disponible en tant qu’hôte de conteneur.
+
+### <a name="memory-requirments"></a>Mémoire requise
+Les restrictions applicables à la mémoire disponible pour les conteneurs peuvent être configurées via [les contrôles de ressources](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/resource-controls) ou la surcharge d’un hôte de conteneur.  La quantité minimale de mémoire requise pour lancer un conteneur et exécuter les commandes de base (ipconfig dir, etc.) est répertoriée ci-dessous.  Notez que ces valeurs ne tiennent pas compte du partage de ressources entre les conteneurs ni de la configuration requise par l’application en cours d’exécution dans le conteneur.
+
+#### <a name="windows-server-2016"></a>WindowsServer2016
+| Image de base  | Conteneur WindowsServer | Isolation Hyper-V    |
+| ----------- | ------------------------ | -------------------- |
+| NanoServer | 40Mo                     | 130Mo + fichier d’échange 1Go |
+| ServerCore | 50Mo                     | 325Mo + fichier d’échange 1Go |
+
+#### <a name="windows-server-version-1709"></a>WindowsServer version1709
+| Image de base  | Conteneur WindowsServer | Isolation Hyper-V    |
+| ----------- | ------------------------ | -------------------- |
+| NanoServer | 30Mo                     | 110Mo + fichier d’échange 1Go |
+| ServerCore | 45Mo                     | 360Mo + fichier d’échange 1Go |
+
 
 ### <a name="nano-server-vs-windows-server-core"></a>NanoServer et WindowsServerCore
 
@@ -81,7 +98,7 @@ Il s’agit là des principales différences, mais cette liste n’est pas exhau
 Pour vérifier quelle version un hôte Windows a installée, vous pouvez interroger HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion.  Pour vérifier quelle version votre image de base utilise, vous pouvez consulter les balises sur le hub Docker ou la table de hachage de l’image fournies dans la description de l’image.  La page [Historique des mises à jour de Windows10](https://support.microsoft.com/en-us/help/12387/windows-10-update-history) répertorie la date de publication de chaque build et de chaque révision.
 
 Dans cet exemple, 14393 est le numéro de version majeure et 321 est le numéro de révision.
-```none
+```
 Windows PowerShell
 Copyright (C) 2016 Microsoft Corporation. All rights reserved.
 

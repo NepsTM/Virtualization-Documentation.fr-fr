@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-ms.openlocfilehash: 7693be8567f6fbd0ebd8ffa72142dc1c5bbef096
-ms.sourcegitcommit: 5bb93cf92236779f66bfdee996669f7b0bc5287c
+ms.openlocfilehash: 176ad668f4daa7d84afc5928e76dce0c127e1095
+ms.sourcegitcommit: f8dc88d253c9e1a6a47b148d2c122a326a800633
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="windows-containers-documentation"></a>Documentation sur les conteneurs Windows
 
@@ -73,7 +73,8 @@ Interagissez avec la communauté, testez des exemples et trouvez d’autres ress
 <ul>
 <li>[Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)<br /><br /></li>
 <li>[Vidéos et blogs de la communauté](communitylinks.md)<br /><br /></li>
-<li>[Ressources de conteneur](https://msdn.microsoft.com/virtualization/community/community_overview)<br /><br /></li>
+<li>[Exemples de conteneurs](https://docs.microsoft.com/en-us/virtualization/windowscontainers/samples)<br /><br /></li>
+<li>[UserVoice](https://windowsserver.uservoice.com/forums/304624-containers)<br /><br /></li>
 </ul>
 </td>
 </tr>
