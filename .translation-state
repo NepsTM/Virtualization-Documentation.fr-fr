@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "f10696df0c0d181532fa94a3b074cbff6df3ac8e",
+  "LastProcessedCommit": "db14de3933d37684c6c030df4fdeefa1665feafe",
   "LastTranslatedCommit": "f26914161b3ad0309d88eb88793f5348ea6f3cf4",
   "LastConfigHash": "8a1020b7136b784cdc0f8c9eca877ab77b2a9c5f",
   "Items": {
@@ -22164,16 +22164,16 @@
     },
     "de1f370ab7b7be46f18a2496ae2d1f78299992d9": {
       "FileHash": "de1f370ab7b7be46f18a2496ae2d1f78299992d9",
-      "SourceFileCommit": "f10696df0c0d181532fa94a3b074cbff6df3ac8e",
-      "SourceFilePath": "virtualization\\hyper-v-on-windows\\reference\\hypervisor-platform-funcs\\IOPortAccessQEMU.md",
+      "SourceFileCommit": "e621f9c56b18c674571ead4bc35394582bbdcf2f",
+      "SourceFilePath": "virtualization\\hyper-v-on-windows\\reference\\hypervisor-platform-funcs\\IOPortAccessIE.md",
       "HandoffReason": 1,
       "FilePathList": [
-        "virtualization\\hyper-v-on-windows\\reference\\hypervisor-platform-funcs\\IOPortAccessQEMU.md"
+        "virtualization\\hyper-v-on-windows\\reference\\hypervisor-platform-funcs\\IOPortAccessIE.md"
       ],
       "TranslationType": 1,
-      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.fr-fr\\live\\IOPortAccessQEMU.2dee430d9818a384d43fdf4fdf99c44964b68d79.fr-fr.xlf",
-      "HandoffFileCommit": "975ede03e9139851c925846e8ac0f9ef74692d32",
-      "HandoffDateTime": "2017-12-15T01:04:07.9385028Z",
+      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.fr-fr\\live\\IOPortAccessIE.12e2c2462af2f7959cd9e347f9d28e44a8c18fd2.fr-fr.xlf",
+      "HandoffFileCommit": "8b40867387731a7329f46e228314ca37275e1674",
+      "HandoffDateTime": "2017-12-15T02:03:58.2043344Z",
       "HandoffXliffHash": "3538828df1e377794bf5520c5d7e5d077665e0a7",
       "HandoffPriority": ""
     },
@@ -22194,16 +22194,16 @@
     },
     "2d98746a8b81b2caef3dc14c6d7dd00fd4042701": {
       "FileHash": "2d98746a8b81b2caef3dc14c6d7dd00fd4042701",
-      "SourceFileCommit": "f10696df0c0d181532fa94a3b074cbff6df3ac8e",
-      "SourceFilePath": "virtualization\\hyper-v-on-windows\\reference\\hypervisor-platform-funcs\\MMIOAccessQEMU.md",
+      "SourceFileCommit": "e621f9c56b18c674571ead4bc35394582bbdcf2f",
+      "SourceFilePath": "virtualization\\hyper-v-on-windows\\reference\\hypervisor-platform-funcs\\MMIOAccessIE.md",
       "HandoffReason": 1,
       "FilePathList": [
-        "virtualization\\hyper-v-on-windows\\reference\\hypervisor-platform-funcs\\MMIOAccessQEMU.md"
+        "virtualization\\hyper-v-on-windows\\reference\\hypervisor-platform-funcs\\MMIOAccessIE.md"
       ],
       "TranslationType": 1,
-      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.fr-fr\\live\\MMIOAccessQEMU.31d77cb69810d8b52de2b43aebebefdf830ff4a9.fr-fr.xlf",
-      "HandoffFileCommit": "975ede03e9139851c925846e8ac0f9ef74692d32",
-      "HandoffDateTime": "2017-12-15T01:04:07.9385028Z",
+      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.fr-fr\\live\\MMIOAccessIE.e8db15a233f74ef545e41788ed7efd67ff5c73a8.fr-fr.xlf",
+      "HandoffFileCommit": "8b40867387731a7329f46e228314ca37275e1674",
+      "HandoffDateTime": "2017-12-15T02:03:58.2043344Z",
       "HandoffXliffHash": "762f1c714459ee59b393e135227ad2b0a3f6dc0f",
       "HandoffPriority": ""
     },
@@ -22775,6 +22775,21 @@
       "HandoffFileCommit": "975ede03e9139851c925846e8ac0f9ef74692d32",
       "HandoffDateTime": "2017-12-15T01:04:07.9385028Z",
       "HandoffXliffHash": "154c88a20bfaa68ea94a491e61ddd6e783bed040",
+      "HandoffPriority": ""
+    },
+    "3b86cb7e1ab254c681db63abbee9d7149d64b783": {
+      "FileHash": "3b86cb7e1ab254c681db63abbee9d7149d64b783",
+      "SourceFileCommit": "db14de3933d37684c6c030df4fdeefa1665feafe",
+      "SourceFilePath": "virtualization\\hyper-v-on-windows\\reference\\hyper-v-emulator.md",
+      "HandoffReason": 1,
+      "FilePathList": [
+        "virtualization\\hyper-v-on-windows\\reference\\hyper-v-emulator.md"
+      ],
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.fr-fr\\live\\hyper-v-emulator.760cb3a346345ba19609ff0d77ff3fb54b626349.fr-fr.xlf",
+      "HandoffFileCommit": "8b40867387731a7329f46e228314ca37275e1674",
+      "HandoffDateTime": "2017-12-15T02:03:58.2043344Z",
+      "HandoffXliffHash": "df19e985bb3546d2e99b0a0d46f1d80ae7ebbd23",
       "HandoffPriority": ""
     }
   }
