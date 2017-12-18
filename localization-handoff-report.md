@@ -1,19 +1,20 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 2
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\hyper-v-on-windows\user-guide\nested-virtualization.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/b3603221121be046d91d1935564acaaad3f78c00/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md) | HandedOffSuccess | [Details](#d5b8e888b62495c98c0691dc0d62deecf7c1eb6e293)
+ [virtualization\windowscontainers\about\index.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6eefb890f090a6464119630bfbdc2794e6c3a3df/virtualization/windowscontainers/about/index.md) | HandedOffSuccess | [Details](#37782c4d2491b9b1963a326204e30a6f484b5ec9297)
+ [virtualization\windowscontainers\manage-containers\container-networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6eefb890f090a6464119630bfbdc2794e6c3a3df/virtualization/windowscontainers/manage-containers/container-networking.md) | HandedOffSuccess | [Details](#6c3498c53588e5f923d4029424b309dad2ad10cb350)
 
 ## Item Details
-##### <a name='d5b8e888b62495c98c0691dc0d62deecf7c1eb6e293'></a> Source: [virtualization\hyper-v-on-windows\user-guide\nested-virtualization.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/b3603221121be046d91d1935564acaaad3f78c00/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md)
+##### <a name='37782c4d2491b9b1963a326204e30a6f484b5ec9297'></a> Source: [virtualization\windowscontainers\about\index.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6eefb890f090a6464119630bfbdc2794e6c3a3df/virtualization/windowscontainers/about/index.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [nested-virtualization.b6c03a13724acb15bc74c70fdf9c4b440a2b28d4.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/6e77ab83680ad09547c9ce8e90173c66935e2fce/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/nested-virtualization.b6c03a13724acb15bc74c70fdf9c4b440a2b28d4.fr-fr.xlf)
-* Handoff Datetime: 2017-12-18 19:28:10
+* Handoff File: [index.01108708edf157e95b96d0e38c23011bed66c123.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/325e92166e6ac5b4c637672991cb1ada9ea020e6/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/index.01108708edf157e95b96d0e38c23011bed66c123.fr-fr.xlf)
+* Handoff Datetime: 2017-12-18 20:27:31
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
@@ -21,10 +22,29 @@
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Handback Name: 
-* Current Target File: [virtualization\hyper-v-on-windows\user-guide\nested-virtualization.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/blob/f26914161b3ad0309d88eb88793f5348ea6f3cf4/virtualization/hyper-v-on-windows/user-guide/nested-virtualization.md)
-* Current Handback File: [nested-virtualization.b6c03a13724acb15bc74c70fdf9c4b440a2b28d4.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/153d2e388619f6795ecec235dddf19417f923c92/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/nested-virtualization.b6c03a13724acb15bc74c70fdf9c4b440a2b28d4.fr-fr.xlf)
+* Current Target File: [virtualization\windowscontainers\about\index.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/blob/f26914161b3ad0309d88eb88793f5348ea6f3cf4/virtualization/windowscontainers/about/index.md)
+* Current Handback File: [index.01108708edf157e95b96d0e38c23011bed66c123.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/153d2e388619f6795ecec235dddf19417f923c92/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/index.01108708edf157e95b96d0e38c23011bed66c123.fr-fr.xlf)
 * Current Handback Datetime: 2017-03-24 13:49:56
-* Bilingual File: [nested-virtualization.b6c03a13724acb15bc74c70fdf9c4b440a2b28d4.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/153d2e388619f6795ecec235dddf19417f923c92/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/nested-virtualization.b6c03a13724acb15bc74c70fdf9c4b440a2b28d4.fr-fr.xlf)
+* Bilingual File: [index.01108708edf157e95b96d0e38c23011bed66c123.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/153d2e388619f6795ecec235dddf19417f923c92/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/index.01108708edf157e95b96d0e38c23011bed66c123.fr-fr.xlf)
+* Bilingual Datetime: 2017-03-24 13:53:03
+* [Back to Top](#report-top)
+
+##### <a name='6c3498c53588e5f923d4029424b309dad2ad10cb350'></a> Source: [virtualization\windowscontainers\manage-containers\container-networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6eefb890f090a6464119630bfbdc2794e6c3a3df/virtualization/windowscontainers/manage-containers/container-networking.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [container-networking.925e90f386932bf7a0a7f6b1b149c3456acbb560.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/325e92166e6ac5b4c637672991cb1ada9ea020e6/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/container-networking.925e90f386932bf7a0a7f6b1b149c3456acbb560.fr-fr.xlf)
+* Handoff Datetime: 2017-12-18 20:27:31
+* Handoff Reason: Include
+* Handoff Name: 
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Handback Name: 
+* Current Target File: [virtualization\windowscontainers\manage-containers\container-networking.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/blob/f26914161b3ad0309d88eb88793f5348ea6f3cf4/virtualization/windowscontainers/manage-containers/container-networking.md)
+* Current Handback File: [container-networking.925e90f386932bf7a0a7f6b1b149c3456acbb560.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/153d2e388619f6795ecec235dddf19417f923c92/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/container-networking.925e90f386932bf7a0a7f6b1b149c3456acbb560.fr-fr.xlf)
+* Current Handback Datetime: 2017-03-24 13:49:56
+* Bilingual File: [container-networking.925e90f386932bf7a0a7f6b1b149c3456acbb560.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/153d2e388619f6795ecec235dddf19417f923c92/ol-handback/Microsoft/Virtualization-Documentation-Private.fr-fr/live/container-networking.925e90f386932bf7a0a7f6b1b149c3456acbb560.fr-fr.xlf)
 * Bilingual Datetime: 2017-03-24 13:53:03
 * [Back to Top](#report-top)
 
