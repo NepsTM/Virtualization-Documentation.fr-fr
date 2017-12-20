@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\deploy-containers\system-requirements.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/51bd1d09d0304e7d13e9650db43cf67764c02fc4/virtualization/windowscontainers/deploy-containers/system-requirements.md) | HandedOffSuccess | [Details](#4c352672db32a37fb1dbc25818817f38b2d284c9331)
+ [virtualization\windowscontainers\deploy-containers\system-requirements.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/77a6195318732fa16e7d5be727bdb88f52f6db46/virtualization/windowscontainers/deploy-containers/system-requirements.md) | HandedOffSuccess | [Details](#ecc11468bbd5aad2638da3c4f733e4d5068f0056331)
 
 ## Item Details
-##### <a name='4c352672db32a37fb1dbc25818817f38b2d284c9331'></a> Source: [virtualization\windowscontainers\deploy-containers\system-requirements.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/51bd1d09d0304e7d13e9650db43cf67764c02fc4/virtualization/windowscontainers/deploy-containers/system-requirements.md)
+##### <a name='ecc11468bbd5aad2638da3c4f733e4d5068f0056331'></a> Source: [virtualization\windowscontainers\deploy-containers\system-requirements.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/77a6195318732fa16e7d5be727bdb88f52f6db46/virtualization/windowscontainers/deploy-containers/system-requirements.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [system-requirements.7dbcfcd7846f5274542c2b3889e0b8cfd203b0b7.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/e14c554e9de954d6f12efa58c6d3af2c483a23db/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/system-requirements.7dbcfcd7846f5274542c2b3889e0b8cfd203b0b7.fr-fr.xlf)
-* Handoff Datetime: 2017-12-20 18:27:59
+* Handoff File: [system-requirements.7dbcfcd7846f5274542c2b3889e0b8cfd203b0b7.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/edd7b577479cb9c1667378c9183a3041ea4b75a1/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/system-requirements.7dbcfcd7846f5274542c2b3889e0b8cfd203b0b7.fr-fr.xlf)
+* Handoff Datetime: 2017-12-20 19:27:29
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
