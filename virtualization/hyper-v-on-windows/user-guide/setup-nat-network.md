@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1f8a691c-ca75-42da-8ad8-a35611ad70ec
-ms.openlocfilehash: dd11b3a78307d4c39a3c383120a04e91c8d0f70f
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
+ms.openlocfilehash: 6f5872a4f16bcce504af3e6e81ef3e820013d121
+ms.sourcegitcommit: ad5f6344230c7c4977adf3769fb7b01a5eca7bb9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="set-up-a-nat-network"></a>Configurer un réseau NAT
 
@@ -69,7 +69,7 @@ Examinons la configuration d’un nouveau réseau NAT.
 
     Le commutateur interne a un nom semblable à `vEthernet (SwitchName)` et la description d’interface `Hyper-V Virtual Ethernet Adapter`. Notez son `ifIndex` afin de l’utiliser dans l’étape suivante.
 
-4. Configurez la passerelle NAT à l’aide de [New-NetIPAddress](https://technet.microsoft.com/en-us/library/hh826150.aspx).  
+4. Configurez la passerelle NAT à l’aide de [New-NetIPAddress](https://docs.microsoft.com/powershell/module/nettcpip/New-NetIPAddress).  
 
   Voici la commande générique:
   ``` PowerShell
@@ -97,7 +97,7 @@ Examinons la configuration d’un nouveau réseau NAT.
   New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 24
   ```
 
-5. Configurez le réseau NAT à l’aide de [New-NetNat](https://technet.microsoft.com/en-us/library/dn283361(v=wps.630).aspx).  
+5. Configurez le réseau NAT à l’aide de [New-NetNat](https://docs.microsoft.com/powershell/module/netnat/New-NetNat).  
 
   Voici la commande générique:
 
