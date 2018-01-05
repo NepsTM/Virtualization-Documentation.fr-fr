@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "4042339cfd8a4440a5aba2b6f28968a52ab066fa",
+  "LastProcessedCommit": "7db5a0ceffc551ca5c7c247967729f243a1fa1a4",
   "LastTranslatedCommit": "f26914161b3ad0309d88eb88793f5348ea6f3cf4",
   "LastConfigHash": "8a1020b7136b784cdc0f8c9eca877ab77b2a9c5f",
   "Items": {
@@ -23731,6 +23731,21 @@
       "HandoffFileCommit": "4f4e45f68523b9d959c94033553ed12e2794bb19",
       "HandoffDateTime": "2018-01-02T16:29:30.5590135Z",
       "HandoffXliffHash": "bbd0e23b13fd48e038bb9c49dae7148a8a1d2d83",
+      "HandoffPriority": ""
+    },
+    "038ce193c53e6f3b5bf05168c869eba53f5db8ea": {
+      "FileHash": "038ce193c53e6f3b5bf05168c869eba53f5db8ea",
+      "SourceFileCommit": "7db5a0ceffc551ca5c7c247967729f243a1fa1a4",
+      "SourceFilePath": "virtualization\\hyper-v-on-windows\\meltdown-mitigation-configuration-for-hyper-v-vms.md",
+      "HandoffReason": 1,
+      "FilePathList": [
+        "virtualization\\hyper-v-on-windows\\meltdown-mitigation-configuration-for-hyper-v-vms.md"
+      ],
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.fr-fr\\live\\meltdown-mitigation-configuration-for-hyper-v-vms.70bf79ae08d2c1223615a427872b618e165e602d.fr-fr.xlf",
+      "HandoffFileCommit": "5b706903a73c71801b52462670d92029257cf5fb",
+      "HandoffDateTime": "2018-01-05T02:05:58.1986935Z",
+      "HandoffXliffHash": "87a0a21282a743417dc4566cdbf302f111eef5a2",
       "HandoffPriority": ""
     }
   }
