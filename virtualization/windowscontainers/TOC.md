@@ -27,10 +27,18 @@
 ## [Fichiers Dockerfile sur Windows](manage-docker/manage-windows-dockerfile.md)
 ## [Optimiser les fichiers Dockerfile](manage-docker/optimize-windows-dockerfile.md)
 ## [Mise en réseau de conteneur](manage-containers/container-networking.md)
+## [Stockage de conteneurs](manage-containers/container-storage.md)
 ## [Prise en main du mode Swarm](manage-containers/swarm-mode.md)
 ## [Gérer Docker avec PowerShell](https://github.com/Microsoft/Docker-PowerShell)
 ## [Gestion à distance d’un hôte WindowsDocker](management/manage_remotehost.md)
 ## [Contrôles de ressources](manage-containers/resource-controls.md)
+
+# Kubernetes sur Windows 
+## [Prise en main](kubernetes/getting-started-kubernetes-windows.md)
+## [Création d’un nœud master Linux](kubernetes/creating-a-linux-master.md)
+## [Configuration de la topologie du réseau](kubernetes/configuring-host-gateway-mode.md)
+## [Compilation de fichiers binaires Kubernetes](kubernetes/compiling-kubernetes-binaries.md)
+## [Résolution des problèmes](kubernetes/common-problems.md)
 
 # Exemples de conteneurs
 ## [Infrastructures des applications](samples.md#Application-Frameworks)

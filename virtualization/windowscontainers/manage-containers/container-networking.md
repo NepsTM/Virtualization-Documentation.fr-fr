@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 98feee128860885b4f62420cc6eb86d23579551b
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
+ms.openlocfilehash: 394aa58c3421e512d005f59d5bd30667f1c26f16
+ms.sourcegitcommit: 6eefb890f090a6464119630bfbdc2794e6c3a3df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="windows-container-networking"></a>Mise en réseau de conteneur Windows
 > ***Reportez-vous à l'article [Mise en réseau de conteneur Docker](https://docs.docker.com/engine/userguide/networking/) pour les commandes, les options et la syntaxe de mise en réseau de docker en général.*** À l’exception des cas décrits dans ce document, toutes les commandes de mise en réseau de Docker sont prises en charge par Windows avec la même syntaxe que sur Linux. Cependant, les piles réseau Windows et Linux sont différentes, par conséquent, vous constaterez que certaines commandes réseau de Linux (par exemple, ifconfig) ne sont pas prises en charge par Windows.
@@ -201,6 +201,7 @@ Si l’hôte de conteneur est virtualisé et que vous souhaitez utiliser DHCP po
 ```
 PS C:\> Get-VMNetworkAdapter -VMName ContainerHostVM | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
+Si vous exécutez VMware en tant qu’hyperviseur, vous devez activer le mode Promiscuous pour que cela fonctionne. Pour plus d’informations, [reportez-vous ici](https://kb.vmware.com/s/article/1004099)
 #### <a name="creating-multiple-transparent-networks-on-a-single-container-host"></a>Création de plusieurs réseaux transparents sur un hôte de conteneur unique
 Pour créer plusieurs réseaux transparents, vous devez spécifier la carte réseau (virtuelle) à laquelle le commutateur virtuel Hyper-V externe doit être lié. Pour spécifier l’interface pour un réseau, utilisez la syntaxe suivante:
 ```

@@ -1,15 +1,15 @@
 ---
-title: "Compatibilité des version avec les conteneurs Windows"
+title: "Compatibilité des versions avec les conteneurs Windows"
 description: "Comment Windows peut générer et exécuter des conteneurs dans plusieurs versions"
 keywords: "métadonnées, conteneurs, version"
 author: patricklang
-ms.openlocfilehash: ed9d88e1e861651426e560a4531fd4added2134a
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
+ms.openlocfilehash: e3e9d0ba52f7dddfa2f40a9d243467ab474b459e
+ms.sourcegitcommit: 7b58ed1779d8475abe5b9e8e69f764972882063d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="windows-container-version-compatibility"></a>Compatibilité des version avec les conteneurs Windows
+# <a name="windows-container-version-compatibility"></a>Compatibilité des versions avec les conteneurs Windows
 
 Windows Server2016 et la mise à jour anniversaire Windows10 (tous deux de version14393) ont été les première versions de Windows capables de générer et d’exécuter des conteneurs Windows Server. Les conteneurs créés à l’aide de ces versions peuvent s’exécuter sur des versions plus récentes, telles que Windows Server version1709, mais vous devez être au fait de certains éléments avant de commencer.
 
@@ -19,23 +19,29 @@ Windows Server2016 et la mise à jour anniversaire Windows10 (tous deux de versi
 
 <table>
     <tr>
-    <th>Version du système d’exploitation du conteneur</th>
-    <th span='2'>Version du système d’exploitation de l‘hôte</th>
+    <th style="background-color:#BBDEFB">Version du système d’exploitation du conteneur</th>
+    <th span='4' style="background-color:#DCEDC8">Version du système d’exploitation de l‘hôte</th>
     </tr>
     <tr>
         <td/>
-        <td><b>Windows Server2016 / Windows101609, 1703</b><br/>Builds: 14393.*</td>
-        <td><b>Windows Server version1709 / Windows10 Fall Creators Update</b><br/>Builds16299.*</td>
+        <td style="background-color:#F1F8E9"><b>Windows Server2016</b><br/>Builds: 14393.*</td>
+        <td style="background-color:#F1F8E9"><b>Windows10 1609, 1703</b><br/>Builds: 14393.*, 15063.*</td>
+        <td style="background-color:#F1F8E9"><b>WindowsServer version1709</b><br/>Builds16299.*</td>
+        <td style="background-color:#F1F8E9"><b>Windows10 Fall Creators Update</b><br/>Builds16299.*</td>
     </tr>
     <tr>
-        <td><b>Windows Server2016 / Windows101609, 1703</b><br/>Builds: 14393.*</td>
-        <td>Pris en charge. `process` ou isolation `hyperv`</td>
-        <td>Pris en charge. `hyperv` isolation</td>
+        <td style="background-color:#E3F2FD"><b>Windows Server2016</b><br/>Builds: 14393.*</td>
+        <td>Prend en charge l’isolation<br/> `process` ou `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
     </tr>
     <tr>
-        <td><b>Windows Server version1709 / Windows10 Fall Creators Update</b><br/>Builds16299.*</td>
+        <td style="background-color:#E3F2FD"><b>WindowsServer version1709</b><br/>Builds16299.*</td>
         <td>Non pris en charge</td>
-        <td>Pris en charge. `process` ou isolation `hyperv`</td>
+        <td>Non pris en charge</td>
+        <td>Prend en charge l’isolation<br/> `process` ou `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
     </tr>
 </table>               
 
@@ -89,7 +95,7 @@ FROM microsoft/nanoserver:10.0.14393.1770
 
 À l’heure actuelle, Docker Swarm ne propose pas de méthode intégrée pour faire correspondre la version de Windows utilisée par un conteneur à un hôte correspondant de la même version. Si le service est mis à jour pour utiliser un conteneur plus récent, il s’exécute correctement.
 
-Si vous souhaitez exécuter plusieurs versions de Windows pendant un certain temps, deux approches peuvent être utilisées.  Configurez les ordinateurs hôtes Windows de façon à ce qu’ils utilisent toujours l’isolement Hyper-V ou utilisez des contraintes d’étiquette.
+Si vous devez exécuter plusieurs versions de Windows pendant un certain temps, deux approches peuvent être utilisées.  Configurez les ordinateurs hôtes Windows de façon à ce qu’ils utilisent toujours l’isolement Hyper-V ou utilisez des contraintes d’étiquette.
 
 ### <a name="finding-a-service-that-wont-start"></a>Recherche d’un service qui ne démarre pas
 
