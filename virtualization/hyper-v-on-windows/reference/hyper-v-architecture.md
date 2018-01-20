@@ -14,18 +14,6 @@ Le schéma suivant fournit une vue d’ensemble de l’architecture d’un envir
 
 ![](./media/hv_architecture.png)
 
-## <a name="support-for-third-party-virtualization-stacks"></a>Prise en charge des piles de virtualisation tierces
-
-Hyper-V dispose en outre d’une API utilisateur étendue pour les piles de virtualisation et les applications tierces afin de créer et de gérer les partitions au niveau de l’hyperviseur, de configurer le mappage de la mémoire pour la partition, et de créer et de contrôler l’exécution de processeurs virtuels.
-
-> Ex: Un client tel que QEMU peut s’exécuter sur l’hyperviseur tout en conservant sa gestion, sa configuration, ses protocoles invité/hôte et ses pilotes invités pris en charge. Tout en s’exécutant en parallèle d’une partition gérée par Hyper-V sans chevauchement.
-
-Le schéma suivant fournit une vue d’ensemble de l’architecture tierce.
-
-![](./media/hv_platform_architecture_simplified.png)
-> Pour plus d’informations, voir: [API de la plateforme Windows Hypervisor](./hypervisor-platform.md)
-**Remarque: ces API ne sont pas encore disponibles publiquement et seront incluses dans une prochaine version de Windows.**
-
 ## <a name="glossary"></a>Glossaire
 * **APIC** (Advanced Programmable Interrupt Controller): le contrôleur d'interruption programmable avancé est un appareil qui permet d'attribuer des niveaux de priorité à ses sorties d’interruption.
 * **Partition enfant**: partition qui héberge un système d’exploitation invité. Tous les accès d'une partition enfant à la mémoire physique et aux appareils sont fournis par l’intermédiaire du bus VMBus ou de l’hyperviseur.

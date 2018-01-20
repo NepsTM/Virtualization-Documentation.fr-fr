@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
-ms.openlocfilehash: 44693b413dd8043fbec68835eafe6754615fa449
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
+ms.openlocfilehash: 4d4b8a533aa5517c5850967f0b92c97da5190296
+ms.sourcegitcommit: 4042339cfd8a4440a5aba2b6f28968a52ab066fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="troubleshooting"></a>Résolution des problèmes
 
@@ -29,7 +29,7 @@ Si cela ne permet pas de trouver la source du problème, publiez la sortie de vo
 ## <a name="finding-logs"></a>Où trouver les journaux
 Plusieurs services sont utilisés pour gérer les conteneurs Windows. Les sections suivantes indiquent où obtenir les journaux de chaque service.
 
-### <a name="docker-engine"></a>Moteur Docker
+# <a name="docker-engine"></a>Moteur Docker
 Les enregistrements du moteur Docker sont consignés dans le journal des événements des applications Windows, plutôt que dans un fichier. Ces enregistrements peuvent facilement être lus, triés et filtrés à l’aide de Windows PowerShell
 
 Par exemple, cette commande affiche les enregistrements du moteur Docker des 5dernières minutes en commençant par le plus ancien.
@@ -44,7 +44,7 @@ Ces enregistrements peuvent aussi être facilement redirigés dans un fichier CS
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-30)  | Sort-Object Time | Export-CSV ~/last30minutes.CSV
 ```
 
-#### <a name="enabling-debug-logging"></a>Activation de la journalisation du débogage
+## <a name="enabling-debug-logging"></a>Activation de la journalisation du débogage
 Vous pouvez également activer la journalisation au niveau du débogage sur le moteur Docker. Cette opération peut être utile pour la résolution des problèmes si les journaux ordinaires ne contiennent pas suffisamment de détails.
 
 Tout d’abord, ouvrez une invite de commandes avec élévation de privilèges, puis exécutez `sc.exe qc docker` pour obtenir la ligne de commande actuelle pour le service Docker.
@@ -90,7 +90,7 @@ sc.exe stop docker
 <path\to\>dockerd.exe -D > daemon.log 2>&1
 ```
 
-#### <a name="obtaining-stack-dump-and-daemon-data"></a>Obtention du vidage de pile et des données du démon.
+## <a name="obtaining-stack-dump-and-daemon-data"></a>Obtention du vidage de pile et des données du démon.
 
 En règle générale, cela n'est utile que si le support Microsoft ou les développeurs du docker le demandent explicitement. Ces données peuvent servir à diagnostiquer une situation dans laquelle le docker semble bloqué. 
 
@@ -110,7 +110,7 @@ Les fichiers seront `goroutine-stacks-<timestamp>.log` et `daemon-data-<timestam
 Notez que `daemon-data*.log` peut contenir des informations personnelles et doit généralement être partagé uniquement avec des intervenants de support fiables. `goroutine-stacks*.log` ne contient aucune information personnelle.
 
 
-### <a name="host-compute-service"></a>Service de calcul hôte
+# <a name="host-compute-service"></a>Service de calcul hôte
 Le moteur Docker dépend d’un service de calcul hôte spécifique à Windows. Il a des journaux distincts: 
 - Microsoft-Windows-Hyper-V-Compute-Admin
 - Microsoft-Windows-Hyper-V-Compute-Operational
@@ -123,7 +123,7 @@ Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Admin
 Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Operational 
 ```
 
-#### <a name="capturing-hcs-analyticdebug-logs"></a>Enregistrement des journaux d’analyse/débogage HCS
+## <a name="capturing-hcs-analyticdebug-logs"></a>Enregistrement des journaux d’analyse/débogage HCS
 
 Pour activer les journaux d’analyse/débogage de calcul Hyper-V et les enregistrer sur `hcslog.evtx`.
 
@@ -140,7 +140,7 @@ wevtutil.exe epl Microsoft-Windows-Hyper-V-Compute-Analytic <hcslog.evtx>
 wevtutil.exe sl Microsoft-Windows-Hyper-V-Compute-Analytic /e:false /q:true
 ```
 
-#### <a name="capturing-hcs-verbose-tracing"></a>Capturer le suivi HCS en clair
+## <a name="capturing-hcs-verbose-tracing"></a>Capturer le suivi HCS en clair
 
 En règle générale, cela n'est utile que si le support Microsoft le demande. 
 
