@@ -7,11 +7,11 @@ ms.topic: get-started-article
 ms.prod: containers
 description: "Compilation et compilation croisée des fichiers binaires Kubernetes à partir de la source."
 keywords: kubernetes, 1.9, linux, compiler
-ms.openlocfilehash: 53d55eed155254f809bc3f45b8e3891dab54f209
-ms.sourcegitcommit: ad5f6344230c7c4977adf3769fb7b01a5eca7bb9
+ms.openlocfilehash: c9b0146202d7e9e5d857ca88faa43282bd504dfa
+ms.sourcegitcommit: b0e21468f880a902df63ea6bc589dfcff1530d6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="compiling-kubernetes-binaries"></a>Compilation de fichiers binaires Kubernetes #
 La compilation de Kubernetes requiert un environnement Go de travail. Cette page passe en revue plusieurs façons de compiler les fichiers binaires Linux et d’effectuer une compilation croisée des binaires Windows.
@@ -57,10 +57,10 @@ go get -d $KUBEREPO
 cd $GOPATH/src/$KUBEREPO
 ```
 
-Maintenant, vérifiez la branche à partir de laquelle effectuer la compilation et construire le fichier binaire Linux `kubelet`. Cela est nécessaire pour éviter les erreurs de génération Windows indiquées ci-avant. Ici, nous allons utiliser `v1.9.0-beta.1`. Ensuite, `checkout` est l’emplacement qui permettra d’appliquer les réservations permanentes en attente, les correctifs, ou apporter d’autres modifications aux fichiers binaires personnalisés.
+Maintenant, vérifiez la branche à partir de laquelle effectuer la compilation et construire le fichier binaire Linux `kubelet`. Cela est nécessaire pour éviter les erreurs de génération Windows indiquées ci-avant. Ici, nous allons utiliser `v1.9.1`. Après le `git checkout`, vous pourrez appliquer les réservations permanentes en attente, les correctifs, ou apporter d’autres modifications aux fichiers binaires personnalisés.
 
 ```bash
-git checkout tags/v1.9.0-beta.1
+git checkout tags/v1.9.1
 make clean && make WHAT=cmd/kubelet
 ```
 
@@ -88,7 +88,7 @@ mkdir -p "${SRC_DIR}"
 git clone https://github.com/kubernetes/kubernetes.git ${SRC_DIR}
 
 cd ${SRC_DIR}
-git checkout tags/v1.9.0-beta.1
+git checkout tags/v1.9.1
 KUBE_BUILD_PLATFORMS=linux/amd64   build/run.sh make WHAT=cmd/kubelet
 KUBE_BUILD_PLATFORMS=windows/amd64 build/run.sh make WHAT=cmd/kubelet 
 KUBE_BUILD_PLATFORMS=windows/amd64 build/run.sh make WHAT=cmd/kube-proxy 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 86d0b2f3ae86f99680e03e2bb8ad2712c6c70c16
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
+ms.openlocfilehash: df9ca8a4bcd6bf959e221593ea69d5ed624cdae1
+ms.sourcegitcommit: 6beac5753c9f65bb6352df8c829c2e62e24bd2e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="active-directory-service-accounts-for-windows-containers"></a>Comptes de service ActiveDirectory pour conteneurs Windows
 
@@ -47,7 +47,10 @@ Les conteneurs Windows suivent un processus similaire:
 4. Utiliser le module PowerShell CredentialSpec de [windows-server-container-tools](https://github.com/Microsoft/Virtualization-Documentation/tree/live/windows-server-container-tools) pour stocker les paramètres nécessaires pour utiliser le compte gMSA
 5. Démarrer le conteneur avec une option supplémentaire `--security-opt "credentialspec=..."`
 
-Lorsque le conteneur est lancé, les services installés qui sont exécutés en tant que système Local ou service réseau s’affichent pour s’exécuter en tant que compte gMSA. Ce fonctionnement est semblable à celui des comptes sur les hôtes joints à un domaine, sauf qu’un compte gMSA est utilisé à la place d’un compte d’ordinateur. 
+[!NOTE]
+Vous devrez peut-être autoriser la traduction de noms/SID anonymes sur l’hôte de conteneur comme décrit [ici](https://docs.microsoft.com/en-us/windows/device-security/security-policy-settings/network-access-allow-anonymous-sidname-translation), car autrement, vous pourriez obtenir des erreurs indiquant que des comptes ne peuvent être traduits en SID.
+
+Lorsque le conteneur est lancé, les services installés qui sont exécutés en tant que système local ou service réseau s’affichent pour s’exécuter en tant que compte gMSA. Ce fonctionnement est semblable à celui des comptes sur les hôtes joints à un domaine, sauf qu’un compte gMSA est utilisé à la place d’un compte d’ordinateur. 
 
 ![Diagramme - Comptes de service](media/serviceaccount_diagram.png)
 

@@ -1,64 +1,65 @@
 ---
-title: Supported Windows guests
-description: Supported Windows guests.
-keywords: windows 10, hyper-v
+title: "Invités Windows pris en charge"
+description: "Invités Windows pris en charge."
+keywords: Windows10, Hyper-V
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
-ms.openlocfilehash: ac1ec3740cfa75acd8c005df3f67531c693cd914
-ms.sourcegitcommit: 63e890ad2caae3ce55503af81c6c5ff0d1e630f6
+ms.openlocfilehash: 361b76e18125bb14f5e88b1892eed882a3ae5508
+ms.sourcegitcommit: 59541f11d481d8df341597bd73ce7fac14f442ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 01/05/2018
 ---
-# Supported Windows guests 
+# <a name="supported-windows-guests"></a>Invités Windows pris en charge 
 
-This article lists the operating system combinations supported in Hyper-V on Windows.  It also serves as an introduction to integration services and other factors in support.
+Cet article répertorie les combinaisons de systèmes d’exploitation prises en charge dans Hyper-V sur Windows.  Il sert également à présenter les services d’intégration et d’autres facteurs de prise en charge.
 
-## What does support mean? 
-Support means Microsoft has tested these host/guest combinations.  Issues with these combinations may receive attention from Product Support Services.
+## <a name="what-does-support-mean"></a>Que signifie la prise en charge? 
+La prise en charge signifie que Microsoft a testé ces combinaisons hôte/invité.  Les problèmes liés à ces combinaisons peuvent être traités par les services PSS (Product Support Services).
  
-Microsoft provides support for guest operating systems in the following manner:
-* Issues found in Microsoft operating systems and in integration services are supported by Microsoft support.
-* For issues found in other operating systems that have been certified by the operating system vendor to run on Hyper-V, support is provided by the vendor.
-* For issues found in other operating systems, Microsoft submits the issue to the multi-vendor support community, [TSANet](http://www.tsanet.org/).
+Microsoft assure la prise en charge des systèmes d’exploitation invités de la façon suivante:
+* Les problèmes détectés dans les services d’intégration et systèmes d’exploitation Microsoft sont pris en charge par le support technique Microsoft.
+* En ce qui concerne les problèmes dans d’autres systèmes d’exploitation ayant été certifiés par le fournisseur de système d’exploitation comme fonctionnant sur Hyper-V, la prise en charge est assurée par le fournisseur.
+* En ce qui concerne les problèmes détectés dans d’autres systèmes d’exploitation, Microsoft soumet le problème à la communauté de support multifournisseur, [TSANet](http://www.tsanet.org/).
 
-In order to be supported, both the Hyper-V host and guest must be updated with all critical updates available through Windows Update.
+Pour pouvoir être pris en charge, l’hôte Hyper-V et l’invité doivent être mis à jour avec toutes les mises à jour critiques disponibles dans Windows Update.
 
-## Supported guest operating systems
+## <a name="supported-guest-operating-systems"></a>Systèmes d’exploitation invités pris en charge
 
-In order to receive support, both the Windows guest operating systems and the host operating system must be current with all critical updates available through Windows Update.
+Pour bénéficier de la prise en charge, les systèmes d’exploitation invités Windows et le système d’exploitation hôte doivent être à jour avec toutes les mises à jour critiques disponibles dans Windows Update.
 
-| Guest operating system |  Maximum number of virtual processors | Notes | 
+| Système d’exploitation invité |  Nombre maximal de processeurs virtuels | Remarques | 
 |:-----|:-----|:-----|
-| Windows 10 | 32 | |
+| Windows10 | 32 |Le mode de session étendu ne fonctionne pas sur l'édition Windows10 Famille |
 | Windows 8.1 | 32 | |
-| Windows 8 | 32 |  |
-| Windows 7 with Service Pack 1 (SP 1) | 4 | Ultimate, Enterprise, and Professional editions (32-bit and 64-bit). |
-| Windows 7 | 4 | Ultimate, Enterprise, and Professional editions (32-bit and 64-bit). |
-| Windows Vista with Service Pack 2 (SP2) | 2 | Business, Enterprise, and Ultimate, including N and KN editions. | 
+| Windows8 | 32 |  |
+| Windows7 avec Service Pack1 (SP1) | 4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32bits et 64bits). |
+| Windows7 | 4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32bits et 64bits). |
+| WindowsVista avec Service Pack2 (SP2) | 2 | Professionnel, Entreprise et Édition Intégrale, notamment les éditions N et KN. | 
 | - | | |
-| WindowsServer2016 | 64 | |
+| [Canal semi-annuel WindowsServer](https://docs.microsoft.com/en-us/windows-server/get-started/semi-annual-channel-overview) | 64 | |
+| Windows Server2016 | 64 | |
 | WindowsServer2012R2 | 64 | |
-| Windows Server 2012 | 64 | |
-| Windows Server 2008 R2 with Service Pack 1 (SP 1) | 64 | Datacenter, Enterprise, Standard and Web editions. |
-| Windows Server 2008 with Service Pack 2 (SP 2) | 4 | Datacenter, Enterprise, Standard and Web editions (32-bit and 64-bit). |
-| Windows Home Server 2011 | 4 | |
-| Windows Small Business Server 2011 | Essentials edition - 2, Standard edition - 4 | |
+| Windows Server2012 | 64 | |
+| Windows Server2008R2 avec Service Pack1 (SP1) | 64 | Éditions Datacenter, Entreprise, Standard et Web. |
+| Windows Server2008 avec Service Pack2 (SP2) | 4 | Éditions Datacenter, Entreprise, Standard et Web (32bits et 64bits). |
+| Windows Home Server2011 | 4 | |
+| Windows Small Business Server2011 | Édition Essentials - 2, édition Standard - 4 | |
   
- > Windows 10 can run as a guest operating system on Windows 8.1 and Windows Server 2012 R2 Hyper-V hosts.
+ > Windows10 peut s’exécuter en tant que système d’exploitation invité sur les hôtes Hyper-V Windows8.1 et Windows Server2012 R2.
 
-## Supported Linux and Free BSD
+## <a name="supported-linux-and-free-bsd"></a>Linux et FreeBSD pris en charge
 
-| Guest operating system |  |
+| Système d’exploitation invité |  |
 |:-----|:------|
-| [CentOS and Red Hat Enterprise Linux ](https://technet.microsoft.com/library/dn531026.aspx) | |
-| [Debian virtual machines on Hyper-V](https://technet.microsoft.com/library/dn614985.aspx) | |
+| [CentOS et Red Hat Enterprise Linux ](https://technet.microsoft.com/library/dn531026.aspx) | |
+| [Machines virtuelles Debian sur Hyper-V](https://technet.microsoft.com/library/dn614985.aspx) | |
 | [SUSE](https://technet.microsoft.com/en-us/library/dn531027.aspx) | |
 | [Oracle Linux](https://technet.microsoft.com/en-us/library/dn609828.aspx)  | |
 | [Ubuntu](https://technet.microsoft.com/en-us/library/dn531029.aspx) | |
 | [FreeBSD](https://technet.microsoft.com/library/dn848318.aspx) | |
 
-For more information, including support information on past versions of Hyper-V, see [Linux and FreeBSD Virtual Machines on Hyper-V](https://technet.microsoft.com/library/dn531030.aspx).
+Pour plus d’informations, notamment concernant la prise en charge sur des versions précédentes d’Hyper-V, voir [Machines virtuelles Linux et FreeBSD sur Hyper-V](https://technet.microsoft.com/library/dn531030.aspx).
