@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "a8c9d7ab9571da0ed368ab397786d902120b2b5e",
+  "LastProcessedCommit": "552531eee65b706a14e576141be5787d9a4c4aa1",
   "LastTranslatedCommit": "f26914161b3ad0309d88eb88793f5348ea6f3cf4",
   "LastConfigHash": "8a1020b7136b784cdc0f8c9eca877ab77b2a9c5f",
   "Items": {
@@ -24261,6 +24261,22 @@
       "HandoffFileCommit": "09b710ac6af5c62453eb9e9f503c979c2e37c536",
       "HandoffDateTime": "2018-02-07T06:16:44.1261729Z",
       "HandoffXliffHash": "6f62ebf79f78bf2acf9d740709688a6b7d946176",
+      "HandoffPriority": ""
+    },
+    "1ad04198c74f4566bd37b4ba884034aa5cd7c7ef": {
+      "FileHash": "1ad04198c74f4566bd37b4ba884034aa5cd7c7ef",
+      "SourceFileCommit": "552531eee65b706a14e576141be5787d9a4c4aa1",
+      "SourceFilePath": "virtualization\\windowscontainers\\manage-containers\\manage-serviceaccounts.md",
+      "HandoffReason": 1,
+      "FilePathList": [
+        "virtualization\\windowscontainers\\manage-containers\\manage-serviceaccounts.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.fr-fr\\live\\manage-serviceaccounts.5fcb2b4d167ce751e9a350a047d30c781c75d75a.fr-fr.xlf",
+      "HandoffFileCommit": "d4d4807d00730136e6327ac1f35bad5b593950aa",
+      "HandoffDateTime": "2018-02-07T20:16:24.2927331Z",
+      "HandoffXliffHash": "f851e3381243ba55fdfcccb26f508d33942dd64f",
       "HandoffPriority": ""
     }
   }
