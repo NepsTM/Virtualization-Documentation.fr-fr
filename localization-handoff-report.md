@@ -1,58 +1,11 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 3
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\kubernetes\common-problems.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/bbb0992d12417a55ef2db2b19d104ffebbc015b3/virtualization/windowscontainers/kubernetes/common-problems.md) | HandedOffSuccess | [Details](#b6be43f1afabdf8ef9c2ddc6f46ed5ac43a9e7a5356)
- [virtualization\windowscontainers\kubernetes\configuring-host-gateway-mode.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/bbb0992d12417a55ef2db2b19d104ffebbc015b3/virtualization/windowscontainers/kubernetes/configuring-host-gateway-mode.md) | HandedOffSuccess | [Details](#849a3522becec7686c605db0709733812d7ff204358)
- [virtualization\windowscontainers\kubernetes\getting-started-kubernetes-windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/bbb0992d12417a55ef2db2b19d104ffebbc015b3/virtualization/windowscontainers/kubernetes/getting-started-kubernetes-windows.md) | HandedOffSuccess | [Details](#0ccd7dae8da0841c98bec5cdf7345100d1b51107360)
 
 ## Item Details
-##### <a name='b6be43f1afabdf8ef9c2ddc6f46ed5ac43a9e7a5356'></a> Source: [virtualization\windowscontainers\kubernetes\common-problems.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/bbb0992d12417a55ef2db2b19d104ffebbc015b3/virtualization/windowscontainers/kubernetes/common-problems.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [common-problems.9b17894d13d6587b589ea9b226a43c68b2fdc531.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/373b19f9711114fa6394bdee4ff80d9c37b1364c/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/common-problems.9b17894d13d6587b589ea9b226a43c68b2fdc531.fr-fr.xlf)
-* Handoff Datetime: 2018-02-13 21:22:58
-* Handoff Reason: Include
-* Handoff Name: 
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Handback Name: 
-* [Back to Top](#report-top)
-
-##### <a name='849a3522becec7686c605db0709733812d7ff204358'></a> Source: [virtualization\windowscontainers\kubernetes\configuring-host-gateway-mode.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/bbb0992d12417a55ef2db2b19d104ffebbc015b3/virtualization/windowscontainers/kubernetes/configuring-host-gateway-mode.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [configuring-host-gateway-mode.bcbdc6c62e1b2b71455dd0717612e6fc4b3ed5db.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/373b19f9711114fa6394bdee4ff80d9c37b1364c/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/configuring-host-gateway-mode.bcbdc6c62e1b2b71455dd0717612e6fc4b3ed5db.fr-fr.xlf)
-* Handoff Datetime: 2018-02-13 21:22:58
-* Handoff Reason: Include
-* Handoff Name: 
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Handback Name: 
-* [Back to Top](#report-top)
-
-##### <a name='0ccd7dae8da0841c98bec5cdf7345100d1b51107360'></a> Source: [virtualization\windowscontainers\kubernetes\getting-started-kubernetes-windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/bbb0992d12417a55ef2db2b19d104ffebbc015b3/virtualization/windowscontainers/kubernetes/getting-started-kubernetes-windows.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [getting-started-kubernetes-windows.e642abab5eaaff4bddcc8a4f36abd3f7a6675efc.fr-fr.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/373b19f9711114fa6394bdee4ff80d9c37b1364c/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.fr-fr/live/getting-started-kubernetes-windows.e642abab5eaaff4bddcc8a4f36abd3f7a6675efc.fr-fr.xlf)
-* Handoff Datetime: 2018-02-13 21:22:58
-* Handoff Reason: Include
-* Handoff Name: 
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Handback Name: 
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
