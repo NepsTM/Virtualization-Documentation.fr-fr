@@ -6,7 +6,7 @@ Une des options disponibles pour la mise en réseau Kubernetes est le *mode hôt
 Pour ce faire, nous utilisons `iptables`. Remplacez (ou définissez) la variable `$CLUSTER_PREFIX` avec le sous-réseau que tous les pods utiliseront:
 
 ```bash
-$CLUSTER_PREFIX="192.168"
+CLUSTER_PREFIX="192.168"
 sudo iptables -t nat -F
 sudo iptables -t nat -A POSTROUTING ! -d $CLUSTER_PREFIX.0.0/16 \
               -m addrtype ! --dst-type LOCAL -j MASQUERADE
@@ -22,7 +22,7 @@ sudo route add -net $CLUSTER_PREFIX.0.0 netmask 255.255.0.0 dev eth0
 Enfin, nous devons ajouter la passerelle de saut suivant sur la base **une par nœud**. Par exemple, si le premier nœud est un nœud Windows sur `192.168.1.0/16`, alors:
 
 ```bash
-sudo route add -net $CLUSTER.1.0 netmask 255.255.255.0 gw $CLUSTER.1.2 dev eth0
+sudo route add -net $CLUSTER_PREFIX.1.0 netmask 255.255.255.0 gw $CLUSTER_PREFIX.1.2 dev eth0
 ```
 
 Un itinéraire similaire doit être ajouté *pour* chaque nœud du cluster, *sur* chaque nœud du cluster.
@@ -35,7 +35,6 @@ Un itinéraire similaire doit être ajouté *pour* chaque nœud du cluster, *sur
 
 ## <a name="configuring-static-routes--windows"></a>Configuration d’itinéraires statiques | Windows ##
 Pour ce faire, nous utilisons `New-NetRoute`. Il existe un script automatisé, `AddRoutes.ps1`, disponible dans [ce référentiel](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/AddRoutes.ps1). Vous devez connaître l’adresse IP du *master Linux* et la passerelle par défaut du nœud Windows de l’adaptateur *externe* (pas de la passerelle de pod). Alors:
-
 
 ```powershell
 $url = "https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/windows/AddRoutes.ps1"
