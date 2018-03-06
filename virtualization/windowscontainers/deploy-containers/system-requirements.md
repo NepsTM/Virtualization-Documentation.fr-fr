@@ -7,11 +7,11 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: 88d094202c49cf725e9d608a0810e7d9f8a1e271
-ms.sourcegitcommit: 7fc79235cbee052e07366b8a6aa7e035a5e3434f
+ms.openlocfilehash: ff9b24ccc802b228b649c2330333cbe008350aec
+ms.sourcegitcommit: ea6edc5bac5705a19d48ffdf1ba676c940c2eb67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="windows-container-requirements"></a>Configuration requise pour un conteneur Windows
 
@@ -67,7 +67,7 @@ Les conteneurs Windows fournissent deux images de base de conteneur (Windows Ser
 > <span id="warn-1">À compter de WindowsServerversion1709, NanoServer n’est plus disponible en tant qu’hôte de conteneur.</span>
 
 
-### <a name="memory-requirments"></a>Mémoire requise
+### <a name="memory-requirements"></a>Mémoire requise
 Les restrictions applicables à la mémoire disponible pour les conteneurs peuvent être configurées via [les contrôles de ressources](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/resource-controls) ou la surcharge d’un hôte de conteneur.  La quantité minimale de mémoire requise pour lancer un conteneur et exécuter les commandes de base (ipconfig dir, etc.) est répertoriée ci-dessous.  __Notez que ces valeurs ne tiennent pas compte du partage de ressources entre les conteneurs ni de la configuration requise par l’application en cours d’exécution dans le conteneur.  Par exemple, un hôte avec 512Mo de mémoire disponible peut exécuter plusieurs conteneurs Server Core sous isolation Hyper-V, car ces conteneurs partagent des ressources.__
 
 #### <a name="windows-server-2016"></a>Windows Server2016

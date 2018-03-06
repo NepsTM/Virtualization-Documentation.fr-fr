@@ -25,12 +25,12 @@ La progression du projet Moby peut être suivie sur [GitHub](https://github.com/
 
 Toutes ces applications nécessitent le mappage de volume, qui présente certaines limitations couvertes sous [Lier les montages](#Bind-mounts). Elle ne démarreront pas ou ne s’exécuteront pas correctement.
 
-- Mysql
-- Postgress
-- Wordpress
+- MySQL
+- PostgreSQL
+- WordPress
 - Jenkins
-- Mariadb
-- Rabbitmq
+- MariaDB
+- RabbitMQ
 
 
 ### <a name="bind-mounts"></a>Lier des montages

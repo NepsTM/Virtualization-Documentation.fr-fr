@@ -7,11 +7,11 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: "Solutions aux problèmes courants lors du déploiement de Kubernetes et de la jonction de nœuds Windows."
 keywords: kubernetes, 1.9, linux, compiler
-ms.openlocfilehash: 4fb7ac312b08c63564beb0f40889ff6a050c7166
-ms.sourcegitcommit: b0e21468f880a902df63ea6bc589dfcff1530d6e
+ms.openlocfilehash: b6be43f1afabdf8ef9c2ddc6f46ed5ac43a9e7a5
+ms.sourcegitcommit: 2e8f1fd06d46562e56c9e6d70e50745b8b234372
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="troubleshooting-kubernetes"></a>Résolution des problèmes Kubernetes #
 Cette page décrit plusieurs problèmes courants lors du déploiement, de la mise en réseau et de la configuration de Kubernetes.
@@ -50,6 +50,7 @@ Si vous avez suivi [nos instructions](./creating-a-linux-master), il s’agit du
 ## <a name="common-networking-errors"></a>Erreurs réseau courantes ##
 Il peut exister des restrictions supplémentaires sur votre réseau ou sur des ordinateurs hôtes empêchant certains types de communication entre les nœuds. Vérifiez que:
 
+  - vous avez correctement configuré votre topologie de réseau
   - le trafic qui semble émaner des pods est autorisé
   - le trafic HTTP est autorisé, si vous déployez des services web
   - les paquets ICMP ne sont pas supprimés
@@ -83,7 +84,7 @@ Il s’agit d’une limitation connue de la pile de mise en réseau actuelle sur
 La pile de mise en réseau Windows nécessite un adaptateur virtuel afin que la mise en réseau Kubernetes fonctionne. Si les commandes suivantes ne retournent aucun résultat (dans un shell administrateur), la création d'un réseau virtuel &mdash; prérequis nécessaire au fonctionnement de Kubelet &mdash; a échoué:
 
 ```powershell
-Get-HnsNetwork | ? Name -Like "l2bridge"
+Get-HnsNetwork | ? Name -ieq "l2bridge"
 Get-NetAdapter | ? Name -Like "vEthernet (Ethernet*"
 ```
 

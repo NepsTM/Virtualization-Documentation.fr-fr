@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: df9ca8a4bcd6bf959e221593ea69d5ed624cdae1
-ms.sourcegitcommit: 6beac5753c9f65bb6352df8c829c2e62e24bd2e2
+ms.openlocfilehash: 1ad04198c74f4566bd37b4ba884034aa5cd7c7ef
+ms.sourcegitcommit: ea6edc5bac5705a19d48ffdf1ba676c940c2eb67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="active-directory-service-accounts-for-windows-containers"></a>Comptes de service ActiveDirectory pour conteneurs Windows
 
@@ -49,6 +49,15 @@ Les conteneurs Windows suivent un processus similaire:
 
 [!NOTE]
 Vous devrez peut-être autoriser la traduction de noms/SID anonymes sur l’hôte de conteneur comme décrit [ici](https://docs.microsoft.com/en-us/windows/device-security/security-policy-settings/network-access-allow-anonymous-sidname-translation), car autrement, vous pourriez obtenir des erreurs indiquant que des comptes ne peuvent être traduits en SID.
+
+Toutefois, avant d’explorer la nécessité d'autoriser la traduction de noms/SID anonymes, assurez-vous que les mesures suivantes ont été prises:
+
+1. Le nom du compte gMSA doit correspondre au nom du service (par ex. «myapp»).
+2. Inclure l’argument -h pour spécifier le nom d’hôte que le conteneur doit utiliser lors de son lancement. 
+```
+docker run --security-opt "credentialspec=file://myapp.json" -d -p 80:80 -h myapp.mydomain.local <imagename>
+```
+3. Le nom principal de service (SPN) utilisé lors de la création du compte gMSA doit correspondre à l’argument -h utilisé lors de l'exécution du conteneur. Si vous n’avez pas ajouté de SPN pour le compte gMSA lors de la création, vous pouvez en ajouter par la suite aux propriétés du compte.
 
 Lorsque le conteneur est lancé, les services installés qui sont exécutés en tant que système local ou service réseau s’affichent pour s’exécuter en tant que compte gMSA. Ce fonctionnement est semblable à celui des comptes sur les hôtes joints à un domaine, sauf qu’un compte gMSA est utilisé à la place d’un compte d’ordinateur. 
 

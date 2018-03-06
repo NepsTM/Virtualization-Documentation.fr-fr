@@ -7,11 +7,11 @@ ms.topic: get-started-article
 ms.prod: containers
 description: "Création d’un cluster maître Kubernetes à partir de zéro."
 keywords: kubernetes, 1,9, master, linux
-ms.openlocfilehash: d5251b1a2dc06bef396820e324fb240eed04acc8
-ms.sourcegitcommit: b0e21468f880a902df63ea6bc589dfcff1530d6e
+ms.openlocfilehash: 3ea338f7af3dd921731fce0ec5a8b2cf8c4fef0c
+ms.sourcegitcommit: f542e8c95b5bb31b05b7c88f598f00f76779b519
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="kubernetes-master--from-scratch"></a>Nœud maître Kubernetes à partir de zéro #
 Cette page détaille le déploiement manuel d’un nœud maître Kubernetes du début à la fin.
@@ -27,9 +27,17 @@ Une machine Linux de type Ubuntu mise à jour récemment est requise pour poursu
 Tout d’abord, installez tous les composants prérequis:
 
 ```bash
-sudo apt-get install curl git build-essential docker.io conntrack
+sudo apt-get install curl git build-essential docker.io conntrack python2.7
 ```
 
+Si vous vous trouvez derrière un proxy, définissez des variables d’environnement pour la session active:
+```bash
+HTTP_PROXY=http://proxy.example.com:80/
+HTTPS_PROXY=http://proxy.example.com:443/
+http_proxy=http://proxy.example.com:80/
+https_proxy=http://proxy.example.com:443/
+```
+Autrement, si vous souhaitez rendre ce paramètre permanent, ajoutez les variables à /etc/environment (il est nécessaire de se déconnecter puis de se reconnecter pour appliquer les modifications).
 
 Il existe une collection de scripts dans [ce référentiel](https://github.com/Microsoft/SDN/tree/master/Kubernetes/linux) qui vous aidera au cours du processus d’installation. Consultez-les pour `~/kube/`. L’intégralité de ce répertoire sera monté pour la plupart des conteneurs Docker au cours des prochaines étapes, veillez-donc à conserver sa structure comme indiqué dans le guide.
 
@@ -102,6 +110,7 @@ Préparer les certificats qui serviront de nœuds pour communiquer dans le clust
 
 ```bash
 cd ~/kube/certs
+chmod u+x generate-certs.sh
 ./generate-certs.sh $MASTER_IP
 ```
 
@@ -133,6 +142,7 @@ Les autres options de configuration personnalisée nécessitent une modification
 Configurer Kubernetes pour utiliser les certificats générés. Cette action permet de créer une configuration à l’emplacement `~/.kube/config`:
 
 ```bash
+cd ~/kube
 ./configure-kubectl.sh $MASTER_IP
 ```
 

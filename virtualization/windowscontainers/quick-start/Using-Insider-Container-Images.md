@@ -1,3 +1,4 @@
+
 # <a name="using-insider-container-images"></a>Utilisation d’images de conteneur Insider
 
 Cet exercice va vous guider tout au long du déploiement et de l’utilisation de la fonctionnalité de conteneur Windows de la dernière build Insider de WindowsServer du programme WindowsInsiderPreview. Au cours de cet exercice, vous allez installer le rôle de conteneur et déployer une version d’évaluation des images de système d’exploitation de base. Si vous voulez vous familiariser avec les conteneurs, vous trouverez des informations dans la rubrique [À propos des conteneurs](../about/index.md).
@@ -11,22 +12,25 @@ Ce démarrage rapide est spécifique aux conteneurs WindowsServer du programme W
 
 >Vous devez utiliser une build de WindowsServer du programme WindowsServerInsiderPreview ou une build de Windows10 du programme WindowsInsiderPreview pour utiliser l’image de base décrite ci-dessous. Si vous n’utilisez pas l’une de ces builds, la création d’un conteneur échouera lors de l’utilisation de ces images de base.
 
-## <a name="install-docker"></a>Installer Docker
-Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker. Vous devez également utiliser une version de Docker qui prend en charge les créations échelonnées pour une expérience optimale à l’aide de l’image NanoServer optimisée pour les conteneurs.
+## <a name="install-docker-enterprise-edition-ee"></a>Installer Docker Enterprise Edition (EE)
+Vous devez installer Docker EE pour utiliser les conteneurs Windows. Docker EE comprend le moteur Docker et le client Docker. 
 
-Pour installer Docker, nous allons utiliser le module PowerShell de fournisseur OneGet. Le fournisseur active la fonctionnalité de conteneurs sur votre ordinateur et installe Docker. Cette opération nécessite un redémarrage. Notez qu’il existe plusieurs canaux avec une version différente de Docker, selon le cas d’utilisation. Dans cet exercice, nous allons utiliser la dernière version Community Edition de Docker du canal Stable. Un canal Edge est également disponible si vous souhaitez tester les dernières évolutions dans Docker.
+Pour installer Docker EE, nous allons utiliser le module PowerShell de fournisseur OneGet. Le fournisseur active la fonctionnalité de conteneurs sur votre ordinateur et installe Docker EE. Cette opération nécessite un redémarrage. Ouvrez une session PowerShell avec élévation de privilèges, puis exécutez les commandes suivantes.
 
-Ouvrez une session PowerShell avec élévation de privilèges, puis exécutez les commandes suivantes.
-
->Remarque: l’installation de Docker dans les builds Insider requiert un fournisseur autre que celui utilisé en temps normal à compter d’aujourd’hui. Notez la différence ci-dessous.
-
-Installez le module PowerShell OneGet.
-```powershell
-Install-Module -Name DockerMsftProviderInsider -Repository PSGallery -Force
+>Remarque: l’installation de Docker EE avec les builds de WindowsServerInsider nécessite un autre fournisseur OneGet que celui utilisé pour les builds non-Insider. Si Docker EE et le fournisseur OneGet DockerMsftProvider sont déjà installés, supprimez-les avant de continuer.
+```powershell 
+Stop-Service docker
+Uninstall-Package docker
+Uninstall-Module DockerMsftProvider
 ```
-Utilisez OneGet pour installer la dernière version de Docker.
+
+Installez le module OneGet PowerShell pour une utilisation avec les builds Windows Insider.
 ```powershell
-Install-Package -Name docker -ProviderName DockerMsftProviderInsider
+Install-Module -Name DockerProvider -Repository PSGallery -Force
+```
+Utilisez OneGet pour installer la dernière version de Docker EE Preview.
+```powershell
+Install-Package -Name docker -ProviderName DockerProvider -RequiredVersion Preview
 ```
 Une fois l’installation terminée, redémarrez l’ordinateur.
 ```

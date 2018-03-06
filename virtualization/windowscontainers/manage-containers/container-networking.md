@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 394aa58c3421e512d005f59d5bd30667f1c26f16
-ms.sourcegitcommit: 6eefb890f090a6464119630bfbdc2794e6c3a3df
+ms.openlocfilehash: 70e662e73693d9fef9d36635289ec9affb8d0331
+ms.sourcegitcommit: f542e8c95b5bb31b05b7c88f598f00f76779b519
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="windows-container-networking"></a>Mise en réseau de conteneur Windows
 > ***Reportez-vous à l'article [Mise en réseau de conteneur Docker](https://docs.docker.com/engine/userguide/networking/) pour les commandes, les options et la syntaxe de mise en réseau de docker en général.*** À l’exception des cas décrits dans ce document, toutes les commandes de mise en réseau de Docker sont prises en charge par Windows avec la même syntaxe que sur Linux. Cependant, les piles réseau Windows et Linux sont différentes, par conséquent, vous constaterez que certaines commandes réseau de Linux (par exemple, ifconfig) ne sont pas prises en charge par Windows.

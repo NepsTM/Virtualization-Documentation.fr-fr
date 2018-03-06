@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8ccd4192-4a58-42a5-8f74-2574d10de98e
-ms.openlocfilehash: d3eb7e2b751468953a152e8c723551fb3e1d12dd
-ms.sourcegitcommit: a072513214b0dabb9dba20ce43ea52aaf7806c5f
+ms.openlocfilehash: 413e28aabccdf894ebc249d8eae59e75e4b42345
+ms.sourcegitcommit: 1bd3d86bfbad8351cb19bdc84129dd5aec976c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/01/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="implementing-resource-controls-for-windows-containers"></a>Implémentation de contrôles de ressources pour les conteneurs Windows
 Plusieurs contrôles de ressources peuvent être implémentés par conteneur et par ressource.  Par défaut, les conteneurs exécutés sont soumis à la gestion des ressources Windows classique. Celle-ci est généralement exécutée de manière équitable, mais en configurant ces contrôles, un développeur ou un administrateur est en mesure de limiter ou d’influencer l’utilisation des ressources.  Les ressources pouvant être contrôlées sont notamment: UC/processeur, mémoire/mémoire RAM, disque/stockage et réseau/débit.
@@ -28,6 +28,7 @@ Pour chaque ressource, cette section fournit un mappage entre l’interface de l
 | Interface HCS | [MemoryMaximumInMB]( https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Noyau partagé | [JOB_OBJECT_LIMIT_JOB_MEMORY](https://msdn.microsoft.com/en-us/library/windows/desktop/ms684147(v=vs.85).aspx) |
 | Isolation Hyper-V | Mémoire de l’ordinateur virtuel |
+| _Remarque Concernant l’isolation Hyper-V dans Windows Server2016: si vous utilisez une limite de mémoire, vous constaterez que le conteneur alloue initialement la quantité de mémoire maximale, puis commence à la renvoyer à l’hôte du conteneur.  Dans les versions ultérieures (1709 ou au-delà), cela a été optimisé._ |
 | ||
 | *UC (nombre)* ||
 | Interface Docker | [--cpus](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
