@@ -8,17 +8,17 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6d1ae036-0841-4ba5-b7e0-733aad31e9a7
-ms.openlocfilehash: 520ef410eddad61c40d31655e6bf7ede7846d4b2
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: bd0175fe209e3311a38af29ccd0f473a2bd32dd8
+ms.sourcegitcommit: 6e3c3b2ff125f949c03a342c3709a6e57c5f736c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 03/17/2018
 ---
-# Utilisation d’Hyper-V et de Windows PowerShell
+# <a name="working-with-hyper-v-and-windows-powershell"></a>Utilisation d’Hyper-V et de Windows PowerShell
 
 Maintenant que vous connaissez les principes de base liés au déploiement d’Hyper-V, à la création de machines virtuelles et à la gestion de celles-ci, voyons comment automatiser une partie de ces opérations avec PowerShell.
 
-### Retourner une liste de commandes de Hyper-V
+### <a name="return-a-list-of-hyper-v-commands"></a>Retourner une liste de commandes de Hyper-V
 
 1.  Cliquez sur le bouton Démarrer de Windows, puis tapez **PowerShell**.
 2.  Exécutez la commande suivante pour afficher une liste pouvant faire l’objet d’une recherche des commandes PowerShell disponibles dans le module Hyper-V PowerShell.
@@ -40,7 +40,7 @@ Get-Help Get-VM
  ![](media\get_help.png)
 
 
-### Retourner une liste de machines virtuelles
+### <a name="return-a-list-of-virtual-machines"></a>Retourner une liste de machines virtuelles
 
 Pour obtenir la liste des machines virtuelles, utilisez la commande `Get-VM`.
 
@@ -64,7 +64,7 @@ Get-VM
  Get-VM | where {$_.State -eq 'Off'}
  ```
 
-### Démarrer et arrêter des machines virtuelles
+### <a name="start-and-shut-down-virtual-machines"></a>Démarrer et arrêter des machines virtuelles
 
 1. Pour démarrer une machine virtuelle spécifique, exécutez la commande suivante avec le nom de la machine virtuelle:
 
@@ -83,14 +83,14 @@ Get-VM
  Get-VM | where {$_.State -eq 'Running'} | Stop-VM
  ```
 
-### Créer un point de contrôle de machine virtuelle
+### <a name="create-a-vm-checkpoint"></a>Créer un point de contrôle de machine virtuelle
 
 Pour créer un point de contrôle à l’aide de PowerShell, sélectionnez la machine virtuelle à l’aide de la commande `Get-VM` et canalisez-la vers la commande `Checkpoint-VM`. Pour terminer, nommez le point de contrôle à l’aide de `-SnapshotName`. La commande complète ressemble à ce qui suit:
 
  ```powershell
  Get-VM -Name <VM Name> | Checkpoint-VM -SnapshotName <name for snapshot>
  ```
-### Créer une machine virtuelle
+### <a name="create-a-new-virtual-machine"></a>Créer une machine virtuelle
 
 L’exemple suivant montre comment créer une machine virtuelle dans l’environnement d’écriture de scripts intégré de Windows PowerShell (ISE). Vous pouvez étendre cet exemple simple de manière à inclure des fonctionnalités supplémentaires de PowerShell et des déploiements de machines virtuelles plus avancés.
 
@@ -111,10 +111,10 @@ L’exemple suivant montre comment créer une machine virtuelle dans l’environ
      SwitchName = (Get-VMSwitch).Name[0]
  }
 
- New-VM @VM
+ New-VM $VM
   ```
 
-## Conclusion et références
+## <a name="wrap-up-and-references"></a>Conclusion et références
 
 Dans ce document, nous avons effectué quelques étapes simples pour explorer le module PowerShell Hyper-V et quelques scénarios d’utilisation. Pour plus d’informations sur le module PowerShell Hyper-V, voir les [informations de référence sur les applets de commande Hyper-V dans Windows PowerShell](https://technet.microsoft.com/%5Clibrary/Hh848559.aspx).  
  
