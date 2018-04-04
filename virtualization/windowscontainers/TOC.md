@@ -9,7 +9,7 @@
 ## [Automatisation de builds de conteneur](quick-start/quick-start-images.md)
 
 # Démarrage rapide de WindowsInsider
-## [Étape1: Utilisation d'images Insider](quick-start/Using-Insider-Container-Images.md)
+## [Étape1: Utilisation d’images Insider](quick-start/Using-Insider-Container-Images.md)
 ## [Étape2: Créer et exécuter une application](quick-start/Nano-RS3-.NET-Core-and-PS.md)
 ## [Étape3: Problèmes connus](quick-start/Insider-Known-Issues.md)
 ## [Aperçu des conteneurs Linux](deploy-containers/linux-containers.md)
@@ -23,7 +23,7 @@
 ## [Optimisation de la protection antivirus](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 
 # Gérer Docker sur Windows
-## [Moteur Docker sur Windows](docker/configure_docker_daemon.md)
+## [Moteur Docker sur Windows](manage-docker/configure-docker-daemon.md)
 ## [Fichiers Dockerfile sur Windows](manage-docker/manage-windows-dockerfile.md)
 ## [Optimiser les fichiers Dockerfile](manage-docker/optimize-windows-dockerfile.md)
 ## [Mise en réseau de conteneur](manage-containers/container-networking.md)
@@ -39,6 +39,10 @@
 ## [Configuration de la topologie du réseau](kubernetes/configuring-host-gateway-mode.md)
 ## [Compilation de fichiers binaires Kubernetes](kubernetes/compiling-kubernetes-binaries.md)
 ## [Résolution des problèmes](kubernetes/common-problems.md)
+
+# Démarrage rapide de Service Fabric
+## [Déployer votre premier conteneur](/azure/service-fabric/service-fabric-quickstart-containers)
+## [Déployer une application .NET dans un conteneur Windows](/azure/service-fabric/service-fabric-host-app-in-a-container) 
 
 # Exemples de conteneurs
 ## [Infrastructures des applications](samples.md#Application-Frameworks)

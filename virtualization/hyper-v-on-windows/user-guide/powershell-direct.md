@@ -1,22 +1,22 @@
 ---
-title: "Gérer des machines virtuelles Windows avec PowerShell Direct"
-description: "Gérer des machines virtuelles Windows avec PowerShell Direct"
-keywords: "windows 10, hyper-v, powershell, services d’intégration, composants d’intégration, automation, powershell direct"
+title: Gérer des machines virtuelles Windows avec PowerShell Direct
+description: Gérer des machines virtuelles Windows avec PowerShell Direct
+keywords: windows 10, hyper-v, powershell, services d’intégration, composants d’intégration, automation, powershell direct
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
-ms.openlocfilehash: 1eea533459b565ffceca23ca7454e9678abc52e9
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: 779dcf51d4903c9467cc52dbadb865beb9929bd2
+ms.sourcegitcommit: e7fa38bcb7744a34e7a58978b55af1fbf6353247
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 02/20/2018
 ---
-# Gestion et automatisation de machines virtuelles avec PowerShell
+# <a name="virtual-machine-automation-and-management-using-powershell"></a>Gestion et automatisation de machines virtuelles avec PowerShell
  
-PowerShell Direct vous permet d’exécuter du code PowerShell arbitraire dans une machine virtuelle Windows10 ou Windows Server Technical Preview à partir d’un hôte Hyper-V, indépendamment de la configuration réseau ou des paramètres de gestion à distance.
+PowerShell Direct vous permet d’exécuter du code PowerShell arbitraire dans une machine virtuelle Windows10 ou Windows Server2016 à partir de votre hôte Hyper-V, indépendamment de la configuration réseau ou des paramètres de gestion à distance.
 
 **Façons d’exécuter PowerShell Direct:**  
 * En tant que session interactive: [cliquez ici](#create-and-exit-an-interactive-powershell-session) pour créer et quitter une session PowerShell interactive à l’aide d’Enter-PSSession.
@@ -24,10 +24,10 @@ PowerShell Direct vous permet d’exécuter du code PowerShell arbitraire dans u
 * En tant que session persistante (build14280 et ultérieures): [cliquez ici](#copy-files-with-new-pssession-and-copy-item) pour créer une session persistante à l’aide de New-PSSession.  
 Poursuivez en copiant un fichier vers et à partir de la machine virtuelle à l’aide de la commande Copy-Item, puis déconnectez-vous à l’aide de Remove-PSSession.
 
-## Configuration requise
+## <a name="requirements"></a>Configuration requise
 **Configuration requise pour le système d’exploitation:**
-* Hôte: Windows10, Windows Server Technical Preview2 ou version ultérieure exécutant Hyper-V.
-* Invité/Machine virtuelle: Windows10, Windows Server Technical Preview2 ou version ultérieure.
+* Hôte: Windows10, Windows Server2016 ou version ultérieure exécutant Hyper-V.
+* Invité/Machine virtuelle: Windows10, Windows Server2016 ou version ultérieure.
 
 Si vous gérez des machines virtuelles plus anciennes, utilisez Connexion à une machine virtuelle (VMConnect) ou [configurez un réseau virtuel pour la machine virtuelle](http://technet.microsoft.com/library/cc816585.aspx). 
 
@@ -39,7 +39,7 @@ Si vous gérez des machines virtuelles plus anciennes, utilisez Connexion à une
 
 -------------
 
-## Créer et quitter une session PowerShell interactive
+## <a name="create-and-exit-an-interactive-powershell-session"></a>Créer et quitter une session PowerShell interactive
 
 Pour exécuter des commandes PowerShell dans une machine virtuelle, le plus simple consiste à démarrer une session interactive.
 
@@ -63,10 +63,10 @@ Quand la session démarre, les commandes que vous tapez s’exécutent sur la ma
   La valeur VMName doit s’afficher comme préfixe de votre invite de commandes PowerShell, comme indiqué ici:
   
   ``` 
-  [VMName]: PS C:\ >
+  [VMName]: PS C:\>
   ```
   
-  Toute exécution de commande s’effectue sur votre machine virtuelle.  Pour effectuer un test, vous pouvez exécuter `ipconfig` ou `hostname` pour vérifier que ces commandes sont exécutées dans la machine virtuelle.
+  Toute exécution de commande s’effectue sur votre machine virtuelle. Pour effectuer un test, vous pouvez exécuter `ipconfig` ou `hostname` pour vérifier que ces commandes sont exécutées dans la machine virtuelle.
   
 4. Une fois terminé, exécutez la commande suivante pour fermer la session:  
   
@@ -80,7 +80,7 @@ Pour en savoir plus sur ces applets de commande, consultez [Enter-PSSession](htt
 
 -------------
 
-## Exécuter un script ou une commande avec Invoke-Command
+## <a name="run-a-script-or-command-with-invoke-command"></a>Exécuter un script ou une commande avec Invoke-Command
 
 PowerShell Direct avec Invoke-Command est parfait pour les situations où vous devez exécuter une commande ou un script sur une machine virtuelle, mais où vous n’avez pas besoin de continuer d’interagir avec la machine virtuelle au-delà de ce point.
 
@@ -91,8 +91,8 @@ PowerShell Direct avec Invoke-Command est parfait pour les situations où vous d
 2. Exécutez l’une des commandes suivantes pour créer une session en utilisant le nom ou le GUID de la machine virtuelle:  
    
    ``` PowerShell
-   Invoke-Command -VMName <VMName> -ScriptBlock { cmdlet } 
-   Invoke-Command -VMId <VMId> -ScriptBlock { cmdlet }
+   Invoke-Command -VMName <VMName> -ScriptBlock { command } 
+   Invoke-Command -VMId <VMId> -ScriptBlock { command }
    ```
    
    Quand vous y êtes invité, fournissez les informations d’identification de la machine virtuelle.
@@ -119,7 +119,7 @@ Pour en savoir plus sur cette applet de commande, voir [Invoke-Command](http://t
 
 -------------
 
-## Copier des fichiers avec New-PSSession et Copy-Item
+## <a name="copy-files-with-new-pssession-and-copy-item"></a>Copier des fichiers avec New-PSSession et Copy-Item
 
 > **Remarque:** PowerShell Direct ne prend en charge les sessions persistantes que dans Windows build14280 et ultérieures.
 
@@ -167,11 +167,11 @@ De la même manière, les sessions conservent l’état.  Étant donné que les 
   
 -------------
 
-## Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution des problèmes
 
 Les messages d’erreur liés à l’utilisation de PowerShell Direct sont peu nombreux.  Voici les plus courants, les causes possibles et les outils à utiliser pour diagnostiquer les problèmes.
 
-### Les paramètres -VMName ou -VMID n’existent pas
+### <a name="-vmname-or--vmid-parameters-dont-exist"></a>Les paramètres -VMName ou -VMID n’existent pas
 **Problème:**  
 `Enter-PSSession`, `Invoke-Command` ou `New-PSSession` n’ont pas de paramètre `-VMName` ou `-VMId`.
 
@@ -193,11 +193,11 @@ $PSVersionTable.PSVersion
 ```
 
 
-### Erreur: une session à distance a peut-être pris fin.
+### <a name="error-a-remote-session-might-have-ended"></a>Erreur: une session à distance a peut-être pris fin.
 > **Remarque:**  
 Pour Enter-PSSession entre les builds d’hôte 10240 et 12400, toutes les erreurs ci-dessous sont signalées sous la forme «Une session à distance a peut-être pris fin».
 
-**Message d'erreur:**
+**Message d’erreur:**
 ```
 Enter-PSSession : An error has occurred which Windows PowerShell cannot handle. A remote session might have ended.
 ```
@@ -212,7 +212,7 @@ Enter-PSSession : An error has occurred which Windows PowerShell cannot handle. 
 
 Vous pouvez utiliser l’applet de commande [Get-VM](http://technet.microsoft.com/library/hh848479.aspx) pour vérifier quelles machines virtuelles sont en cours d’exécution sur l’hôte.
 
-**Message d'erreur:**  
+**Message d’erreur:**  
 ```
 New-PSSession : An error has occurred which Windows PowerShell cannot handle. A remote session might have ended.
 ```
@@ -227,8 +227,8 @@ Pour contourner le problème des informations d’identification, connectez-vous
 Restart-Service -Name vmicvmsession
 ```
 
-### Erreur: le jeu de paramètres ne peut pas être résolu
-**Message d'erreur:**  
+### <a name="error-parameter-set-cannot-be-resolved"></a>Erreur: le jeu de paramètres ne peut pas être résolu
+**Message d’erreur:**  
 ``` 
 Enter-PSSession : Parameter set cannot be resolved using the specified named parameters.
 ```
@@ -241,9 +241,9 @@ Enter-PSSession : Parameter set cannot be resolved using the specified named par
 Les informations d’identification d’administrateur peuvent être passées à la machine virtuelle avec le paramètre `-Credential` ou en les entrant manuellement quand vous y êtes invité.
 
 
-### Erreur: Les informations d’identification ne sont pas valides.
+### <a name="error-the-credential-is-invalid"></a>Erreur: Les informations d’identification ne sont pas valides.
 
-**Message d'erreur:**  
+**Message d’erreur:**  
 ```
 Enter-PSSession : The credential is invalid.
 ```
@@ -254,9 +254,9 @@ Enter-PSSession : The credential is invalid.
   * Aucun compte d’utilisateur n’existe dans l’invité (le système d’exploitation n’a pas encore démarré)
   * Si vous vous connectez en tant qu’administrateur: l’administrateur n’a pas été défini comme un utilisateur actif.  Pour en savoir plus, cliquez [ici](https://technet.microsoft.com/en-us/library/hh825104.aspx).
   
-### Erreur: Impossible de résoudre le paramètre d’entrée VMName en une machine virtuelle quelconque.
+### <a name="error-the-input-vmname-parameter-does-not-resolve-to-any-virtual-machine"></a>Erreur: Impossible de résoudre le paramètre d’entrée VMName en une machine virtuelle quelconque.
 
-**Message d'erreur:**  
+**Message d’erreur:**  
 ```
 Enter-PSSession : The input VMName parameter does not resolve to any virtual machine.
 ```
@@ -270,7 +270,7 @@ Vous pouvez utiliser l’applet de commande [Get-VM](http://technet.microsoft.co
 
 -------------
 
-## Exemples et guides de l’utilisateur
+## <a name="samples-and-user-guides"></a>Exemples et guides de l’utilisateur
 
 PowerShell Direct prend en charge JEA (Just Enough Administration).  Consultez ce guide de l’utilisateur pour l’essayer.
 
