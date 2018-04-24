@@ -34,10 +34,10 @@ Un itinéraire similaire doit être ajouté *pour* chaque nœud du cluster, *sur
 
 
 ## <a name="configuring-static-routes--windows"></a>Configuration d’itinéraires statiques | Windows ##
-Pour ce faire, nous utilisons `New-NetRoute`. Il existe un script automatisé, `AddRoutes.ps1`, disponible dans [ce référentiel](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/AddRoutes.ps1). Vous devez connaître l’adresse IP du *master Linux* et la passerelle par défaut du nœud Windows de l’adaptateur *externe* (pas de la passerelle de pod). Alors:
+Pour ce faire, nous utilisons `New-NetRoute`. Il existe un script automatisé, `AddRoutes.ps1`, disponible dans [ce référentiel](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/AddRoutes.ps1). Vous devez connaître l’adresse IP du *master Linux*:
 
 ```powershell
 $url = "https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/windows/AddRoutes.ps1"
-wget $url -o AddRoutes.ps1
-./AddRoutes.ps1 -MasterIp 10.1.2.3 -Gateway 10.1.3.1
+Invoke-WebRequest $url -o AddRoutes.ps1
+./AddRoutes.ps1 -MasterIp 10.1.2.3
 ```

@@ -8,11 +8,11 @@ ms.prod: containers
 description: Jonction d’un nœud Windows à un cluster Kubernetes avec la version bêta1.9.
 keywords: Kubernetes, 1.9, Windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 124895e93cbaee50c66b6b5a7cc2c71c144dad67
-ms.sourcegitcommit: 6e3c3b2ff125f949c03a342c3709a6e57c5f736c
+ms.openlocfilehash: 6309ca8c0fd50e1b8e926776bef6dfe82bb815f0
+ms.sourcegitcommit: ee86ee093b884c79039a8ff417822c6e3517b92d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="kubernetes-on-windows"></a>Kubernetes sur Windows #
 
@@ -24,6 +24,9 @@ Avec la dernière version de Kubernetes1.9 et Windows Server [version1709](https
 
 
 Cette page explique comment joindre un tout nouveau nœud Windows à un cluster Linux existant. Pour partir entièrement de zéro, reportez-vous à [cette page](./creating-a-linux-master.md) &mdash; l’une des nombreuses ressources disponibles pour le déploiement d’un cluster Kubernetes &mdash; pour configurer un master à partir de zéro de la même façon que nous l’avons fait.
+
+> [!TIP] 
+> Si vous souhaitez déployer un cluster sur Azure, l’outil open source ACS-Engine facilite cette opération. Une [procédure pas à pas](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md) est disponible.
 
 <a name="definitions"></a> Voici les définitions de quelques termes auxquels il est fait référence dans ce guide:
 
@@ -189,12 +192,24 @@ Cela crée un déploiement et un service. Regardez ensuite les pods indéfinimen
 
 Si tout va bien, il est possible de:
 
-  - voir quatreconteneurs sous une commande `docker ps` du côté Windows.
+  - voir 4conteneurs sous une commande `docker ps` au niveau du nœud Windows
+  - voir 2pods sous une commande `kubectl get pods` à partir du master Linux
   - `curl` sur les adresses IP *pod* sur le port80, le master Linux obtient une réponse du serveur Web; cela montre que la communication de nœud à pod sur le réseau est correcte.
-  - `curl` sur l’IP *nœud* sur le port 4444, obtention d’une réponse du serveur Web; cela montre que le mappage de port de hôte à conteneur est correct.
   - effectuer un ping *entre pods* (notamment sur les ordinateurs hôtes, si vous disposez de plusieurs nœuds Windows) via `docker exec`; cela montre que la communication de pod à pod est correcte.
   - `curl` l’adresse *IP de service* virtuelle (visible sous `kubectl get services`) à partir du master Linux et à partir de pods individuels.
   - `curl` le *nom du service* avec le [suffixe DNS par défaut](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#services) Kubernetes, illustrant la fonctionnalité DNS.
 
-> [!WARNING]  
-> Les nœuds de Windows ne sont pas en mesure d’accéder à l’adresse IP de service. Il s’agit d’une [limitation connue de la plateforme](./common-problems.md#my-windows-node-cannot-access-my-services-using-the-service-ip) qui sera corrigée.
+> [!Warning]  
+> Les nœuds de Windows ne seront pas en mesure d’accéder à l’adresse IP de service. Il s’agit d’une [limitation de plateforme connue](./common-problems.md#my-windows-node-cannot-access-my-services-using-the-service-ip) qui sera améliorée dans la prochaine mise à jour de Windows Server.
+
+
+### <a name="port-mapping"></a>Mappage de ports ### 
+Il est également possible d’accéder aux services hébergés dans les pods au travers de leurs nœuds respectifs en mappant un port sur le nœud. Il existe un [autre exemple YAML disponible](https://github.com/Microsoft/SDN/blob/master/Kubernetes/PortMapping.yaml) avec le mappage du port4444 sur le nœud au port80 sur le nœud qui montre cette fonctionnalité. Pour le déployer, suivez les mêmes étapes que précédemment:
+
+```bash
+wget https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/PortMapping.yaml -O win-webserver-port-mapped.yaml
+kubectl apply -f win-webserver-port-mapped.yaml
+watch kubectl get pods -o wide
+```
+
+Il devrait maintenant être possible de `curl` sur l'adresse IP du *nœud* sur le port4444 et recevoir une réponse du serveur web. N’oubliez pas que cela limite la montée en charge à un seul pod par nœud dans la mesure où cela oblige à un mappage de un-à-un.
