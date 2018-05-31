@@ -1,17 +1,18 @@
 ---
-title: "Créez vos propres services d’intégration"
-description: "Services d’intégration Windows10."
+title: Créez vos propres services d’intégration
+description: Services d’intégration Windows10.
 keywords: windows10, hyper-v, HVSocket, AF_HYPERV
 author: scooley
 ms.date: 04/07/2017
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
-ms.openlocfilehash: 01b9c2febb9f098c7981599894e488b946857900
-ms.sourcegitcommit: 5fe5c30acfc4d5edb28633d30669f616fcc5d59a
+ms.openlocfilehash: 966ca3ff267e03e8c380391281c8dde723e4b1dd
+ms.sourcegitcommit: f1a08252087e72791ac4d12517c02e39f41c33f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
+ms.locfileid: "1723635"
 ---
 # <a name="make-your-own-integration-services"></a>Créez vos propres services d’intégration
 
@@ -27,6 +28,11 @@ Ce document décrit la création d’un programme simple qui repose sur les sock
 * Windows10 et versions ultérieures
 * Windows Server2016 et versions ultérieures
 * Invités Linux avec services d’intégration Linux (voir [Machines virtuelles Linux et FreeBSD prises en charge pour Hyper-V sur Windows](https://technet.microsoft.com/library/dn531030.aspx))
+> **Remarque:** un invité Linux pris en charge doit prendre en charge le noyau pour:
+> ```bash
+> CONFIG_VSOCKET=y
+> CONFIG_HYPERV_VSOCKETS=y
+> ```
 
 **Fonctionnalités et limitations**
 * Prend en charge les actions du mode utilisateur ou du mode noyau
@@ -90,10 +96,22 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
         ElementName REG_SZ  Your Service Friendly Name
 ```
 
+> **Remarque:** le GUID du Service d'un invité Linux utilise le protocole VSOCK qui adresse via un `svm_cid` et `svm_port` au lieu d’un GUIDS. Pour palier cette incohérence avec Windows, le GUID bien connu est utilisé comme modèle de service sur l’ordinateur hôte, ce qui se traduit par un port dans l’invité. Pour personnaliser votre GUID de service, il vous suffit de modifier le premier «00000000» en le numéro de port de votre choix. Ex: «00000ac9» est le port 2761.
+> ```C++
+> // Hyper-V Socket Linux guest VSOCK template GUID
+> struct __declspec(uuid("00000000-facb-11e6-bd58-64006a7986d3")) VSockTemplate{};
+>
+>  /*
+>   * GUID example = __uuidof(VSockTemplate);
+>   * example.Data1 = 2761; // 0x00000AC9
+>   */
+> ```
+>
+
 > **Conseil: ** pour générer un GUID dans PowerShell et le copier dans le Presse-papiers, exécutez:
-``` PowerShell
-(New-Guid).Guid | clip.exe
-```
+>``` PowerShell
+>(New-Guid).Guid | clip.exe
+>```
 
 ## <a name="create-a-hyper-v-socket"></a>Créer un socket Hyper-V
 
@@ -104,24 +122,31 @@ https://msdn.microsoft.com/en-us/library/windows/desktop/ms740506(v=vs.85).aspx
 ) simple
 
 ``` C
+// Windows
 SOCKET WSAAPI socket(
   _In_ int af,
   _In_ int type,
   _In_ int protocol
 );
+
+// Linux guest
+int socket(int domain, int type, int protocol);
 ```
 
 Pour un socket Hyper-V:
-* Famille d’adresses: `AF_HYPERV`
+* Famille d’adresses: `AF_HYPERV` (Windows) ou `AF_VSOCK` (invités Linux)
 * Type: `SOCK_STREAM`
-* Protocole: `HV_PROTOCOL_RAW`
+* Protocole - `HV_PROTOCOL_RAW` (Windows) ou `0` (invité Linux)
 
 
 Voici un exemple de déclaration/d’instanciation:
 ``` C
+// Windows
 SOCKET sock = socket(AF_HYPERV, SOCK_STREAM, HV_PROTOCOL_RAW);
-```
 
+// Linux guest
+int sock = socket(AF_VSOCK, SOCK_STREAM, 0);
+```
 
 ## <a name="bind-to-a-hyper-v-socket"></a>Lier à un socket Hyper-V
 
@@ -130,26 +155,45 @@ La fonction bind associe un socket à des informations de connexion.
 La définition de fonction est copiée ci-dessous par souci de commodité. Pour en savoir plus sur bind, cliquez [ici](https://msdn.microsoft.com/en-us/library/windows/desktop/ms737550.aspx).
 
 ``` C
+// Windows
 int bind(
   _In_ SOCKET                s,
   _In_ const struct sockaddr *name,
   _In_ int                   namelen
 );
+
+// Linux guest
+int bind(int sockfd, const struct sockaddr *addr,
+         socklen_t addrlen);
 ```
 
-Contrairement à l’adresse de socket (sockaddr) pour une famille d’adressesIP standard (`AF_INET`) qui se compose de l’adresseIP de l’ordinateur hôte et d’un numéro de port sur cet hôte, l’adresse de socket pour `AF_HYPERV` utilise lesID de la machine virtuelle et de l’application définis ci-dessus pour établir une connexion.
+Contrairement à l’adresse de socket (sockaddr) pour une famille d’adressesIP standard (`AF_INET`) qui se compose de l’adresseIP de l’ordinateur hôte et d’un numéro de port sur cet hôte, l’adresse de socket pour `AF_HYPERV` utilise lesID de la machine virtuelle et de l’application définis ci-dessus pour établir une connexion. En cas de liaison à partir d’un invité Linux `AF_VSOCK` utilise le `svm_cid` et `svm_port`.
 
 Comme les sockets Hyper-V ne dépendent pas, entre autres, d’une pile réseau, de TCP/IP ni de DNS, le point de terminaison de socket exigeait un format autre qu’un nom d’hôte ou qu’une adresseIP qui décrive toujours sans ambiguïté la connexion.
 
 Voici la définition de l’adresse d’un socket Hyper-V:
 
 ``` C
+// Windows
 struct SOCKADDR_HV
 {
      ADDRESS_FAMILY Family;
      USHORT Reserved;
      GUID VmId;
      GUID ServiceId;
+};
+
+// Linux guest
+// See include/uapi/linux/vm_sockets.h for more information.
+struct sockaddr_vm {
+    __kernel_sa_family_t svm_family;
+    unsigned short svm_reserved1;
+    unsigned int svm_port;
+    unsigned int svm_cid;
+    unsigned char svm_zero[sizeof(struct sockaddr) -
+                   sizeof(sa_family_t) -
+                   sizeof(unsigned short) -
+                   sizeof(unsigned int) - sizeof(unsigned int)];
 };
 ```
 

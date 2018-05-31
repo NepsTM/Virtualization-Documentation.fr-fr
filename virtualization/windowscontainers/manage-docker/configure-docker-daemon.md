@@ -8,11 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.openlocfilehash: 5b187853be0ebb28bcede43bfca7e4042a23dfce
-ms.sourcegitcommit: a3479a4d8372a637fb641cd7d5003f1d8a37b741
+ms.openlocfilehash: ab8a8b6543d58e71b3ac673c8a9e811698dbb578
+ms.sourcegitcommit: ec186664e76d413d3bf75f2056d5acb556f4205d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "1875910"
 ---
 # <a name="docker-engine-on-windows"></a>Moteur Docker sur Windows
 
@@ -25,49 +26,9 @@ Vous devez installer Docker pour utiliser les conteneurs Windows. Docker compren
 * [Conteneurs Windows sur Windows Server2016](../quick-start/quick-start-windows-server.md)
 * [Conteneurs Windows sur Windows10](../quick-start/quick-start-windows-10.md)
 
-### <a name="manual-installation"></a>Installation manuelle
-Si vous souhaitez plutôt utiliser une version en développement du client et du moteur Docker, vous pouvez effectuer les étapes qui suivent. Elles vous permettront d’installer à la fois le client et le moteur Docker. Si, en tant que développeur, vous testez de nouvelles fonctionnalités ou utilisez une build de Windows Insider, vous devrez peut-être utiliser une version en développement de Docker. Autrement, suivez les étapes décrites dans la section «Installer Docker» ci-dessus pour obtenir les dernières versions officielles.
+Pour les installations par script, consultez [Utiliser un script pour installer Docker EE ](https://docs.docker.com/install/windows/docker-ee/#use-a-script-to-install-docker-ee).
 
-> Si vous avez installé Docker pour Windows, veillez à le supprimer avant de suivre ces étapes d’installation manuelles. 
-
-Télécharger le moteur Docker
-
-Vous trouverez la dernière version à l’adresse https://master.dockerproject.org. Cet exemple utilise la dernière version provenant de la branche maître. 
-
-```powershell
-Invoke-WebRequest "https://master.dockerproject.org/windows/x86_64/docker.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
-```
-
-Développez l’archive zip dans Program Files.
-
-```powershell
-Expand-Archive -Path "$env:TEMP\docker.zip" -DestinationPath $env:ProgramFiles
-```
-
-Ajoutez le répertoire Docker au chemin d’accès système. Quand vous avez terminé, redémarrez la session PowerShell pour que le chemin d’accès modifié soit reconnu.
-
-```powershell
-# Add path to this PowerShell session immediately
-$env:path += ";$env:ProgramFiles\Docker"
-
-# For persistent use after a reboot
-$existingMachinePath = [Environment]::GetEnvironmentVariable("Path",[System.EnvironmentVariableTarget]::Machine)
-[Environment]::SetEnvironmentVariable("Path", $existingMachinePath + ";$env:ProgramFiles\Docker", [EnvironmentVariableTarget]::Machine)
-```
-
-Pour installer Docker en tant que service Windows, exécutez la commande suivante.
-
-```
-dockerd --register-service
-```
-
-Une fois installé, le service peut être démarré.
-
-```powershell
-Start-Service Docker
-```
-
-Pour que Docker puisse être utilisé, des images de conteneur doivent au préalable être installées. Pour plus d’informations, voir le [guide de démarrage rapide consacré à l’utilisation d’images](../quick-start/quick-start-images.md).
+Pour que Docker puisse être utilisé, les images de conteneur doivent au préalable être installées. Pour plus d’informations, voir le [guide de démarrage rapide consacré à l’utilisation d’images](../quick-start/quick-start-images.md).
 
 ## <a name="configure-docker-with-configuration-file"></a>Configurer Docker avec un fichier de configuration
 
@@ -154,7 +115,7 @@ Les exemples de fichiers de configuration suivants présentent des configuration
 
 ### <a name="default-network-creation"></a>Création de réseau par défaut 
 
-Pour configurer le moteur Docker de sorte qu’un réseau NAT par défaut ne soit pas créé, utilisez le code suivant. Pour plus d’informations, voir la rubrique indiquant comment [gérer les réseaux Docker](../manage-containers/container-networking.md).
+Pour configurer le moteur Docker de sorte qu’un réseau NAT par défaut ne soit pas créé, utilisez le code suivant. Pour plus d’informations, voir la rubrique indiquant comment [gérer les réseaux Docker](../container-networking/network-drivers-topologies.md).
 
 ```
 {

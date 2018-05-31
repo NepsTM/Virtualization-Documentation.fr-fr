@@ -1,44 +1,45 @@
 ---
-title: "Invités Windows pris en charge"
-description: "Invités Windows pris en charge."
+title: Invités Windows pris en charge
+description: Invités Windows pris en charge.
 keywords: Windows10, Hyper-V
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
-ms.openlocfilehash: 361b76e18125bb14f5e88b1892eed882a3ae5508
-ms.sourcegitcommit: 59541f11d481d8df341597bd73ce7fac14f442ee
+ms.openlocfilehash: 9b19a82c94fbe9af9f141d4845a8ed1045a10302
+ms.sourcegitcommit: 94e8ae4be1b0d3d13fca06e0775dd2aab895a12c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "1840991"
 ---
-# <a name="supported-windows-guests"></a>Invités Windows pris en charge 
+# <a name="supported-windows-guests"></a>Invités Windows pris en charge
 
 Cet article répertorie les combinaisons de systèmes d’exploitation prises en charge dans Hyper-V sur Windows.  Il sert également à présenter les services d’intégration et d’autres facteurs de prise en charge.
 
-## <a name="what-does-support-mean"></a>Que signifie la prise en charge? 
-La prise en charge signifie que Microsoft a testé ces combinaisons hôte/invité.  Les problèmes liés à ces combinaisons peuvent être traités par les services PSS (Product Support Services).
- 
-Microsoft assure la prise en charge des systèmes d’exploitation invités de la façon suivante:
+Microsoft a testé ces combinaisons hôte/invité.  Les problèmes liés à ces combinaisons peuvent être traités par les services PSS (Product Support Services).
+
+Microsoft assure la prise en charge de la manière suivante:
+
 * Les problèmes détectés dans les services d’intégration et systèmes d’exploitation Microsoft sont pris en charge par le support technique Microsoft.
+
 * En ce qui concerne les problèmes dans d’autres systèmes d’exploitation ayant été certifiés par le fournisseur de système d’exploitation comme fonctionnant sur Hyper-V, la prise en charge est assurée par le fournisseur.
+
 * En ce qui concerne les problèmes détectés dans d’autres systèmes d’exploitation, Microsoft soumet le problème à la communauté de support multifournisseur, [TSANet](http://www.tsanet.org/).
 
-Pour pouvoir être pris en charge, l’hôte Hyper-V et l’invité doivent être mis à jour avec toutes les mises à jour critiques disponibles dans Windows Update.
+Pour pouvoir être pris en charge, tous les systèmes d’exploitation (invité et hôte) doit être mis à jour.  Recherchez les mises à jour critiques dans Windows Update.
 
 ## <a name="supported-guest-operating-systems"></a>Systèmes d’exploitation invités pris en charge
 
-Pour bénéficier de la prise en charge, les systèmes d’exploitation invités Windows et le système d’exploitation hôte doivent être à jour avec toutes les mises à jour critiques disponibles dans Windows Update.
-
-| Système d’exploitation invité |  Nombre maximal de processeurs virtuels | Remarques | 
+| Système d’exploitation invité |  Nombre maximal de processeurs virtuels | Remarques |
 |:-----|:-----|:-----|
 | Windows10 | 32 |Le mode de session étendu ne fonctionne pas sur l'édition Windows10 Famille |
 | Windows 8.1 | 32 | |
-| Windows8 | 32 |  |
+| Windows8 | 32 ||
 | Windows7 avec Service Pack1 (SP1) | 4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32bits et 64bits). |
 | Windows7 | 4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32bits et 64bits). |
-| WindowsVista avec Service Pack2 (SP2) | 2 | Professionnel, Entreprise et Édition Intégrale, notamment les éditions N et KN. | 
+| WindowsVista avec Service Pack2 (SP2) | 2 | Professionnel, Entreprise et Édition Intégrale, notamment les éditions N et KN. |
 | - | | |
 | [Canal semi-annuel WindowsServer](https://docs.microsoft.com/en-us/windows-server/get-started/semi-annual-channel-overview) | 64 | |
 | Windows Server2016 | 64 | |
@@ -48,14 +49,14 @@ Pour bénéficier de la prise en charge, les systèmes d’exploitation invités
 | Windows Server2008 avec Service Pack2 (SP2) | 4 | Éditions Datacenter, Entreprise, Standard et Web (32bits et 64bits). |
 | Windows Home Server2011 | 4 | |
 | Windows Small Business Server2011 | Édition Essentials - 2, édition Standard - 4 | |
-  
- > Windows10 peut s’exécuter en tant que système d’exploitation invité sur les hôtes Hyper-V Windows8.1 et Windows Server2012 R2.
+
+> Windows10 peut s’exécuter en tant que système d’exploitation invité sur les hôtes Hyper-V Windows8.1 et Windows Server2012 R2.
 
 ## <a name="supported-linux-and-free-bsd"></a>Linux et FreeBSD pris en charge
 
 | Système d’exploitation invité |  |
 |:-----|:------|
-| [CentOS et Red Hat Enterprise Linux ](https://technet.microsoft.com/library/dn531026.aspx) | |
+| [CentOS et Red Hat Enterprise Linux](https://technet.microsoft.com/library/dn531026.aspx) | |
 | [Machines virtuelles Debian sur Hyper-V](https://technet.microsoft.com/library/dn614985.aspx) | |
 | [SUSE](https://technet.microsoft.com/en-us/library/dn531027.aspx) | |
 | [Oracle Linux](https://technet.microsoft.com/en-us/library/dn609828.aspx)  | |

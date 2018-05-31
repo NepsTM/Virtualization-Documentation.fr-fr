@@ -7,11 +7,12 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: e1fe969c70aa61b62eb9212b7faa23d37d17b565
-ms.sourcegitcommit: 8b331cb67dfe609fcbfc3de06edbf51fe8562c6c
+ms.openlocfilehash: 4706ea24da1d5ca61b94dfd141883aa2d04ad906
+ms.sourcegitcommit: 7c3af076eb8bad98e1c3de0af63dacd842efcfa3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "1844048"
 ---
 # <a name="windows-container-requirements"></a>Configuration requise pour un conteneur Windows
 
