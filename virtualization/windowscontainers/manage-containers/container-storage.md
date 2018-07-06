@@ -3,12 +3,12 @@ title: Stockage de conteneurs Windows Server
 description: Comment les conteneurs Windows Server peuvent-ils utiliser les hôtes et les autres types de stockage
 keywords: conteneurs, volume, stockage, montage, montage lié
 author: patricklang
-ms.openlocfilehash: ba30c436ddd61ec71b2c98d1a8cb24f97863d872
-ms.sourcegitcommit: 6c8c70c8231943dda3c5af38e5530ea3dd91fc82
+ms.openlocfilehash: 9dde3b2d7be10a8d3d393f8426976dfc5bdacfab
+ms.sourcegitcommit: 9653a3f7451011426f8af934431bb14dbcb30a62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "1934533"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "2082900"
 ---
 # <a name="overview"></a>Vue d’ensemble
 
@@ -22,7 +22,7 @@ Il s’agit de tous les fichiers qui sont intégrés dans le conteneur. Chaque f
 
 ### <a name="where-layers-are-stored-and-how-to-change-it"></a>Où sont stockées les niveaux et comment modifier cette configuration
 
-Dans une installation par défaut, les niveaux sont stockés dans `C:\ProgramData\docker` et répartis dans les répertoires «image» et «windowsfilter». Vous pouvez changer l’emplacement de stockage des niveaux à l’aide de la configuration `docker-root`, comme illustré dans la documentation [Moteur Docker sur Windows](../manage-docker/configure_docker_daemon.md).
+Dans une installation par défaut, les niveaux sont stockés dans `C:\ProgramData\docker` et répartis dans les répertoires «image» et «windowsfilter». Vous pouvez changer l’emplacement de stockage des niveaux à l’aide de la configuration `docker-root`, comme illustré dans la documentation [Moteur Docker sur Windows](../manage-docker/configure-docker-daemon.md).
 
 > [!NOTE]
 > Seul NTFS est pris en charge pour le stockage de niveaux. ReFS n’est pas pris en charge.
