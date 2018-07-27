@@ -7,12 +7,12 @@ ms.date: 04/07/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: f1e75efa-8745-4389-b8dc-91ca931fe5ae
-ms.openlocfilehash: 5a131d1dff2410f11ab57fe9e709f34e25ef93ac
-ms.sourcegitcommit: 7c3af076eb8bad98e1c3de0af63dacd842efcfa3
+ms.openlocfilehash: 3bb873a35d905e9eefada151184d6115bb18d2e7
+ms.sourcegitcommit: 9653a3f7451011426f8af934431bb14dbcb30a62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "1844028"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "2082870"
 ---
 # <a name="create-a-virtual-machine-with-hyper-v"></a>Créer une machine virtuelle avec Hyper-V
 
@@ -23,8 +23,8 @@ Nous avons mis au point de nouveaux outils pour la création d’ordinateurs vir
 Choisissez votre système d’exploitation pour le bon jeu d’instructions:
 
 * [Windows10FallCreatorsUpdate et versions ultérieures](quick-create-virtual-machine.md#windows-10-fall-creators-update)
-* [Windows10 Creators Update](quick-create-virtual-machine.md#windows-10-creators-update)
-* [Mise à jour anniversaire Windows10 et versions antérieures](quick-create-virtual-machine.md#before-windows-10-creators-update)
+* [Windows10 CreatorsUpdate](quick-create-virtual-machine.md#windows-10-creators-update)
+* [Mise à jour anniversaire Windows10 et versionsantérieures](quick-create-virtual-machine.md#before-windows-10-creators-update)
 
 Commençons.
 

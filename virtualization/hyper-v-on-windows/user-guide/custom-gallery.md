@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9238389-7028-4015-8140-27253b156f37
-ms.openlocfilehash: 3a8af73c1cf7b2eb640be0dcaf77601ed5e96ce5
-ms.sourcegitcommit: 7c3af076eb8bad98e1c3de0af63dacd842efcfa3
+ms.openlocfilehash: 2235201a56a238cbd5a75b0a6cae64cdb26108a2
+ms.sourcegitcommit: edc153ffef01094c2324a0da2f9a301b31015a58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "1844283"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "1928376"
 ---
 # <a name="create-a-custom-virtual-machine-gallery"></a>Créer une bibliothèque d’ordinateurs virtuels personnalisée
 
@@ -23,7 +23,7 @@ Dans Fall Creators Update, Création rapide étendue pour inclure une bibliothè
 
 ![Création rapide d’une bibliothèque d’ordinateurs virtuels avec des images personnalisées](media/vmgallery.png)
 
-Bien qu’il existe un ensemble d’images fournies par Microsoft et les partenaires de Microsoft, la bibliothèque peut également contenir vos propres images.
+Bien qu’il existe un ensemble d’images fournies parMicrosoft et les partenaires de Microsoft, la bibliothèque peut également contenir vos propres images.
 
 Cet article détaille:
 
@@ -103,7 +103,7 @@ Images:
 
 Et, bien entendu, votre ordinateur virtuel (.iso ou .vhdx).
 
-Le modèle JSON ci-après comporte des éléments de démarrage et de schéma de la bibliothèque.  Si vous le modifiez en VSCode, il fournit automatiquement intellisense.
+Le modèle JSON ci-après comporte des éléments de démarrage et de schéma de la bibliothèque.  Si vous le modifiez en VSCode, il fournit automatiquement IntelliSense.
 
 [!code-json[main](../../../hyperv-tools/vmgallery/vm-gallery-template.json)]
 
@@ -135,6 +135,6 @@ La bibliothèque d’ordinateurs virtuels ne signale pas les erreurs dans l’Ob
 
 ## <a name="resources"></a>Ressources
 
-Il existe un petit nombre de scripts de bibliothèques d’applications d’assistance dans github [lien ](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/vmgallery).
+Il existe un petit nombre de scripts de bibliothèques et d’applications d’assistance dans GitHub [lien ](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/vmgallery).
 
 Consultez un exemple d’entrée de bibliothèque [ici](https://go.microsoft.com/fwlink/?linkid=851584).  Il s’agit du fichier JSON qui définit la bibliothèque intégrée.

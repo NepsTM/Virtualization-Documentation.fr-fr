@@ -8,17 +8,18 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 1ad04198c74f4566bd37b4ba884034aa5cd7c7ef
-ms.sourcegitcommit: ea6edc5bac5705a19d48ffdf1ba676c940c2eb67
+ms.openlocfilehash: 27317dbf5ba5386a3bd555c53c781aac2fc110a7
+ms.sourcegitcommit: edc153ffef01094c2324a0da2f9a301b31015a58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "1912666"
 ---
 # <a name="active-directory-service-accounts-for-windows-containers"></a>Comptes de service ActiveDirectory pour conteneurs Windows
 
 Les utilisateurs et les autres services devront peut-être établir des connexions authentifiées à vos applications et services afin que vous puissiez préserver la sécurité des données et empêcher toute utilisation non autorisée. Les domaines WindowsActiveDirectory (AD) prennent en charge en mode natif l’authentification par mot de passe et par certificat. Si vous générez votre application (ou service) sur un hôte appartenant à un domaine Windows, elle utilise l’identité de l’hôte par défaut si elle s’exécute en tant que système local ou service réseau. Dans le cas contraire, vous pouvez préférer configurer un autre compte ActiveDirectory pour l’authentification.
 
-Même si les conteneurs Windows ne peuvent pas être joints à un domaine, ils peuvent tirer parti des identités de domaine ActiveDirectory semblables à celles qui se présentent quand un appareil est joint à un domaine. Avec les contrôleurs de domaine Windows Server2012R2, nous avons introduit un nouveau compte de domaine appelé compte de service administré de groupe (gMSA), qui a été conçu pour être partagé par les services. En utilisant des comptes gMSA, les conteneurs Windows proprement dits et les services qu’ils hébergent peuvent être configurés pour utiliser un compte gMSA spécifique en tant qu’identité de leur domaine. Tout service exécuté en tant que système local ou service réseau utilise l’identité du conteneur Windows comme il utilise actuellement l’identité de l’hôte joint à un domaine. Aucun mot de passe ni clé privée de certificat stockés dans l’image de conteneur ne peuvent être exposés par inadvertance. En outre, le conteneur peut être redéployé dans les environnements de développement, test et production sans être régénéré pour modifier les mots de passe ou les certificats stockés. 
+Même si les conteneurs Windows ne peuvent pas être joints à un domaine, ils peuvent tirer parti des identités de domaine ActiveDirectory semblables à celles qui se présentent quand un appareil est joint à un domaine. Avec les contrôleurs de domaine Windows Server2012, nous avons introduit un nouveau compte appelé compte de service administré de groupe (gMSA), qui a été conçu pour être partagé par les services. En utilisant des comptesgMSA, les conteneurs Windows proprement dits et les services qu’ils hébergent peuvent être configurés pour utiliser un comptegMSA spécifique en tant qu’identité de leur domaine. Tout service exécuté en tant que système local ou service réseau utilise l’identité du conteneur Windows comme il utilise actuellement l’identité de l’hôte joint à un domaine. Aucun mot de passe ni clé privée de certificat stockés dans l’image de conteneur ne peuvent être exposés par inadvertance. En outre, le conteneur peut être redéployé dans les environnements de développement, test et production sans être régénéré pour modifier les mots de passe ou les certificats stockés. 
 
 
 # <a name="glossary--references"></a>Glossaire et références
@@ -41,7 +42,7 @@ Au démarrage du service, l’hôte joint à un domaine obtient automatiquement 
 
 Les conteneurs Windows suivent un processus similaire:
 
-1. Créez un compte gMSA. Par défaut, un administrateur de domaine ou un opérateur de compte doit effectuer cette opération. Sinon, ils peuvent déléguer les privilèges permettant de créer et gérer des comptes gMSA aux administrateurs qui gèrent les services qui les utilisent. Voir [Mise en route avec les comptes de service administrés](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx)
+1. Créez un compte gMSA. Par défaut, un administrateur de domaine ou un opérateur de compte doit effectuer cette opération. Sinon, ils peuvent déléguer les privilèges permettant de créer et gérer des comptes gMSA aux administrateurs qui gèrent les services qui les utilisent. Il vous faut au moins un serveur WindowsServer2012 ou une version ultérieure d’un contrôleur de domaine dans votre domaine, mais il n’est pas nécessaire d’utiliser un niveau fonctionnel de domaine spécifique. Voir [Prise en main des comptes de service administrés](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx)
 2. Octroyer à l’hôte de conteneur joint à un domaine un accès au compte gMSA
 3. Autoriser l’accès au compte gMSA sur l’autre service, par exemple une base de données ou des partages de fichiers
 4. Utiliser le module PowerShell CredentialSpec de [windows-server-container-tools](https://github.com/Microsoft/Virtualization-Documentation/tree/live/windows-server-container-tools) pour stocker les paramètres nécessaires pour utiliser le compte gMSA

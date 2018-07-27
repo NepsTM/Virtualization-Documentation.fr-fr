@@ -8,11 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 532195c6-564b-4954-97c2-5a5795368c09
-ms.openlocfilehash: b6935daf40eef3dd09acb647b512c0423cbe82d3
-ms.sourcegitcommit: b7f37f3d385042ca8455b3e7d1fa887ac26989de
+ms.openlocfilehash: fd2215930487fa292001519dcd18c3ab2138c3e0
+ms.sourcegitcommit: 594cc1728347646609ae1952ecc6c97fc659d0a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "2226194"
 ---
 # <a name="create-a-virtual-network"></a>Créer un réseau virtuel
 
@@ -96,6 +97,7 @@ Pour configurer un réseau NAT et le connecter à une machine virtuelle, reporte
 
 ### <a name="the-two-switch-approach"></a>L’approche à deux commutateurs
 Si vous exécutez Windows10 Hyper-V sur un ordinateur portable et que vous basculez fréquemment entre un réseau sans fil et un réseau câblé, vous voudrez peut-être créer un commutateur virtuel pour les cartes réseau sans fil et Ethernet. Dans cette configuration, vous pouvez faire basculer vos machines virtuelles entre ces commutateurs en fonction de la façon dont l’ordinateur portable est connecté au réseau. Les machines virtuelles ne basculent pas automatiquement entre une connexion filaire et une connexion sans fil.
+>Remarque: La configuration d’un commutateur virtuel externe sur la carte réseau sans fil n’est pas prise en charge et doit être utilisée uniquement à des fins de test.  
 
 
 ## <a name="next-step---create-a-virtual-machine"></a>Étape suivante: créer une machine virtuelle

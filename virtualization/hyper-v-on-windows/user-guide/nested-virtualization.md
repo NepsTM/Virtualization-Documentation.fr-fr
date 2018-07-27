@@ -1,6 +1,6 @@
 ---
-title: "Virtualisation imbriquée"
-description: "Virtualisation imbriquée"
+title: Virtualisation imbriquée
+description: Virtualisation imbriquée
 keywords: Windows10, Hyper-V
 author: johncslack
 ms.date: 12/18/2016
@@ -8,11 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
-ms.openlocfilehash: 82c8ba6b09b6d1bfde7217eeaf16cfb7967d4f62
-ms.sourcegitcommit: 59541f11d481d8df341597bd73ce7fac14f442ee
+ms.openlocfilehash: 0b268f796dacd3de60cb5879b1c9c5414b8bdd49
+ms.sourcegitcommit: 9653a3f7451011426f8af934431bb14dbcb30a62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "2082932"
 ---
 # <a name="run-hyper-v-in-a-virtual-machine-with-nested-virtualization"></a>Exécuter Hyper-V dans une machine virtuelle avec la virtualisation imbriquée
 
@@ -58,7 +59,7 @@ Il existe deux options pour la mise en réseau des machines virtuelles imbriqué
 2. Mise en réseau NAT
 
 ### <a name="mac-address-spoofing"></a>Usurpation des adresses MAC
-Pour que les paquets réseau puissent être acheminés via deux commutateurs virtuels, l’usurpation des adresses MAC doit être activée sur le premier niveau du commutateur virtuel. Pour cela, exécutez la commande PowerShell suivante.
+Pour que les paquets réseau puissent être acheminés via deux commutateurs virtuels, l’usurpation des adresses MAC doit être activée sur le premier niveau (L1) du commutateur virtuel. Pour cela, exécutez la commande PowerShell suivante.
 
 ``` PowerShell
 Get-VMNetworkAdapter -VMName <VMName> | Set-VMNetworkAdapter -MacAddressSpoofing On
