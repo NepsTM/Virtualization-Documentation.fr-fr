@@ -1,6 +1,6 @@
 ---
 title: Fichier Dockerfile et conteneurs Windows
-description: "Créez des fichiers Dockerfile pour les conteneurs Windows."
+description: Créez des fichiers Dockerfile pour les conteneurs Windows.
 keywords: docker, conteneurs
 author: PatrickLang
 ms.date: 05/26/2016
@@ -8,11 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
-ms.openlocfilehash: 206be6db413dd4fccef891b57ad4fcf73dd21d00
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
-ms.translationtype: HT
+ms.openlocfilehash: 4f42ee1c368638b521c33278c97f9ef1e7fdb8d0
+ms.sourcegitcommit: 2b5d806fc978e60fb71ce33ef491d4cfd6fc4456
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "2596057"
 ---
 # <a name="dockerfile-on-windows"></a>Fichier Dockerfile sur Windows
 
@@ -60,11 +61,11 @@ RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 CMD [ "cmd" ]
 ```
 
-Pour obtenir des exemples supplémentaires de fichiers Dockerfile pour Windows, voir le [référentiel des fichiers Dockerfile pour Windows] (https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples).
+Pour obtenir des exemples supplémentaires de Dockerfiles pour Windows, voir le [Dockerfile pour Windows référentiel] (https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples).
 
 ## <a name="instructions"></a>Instructions
 
-Les instructions pour les fichiers Dockerfile fournissent au moteur Docker les étapes nécessaires pour créer une image de conteneur. Ces instructions sont exécutées dans l’ordre et une par une. Voici les détails pour certaines instructions pour les fichiers Dockerfile de base. Pour obtenir une liste complète des instructions pour les fichiers Dockerfile, voir les [informations de référence sur les fichiers Dockerfile sur docker.com] (https://docs.docker.com/engine/reference/builder/).
+Les instructions pour les fichiers Dockerfile fournissent au moteur Docker les étapes nécessaires pour créer une image de conteneur. Ces instructions sont exécutées dans l’ordre et une par une. Voici les détails pour certaines instructions pour les fichiers Dockerfile de base. Pour obtenir une liste complète des instructions Dockerfile, voir [Dockerfile référence sur Docker.com] (https://docs.docker.com/engine/reference/builder/).
 
 ### <a name="from"></a>FROM
 
@@ -97,7 +98,7 @@ L’instruction RUN se présente sous le format suivant:
 ```
 # exec form
 
-RUN ["<executable", "<param 1>", "<param 2>"]
+RUN ["<executable>", "<param 1>", "<param 2>"]
 
 # shell form
 

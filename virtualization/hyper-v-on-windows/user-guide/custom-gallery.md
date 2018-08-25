@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9238389-7028-4015-8140-27253b156f37
-ms.openlocfilehash: 2235201a56a238cbd5a75b0a6cae64cdb26108a2
-ms.sourcegitcommit: edc153ffef01094c2324a0da2f9a301b31015a58
-ms.translationtype: HT
+ms.openlocfilehash: c7a6462b331f469148eb4cf5a0a2740c9929fa29
+ms.sourcegitcommit: 2b5d806fc978e60fb71ce33ef491d4cfd6fc4456
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "1928376"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "2596067"
 ---
 # <a name="create-a-custom-virtual-machine-gallery"></a>Créer une bibliothèque d’ordinateurs virtuels personnalisée
 
@@ -102,6 +102,12 @@ Images:
 * thumbnail
 
 Et, bien entendu, votre ordinateur virtuel (.iso ou .vhdx).
+
+Pour générer les hachages, vous pouvez utiliser la commande powershell suivante:
+
+  ``` PowerShell
+  Get-FileHash -Path .\TMLogo.jpg -Algorithm SHA256
+  ```
 
 Le modèle JSON ci-après comporte des éléments de démarrage et de schéma de la bibliothèque.  Si vous le modifiez en VSCode, il fournit automatiquement IntelliSense.
 

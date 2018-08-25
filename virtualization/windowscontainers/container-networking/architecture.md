@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 0ade6677a8cd07f21cd00d019f167685e0ba5e7e
-ms.sourcegitcommit: ec186664e76d413d3bf75f2056d5acb556f4205d
-ms.translationtype: HT
+ms.openlocfilehash: 0d43176a07b0ba23f6a893c1b3dcfa1ffddc423d
+ms.sourcegitcommit: db508decd9bf6c0dce9952e1a86bf80f00d025eb
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "1876055"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "2315652"
 ---
 # <a name="windows-container-networking"></a>Mise en réseau de conteneur Windows
 > ***AVERTISSEMENT: Reportez-vous à l’article [Mise en réseau de conteneur Docker](https://docs.docker.com/engine/userguide/networking/) pour connaître les commandes, les options et la syntaxe de mise en réseau de docker en général.*** À l’exception des cas décrits dans ce document, [ci-après](#unsupported-features-and-network-options), toutes les commandes de mise en réseau de Docker sont prises en charge par Windows avec la même syntaxe que sur Linux. Cependant, les piles réseau Windows et Linux sont différentes, par conséquent, vous constaterez que certaines commandes réseau de Linux (par exemple, ifconfig) ne sont pas prises en charge par Windows.
@@ -68,7 +68,11 @@ Le service HNS et le service de calcul hôte (HCS) fonctionnent ensemble pour cr
 
 
  ## <a name="unsupported-features-and-network-options"></a>Fonctionnalités et options réseau non prises en charge
- Les options de mise en réseau suivantes ne sont **pas** prises en charge actuellement dans Windows:
+ Les options de mise en réseau suivantes ne sont actuellement **pas** pris en charge sur Windows:
+   * Communication de conteneur chiffré par IPsec.
+   * Prise en charge des proxy HTTP pour les conteneurs.  Un PR préliminaire pour cette peut être suivie [ici](https://github.com/Microsoft/hcsshim/pull/163).
+   * Attachement des points de terminaison aux conteneurs Hyper-V en cours d’exécution (l’ajout à chaud).
+   * Mise en réseau sur une infrastructure virtualisée Azure via le pilote de réseau transparent.
 
  | Commande        | Option non prise en charge   |
  | ---------------|:--------------------:|

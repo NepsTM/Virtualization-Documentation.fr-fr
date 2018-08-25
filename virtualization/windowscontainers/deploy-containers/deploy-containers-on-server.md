@@ -1,6 +1,6 @@
 ---
-title: "Déployer des conteneurs Windows sur Windows Server"
-description: "Déployer des conteneurs Windows sur Windows Server"
+title: Déployer des conteneurs Windows sur Windows Server
+description: Déployer des conteneurs Windows sur Windows Server
 keywords: docker, conteneurs
 author: enderb-ms
 ms.date: 09/26/2016
@@ -8,11 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
-ms.openlocfilehash: 48063c058b38258cd06b09081cefd77c95cf67e9
-ms.sourcegitcommit: b7f37f3d385042ca8455b3e7d1fa887ac26989de
-ms.translationtype: HT
+ms.openlocfilehash: b80dd0d231d0f9435b7cc1c5e2b35bbf5a59d793
+ms.sourcegitcommit: a287211a0ed9cac7ebfe1718e3a46f0f26fc8843
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "2748885"
 ---
 # <a name="container-host-deployment---windows-server"></a>Déploiement d’un hôte de conteneurs–Windows Server
 
@@ -28,20 +29,47 @@ Ouvrez une session PowerShell avec élévation de privilèges, puis exécutez le
 
 Installez le module PowerShell OneGet.
 
-```
+```PowerShell
 Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
 ```
 
 Utilisez OneGet pour installer la dernière version de Docker.
 
-```
+```PowerShell
 Install-Package -Name docker -ProviderName DockerMsftProvider
 ```
 
 Une fois l’installation terminée, redémarrez l’ordinateur.
 
-```
+```PowerShell
 Restart-Computer -Force
+```
+
+## <a name="install-a-specific-version-of-docker"></a>Installer une Version spécifique de Docker
+
+Deux canaux sont actuellement disponibles pour Docker EE pour Windows Server:
+
+* `17.06` -Utilisez cette version si vous utilisez Docker Enterprise Edition (moteur Docker, UCP, DTR). `17.06` est la valeur par défaut.
+* `18.03` -Utilisez cette version si vous exécutez Docker EE moteur seul.
+
+Pour installer une version spécifique, utilisez la `RequiredVersion` indicateur:
+
+```PowerShell
+Install-Package -Name docker -ProviderName DockerMsftProvider -Force -RequiredVersion 18.03
+```
+
+Installation des versions Docker EE spécifiques peut-être nécessiter une mise à jour des modules DockerMsftProvider précédemment installées. Pour mettre à jour:
+
+```PowerShell
+Update-Module DockerMsftProvider
+```
+
+## <a name="update-docker"></a>Mise à jour Docker
+
+Si vous devez mettre à jour Docker EE moteur à partir d’un canal antérieur à un canal ultérieure, utilisez à la fois le `-Update` et `-RequiredVersion` indicateurs:
+
+```PowerShell
+Install-Package -Name docker -ProviderName DockerMsftProvider -Update -Force -RequiredVersion 18.03
 ```
 
 ## <a name="install-base-container-images"></a>Installer les images de conteneur de base
@@ -50,13 +78,13 @@ Avant de travailler avec des conteneurs Windows, une image de base doit être in
 
 Exécutez la commande suivante pour installer l’image de base Windows Server Core :
 
-```
+```PowerShell
 docker pull microsoft/windowsservercore
 ```
 
 Pour installer l’image de base Nano Server, exécutez la commande suivante:
 
-```
+```PowerShell
 docker pull microsoft/nanoserver
 ```
 
@@ -70,7 +98,7 @@ Pour exécuter des conteneurs Hyper-V, le rôle Hyper-V est nécessaire. Si l’
 
 Le script suivant configure la virtualisation imbriquée pour l’hôte de conteneur. Ce script est exécuté sur l’ordinateur Hyper-V parent. Vérifiez que la machine virtuelle de l’hôte de conteneur est désactivée lors de l’exécution de ce script.
 
-```
+```PowerShell
 #replace with the virtual machine name
 $vm = "<virtual-machine>"
 
@@ -88,6 +116,6 @@ Get-VMNetworkAdapter -VMName $vm | Set-VMNetworkAdapter -MacAddressSpoofing On
 
 Pour activer la fonctionnalité Hyper-V à l’aide de PowerShell, exécutez la commande suivante dans une session PowerShell avec élévation de privilèges.
 
-```
+```PowerShell
 Install-WindowsFeature hyper-v
 ```

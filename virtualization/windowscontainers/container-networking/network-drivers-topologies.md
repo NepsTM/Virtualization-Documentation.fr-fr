@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 3fb36008d9304e6fbdd318c55e012ff3f096d58b
-ms.sourcegitcommit: ec186664e76d413d3bf75f2056d5acb556f4205d
-ms.translationtype: HT
+ms.openlocfilehash: bb3681a83991b3d4e24348b686146616d4a88c4f
+ms.sourcegitcommit: db508decd9bf6c0dce9952e1a86bf80f00d025eb
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "1876056"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "2315662"
 ---
 # <a name="windows-container-network-drivers"></a>Pilotes réseau de conteneurs Windows  
 
@@ -23,22 +23,23 @@ En plus de tirer parti du réseau «nat» par défaut créé par Docker sur Wind
   > Plusieurs réseaux NAT sont désormais pris en charge si Windows10 Creators Update est installé!
 
 - **transparent**: les conteneurs reliés à un réseau créé avec le pilote «transparent» sont connectés directement au réseau physique via un commutateur Hyper-V *externe*. Les adressesIP issues du réseau physique peuvent être attribuées de façon statique (nécessite l’option ``--subnet`` spécifiée par l’utilisateur) ou dynamique à l’aide d’un serveur DHCP externe. 
+  > Remarque: pour les raisons du au-dessous de la spécification, connecter vos hôtes conteneur via un réseau transparent n'est pas pris en charge sur les machines virtuelles Azure.
+  
+  > Nécessite: Lorsque ce mode est utilisé dans un scénario de la virtualisation (hôte de conteneur est une machine virtuelle) _usurpation d’adresse MAC est requis_.
 
 - **superposition** - si le moteur Docker s’exécute en [mode Swarm](../manage-containers/swarm-mode.md), les conteneurs reliés à un réseau de superposition peuvent communiquer avec d’autres conteneurs attachés au même réseau entre plusieurs hôtes de conteneur. Chaque réseau de superposition créé dans un cluster Swarm possède son propre sous-réseau IP, défini par un préfixe IP privé. Le pilote réseau de superposition utilise l’encapsulation VXLAN. **Il peut être utilisé avec Kubernetes lors de l’utilisation des plans de contrôle de réseau approprié (Flannel ou OVN).**
-  > Remarque: Vérifiez que votre environnement satisfait ces *prérequis*[conditions préalables](https://docs.docker.com/network/overlay/#operations-for-all-overlay-networks) pour la création de réseaux de superposition.
+  > Nécessite: Assurez-vous que votre environnement répond aux ces [conditions préalables](https://docs.docker.com/network/overlay/#operations-for-all-overlay-networks) de *requis* pour créer des réseaux de superposition.
 
-  > Remarque: Nécessite Windows Server2016 avec [KB4015217](https://support.microsoft.com/en-us/help/4015217/windows-10-update-kb4015217), Windows10Creators Update ou une version ultérieure.
+  > Nécessite: Requiert Windows Server 2016 avec [KB4015217](https://support.microsoft.com/en-us/help/4015217/windows-10-update-kb4015217), mise à jour des créateurs de 10 Windows ou une version ultérieure.
 
 - **l2bridge** - des conteneurs reliés à un réseau créé avec le pilote «l2bridge» se trouvent dans le même sous-réseau IP que l’hôte de conteneur et connectés au réseau physique via un commutateur Hyper-V *externe*. Les adresses IP doivent être attribuées de façon statique à partir du même préfixe que l’hôte de conteneur. Tous les points de terminaison de conteneur sur l’ordinateur hôte ont la même adresse MAC que celles de l’hôte en raison de l’opération de traduction d’adresses de couche2 (réécriture d’adresses MAC) en entrée et en sortie.
-  > Remarque: Lorsque ce mode est utilisé dans un scénario de virtualisation (l’hôte de conteneur est un ordinateur virtuel) _l’usurpation des adresses MAC est requise_.
+  > Nécessite: Lorsque ce mode est utilisé dans un scénario de la virtualisation (hôte de conteneur est une machine virtuelle) _usurpation d’adresse MAC est requis_.
   
-  > Remarque: Nécessite Windows Server2016, Windows10Creators Update ou une version ultérieure.
+  > Nécessite: Requiert Windows Server 2016, mise à jour des créateurs de 10 Windows ou une version ultérieure.
 
 - **l2tunne**l: Semblable à l2bridge. Cependant _ce pilote doit uniquement être utilisé dans une pile Microsoft Cloud Stack_. Les paquets provenant d’un conteneur sont envoyés à l’hôte de virtualisation où la stratégie SDN est appliquée.
 
 > Pour savoir comment connecter des points de terminaison de conteneur à un réseau virtuel de client existant avec la pile Microsoft SDN, consultez la rubrique relative à l’[attachement de conteneurs à un réseau virtuel](https://technet.microsoft.com/en-us/windows-server-docs/networking/sdn/manage/connect-container-endpoints-to-a-tenant-virtual-network).
-
-> Windows 10 Creators Update (ou version ultérieure) a introduit la prise en charge de plateforme pour ajouter un nouveau point de terminaison de conteneur à un conteneur en cours d’exécution (autrement dit, «ajout à chaud»)!
 
 
 ## <a name="network-topologies-and-ipam"></a>Topologies de réseau et IPAM
