@@ -3,12 +3,12 @@ title: Stockage de conteneurs Windows Server
 description: Comment les conteneurs Windows Server peuvent-ils utiliser les hôtes et les autres types de stockage
 keywords: conteneurs, volume, stockage, montage, montage lié
 author: patricklang
-ms.openlocfilehash: 9dde3b2d7be10a8d3d393f8426976dfc5bdacfab
-ms.sourcegitcommit: 9653a3f7451011426f8af934431bb14dbcb30a62
-ms.translationtype: HT
+ms.openlocfilehash: 7d22a149da21a3367b82f2920c189ae9a4b1c173
+ms.sourcegitcommit: 2c22506a7fdbbbe5ab4138281fc9256a98b51efd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "2082900"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "3386044"
 ---
 # <a name="overview"></a>Vue d’ensemble
 
@@ -101,13 +101,18 @@ Sur Windows Server version1709, une nouvelle fonctionnalité appelée «Mappage 
 
 ##### <a name="configuration-steps"></a>Étapes de configuration
 
-1. Sur l’hôte conteneur, mappez globalement le partage SMB distant: $creds = Get-Credential New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G: Cette commande utilise les informations d’identification pour s’authentifier auprès du serveur SMB distant. Ensuite, mappez le chemin d’accès du partage à distance à la lettre de lecteur G: (il peut s’agir de toute autre lettre de lecteur disponible). Il est désormais possible que les volumes de données des conteneurs créés sur cet hôte conteneur soient mappés à un chemin d’accès sur le lecteur G.
+1. Sur l’hôte de conteneur, globalement mappez le partage SMB à distance:
+    ```
+    $creds = Get-Credential
+    New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:
+    ```
+    Cette commande utilise les informations d’identification pour s’authentifier auprès du serveur SMB à distance. Ensuite, mappez le chemin d’accès du partage à distance à la lettre de lecteur G: (il peut s’agir de toute autre lettre de lecteur disponible). Il est désormais possible que les volumes de données des conteneurs créés sur cet hôte conteneur soient mappés à un chemin d’accès sur le lecteur G.
 
-> Remarque: Lorsque le mappage global SMB est appliqué aux conteneurs, tous les utilisateurs de l’hôte conteneur peuvent accéder au partage distant. Toute application en cours d’exécution sur l’hôte conteneur aura également accès au partage distant mappé.
+    > Remarque: Lorsque le mappage global SMB est appliqué aux conteneurs, tous les utilisateurs de l’hôte conteneur peuvent accéder au partage distant. Toute application en cours d’exécution sur l’hôte conteneur aura également accès au partage distant mappé.
 
 2. Créez des conteneurs avec des volumes de données mappés vers un partage SMB monté de manière globale: docker run -it --name demo -v g:\ContainerData:G:\AppData1 microsoft/windowsservercore:1709 cmd.exe
 
-Au sein du conteneur, G:\AppData1 sera ensuite mappé au répertoire distant partagé «ContainerData». Toutes les données stockées sur un partage distant globalement mappé sera disponible pour les applications présentes dans le conteneur. Plusieurs conteneurs peuvent accéder en lecture/écriture à ces données partagées à l’aide de la même commande.
+    Au sein du conteneur, G:\AppData1 sera ensuite mappé au répertoire distant partagé «ContainerData». Toutes les données stockées sur un partage distant globalement mappé sera disponible pour les applications présentes dans le conteneur. Plusieurs conteneurs peuvent accéder en lecture/écriture à ces données partagées à l’aide de la même commande.
 
 Cette prise en charge du mappage global SMB est une fonction côté client SMB qui peut fonctionner sur n’importe quel serveur SMB compatible, notamment:
 

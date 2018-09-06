@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
-ms.openlocfilehash: 4f42ee1c368638b521c33278c97f9ef1e7fdb8d0
-ms.sourcegitcommit: 2b5d806fc978e60fb71ce33ef491d4cfd6fc4456
+ms.openlocfilehash: a32d66251d8d9dddcd8abb1b64600459c903e317
+ms.sourcegitcommit: 2c22506a7fdbbbe5ab4138281fc9256a98b51efd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "2596057"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "3386054"
 ---
 # <a name="dockerfile-on-windows"></a>Fichier Dockerfile sur Windows
 
@@ -49,7 +49,7 @@ Sous sa forme la plus basique, un fichier Dockerfile peut être très simple. L�
 FROM microsoft/windowsservercore
 
 # Metadata indicating an image maintainer.
-MAINTAINER jshelton@contoso.com
+LABEL maintainer="jshelton@contoso.com"
 
 # Uses dism.exe to install the IIS role.
 RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
@@ -61,7 +61,7 @@ RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 CMD [ "cmd" ]
 ```
 
-Pour obtenir des exemples supplémentaires de Dockerfiles pour Windows, voir le [Dockerfile pour Windows référentiel] (https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples).
+Pour obtenir des exemples supplémentaires de fichiers Dockerfile pour Windows, voir le [fichier Dockerfile référentiel pour Windows] (https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples).
 
 ## <a name="instructions"></a>Instructions
 
