@@ -2,7 +2,7 @@
 
 Cette fonctionnalité utilise l'[isolation Hyper-V](../manage-containers/hyperv-container.md) pour exécuter un noyau Linux avec juste assez du système d’exploitation pour prendre en charge des conteneurs. Les modifications apportées à Windows et Hyper-V pour y parvenir ont commencé dans la mise à jour _Windows10 Fall Creators Update_ et dans _Windows Server, version1709_, mais cela a également nécessité de travailler sur le [projet Moby](https://www.github.com/moby/moby) open source sur lequel la technologie Docker est basée, ainsi que sur le noyau Linux. 
 
-[!VIDEO https://sec.ch9.ms/ch9/1e5a/08ff93f2-987e-4f8d-8036-2570dcac1e5a/LinuxContainer.mp4]
+[Vidéo de conteneur Linux](https://sec.ch9.ms/ch9/1e5a/08ff93f2-987e-4f8d-8036-2570dcac1e5a/LinuxContainer.mp4)
 
 Pour tester cette fonctionnalité, vous devez disposer des éléments suivants:
 
