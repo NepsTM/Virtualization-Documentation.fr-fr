@@ -1,13 +1,14 @@
 ---
-title: "Compatibilité des versions avec les conteneurs Windows"
-description: "Comment Windows peut générer et exécuter des conteneurs dans plusieurs versions"
-keywords: "métadonnées, conteneurs, version"
+title: Compatibilité des versions avec les conteneurs Windows
+description: Comment Windows peut générer et exécuter des conteneurs dans plusieurs versions
+keywords: métadonnées, conteneurs, version
 author: patricklang
-ms.openlocfilehash: 5c82c715bca6260e776946d538b942b74b7f1bc1
-ms.sourcegitcommit: 7fc79235cbee052e07366b8a6aa7e035a5e3434f
-ms.translationtype: HT
+ms.openlocfilehash: 8657c03ad71685b0f01532894781c44d76e1b0bc
+ms.sourcegitcommit: d69ed13d505e96f514f456cdae0f93dab4fd3746
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "4340877"
 ---
 # <a name="windows-container-version-compatibility"></a>Compatibilité des versions avec les conteneurs Windows
 
@@ -20,7 +21,7 @@ Windows Server2016 et la mise à jour anniversaire Windows10 (tous deux de versi
 <table>
     <tr>
     <th style="background-color:#BBDEFB">Version du système d’exploitation du conteneur</th>
-    <th span='4' style="background-color:#DCEDC8">Version du système d’exploitation de l‘hôte</th>
+    <th span='6' style="background-color:#DCEDC8">Version du système d’exploitation de l‘hôte</th>
     </tr>
     <tr>
         <td/>
@@ -28,6 +29,10 @@ Windows Server2016 et la mise à jour anniversaire Windows10 (tous deux de versi
         <td style="background-color:#F1F8E9"><b>Windows10 1609, 1703</b><br/>Builds: 14393.*, 15063.*</td>
         <td style="background-color:#F1F8E9"><b>WindowsServer version1709</b><br/>Builds16299.*</td>
         <td style="background-color:#F1F8E9"><b>Windows10 Fall Creators Update</b><br/>Builds16299.*</td>
+        <td style="background-color:#F1F8E9"><b>Windows Server version 1803</b><br/>Les builds 17134.*</td>
+        <td style="background-color:#F1F8E9"><b>Windows 10 version 1803</b><br/>Les builds 17134.*</td>
+        <td style="background-color:#F1F8E9"><b>Windows Server 2019</b><br/>Les builds 17763.*</td>
+        <td style="background-color:#F1F8E9"><b>Windows 10 version 1809</b><br/>Les builds 17763.*</td>
     </tr>
     <tr>
         <td style="background-color:#E3F2FD"><b>Windows Server2016</b><br/>Builds: 14393.*</td>
@@ -35,9 +40,39 @@ Windows Server2016 et la mise à jour anniversaire Windows10 (tous deux de versi
         <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
         <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
         <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
     </tr>
     <tr>
         <td style="background-color:#E3F2FD"><b>WindowsServer version1709</b><br/>Builds16299.*</td>
+        <td>Non pris en charge</td>
+        <td>Non pris en charge</td>
+        <td>Prend en charge l’isolation<br/> `process` ou `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
+    </tr>
+    <tr>
+        <td style="background-color:#E3F2FD"><b>Windows Server version 1803</b><br/>Les builds 17134.*</td>
+        <td>Non pris en charge</td>
+        <td>Non pris en charge</td>
+        <td>Non pris en charge</td>
+        <td>Non pris en charge</td>
+        <td>Prend en charge l’isolation<br/> `process` ou `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
+        <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
+    </tr>
+    <tr>
+        <td style="background-color:#E3F2FD"><b>Windows Server 2019</b><br/>Les builds 17763.*</td>
+        <td>Non pris en charge</td>
+        <td>Non pris en charge</td>
+        <td>Non pris en charge</td>
+        <td>Non pris en charge</td>
         <td>Non pris en charge</td>
         <td>Non pris en charge</td>
         <td>Prend en charge l’isolation<br/> `process` ou `hyperv`</td>

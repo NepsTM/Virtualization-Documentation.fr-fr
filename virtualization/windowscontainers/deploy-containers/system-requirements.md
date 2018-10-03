@@ -7,12 +7,12 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: 71719fcbb6021bd26a464339a8caa9c4cb5698b9
-ms.sourcegitcommit: 2b5d806fc978e60fb71ce33ef491d4cfd6fc4456
-ms.translationtype: HT
+ms.openlocfilehash: 8ff9373bd943c360079679a7e41256c24aa21aa8
+ms.sourcegitcommit: d69ed13d505e96f514f456cdae0f93dab4fd3746
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "2596047"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "4340867"
 ---
 # <a name="windows-container-requirements"></a>Configuration requise pour un conteneur Windows
 
@@ -20,7 +20,7 @@ Ces guides fournissent la configuration requise pour un hôte de conteneur Windo
 
 ## <a name="os-requirements"></a>Configuration requise du système d’exploitation
 
-- La fonctionnalité de conteneur Windows est disponible uniquement sur Windows Server build1709, Windows Server2016 (Core et avec expérience utilisateur), ainsi que Windows10 Professionnel et Entreprise (Édition anniversaire).
+- La fonctionnalité de conteneur Windows est uniquement disponible sur Windows Server 2016 (Core et avec expérience utilisateur), Windows 10 Professionnel et entreprise (Édition anniversaire) et versions ultérieures.
 - Le rôle Hyper-V doit être installé avant d’exécuter des conteneurs Hyper-V.
 - Sur les hôtes de conteneur Windows Server, Windows doit être installé sur C:\. Cette restriction ne s’applique pas si seuls les conteneurs Hyper-V sont déployés.
 
@@ -29,7 +29,7 @@ Ces guides fournissent la configuration requise pour un hôte de conteneur Windo
 Si un hôte de conteneur Windows est exécuté sur une machine virtuelle Hyper-V et héberge également des conteneurs Hyper-V, la virtualisation imbriquée doit être activée. La configuration requise pour la virtualisation imbriquée est la suivante:
 
 - Au moins 4 Go de RAM disponible pour l’hôte Hyper-V virtualisé.
-- Windows Server build1709, Windows Server2016 ou Windows10 sur le système hôte, et Windows Server (Full, Core) sur l’ordinateur virtuel.
+- Windows Server 2019, la version de Windows Server 1803, Windows Server version 1709, Windows Server 2016 ou Windows 10 sur le système hôte et Windows Server (Full, Core) sur l’ordinateur virtuel.
 - Un processeur Intel VT-x (cette fonctionnalité est actuellement disponible pour les processeurs Intel uniquement).
 - La machine virtuelle de l’hôte de conteneur doit aussi disposer d’au moins 2processeurs virtuels.
 
@@ -47,7 +47,7 @@ Les conteneurs Windows fournissent deux images de base de conteneur (Windows Ser
 </thead>
 <tbody>
 <tr valign="top">
-<td><center>Windows Server2016 (Standard ou Datacenter)</center></td>
+<td><center>Windows Server 2016 / 2019 (Standard ou Datacenter)</center></td>
 <td><center>Server Core / Nano Server</center></td>
 <td><center>Server Core / Nano Server</center></td>
 </tr>
