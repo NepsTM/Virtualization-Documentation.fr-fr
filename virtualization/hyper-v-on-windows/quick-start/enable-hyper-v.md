@@ -7,12 +7,12 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-ms.openlocfilehash: 39499afc93b3329810db30cd32544a41ad138583
-ms.sourcegitcommit: 64c8d5d6f068d385b94db4637259bb3852666efe
-ms.translationtype: HT
+ms.openlocfilehash: dd4021c653d98a3bd7a338d9f502a572830f344d
+ms.sourcegitcommit: 5e5644bff6dba70e384db6c80787b3bbe7adb93c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "1797655"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "4303925"
 ---
 # <a name="install-hyper-v-on-windows-10"></a>Installer Hyper-V sur Windows10
 
@@ -23,14 +23,14 @@ Hyper-V peut être activé de nombreuses manières, y compris à l’aide du Pan
 
 ## <a name="check-requirements"></a>Vérifier la configuration requise
 
-* Windows10 Entreprise, Professionnel ou Éducation
+* Windows 10 entreprise, Professionnel ou éducation
 * Processeur 64bits avec traduction d’adresse de second niveau (SLAT).
 * Processeur prenant en charge les extensions de mode du moniteur de machine virtuelle (VT-c sur les processeurs Intel).
 * Au minimum 4Go de mémoire.
 
 Le rôle Hyper-V **ne peut pas** être installé sur Windows10 Famille.
 
-Mettez à niveau l’édition Windows10 Famille vers Windows10 Professionnel en ouvrant **Paramètres** > **Mise à jour et sécurité** > **Activation**.
+Mettez à niveau l’édition Windows 10 famille vers Windows 10 Professionnel en ouvrant des **paramètres** > **mise à jour et sécurité** > **l’Activation**.
 
 Pour plus d’informations et pour connaître les étapes de résolution des problèmes, voir [Configuration requise pour Hyper-V sur Windows10](../reference/hyper-v-requirements.md).
 

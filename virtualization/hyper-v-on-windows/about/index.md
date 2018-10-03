@@ -7,12 +7,12 @@ ms.date: 06/25/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: eb2b827c-4a6c-4327-9354-50d14fee7ed8
-ms.openlocfilehash: 95b7b25ffe47f22f2f00e5911195ebbea660a1c0
-ms.sourcegitcommit: d625ea23c3eea484d54fa7bec10ac545b0386379
-ms.translationtype: HT
+ms.openlocfilehash: d71c5d2ae3c8ff78e36cc54686b10b1dc745e0c3
+ms.sourcegitcommit: 5e5644bff6dba70e384db6c80787b3bbe7adb93c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "2093676"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "4303905"
 ---
 # <a name="introduction-to-hyper-v-on-windows-10"></a>Introduction à Hyper-V sur Windows10
 
@@ -36,9 +36,9 @@ La virtualisation vous permet ce qui suit:
 
 ## <a name="system-requirements"></a>Configuration requise
 
-Hyper-V est disponible sur les versions 64bits des éditions Professionnel, Entreprise et Éducation de Windows8 et versions ultérieures.  Il n’est pas disponible sur Windows Édition familiale.
+Hyper-V est disponible sur les versions 64 bits de Windows 10 Professionnel, entreprise et éducation. Il n’est pas disponible sur l’Édition familiale.
 
-> Mettez à niveau l’édition Windows10 Famille vers Windows10 Professionnel en ouvrant **Paramètres** > **Mise à jour et sécurité** > **Activation**. Vous pouvez alors visiter le magasin et acheter la mise à niveau.
+> Mettez à niveau l’édition Windows 10 famille vers Windows 10 Professionnel en ouvrant **paramètres** > **mise à jour et sécurité** > **l’Activation**. Vous pouvez alors visiter le magasin et acheter la mise à niveau.
 
 La plupart des ordinateurs exécutent Hyper-V mais chaque ordinateur virtuel est un système d’exploitation complètement distinct.  Vous pouvez généralement exécuter une ou plusieurs machines virtuelles sur un ordinateur équipé de 4Go de RAM. Vous aurez cependant besoin de plus de ressources pour des machines virtuelles supplémentaires ou pour installer et exécuter des logiciels gourmands en ressources tels que des jeux, des logiciels de montage vidéo ou de conception d'ingénierie.
 
