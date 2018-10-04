@@ -39,7 +39,7 @@ docker build -t nanoserverdnc -f Dockerfile-dotnetRuntime .
 ```
 
 ## <a name="run-powershell-core-6-in-a-container"></a>Exécuter PowerShellCore 6dans un conteneur
-À l’aide de la même méthode de [création échelonnée](https://docs.docker.com/engine/userguide/eng-image/multistage-build/), vous pouvez créer un conteneur PowerShellCore6 avec [ce fichier Dockerfile PowerShell](https://github.com/PowerShell/PowerShell/blob/master/docker/release/nanoserver-insider/Dockerfile).
+À l’aide de la même méthode de [création échelonnée](https://docs.docker.com/engine/userguide/eng-image/multistage-build/), vous pouvez créer un conteneur PowerShellCore6 avec [ce fichier Dockerfile PowerShell](https://github.com/PowerShell/PowerShell-Docker/blob/master/release/stable/nanoserver/docker/Dockerfile).
 
 
 Ensuite, exécutez la commande docker build pour créer l’image de conteneur PowerShell.
@@ -48,7 +48,7 @@ Ensuite, exécutez la commande docker build pour créer l’image de conteneur P
 docker build -t nanoserverPowerShell6 -f Dockerfile-PowerShell6 .
 ```
 
-Pour plus d’informations, voir [PowerShell GitHub](https://github.com/PowerShell/PowerShell/tree/master/docker/release).  Il est important de mentionner que le fichier zip PowerShell contient un sous-ensemble de .NETCore2.0 qui est nécessaire pour créer PowerShellCore6.  Si vos modules PowerShell dépendent de .NETCore2.0, il est possible de créer le conteneur PowerShell sur le conteneur Nano .NETCore, au lieu du conteneur Nano de base, autrement dit à l’aide de FROM microsoft/nanoserver-insider-dotnet dans le fichier Dockerfile. 
+Pour plus d’informations, voir [PowerShell GitHub](https://github.com/PowerShell/PowerShell-Docker/tree/master/release).  Il est important de mentionner que le fichier zip PowerShell contient un sous-ensemble de .NETCore2.0 qui est nécessaire pour créer PowerShellCore6.  Si vos modules PowerShell dépendent de .NETCore2.0, il est possible de créer le conteneur PowerShell sur le conteneur Nano .NETCore, au lieu du conteneur Nano de base, autrement dit à l’aide de FROM microsoft/nanoserver-insider-dotnet dans le fichier Dockerfile. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Utilisez une des nouvelles images de conteneur basées sur NanoServer, disponibles dans le hub Docker, c’est-à-dire une image NanoServer de base, Nano avec .NETCore2.0 et Nano avec PowerShellCore6
