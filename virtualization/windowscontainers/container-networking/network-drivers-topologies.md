@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: bb3681a83991b3d4e24348b686146616d4a88c4f
-ms.sourcegitcommit: db508decd9bf6c0dce9952e1a86bf80f00d025eb
+ms.openlocfilehash: 4f21efba8dd1079302b56e98d954b3ba574779e9
+ms.sourcegitcommit: 2779f01978b37ec4f8d895febe7037272fb2c703
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "2315662"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "4492805"
 ---
 # <a name="windows-container-network-drivers"></a>Pilotes réseau de conteneurs Windows  
 
@@ -23,19 +23,19 @@ En plus de tirer parti du réseau «nat» par défaut créé par Docker sur Wind
   > Plusieurs réseaux NAT sont désormais pris en charge si Windows10 Creators Update est installé!
 
 - **transparent**: les conteneurs reliés à un réseau créé avec le pilote «transparent» sont connectés directement au réseau physique via un commutateur Hyper-V *externe*. Les adressesIP issues du réseau physique peuvent être attribuées de façon statique (nécessite l’option ``--subnet`` spécifiée par l’utilisateur) ou dynamique à l’aide d’un serveur DHCP externe. 
-  > Remarque: pour les raisons du au-dessous de la spécification, connecter vos hôtes conteneur via un réseau transparent n'est pas pris en charge sur les machines virtuelles Azure.
+  > Remarque: dû à l’au-dessous de spécification, connexion de vos hôtes de conteneur via un réseau transparent n'est pas pris en charge sur les machines virtuelles Azure.
   
-  > Nécessite: Lorsque ce mode est utilisé dans un scénario de la virtualisation (hôte de conteneur est une machine virtuelle) _usurpation d’adresse MAC est requis_.
+  > Nécessite: Lorsque ce mode est utilisé dans un scénario de la virtualisation (hôte de conteneur est un ordinateur virtuel) _l’usurpation des adresses MAC est nécessaire_.
 
 - **superposition** - si le moteur Docker s’exécute en [mode Swarm](../manage-containers/swarm-mode.md), les conteneurs reliés à un réseau de superposition peuvent communiquer avec d’autres conteneurs attachés au même réseau entre plusieurs hôtes de conteneur. Chaque réseau de superposition créé dans un cluster Swarm possède son propre sous-réseau IP, défini par un préfixe IP privé. Le pilote réseau de superposition utilise l’encapsulation VXLAN. **Il peut être utilisé avec Kubernetes lors de l’utilisation des plans de contrôle de réseau approprié (Flannel ou OVN).**
-  > Nécessite: Assurez-vous que votre environnement répond aux ces [conditions préalables](https://docs.docker.com/network/overlay/#operations-for-all-overlay-networks) de *requis* pour créer des réseaux de superposition.
+  > Nécessite: Vérifiez que votre environnement satisfait ces [conditions préalables](https://docs.docker.com/network/overlay/#operations-for-all-overlay-networks) de *requis* pour la création de réseaux de superposition.
 
-  > Nécessite: Requiert Windows Server 2016 avec [KB4015217](https://support.microsoft.com/en-us/help/4015217/windows-10-update-kb4015217), mise à jour des créateurs de 10 Windows ou une version ultérieure.
+  > Nécessite: Nécessite Windows Server 2016 avec [KB4015217](https://support.microsoft.com/en-us/help/4015217/windows-10-update-kb4015217), Windows 10 Creators Update ou une version ultérieure.
 
 - **l2bridge** - des conteneurs reliés à un réseau créé avec le pilote «l2bridge» se trouvent dans le même sous-réseau IP que l’hôte de conteneur et connectés au réseau physique via un commutateur Hyper-V *externe*. Les adresses IP doivent être attribuées de façon statique à partir du même préfixe que l’hôte de conteneur. Tous les points de terminaison de conteneur sur l’ordinateur hôte ont la même adresse MAC que celles de l’hôte en raison de l’opération de traduction d’adresses de couche2 (réécriture d’adresses MAC) en entrée et en sortie.
-  > Nécessite: Lorsque ce mode est utilisé dans un scénario de la virtualisation (hôte de conteneur est une machine virtuelle) _usurpation d’adresse MAC est requis_.
+  > Nécessite: Lorsque ce mode est utilisé dans un scénario de la virtualisation (hôte de conteneur est un ordinateur virtuel) _l’usurpation des adresses MAC est nécessaire_.
   
-  > Nécessite: Requiert Windows Server 2016, mise à jour des créateurs de 10 Windows ou une version ultérieure.
+  > Nécessite: Nécessite Windows Server 2016, Windows 10 Creators Update ou une version ultérieure.
 
 - **l2tunne**l: Semblable à l2bridge. Cependant _ce pilote doit uniquement être utilisé dans une pile Microsoft Cloud Stack_. Les paquets provenant d’un conteneur sont envoyés à l’hôte de virtualisation où la stratégie SDN est appliquée.
 
@@ -60,7 +60,7 @@ Les adresses IP sont attribuées et assignées différemment pour chaque pilote 
 
 | Mode de mise en réseau / Pilote | IPAM |
 | -------------------------|:----:|
-| NAT | AllocationIP et affectation dynamiques par le service de mise en réseau d’hôte (HNS) à partir du préfixe de sous-réseau NAT interne |
+| NAT | Allocation IP et affectation par le Service de réseau hôte (HNS) à partir du préfixe de sous-réseau NAT interne |
 | Transparent | Allocation IP et affectation d’IP statiques ou dynamiques (à l’aide du serveur DHCP externe) à partir d’adressesIP au sein du préfixe réseau de l’hôte de conteneur |
 | Superposition | Allocation IP dynamique à partir de préfixes gérés et d’affectations en mode Swarm du moteur Docker via HNS |
 | L2Bridge | Allocation IP et affectation d’IP statiques à partir d’adressesIP au sein du préfixe réseau de l’hôte de conteneur (peut également être affecté via un plug-in HNS) |
