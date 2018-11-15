@@ -2,18 +2,18 @@
 title: Déployer des conteneurs Windows sur Windows Server
 description: Déployer des conteneurs Windows sur Windows Server
 keywords: docker, conteneurs
-author: enderb-ms
+author: taylorb-microsoft
 ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
-ms.openlocfilehash: 701112cac9c3f6d647fe5fb70309350fd0d07161
-ms.sourcegitcommit: d69ed13d505e96f514f456cdae0f93dab4fd3746
+ms.openlocfilehash: 0d982996a1aabd434df04551f30725a21b31d500
+ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "4340847"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "6948008"
 ---
 # <a name="container-host-deployment---windows-server"></a>Déploiement d’un hôte de conteneurs–Windows Server
 
@@ -58,7 +58,7 @@ Pour installer une version spécifique, utilisez la `RequiredVersion` indicateur
 Install-Package -Name docker -ProviderName DockerMsftProvider -Force -RequiredVersion 18.03
 ```
 
-L’installation des versions spécifiques de Docker EE peut nécessiter une mise à jour pour les modules DockerMsftProvider précédemment installés. Pour mettre à jour:
+L’installation des versions spécifiques de Docker EE peut nécessiter une mise à jour des modules DockerMsftProvider précédemment installés. Pour mettre à jour:
 
 ```PowerShell
 Update-Module DockerMsftProvider
@@ -66,7 +66,7 @@ Update-Module DockerMsftProvider
 
 ## <a name="update-docker"></a>Mise à jour Docker
 
-Si vous avez besoin mettre à jour du moteur de Docker EE à partir d’un canal antérieur à un canal ultérieur, utilisez à la fois le `-Update` et `-RequiredVersion` indicateurs:
+Si vous avez besoin mettre à jour du moteur de Docker EE à partir d’un canal antérieur à un canal ultérieure, utilisez à la fois le `-Update` et `-RequiredVersion` indicateurs:
 
 ```PowerShell
 Install-Package -Name docker -ProviderName DockerMsftProvider -Update -Force -RequiredVersion 18.03
@@ -76,7 +76,7 @@ Install-Package -Name docker -ProviderName DockerMsftProvider -Update -Force -Re
 
 Avant de travailler avec des conteneurs Windows, une image de base doit être installée. Les images de base sont disponibles avec Windows Server Core ou Nano Server comme système d’exploitation de conteneur. Pour plus d’informations sur les images de conteneur Docker, consultez [Créer vos propres images sur docker.com](https://docs.docker.com/engine/tutorials/dockerimages/).
 
-Depuis la publication de Windows Server 2019, les images de conteneur proviennent de Microsoft migrent vers un Registre appelé le Registre de conteneur de Microsoft. Publié par Microsoft des images de conteneur doivent continuer à être détecté via Docker Hub. De nouvelles images de conteneur publiés avec Windows Server 2019 et au-delà, vous doivent se présenter pour extraire les règles d’ordinateurs gérés. Pour les images de conteneur plus anciens publiés avant Windows Server 2019, vous devez continuer à les collecter à partir du Registre de Docker.
+Avec la version de Windows Server 2019, les images de conteneur proviennent de Microsoft migrent vers un Registre appelé le Registre de conteneur de Microsoft. Publié par Microsoft des images de conteneur doivent continuer à être détectés via Docker Hub. De nouvelles images de conteneur publiés avec Windows Server 2019 et versions ultérieures, vous doivent se présenter pour extraire les règles d’ordinateurs gérés. Pour les images de conteneur publiés avant Windows Server 2019 plus anciens, vous devez continuer à les collecter à partir du Registre de Docker.
 
 ### <a name="windows-server-2019-and-newer"></a>Windows Server 2019 et versions ultérieures
 

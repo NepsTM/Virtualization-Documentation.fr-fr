@@ -2,18 +2,18 @@
 title: Démarrage rapide du déploiement de conteneurs- Images
 description: Démarrage rapide du déploiement de conteneurs
 keywords: docker, conteneurs
-author: enderb-ms
+author: cwilhit
 ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: 7ab445212a400487bff182a2e73107b47ab00b1a
-ms.sourcegitcommit: 5e5644bff6dba70e384db6c80787b3bbe7adb93c
+ms.openlocfilehash: 104c8f659e2b9709c24eb0230d9f32d6dca32c71
+ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "4303875"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "6948038"
 ---
 # <a name="automating-builds-and-saving-images"></a>Automatisation des builds et enregistrement des images
 
@@ -90,7 +90,7 @@ docker ps
 CONTAINER ID   IMAGE            COMMAND               CREATED              STATUS              PORTS                NAMES
 c1dc6c1387b9   iis-dockerfile   "ping -t localhost"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp   cranky_brown
 ```
-Arrêtez le conteneur.
+Arrêter le conteneur.
 
 ```
 docker stop <container name>

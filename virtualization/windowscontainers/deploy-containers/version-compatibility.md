@@ -2,13 +2,13 @@
 title: Compatibilité des versions avec les conteneurs Windows
 description: Comment Windows peut générer et exécuter des conteneurs dans plusieurs versions
 keywords: métadonnées, conteneurs, version
-author: patricklang
-ms.openlocfilehash: 8657c03ad71685b0f01532894781c44d76e1b0bc
-ms.sourcegitcommit: d69ed13d505e96f514f456cdae0f93dab4fd3746
+author: taylorb-microsoft
+ms.openlocfilehash: c744da429ed8116363437d3117ae1432d7a94f8d
+ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "4340877"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "6948078"
 ---
 # <a name="windows-container-version-compatibility"></a>Compatibilité des versions avec les conteneurs Windows
 
@@ -32,7 +32,7 @@ Windows Server2016 et la mise à jour anniversaire Windows10 (tous deux de versi
         <td style="background-color:#F1F8E9"><b>Windows Server version 1803</b><br/>Les builds 17134.*</td>
         <td style="background-color:#F1F8E9"><b>Windows 10 version 1803</b><br/>Les builds 17134.*</td>
         <td style="background-color:#F1F8E9"><b>Windows Server 2019</b><br/>Les builds 17763.*</td>
-        <td style="background-color:#F1F8E9"><b>Windows 10 version 1809</b><br/>Les builds 17763.*</td>
+        <td style="background-color:#F1F8E9"><b>Windows 10, version 1809</b><br/>Les builds 17763.*</td>
     </tr>
     <tr>
         <td style="background-color:#E3F2FD"><b>Windows Server2016</b><br/>Builds: 14393.*</td>

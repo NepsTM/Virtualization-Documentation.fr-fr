@@ -1,24 +1,25 @@
 ---
-title: "Écosystème de conteneurs"
-description: "Création d’un écosystème de conteneurs."
-keywords: "métadonnées, conteneurs"
+title: Écosystème de conteneurs
+description: Création d’un écosystème de conteneurs.
+keywords: métadonnées, conteneurs
 author: PatrickLang
 ms.date: 04/20/2016
 ms.topic: about-article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 29fbe13a-228a-4eaa-9d4d-90ae60da5965
-ms.openlocfilehash: 27808eddb624bdfc61d971d46be609a49c051664
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
-ms.translationtype: HT
+ms.openlocfilehash: e88f2951abef72bdd938c23a068cc912e31628cb
+ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "6948068"
 ---
-# Création d’un écosystème de conteneurs
+# <a name="building-a-container-ecosystem"></a>Création d’un écosystème de conteneurs
 
 Pour comprendre pourquoi la création d’un écosystème de conteneurs est si importante, parlons tout d’abord de Docker.
 
-## Appel de Docker
+## <a name="dockers-appeal"></a>Appel de Docker
 
 Le concept de conteneurs (isolation des espaces de noms et gouvernance des ressources) est connu depuis longtemps et remonte aux jails BSD, aux zones Solaris et au mécanisme chroot (change root) UNIX de base.   La contribution de Docker a consisté à fournir un ensemble d’outils communs, un modèle de package et un mécanisme de déploiement.  En procédant ainsi, Docker a considérablement simplifié la mise en conteneur et la distribution des applications.  Ces applications peuvent ensuite être exécutées n’importe où sur tout hôte Linux, une fonctionnalité que nous fournissons également sur Windows.
 
@@ -30,8 +31,7 @@ Docker pose des fondements solides pour le développement.
 
 Parlons maintenant de cet écosystème d’applications et de la façon dont vous pouvez vous baser sur les concepts de Docker pour créer un workflow de développement et de déploiement adapté à vos besoins.
 
-
-## Composants d’un écosystème de conteneurs
+## <a name="components-in-a-container-ecosystem"></a>Composants d’un écosystème de conteneurs
 
 Les conteneurs Windows sont un composant clé d’un important écosystème de conteneurs. Nous travaillons dans toute l’industrie pour offrir les choix des développeurs à chaque niveau de la pile de solution.
 

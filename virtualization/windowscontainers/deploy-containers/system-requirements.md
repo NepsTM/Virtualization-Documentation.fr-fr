@@ -2,17 +2,17 @@
 title: Configuration requise pour un conteneur Windows
 description: Configuration requise pour un conteneur Windows.
 keywords: métadonnées, conteneurs
-author: enderb-ms
+author: taylorb-microsoft
 ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: 8ff9373bd943c360079679a7e41256c24aa21aa8
-ms.sourcegitcommit: d69ed13d505e96f514f456cdae0f93dab4fd3746
+ms.openlocfilehash: e736199221f06c572f89e8dafac55ce114bf7481
+ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "4340867"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "6948018"
 ---
 # <a name="windows-container-requirements"></a>Configuration requise pour un conteneur Windows
 
