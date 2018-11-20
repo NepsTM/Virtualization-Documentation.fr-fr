@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: edfd11c8-ee99-42d8-9878-efc126fe1826
-ms.openlocfilehash: 477c6079d6e90a206386d1810bdb1449e087a4be
-ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.openlocfilehash: 7db0135e5d5079d3b8cce815d051ecd6a7cb896b
+ms.sourcegitcommit: 614e3ca3e6f4373b999a501a2829adbaa61de4c4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "6948088"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "7277533"
 ---
 # <a name="linux-containers-on-windows"></a>Conteneurs Linux sur Windows
 
@@ -49,11 +49,11 @@ Pour voir si vous exécutez Moby VM, vérifiez le Gestionnaire Hyper-V pour les 
 
 Pour essayer LCOW, suivez les instructions de conteneur de Linux dans [ce guide get-démarré](../quick-start/quick-start-windows-10.md)
 
-Conteneurs Linux avec isolation Hyper-V s’exécutent à chaque conteneur Linux (LCOW) dans un optimisé VM Linux avec juste assez du système d’exploitation pour exécuter des conteneurs.  Contrairement à l’approche Moby VM, chaque LCOW possède son propre noyau et est propre bac à sable de machine virtuelle.  Ils sont également gérés directement par Docker sur Windows.
+Conteneurs Linux avec isolation Hyper-V s’exécutent à chaque conteneur Linux (LCOW) dans un optimisé VM Linux avec juste assez du système d’exploitation pour exécuter des conteneurs.  Contrairement à l’approche Moby VM, chaque LCOW possède son propre noyau et son propre bac à sable de la machine virtuelle.  Ils sont également gérés directement par Docker sur Windows.
 
 ![Conteneurs Linux avec isolation Hyper-V (LCOW)](media/lcow-approach.png)
 
-Examiner de plus près à la gestion des conteneurs diffère entre l’approche de Moby VM et les LCOW, dans le LCOW gestion des conteneurs de modèle reste à Windows et chaque gestion LCOW se produit via GRPC et containerd.  Cela signifie que les conteneurs de distro Linux utilisent pour LCOW peut avoir un inventaire de plus petit quantité.  Droit à présent, nous utilisons LinuxKit pour utilisent les conteneurs distro optimisé mais d’autres projets comme Kata de génération similaire hautement optimisées Linux exactes (clair Linux), ainsi.
+Examiner de plus près à la gestion des conteneurs diffère entre l’approche de Moby VM et les LCOW, dans le LCOW gestion des conteneurs de modèle reste à Windows et chaque gestion LCOW se produit via GRPC et containerd.  Cela signifie que les conteneurs de distro Linux utilisent pour LCOW peut avoir un inventaire de plus petit quantité.  Droit à présent, nous utilisons LinuxKit pour utilisent les conteneurs distro optimisé, mais les autres projets comme Kata de génération similaire hautement optimisées Linux exactes (clair Linux) ainsi.
 
 Voici un Examinons de près de chaque LCOW:
 
@@ -123,6 +123,6 @@ Droit à présent, nous vous recommandons LCOW aux personnes qui:
 
 ## <a name="other-options-we-considered"></a>Autres options que nous avons considéré
 
-Lorsque nous avons regardant façons d’exécuter des conteneurs Linux sur Windows, nous avons considéré WSL.  Pour finir, nous avons choisi d’approche basée sur une virtualisation afin que les conteneurs Linux sur Windows sont cohérentes avec les conteneurs Linux sur Linux.  L’utilisation d’Hyper-V permet également LCOW plus sécurisée.  Nous pouvons réévaluer à l’avenir, mais pour l’instant, les LCOW vont continuer à utiliser Hyper-V.
+Lorsque nous avons regardant façons d’exécuter des conteneurs Linux sur Windows, nous avons considéré WSL. Pour finir, nous avons choisi une approche basée sur la virtualisation afin que les conteneurs Linux sur Windows sont cohérentes avec les conteneurs Linux sur Linux. L’utilisation d’Hyper-V permet également LCOW plus sécurisée. Nous pouvons réévaluer à l’avenir, mais pour l’instant, les LCOW vont continuer à utiliser Hyper-V.
 
-Si vous avez des idées, veuillez envoyer des commentaires par le biais de github ou UserVoice.  En particulier, nous apprécions vos commentaires sur l’expérience spécifique que vous souhaitez voir.
+Si vous avez des idées, veuillez envoyer des commentaires par le biais de GitHub ou UserVoice.  En particulier, nous apprécions vos commentaires sur l’expérience spécifique que vous souhaitez voir.
