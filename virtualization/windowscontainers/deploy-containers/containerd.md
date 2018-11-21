@@ -1,5 +1,5 @@
 ---
-title: Création de la pile de conteneur
+title: Plateforme de conteneur Windows
 description: En savoir plus sur le nouveau conteneur blocs de construction disponibles dans Windows.
 keywords: LCOW, des conteneurs linux, docker, conteneurs, containerd, élément de rapport personnalisé, runhcs, runc
 author: scooley
@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: a0e62b32-0c4c-4dd4-9956-8056e9abd9e5
-ms.openlocfilehash: 970de62c9a0011fa09d6741b2665479efd394313
-ms.sourcegitcommit: 166aa2430ea47d7774392e65a9875501f86dd5ed
+ms.openlocfilehash: 5811ea0761567c3a7db036358b24d1a3e7c51baf
+ms.sourcegitcommit: fdaf666973fca37d8c428e0247454dd47c01f1c3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "7460575"
+ms.locfileid: "7460598"
 ---
 # <a name="container-platform-tools-on-windows"></a>Outils de plateforme de conteneur sur Windows
 
@@ -106,7 +106,9 @@ Pour une vue plus approfondie le HCS, regardez la [Présentation de DockerCon de
 
 ## <a name="containerdcri"></a>élément de rapport containerd/personnalisé
 
-> ! Prise en charge de l’élément de rapport Remarque personnalisé est uniquement disponible dans Server 2019/Windows 10 1809 et versions ultérieures.
+> [!IMPORTANT]
+> Prise en charge de l’élément de rapport personnalisé est uniquement disponible dans Server 2019/Windows 10 1809 et versions ultérieures.  Nous développons également toujours activement containerd pour Windows.
+> Développement/test uniquement.
 
 Alors que les spécifications OCI définit un conteneur unique, [élément de rapport personnalisé](https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/apis/cri/runtime/v1alpha2/api.proto) (interface de runtime de conteneur) décrit les conteneurs en tant que workload(s) dans un bac à sable partagé environnement appelé un pod.  PODS peuvent contenir un ou plusieurs charges de travail de conteneur.  PODS permettent orchestrateurs comme Kubernetes et le maillage de Service Fabric gérer des charges de travail groupées qui doivent se trouver sur le même hôte avec certaines ressources partagées, telles que la mémoire et vNETs.
 
