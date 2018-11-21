@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: a0e62b32-0c4c-4dd4-9956-8056e9abd9e5
-ms.openlocfilehash: 8a68bf9e5e78add65aedb51fff8521ee258e353e
-ms.sourcegitcommit: 9a61fc06c25d17ddb61124a21a3ca821828b833d
+ms.openlocfilehash: 970de62c9a0011fa09d6741b2665479efd394313
+ms.sourcegitcommit: 166aa2430ea47d7774392e65a9875501f86dd5ed
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "7460494"
+ms.locfileid: "7460575"
 ---
 # <a name="container-platform-tools-on-windows"></a>Outils de plateforme de conteneur sur Windows
 
@@ -46,12 +46,15 @@ Sur Windows, nous avons effectué une approche différente.  Lorsque nous avons 
 
 ## <a name="runhcs"></a>runhcs
 
-RunHCS est une branche de runc.  Comme runc, runhcs est un client de ligne de commande pour exécuter des applications empaquetées en fonction du format ouvert conteneur Initiative (OCI) et une implémentation conforme de la spécification ouverte Initiative de conteneur.  
+`runhcs` représente une branche de `runc`.  Comme `runc`, `runhcs` est un client de ligne de commande pour exécuter des applications empaquetées en fonction du format ouvert conteneur Initiative (OCI) et est une implémentation conforme de la spécification ouverte Initiative de conteneur.
 
 Différences fonctionnelles entre runc et runhcs sont les suivantes:
 
-* runhcs s’exécute sur Windows
-* runhcs peut s’exécuter à la fois Windows et Linux [conteneurs Hyper-V](../manage-containers/hyperv-container.md) en plus des conteneurs de processus de Windows.
+* `runhcs` s’exécute sur Windows.  Il communique avec le [HCS](containerd.md#hcs) pour créer et gérer des conteneurs.
+* `runhcs` peut exécuter une variété de types de conteneurs différents.
+
+  * Windows et Linux [conteneurs Hyper-V](../manage-containers/hyperv-container.md)
+  * Windows traite les conteneurs (image de conteneur doit correspondre à l’hôte de conteneur)
 
 **Utilisation:**
 
@@ -89,6 +92,18 @@ Commandes de conteneur disponibles dans runhcs sont les suivantes:
 
 La seule commande peut être considérée comme conteneur multiples est la **liste**.  Il répertorie les conteneurs en cours d’exécution (ou mis en pause) démarrés par runhcs avec la racine donnée.
 
+### <a name="hcs"></a>HCS
+
+Nous avons deux wrappers disponibles sur GitHub d’interface avec le HCS. Dans la mesure où le HCS est une API C, wrappers facilitent appeler le HCS à partir des langages de niveau supérieur.  
+
+* [hcsshim](https://github.com/microsoft/hcsshim) - HCSShim est écrit dans Go, et il sert de base à runhcs.
+Obtenir la dernière version à partir de AppVeyor ou créer une vous-même.
+* [dotnet-computevirtualization](https://github.com/microsoft/dotnet-computevirtualization) -dotnet-computevirtualization est un wrapper pour le HCS en c#.
+
+Si vous souhaitez utiliser le HCS (directement ou via un wrapper), ou si vous voulez rendre un wrapper rouille/Haskell/InsertYourLanguage autour de la HCS, veuillez laisser un commentaire.
+
+Pour une vue plus approfondie le HCS, regardez la [Présentation de DockerCon de John Stark](https://www.youtube.com/watch?v=85nCF5S8Qok).
+
 ## <a name="containerdcri"></a>élément de rapport containerd/personnalisé
 
 > ! Prise en charge de l’élément de rapport Remarque personnalisé est uniquement disponible dans Server 2019/Windows 10 1809 et versions ultérieures.
@@ -103,26 +118,3 @@ Liens vers la spécification de l’élément de rapport personnalisé:
 ![Containerd en fonction des environnements de conteneur](media/containerd-platform.png)
 
 Tandis que runHCS et containerd peuvent gérer sur n’importe quel système Windows Server 2016 ou version ultérieure, prenant en charge les Pods (groupes de conteneurs) requise Nouveautés pour les outils de conteneur dans Windows.  Prise en charge de l’élément de rapport personnalisé est disponible sur Windows Server 2019 et Windows 10 1809 et versions ultérieures.
-
-## <a name="hcs"></a>HCS
-
-Nous avons deux wrappers disponibles sur GitHub d’interface avec le HCS. Dans la mesure où le HCS est une API C, wrappers facilitent appeler le HCS à partir des langages de niveau supérieur.  
-
-### <a name="hcsshim"></a>HCSShim
-
-HCSShim est écrit en Go et il est à la base de runhcs.
-Obtenir la dernière version à partir de AppVeyor ou créer une vous-même.
-
-Essayez-la dans [GitHub](https://github.com/microsoft/hcsshim).
-
-### <a name="dotnet-computevirtualization"></a>dotnet-computevirtualization
-
-> ! Remarque Il s’agit d’une implémentation de référence - l’utiliser pour le développement/test uniquement.
-
-dotnet-computevirtualization est un wrapper pour le HCS en c#.
-
-Essayez-la sur [GitHub](https://github.com/microsoft/dotnet-computevirtualization).
-
-Si vous souhaitez utiliser le HCS (directement ou via un wrapper), ou si vous voulez rendre un wrapper rouille/Haskell/InsertYourLanguage autour de la HCS, veuillez laisser un commentaire.
-
-Pour une vue plus approfondie le HCS, regardez la [Présentation de DockerCon de John Stark](https://www.youtube.com/watch?v=85nCF5S8Qok).
