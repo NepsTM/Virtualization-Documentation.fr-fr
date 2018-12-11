@@ -2,20 +2,20 @@
 title: Configuration des machines virtuelles imbriquées pour communiquer directement avec les ressources d’un réseau virtuel Azure
 description: Virtualisation imbriquée
 keywords: Windows 10, hyper-v, Azure
-author: johncslack
+author: mrajess
 ms.date: 12/10/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1ecb85a6-d938-4c30-a29b-d18bd007ba08
-ms.openlocfilehash: f316f4c576eae6dd7c14de367e42012a3c724eac
-ms.sourcegitcommit: a9ab01b718b065124829b05868955f40e9020071
+ms.openlocfilehash: abe6f0da68ff90af0b2b5e675f70f106d42ca81c
+ms.sourcegitcommit: 8db42caaace760b7eeb1367b631b38e7904a9f26
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/11/2018
-ms.locfileid: "8917731"
+ms.locfileid: "8962307"
 ---
-# <a name="configuring-nested-vms-to-communicate-directly-with-resources-in-an-azure-virtual-network"></a>Configuration des machines virtuelles imbriquées pour communiquer directement avec les ressources d’un réseau virtuel Azure
+# <a name="configure-nested-vms-to-communicate-with-resources-in-an-azure-virtual-network"></a>Configurer des ordinateurs virtuels imbriquées pour communiquer avec les ressources d’un réseau virtuel Azure
 
 Les instructions d’origine sur le déploiement et la configuration des machines virtuelles imbriquées dans Azure nécessite que vous accédez à ces machines virtuelles par le biais d’un commutateur NAT. Cela présente plusieurs limitations:
 
@@ -45,7 +45,7 @@ Ce guide repose sur les hypothèses suivantes sur l’environnement cible:
 
 * En arrière-plan: Recevoir imbriquée machines virtuelles pas DHCP à partir de la basculée leur hôte est connecté au même si vous configurez une interne ou un commutateur externe. 
   * Cela signifie que l’hôte Hyper-V doit fournir le service DHCP.
-* Nous allouera un bloc d’adresses IP pour une utilisation juste par l’ordinateur hôte Hyper-V.  L’hôte Hyper-V n’est pas prenant en charge des baux actuellement affectées sur le basculée, afin d’éviter une situation dans laquelle l’hôte attribue une adresse IP déjà existant, nous devons allouer un bloc des adresses IP pour une utilisation simplement par l’ordinateur hôte Hyper-V. Cela va nous permettre d’éviter un scénario IP en double. 
+* Nous allouera un bloc d’adresses IP pour une utilisation juste par l’ordinateur hôte Hyper-V.  L’hôte Hyper-V n’est pas prenant en charge des baux actuellement affectées sur le basculée, afin d’éviter une situation dans laquelle l’hôte attribue une adresse IP déjà existant, nous devons allouer un bloc des adresses IP pour une utilisation simplement par l’ordinateur hôte Hyper-V. Cela va nous permettre d’éviter un scénario IP en double.
   * Le bloc d’adresses IP nous choisissons correspondra à un sous-réseau au sein de le basculée résidant sur votre ordinateur hôte Hyper-V.
   * La raison que nous voulons que cette option pour correspondre à un sous-réseau existant consiste à gérer les publicités BGP sur le ExpressRoute. Si nous compose simplement une plage IP pour l’hôte Hyper-V à utiliser, nous devons créer une série d’itinéraires statiques pour permettre aux clients sur site pour communiquer avec les machines virtuelles imbriquées. Cela ne signifie pas que cela n’est pas une condition requise par dur comme vous pourriez constituent une plage IP pour les machines virtuelles imbriquées et ensuite créer tous les itinéraires nécessaires pour diriger les clients vers l’hôte Hyper-V pour cette plage.
 * Nous allons créer un commutateur interne au sein de Hyper-V et puis nous allons désigner l’interface nouvellement créé une adresse IP dans une plage que nous réservons pour DHCP. Cette adresse IP est devenue la passerelle par défaut pour nos machines virtuelles imbriquées et être utilisé pour l’itinéraire entre le commutateur interne et la carte réseau de l’hôte qui est connecté à notre basculée.
