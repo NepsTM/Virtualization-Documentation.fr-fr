@@ -16,6 +16,7 @@
 ## [Créer un commutateur virtuel](quick-start/connect-to-network.md)
 ## [Créer un service d’intégration](user-guide/make-integration-service.md)
 ## [Port Hyper-V WMI](user-guide/refactor-wmiv1-to-wmiv2.md)
+## [Machines virtuelles imbriquées dans des réseaux virtuels Azure](user-guide/nested-virtualization-azure-virtual-network.md) 
 
 # Référence
 ## [Configuration requise pour Hyper-V](reference/hyper-v-requirements.md)
