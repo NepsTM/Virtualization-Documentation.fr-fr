@@ -1,25 +1,46 @@
+---
+title: Configuration des machines virtuelles imbriquées pour communiquer directement avec les ressources d’un réseau virtuel Azure
+description: Virtualisation imbriquée
+keywords: Windows 10, hyper-v, Azure
+author: johncslack
+ms.date: 12/10/2018
+ms.topic: article
+ms.prod: windows-10-hyperv
+ms.service: windows-10-hyperv
+ms.assetid: 1ecb85a6-d938-4c30-a29b-d18bd007ba08
+ms.openlocfilehash: f316f4c576eae6dd7c14de367e42012a3c724eac
+ms.sourcegitcommit: a9ab01b718b065124829b05868955f40e9020071
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "8917731"
+---
 # <a name="configuring-nested-vms-to-communicate-directly-with-resources-in-an-azure-virtual-network"></a>Configuration des machines virtuelles imbriquées pour communiquer directement avec les ressources d’un réseau virtuel Azure
+
 Les instructions d’origine sur le déploiement et la configuration des machines virtuelles imbriquées dans Azure nécessite que vous accédez à ces machines virtuelles par le biais d’un commutateur NAT. Cela présente plusieurs limitations:
 
 1. Machines virtuelles imbriquées ne peuvent pas accéder aux ressources locales ou au sein d’un réseau virtuel Azure.
 2. Ressources locales ou des ressources dans Azure accessibles uniquement les machines virtuelles imbriquées par le biais d’un périphérique NAT, ce qui signifie que plusieurs invités ne peuvent pas partager le même port.
 
-Ce document guideront à travers un déploiement dans laquelle nous provoquent l’utilisation de RRAS, certains itinéraires définis par utilisateur et un espace d’adressage «flottante» pour autoriser des machines virtuelles imbriquées à se comporter et à communiquer comme n’importe quel autre ordinateur virtuel déployé directement à une basculée dans Azure. 
+Ce document guideront à travers un déploiement dans laquelle nous provoquent l’utilisation de RRAS, certains itinéraires définis par utilisateur et un espace d’adressage «flottante» pour autoriser des machines virtuelles imbriquées à se comporter et à communiquer comme n’importe quel autre ordinateur virtuel déployé directement à une basculée dans Azure.
 
 Avant de commencer ce guide, veuillez:
+
 1. Lisez les [conseils fournis ici](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nested-virtualization) sur la virtualisation imbriquée, créer vos VM capable d’imbrication et installez le rôle Hyper-V au sein de ces machines virtuelles. Ne continuez pas au-delà de configurer le rôle Hyper-V.
 2. Lisez cet article entière avant la mise en œuvre.
 
 Ce guide repose sur les hypothèses suivantes sur l’environnement cible:
+
 1. Nous sommes fonctionne dans une [topologie en étoile](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), avec notre hub est connecté à un ExpressRoute.
-2. Notre réseau étoile est attribué à l’espace d’adresse de 10.0.0.0/23, qui est constitué en deux /24 sous-réseaux.
-  * 10.0.0.0/24 – sous-réseau où réside notre hôte Hyper-V.
-  * 10.0.1.0/24: il s’agit d’un sous-réseau «flottant». Cet espace d’adresse sera utilisé par nos machines virtuelles imbriquées et il n’existe pour gérer les annonces d’itinéraires à local.
-  * L’étoile basculée intelligemment nommé «Étoile».
-3. Notre plage IP de réseaux hub n’est pas pertinente, mais savez que son nom est «Hub».
-4. Notre Hyper-V est affectée à l’adresse 10.0.0.4/24.
-5. Nous avons un serveur DNS à 10.0.0.10/24, ce n’est pas obligatoire, mais une hypothèse de notre procédure pas à pas. 
- 
+1. Notre réseau étoile est attribué à l’espace d’adresse de 10.0.0.0/23, qui est constitué en deux /24 sous-réseaux.
+    * 10.0.0.0/24 – sous-réseau où réside notre hôte Hyper-V.
+    * 10.0.1.0/24: il s’agit d’un sous-réseau «flottant». Cet espace d’adresse sera utilisé par nos machines virtuelles imbriquées et il n’existe pour gérer les annonces d’itinéraires à local.
+    * L’étoile basculée intelligemment nommé «Étoile».
+
+1. Notre plage IP de réseaux hub n’est pas pertinente, mais savez que son nom est «Hub».
+1. Notre Hyper-V est affectée à l’adresse 10.0.0.4/24.
+1. Nous avons un serveur DNS à 10.0.0.10/24, ce n’est pas obligatoire, mais une hypothèse de notre procédure pas à pas.
+
 ## <a name="high-level-overview-of-what-were-doing-and-why"></a>Vue d’ensemble de niveau élevé de ce que nous sommes en train de faire et pourquoi
 
 * En arrière-plan: Recevoir imbriquée machines virtuelles pas DHCP à partir de la basculée leur hôte est connecté au même si vous configurez une interne ou un commutateur externe. 
@@ -34,34 +55,40 @@ Ce guide repose sur les hypothèses suivantes sur l’environnement cible:
 * Vous serez également placer ce UDR sur n’importe quel autre sous-réseau au sein d’Azure qui nécessite une connectivité pour les machines virtuelles imbriquées.
 * Pour plusieurs hôtes Hyper-V vous créer des sous-réseaux «flottantes» supplémentaires et ajouter un itinéraire statique supplémentaires à la UDR.
 * Lorsque vous retirez un hôte Hyper-V vous serez supprimer/réaffecter notre sous-réseau «flottante» et supprimer cet itinéraire statique dans notre UDR ou s’il s’agit du dernier hôte Hyper-V, retirez le UDR.
- 
+
 ## <a name="creating-our-virtual-switch"></a>Création de notre commutateur virtuel
+
 1. Ouvrez PowerShell en mode d’administration.
 2. Créer un commutateur interne: `New-VMSwitch -Name "NestedSwitch" -SwitchType Internal`
 3. Affectez l’interface nouvellement créé une adresse IP: `New-NetIPAddress –IPAddress 10.0.1.1 -PrefixLength 24 -InterfaceAlias "vEthernet (NestedSwitch)"`
- 
+
 ## <a name="install-and-configure-dhcp"></a>Installer et configurer DHCP
+
 *De nombreuses personnes manquer ce composant lorsqu’il essaie tout d’abord d’obtenir l’utilisation de la virtualisation imbriquée. Contrairement à local où vos ordinateurs virtuels invités recevront DHCP à partir du réseau résidant sur votre ordinateur hôte machines virtuelles imbriquées dans Azure doivent être fournis DHCP via l’hôte, sur qu'ils s’exécutent. Qui ou vous devez affecter statiquement une adresse IP à chaque machine virtuelle imbriquée, ce qui n’est pas évolutif.*
 
 1. Installez le rôle DHCP: `Install-WindowsFeature DHCP -IncludeManagementTools`
 2. Créer l’étendue DHCP: `Add-DhcpServerV4Scope -Name "Nested VMs" -StartRange 10.0.1.2 -EndRange 10.0.1.254 -SubnetMask 255.255.255.0`
 3. Configurer les options DNS et passerelle par défaut pour l’étendue: `Set-DhcpServerV4OptionValue -DnsServer 10.0.0.10 -Router 10.0.1.1`
     * Veillez à entrer un serveur DNS valide. J’ai se produire dans ce cas de disposer d’un serveur sur le réseau 10.0.0.0/24 qui diffuse DNS Windows.
- 
+
 ## <a name="installing-remote-access"></a>L’installation d’accès à distance
+
 * Ouvrez le Gestionnaire de serveur et sélectionnez «Ajouter des rôles et fonctionnalités».
 * Sélectionnez «Suivant» jusqu'à ce que vous atteigniez «Rôles serveur».
 * Vérifiez les «Accès à distance» et cliquez sur «Suivant» jusqu'à ce que vous atteigniez «Les Services de rôle».
 * Vérifier «Routage», sélectionnez «Ajouter des fonctionnalités» et sélectionnez «Suivant» et «Installer». Terminez l’Assistant et attendez pour l’installation se termine.
- 
+
 ## <a name="configuring-remote-access"></a>Configuration de l’accès à distance
+
 * Ouvrez le Gestionnaire de serveur, puis sélectionnez «Outils» et sélectionnez «Routage et accès à distance».
 * Sur le côté droit du Panneau de gestion de routage et d’accès à distance vous voir une icône avec votre nom de serveurs en regard de celle-ci, avec le bouton droit cliquez ici et sélectionnez «Configurer et activer le routage et accès à distance».
 * Sélectionnez «Suivant» dans l’Assistant, cochez la case d’option pour «Connexion sécurisée entre deux réseaux privés» et sélectionnez «Suivant».
 * Sélectionnez la case d’option pour «Non» lorsque vous êtes invité si vous souhaitez utiliser des connexions à la demande, puis sélectionnez «Suivant» et puis sélectionnez «Terminer».
- 
+
 ## <a name="creating-a-route-table-within-azure"></a>Création d’une Table de routage dans Azure
-Faire référence à [cet article](https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-create-route-table-portal) pour en savoir plus profondeur lire sur la création et la gestion des itinéraires dans Azure. 
+
+Faire référence à [cet article](https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-create-route-table-portal) pour en savoir plus profondeur lire sur la création et la gestion des itinéraires dans Azure.
+
 * Accédez à https://portal.azure.com.
 * Dans le coin supérieur gauche, sélectionnez «Créer une ressource».
 * Dans le champ de recherche, tapez «Table de routage» et appuyez sur ENTRÉE.
@@ -70,8 +97,9 @@ Faire référence à [cet article](https://docs.microsoft.com/en-us/azure/virtua
 * Assurez-vous que vous sélectionnez l’abonnement même résidant dans vos hôtes Hyper-V.
 * Soit créer un nouveau groupe de ressources ou sélectionnez-en une et n’oubliez pas que la région que vous créez dans la Table de routage est la même région résidant sur votre ordinateur hôte Hyper-V.
 * Sélectionnez «Créer».
- 
+
 ## <a name="configuring-the-route-table"></a>Configuration de la Table de routage
+
 * Accédez à la Table de routage que nous venons de créer. Vous pouvez le faire en recherchant le nom de la Table de routage à partir de la barre de recherche en haut du portail.
 * Une fois que vous avez sélectionné la Table de routage accéder aux «Itinéraires» dans le panneau.
 * Sélectionnez «Ajouter».
@@ -81,6 +109,7 @@ Faire référence à [cet article](https://docs.microsoft.com/en-us/azure/virtua
 * Maintenant à partir d’au sein de la sélection de panneau «Sous-réseaux», il s’agit juste en dessous de «Itinéraires».
 * Sélectionnez «Associer», puis sélectionnez notre réseau virtuel «Hub» et puis sélectionnez le «GatewaySubnet» et sélectionnez «OK».
 * Répétez ce processus même pour le sous-réseau que notre hôte Hyper-V doit résider sur ainsi que pour les autres sous-réseaux qui doivent y accéder les machines virtuelles imbriquées.
- 
+
 ## <a name="conclusion"></a>Conclusion
+
 Vous devez maintenant être en mesure de déployer une machine virtuelle (voire une machine virtuelle 32 bits!) sur votre ordinateur hôte Hyper-V et qu’il est accessible à partir de locaux et dans Azure.
