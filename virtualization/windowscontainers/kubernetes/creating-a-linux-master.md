@@ -1,184 +1,149 @@
 ---
-title: "Nœud maître (Master) Kubernetes à partir de zéro"
-author: gkudra-msft
-ms.author: gekudray
-ms.date: 11/16/2017
+title: Nœud maître (Master) Kubernetes à partir de zéro
+author: daschott
+ms.author: daschott
+ms.date: 11/02/2018
 ms.topic: get-started-article
 ms.prod: containers
-description: "Création d’un cluster maître Kubernetes à partir de zéro."
-keywords: kubernetes, 1,9, master, linux
-ms.openlocfilehash: 3ea338f7af3dd921731fce0ec5a8b2cf8c4fef0c
-ms.sourcegitcommit: f542e8c95b5bb31b05b7c88f598f00f76779b519
-ms.translationtype: HT
+description: Création d’un Kubernetes cluster maître.
+keywords: kubernetes, 1.12, linux maître,
+ms.openlocfilehash: 2bbcf2d382f20d140c73d9b34cf0f13a74debdfa
+ms.sourcegitcommit: 8e9252856869135196fd054e3cb417562f851b51
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "6178852"
 ---
-# <a name="kubernetes-master--from-scratch"></a>Nœud maître Kubernetes à partir de zéro #
-Cette page détaille le déploiement manuel d’un nœud maître Kubernetes du début à la fin.
+# <a name="creating-a-kubernetes-master"></a>Création d’un nœud maître Kubernetes #
+> [!NOTE]
+> Ce guide a été validé sur v1.12 de Kubernetes. En raison de la volatilité de Kubernetes à partir de la version vers la version, cette section peut-être émettre des hypothèses qui ne possèdent pas la valeur trues pour toutes les versions futures. Vous pouvez trouver la documentation officielle de l’initialisation de Kubernetes les formes de base à l’aide de kubeadm [ici](https://kubernetes.io/docs/setup/independent/install-kubeadm/). Il suffit d’activer de [section de planification de systèmes d’exploitation mixtes](#enable-mixed-os-scheduling) .
 
-Une machine Linux de type Ubuntu mise à jour récemment est requise pour poursuivre la procédure. Windows n’est pas du tout utilisé dans ce cas de figure. La compilation croisée des fichiers binaires s’effectue sous Linux.
+> [!NOTE]  
+> Une machine Linux récemment mis à jour est nécessaire pour suivre l’exemple; Kubernetes maître des ressources comme [kube-dns](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/), [Planificateur de kube](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/)et [kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) n'ont pas été adaptés à Windows encore. 
+
+> [!tip]
+> Les instructions de Linux sont spécifiquement vers **Ubuntu 16.04**. Autres versions de Linux certifiées pour s’exécuter Kubernetes offrent également des commandes équivalentes que vous pouvez remplacer. Ils seront également interagir avec succès avec Windows.
 
 
-> [!Warning]  
-> En raison de la volatilité de Kubernetes de version en version, ce guide est susceptible d’émettre des hypothèses qui ne seront pas vraies à l’avenir.
+## <a name="initialization-using-kubeadm"></a>Initialisation à l’aide de kubeadm ##
+Sauf spécification explicite dans le cas contraire, exécutez les commandes ci-dessous en tant que **racine**.
 
-
-## <a name="preparing-the-master"></a>Préparation du Master ##
-Tout d’abord, installez tous les composants prérequis:
-
-```bash
-sudo apt-get install curl git build-essential docker.io conntrack python2.7
-```
-
-Si vous vous trouvez derrière un proxy, définissez des variables d’environnement pour la session active:
-```bash
-HTTP_PROXY=http://proxy.example.com:80/
-HTTPS_PROXY=http://proxy.example.com:443/
-http_proxy=http://proxy.example.com:80/
-https_proxy=http://proxy.example.com:443/
-```
-Autrement, si vous souhaitez rendre ce paramètre permanent, ajoutez les variables à /etc/environment (il est nécessaire de se déconnecter puis de se reconnecter pour appliquer les modifications).
-
-Il existe une collection de scripts dans [ce référentiel](https://github.com/Microsoft/SDN/tree/master/Kubernetes/linux) qui vous aidera au cours du processus d’installation. Consultez-les pour `~/kube/`. L’intégralité de ce répertoire sera monté pour la plupart des conteneurs Docker au cours des prochaines étapes, veillez-donc à conserver sa structure comme indiqué dans le guide.
+Tout d’abord, obtenez dans un interpréteur de commandes avec élévation de privilèges racine:
 
 ```bash
-mkdir ~/kube
-mkdir ~/kube/bin
-git clone https://github.com/Microsoft/SDN /tmp/k8s 
-cd /tmp/k8s/Kubernetes/linux
-chmod -R +x *.sh
-chmod +x manifest/generate.py
-mv * ~/kube/
+sudo –s
 ```
 
-
-### <a name="installing-the-linux-binaries"></a>Installation des fichiers binaires Linux ###
-
-> [!Note]  
-> Pour inclure des correctifs ou utiliser un code Kubernetes expérimental plutôt que de télécharger les fichiers binaires prédéfinis, veuillez consulter [cette page](./compiling-kubernetes-binaries.md).
-
-Télécharger et installer les fichiers binaires Linux officiels depuis le [répertoire Kubernetes principal](https://github.com/kubernetes/kubernetes/releases/tag/v1.9.1) et les installer comme suit:
+Assurez-vous que votre ordinateur est à jour:
 
 ```bash
-wget -O kubernetes.tar.gz https://github.com/kubernetes/kubernetes/releases/download/v1.9.1/kubernetes.tar.gz
-tar -vxzf kubernetes.tar.gz 
-cd kubernetes/cluster 
-# follow the prompts from this command, the defaults are generally fine:
-./get-kube-binaries.sh
-cd ../server
-tar -vxzf kubernetes-server-linux-amd64.tar.gz 
-cd kubernetes/server/bin
-cp hyperkube kubectl ~/kube/bin/
+apt-get update -y && apt-get upgrade -y
 ```
 
-Ajouter les fichiers binaires à `$PATH`, de sorte à pouvoir les exécuter depuis n’importe quel emplacement. Notez que cette action définit le chemin d’accès uniquement pour la session. Ajoutez cette ligne `~/.profile` pour que cette action devienne permanente.
+### <a name="install-docker"></a>Installer Docker ###
+Pour être en mesure d’utiliser des conteneurs, vous avez besoin d’un moteur de conteneur, par exemple, Docker. Pour obtenir la version la plus récente, vous pouvez utiliser [ces instructions](https://docs.docker.com/install/linux/docker-ce/ubuntu/) pour l’installation de Docker. Vous pouvez vérifier que docker est correctement installé en exécutant un `hello-world` conteneur:
 
 ```bash
-$ PATH="$HOME/kube/bin:$PATH"
+docker run hello-world
 ```
 
-### <a name="install-cni-plugins"></a>Installer les plug-ins CNI ###
-Les plug-ins CNI de base sont requis pour une mise en réseau Kubernetes. Ils peuvent être téléchargés [ici](https://github.com/containernetworking/plugins/releases) et doit être extraits vers `/opt/cni/bin/`:
-
-```bash
-DOWNLOAD_DIR="${HOME}/kube/cni-plugins"
-CNI_BIN="/opt/cni/bin/"
-mkdir ${DOWNLOAD_DIR}
-cd $DOWNLOAD_DIR
-curl -L $(curl -s https://api.github.com/repos/containernetworking/plugins/releases/latest | grep browser_download_url | grep 'amd64.*tgz' | head -n 1 | cut -d '"' -f 4) -o cni-plugins-amd64.tgz
-tar -xvzf cni-plugins-amd64.tgz
-sudo mkdir -p ${CNI_BIN}
-sudo cp -r !(*.tgz) ${CNI_BIN}
-ls ${CNI_BIN}
-```
-
-
-### <a name="certificates"></a>Certificats ###
-Tout d’abord, obtenir l’adresse IP locale, soit via `ifconfig`, soit:
-
-```bash
-$ ip addr show dev eth0
-```
-
-si le nom de l’interface est connu. Il y sera fait référence de nombreuses fois au long de ce processus. Le définir en tant que variable d’environnement facilite les choses. L’extrait de code suivant le définit temporairement; si la session se termine ou si le shell se ferme, il doit être défini à nouveau.
-
-```bash
-$ MASTER_IP=10.123.45.67   # example! replace
-```
-
-Préparer les certificats qui serviront de nœuds pour communiquer dans le cluster:
-
-```bash
-cd ~/kube/certs
-chmod u+x generate-certs.sh
-./generate-certs.sh $MASTER_IP
-```
-
-### <a name="prepare-manifests--addons"></a>Préparer les manifestes et les extensions ###
-Générer un ensemble de fichiers YAML qui spécifient les pods système de Kubernetes en transmettant l’adresse IP Master et l’adressage CIDR *complet* du cluster au script Python dans le dossier `manifest`:
-
-```bash
-cd ~/kube/manifest
-./generate.py $MASTER_IP --cluster-cidr 192.168.0.0/16
-```
-
-Déplacer le script Python afin que Kubernetes ne le confonde pas avec un manifeste; des problèmes pourront survenir plus tard si cette action n’est pas effectuée.
+### <a name="install-kubeadm"></a>Installer kubeadm ###
+Télécharger `kubeadm` fichiers binaires de votre distribution Linux et initialiser votre cluster.
 
 > [!Important]  
-> Si la version actuelle de Kubernetes est différente de celle mentionnée dans ce guide, utilisez les différents indicateurs de version présents dans le script (tel que `--api-version`) pour [personnaliser l’image](https://console.cloud.google.com/gcr/images/google-containers/GLOBAL/hyperkube-amd64) qui déploient les pods. Tous les manifestes n’utilisent pas la même image et peuvent posséder des schémas de version différents (notamment, `etcd` et le Gestionnaire de module complémentaire).
-
-
-#### <a name="manifest-customization"></a>Personnalisation du manifeste ####
-À ce stade, des modifications spécifiques à la configuration peuvent être souhaitables. Par exemple, il est peut-être nécessaire d’assigner manuellement les sous-réseaux aux nœuds, plutôt que de laisser Kubernetes les gérer automatiquement. Cette configuration spécifique dispose d’une option dans le script (voir `--help` pour plus d’explications concernant le paramètre `--im-sure`):
+> En fonction de votre distribution Linux, vous devrez peut-être remplacer `kubernetes-xenial` sous le [nom de code](https://wiki.ubuntu.com/Releases)de correct.
 
 ```bash
-./generate.py $MASTER_IP --im-sure
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
+deb http://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+apt-get update && apt-get install -y kubelet kubeadm kubectl 
 ```
 
-Les autres options de configuration personnalisée nécessitent une modification manuelle des manifestes générés.
-
-
-### <a name="configure--run-kubernetes"></a>Configurer et exécuter Kubernetes ###
-Configurer Kubernetes pour utiliser les certificats générés. Cette action permet de créer une configuration à l’emplacement `~/.kube/config`:
+### <a name="prepare-the-master-node"></a>Préparer le nœud maître ###
+Kubernetes sur Linux nécessite l’échange d’espace pour être désactivé:
 
 ```bash
-cd ~/kube
-./configure-kubectl.sh $MASTER_IP
+nano /etc/fstab  # (remove a line referencing 'swap.img' , if it exists)
+swapoff -a 
 ```
 
-À présent, copier le fichier à l’emplacement où les pods le chercheront plus tard:
+### <a name="initialize-master"></a>Initialiser master ###
+Notez vers le bas de votre sous-réseau de cluster (par exemple, 10.244.0.0/16) et le sous-réseau de service (par exemple, 10.96.0.0/12) et initialiser votre maître à l’aide de kubeadm:
 
 ```bash
-mkdir ~/kube/kubelet
-sudo cp ~/.kube/config ~/kube/kubelet/
+kubeadm init --pod-network-cidr=10.244.0.0/16 --service-cidr=10.96.0.0/12
 ```
 
-Le «client» Kubernetes, `kubelet`, est prêt à démarrer. Les scripts suivants fonctionnent indéfiniment; ouvrez une autre session terminal après chacun d’’entre eux pour qu’ils continuent de fonctionner:
+Ce processus peut prendre plusieurs minutes. Une fois terminé, vous devriez voir un écran comme cette confirmation que votre maître a été initialisé:
+
+![texte](media/kubeadm-init.png)
+
+> [!tip]
+> Prenez note de la sortie de commande de jointure kubeadm dans l’image ci-dessus *maintenant* avant qu’il ait été perdu.
+
+> [!tip]
+> Si vous disposez d’une version de Kubernetes souhaitée que vous souhaitez utiliser, vous pouvez passer le `--kubernetes-version` indicateur pour kubeadm.
+
+Nous n’avons pas encore terminé. Pour utiliser `kubectl` en tant qu’utilisateur standard, exécutez le suivant __**dans un interpréteur de commandes utilisateur unelevated, non racine**__
 
 ```bash
-cd ~/kube
-sudo ./start-kubelet.sh
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
+Maintenant, vous pouvez utiliser kubectl pour modifier ou afficher des informations sur votre cluster.
 
-Exécutez le script Kubeproxy, en passant le CIDR partiel du cluster:
+### <a name="enable-mixed-os-scheduling"></a>Activer la planification des systèmes d’exploitation mixtes ###
+Par défaut, certaines ressources Kubernetes sont écrites de manière à ce qu’ils sont planifiés sur tous les nœuds. Toutefois, dans un environnement multi-OS nous ne voulons pas les ressources de Linux à interférer ou être planifiée double sur les nœuds de Windows et vice versa. Pour cette raison, nous devons appliquer des étiquettes de [NodeSelector](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector) . 
+
+À cet égard, nous allons le linux des correctifs kube-proxy [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) à cible Linux.
+
+Vérifiez que la stratégie de mise à jour de `kube-proxy` DaemonSet est défini sur [RollingUpdate](https://kubernetes.io/docs/tasks/manage-daemon/update-daemon-set/):
 
 ```bash
-cd ~/kube
-sudo ./start-kubeproxy.sh 192.168
+kubectl get ds/kube-proxy -o go-template='{{.spec.updateStrategy.type}}{{"\n"}}' --namespace=kube-system
 ```
 
+Ensuite, le DaemonSet des correctifs en téléchargeant [ce nodeSelector](https://github.com/Microsoft/SDN/tree/master/Kubernetes/flannel/l2bridge/manifests/node-selector-patch.yml) et l’appliquer pour cibler uniquement Linux:
 
-> [!Important]  
-> Ce sera le /16 CIDR *complet* prévu qui gérera les nœuds, *même s’il existe un trafic autre que Kubernetes sur ce CIDR.* Kubeproxy s’applique *uniquement* au trafic Kubernetes vers le sous-réseau de *service*, afin qu’il n’interfère pas avec le trafic des autres hôtes.
+```bash
+kubectl patch ds/kube-proxy --patch "$(cat node-selector-patch.yml)" -n=kube-system
+```
 
-> [!Note]  
-> Ces scripts peuvent être mis en arrière-plan. Ce guide couvre uniquement leur exécution manuelle, étant donné qu’il s’agit de la manière la plus pratique pour déceler les erreurs lors de l’installation.
+Une fois que vous le succès, vous devez voir «Sélecteurs de nœuds» de `kube-proxy` et n’importe quel autre DaemonSets la valeur `beta.kubernetes.io/os=linux`
 
+```bash
+kubectl get ds -n kube-system
+```
 
-## <a name="verifying-the-master"></a>Vérification du Master ##
+![texte](media/kube-proxy-ds.png)
+
+### <a name="collect-cluster-information"></a>Collecter des informations sur le cluster ###
+Pour joindre correctement futures nœuds à la forme de base, vous devez écrire vers le bas les informations suivantes:
+  1. `kubeadm join` commande de sortie ([ici](#initialize-master))
+    * Exemple: `kubeadm join <Master_IP>:6443 --token <some_token> --discovery-token-ca-cert-hash <some_hash>`
+  2. Définis au cours de sous-réseau de cluster `kubeadm init` ([ici](#initialize-master))
+    * Exemple: `10.244.0.0/16`
+  3. Sous-réseau de service défini au cours de `kubeadm init` ([ici](#initialize-master))
+    * Exemple: `10.96.0.0/12`
+    * Vous pouvez également trouver à l’aide de `kubectl cluster-info dump | grep -i service-cluster-ip-range`
+  4. Adresse IP de service Kube-dns 
+    * Exemple: `10.96.0.10`
+    * Vous trouverez dans le champ «Cluster IP» à l’aide `kubectl get svc/kube-dns -n kube-system`
+  5. Kubernetes `config` fichier généré après `kubeadm init` ([ici](#initialize-master)). Si vous avez suivi les instructions, cela peut trouver dans les chemins d’accès suivants:
+    * `/etc/kubernetes/admin.conf`
+    * `$HOME/.kube/config`
+
+## <a name="verifying-the-master"></a>Vérification du master ##
 Après quelques minutes, le système doit être dans l’état suivant:
 
-  - Sous `docker ps`, il y aura ~ 23nœuds de travail et conteneurs de pod.
-  - Appeler `kubectl cluster-info` affichera les informations concernant le serveur d’API Master Kubernetes, en plus du DNS et des extensions Heapster.
-  - `ifconfig` Affichera une nouvelle interface `cbr0` avec le CIDR du cluster choisi.
+  - Sous `kubectl get pods -n kube-system`, il y aura pods pour tous les [composants de maître Kubernetes](https://kubernetes.io/docs/concepts/overview/components/#master-components) dans `Running` état.
+  - L’appel `kubectl cluster-info` affichera les informations concernant le serveur d’API master Kubernetes en plus des modules complémentaires DNS.
 
+## <a name="next-steps"></a>Étapes suivantes ## 
+Dans cette section, nous décrit comment configurer un nœud maître Kubernetes à l’aide de kubeadm. Vous êtes maintenant prêt à l’étape 3:
+
+> [!div class="nextstepaction"]
+> [Choix d’une solution de réseau](./network-topologies.md)

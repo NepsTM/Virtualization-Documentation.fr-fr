@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: aa69739697e9e2c668aaf5026c6f5ddc69d43c4d
-ms.sourcegitcommit: f6f53fd0da65ac44d16fb793c5aa1af56c14d90e
+ms.openlocfilehash: d831b5950d84c9f82e2a4874827b2ffb107ad50e
+ms.sourcegitcommit: 4090d158dd3573ea90799de5b014c131a206b000
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "5428991"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "6121579"
 ---
 # <a name="windows-containers-on-windows-10"></a>Conteneurs Windows sur Windows10
 
@@ -31,11 +31,11 @@ Ce démarrage rapide est spécifique à Windows10. Une documentation supplément
 > Vous devez installer les mises à jour critiques pour que les conteneurs Windows fonctionnent.
 > Pour vérifier la version de votre système d’exploitation, exécutez `winver.exe` et comparez la version indiquée dans [l’historique des mises à jour Windows10](https://support.microsoft.com/en-us/help/12387/windows-10-update-history).
 
-> Assurez-vous d’avoir la version14393.222 ou ultérieure avant de continuer.  Cette version correspond à Windows 10 version 1607, afin que n’importe quelle version ci-dessus 1607 doit être entièrement pris en charge.
+> Assurez-vous d’avoir la version14393.222 ou ultérieure avant de continuer.  Cette version correspond à Windows 10 version 1607, afin de n’importe quelle version ci-dessus 1607 doit être entièrement pris en charge.
 
 ## <a name="1-install-docker-for-windows"></a>1. Installer Docker pour Windows
 
-[Téléchargez Docker pour Windows](https://download.docker.com/win/stable/InstallDocker.msi) et exécutez le programme d’installation. [Des instructions d’installation détaillées](https://docs.docker.com/docker-for-windows/install) sont disponibles dans la documentation de Docker.
+[Téléchargez le Docker pour Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows) et exécutez le programme d’installation (vous serez requis pour vous connecter. Créer un compte si vous n’avez pas déjà). [Des instructions d’installation détaillées](https://docs.docker.com/docker-for-windows/install) sont disponibles dans la documentation de Docker.
 
 ## <a name="2-switch-to-windows-containers"></a>2. Basculer vers les conteneurs Windows
 

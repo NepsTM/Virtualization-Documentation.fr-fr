@@ -8,11 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: 6dbc14ae192f40872a2d62253d1a0cf5658f4c04
-ms.sourcegitcommit: 7fdb0c5069605471bee351c4445a82e31c2930bd
-ms.translationtype: HT
+ms.openlocfilehash: 5dcc2af869ba0433b1d755f6d70f5dae6e18cdc5
+ms.sourcegitcommit: 4090d158dd3573ea90799de5b014c131a206b000
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "6121609"
 ---
 # <a name="windows-containers"></a>Conteneurs Windows
 
@@ -36,7 +37,7 @@ Regardez une présentation rapide ici: [Conteneurs Windows: développement d’a
 
 Les conteneurs constituent un environnement d’exploitation isolé, mobile et contrôlé par les ressources, qui s’exécute sur un ordinateur hôte ou un ordinateur virtuel. Une application ou un processus qui s’exécute dans un conteneur inclut la totalité des dépendances et des fichiers de configuration requis. Il lui semble qu’aucun autre processus n’est en cours d’exécution à l’extérieur du conteneur.
 
-L’hôte du conteneur configure un ensemble de ressources pour le conteneur et ce dernier utilise uniquement ces ressources. Du point de vue du conteneur, aucune autre ressource n’existe en dehors de celles qui lui ont été fournies et, par conséquent il n’a pas accès aux ressources susceptibles d’avoir été configurées pour un conteneur voisin.
+L’hôte du conteneur configure un ensemble de ressources pour le conteneur et ce dernier utilise uniquement ces ressources. Pour autant que le conteneur sait, aucune autre ressource n’existe en dehors de ce qui a été indiqué et, par conséquent le conteneur ne peut pas les ressources peuvent avoir été configurées pour un conteneur voisin.
 
 Les concepts clés suivants peuvent s’avérer utiles quand vous commencez à créer des conteneurs Windows et à les utiliser.
 

@@ -1,6 +1,6 @@
 ---
-title: "Configurer un réseau NAT"
-description: "Configurer un réseau NAT"
+title: Configurer un réseau NAT
+description: Configurer un réseau NAT
 keywords: Windows10, Hyper-V
 author: jmesser81
 ms.date: 05/02/2016
@@ -8,11 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1f8a691c-ca75-42da-8ad8-a35611ad70ec
-ms.openlocfilehash: 6f5872a4f16bcce504af3e6e81ef3e820013d121
-ms.sourcegitcommit: ad5f6344230c7c4977adf3769fb7b01a5eca7bb9
-ms.translationtype: HT
+ms.openlocfilehash: 0c365b9351ee09c946e1711f3a3a5e82eb71c785
+ms.sourcegitcommit: 4090d158dd3573ea90799de5b014c131a206b000
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "6121619"
 ---
 # <a name="set-up-a-nat-network"></a>Configurer un réseau NAT
 
@@ -147,7 +148,7 @@ PS C:\> Get-NetNat | Remove-NetNAT (again, this will remove the NAT but keep the
 PS C:\> New-NetNat -Name SharedNAT -InternalIPInterfaceAddressPrefix <shared prefix>
 PS C:\> Start-Service docker
 ```
-Docker/HNS affecte des adressesIP aux conteneurs Windows à partir du <container prefix> L’administrateur affecte des adressesIP aux machines virtuelles à partir de l’ensemble différentiel du <shared prefix> et <container prefix>
+Docker/HNS affectera des adresses IP aux conteneurs Windows et administrateur sera affecter des adresses IP aux machines virtuelles à partir de l’ensemble des deux.
 
 L’utilisateur a installé la fonctionnalité de conteneur Windows avec le moteur Docker en cours d’exécution et veut maintenant connecter les machines virtuelles au réseau NAT
 ```
@@ -161,7 +162,7 @@ PS C:\> New-NetNat -Name SharedNAT -InternalIPInterfaceAddressPrefix <shared pre
 PS C:\> New-VirtualSwitch -Type internal (attach VMs to this new vSwitch)
 PS C:\> Start-Service docker
 ```
-Docker/HNS affecte des adressesIP aux conteneurs Windows à partir du <container prefix> L’administrateur affecte des adressesIP aux machines virtuelles à partir de l’ensemble différentiel du <shared prefix> et <container prefix>
+Docker/HNS affectera des adresses IP aux conteneurs Windows et administrateur sera affecter des adresses IP aux machines virtuelles à partir de l’ensemble des deux.
 
 Au final, vous devez disposer de deux commutateurs de machine virtuelle internes et d’un réseau NAT partagé entre eux.
 
