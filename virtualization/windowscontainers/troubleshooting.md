@@ -1,18 +1,19 @@
 ---
-title: "Résolution des problèmes liés aux conteneurs Windows"
-description: "Conseils de dépannage, scripts automatisés et informations de journal pour les conteneurs Windows et Docker"
-keywords: "Docker, conteneurs, résolution des problèmes, journaux"
+title: Résolution des problèmes liés aux conteneurs Windows
+description: Conseils de dépannage, scripts automatisés et informations de journal pour les conteneurs Windows et Docker
+keywords: Docker, conteneurs, résolution des problèmes, journaux
 author: PatrickLang
 ms.date: 12/19/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
-ms.openlocfilehash: 4d4b8a533aa5517c5850967f0b92c97da5190296
-ms.sourcegitcommit: 4042339cfd8a4440a5aba2b6f28968a52ab066fa
-ms.translationtype: HT
+ms.openlocfilehash: d67b38b04cf781ab5cba8e0142831f71b65aa974
+ms.sourcegitcommit: 8ab1fccfc680911493c769157a6cfe7cbcf17bde
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "8972053"
 ---
 # <a name="troubleshooting"></a>Résolution des problèmes
 
@@ -90,9 +91,9 @@ sc.exe stop docker
 <path\to\>dockerd.exe -D > daemon.log 2>&1
 ```
 
-## <a name="obtaining-stack-dump-and-daemon-data"></a>Obtention du vidage de pile et des données du démon.
+## <a name="obtaining-stack-dump"></a>Obtention du vidage de pile.
 
-En règle générale, cela n'est utile que si le support Microsoft ou les développeurs du docker le demandent explicitement. Ces données peuvent servir à diagnostiquer une situation dans laquelle le docker semble bloqué. 
+En règle générale, cela n’est utile si vous demandent explicitement par le support de Microsoft, ou les développeurs du docker. Il peut être utilisé pour diagnostiquer une situation dans laquelle le docker semble bloqué. 
 
 Télécharger [docker-signal.exe](https://github.com/jhowardmsft/docker-signal).
 
@@ -103,11 +104,11 @@ Get-Process dockerd
 docker-signal -pid=<id>
 ```
 
-Les fichiers résultants se trouveront dans le répertoire de données racine dans lequel le docker est en cours d’exécution. Le répertoire par défaut est `C:\ProgramData\Docker`. Le répertoire réel peut être confirmé en exécutant `docker info -f "{{.DockerRootDir}}"`.
+Le fichier de sortie sera placé à la racine de données répertoire docker est en cours d’exécution. Le répertoire par défaut est `C:\ProgramData\Docker`. Le répertoire réel peut être confirmé en exécutant `docker info -f "{{.DockerRootDir}}"`.
 
-Les fichiers seront `goroutine-stacks-<timestamp>.log` et `daemon-data-<timestamp>.log`.
+Le fichier sera `goroutine-stacks-<timestamp>.log`.
 
-Notez que `daemon-data*.log` peut contenir des informations personnelles et doit généralement être partagé uniquement avec des intervenants de support fiables. `goroutine-stacks*.log` ne contient aucune information personnelle.
+Notez que `goroutine-stacks*.log` ne contient aucune information personnelle.
 
 
 # <a name="host-compute-service"></a>Service de calcul hôte

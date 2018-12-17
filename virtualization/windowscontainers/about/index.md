@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: 5dcc2af869ba0433b1d755f6d70f5dae6e18cdc5
-ms.sourcegitcommit: 4090d158dd3573ea90799de5b014c131a206b000
+ms.openlocfilehash: ade690dbfed2fd154ee94955f3104c47dae40045
+ms.sourcegitcommit: 8ab1fccfc680911493c769157a6cfe7cbcf17bde
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "6121609"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "8972063"
 ---
 # <a name="windows-containers"></a>Conteneurs Windows
 
@@ -21,11 +21,11 @@ ms.locfileid: "6121609"
 
 Les conteneurs constituent un moyen d’incorporer une application dans son propre contenant. L’application qui se trouve dans le conteneur n’a aucune connaissance des autres applications ou processus pouvant exister à l’extérieur de ce contenant. Tout ce dont dépend l’application pour s’exécuter correctement se trouve également dans ce conteneur.  Quel que soit l’emplacement de ce dernier, l’application fonctionnera toujours correctement, car le package contient tous les éléments nécessaires à son exécution.
 
-Prenons l’exemple d’une cuisine. Nous y rassemblons tous les appareils ménagers et les meubles, les ustensiles divers et la vaisselle, jusqu’au liquide vaisselle et aux torchons. Il s’agit là de notre conteneur.
+Prenons l’exemple d’une cuisine. Nous y rassemblons tous les appareils ménagers et les meubles, les ustensiles divers et la vaisselle, jusqu’au liquide vaisselle et aux torchons. Il s’agit de notre conteneur.
 
 <center style="margin: 25px">![](media/box1.png)</center>
 
-Nous pouvons maintenant prendre ce conteneur et le déposer dans n’importe quel appartement et la cuisine sera identique. Il suffit d’effectuer les branchements électriques et les raccordements en eau et nous pouvons commencer à cuisiner (étant donné que nous disposons de tous les appareils dont nous avons besoin!).
+Nous pouvons maintenant prendre ce conteneur et le déposer dans n’importe quel appartement et la cuisine sera identique. Tout ce que nous devons faire branchements électriques et l’eau à celui-ci et nous pouvons commencer à cuisiner (étant donné que nous disposons de tous les appareils dont nous avons besoin!).
 
 <center style="margin: 25px">![](media/apartment.png)</center>
 
@@ -37,7 +37,7 @@ Regardez une présentation rapide ici: [Conteneurs Windows: développement d’a
 
 Les conteneurs constituent un environnement d’exploitation isolé, mobile et contrôlé par les ressources, qui s’exécute sur un ordinateur hôte ou un ordinateur virtuel. Une application ou un processus qui s’exécute dans un conteneur inclut la totalité des dépendances et des fichiers de configuration requis. Il lui semble qu’aucun autre processus n’est en cours d’exécution à l’extérieur du conteneur.
 
-L’hôte du conteneur configure un ensemble de ressources pour le conteneur et ce dernier utilise uniquement ces ressources. Pour autant que le conteneur sait, aucune autre ressource n’existe en dehors de ce qui a été indiqué et, par conséquent le conteneur ne peut pas les ressources peuvent avoir été configurées pour un conteneur voisin.
+L’hôte du conteneur configure un ensemble de ressources pour le conteneur et ce dernier utilise uniquement ces ressources. Comme le conteneur sait, aucune autre ressource n’existe en dehors de ce qui lui a été attribué et, par conséquent le conteneur ne peuvent pas les ressources peuvent avoir été configurées pour un conteneur voisin.
 
 Les concepts clés suivants peuvent s’avérer utiles quand vous commencez à créer des conteneurs Windows et à les utiliser.
 
