@@ -7,12 +7,12 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
-ms.openlocfilehash: 9b19a82c94fbe9af9f141d4845a8ed1045a10302
-ms.sourcegitcommit: 94e8ae4be1b0d3d13fca06e0775dd2aab895a12c
-ms.translationtype: HT
+ms.openlocfilehash: c14027e6ba1b0cd475ec1543205b315240662f2c
+ms.sourcegitcommit: af70dedc4224f4b7faac65743ef6a89c64e19ffd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "1840991"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "8972096"
 ---
 # <a name="supported-windows-guests"></a>Invités Windows pris en charge
 
@@ -42,6 +42,7 @@ Pour pouvoir être pris en charge, tous les systèmes d’exploitation (invité 
 | WindowsVista avec Service Pack2 (SP2) | 2 | Professionnel, Entreprise et Édition Intégrale, notamment les éditions N et KN. |
 | - | | |
 | [Canal semi-annuel WindowsServer](https://docs.microsoft.com/en-us/windows-server/get-started/semi-annual-channel-overview) | 64 | |
+| Windows Server2019 | 64 | |
 | Windows Server2016 | 64 | |
 | WindowsServer2012R2 | 64 | |
 | Windows Server2012 | 64 | |
