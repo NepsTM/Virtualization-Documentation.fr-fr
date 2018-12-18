@@ -8,32 +8,27 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
-ms.openlocfilehash: 37c8cadc4e2725e8220834d41907240c1a273e09
-ms.sourcegitcommit: f542e8c95b5bb31b05b7c88f598f00f76779b519
-ms.translationtype: HT
+ms.openlocfilehash: 7ac5622ad0f6767fa8d55798e0bf99b84f0d0a2c
+ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "8973699"
 ---
 # <a name="frequently-asked-questions"></a>Forum Aux Questions
 
-## <a name="about-windows-containers"></a>À propos des conteneurs Windows
+## <a name="general"></a>Général
 
-**Qu’est-ce qu’un conteneur Windows Server?**
+### <a name="what-is-wcow-what-is-lcow"></a>Qu’est WCOW? Qu’est LCOW?
 
-Les conteneurs Windows Server constituent une méthode de virtualisation de système d’exploitation légère et utilisée pour séparer des applications ou des services d’autres services exécutés sur le même hôte de conteneur. Pour ce faire, chaque conteneur possède sa propre vue du système d’exploitation, ses processus, son système de fichiers, son Registre et ses adressesIP.  
+WCOW est que l’abréviation de conteneurs Windows sur Windows et LCOW est l’abréviation de conteneurs Linux sur Windows.
 
-**Qu’est-ce qu’un conteneur Hyper-V?**
-
-Vous pouvez considérer un conteneur Hyper-V comme un conteneur Windows Server exécuté dans une partition Hyper-V.
-
-Les conteneurs Hyper-V présentent une option de déploiement supplémentaire entre le conteneur Windows Server haute densité très efficace et la machine virtuelle Hyper-V hautement isolée avec virtualisation matérielle. Pour les environnements dans lesquels des applications de différentes délimitations d’approbation s’exécutent sur le même hôte, une isolation supplémentaire peut être nécessaire. Les conteneurs Hyper-V fournissent une isolation supérieure avec une virtualisation optimisée et le système d’exploitation Windows Server qui sépare les conteneurs entre eux et du système d’exploitation hôte. Les deux options de déploiement de conteneur utilisent les mêmes API de gestion, outils et formats d’image. Au moment du déploiement, les clients peuvent simplement choisir le mode de déploiement le mieux adapté à leurs besoins.
-
-**Quelle est la différence entre les conteneurs Linux et Windows Server?**
+### <a name="what-is-the-difference-between-linux-and-windows-server-containers"></a>Quelle est la différence entre les conteneurs Linux et Windows Server?
 
 Les conteneurs Linux et Windows Server sont semblables: ils implémentent tous deux des technologies similaires au sein de leurs noyau et système d’exploitation principal. La différence provient de la plateforme et des charges de travail qui s’exécutent dans les conteneurs.  
 Quand un client utilise des conteneurs Windows Server, ils peuvent être intégrés aux technologies Windows existantes, comme .NET, ASP.NET, PowerShell, etc.
 
-**En tant que développeur, dois-je réécrire mon application pour chaque type de conteneur?**
+### <a name="as-a-developer-do-i-have-to-re-write-my-app-for-each-type-of-container"></a>En tant que développeur, dois-je réécrire mon application pour chaque type de conteneur?
 
 Non, les images des conteneurs Windows sont communes aux conteneurs Windows Server et conteneurs Hyper-V. Le choix du type de conteneur est effectué quand vous démarrez le conteneur. Du point de vue d’un développeur, les conteneurs Windows Server et les conteneurs Hyper-V sont deux versions du même élément. Ils offrent la même expérience de développement, de programmation et de gestion, sont ouverts et extensibles, et présentent le même niveau d’intégration et de prise en charge via Docker.
 
@@ -41,37 +36,36 @@ Un développeur peut créer une image de conteneur à l’aide d’un conteneur 
 
 Les conteneurs Windows Server fournissent une densité et des performances supérieures (par exemple, une durée de rotation inférieure, des performances d’exécution plus rapides par rapport aux configurations imbriquées) quand la vitesse est la clé. Les conteneurs Hyper-V offrent une isolation supérieure en garantissant que le code s’exécutant dans un conteneur ne peut pas compromettre ni affecter le système d’exploitation hôte ni d’autres conteneurs exécutés sur le même hôte. Cela est utile pour les scénarios avec plusieurs clients (où l’hébergement de code non fiable est requis), y compris les applications SaaS et l’hébergement d’ordinateurs.
 
-**Est-ce que les conteneurs Hyper-V/Windows Server représentent un module complémentaire ou seront-ils intégrés à Windows Server?**
+### <a name="what-are-the-prerequisites-for-running-containers-on-windows"></a>Quelles sont les conditions requises pour les conteneurs en cours d’exécution sur Windows?
 
-Les fonctionnalités de conteneur sont intégrées à Windows Server2016.  
+Les conteneurs ont été introduites pour la plateforme à partir de Windows Server 2016. Vous devez exécuter Windows Server 2016 ou Windows 10 Anniversary update (version 1607) ou une version ultérieure pour utiliser des conteneurs.
 
-**Quelle est la relation entre les conteneurs Windows Server et Drawbridge?**
+### <a name="can-i-run-windows-containers-in-process-isolated-mode-on-windows-10-enterprise-or-professional"></a>Puis-je exécuter les conteneurs Windows en mode isolées du processus sur Windows 10 entreprise ou Professionnel?
 
-Drawbridge est un des nombreux projets de recherche qui nous ont permis d’acquérir une bonne connaissance des conteneurs.  La majeure partie de la technologie des conteneurs dans Windows Server2016 est née de notre expérience avec Drawbridge: nous sommes maintenant heureux d’apporter des technologies de conteneur à nos clients dans Windows Server2016 à l’échelle internationale.
+Mise à jour, nous n’est plus à partir de Windows 10 octobre 2018 interdisez à un utilisateur de s’exécuter un conteneur Windows avec l’isolation de processus. Vous devez demander directement l’isolation de processus à l’aide de la `--isolation=process` indicateur lors de l’exécution de vos conteneurs via `docker run`.
 
-**Quelles sont les conditions préalables pour les conteneurs Windows Server et Hyper-V?**
+Si c’est un élément que vous intéresse, vous devez vous assurer que votre ordinateur hôte est en cours d’exécution Windows 10, build 17763 + et vous disposez d’une version de docker avec le moteur 18.09 ou plus récente.
 
-Les conteneurs Windows Server et Hyper-V requièrent tous deux Windows Server2016. Ces technologies ne fonctionnent pas avec les versions précédentes de Windows.
-
+> [!WARNING]
+> Cette fonctionnalité sert uniquement pour le test/développement. Vous devez continuer à utiliser Windows Server que l’hôte pour les déploiements de production.
+>
+> À l’aide de cette fonctionnalité, vous devez également vous assurer que les balises de version de votre hôte et conteneur correspondent, dans le cas contraire, le conteneur peut échouer à démarrer ou peuvent présenter un comportement indéfini.
 
 ## <a name="windows-container-management"></a>Gestion des conteneurs Windows
 
-**Les conteneurs Hyper-V seront-ils également disponibles pour l’écosystème Docker?**
+### <a name="how-do-i-make-my-container-images-available-on-air-gapped-machines"></a>Comment faire Mes images de conteneur disponibles sur les ordinateurs exploitant?
 
-Oui: les conteneurs Hyper-V fournissent le même niveau d’intégration et de gestion avec Docker que les conteneurs Windows Server.  L’objectif est d’avoir une expérience ouverte, cohérente et multiplateforme.  
-La plateforme Docker va aussi considérablement simplifier et améliorer l’utilisation de toutes les options de conteneur. Une application développée à l’aide de conteneurs Windows Server peut être déployée comme un conteneur Hyper-V sans modification.
+Les images de base de conteneur Windows contiennent des artefacts dont la distribution est limitée par la licence. Lorsque vous générez sur ces images et les distribuer à un registre public ou privé, vous remarquerez que la couche de base est transmise jamais. Au lieu de cela, nous utilisons le concept d’une couche étrangère qui pointe vers la couche de base réel résidant dans un stockage cloud Azure.
 
+Cela peut poser un problème lorsque vous disposez d’un ordinateur exploitant qui peuvent _uniquement_ les images de tirage à partir de l’adresse de _votre_ Registre de conteneur privé. Les tentatives de suivre la couche externe pour obtenir l’image de base échoue dans ce cas. Pour remplacer le comportement de la couche étrangère, vous pouvez utiliser la `--allow-nondistributable-artifacts` indicateur dans le démon Docker.
+
+> [!IMPORTANT]
+> L’utilisation de cet indicateur ne fait pas obstacle votre obligation de respecter les conditions de la licence image de base du conteneur Windows; Vous devez valider pas de contenu Windows de redistribution public ou 3e tiers. L’utilisation au sein de votre environnement est autorisée.
 
 ## <a name="microsofts-open-ecosystem"></a>Écosystème ouvert de Microsoft
 
-**Est-ce que Microsoft participe à l’Open Container Initiative (OCI)?**
+### <a name="is-microsoft-participating-in-the-open-container-initiative-oci"></a>Est-ce que Microsoft participe à l’Open Container Initiative (OCI)?
 
 Pour garantir que le format des packages reste universel, Docker a récemment organisé l’Open Container Initiative (OCI) visant à garantir que le package de conteneur conserve un format ouvert respectant les fondements, avec Microsoft comme l’un des membres fondateurs.
 
-**Quels sont les avantages de ce partenariat avec Docker?**
-
-Notre association à Docker permet aux développeurs de créer, gérer et déployer des conteneurs Windows Server et Linux à l’aide du même ensemble d’outils Docker. Les développeurs ciblant Windows Server n’ont plus à choisir entre la large gamme de technologies Windows Server et la création des applications en conteneur.  
-
-Docker présente deux facettes, le groupe open source de projets et Docker la société. Nous partons du principe que nous sommes associés aux deux. La réussite de Docker s’explique en partie par l’écosystème dynamique développé autour de la technologie de conteneur Docker. Microsoft contribue au Projet Docker, en permettant la prise en charge des conteneurs Windows Server et Hyper-V.  
-
-Pour plus d’informations, consultez le billet de blog [New Windows Server containers and Azure support for Docker](http://azure.microsoft.com/blog/2014/10/15/new-windows-server-containers-and-azure-support-for-docker/?WT.mc_id=Blog_ServerCloud_Announce_TTD).
+> ! [CONSEIL] Vous avez une recommandation pour un ajout au Forum aux questions? Nous vous encourageons à un nouveau problème de commentaires ci-dessous ou ouvrez une réservation permanente contre ces documents avec vos recommandations!

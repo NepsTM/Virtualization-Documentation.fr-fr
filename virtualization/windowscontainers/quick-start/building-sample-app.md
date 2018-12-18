@@ -1,17 +1,18 @@
 ---
-title: "Créer un exemple d’application"
-description: "Découvrez comment créer un exemple d’application en tirant parti des conteneurs"
+title: Créer un exemple d’application
+description: Découvrez comment créer un exemple d’application en tirant parti des conteneurs
 keywords: docker, conteneurs
 author: cwilhit
 ms.date: 07/25/2017
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: b1d0c4bcf35cd40e9ca058d4e2a51fa028cade2c
-ms.sourcegitcommit: 04c78918c77d2ad6053e6a95dc57bc488efbbf8b
-ms.translationtype: HT
+ms.openlocfilehash: 20328cb47d106dad153738628fc282d63371a3ab
+ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "8973599"
 ---
 # <a name="build-a-sample-app"></a>Créer un exemple d’application
 
@@ -127,6 +128,7 @@ En cliquant sur «MvcMovie» dans la barre de navigation, vous êtes redirigé v
 
 Après avoir récupéré une application web ASP.NET, nous l’avons correctement configurée et générée à l’aide de Docker, puis nous l’avons déployée dans un conteneur en cours d’exécution. Vous pouvez aller encore plus loin! Ainsi, vous pouvez diviser l’application web en plusieurs composants avec, par exemple, un conteneur qui exécute l’API web, un conteneur qui exécute le serveur frontal et un autre conteneur qui exécute le serveur SQL Server.
 
-Maintenant que vous êtes familiarisé avec les conteneurs, il ne vous reste plus qu’à mettre ces informations en pratique et à créer de superbes applications logicielles! Vous trouverez ci-dessous une liste d’autres exemples de conteneurs:
+Maintenant que vous avez le blocage de conteneurs et à créer de superbes applications logicielles en conteneur!
 
-[Exemples de conteneurs](../samples.md)
+> [!div class="nextstepaction"]
+> [Consultez les autres exemples de conteneurs](../samples.md)

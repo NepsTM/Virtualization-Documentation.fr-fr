@@ -8,14 +8,14 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: ade690dbfed2fd154ee94955f3104c47dae40045
-ms.sourcegitcommit: 8ab1fccfc680911493c769157a6cfe7cbcf17bde
+ms.openlocfilehash: 16cf281193ced00ea1b0e2d96291de7f44822284
+ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "8972063"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "8973609"
 ---
-# <a name="windows-containers"></a>Conteneurs Windows
+# <a name="containers-on-windows"></a>Conteneurs sur Windows
 
 ## <a name="what-are-containers"></a>Présentation des conteneurs
 
@@ -31,7 +31,9 @@ Nous pouvons maintenant prendre ce conteneur et le déposer dans n’importe que
 
 Les conteneurs ressemblent à cette cuisine. Il peut y avoir différents types de pièces et de nombreuses pièces peuvent être identiques. L’essentiel est que les conteneurs incluent tous les éléments nécessaires.
 
-Regardez une présentation rapide ici: [Conteneurs Windows: développement d’applications modernes avec un contrôle de niveau professionnel](https://youtu.be/Ryx3o0rD5lY).
+Regardez une présentation brève ci-dessous:
+<iframe width="800" height="450" src="https://www.youtube.com/embed/Ryx3o0rD5lY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## <a name="container-fundamentals"></a>Notions de base sur les conteneurs
 
