@@ -8,22 +8,22 @@ ms.topic: about-article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 29fbe13a-228a-4eaa-9d4d-90ae60da5965
-ms.openlocfilehash: e88f2951abef72bdd938c23a068cc912e31628cb
-ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.openlocfilehash: fec8b08d5bd86102d21ce93b726dc0b931413441
+ms.sourcegitcommit: 69228f28723f366c6b2933c7701077c8df74b32b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "6948068"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "8976745"
 ---
 # <a name="building-a-container-ecosystem"></a>Création d’un écosystème de conteneurs
 
 Pour comprendre pourquoi la création d’un écosystème de conteneurs est si importante, parlons tout d’abord de Docker.
 
-## <a name="dockers-appeal"></a>Appel de Docker
+## <a name="docker"></a>Docker
 
-Le concept de conteneurs (isolation des espaces de noms et gouvernance des ressources) est connu depuis longtemps et remonte aux jails BSD, aux zones Solaris et au mécanisme chroot (change root) UNIX de base.   La contribution de Docker a consisté à fournir un ensemble d’outils communs, un modèle de package et un mécanisme de déploiement.  En procédant ainsi, Docker a considérablement simplifié la mise en conteneur et la distribution des applications.  Ces applications peuvent ensuite être exécutées n’importe où sur tout hôte Linux, une fonctionnalité que nous fournissons également sur Windows.
+Le concept de conteneurs (isolation des espaces de noms et gouvernance des ressources) est connu depuis longtemps et remonte aux jails BSD, aux zones Solaris et au mécanisme chroot (change root) UNIX de base.   La contribution de Docker a consisté à fournir un ensemble d’outils communs, un modèle de package et un mécanisme de déploiement.  En procédant ainsi, Docker a simplifié la CONTENEURISATION et la distribution des applications.  Ces applications peuvent ensuite être exécutées n’importe où sur tout hôte Linux, une fonctionnalité que nous fournissons également sur Windows.
 
-Cette technologie très répandue simplifie non seulement la gestion en offrant les mêmes commandes d’administration par rapport à n’importe quel hôte, mais crée également une opportunité unique pour les opérations de développement transparentes.
+Technologie de modèle et le déploiement de package très répandue simplifie la gestion en offrant les mêmes commandes d’administration par rapport à n’importe quel hôte et crée une opportunité unique pour transparentes.
 
 Qu’il s’agisse de l’ordinateur de bureau d’un développeur, d’un ordinateur de test ou d’un groupe de machines de production, il est possible de créer une image Docker qui sera déployée de façon identique dans tous les environnements en quelques secondes. Cette histoire a généré un écosystème croissant et à grande échelle d’applications empaquetées dans des conteneurs Docker, avec Docker Hub, le registre public des applications en conteneur géré par Docker.
 
