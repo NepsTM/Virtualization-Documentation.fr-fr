@@ -2,17 +2,18 @@
 title: Optimiser les fichiers Dockerfile Windows
 description: Optimisez des fichiers Dockerfile pour les conteneurs Windows.
 keywords: docker, conteneurs
-author: PatrickLang
+author: cwilhit
 ms.date: 05/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb2848ca-683e-4361-a750-0d1d14ec8031
-ms.openlocfilehash: ba45ee94a5d5e8a15bbbeab7b9c25f15be8be731
-ms.sourcegitcommit: f542e8c95b5bb31b05b7c88f598f00f76779b519
-ms.translationtype: HT
+ms.openlocfilehash: aad0c1f2fa7aea564b7348d662df46256a82abc4
+ms.sourcegitcommit: f376676c7864ae19fcb1649006ce6b60c6218634
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "8989448"
 ---
 # <a name="optimize-windows-dockerfiles"></a>Optimiser les fichiers Dockerfile Windows
 
