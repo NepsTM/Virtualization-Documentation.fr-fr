@@ -1,6 +1,6 @@
 ---
-title: "Vidéos et blogs de la communauté"
-description: "Liens vers des vidéos et des blogs très intéressants proposés par la communauté sur les conteneurs Windows"
+title: Vidéos et blogs de la communauté
+description: Liens vers des vidéos et des blogs très intéressants proposés par la communauté sur les conteneurs Windows
 keywords: Docker, conteneurs, Windows, exemples
 author: taylorb-microsoft
 ms.date: 12/19/2016
@@ -8,11 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: cfbb2542-fead-48e7-8318-4da92a7b5b6f
-ms.openlocfilehash: 0280e8fbe784629fcd2e2ee9695ed5c253a5643f
-ms.sourcegitcommit: 1bd3d86bfbad8351cb19bdc84129dd5aec976c0c
-ms.translationtype: HT
+ms.openlocfilehash: b62ab1b7e1dc5a8ac8bb9e6e06320ccd6a1c1876
+ms.sourcegitcommit: 5300274fd7b88c6cf5e37b2f4c02779efaa3a613
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "8996023"
 ---
 # <a name="community-videos-and-blogs"></a>Vidéos et blogs de la communauté
 Cette page contient des liens vers des vidéos et des blogs créés par des membres de la communauté sur les conteneurs.  Si vous connaissez une ressource intéressante ou si vous en avez vous-même créé une, envoyez une demande de publication pour l’ajouter à cette liste.
@@ -27,6 +28,10 @@ Cette page contient des liens vers des vidéos et des blogs créés par des memb
 
 ## <a name="building-and-examples"></a>Création et exemples
 [Vue d’ensemble de .NET et des conteneurs](http://blog.alexellis.io/docker-dotnet-containers/) - Alex Ellis
+
+[Comment Dockerize des Applications Windows: les 5 étapes](https://blog.sixeyed.com/how-to-dockerize-windows-applications/) -Elton Stoneman
+
+[Modernisation .NET Framework applications avec Docker](https://www.pluralsight.com/courses/modernizing-dotnet-framework-apps-docker?clickid=UVL20JTFpzK6UDSX5n1b5zmyUkgWUPWOz3Pjwg0&irgwc=1&mpid=1197078&utm_source=impactradius&utm_medium=digital_affiliate&utm_campaign=1197078&aid=7010a000001xAKZAA2) - Elton Stoneman
 
 [Docker avec Microsoft SQL2016 + ASP.NET](http://blog.alexellis.io/docker-does-sql2016-aspnet/) - Alex Ellis
 
