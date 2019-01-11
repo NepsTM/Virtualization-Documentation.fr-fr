@@ -8,15 +8,15 @@ ms.prod: containers
 description: Jonction d’un nœud Windows à un cluster Kubernetes avec v1.12.
 keywords: kubernetes, 1.12, windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 8051270cac6178bad9adf9a8ef9e2324932f7d01
-ms.sourcegitcommit: 8e9252856869135196fd054e3cb417562f851b51
+ms.openlocfilehash: 764d440837118801226c0bf37f92ffb0d7bdb9e5
+ms.sourcegitcommit: 1aef193cf56dd0870139b5b8f901a8d9808ebdcd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "6179016"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "9001615"
 ---
 # <a name="joining-windows-server-nodes-to-a-cluster"></a>Jonction de nœuds de serveur Windows à un Cluster #
-Une fois que vous avez [d’installation d’un nœud maître Kubernetes](./creating-a-linux-master.md) et [sélectionné votre solution de réseau de votre choix](./network-topologies.md), vous êtes prêt à joindre des nœuds de Windows Server pour former un cluster. Cela requiert une [préparation sur les nœuds de Windows](#preparing-a-windows-node) avant de joindre.
+Une fois que vous avez [d’installation d’un nœud maître Kubernetes](./creating-a-linux-master.md) et [sélectionné votre solution de réseau auquel vous souhaitez](./network-topologies.md), vous êtes prêt à joindre des nœuds de Windows Server pour former un cluster. Cela requiert une [préparation sur les nœuds de Windows](#preparing-a-windows-node) avant de joindre.
 
 ## <a name="preparing-a-windows-node"></a>Préparation d’un nœud Windows ##
 > [!NOTE]  
@@ -49,7 +49,7 @@ Start-Service docker
 
 ### <a name="create-the-pause-infrastructure-image"></a>Créer l’image «pause» (infrastructure) ###
 > [!Important]
-> Il est important d’être prudent d’images de conteneur en conflit; n’ayant ne pas la balise attendue peut provoquer un `docker pull` d’une image de conteneur incompatible, à l’origine [des problèmes de déploiement](./common-problems.md#when-deploying-docker-containers-keep-restarting) comme indéterminée `ContainerCreating` état.
+> Il est important de prendre garde des images de conteneur en conflit; ne pas attribuer la balise attendue peut provoquer un `docker pull` d’une image de conteneur incompatible, à l’origine [des problèmes de déploiement](./common-problems.md#when-deploying-docker-containers-keep-restarting) comme indéterminée `ContainerCreating` état.
 
 Maintenant que `docker` est installé, vous devez préparer une image «pause» qui est utilisée par Kubernetes pour préparer les pods d’infrastructure. Il existe trois étapes à ceci: 
   1. [comment extraire l’image](#pull-the-image)
@@ -61,14 +61,14 @@ Maintenant que `docker` est installé, vous devez préparer une image «pause» 
  Extraire l’image pour votre version de Windows spécifique. Par exemple, si vous exécutez Windows Server 2019:
 
  ```powershell
-docker pull microsoft/nanoserver:1803
+docker pull mcr.microsoft.com/windows/nanoserver:1809
  ```
 
 #### <a name="tag-the-image"></a>Balise de l’image ####
-Recherchez les fichiers Dockerfile que vous utiliserez plus loin dans ce guide la `:latest` balise d’image. Balise de l’image de nanoserver vous simplement extraits comme suit:
+Recherchez les fichiers Dockerfile que vous utiliserez plus loin dans ce guide les `:latest` balise d’image. Balise de l’image nanoserver vous simplement extraits comme suit:
 
 ```powershell
-docker tag microsoft/nanoserver:1803 microsoft/nanoserver:latest
+docker tag mcr.microsoft.com/windows/nanoserver:1809 microsoft/nanoserver:latest
 ```
 
 #### <a name="run-the-container"></a>Exécuter le conteneur ####
@@ -87,7 +87,7 @@ Vous devez voir ce qui suit:
 
 
 #### <a name="prepare-kubernetes-for-windows-directory"></a>Préparer le répertoire Kubernetes pour Windows ####
-Créez un répertoire de «Kubernetes pour Windows» pour stocker les fichiers binaires Kubernetes, ainsi que les scripts de déploiement et les fichiers de configuration.
+Créez un répertoire «Kubernetes pour Windows» pour stocker les fichiers binaires Kubernetes ainsi que les scripts de déploiement et les fichiers de configuration.
 
 ```powershell
 mkdir c:\k
@@ -98,11 +98,11 @@ Copiez le fichier de certificat de Kubernetes (`$HOME/.kube/config`) [à partir 
 
 #### <a name="download-kubernetes-binaries"></a>Télécharger les fichiers binaires Kubernetes ####
 Pour être en mesure d’exécuter Kubernetes, vous devez tout d’abord télécharger le `kubectl`, `kubelet`, et `kube-proxy` fichiers binaires. Vous pouvez les télécharger depuis les liens dans le `CHANGELOG.md` fichier des [versions plus récentes](https://github.com/kubernetes/kubernetes/releases/).
- - Par exemple, voici les [fichiers binaires du nœud de v1.12](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.12.md#node-binaries).
+ - Par exemple, voici l' [v1.12 fichiers binaires du nœud](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.12.md#node-binaries).
  - Utilisez un outil comme [7-Zip](http://www.7-zip.org/) pour extraire l’archive et placer les fichiers binaires dans `C:\k\`.
 
-#### <a name="optional-setup-kubectl-on-windows"></a>(Facultatif) Kubectl le programme d’installation sur Windows ####
-Si vous souhaitez contrôler le cluster à partir de Windows, vous pouvez le faire avec les `kubectl` commande. Tout d’abord, pour rendre `kubectl` disponibles en dehors de la `C:\k\` répertoire, modifier le `PATH` variable d’environnement:
+#### <a name="optional-setup-kubectl-on-windows"></a>(Facultatif) Le programme d’installation kubectl sur Windows ####
+Si vous souhaitez contrôler le cluster à partir de Windows, vous pouvez le faire avec les `kubectl` commande. Tout d’abord, faire `kubectl` disponibles en dehors de la `C:\k\` répertoire, modifier le `PATH` variable d’environnement:
 
 ```powershell
 $env:Path += ";C:\k"
@@ -114,7 +114,7 @@ Si vous souhaitez que cette modification soit permanente, modifiez la variable d
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\k", [EnvironmentVariableTarget]::Machine)
 ```
 
-Ensuite, nous allons vérifier que le [certificat de cluster](#copy-kubernetes-certificate) est valide. Afin de définir l’emplacement où `kubectl` recherche le fichier de configuration, vous pouvez transmettre la `--kubeconfig` paramètre ou modifier le `KUBECONFIG` variable d’environnement. Par exemple, si la configuration se trouve dans `C:\k\config`:
+Ensuite, nous allons vérifier que le [certificat de cluster](#copy-kubernetes-certificate) est valide. Afin de définir l’emplacement où `kubectl` recherche le fichier de configuration, vous pouvez transmettre la `--kubeconfig` paramètre ni modifier les `KUBECONFIG` variable d’environnement. Par exemple, si la configuration se trouve dans `C:\k\config`:
 
 ```powershell
 $env:KUBECONFIG="C:\k\config"
@@ -143,9 +143,9 @@ Vérifiez l’emplacement kubeconfig ou si vous essayez de copier de nouveau.
 Si vous ne voyez aucune erreur le nœud est maintenant prêt à rejoindre le cluster.
 
 ## <a name="joining-the-windows-node"></a>Rejoindre le nœud Windows ##
-En fonction de la [solution mise en réseau, que vous avez choisi](./network-topologies.md), vous pouvez:
-1. [Joignez les nœuds de Windows Server à un cluster de Flannel](#joining-a-flannel-cluster)
-2. [Joignez les nœuds de Windows Server à un cluster avec un commutateur ToR](#joining-a-tor-cluster)
+En fonction de la [solution réseau que vous avez choisi](./network-topologies.md), vous pouvez:
+1. [Joignez les nœuds de Windows Server à un cluster Flannel](#joining-a-flannel-cluster)
+2. [Joindre un cluster avec un commutateur ToR nœuds Windows Server](#joining-a-tor-cluster)
 
 ### <a name="joining-a-flannel-cluster"></a>Jonction d’un cluster Flannel ###
 Il existe une collection de scripts de déploiement Flannel sur [ce référentiel Microsoft](https://github.com/Microsoft/SDN/tree/master/Kubernetes/flannel/l2bridge) qui vous aideront à joindre ce nœud au cluster.
@@ -160,7 +160,7 @@ mv master/SDN-master/Kubernetes/flannel/l2bridge/* C:/k/
 rm -recurse -force master,master.zip
 ```
 
-En outre, vous devez vous assurer que le sous-réseau de cluster (par exemple, à cocher «10.244.0.0/16») est correct dans:
+En plus de cela, vous devez vous assurer que le sous-réseau de cluster (par exemple, à cocher «10.244.0.0/16») est correct dans:
 - [NET-conf.json](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/net-conf.json)
 
 
@@ -172,19 +172,20 @@ En supposant que vous [préparé votre nœud Windows](#preparing-a-windows-node)
 Pour simplifier le processus de jonction d’un nœud Windows, il vous suffit d’exécuter un script Windows unique pour lancer `kubelet`, `kube-proxy`, `flanneld`et joindre le nœud.
 
 > [!Note]
-> [Ce script](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/start.ps1) à télécharger les fichiers supplémentaires telles que la mise à jour `flanneld` exécutable et les [fichiers Dockerfile pour pod d’infrastructure](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/Dockerfile) *et exécuter celles pour vous*. Il peut exister plusieurs windows powershell d’être ouvert/fermé, ainsi que quelques secondes de panne réseau pendant que le commutateur virtuel externe pour le réseau de pod l2bridge est créé la première fois.
+> [Ce script](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/start.ps1) à télécharger les fichiers supplémentaires telles que la mise à jour `flanneld` exécutable et les [fichiers Dockerfile pour pod infrastructure](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/Dockerfile) *et exécuter celles pour vous*. Il peut exister plusieurs fenêtres powershell d’être ouvert/fermé, ainsi que quelques secondes de panne réseau pendant que le commutateur virtuel externe pour le réseau de pod l2bridge est créé la première fois.
 
 ```powershell
 cd c:\k
+chcp 65001
 .\start.ps1 -ManagementIP <Windows Node IP> -ClusterCIDR <Cluster CIDR> -ServiceCIDR <Service CIDR> -KubeDnsServiceIP <Kube-dns Service IP> 
 ```
 
 > [!tip]
-> Déjà noté vers le bas du sous-réseau de cluster, du sous-réseau de service et IP kube-DNS à partir du master Linux [antérieures](./creating-a-linux-master.md#collect-cluster-information)
+> Vous déjà notée le sous-réseau de cluster, du sous-réseau de service et kube-DNS IP à partir du master Linux [antérieures](./creating-a-linux-master.md#collect-cluster-information)
 
-Après l’exécution de cela, vous devez être en mesure de:
-  * Vue joint à l’aide des nœuds de Windows `kubectl get nodes`
-  * Voir la rubrique 3 windows powershell, une pour `kubelet`, une pour `flanneld`et l’autre pour `kube-proxy`
+Après avoir exécuté cette, vous devez être en mesure de:
+  * Afficher les nœuds Windows joints à l’aide de `kubectl get nodes`
+  * Voir la rubrique 3 windows powershell, une pour `kubelet`, une pour `flanneld`et une autre pour `kube-proxy`
   * Voir les processus de l’agent hôte pour `flanneld`, `kubelet`, et `kube-proxy` en cours d’exécution sur le nœud
 
 
@@ -192,7 +193,7 @@ Après l’exécution de cela, vous devez être en mesure de:
 > [!NOTE]
 > Vous pouvez ignorer cette section si vous avez choisi Flannel en tant que votre réseau solution [précédemment](./network-topologies.md#flannel-in-host-gateway-mode).
 
-Pour ce faire, vous devez suivre les instructions pour [la définition des conteneurs Windows Server sur Kubernetes pour la topologie de routage de couche 3 en amont](https://kubernetes.io/docs/getting-started-guides/windows/#for-1-upstream-l3-routing-topology-and-2-host-gateway-topology). Cela inclut l’établissement que vous avez configuré votre routeur en amont tels que le pod CIDR préfixe attribuées à un nœud est mappé à son adresse IP nœud respectifs.
+Pour ce faire, vous devez suivre les instructions pour [la définition des conteneurs Windows Server sur Kubernetes pour la topologie de routage de couche 3 en amont](https://kubernetes.io/docs/getting-started-guides/windows/#for-1-upstream-l3-routing-topology-and-2-host-gateway-topology). Cela inclut assurant que vous configurez votre routeur en amont tels que le pod CIDR préfixe attribuées à un nœud correspond à son adresse IP nœud respectifs.
 
 En supposant que le nouveau nœud est répertorié comme «Prêt» par `kubectl get nodes`, kubelet + kube-proxy est en cours d’exécution et que vous avez configuré votre routeur ToR en amont, vous êtes prêt pour les étapes suivantes.
 
@@ -205,4 +206,4 @@ Dans cette section, nous avons abordé comment joindre des travailleurs de Windo
 Par ailleurs, si vous n’avez pas n’importe quel travailleurs Linux n’hésitez pas à passez directement à l’étape 6:
 
 > [!div class="nextstepaction"]
-> [Déploiement des ressources de Kubernetes](./deploying-resources.md)
+> [Déploiement de ressources de Kubernetes](./deploying-resources.md)

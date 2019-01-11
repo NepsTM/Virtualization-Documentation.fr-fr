@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1ecb85a6-d938-4c30-a29b-d18bd007ba08
-ms.openlocfilehash: abe6f0da68ff90af0b2b5e675f70f106d42ca81c
-ms.sourcegitcommit: 8db42caaace760b7eeb1367b631b38e7904a9f26
+ms.openlocfilehash: c39a2e5639d013a0aba15150117b7ab18ea32f97
+ms.sourcegitcommit: 1aef193cf56dd0870139b5b8f901a8d9808ebdcd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "8962307"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "9001655"
 ---
 # <a name="configure-nested-vms-to-communicate-with-resources-in-an-azure-virtual-network"></a>Configurer des ordinateurs virtuels imbriquées pour communiquer avec les ressources d’un réseau virtuel Azure
 
@@ -50,7 +50,7 @@ Ce guide repose sur les hypothèses suivantes sur l’environnement cible:
   * La raison que nous voulons que cette option pour correspondre à un sous-réseau existant consiste à gérer les publicités BGP sur le ExpressRoute. Si nous compose simplement une plage IP pour l’hôte Hyper-V à utiliser, nous devons créer une série d’itinéraires statiques pour permettre aux clients sur site pour communiquer avec les machines virtuelles imbriquées. Cela ne signifie pas que cela n’est pas une condition requise par dur comme vous pourriez constituent une plage IP pour les machines virtuelles imbriquées et ensuite créer tous les itinéraires nécessaires pour diriger les clients vers l’hôte Hyper-V pour cette plage.
 * Nous allons créer un commutateur interne au sein de Hyper-V et puis nous allons désigner l’interface nouvellement créé une adresse IP dans une plage que nous réservons pour DHCP. Cette adresse IP est devenue la passerelle par défaut pour nos machines virtuelles imbriquées et être utilisé pour l’itinéraire entre le commutateur interne et la carte réseau de l’hôte qui est connecté à notre basculée.
 * Nous allons installer le rôle de routage et d’accès à distance sur l’hôte, ce qui activera notre hôte dans un routeur.  Cela est nécessaire pour permettre la communication entre les ressources externes à l’hôte et nos machines virtuelles imbriquées.
-* Nous allons pour indiquer les autres ressources comment accéder à ces machines virtuelles imbriquées. Cela nécessite que nous créons une table de routage défini par l’utilisateur qui contient un itinéraire statique pour la plage IP résidant dans les machines virtuelles imbriquées. Cet itinéraire statique pointe vers l’adresse IP pour l’Hyper-V.
+* Nous indiquera comment accéder à ces machines virtuelles imbriquées autres ressources. Cela nécessite que nous créons une table de routage défini par l’utilisateur qui contient un itinéraire statique pour la plage IP résidant dans les machines virtuelles imbriquées. Cet itinéraire statique pointe vers l’adresse IP pour l’Hyper-V.
 * Vous placera ensuite cette UDR sur le sous-réseau de passerelle afin que les clients en provenance de locaux sachent comment joindre nos machines virtuelles imbriquées.
 * Vous serez également placer ce UDR sur n’importe quel autre sous-réseau au sein d’Azure qui nécessite une connectivité pour les machines virtuelles imbriquées.
 * Pour plusieurs hôtes Hyper-V vous créer des sous-réseaux «flottantes» supplémentaires et ajouter un itinéraire statique supplémentaires à la UDR.
@@ -82,8 +82,11 @@ Ce guide repose sur les hypothèses suivantes sur l’environnement cible:
 
 * Ouvrez le Gestionnaire de serveur, puis sélectionnez «Outils» et sélectionnez «Routage et accès à distance».
 * Sur le côté droit du Panneau de gestion de routage et d’accès à distance vous voir une icône avec votre nom de serveurs en regard de celle-ci, avec le bouton droit cliquez ici et sélectionnez «Configurer et activer le routage et accès à distance».
-* Sélectionnez «Suivant» dans l’Assistant, cochez la case d’option pour «Connexion sécurisée entre deux réseaux privés» et sélectionnez «Suivant».
-* Sélectionnez la case d’option pour «Non» lorsque vous êtes invité si vous souhaitez utiliser des connexions à la demande, puis sélectionnez «Suivant» et puis sélectionnez «Terminer».
+* Sélectionnez «Suivant» à l’Assistant, cochez la case d’option pour «Configuration personnalisée» et sélectionnez «Suivant».
+* Vérifier «NAT» et «Routage LAN» puis sélectionnez «suivant» et «Terminerez». Si elle vous demande de démarrer le service, puis effectuer cette opération.
+* Maintenant, accédez au nœud «IPv4» et développer afin que le nœud «NAT» est mis à disposition.
+* Cliquez avec le bouton droit sur «NAT» et sélectionnez «Nouvelle Interface …» s’affiche avec trois options. 
+* Deux de ces options sont pour le commutateur virtuel Hyper-V, vous devriez voir une option de «Ethernet», sélectionnez cette option. En résumé, sélectionnez l’interface qui est connecté directement à votre basculée Azure.
 
 ## <a name="creating-a-route-table-within-azure"></a>Création d’une Table de routage dans Azure
 
@@ -112,4 +115,4 @@ Faire référence à [cet article](https://docs.microsoft.com/en-us/azure/virtua
 
 ## <a name="conclusion"></a>Conclusion
 
-Vous devez maintenant être en mesure de déployer une machine virtuelle (voire une machine virtuelle 32 bits!) sur votre ordinateur hôte Hyper-V et qu’il est accessible à partir de locaux et dans Azure.
+Vous devez maintenant être en mesure de déployer une machine virtuelle (même une machine virtuelle 32 bits!) sur votre ordinateur hôte Hyper-V et qu’il est accessible à partir de locaux et dans Azure.

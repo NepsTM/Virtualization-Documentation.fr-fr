@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: 5da18c7c1e2fc6882d5879070e91d36d0c0a475a
-ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
+ms.openlocfilehash: 0350e62deef06402991f505dd263db7fd506cba1
+ms.sourcegitcommit: 1aef193cf56dd0870139b5b8f901a8d9808ebdcd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8973660"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "9001585"
 ---
 # <a name="automating-builds-and-saving-images"></a>Automatisation des builds et enregistrement des images
 
@@ -129,6 +129,8 @@ Une fois que vous êtes connecté, vous pouvez transférer (push) l’image de c
 ```console
 docker push <user>/iis-dockerfile
 ```
+
+Comme Docker exécute un push de chaque couche jusqu'à Docker Hub, docker ignore les couches qui existent déjà dans le Hub Docker ou autres registres (couches étrangères).  Par exemple, les versions récentes de Windows Server Core qui sont hébergées dans le Registre de conteneur de Microsoft, ou les couches à partir d’un registre d’entreprise privé, seraient être ignorées et non appuyées sur Docker Hub.
 
 L’image de conteneur peut maintenant être téléchargée à partir de Docker Hub sur n’importe quel hôte de conteneur Windows à l’aide de la commande `docker pull`. Pour ce didacticiel, nous allons supprimer l’image existante et l’extraire (pull) de Docker Hub. 
 
