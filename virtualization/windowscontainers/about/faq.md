@@ -8,16 +8,16 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
-ms.openlocfilehash: 42e1a0bf58ada40a8f135861646d5c9429e0d5db
-ms.sourcegitcommit: a5f8f99bf8f512a9058b72f1f617f77ecf488c71
+ms.openlocfilehash: 36ef6df0b9736d88fec627e4cb56df023f1a7708
+ms.sourcegitcommit: 4336d7617c30d26a987ad3450b048e17404c365d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8974011"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "9001008"
 ---
 # <a name="frequently-asked-questions"></a>Forum Aux Questions
 
-## <a name="general"></a>Général
+## <a name="general"></a>Généralités
 
 ### <a name="what-is-wcow-what-is-lcow"></a>Qu’est WCOW? Qu’est LCOW?
 
@@ -68,4 +68,5 @@ Cela peut poser un problème lorsque vous disposez d’un ordinateur exploitant 
 
 Pour garantir que le format des packages reste universel, Docker a récemment organisé l’Open Container Initiative (OCI) visant à garantir que le package de conteneur conserve un format ouvert respectant les fondements, avec Microsoft comme l’un des membres fondateurs.
 
-> ! [CONSEIL] Vous avez une recommandation pour un ajout au Forum aux questions? Nous vous encourageons à un nouveau problème de commentaires ci-dessous ou ouvrez une réservation permanente contre ces documents avec vos recommandations!
+> [!TIP]
+> Vous avez une recommandation pour un ajout au Forum aux questions? Nous vous encourageons à un nouveau problème de commentaires ci-dessous ou ouvrez une réservation permanente contre ces documents avec vos recommandations!

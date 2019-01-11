@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 42154683-163b-47a1-add4-c7e7317f1c04
-ms.openlocfilehash: e1a5b80773128af0ba0095d5201e4fa123a1741c
-ms.sourcegitcommit: 99da24a8c075e0096eabd09a29007a65e3ea35b7
+ms.openlocfilehash: caaf4186f43c69dfbc35d04dd8909876ed082906
+ms.sourcegitcommit: 4336d7617c30d26a987ad3450b048e17404c365d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2018
-ms.locfileid: "6022177"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "9000998"
 ---
 # <a name="hyper-v-containers"></a>Conteneurs Hyper-V
 
@@ -32,7 +32,7 @@ La technologie de conteneur Windows comprend deux types distincts de conteneurs,
 Gestion des conteneurs Hyper-V avec Docker sont presque identique à la gestion des conteneurs Windows Server. Pour créer un conteneur Hyper-V avec Docker, utilisez le `--isolation` paramètre pour définir `--isolation=hyperv`.
 
 ``` cmd
-docker run -it --isolation=hyperv microsoft/nanoserver cmd
+docker run -it --isolation=hyperv mcr.microsoft.com/windows/nanoserver:1809 cmd
 ```
 
 ### <a name="isolation-explanation"></a>Description de l’isolation
@@ -42,7 +42,7 @@ Cet exemple illustre les différences de fonctionnalités d’isolement entre le
 Ici, un conteneur Windows Server est déployé et doit héberger un processus ping à long terme.
 
 ``` cmd
-docker run -d microsoft/windowsservercore ping localhost -t
+docker run -d mcr.microsoft.com/windows/servercore:1809 ping localhost -t
 ```
 
 À l’aide de la commande `docker top`, le processus ping est retourné comme indiqué dans le conteneur. Le processus de cet exemple a l’ID3964.
@@ -66,7 +66,7 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
 Par contre, cet exemple démarre également un conteneur Hyper-V avec un processus ping. 
 
 ```
-docker run -d --isolation=hyperv microsoft/nanoserver ping -t localhost
+docker run -d --isolation=hyperv mcr.microsoft.com/windows/nanoserver:1809 ping -t localhost
 ```
 
 De même, `docker top` peut servir à retourner les processus en cours d’exécution à partir du conteneur.

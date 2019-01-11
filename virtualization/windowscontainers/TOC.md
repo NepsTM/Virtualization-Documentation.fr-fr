@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Présentation
 ## [À propos de](about/index.md)
 ## [Forum Aux Questions](about/faq.md)
 
@@ -31,7 +31,7 @@
 
 # Orchestration
 ## Kubernetes sur Windows 
-### [Vue d'ensemble](kubernetes/getting-started-kubernetes-windows.md)
+### [Présentation](kubernetes/getting-started-kubernetes-windows.md)
 ### [Création d’un nœud maître Kubernetes](kubernetes/creating-a-linux-master.md)
 ### [Choix d’une Solution de réseau](kubernetes/network-topologies.md)
 ### [Jonction de nœuds de travail Windows](kubernetes/joining-windows-workers.md)
@@ -54,6 +54,7 @@
 ## [Configuration système](deploy-containers/system-requirements.md)
 ## [Compatibilité des versions](deploy-containers/version-compatibility.md)
 ## [Isolation Hyper-V](manage-containers/hyperv-container.md)
+## [Périphériques matériels dans des conteneurs](deploy-containers/hardware-devices-in-containers.md)
 ## [Outils de plateforme de conteneur](deploy-containers/containerd.md)
 ## [Comptes de Service Active Directory](manage-containers/manage-serviceaccounts.md)
 ## [Optimisation de la protection antivirus](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
