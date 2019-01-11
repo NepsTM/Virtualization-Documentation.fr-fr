@@ -3,12 +3,12 @@ title: Appareils dans des conteneurs sur Windows
 description: Quelle prise en charge de l’appareil existe pour les conteneurs sur Windows
 keywords: docker, conteneurs, les appareils, matériel
 author: cwilhit
-ms.openlocfilehash: b300c9a4262c30da3f6fdf2c4aeedab76b167417
-ms.sourcegitcommit: 4336d7617c30d26a987ad3450b048e17404c365d
+ms.openlocfilehash: f70388bf3724af7cb92f20e2053aa4ddb1f953a3
+ms.sourcegitcommit: 5cbaef0806db21d7bbcc99964837f10f4207a51f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/11/2019
-ms.locfileid: "9001041"
+ms.locfileid: "9001751"
 ---
 # <a name="devices-in-containers-on-windows"></a>Appareils dans des conteneurs sur Windows
 
@@ -43,7 +43,7 @@ Cela signifie que vous affectez **pas** l’appareil hôte. Au lieu de cela, l�
 
 ## <a name="what-devices-are-supported"></a>Ce que les appareils sont pris en charge
 
-Les périphériques suivants (et leur classe d’interface de périphérique GUID) est actuellement prises en charge:
+Les périphériques suivants (et leur appareil GUID de classe d’interface) sont pris en charge dès aujourd'hui:
   
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:75%" cellpadding="5" cellspacing="5">
 <thead>
