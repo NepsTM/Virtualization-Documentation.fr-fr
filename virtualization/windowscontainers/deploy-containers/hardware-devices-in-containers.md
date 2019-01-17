@@ -3,12 +3,12 @@ title: Appareils dans des conteneurs sur Windows
 description: Quelle prise en charge de l’appareil existe pour les conteneurs sur Windows
 keywords: docker, conteneurs, les appareils, matériel
 author: cwilhit
-ms.openlocfilehash: f70388bf3724af7cb92f20e2053aa4ddb1f953a3
-ms.sourcegitcommit: 5cbaef0806db21d7bbcc99964837f10f4207a51f
+ms.openlocfilehash: 6397a5050ee0c7cb4b62dc935af4975d9ab6b3db
+ms.sourcegitcommit: 1b6a244c3604e48c42c851e580e3b59e2384c91a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "9001751"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "9014516"
 ---
 # <a name="devices-in-containers-on-windows"></a>Appareils dans des conteneurs sur Windows
 
@@ -17,9 +17,9 @@ Par défaut, les conteneurs Windows disposent d’un accès minimal aux appareil
 ## <a name="requirements"></a>Conditions préalables
 
 - Vous devez exécuter Windows Server 2019 ou version ultérieure ou Windows 10 Professionnel/entreprise avec le 2018 octobre mettre à jour
-- Vous devez être en cours d’exécution Docker version 18.09 ou une version ultérieure.
 - Votre version d’image de conteneur doit être 1809 ou une version ultérieure.
 - Vos conteneurs doivent être en cours d’exécution en mode isolées du processus les conteneurs Windows.
+- Tandis que la fonctionnalité d’appareils Windows existe dans le démon Docker, il n’existe pas encore dans le client Docker (voir cette [requête de tirage](https://github.com/docker/cli/pull/1606) pour effectuer le suivi). Dans l’interrim, vous devez [créer vos propres fichiers exécutables docker](https://github.com/moby/moby/blob/master/docs/contributing/software-req-win.md) à partir de la source de moby comme une solution de contournement. Si vous n’êtes pas cette opération à l’aise, nous vous recommandons de que vous attendre avant de tester cette fonctionnalité jusqu'à ce que la PR liée ci-dessus est fusionnée.
 
 ## <a name="run-a-container-with-a-device"></a>Exécuter un conteneur avec un appareil
 
