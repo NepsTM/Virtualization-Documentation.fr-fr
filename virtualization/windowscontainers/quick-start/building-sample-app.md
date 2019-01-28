@@ -7,12 +7,12 @@ ms.date: 07/25/2017
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: 20328cb47d106dad153738628fc282d63371a3ab
-ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
+ms.openlocfilehash: 970f039e97ce0628c7a7f78c417017fc95570f82
+ms.sourcegitcommit: 51da93c4548c5df7a9f01e54d46d81b338c874cf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8973599"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "9031163"
 ---
 # <a name="build-a-sample-app"></a>Créer un exemple d’application
 
@@ -66,7 +66,7 @@ FROM microsoft/aspnetcore-build:1.1 AS build-env
 WORKDIR /app
 ```
 
-Ensuite, nous copions les fichiers.csproj dans le conteneur temporaire situé dans le répertoire «/app». Cette étape est nécessaire, car les fichiers .csproj contiennent la liste des références de package requises par le projet.
+Ensuite, nous copions les fichiers.csproj dans le conteneur temporaire situé dans le répertoire «/app». Nous procédons ainsi car les fichiers .csproj contiennent une liste de références de package que nécessaires pour le projet.
 
 Une fois ce fichier copié, dotnet le lit, puis récupère toutes les dépendances et les outils nécessaires pour le projet.
 
