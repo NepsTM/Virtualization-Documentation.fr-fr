@@ -3,16 +3,16 @@ title: Activer Hyper-V sur Windows10
 description: Installer Hyper-V sur Windows10
 keywords: Windows10, Hyper-V
 author: scooley
-ms.date: 05/02/2016
+ms.date: 02/15/2019
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-ms.openlocfilehash: cd576f72c9947cd6f79cc362709c1a4ceab9b47e
-ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.openlocfilehash: 53152d0237a7f81858a5cb2f0fd8aabd439c4613
+ms.sourcegitcommit: 914e0dd1168daf1d2b0f22bd011035016cc08baf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "6947958"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "9099357"
 ---
 # <a name="install-hyper-v-on-windows-10"></a>Installer Hyper-V sur Windows10
 
