@@ -8,16 +8,16 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: e27148873299543a89eaf92801b40732dd27b402
-ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
+ms.openlocfilehash: 44e415af08881d18ebb2d82f5f79098f7fb034f8
+ms.sourcegitcommit: f172d14ef1ebfb5a9df1b3529e0722d9103e0eba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8973669"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "9112926"
 ---
 # <a name="windows-containers-on-windows-server"></a>Conteneurs Windows sur Windows Server
 
-Cet exercice vous guide par le biais de déploiement de base et l’utilisation de la fonctionnalité de conteneur Windows sur Windows Server 2019.
+Cet exercice vous guide par le biais de déploiement de base et l’utilisation de la fonctionnalité de conteneur Windows sur Windows Server 2019 et Windows Server 2016.
 
 Dans ce démarrage rapide vous allez accomplir:
 
@@ -27,7 +27,7 @@ Dans ce démarrage rapide vous allez accomplir:
 
 Si vous voulez vous familiariser avec les conteneurs, vous trouverez des informations dans la rubrique [À propos des conteneurs](../about/index.md).
 
-Ce démarrage rapide est spécifique aux conteneurs Windows Server sur Windows Server 2019. Une documentation de démarrage rapide supplémentaire, incluant les conteneurs dans Windows10, est disponible dans la table des matières affichée à gauche dans cette page.
+Ce démarrage rapide est spécifique aux conteneurs Windows Server sur Windows Server 2019 et Windows Server 2016. Une documentation de démarrage rapide supplémentaire, incluant les conteneurs dans Windows10, est disponible dans la table des matières affichée à gauche dans cette page.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -105,10 +105,18 @@ Lorsque vous y êtes invité, choisissez l’option A pour télécharger toutes 
 
 Dans cet exercice, vous téléchargez un exemple d’image.NET préalablement créée à partir du Registre Docker Hub, puis vous déployez un conteneur simple qui exécute une application .NET «Hello World».  
 
-Utilisez la commande `docker run` pour déployer le conteneur.Net. Cette opération télécharge également l’image de conteneur, ce qui peut prendre plusieurs minutes.
+Utilisez la commande `docker run` pour déployer le conteneur.Net. Cette opération télécharge également l’image de conteneur, ce qui peut prendre plusieurs minutes. En fonction de la version de votre hôte de Windows Server, exécutez la commande suivante ci-dessous.
+
+#### <a name="windows-server-2019"></a>Windows Server2019
 
 ```console
 docker run microsoft/dotnet-samples:dotnetapp-nanoserver-1809
+```
+
+#### <a name="windows-server-2016"></a>Windows Server2016
+
+```console
+docker run microsoft/dotnet-samples:dotnetapp-nanoserver-sac2016
 ```
 
 Le conteneur démarre, affiche le message «Hello World», puis se ferme.
