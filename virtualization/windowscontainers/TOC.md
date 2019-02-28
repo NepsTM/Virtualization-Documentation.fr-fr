@@ -1,6 +1,6 @@
-# Présentation
+# Vue d'ensemble
 ## [À propos de](about/index.md)
-## [Forum Aux Questions](about/faq.md)
+## [FAQ](about/faq.md)
 
 # Démarrages rapides
 ## Démarrage rapide de Windows10
@@ -31,13 +31,14 @@
 
 # Orchestration
 ## Kubernetes sur Windows 
-### [Présentation](kubernetes/getting-started-kubernetes-windows.md)
+### [Vue d'ensemble](kubernetes/getting-started-kubernetes-windows.md)
 ### [Création d’un nœud maître Kubernetes](kubernetes/creating-a-linux-master.md)
 ### [Choix d’une Solution de réseau](kubernetes/network-topologies.md)
 ### [Jonction de nœuds de travail Windows](kubernetes/joining-windows-workers.md)
 ### [Jonction de nœuds de travail Linux](kubernetes/joining-linux-workers.md)
 ### [Déploiement de ressources de Kubernetes](kubernetes/deploying-resources.md)
 ### [Résolution des problèmes](kubernetes/common-problems.md)
+### [Services de Windows sur Kubernetes](kubernetes/kube-windows-services.md)
 ### [Compilation de fichiers binaires Kubernetes](kubernetes/compiling-kubernetes-binaries.md)
 ## Service Fabric sur Windows
 ### [Déployer votre premier conteneur](/azure/service-fabric/service-fabric-quickstart-containers)

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: Solutions aux problèmes courants lors du déploiement de Kubernetes et de la jonction de nœuds Windows.
 keywords: kubernetes, 1.12, linux, compiler
-ms.openlocfilehash: a5e9369b000aa83aa7ec6ec9bb147f0fd844c820
-ms.sourcegitcommit: 8e9252856869135196fd054e3cb417562f851b51
+ms.openlocfilehash: dfc7ab5aab9a04ef39916fb9e9b9886cad2f46a6
+ms.sourcegitcommit: 41318edba7459a9f9eeb182bf8519aac0996a7f1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "6178912"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "9120437"
 ---
 # <a name="troubleshooting-kubernetes"></a>Résolution des problèmes Kubernetes #
 Cette page décrit plusieurs problèmes courants lors du déploiement, de la mise en réseau et de la configuration de Kubernetes.
@@ -29,11 +29,18 @@ Cette page est divisée en catégories suivantes:
 ## <a name="general-questions"></a>Questions d’ordre générales ##
 
 ### <a name="how-do-i-know-startps1-on-windows-completed-successfully"></a>Comment savoir start.ps1 sur Windows s’est terminé correctement? ###
-Vous devez voir kubelet, kube-proxy, et (si vous choisissez Flannel comme solution de mise en réseau) PoSh windows séparent les processus de l’agent hôte flanneld en cours d’exécution sur le nœud de votre, avec en cours d’exécution qui est affichés dans les journaux. En outre, le nœud de votre Windows doit être répertorié comme «Prêt» dans votre cluster Kubernetes.
+Vous devez voir kubelet, kube-proxy, et (si vous avez choisi Flannel comme solution de mise en réseau) en cours d’exécution sur votre nœud, avec en cours d’exécution qui est affichés dans les journaux des processus hôte-agent flanneld séparent PoSh windows. En plus de cela, votre nœud Windows doit être répertorié comme «Prêt» dans votre cluster Kubernetes.
 
 ### <a name="can-i-configure-to-run-all-of-this-in-the-background-instead-of-posh-windows"></a>Puis-je configurer pour exécuter tout cela en arrière-plan au lieu de PoSh windows? ###
-À partir de Kubernetes version 1.11, kubelet & kube-proxy peuvent être exécutés en tant que native [Services Windows](https://kubernetes.io/docs/getting-started-guides/windows/#kubelet-and-kube-proxy-can-now-run-as-windows-services). Vous pouvez également toujours utiliser les gestionnaires de service autre comme [nssm.exe](https://nssm.cc/) à toujours s’exécuter ces processus (flanneld, kubelet et kube-proxy) en arrière-plan pour vous.
+À partir de Kubernetes version 1.11, kubelet & kube-proxy peut être exécuté en tant que native [Services Windows](https://kubernetes.io/docs/getting-started-guides/windows/#kubelet-and-kube-proxy-can-now-run-as-windows-services). Vous pouvez également toujours utiliser les responsables de service de remplacement comme [nssm.exe](https://nssm.cc/) à toujours s’exécuter ces processus (flanneld, kubelet & kube-proxy) en arrière-plan pour vous. Consultez que les étapes par exemple [Les Services de Windows sur Kubernetes](./kube-windows-services.md) .
 
+### <a name="i-have-problems-running-kubernetes-processes-as-windows-services"></a>J’ai des problèmes Kubernetes processus en cours d’exécution en tant que services Windows ###
+Pour la résolution des problèmes initial, vous pouvez utiliser les indicateurs suivants dans [nssm.exe](https://nssm.cc/) pour rediriger stdout et stderr vers un fichier de sortie:
+```
+nssm set <Service Name> AppStdout C:\k\mysvc.log
+nssm set <Service Name> AppStderr C:\k\mysvc.log
+```
+Pour plus d’informations, voir docs officielles [nssm utilisation](https://nssm.cc/usage) .
 
 ## <a name="common-networking-errors"></a>Erreurs réseau courantes ##
 
@@ -41,19 +48,32 @@ Vous devez voir kubelet, kube-proxy, et (si vous choisissez Flannel comme soluti
 Si vous utilisez toutes les machines virtuelles, assurez-vous que l’usurpation d’identité MAC est activée sur tous les les cartes réseau de machine virtuelle. Consultez la [protection usurpation](./getting-started-kubernetes-windows.md#disable-anti-spoofing-protection) pour plus d’informations.
 
 
-### <a name="my-windows-pods-cannot-ping-external-resources"></a>Mes pods Windows ne peut pas ping des ressources externes ###
-Pods Windows ne sont pas les règles de trafic sortant programmés pour le protocole ICMP aujourd'hui. Toutefois, TCP/UDP est pris en charge. Lorsque vous essayez d’illustrer la connectivité aux ressources en dehors du cluster, veuillez remplacer `ping <IP>` avec correspondant `curl <IP>` commandes.
+### <a name="my-windows-pods-cannot-ping-external-resources"></a>Mes pods Windows ne peut pas ping ressources externes ###
+Pods Windows ne sont pas les règles de trafic sortant programmés pour le protocole ICMP aujourd'hui. Toutefois, TCP/UDP est pris en charge. Lors de la tentative d’illustrer la connectivité aux ressources en dehors du cluster, veuillez remplacer `ping <IP>` avec correspondant `curl <IP>` des commandes.
 
-Si vous êtes toujours confronté à des problèmes, très probablement la configuration de votre réseau dans [cni.conf](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf) mérite certains davantage l’attention. Vous pouvez modifier ce fichier statique, la configuration s’appliqueront à toutes les ressources Kubernetes nouvellement créés.
+Si vous êtes toujours confronté à des problèmes, très probablement votre configuration réseau dans [cni.conf](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf) mérite certains davantage l’attention. Vous pouvez modifier ce fichier statique, la configuration s’appliqueront à toutes les ressources Kubernetes nouvellement créés.
 
 Pourquoi?
-L’une des exigences de mise en réseau Kubernetes (voir le [modèle de Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/networking/)) est pour la communication de cluster se produire sans NAT en interne. Pour honorer cette exigence, nous avons un [ExceptionList](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf#L20) pour toutes les communications où nous ne veulent pas NAT sortant se produire. Toutefois, cela signifie également que vous devez exclure l’adresse IP externe que vous essayez de demander à partir de la ExceptionList. Uniquement le trafic provenant de votre pods Windows sera alors SNAT'ed correctement pour recevoir une réponse depuis l’extérieur. À cet égard, votre ExceptionList dans `cni.conf` doit se présenter comme suit:
+Parmi les exigences de mise en réseau Kubernetes (voir [Kubernetes model](https://kubernetes.io/docs/concepts/cluster-administration/networking/)) est pour la communication de cluster se produire sans NAT en interne. Pour honorer cette exigence, nous avons un [ExceptionList](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf#L20) pour toutes les communications où nous ne souhaitons pas que NAT sortant se produire. Toutefois, cela signifie également que vous devez exclure l’adresse IP externe que vous essayez de requête à partir de la ExceptionList. Uniquement, le trafic provenant de votre pods Windows sera SNAT'ed correctement pour recevoir une réponse depuis l’extérieur. À cet égard, votre ExceptionList dans `cni.conf` doit se présenter comme suit:
 ```
                 "ExceptionList": [
                     "10.244.0.0/16",  # Cluster subnet
                     "10.96.0.0/12",   # Service subnet
                     "10.127.130.0/24" # Management (host) subnet
                 ]
+```
+
+### <a name="after-some-time-vnics-and-hns-endpoints-of-containers-are-being-deleted"></a>Après un certain temps, une carte réseau virtuelle et les points de terminaison HNS de conteneurs sont supprimés ###
+Ce problème peut être dû lorsque le `hostname-override` paramètre n’est pas transmis à [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/). Pour résoudre ce problème, les utilisateurs ont besoin de transmettre le nom d’hôte à kube-proxy comme suit:
+```
+C:\k\kube-proxy.exe --hostname-override=$(hostname)
+```
+
+### <a name="on-flannel-vxlan-mode-my-pods-are-having-connectivity-issues-after-rejoining-the-node"></a>Le mode Flannel (vxlan), Mes pods rencontrent des problèmes de connectivité après avoir rejoint le nœud ###
+Chaque fois qu’un nœud précédemment supprimé en cours rejoint le cluster, flannelD va tenter d’affecter un nouveau sous-réseau de pod sur le nœud. Les utilisateurs doivent supprimer les anciens fichiers de configuration de sous-réseau de pod dans les chemins d’accès suivants:
+```powershell
+Remove-Item C:\k\SourceVip.json
+Remove-Item C:\k\SourceVipRequest.json
 ```
 
 ### <a name="after-launching-startps1-flanneld-is-stuck-in-waiting-for-the-network-to-be-created"></a>Après le lancement de start.ps1, Flanneld est bloqué dans «En attente pour le réseau doit être créé» ###
@@ -63,7 +83,7 @@ PS C:> [Environment]::SetEnvironmentVariable("NODE_NAME", "<Windows_Worker_Hostn
 PS C:> C:\flannel\flanneld.exe --kubeconfig-file=c:\k\config --iface=<Windows_Worker_Node_IP> --ip-masq=1 --kube-subnet-mgr=1
 ```
 
-Il existe également une [PR](https://github.com/coreos/flannel/pull/1042) qui résout le problème en cours de validation actuellement.
+Il existe également une [PR](https://github.com/coreos/flannel/pull/1042) qui résout le problème examinés actuellement.
 
 ### <a name="my-windows-pods-cannot-launch-because-of-missing-runflannelsubnetenv"></a>Mes pods Windows ne peut pas lancer en raison du manque de /run/flannel/subnet.env ###
 Cela indique que Flannel ne démarre pas correctement. Vous pouvez essayer de redémarrer flanneld.exe ou vous pouvez copier les fichiers manuellement de `/run/flannel/subnet.env` sur le nœud maître Kubernetes à `C:\run\flannel\subnet.env` sur le nœud de travail Windows et de modifier le `FLANNEL_SUBNET` ligne à un nombre différent. Par exemple, si vous le souhaitez nœud sous-réseau 10.244.4.1/24:
@@ -76,11 +96,11 @@ FLANNEL_IPMASQ=true
 
 ### <a name="my-endpointsips-are-leaking"></a>Mon les points de terminaison/adresses IP sont fuite ###
 Il existe 2 problèmes connus qui peuvent provoquer une fuite des points de terminaison. 
-1.  Le premier [problème connu](https://github.com/kubernetes/kubernetes/issues/68511) est un problème dans Kubernetes version 1.11. Veuillez Évitez d’utiliser la version 1.11.0 - 1.11.2 de Kubernetes.
+1.  Le premier [problème connu](https://github.com/kubernetes/kubernetes/issues/68511) est un problème dans Kubernetes version 1.11. Veuillez éviter à l’aide de Kubernetes version 1.11.0 - 1.11.2.
 2. Le deuxième [problème connu](https://github.com/docker/libnetwork/issues/1950) qui peut provoquer une fuite des points de terminaison est un problème d’accès concurrentiel dans le stockage des points de terminaison. Pour recevoir le correctif, vous devez utiliser Docker EE 18.09 ou une version ultérieure.
 
-### <a name="my-pods-cannot-launch-due-to-network-failed-to-allocate-for-range-errors"></a>Mes pods ne peut pas lancer dû à «réseau: échec d’allocation pour la plage «erreurs ###
-Cela indique que l’espace d’adresse IP sur votre nœud est épuisé. Pour nettoyer les toute [fuite des points de terminaison](#my-endpointsips-are-leaking), veuillez migrer toutes les ressources sur les nœuds concernés et exécutez les commandes suivantes:
+### <a name="my-pods-cannot-launch-due-to-network-failed-to-allocate-for-range-errors"></a>Mes pods ne peut pas lancer dû à «réseau: échec d’allocation de plage «erreurs ###
+Cela indique que l’espace d’adresse IP sur votre nœud est épuisé. Pour nettoyer les toute [fuite des points de terminaison](#my-endpointsips-are-leaking), veuillez migrer toutes les ressources sur les nœuds touchés & exécutez les commandes suivantes:
 ```
 c:\k\stop.ps1
 Get-HNSEndpoint | Remove-HNSEndpoint
@@ -98,7 +118,7 @@ Get-HnsNetwork | ? Name -ieq "cbr0"
 Get-NetAdapter | ? Name -Like "vEthernet (Ethernet*"
 ```
 
-consultez la sortie du script `start-kubelet.ps1` pour vérifier si des erreurs surviennent lors de la création du réseau virtuel.
+Il est souvent utile pour modifier le paramètre [InterfaceName](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/start.ps1#L6) du script start.ps1, dans les cas où la de carte réseau hôte n’est pas «Ethernet». Dans le cas contraire, consultez la sortie de la `start-kubelet.ps1` script pour vérifier si des erreurs surviennent lors de la création de réseau virtuel. 
 
 ### <a name="pods-stop-resolving-dns-queries-successfully-after-some-time-alive"></a>Les pods arrêtent de résoudre les requêtes DNS correctement après être restés actifs un certain temps ###
 Il existe un DNS connus, la mise en cache de problème dans la pile de mise en réseau de Windows Server, version 1803 et qui peut-être parfois entraîner un échec des demandes DNS. Pour contourner ce problème, vous pouvez définir les valeurs de cache de durée de vie maximale à zéro à l’aide de clés de Registre suivantes:
@@ -115,7 +135,7 @@ Il peut exister des restrictions supplémentaires sur votre réseau ou sur des o
   - vous avez correctement configuré votre [topologie de réseau](./network-topologies.md) de choisie
   - le trafic qui semble émaner des pods est autorisé
   - le trafic HTTP est autorisé, si vous déployez des services web
-  - Les paquets provenant de différents protocoles (Internet Explorer ICMP ou TCP/UDP) ne sont pas supprimés
+  - Les paquets provenant de différents protocoles (Internet Explorer ICMP et TCP/UDP) ne sont pas supprimés
 
 
 ## <a name="common-windows-errors"></a>Erreurs courantes de Windows ##
@@ -146,4 +166,4 @@ Si vous continuez [nos instructions](./creating-a-linux-master.md), bonne place 
 * `$HOME/.kube/config`
 *  `/etc/kubernetes/admin.conf`
 
- dans le cas contraire, reportez-vous au fichier de manifeste du serveur API pour vérifier les points de montage.
+ dans le cas contraire, reportez-vous au fichier manifeste du serveur API pour vérifier les points de montage.
