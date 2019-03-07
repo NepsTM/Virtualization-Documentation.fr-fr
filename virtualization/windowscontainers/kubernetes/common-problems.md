@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: Solutions aux problèmes courants lors du déploiement de Kubernetes et de la jonction de nœuds Windows.
 keywords: kubernetes, 1.12, linux, compiler
-ms.openlocfilehash: dfc7ab5aab9a04ef39916fb9e9b9886cad2f46a6
-ms.sourcegitcommit: 41318edba7459a9f9eeb182bf8519aac0996a7f1
+ms.openlocfilehash: 30bb0c064c96ff4bd0b6e1c078221b2d9170d4e7
+ms.sourcegitcommit: 817a629f762a4a5d4bcff58302f2bc2408bf8be1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9120437"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "9149919"
 ---
 # <a name="troubleshooting-kubernetes"></a>Résolution des problèmes Kubernetes #
 Cette page décrit plusieurs problèmes courants lors du déploiement, de la mise en réseau et de la configuration de Kubernetes.
@@ -62,6 +62,9 @@ Parmi les exigences de mise en réseau Kubernetes (voir [Kubernetes model](https
                     "10.127.130.0/24" # Management (host) subnet
                 ]
 ```
+
+### <a name="my-windows-node-cannot-access-a-nodeport-service"></a>Mon nœud Windows ne peut pas accéder à un service NodePort ###
+Accès NodePort local à partir du nœud lui-même échouera. Cette limitation est connue. Accès NodePort fonctionne à partir d’autres nœuds ou des clients externes.
 
 ### <a name="after-some-time-vnics-and-hns-endpoints-of-containers-are-being-deleted"></a>Après un certain temps, une carte réseau virtuelle et les points de terminaison HNS de conteneurs sont supprimés ###
 Ce problème peut être dû lorsque le `hostname-override` paramètre n’est pas transmis à [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/). Pour résoudre ce problème, les utilisateurs ont besoin de transmettre le nom d’hôte à kube-proxy comme suit:
