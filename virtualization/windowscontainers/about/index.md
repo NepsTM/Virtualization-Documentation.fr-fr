@@ -1,20 +1,15 @@
 ---
 title: À propos des conteneurs Windows
 description: En savoir plus sur les conteneurs Windows.
-keywords: docker, conteneurs
+keywords: 'docker, conteneurs'
 author: taylorb-microsoft
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: 16cf281193ced00ea1b0e2d96291de7f44822284
-ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
-ms.translationtype: MT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8973609"
 ---
+
 # <a name="containers-on-windows"></a>Conteneurs sur Windows
 
 ## <a name="what-are-containers"></a>Présentation des conteneurs
@@ -23,11 +18,11 @@ Les conteneurs constituent un moyen d’incorporer une application dans son prop
 
 Prenons l’exemple d’une cuisine. Nous y rassemblons tous les appareils ménagers et les meubles, les ustensiles divers et la vaisselle, jusqu’au liquide vaisselle et aux torchons. Il s’agit de notre conteneur.
 
-<center style="margin: 25px">![](media/box1.png)</center>
+![Analogie de cuisine](media/box1.png)
 
 Nous pouvons maintenant prendre ce conteneur et le déposer dans n’importe quel appartement et la cuisine sera identique. Tout ce que nous devons faire branchements électriques et l’eau à celui-ci et nous pouvons commencer à cuisiner (étant donné que nous disposons de tous les appareils dont nous avons besoin!).
 
-<center style="margin: 25px">![](media/apartment.png)</center>
+![Analogie cloisonnement](media/apartment.png)
 
 Les conteneurs ressemblent à cette cuisine. Il peut y avoir différents types de pièces et de nombreuses pièces peuvent être identiques. L’essentiel est que les conteneurs incluent tous les éléments nécessaires.
 
@@ -37,7 +32,7 @@ Regardez une présentation brève ci-dessous:
 
 ## <a name="container-fundamentals"></a>Notions de base sur les conteneurs
 
-Les conteneurs constituent un environnement d’exploitation isolé, mobile et contrôlé par les ressources, qui s’exécute sur un ordinateur hôte ou un ordinateur virtuel. Une application ou un processus qui s’exécute dans un conteneur inclut la totalité des dépendances et des fichiers de configuration requis. Il lui semble qu’aucun autre processus n’est en cours d’exécution à l’extérieur du conteneur.
+Les conteneurs constituent un environnement d’exploitation isolé, mobile et contrôlé par les ressources, qui s’exécute sur un ordinateur hôte ou un ordinateur virtuel. Une application ou un processus qui s’exécute dans un conteneur est empaqueté avec toutes les dépendances requises et les fichiers de configuration; Il a donné l’illusion qu’il n’y a aucun autre processus en cours d’exécution en dehors de son conteneur.
 
 L’hôte du conteneur configure un ensemble de ressources pour le conteneur et ce dernier utilise uniquement ces ressources. Comme le conteneur sait, aucune autre ressource n’existe en dehors de ce qui lui a été attribué et, par conséquent le conteneur ne peuvent pas les ressources peuvent avoir été configurées pour un conteneur voisin.
 
@@ -53,7 +48,7 @@ Les concepts clés suivants peuvent s’avérer utiles quand vous commencez à c
 
 **Référentiel de conteneurs:** Chaque fois qu’une image de conteneur est créée, cette image et ses dépendances sont stockées dans un référentiel local. Ces images peuvent être réutilisées plusieurs fois sur l’hôte de conteneur. Les images de conteneur peuvent également être stockées dans un registre public ou privé, tel que DockerHub, afin de pouvoir être utilisées sur plusieurs hôtes de conteneurs différents.
 
-<center>![](media/containerfund.png)</center>
+![Notions de base de conteneur](media/containerfund.png)
 
 Pour un utilisateur déjà familiarisé avec les machines virtuelles, les conteneurs peuvent sembler très similaires. Un conteneur exécute un système d’exploitation, a un système de fichiers et est accessible via un réseau comme s’il s’agissait d’un système d’ordinateur physique ou virtuel. Ceci dit, la technologie et les concepts derrière les conteneurs sont très différents de ceux des machines virtuelles.
 
@@ -73,7 +68,7 @@ L’exécution d’un conteneur sur Windows avec ou sans isolation Hyper-V est u
 
 À mesure que vous découvrirez les conteneurs, vous entendrez inévitablement parler de Docker. Docker est le moyen par lequel les images du conteneur sont mises en package et fournies. Ce processus automatisé génère des images (en réalité des modèles) qui peuvent ensuite être exécutées n’importe où: localement, dans le cloud ou sur un ordinateur personnel, en tant que conteneur.
 
-<center>![](media/docker.png)</center>
+![Conteneurs avec Docker](media/docker.png)
 
 Un conteneur Windows Server peut être géré avec [Docker](https://www.docker.com) comme tout autre conteneur.
 
@@ -101,7 +96,7 @@ En raison de leur taille réduite et de l’orientation de l’application, les 
 La définition standard de l’orchestration inclut les tâches suivantes:
 
 - Planification: en fonction d’une image de conteneur et d’une demande de ressource, rechercher un ordinateur approprié sur lequel exécuter le conteneur.
-Affinité/Anti-affinité: spécifier qu’un ensemble de conteneurs doit être exécuté à proximité les uns des autres (pour des raisons de performances) ou suffisamment éloignés (pour des raisons de disponibilité).
+- Affinité/Anti-affinité: spécifier qu’un ensemble de conteneurs doit être exécuté à proximité les uns des autres (pour des raisons de performances) ou suffisamment éloignés (pour des raisons de disponibilité).
 - Contrôle d’intégrité: surveiller les défaillances des conteneurs et les replanifier automatiquement.
 - Basculement: suivre ce qui est en cours d’exécution sur chaque ordinateur et replanifier les conteneurs exécutés sur des ordinateurs en état d’échec vers des nœuds intègres.
 - Évolutivité: ajouter ou supprimer des instances de conteneurs pour répondre à la demande, manuellement ou automatiquement.
