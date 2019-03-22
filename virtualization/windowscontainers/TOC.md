@@ -1,6 +1,6 @@
 # Vue d'ensemble
 ## [À propos de](about/index.md)
-## [FAQ](about/faq.md)
+## [Forum Aux Questions](about/faq.md)
 
 # Démarrages rapides
 ## Démarrage rapide de Windows10
@@ -57,7 +57,7 @@
 ## [Isolation Hyper-V](manage-containers/hyperv-container.md)
 ## [Périphériques matériels dans des conteneurs](deploy-containers/hardware-devices-in-containers.md)
 ## [Outils de plateforme de conteneur](deploy-containers/containerd.md)
-## [Comptes de Service Active Directory](manage-containers/manage-serviceaccounts.md)
+## [Comptes de service administrés de groupe](manage-containers/manage-serviceaccounts.md)
 ## [Optimisation de la protection antivirus](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 ## [Conteneurs Linux sur Windows](deploy-containers/linux-containers.md)
 
