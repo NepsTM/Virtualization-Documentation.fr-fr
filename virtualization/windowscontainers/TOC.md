@@ -55,6 +55,7 @@
 ## [Configuration système](deploy-containers/system-requirements.md)
 ## [Compatibilité des versions](deploy-containers/version-compatibility.md)
 ## [Isolation Hyper-V](manage-containers/hyperv-container.md)
+## [Services d’impression](deploy-containers/print-spooler.md)
 ## [Périphériques matériels dans des conteneurs](deploy-containers/hardware-devices-in-containers.md)
 ## [Outils de plateforme de conteneur](deploy-containers/containerd.md)
 ## [Comptes de service administrés de groupe](manage-containers/manage-serviceaccounts.md)
