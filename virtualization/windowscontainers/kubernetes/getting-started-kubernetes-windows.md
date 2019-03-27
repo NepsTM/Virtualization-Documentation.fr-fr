@@ -8,18 +8,18 @@ ms.prod: containers
 description: Jonction d’un nœud Windows à un cluster Kubernetes avec v1.13.
 keywords: kubernetes, 1.13, windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 2edc940d4132870a6f7d6714bb50faef201136ba
-ms.sourcegitcommit: 817a629f762a4a5d4bcff58302f2bc2408bf8be1
+ms.openlocfilehash: df3185db086e8e38143fe60d90db864038980603
+ms.sourcegitcommit: 1715411ac2768159cd9c9f14484a1cad5e7f2a5f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "9149909"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "9263486"
 ---
 # <a name="kubernetes-on-windows"></a>Kubernetes sur Windows #
-Cette page explique comment une vue d’ensemble de prise en main avec Kubernetes sur Windows en joignant les nœuds de Windows à un cluster Linux. Avec la version de Kubernetes 1.13 sur Windows Server, [version 1809](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1809#container-networking-with-kubernetes), les utilisateurs peuvent tirer parti des [fonctionnalités les plus récentes](https://kubernetes.io/docs/getting-started-guides/windows/#supported-features) dans Kubernetes sur la version bêta de Windows:
+Cette page explique comment une vue d’ensemble de prise en main avec Kubernetes sur Windows en joignant les nœuds de Windows à un cluster Linux. Avec la version de Kubernetes 1.14 sur Windows Server, [version 1809](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1809#container-networking-with-kubernetes), les utilisateurs peuvent tirer parti des fonctionnalités suivantes dans Kubernetes sur Windows:
 
   - **mise en réseau de superposition**: utilisez Flannel en mode vxlan pour configurer un réseau virtuel de superposition
-    - nécessite deux Windows Server 2019 avec KB4482887 installé ou [Windows Server vNext Insider Preview](https://blogs.windows.com/windowsexperience/tag/windows-insider-program/) Build 18317 +
+    - nécessite deux Windows Server 2019 avec [KB4489899](https://support.microsoft.com/en-us/help/4489899) installé ou [Windows Server vNext Insider Preview](https://blogs.windows.com/windowsexperience/tag/windows-insider-program/) Build 18317 +
     - nécessite v1.14 Kubernetes (ou version ultérieure) avec `WinOverlay` porte fonctionnalité activée
     - nécessite Flannel v0.11.0 (ou version ultérieure)
   - **une gestion réseau simplifiée**: utiliser Flannel en mode hôte-passerelle pour la gestion de gamme automatique entre les nœuds
@@ -31,7 +31,7 @@ Cette page explique comment une vue d’ensemble de prise en main avec Kubernete
 > [!TIP] 
 > Si vous souhaitez déployer un cluster sur Azure, l’outil open source AKS-Engine facilite cette opération. Une [procédure pas à pas](https://github.com/Azure/aks-engine/blob/master/docs/topics/windows.md) est disponible.
 
-## <a name="prerequisites"></a>Conditions préalables ##
+## <a name="prerequisites"></a>Prérequis ##
 
 ### <a name="plan-ip-addressing-for-your-cluster"></a>Planifier des adresses IP pour votre cluster ###
 <a name="definitions"></a>Comme les clusters Kubernetes introduisent de nouveaux sous-réseaux des pods et des services, il est important de s’assurer qu’aucun d'entre eux entrer en collision avec tous les autres réseaux existants dans votre environnement. Voici tous les espaces d’adressage qui doivent être libérées pour déployer correctement de Kubernetes:

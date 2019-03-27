@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 4f21efba8dd1079302b56e98d954b3ba574779e9
-ms.sourcegitcommit: 2779f01978b37ec4f8d895febe7037272fb2c703
+ms.openlocfilehash: ed554acc0aaacf967cbd29d49ef67fa7e916b497
+ms.sourcegitcommit: 1715411ac2768159cd9c9f14484a1cad5e7f2a5f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "4492805"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "9263496"
 ---
 # <a name="windows-container-network-drivers"></a>Pilotes réseau de conteneurs Windows  
 
@@ -23,7 +23,7 @@ En plus de tirer parti du réseau «nat» par défaut créé par Docker sur Wind
   > Plusieurs réseaux NAT sont désormais pris en charge si Windows10 Creators Update est installé!
 
 - **transparent**: les conteneurs reliés à un réseau créé avec le pilote «transparent» sont connectés directement au réseau physique via un commutateur Hyper-V *externe*. Les adressesIP issues du réseau physique peuvent être attribuées de façon statique (nécessite l’option ``--subnet`` spécifiée par l’utilisateur) ou dynamique à l’aide d’un serveur DHCP externe. 
-  > Remarque: dû à l’au-dessous de spécification, connexion de vos hôtes de conteneur via un réseau transparent n'est pas pris en charge sur les machines virtuelles Azure.
+  > Remarque: en raison de l’au-dessous de spécification, connexion de vos hôtes de conteneur via un réseau transparent n'est pas pris en charge sur les machines virtuelles Azure.
   
   > Nécessite: Lorsque ce mode est utilisé dans un scénario de la virtualisation (hôte de conteneur est un ordinateur virtuel) _l’usurpation des adresses MAC est nécessaire_.
 
@@ -32,14 +32,14 @@ En plus de tirer parti du réseau «nat» par défaut créé par Docker sur Wind
 
   > Nécessite: Nécessite Windows Server 2016 avec [KB4015217](https://support.microsoft.com/en-us/help/4015217/windows-10-update-kb4015217), Windows 10 Creators Update ou une version ultérieure.
 
+  > Remarque: Sous Windows Server 2019 Docker EE 18.03 en cours d’exécution et ultérieures, les réseaux de superposition créés par Docker Swarm Tirez parti des règles pour la connectivité sortante VFP NAT. Cela signifie thata donné conteneur reçoit 1 adresse IP. Cela signifie également que basée sur ICMP outils tels que `ping` ou `Test-NetConnection` doit être configuré à l’aide de leurs options TCP/UDP en cas de débogage.
+
 - **l2bridge** - des conteneurs reliés à un réseau créé avec le pilote «l2bridge» se trouvent dans le même sous-réseau IP que l’hôte de conteneur et connectés au réseau physique via un commutateur Hyper-V *externe*. Les adresses IP doivent être attribuées de façon statique à partir du même préfixe que l’hôte de conteneur. Tous les points de terminaison de conteneur sur l’ordinateur hôte ont la même adresse MAC que celles de l’hôte en raison de l’opération de traduction d’adresses de couche2 (réécriture d’adresses MAC) en entrée et en sortie.
   > Nécessite: Lorsque ce mode est utilisé dans un scénario de la virtualisation (hôte de conteneur est un ordinateur virtuel) _l’usurpation des adresses MAC est nécessaire_.
   
   > Nécessite: Nécessite Windows Server 2016, Windows 10 Creators Update ou une version ultérieure.
 
-- **l2tunne**l: Semblable à l2bridge. Cependant _ce pilote doit uniquement être utilisé dans une pile Microsoft Cloud Stack_. Les paquets provenant d’un conteneur sont envoyés à l’hôte de virtualisation où la stratégie SDN est appliquée.
-
-> Pour savoir comment connecter des points de terminaison de conteneur à un réseau virtuel de client existant avec la pile Microsoft SDN, consultez la rubrique relative à l’[attachement de conteneurs à un réseau virtuel](https://technet.microsoft.com/en-us/windows-server-docs/networking/sdn/manage/connect-container-endpoints-to-a-tenant-virtual-network).
+- **l2tunnel** - semblable à l2bridge, toutefois _ce pilote doit uniquement être utilisé dans une pile Microsoft Cloud Stack, par exemple, Azure_. Les paquets provenant d’un conteneur sont envoyés à l’hôte de virtualisation où la stratégie SDN est appliquée.
 
 
 ## <a name="network-topologies-and-ipam"></a>Topologies de réseau et IPAM
@@ -49,10 +49,10 @@ Le tableau ci-dessous montre de quelle manière est fournie la connectivité ré
 
   | Pilote de réseau Windows Docker | Utilisations classiques | Conteneur-conteneur (nœud unique) | Conteneur-externe (nœud unique + nœuds multiples) | Conteneur-conteneur (nœuds multiples) |
   |-------------------------------|:------------:|:------------------------------------:|:------------------------------------------------:|:-----------------------------------:|
-  | **NAT (par défaut)** | Bon pour les développeurs | <ul><li>Même sous-réseau: Connexion reliée via un commutateur virtuel Hyper-V</li><li> Entre-sous-réseaux: Non pris en charge dans WS2016 (un seul préfixe interne NAT)</li></ul> | Acheminé via la carte réseau virtuelle de gestion (lié à WinNAT) | Pas directement pris en charge: nécessite l’exposition de ports via un ordinateur hôte |
+  | **NAT (par défaut)** | Bon pour les développeurs | <ul><li>Même sous-réseau: Connexion reliée via un commutateur virtuel Hyper-V</li><li> Entre-sous: non pris en charge (un seul préfixe interne NAT)</li></ul> | Acheminé via la carte réseau virtuelle de gestion (lié à WinNAT) | Pas directement pris en charge: nécessite l’exposition de ports via un ordinateur hôte |
   | **Transparent** | Bon pour les développeurs ou les petits déploiements | <ul><li>Même sous-réseau: Connexion reliée via un commutateur virtuel Hyper-V</li><li>Entre sous-réseaux: Acheminé via l’hôte de conteneur</li></ul> | Acheminé via l’hôte de conteneur avec un accès direct à l’adaptateur réseau (physique) | Acheminé via l’hôte de conteneur avec un accès direct à l’adaptateur réseau (physique) |
-  | **Superposition** | Requis pour Docker Swarm, nœuds multiples | <ul><li>Même sous-réseau: Connexion reliée via un commutateur virtuel Hyper-V</li><li>Entre sous-réseaux: Le trafic réseau est encapsulé et acheminé via la carte réseau virtuelle de gestion</li></ul> | Pas pris en charge directement - nécessite un deuxième point de terminaison de conteneur attaché au réseau NAT | Même/entre sous-réseaux: Le trafic réseau est encapsulé avec VXLAN et acheminé via la carte réseau virtuelle de gestion |
-  | **L2Bridge** | Utilisé pour Kubernetes et Microsoft SDN | <ul><li>Même sous-réseau: Connexion reliée via un commutateur virtuel Hyper-V</li><li> Entre sous-réseaux: Adresse MAC de conteneur réécrite sur les éléments entrants et sortants et acheminés</li></ul> | Adresse MAC de conteneur réécrite sur les éléments entrants et sortants et acheminés | <ul><li>Même sous-réseau: Connexion reliée par un pont</li><li>Entre sous-réseaux: Non pris en charge dans WS2016.</li></ul> |
+  | **Superposition** | Bon pour les nœuds multiples; requis pour Docker Swarm, disponible dans Kubernetes | <ul><li>Même sous-réseau: Connexion reliée via un commutateur virtuel Hyper-V</li><li>Entre sous-réseaux: Le trafic réseau est encapsulé et acheminé via la carte réseau virtuelle de gestion</li></ul> | Pas pris en charge directement - nécessite un deuxième point de terminaison de conteneur attaché au réseau NAT | Même/entre sous-réseaux: Le trafic réseau est encapsulé avec VXLAN et acheminé via la carte réseau virtuelle de gestion |
+  | **L2Bridge** | Utilisé pour Kubernetes et Microsoft SDN | <ul><li>Même sous-réseau: Connexion reliée via un commutateur virtuel Hyper-V</li><li> Entre sous-réseaux: Adresse MAC de conteneur réécrite sur les éléments entrants et sortants et acheminés</li></ul> | Adresse MAC de conteneur réécrite sur les éléments entrants et sortants et acheminés | <ul><li>Même sous-réseau: Connexion reliée par un pont</li><li>Entre sous-réseaux: acheminé via la carte réseau virtuelle de gestion sur WSv1709 et les versions supérieures</li></ul> |
   | **L2Tunnel**| Azure uniquement | Entre/même sous-réseau: Commutateur virtuel Hyper-V de l’hôte physique épinglé à l’endroit où la stratégie est appliquée | Le trafic doit passer par la passerelle de réseau virtuel Azure | Entre/même sous-réseau: Commutateur virtuel Hyper-V de l’hôte physique épinglé à l’endroit où la stratégie est appliquée |
 
 ### <a name="ipam"></a>IPAM 
@@ -63,7 +63,7 @@ Les adresses IP sont attribuées et assignées différemment pour chaque pilote 
 | NAT | Allocation IP et affectation par le Service de réseau hôte (HNS) à partir du préfixe de sous-réseau NAT interne |
 | Transparent | Allocation IP et affectation d’IP statiques ou dynamiques (à l’aide du serveur DHCP externe) à partir d’adressesIP au sein du préfixe réseau de l’hôte de conteneur |
 | Superposition | Allocation IP dynamique à partir de préfixes gérés et d’affectations en mode Swarm du moteur Docker via HNS |
-| L2Bridge | Allocation IP et affectation d’IP statiques à partir d’adressesIP au sein du préfixe réseau de l’hôte de conteneur (peut également être affecté via un plug-in HNS) |
+| L2Bridge | Allocation IP statique et l’attribution d’adresses IP au sein du préfixe réseau de l’hôte de conteneur (peut également être affecté via HNS) |
 | L2Tunnel | Azure uniquement - Allocation IP et affectation dynamiques à partir d’un plug-in |
 
 ### <a name="service-discovery"></a>Découverte des services
@@ -71,7 +71,7 @@ La découverte des services est uniquement prise en charge pour certains pilotes
 
 |  | Découverte des services locale  | Découverte des services globale |
 | :---: | :---------------     |  :---                |
-| nat | OUI | N/A |  
-| superposition | OUI | OUI avec Docker EE |
-| transparent | NON | NON |
-| l2bridge | NON | OUI avec Kube-DNS |
+| nat | OUI | OUI avec Docker EE |  
+| superposition | OUI | Oui avec kube-dns ou Docker EE |
+| transparent | NO | NON |
+| l2bridge | NON | Oui avec kube-dns |
