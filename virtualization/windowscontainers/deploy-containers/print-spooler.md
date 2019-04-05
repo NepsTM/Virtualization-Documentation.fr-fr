@@ -3,19 +3,19 @@ title: Spouleur d’impression dans les conteneurs Windows
 description: Explique le comportement de travail actuel pour le service Spouleur d’impression dans les conteneurs Windows
 keywords: docker, conteneurs, imprimante, le spouleur
 author: cwilhit
-ms.openlocfilehash: 45176e651ee2ef9b6daea9919004601734084083
-ms.sourcegitcommit: 04c372c87c832f73a1aa120b0ff6c2c2b9c8c1b1
+ms.openlocfilehash: 48130bc6a826a45dfa49d0a3b4600d227f34704e
+ms.sourcegitcommit: 3c81b0efd1ac2c4c93d58f16edae1044c9a5ad55
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "9257980"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "9284573"
 ---
 # <a name="print-spooler-in-windows-containers"></a>Spouleur d’impression dans les conteneurs Windows
 
-Les applications avec une dépendance sur les services d’impression peuvent être en conteneur gérées avec des conteneurs Windows. Les applications qui ont une dépendance sur l’installation des pilotes d’imprimante dans l’hôte ne peut pas être en conteneur gérées; installation du pilote à partir d’un conteneur est non pris en charge, dans la mesure où il aurait une fuite état sur l’hôte de conteneur. Il existe des exigences spéciales qui doivent être remplies pour pouvoir activer la fonctionnalité de service d’imprimante avec succès. Ce guide explique comment configurer correctement votre déploiement.
+Les applications avec une dépendance sur les services d’impression peuvent être en conteneur gérées avec des conteneurs Windows. Il existe des exigences spéciales qui doivent être remplies pour pouvoir activer la fonctionnalité de service d’imprimante avec succès. Ce guide explique comment configurer correctement votre déploiement.
 
 > [!IMPORTANT]
-> Pendant que l’accès à l’impression fonctionnement des services correctement dans des conteneurs, la fonctionnalité est limitée sous forme; certaines actions relatives à l’impression ne peuvent pas fonctionner. Ouvrez un retour ci-dessous si tel est le cas.
+> Pendant que l’accès à l’impression fonctionnement des services correctement dans des conteneurs, la fonctionnalité est limitée sous forme; certaines actions relatives à l’impression ne peuvent pas fonctionner. Par exemple, les applications qui ont une dépendance sur l’installation des pilotes d’imprimante dans l’hôte ne peut pas être en conteneur gérées dans la mesure où **l’installation du pilote à partir d’un conteneur est non pris en charge**. Ouvrez un retour ci-dessous si vous trouvez une fonctionnalité d’impression non pris en charge que vous voulez être pris en charge dans les conteneurs.
 
 ## <a name="setup"></a>Configuration
 

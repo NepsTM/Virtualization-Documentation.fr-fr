@@ -3,25 +3,27 @@ title: Appareils dans des conteneurs sur Windows
 description: Quelle prise en charge de l’appareil existe pour les conteneurs sur Windows
 keywords: docker, conteneurs, les appareils, matériel
 author: cwilhit
-ms.openlocfilehash: da9785b051826efa4bb2c64542a7c75a12ddd2b4
-ms.sourcegitcommit: 4490d384ade48699e7f56dc265185dac75bf9d77
+ms.openlocfilehash: 18ae4ab229a677c63c3e17d684a3c3193df49c5e
+ms.sourcegitcommit: 3c81b0efd1ac2c4c93d58f16edae1044c9a5ad55
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "9058989"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "9284593"
 ---
-**Il s’agit actuellement de matériau de la version d’évaluation. Consultez le 4e élément dans la section «Exigences» ci-dessous pour plus d’informations.**
-
 # <a name="devices-in-containers-on-windows"></a>Appareils dans des conteneurs sur Windows
 
 Par défaut, les conteneurs Windows disposent d’un accès minimal aux appareils hôte--tout comme les conteneurs Linux. Il existe certaines charges de travail où il est utile--ou même impératif--pour accéder et communiquer avec les périphériques de matériel hôte. Ce guide couvre les appareils sont pris en charge dans les conteneurs et comment commencer.
 
-## <a name="requirements"></a>Conditions préalables
+> [!IMPORTANT]
+> Cette fonctionnalité nécessite une version de Docker qui prend en charge la `--device` une option de ligne de commande pour les conteneurs Windows. Prise en charge de Docker formel est planifiée pour la prochaine version de Docker EE moteur 19.03. En attendant, la [source en amont](https://master.dockerproject.org/) pour Docker contient les bits nécessaires.
 
-- Vous devez exécuter Windows Server 2019 ou version ultérieure ou Windows 10 Professionnel/entreprise avec le 2018 octobre mettre à jour
-- Votre version d’image de conteneur doit être 1809 ou une version ultérieure.
+## <a name="requirements"></a>Spécifications
+
+Pour cette fonctionnalité fonctionne, votre environnement doit satisfaire les conditions suivantes:
+- L’hôte de conteneur doit exécuter Windows Server 2019 ou Windows 10, version 1809 ou une version ultérieure.
+- Votre version d’image de base de conteneur doit être 1809 ou une version ultérieure.
 - Vos conteneurs doivent être en cours d’exécution en mode isolées du processus les conteneurs Windows.
-- Tandis que la fonctionnalité d’appareils Windows existe dans le démon Docker, il n’existe pas encore dans le client Docker (voir cette [requête de tirage](https://github.com/docker/cli/pull/1606) pour effectuer le suivi). Vous devez attendre une prochaine version de Docker pour Windows / Docker EE avec ce code pour tirer parti de cette fonctionnalité. Ce document sera mis à jour lorsque l’état change.
+- L’hôte de conteneur doit être en cours d’exécution du moteur Docker 19.03 ou une version ultérieure.
 
 ## <a name="run-a-container-with-a-device"></a>Exécuter un conteneur avec un appareil
 
@@ -71,16 +73,20 @@ Les périphériques suivants (et leur appareil GUID de classe d’interface) son
 <td><center>Bus SPI</center></td>
 <td><center>DCDE6AF9-6610-4285-828F-CAAF78C424CC</center></td>
 </tr>
+<tr valign="top">
+<td><center>Accélération GPU DirectX</center></td>
+<td><center>Voir la documentation dédiée</center></td>
+</tr>
 </tbody>
 </table>
 
 > [!TIP]
 > Les appareils répertoriés ci-dessus sont les _seuls_ les appareils pris en charge dans les conteneurs Windows aujourd'hui. Vous tentez de passer n’importe quel autre GUID de classe entraîne l’échec du démarrage de conteneur.
 
-## <a name="hyper-v-container-device-support"></a>Prise en charge des périphériques de conteneur Hyper-V
+## <a name="hyper-v-isolated-windows-container-support"></a>Prise en charge du conteneur Hyper-V-isolé de Windows
 
-Affectation de périphérique et le partage d’appareils ne sont pas pris en charge dans les conteneurs Hyper-V isolé aujourd'hui.
+Affectation de périphérique et d’appareil partage pour les charges de travail dans les conteneurs Windows isolé Hyper-V n'est pas pris en charge dès aujourd'hui.
 
-## <a name="linux-containers-on-windows-lcow-device-support"></a>Conteneurs Linux sur la prise en charge des périphériques Windows (LCOW)
+## <a name="hyper-v-isolated-linux-container-support"></a>Prise en charge des conteneurs Linux Hyper-V-isolé
 
-Affectation de périphérique et le partage d’appareils ne sont pas pris en charge LCOW aujourd'hui.
+Affectation de périphérique et d’appareil partage pour les charges de travail dans des conteneurs Linux isolé Hyper-V n'est pas pris en charge dès aujourd'hui.
