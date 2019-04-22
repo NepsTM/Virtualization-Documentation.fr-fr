@@ -1,22 +1,26 @@
 ---
-title: "Implémentation de contrôles de ressources"
-description: "Détails concernant les contrôles de ressources pour les conteneurs Windows"
-keywords: "docker, conteneurs, processeur, mémoire, disque, ressources"
+title: Implémentation de contrôles de ressources
+description: Détails concernant les contrôles de ressources pour les conteneurs Windows
+keywords: docker, conteneurs, processeur, mémoire, disque, ressources
 author: taylorb-microsoft
 ms.date: 11/21/2017
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8ccd4192-4a58-42a5-8f74-2574d10de98e
-ms.openlocfilehash: 413e28aabccdf894ebc249d8eae59e75e4b42345
-ms.sourcegitcommit: 1bd3d86bfbad8351cb19bdc84129dd5aec976c0c
-ms.translationtype: HT
+ms.openlocfilehash: e004bd4ca97960499826eeefdfb8e58b08e494b2
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380493"
 ---
 # <a name="implementing-resource-controls-for-windows-containers"></a>Implémentation de contrôles de ressources pour les conteneurs Windows
 Plusieurs contrôles de ressources peuvent être implémentés par conteneur et par ressource.  Par défaut, les conteneurs exécutés sont soumis à la gestion des ressources Windows classique. Celle-ci est généralement exécutée de manière équitable, mais en configurant ces contrôles, un développeur ou un administrateur est en mesure de limiter ou d’influencer l’utilisation des ressources.  Les ressources pouvant être contrôlées sont notamment: UC/processeur, mémoire/mémoire RAM, disque/stockage et réseau/débit.
-Les conteneurs Windows utilisent des [objets de traitement]( https://msdn.microsoft.com/en-us/library/windows/desktop/ms684161(v=vs.85).aspx) pour regrouper les processus associés à chaque conteneur et en assurer le suivi.  Les contrôles de ressources sont implémentés sur l’objet de traitement parent associé au conteneur.  Dans le cas d’[isolation Hyper-V](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/index#windows-container-types), les contrôles de ressources sont appliqués à la fois à l’ordinateur virtuel et à l’objet de traitement du conteneur en cours d’exécution automatique sur l’ordinateur virtuel. Cela garantit que, même si un processus en cours d’exécution dans le conteneur contourne ou échappe aux contrôles de l’objet de traitement, l’ordinateur virtuel s’assurera qu’il ne peut pas dépasser les contrôles de ressources définis.
+
+Les conteneurs Windows utilisent des [objets de traitement](https://msdn.microsoft.com/en-us/library/windows/desktop/ms684161(v=vs.85).aspx) pour regrouper les processus associés à chaque conteneur et en assurer le suivi.  Les contrôles de ressources sont implémentés sur l’objet de traitement parent associé au conteneur. 
+
+Dans le cas d’[isolation Hyper-V](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/index#windows-container-types), les contrôles de ressources sont appliqués à la fois à l’ordinateur virtuel et à l’objet de traitement du conteneur en cours d’exécution automatique sur l’ordinateur virtuel. Cela garantit que, même si un processus en cours d’exécution dans le conteneur contourne ou échappe aux contrôles de l’objet de traitement, l’ordinateur virtuel s’assurera qu’il ne peut pas dépasser les contrôles de ressources définis.
 
 ## <a name="resources"></a>Ressources
 Pour chaque ressource, cette section fournit un mappage entre l’interface de ligne de commande Docker, comme exemple d’utilisation du contrôle de ressources (il peut être configuré par un orchestrateur ou d’autres outils) et l’API du service de calcul hôte (HCS) Windows correspondante, en indiquant la façon dont le contrôle de ressources a généralement été implémenté par Windows (notez que cette description est une vue d’ensemble et que l’implémentation sous-jacente est susceptible d’être modifiée).
@@ -61,8 +65,11 @@ Pour chaque ressource, cette section fournit un mappage entre l’interface de l
 | Isolation Hyper-V | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://msdn.microsoft.com/en-us/library/windows/desktop/mt280122(v=vs.85).aspx) |
 
 ## <a name="additional-notes-or-details"></a>Remarques supplémentaires ou détails
+
 ### <a name="memory"></a>Mémoire
+
 Les conteneurs Windows exécutent quelques processus système dans chaque conteneur. Il s’agit généralement de ceux qui fournissent des fonctionnalités par conteneur, comme la gestion des utilisateurs, la mise en réseau, etc… Si la majeure partie de la mémoire requise par ces processus est partagée entre les conteneurs, la limite de mémoire doit être suffisamment élevée pour l’ensemble des conteneurs.  Un tableau est fourni dans le document [Configuration requise](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/system-requirements#memory-requirments) pour chaque type d’image de base, avec et sans isolation Hyper-V.
 
 ### <a name="cpu-shares-without-hyper-v-isolation"></a>Partages UC (sans isolation Hyper-V)
+
 Lors de l’utilisation de partages de processeur, l’implémentation sous-jacente (lorsque l’isolation Hyper-V n’est pas utilisée) configure [JOBOBJECT_CPU_RATE_CONTROL_INFORMATION](https://msdn.microsoft.com/en-us/library/windows/desktop/hh448384(v=vs.85).aspx), en définissant de manière spécifique l’indicateur du contrôle sur JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED et en fournissant un poids approprié.  Les plages de poids valides pour l’objet de traitement sont comprises entre 1et9 et la valeur par défaut est5, ce qui correspond à une fidélité plus faible que les valeurs de services de calcul hôtes qui sont comprises entre 1à10000.  Par exemple, un poids de partage de 7500 entraînerait un poids égal à7, tandis qu’un poids de partage de 2500 produirait la valeur2.

@@ -8,21 +8,22 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: cf5173a98032820e1ad72e99e9b6e874dedbed83
-ms.sourcegitcommit: 1715411ac2768159cd9c9f14484a1cad5e7f2a5f
+ms.openlocfilehash: 001f1abaeefaf34e12b0f7e3323bf32140080d05
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "9263516"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380003"
 ---
 # <a name="advanced-network-options-in-windows"></a>Options réseau avancées dans Windows
+
 Plusieurs options de pilote réseau sont prises en charge pour tirer parti des capacités et des fonctionnalités spécifiques de Windows. 
 
 ## <a name="switch-embedded-teaming-with-docker-networks"></a>SET (Switch Embedded Teaming) avec les réseaux Docker
 
-> S’applique à tous les pilotes réseau 
+> S’applique à tous les pilotes réseau
 
-Vous pouvez tirer parti de [SET (Switch Embedded Teaming)](https://technet.microsoft.com/en-us/windows-server-docs/networking/technologies/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming#a-namebkmksswitchembeddedaswitch-embedded-teaming-set) lorsque vous créez des réseaux d'hôte de conteneur à utiliser par Docker, en spécifiant plusieurs cartes réseau (séparées par des virgules) à l'aide de l'option `-o com.docker.network.windowsshim.interface`. 
+Vous pouvez tirer parti de [SET (Switch Embedded Teaming)](https://technet.microsoft.com/en-us/windows-server-docs/networking/technologies/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming#a-namebkmksswitchembeddedaswitch-embedded-teaming-set) lorsque vous créez des réseaux d'hôte de conteneur à utiliser par Docker, en spécifiant plusieurs cartes réseau (séparées par des virgules) à l'aide de l'option `-o com.docker.network.windowsshim.interface`.
 
 ```
 C:\> docker network create -d transparent -o com.docker.network.windowsshim.interface="Ethernet 2", "Ethernet 3" TeamedNet
@@ -30,7 +31,7 @@ C:\> docker network create -d transparent -o com.docker.network.windowsshim.inte
 
 ## <a name="set-the-vlan-id-for-a-network"></a>Définir l’ID de réseau local virtuel pour un réseau
 
-> S’applique aux pilotes réseau transparent et l2bridge 
+> S’applique aux pilotes réseau transparent et l2bridge
 
 Pour définir un ID de réseau local virtuel pour un réseau, utilisez l’option `-o com.docker.network.windowsshim.vlanid=<VLAN ID>` pour la commande `docker network create`. Par exemple, vous pouvez utiliser la commande suivante pour créer un réseau transparent avec l'ID de réseau virtuel local 11:
 

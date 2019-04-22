@@ -8,16 +8,16 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb2848ca-683e-4361-a750-0d1d14ec8031
-ms.openlocfilehash: aad0c1f2fa7aea564b7348d662df46256a82abc4
-ms.sourcegitcommit: f376676c7864ae19fcb1649006ce6b60c6218634
+ms.openlocfilehash: 5d9e95d2263c9603712054376bfa9e7190feb1b0
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "8989448"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380403"
 ---
 # <a name="optimize-windows-dockerfiles"></a>Optimiser les fichiers Dockerfile Windows
 
-Plusieurs méthodes permettent d’optimiser le processus de génération Docker et les images Docker qui en résultent. Ce document décrit en détail le fonctionnement du processus de génération Docker et présente plusieurs tactiques pouvant être utilisées pour une création d’image optimale avec des conteneurs Windows.
+Plusieurs méthodes permettent d’optimiser le processus de génération Docker et les images Docker qui en résultent. Ce document décrit en détail comment le processus de génération Docker et présente plusieurs tactiques pouvant servir d’image optimale créer des conteneurs Windows.
 
 ## <a name="docker-build"></a>Génération Docker
 
@@ -54,9 +54,9 @@ Des fichiers Dockerfile peuvent être écrits pour réduire les couches d’imag
 
 ## <a name="optimize-image-size"></a>Optimiser la taille des images
 
-Quand vous créez des images de conteneur Docker, la taille des images peut être un facteur important. Les images de conteneur sont déplacées entre les registres et l’hôte, sont exportées et importées, et finalement consomment de l’espace. Plusieurs tactiques permettent de réduire la taille des images pendant le processus de génération Docker. Cette section présente en détail certaines de ces tactiques spécifiques aux conteneurs Windows. 
+Quand vous créez des images de conteneur Docker, la taille des images peut être un facteur important. Les images de conteneur sont déplacées entre les registres et l’hôte, sont exportées et importées, et finalement consomment de l’espace. Plusieurs tactiques permettent de réduire la taille des images pendant le processus de génération Docker. Cette section décrit en détail certaines de ces tactiques spécifiques aux conteneurs Windows.
 
-Pour plus d’informations sur les bonnes pratiques Dockerfile, voir [Best practices for writing Dockerfiles sur Docker.com]( https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/).
+Pour plus d’informations sur les bonnes pratiques Dockerfile, voir [Best practices for writing Dockerfiles sur Docker.com](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/).
 
 ### <a name="group-related-actions"></a>Regrouper des actions connexes
 

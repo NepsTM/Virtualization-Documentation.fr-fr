@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
-ms.openlocfilehash: d67b38b04cf781ab5cba8e0142831f71b65aa974
-ms.sourcegitcommit: 8ab1fccfc680911493c769157a6cfe7cbcf17bde
+ms.openlocfilehash: 4fac4d6e091fdf25e9683adca438302ca3beebfb
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "8972053"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380343"
 ---
 # <a name="troubleshooting"></a>Résolution des problèmes
 
@@ -28,7 +28,7 @@ Si cela ne permet pas de trouver la source du problème, publiez la sortie de vo
 
 
 ## <a name="finding-logs"></a>Où trouver les journaux
-Plusieurs services sont utilisés pour gérer les conteneurs Windows. Les sections suivantes indiquent où obtenir les journaux de chaque service.
+Il existe plusieurs services sont utilisés pour gérer les conteneurs Windows. Les sections suivantes indiquent où obtenir les journaux de chaque service.
 
 # <a name="docker-engine"></a>Moteur Docker
 Les enregistrements du moteur Docker sont consignés dans le journal des événements des applications Windows, plutôt que dans un fichier. Ces enregistrements peuvent facilement être lus, triés et filtrés à l’aide de Windows PowerShell

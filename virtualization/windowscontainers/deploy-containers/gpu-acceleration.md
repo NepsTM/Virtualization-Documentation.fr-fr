@@ -3,12 +3,12 @@ title: Accélération GPU dans les conteneurs Windows
 description: Le niveau de l’accélération GPU existe dans les conteneurs Windows
 keywords: docker, conteneurs, les appareils, matériel
 author: cwilhit
-ms.openlocfilehash: fbee74e1d40838922ae938afd8fda5715a6abaf7
-ms.sourcegitcommit: af1d0d6c0642ee44bd34db7a9a58fe6c65f73a33
+ms.openlocfilehash: 281241e07e4bc184e73c4e74a117b44253a775be
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "9285943"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380053"
 ---
 # <a name="gpu-acceleration-in-windows-containers"></a>Accélération GPU dans les conteneurs Windows
 
@@ -22,6 +22,7 @@ GPU sont déjà un outil commun pour plusieurs charges de travail populaires, à
 ## <a name="requirements"></a>Spécifications
 
 Pour cette fonctionnalité fonctionne, votre environnement doit satisfaire les conditions suivantes:
+
 - L’hôte de conteneur doit exécuter Windows Server 2019 ou Windows 10, version 1809 ou une version ultérieure.
 - L’image de base du conteneur doit être [mcr.microsoft.com/windows:1809](https://hub.docker.com/_/microsoft-windowsfamily-windows) ou une version ultérieure. Les images de conteneur Windows Server Core et Nano Server ne sont pas actuellement prises en charge.
 - L’hôte de conteneur doit être en cours d’exécution du moteur Docker 19.03 ou une version ultérieure.

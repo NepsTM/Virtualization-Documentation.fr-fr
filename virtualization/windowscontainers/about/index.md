@@ -1,15 +1,20 @@
 ---
 title: À propos des conteneurs Windows
 description: En savoir plus sur les conteneurs Windows.
-keywords: 'docker, conteneurs'
+keywords: docker, conteneurs
 author: taylorb-microsoft
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
+ms.openlocfilehash: 6473c323c675fc59360dd982a14895a93743098a
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380043"
 ---
-
 # <a name="containers-on-windows"></a>Conteneurs sur Windows
 
 ## <a name="what-are-containers"></a>Présentation des conteneurs
@@ -29,16 +34,15 @@ Les conteneurs ressemblent à cette cuisine. Il peut y avoir différents types d
 Regardez une présentation brève ci-dessous:
 <iframe width="800" height="450" src="https://www.youtube.com/embed/Ryx3o0rD5lY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
-## <a name="container-fundamentals"></a>Notions de base sur les conteneurs
+## <a name="container-fundamentals"></a>Notions de base de conteneur
 
 Les conteneurs constituent un environnement d’exploitation isolé, mobile et contrôlé par les ressources, qui s’exécute sur un ordinateur hôte ou un ordinateur virtuel. Une application ou un processus qui s’exécute dans un conteneur est empaqueté avec toutes les dépendances requises et les fichiers de configuration; Il a donné l’illusion qu’il n’y a aucun autre processus en cours d’exécution en dehors de son conteneur.
 
 L’hôte du conteneur configure un ensemble de ressources pour le conteneur et ce dernier utilise uniquement ces ressources. Comme le conteneur sait, aucune autre ressource n’existe en dehors de ce qui lui a été attribué et, par conséquent le conteneur ne peuvent pas les ressources peuvent avoir été configurées pour un conteneur voisin.
 
-Les concepts clés suivants peuvent s’avérer utiles quand vous commencez à créer des conteneurs Windows et à les utiliser.
+Les concepts clés suivants peuvent seront avérer utiles quand vous commencez à créer et utiliser des conteneurs Windows.
 
-**Hôte de conteneur:** système d’ordinateur physique ou virtuel configuré avec la fonctionnalité de conteneur Windows. L’hôte de conteneur exécute un ou plusieurs conteneurs Windows.
+**Hôte de conteneur:** Physique ou virtuel configuré avec la fonctionnalité de conteneur du système d’ordinateur. L’hôte de conteneur exécute un ou plusieurs conteneurs Windows.
 
 **Image de conteneur:** quand des modifications sont apportées au système de fichiers ou au Registre d’un conteneur, par exemple lors de l’installation d’un logiciel, elles sont capturées dans un bac à sable (sandbox). Dans de nombreux cas, vous pouvez capturer cet état pour que des conteneurs qui héritent de ces modifications puissent être créés. C’est ce qui constitue une image: une fois le conteneur arrêté, vous pouvez ignorer ce bac à sable (sandbox) ou vous pouvez le convertir en une nouvelle image de conteneur. Par exemple, imaginons que vous avez déployé un conteneur à partir de l’image de système d’exploitation Windows Server Core. Vous installez ensuite MySQL dans ce conteneur. La création d’une image à partir de ce conteneur fait office de version pouvant être déployée du conteneur. Cette image contient uniquement les modifications apportées (MySQL), mais fonctionne toutefois comme une couche sur l’image de système d’exploitation de conteneur.
 
@@ -56,7 +60,7 @@ Mark Russinovich, expert MicrosoftAzure, a rédigé [un excellent billet de blog
 
 ## <a name="windows-container-types"></a>Types de conteneurs Windows
 
-Les conteneurs Windows incluent deuxtypes de conteneurs différents, ou runtimes.
+Les conteneurs Windows incluent deux types de conteneurs différents, ou runtimes.
 
 **Conteneurs Windows Server**: Ils assurent l’isolation des applications via une technologie d’isolation des processus et des espaces de noms. Un conteneur Windows Server partage un noyau avec l’hôte de conteneur et tous les conteneurs exécutés sur l’hôte. Ces conteneurs ne créent pas de frontière de sécurité contre le code hostile et ne doivent pas être utilisés pour isoler du code non fiable. En raison de l’espace de noyau partagé, ces conteneurs requièrent la même version et configuration de noyau.
 
@@ -70,9 +74,9 @@ L’exécution d’un conteneur sur Windows avec ou sans isolation Hyper-V est u
 
 ![Conteneurs avec Docker](media/docker.png)
 
-Un conteneur Windows Server peut être géré avec [Docker](https://www.docker.com) comme tout autre conteneur.
+Tout comme n’importe quel autre conteneur, un conteneur Windows Server peut être géré avec [Docker](https://www.docker.com).
 
-## <a name="containers-for-developers"></a>Conteneurs pour les développeurs ##
+## <a name="containers-for-developers"></a>Conteneurs pour les développeurs
 
 Qu’il s’agisse de l’ordinateur de bureau d’un développeur, d’un ordinateur de test ou d’un groupe de machines de production, il est possible de créer une image Docker qui sera déployée de façon identique dans tous les environnements en quelques secondes. De là est né un solide écosystème de plus en plus important d’applications empaquetées dans des conteneurs Docker avec Docker Hub, registre public d’applications en conteneur géré par Docker qui publie actuellement plus de 180000applications dans le référentiel de la communauté publique.
 
@@ -84,13 +88,14 @@ Les conteneurs permettent aux développeurs de créer une application dans n’i
 
 Les conteneurs aident les développeurs à générer et livrer des applications de meilleure qualité, plus rapidement.
 
-## <a name="containers-for-it-professionals"></a>Conteneurs pour les professionnels de l’informatique ##
+## <a name="containers-for-it-professionals"></a>Conteneurs pour les professionnels de l’informatique
 
 Les professionnels de l’informatique peuvent utiliser des conteneurs pour fournir des environnements standardisés à leurs équipes de développement, d’assurance qualité et de production. Ils n’ont plus à se soucier des procédures d’installation et de configuration complexes. En utilisant des conteneurs, les administrateurs système font abstraction des différences dans les installations du système d’exploitation et l’infrastructure sous-jacente.
 
 Les conteneurs aident les administrateurs à créer une infrastructure qui est plus simple à mettre à jour et à gérer.
 
 ## <a name="container-orchestrators"></a>Orchestrateurs de conteneurs
+
 En raison de leur taille réduite et de l’orientation de l’application, les conteneurs sont bien adaptés pour les environnements de livraison agile et les architectures microservice. Toutefois, lorsque vous utilisez des conteneurs et microservices, vous pouvez facilement avoir des centaines voire des milliers de composants dans votre environnement.  Vous pouvez gérer manuellement quelques dizaines de machines virtuelles ou de serveurs physiques, mais il est impossible de gérer un environnement de conteneurs à l’échelle de la production sans automatisation.  La tâche d’automatisation et de gestion d’un grand nombre de conteneurs et la manière dont ils interagissent s’appellent l’orchestration. 
 
 La définition standard de l’orchestration inclut les tâches suivantes:
@@ -114,7 +119,7 @@ Azure offre deux orchestrateurs de conteneurs: Azure Container Service (AKS) et 
 
 <iframe src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-and-Docker/player" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
-## <a name="try-windows-server-containers"></a>Essayer les conteneurs WindowsServer
+## <a name="try-windows-server-containers"></a>Essayer les conteneurs Windows Server
 
 Vous êtes prêt à exploiter les impressionnantes fonctionnalités des conteneurs? Utilisez les liens ci-dessous pour commencer à déployer votre premier conteneur: <br/>
 Pour les utilisateurs de WindowsServer, accédez à l’[introduction de démarrage rapide WindowsServer](../quick-start/quick-start-windows-server.md) <br/>

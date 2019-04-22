@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.openlocfilehash: bbc405fc2a490cfe5082be112fde724707e24785
-ms.sourcegitcommit: 21d93e5febd9b1b47ae1aa59d08086e6ec1691e0
+ms.openlocfilehash: 24de3d332ae4634f7dca945c1df9182cc1310089
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9121051"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380333"
 ---
 # <a name="docker-engine-on-windows"></a>Moteur Docker sur Windows
 
@@ -24,7 +24,7 @@ Le moteur Docker et le client ne sont pas inclus avec Windows et doivent être i
 Vous devez installer Docker pour utiliser les conteneurs Windows. Docker comprend le moteur Docker (dockerd.exe) et le client Docker (docker.exe). Vous trouverez le moyen le plus simple de tout installer dans les guides de démarrage rapide. Elles vous aident à rendre tout configurent et exécutent votre premier conteneur. 
 
 * [Conteneurs Windows sur Windows Server 2019](../quick-start/quick-start-windows-server.md)
-* [Conteneurs Windows sur Windows10](../quick-start/quick-start-windows-10.md)
+* [Conteneurs Windows sur Windows 10](../quick-start/quick-start-windows-10.md)
 
 Pour les installations par script, consultez [Utiliser un script pour installer Docker EE ](https://docs.docker.com/install/windows/docker-ee/#use-a-script-to-install-docker-ee).
 

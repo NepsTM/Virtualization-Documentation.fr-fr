@@ -8,12 +8,12 @@ ms.topic: about-article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 29fbe13a-228a-4eaa-9d4d-90ae60da5965
-ms.openlocfilehash: fec8b08d5bd86102d21ce93b726dc0b931413441
-ms.sourcegitcommit: 69228f28723f366c6b2933c7701077c8df74b32b
+ms.openlocfilehash: 19340f2ca3ca11e9b75a223bf2b58e943328a0c5
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "8976745"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380153"
 ---
 # <a name="building-a-container-ecosystem"></a>Création d’un écosystème de conteneurs
 

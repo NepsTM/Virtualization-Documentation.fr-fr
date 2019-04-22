@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: dc500a7b6c0f8f078820407e6ed80ca5868bf4f3
-ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
+ms.openlocfilehash: 07f5929505226a50a161b4ae7df5669c2ad89d83
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8973649"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380423"
 ---
 # <a name="windows-containers-on-windows-10"></a>Conteneurs Windows sur Windows10
 
@@ -30,7 +30,7 @@ Dans ce démarrage rapide vous allez accomplir:
 
 Ce démarrage rapide est spécifique à Windows10. Vous trouverez la documentation de démarrage rapide supplémentaire dans la table des matières sur le côté gauche de cette page.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Vérifiez que vous respectez les exigences suivantes:
 - Un système d’ordinateur physique exécutant Windows 10 Professionnel ou entreprise avec la mise à jour anniversaire (version 1607) ou version ultérieure. 
 - Assurez-vous que [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) est activé.
@@ -72,7 +72,7 @@ microsoft/nanoserver   latest              105d76d0f40e        4 days ago       
 ```
 
 > [!IMPORTANT]
-> Veuillez lire l' Image de système d’exploitation Windows conteneurs [CLUF](../images-eula.md).
+> Veuillez lire l' image de système d’exploitation [CLUF](../images-eula.md)les conteneurs Windows.
 
 ## <a name="run-your-first-windows-container"></a>Exécuter votre premier conteneur Windows
 
@@ -122,7 +122,7 @@ Enfin, pour exécuter le conteneur, utilisez la commande `docker run`.
 docker run --rm helloworld cmd.exe /s /c type Hello.txt
 ```
 
-Le résultat de la `docker run` commande est qu’un conteneur Hyper-V a été créé à partir de l’image «Hello World», une instance de cmd a été démarrée dans le conteneur et exécuté une lecture de notre fichier (sortie répercuté dans l’interpréteur de commandes), puis le conteneur arrêté et supprimé.
+Le résultat de la `docker run` commande est qu’un conteneur en cours d’exécution sous isolation Hyper-V a été créé à partir de l’image «Hello World», une instance de cmd a été démarrée dans le conteneur et exécuté une lecture de notre fichier (sortie répercuté dans l’interpréteur de commandes), puis le conteneur arrêtée et supprimée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

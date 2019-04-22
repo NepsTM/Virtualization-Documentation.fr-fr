@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 036e4f80eaa6e7ce2c151d7732e670c0492bc61f
-ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
+ms.openlocfilehash: f9b54dbc9fc7c79bdb9b9aa106d5811401c365f3
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8973812"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380463"
 ---
 # <a name="linux-containers-on-windows-10"></a>Conteneurs Linux sur Windows 10
 
@@ -30,13 +30,13 @@ Dans ce démarrage rapide vous allez accomplir:
 
 Ce démarrage rapide est spécifique à Windows10. Vous trouverez la documentation de démarrage rapide supplémentaire dans la table des matières sur le côté gauche de cette page.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Vérifiez que vous respectez les exigences suivantes:
 - Un système d’ordinateur physique exécutant Windows 10 Professionnel ou entreprise avec Fall Creators Update (version 1709) ou version ultérieure
 - Assurez-vous que [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) est activé.
 
-***Isolation Hyper-V:*** Conteneurs Linux sur Windows requièrent l’isolation Hyper-V sur Windows 10 afin de fournir aux développeurs le noyau Linux approprié pour exécuter le conteneur. Plus à propos d’Hyper-V isolation sont accessibles sur la page à [propos des conteneurs Windows](../about/index.md) .
+***Isolation Hyper-V:*** Conteneurs Linux sur Windows requièrent l’isolation Hyper-V sur Windows 10 afin de fournir aux développeurs le noyau Linux approprié pour exécuter le conteneur. Plus à propos d’Hyper-V isolation sont accessibles sur la page de [conteneurs sur Windows](../about/index.md) .
 
 ## <a name="install-docker-for-windows"></a>Installer Docker pour Windows
 
@@ -44,7 +44,7 @@ Téléchargez [Docker pour Windows](https://store.docker.com/editions/community/
 
 > Si vous avez déjà installé de Docker, vérifiez que vous disposez 18.02 ou version ultérieure pour prendre en charge LCOW. Vérifier en exécutant `docker -v` ou la vérification *Sur Docker*.
 
-> Les «fonctions expérimentales' option dans *Docker Paramètres > démon* doit être activé pour exécuter des conteneurs LCOW.
+> L’option «les fonctions expérimentales» dans *les paramètres de Docker > démon* doit être activée pour exécuter des conteneurs LCOW.
 
 ## <a name="run-your-first-lcow-container"></a>Exécuter votre premier conteneur LCOW
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: b58bdd79da1c644281ebd9e79c16587d9fc156f4
-ms.sourcegitcommit: 21d93e5febd9b1b47ae1aa59d08086e6ec1691e0
+ms.openlocfilehash: fd2de24a4c8c03817978a53b340e2a77285c69ad
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9121041"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380413"
 ---
 # <a name="windows-containers-on-windows-server"></a>Conteneurs Windows sur Windows Server
 
@@ -29,12 +29,12 @@ Si vous voulez vous familiariser avec les conteneurs, vous trouverez des informa
 
 Ce démarrage rapide est spécifique aux conteneurs Windows Server sur Windows Server 2019 et Windows Server 2016. Une documentation de démarrage rapide supplémentaire, incluant les conteneurs dans Windows10, est disponible dans la table des matières affichée à gauche dans cette page.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Vérifiez que vous respectez les exigences suivantes:
 - Un système informatique (physique ou virtuel) exécutant Windows Server 2019. Si vous utilisez Windows Server 2019 Insider Preview, mettez à jour vers la [Version d’évaluation de fenêtre Server 2019](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019 ).
 
-> Les mises à jour critiques sont nécessaires au fonctionnement de la fonctionnalité Conteneur Windows. Installez toutes les mises à jour avant de suivre ce didacticiel.
+> Mises à jour critiques sont nécessaires dans l’ordre de la fonctionnalité de conteneur Windows pour fonctionner. Installez toutes les mises à jour avant de suivre ce didacticiel.
 
 Si vous souhaitez effectuer un déploiement sur Azure, ce [modèle](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-server-container-tools/containers-azure-template) peut vous aider.
 
