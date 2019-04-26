@@ -1,6 +1,6 @@
 ---
-title: "Ressources de la communauté"
-description: "Ressources de la communauté"
+title: Ressources de la communauté
+description: Ressources de la communauté
 keywords: windows 10, hyper-v, conteneur, docker
 author: scooley
 ms.date: 05/02/2016
@@ -9,16 +9,17 @@ ms.prod: virtualization
 ms.service: virtualization
 ms.assetid: 731ed95a-ce13-4c6e-a450-49563bdc498c
 ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
-ms.translationtype: HT
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9578595"
 ---
-# Contribution à la documentation
+# <a name="contribute-to-the-docs"></a>Contribution à la documentation
 
 > **Remarque:** Pour pouvoir contribuer, vous devez avoir un compte [GitHub](https://www.github.com).
 
-## Modification d’un document existant
+## <a name="edit-an-existing-doc"></a>Modification d’un document existant
 
 1. Recherchez le document à modifier.  
 
@@ -59,12 +60,12 @@ ms.lasthandoff: 07/21/2017
 
 7. Créer une [requête de tirage](contribute-to-docs.md#pull-requests)  
 
-## Requêtes de tirage
+## <a name="pull-requests"></a>Requêtes de tirage
 
 La plupart des modifications sont validées par une requête de tirage.  Une requête de tirage permet de réviser un ensemble de modifications avec plusieurs réviseurs, ainsi que de modifier et commenter le contenu actuel.
 
 
-## Répliquer le dépôt et modifier localement
+## <a name="fork-the-repo-and-edit-locally"></a>Répliquer le dépôt et modifier localement
 
 Pour le travail sur la documentation à long terme, clonez le dépôt localement et travaillez sur votre ordinateur.
 
@@ -85,7 +86,7 @@ Ce guide est constitué de trois sections:
   * description de quelques fonctionnalités pratiques avec VSCode pour Git
   * effectuer une première validation.
 
-### Configurer Git
+### <a name="set-up-git"></a>Configurer Git
 
 1. Installer Git (sur Windows) à partir d’[ici](https://git-for-windows.github.io/)
 
@@ -179,7 +180,7 @@ Ce guide est constitué de trois sections:
   }
   ```
 
-### Valider et dissimuler les informations d’identification
+### <a name="validate-and-stash-credentials"></a>Valider et dissimuler les informations d’identification
 
   Pour valider que le dépôt est correctement configuré, essayez d’extraire un nouveau contenu.
 
@@ -188,7 +189,7 @@ Ce guide est constitué de trois sections:
   ```
 
 
-### Configurer l’environnement d’édition Markdown
+### <a name="set-up-markdown-editing-environment"></a>Configurer l’environnement d’édition Markdown
 
 1. Téléchargez VSCode
 

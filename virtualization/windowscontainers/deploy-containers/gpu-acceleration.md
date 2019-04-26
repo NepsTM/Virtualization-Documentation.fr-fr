@@ -4,11 +4,11 @@ description: Le niveau de l’accélération GPU existe dans les conteneurs Wind
 keywords: docker, conteneurs, les appareils, matériel
 author: cwilhit
 ms.openlocfilehash: 281241e07e4bc184e73c4e74a117b44253a775be
-ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "9380053"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9578662"
 ---
 # <a name="gpu-acceleration-in-windows-containers"></a>Accélération GPU dans les conteneurs Windows
 

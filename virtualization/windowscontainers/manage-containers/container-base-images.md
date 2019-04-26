@@ -1,6 +1,6 @@
 ---
 title: Historique des images de base des conteneurs Windows
-description: "Liste d’images de conteneurs Windows publiée avec les hachages de couche SHA256"
+description: Liste d’images de conteneurs Windows publiée avec les hachages de couche SHA256
 keywords: Docker, conteneurs, hachages
 author: patricklang
 ms.date: 01/12/2018
@@ -9,10 +9,11 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
 ms.openlocfilehash: eb2df861021f889e335d49a337b379ecbf17a47d
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
-ms.translationtype: HT
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9576920"
 ---
 # <a name="windows-container-base-image-history"></a>Historique des images de base des conteneurs Windows
 

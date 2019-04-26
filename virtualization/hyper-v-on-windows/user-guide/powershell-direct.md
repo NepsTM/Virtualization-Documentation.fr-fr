@@ -9,10 +9,11 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
 ms.openlocfilehash: 779dcf51d4903c9467cc52dbadb865beb9929bd2
-ms.sourcegitcommit: e7fa38bcb7744a34e7a58978b55af1fbf6353247
-ms.translationtype: HT
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9577320"
 ---
 # <a name="virtual-machine-automation-and-management-using-powershell"></a>Gestion et automatisation de machines virtuelles avec PowerShell
  
@@ -243,7 +244,7 @@ Les informations d’identification d’administrateur peuvent être passées à
 
 ### <a name="error-the-credential-is-invalid"></a>Erreur: Les informations d’identification ne sont pas valides.
 
-**Message d’erreur:**  
+**Message d'erreur:**  
 ```
 Enter-PSSession : The credential is invalid.
 ```

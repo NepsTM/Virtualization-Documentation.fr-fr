@@ -9,11 +9,11 @@ description: Jonction d’un nœud Windows à un cluster Kubernetes avec v1.13.
 keywords: kubernetes, 1.13, windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
 ms.openlocfilehash: 7c3a0111b3d19ae1b513a84665f870bba24ae33d
-ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "9380033"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9576983"
 ---
 # <a name="kubernetes-on-windows"></a>Kubernetes sur Windows
 

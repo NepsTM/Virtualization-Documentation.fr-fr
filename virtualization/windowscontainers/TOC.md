@@ -1,6 +1,6 @@
 # Vue d'ensemble
 ## [À propos de](about/index.md)
-## [Forum Aux Questions](about/faq.md)
+## [FAQ](about/faq.md)
 
 # Démarrages rapides
 ## Démarrage rapide de Windows10

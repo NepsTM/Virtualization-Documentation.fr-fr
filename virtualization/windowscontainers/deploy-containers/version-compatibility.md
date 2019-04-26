@@ -4,11 +4,11 @@ description: Comment Windows peut générer et exécuter des conteneurs dans plu
 keywords: métadonnées, conteneurs, version
 author: taylorb-microsoft
 ms.openlocfilehash: c744da429ed8116363437d3117ae1432d7a94f8d
-ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "6948078"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9574950"
 ---
 # <a name="windows-container-version-compatibility"></a>Compatibilité des versions avec les conteneurs Windows
 
@@ -31,8 +31,8 @@ Windows Server2016 et la mise à jour anniversaire Windows10 (tous deux de versi
         <td style="background-color:#F1F8E9"><b>Windows10 Fall Creators Update</b><br/>Builds16299.*</td>
         <td style="background-color:#F1F8E9"><b>Windows Server version 1803</b><br/>Les builds 17134.*</td>
         <td style="background-color:#F1F8E9"><b>Windows 10 version 1803</b><br/>Les builds 17134.*</td>
-        <td style="background-color:#F1F8E9"><b>Windows Server 2019</b><br/>Les builds 17763.*</td>
-        <td style="background-color:#F1F8E9"><b>Windows 10, version 1809</b><br/>Les builds 17763.*</td>
+        <td style="background-color:#F1F8E9"><b>Windows Server2019</b><br/>Les builds 17763.*</td>
+        <td style="background-color:#F1F8E9"><b>Windows 10 version 1809</b><br/>Les builds 17763.*</td>
     </tr>
     <tr>
         <td style="background-color:#E3F2FD"><b>Windows Server2016</b><br/>Builds: 14393.*</td>
@@ -47,7 +47,7 @@ Windows Server2016 et la mise à jour anniversaire Windows10 (tous deux de versi
     </tr>
     <tr>
         <td style="background-color:#E3F2FD"><b>WindowsServer version1709</b><br/>Builds16299.*</td>
-        <td>Non pris en charge</td>
+        <td>Non prise en charge</td>
         <td>Non pris en charge</td>
         <td>Prend en charge l’isolation<br/> `process` ou `hyperv`</td>
         <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
@@ -58,7 +58,7 @@ Windows Server2016 et la mise à jour anniversaire Windows10 (tous deux de versi
     </tr>
     <tr>
         <td style="background-color:#E3F2FD"><b>Windows Server version 1803</b><br/>Les builds 17134.*</td>
-        <td>Non pris en charge</td>
+        <td>Non prise en charge</td>
         <td>Non pris en charge</td>
         <td>Non pris en charge</td>
         <td>Non pris en charge</td>
@@ -68,8 +68,8 @@ Windows Server2016 et la mise à jour anniversaire Windows10 (tous deux de versi
         <td>Prend en charge<br/> uniquement l’isolation `hyperv`</td>
     </tr>
     <tr>
-        <td style="background-color:#E3F2FD"><b>Windows Server 2019</b><br/>Les builds 17763.*</td>
-        <td>Non pris en charge</td>
+        <td style="background-color:#E3F2FD"><b>Windows Server2019</b><br/>Les builds 17763.*</td>
+        <td>Non prise en charge</td>
         <td>Non pris en charge</td>
         <td>Non pris en charge</td>
         <td>Non pris en charge</td>

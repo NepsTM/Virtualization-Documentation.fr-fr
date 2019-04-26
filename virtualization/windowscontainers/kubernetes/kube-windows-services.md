@@ -9,18 +9,18 @@ description: Procédure pour exécuter des composants de Kubernetes en tant que 
 keywords: kubernetes, 1.13, windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5c18
 ms.openlocfilehash: 6c68edda6e2017640b0a490c3c30f063c81698b3
-ms.sourcegitcommit: 41318edba7459a9f9eeb182bf8519aac0996a7f1
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9120590"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9578640"
 ---
 # <a name="kubernetes-components-as-windows-services"></a>Composants de Kubernetes en tant que Services Windows 
 
 Certains utilisateurs peuvent souhaiter configurer les processus tels que flanneld.exe, kubelet.exe, kube-proxy.exe ou d’autres à s’exécuter en tant que services Windows. Cela offre des avantages de tolérance de pannes supplémentaires telles que les processus de redémarrage automatique lors de blocage d’un processus ou nœud inattendu.
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 1. Vous avez téléchargé [nssm.exe](https://nssm.cc/download) dans les `c:\k` directory
 2. Vous avez joint le nœud à votre cluster et exécutez le script [install.ps1](https://github.com/Microsoft/SDN/tree/master/Kubernetes/flannel/install.ps1) ou [start.ps1](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/start.ps1) sur votre nœud précédemment
 

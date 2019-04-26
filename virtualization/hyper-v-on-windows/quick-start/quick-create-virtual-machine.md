@@ -7,12 +7,12 @@ ms.date: 04/07/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: f1e75efa-8745-4389-b8dc-91ca931fe5ae
-ms.openlocfilehash: 5975f43859368334cab31b6d0eb37f084e9c03ca
-ms.sourcegitcommit: 51da93c4548c5df7a9f01e54d46d81b338c874cf
+ms.openlocfilehash: d9531164022b99a4be9b3c8e09736828a2da2f61
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "9031173"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9576550"
 ---
 # <a name="create-a-virtual-machine-with-hyper-v"></a>Créer une machine virtuelle avec Hyper-V
 
@@ -22,13 +22,13 @@ Nous avons été à créer de nouveaux outils pour la création d’ordinateurs 
 
 Choisissez votre système d’exploitation pour le bon jeu d’instructions:
 
-* [Windows10FallCreatorsUpdate et versions ultérieures](quick-create-virtual-machine.md#windows-10-fall-creators-update)
-* [Windows10 CreatorsUpdate](quick-create-virtual-machine.md#windows-10-creators-update)
-* [Mise à jour anniversaire Windows10 et versionsantérieures](quick-create-virtual-machine.md#before-windows-10-creators-update)
+* [Windows 10 Fall Creators Update (v1709) et versions ultérieures](quick-create-virtual-machine.md#windows-10-fall-creators-update)
+* [Windows 10 Creators Update (v1703)](quick-create-virtual-machine.md#windows-10-creators-update)
+* [Mise à jour anniversaire Windows 10 (v1607) et versions antérieures](quick-create-virtual-machine.md#before-windows-10-creators-update)
 
 Commençons.
 
-## <a name="windows-10-fall-creators-update"></a>Windows10 Fall Creators Update
+## <a name="windows-10-fall-creators-update-windows-10-version-1709"></a>Windows 10 Fall Creators Update (Windows 10 version 1709)
 
 Dans Fall Creators Update, Création rapide a été étendu pour inclure une bibliothèque d’ordinateurs virtuels qui peut être lancée indépendamment du Gestionnaire Hyper-V.
 
@@ -53,7 +53,7 @@ Pour créer un nouvel ordinateur virtuel dans Fall Creators Update:
 
 Et voilà!  Création rapide se charge du reste.
 
-## <a name="windows-10-creators-update"></a>Windows10 Creators Update
+## <a name="windows-10-creators-update-windows-10-version-1703"></a>Windows 10 Creators Update (Windows 10 version 1703)
 
 ![Capture d’écran de l’interface utilisation de Création rapide](media/quickcreatesteps_inked.jpg)
 
@@ -81,7 +81,7 @@ Votre ordinateur virtuel doit ressembler plus ou moins à ceci:
 
 > **Remarque:** si vous n’exécutez pas une version de Windows sous licence en volume, vous devez posséder une licence distincte pour Windows qui s’exécute sur un ordinateur virtuel. Le système d’exploitation de l’ordinateur virtuel est indépendant du système d’exploitation de l’hôte.
 
-## <a name="before-windows-10-creators-update"></a>Avant Windows10 Creators Update
+## <a name="before-windows-10-creators-update-windows-10-version-1607-and-older"></a>Avant Windows 10 Creators Update (Windows 10 version 1607 et antérieure)
 
 Si vous n’exécutez pas Windows10Creators Update ou une version ultérieure, suivez plutôt les instructions à l’aide de l’Assistant Nouvel ordinateur virtuel:
 

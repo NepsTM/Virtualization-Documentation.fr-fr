@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: 6473c323c675fc59360dd982a14895a93743098a
-ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
+ms.openlocfilehash: e3d260bd65b6f81bc4ea9c305937f2784192d28a
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "9380043"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9576410"
 ---
 # <a name="containers-on-windows"></a>Conteneurs sur Windows
 
@@ -50,7 +50,7 @@ Les concepts clés suivants peuvent seront avérer utiles quand vous commencez �
 
 **Image de système d’exploitation de conteneur:** Les conteneurs sont déployés à partir d’images. L’image de système d’exploitation de conteneur est la première couche d’un nombre éventuellement important de couches d’images qui constituent un conteneur. Cette image fournit l’environnement du système d’exploitation. Une image de système d’exploitation de conteneur est immuable. Autrement dit, elle ne peut pas être modifiée.
 
-**Référentiel de conteneurs:** Chaque fois qu’une image de conteneur est créée, cette image et ses dépendances sont stockées dans un référentiel local. Ces images peuvent être réutilisées plusieurs fois sur l’hôte de conteneur. Les images de conteneur peuvent également être stockées dans un registre public ou privé, tel que DockerHub, afin de pouvoir être utilisées sur plusieurs hôtes de conteneurs différents.
+**Référentiel de conteneurs:** Chaque fois qu’une image de conteneur est créée, cette image et ses dépendances sont stockées dans un référentiel local. Ces images peuvent être réutilisées plusieurs fois sur l’hôte de conteneur. Les images de conteneur peuvent également être stockées dans un registre public ou privé, par exemple, Docker Hub, afin qu’ils peuvent être utilisés sur plusieurs hôtes de conteneurs différents.
 
 ![Notions de base de conteneur](media/containerfund.png)
 
@@ -109,9 +109,9 @@ La définition standard de l’orchestration inclut les tâches suivantes:
 - Détection du service: activer les conteneurs pour qu’ils puissent se localiser les uns et les autres automatiquement même s’ils sont déplacés d’un ordinateur hôte à l’autre et que les adresses IP sont changées.
 - Mises à niveau d’applications coordonnées: gérer les mises à niveau des conteneurs pour éviter les temps d’arrêt des applications et permettre la restauration en cas de problème.
 
-Azure offre deux orchestrateurs de conteneurs: Azure Container Service (AKS) et Service Fabric.
+Azure offre deux orchestrateurs: Azure Kubernetes Service (AKS) et Service Fabric.
 
-[Azure Container Service (AKS)](/azure/aks/) permet de facilement créer, configurer et gérer un cluster d’ordinateurs virtuels qui sont préconfigurés pour exécuter des applications en conteneur. Cela vous permet d’utiliser vos compétences ou d’exploiter le savoir-faire d’une communauté toujours plus importante, pour déployer et gérer les applications basées sur conteneurs sur MicrosoftAzure. À l’aide d’AKS, vous pouvez tirer parti des fonctionnalités d’entreprise d’Azure, tout en conservant la portabilité des applications par le biais de Kubernetes et du format d’image Docker.
+[Azure Kubernetes Service (AKS)](/azure/aks/) permet de facilement créer, configurer et gérer un cluster d’ordinateurs virtuels qui sont préconfigurés pour exécuter des applications. Cela vous permet d’utiliser vos compétences ou d’exploiter le savoir-faire d’une communauté toujours plus importante, pour déployer et gérer les applications basées sur conteneurs sur MicrosoftAzure. À l’aide d’AKS, vous pouvez tirer parti des fonctionnalités d’entreprise d’Azure, tout en conservant la portabilité des applications par le biais de Kubernetes et du format d’image Docker.
 
 [Azure Service Fabric](/azure/service-fabric/) est une plateforme de systèmes distribués qui facilite la création de packages pour déployer et gérer des microservices et des conteneurs fiables et évolutifs. Service Fabric permet de relever les défis importants dans le développement et la gestion d’applications natives cloud. Les développeurs et les administrateurs peuvent éviter des problèmes d’infrastructure complexes et mettre l’accent sur la mise en œuvre de charges de travail critiques et importantes qui soient évolutives, fiables et facilement gérées. Service Fabric représente la plateforme de nouvelle génération pour la création et la gestion de ces applications d’entreprise, de niveau 1, pour le cloud exécutées dans des conteneurs.
 
