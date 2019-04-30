@@ -1,20 +1,13 @@
-items:
 - name: Virtualisation
   tocHref: /virtualization/
   topicHref: /virtualization/index
   items:
-  - name: Hyper-V sur Windows10
-    tocHref: /virtualization/hyper-v-on-windows/
-    topicHref: /virtualization/hyper-v-on-windows/index
-  - name: Conteneurs sur Windows
-    tocHref: /virtualization/windowscontainers/
-    topicHref: /virtualization/windowscontainers/index
-  - name: Communauté
-    tocHref: /virtualization/community/
-    topicHref: /virtualization/community/index
-ms.openlocfilehash: 214460e6a14803af600c448f8d2c7568578ada11
-ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8973759"
+    - name: Hyper-V sur Windows10
+      tocHref: /virtualization/hyper-v-on-windows/
+      topicHref: /virtualization/hyper-v-on-windows/index
+    - name: Conteneurs sur Windows
+      tocHref: /virtualization/windowscontainers/
+      topicHref: /virtualization/windowscontainers/index
+    - name: Communauté
+      tocHref: /virtualization/community/
+      topicHref: /virtualization/community/index
