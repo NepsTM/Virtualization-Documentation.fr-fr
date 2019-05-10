@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1f8a691c-ca75-42da-8ad8-a35611ad70ec
-ms.openlocfilehash: 0c365b9351ee09c946e1711f3a3a5e82eb71c785
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: ea6fb4471cf337ff17bb1f936caea192bccaf404
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577310"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621157"
 ---
 # <a name="set-up-a-nat-network"></a>Configurer un réseau NAT
 
@@ -28,7 +28,7 @@ Configuration requise:
 * Mise à jour anniversaire Windows10 ou ultérieure
 * Hyper-V est activé (instructions [ici](../quick-start/enable-hyper-v.md))
 
-> **Remarque:** pour le moment, vous pouvez créer un seul réseau NAT par hôte. Pour plus d’informations sur l’implémentation, les fonctionnalités et les limitations de NAT Windows (WinNAT), reportez-vous au billet de blog [Fonctionnalités et limitations de WinNAT](https://blogs.technet.microsoft.com/virtualization/2016/05/25/windows-nat-winnat-capabilities-and-limitations/)
+> **Remarque:** pour le moment, vous pouvez créer un seul réseau NAT par hôte. Pour plus d’informations sur l’implémentation, les fonctionnalités et les limitations de NAT Windows (WinNAT), reportez-vous au billet de blog [Fonctionnalités et limitations de WinNAT](https://techcommunity.microsoft.com/t5/Virtualization/Windows-NAT-WinNAT-Capabilities-and-limitations/ba-p/382303)
 
 ## <a name="nat-overview"></a>Vue d’ensemble de NAT
 NAT permet à une machine virtuelle d’accéder à des ressources réseau à l’aide de l’adresseIP de l’ordinateur hôte et d’un port via un commutateur virtuel Hyper-V interne.
@@ -37,7 +37,7 @@ La traduction d’adresses réseau (NAT) est un mode de mise en réseau conçu p
 
 De plus, NAT autorise que plusieurs machines virtuelles hébergent des applications qui exigent des ports de communication (internes) identiques en les mappant à des ports externes uniques.
 
-Pour toutes ces raisons, la mise en réseau NAT est très répandue pour la technologie de conteneur (voir [Mise en réseau de conteneur](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/management/container_networking)).
+Pour toutes ces raisons, la mise en réseau NAT est très répandue pour la technologie de conteneur (voir [Mise en réseau de conteneur](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture)).
 
 
 ## <a name="create-a-nat-virtual-network"></a>Créer un réseau virtuel NAT

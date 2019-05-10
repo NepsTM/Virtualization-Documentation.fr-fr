@@ -7,12 +7,12 @@ ms.date: 02/15/2019
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-ms.openlocfilehash: 53152d0237a7f81858a5cb2f0fd8aabd439c4613
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: a710f8d60f9d82be7fe02b950a9782b94f3ae6e4
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578270"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620727"
 ---
 # <a name="install-hyper-v-on-windows-10"></a>Installer Hyper-V sur Windows10
 
@@ -64,7 +64,7 @@ Pour activer le rôle Hyper-V à l’aide de DISM:
 
   ![Fenêtre de console montrant Hyper-V en cours d’activation.](media/dism_upd.png)
 
-Pour plus d’informations sur DISM, voir [DISM- Informations techniques de référence sur l’outil Gestion et maintenance des images de déploiement](https://technet.microsoft.com/en-us/library/hh824821.aspx).
+Pour plus d’informations sur DISM, voir [DISM- Informations techniques de référence sur l’outil Gestion et maintenance des images de déploiement](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh824821(v=win.10)>).
 
 ## <a name="enable-the-hyper-v-role-through-settings"></a>Activer le rôle Hyper-V via les paramètres
 

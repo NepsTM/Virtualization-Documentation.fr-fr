@@ -3,12 +3,12 @@ title: Appareils dans des conteneurs sur Windows
 description: Quelle prise en charge de l’appareil existe pour les conteneurs sur Windows
 keywords: docker, conteneurs, les appareils, matériel
 author: cwilhit
-ms.openlocfilehash: 18ae4ab229a677c63c3e17d684a3c3193df49c5e
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: f32ba3de347bcf968088d2f3f20f22f82166d652
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576680"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621557"
 ---
 # <a name="devices-in-containers-on-windows"></a>Appareils dans des conteneurs sur Windows
 
@@ -33,7 +33,7 @@ Pour démarrer un conteneur avec un appareil, utilisez la commande suivante:
 docker run --isolation=process --device="class/{interface class GUID}" mcr.microsoft.com/windows/servercore:1809
 ```
 
-Vous devez remplacer le `{interface class guid}` avec une [classe d’interface de périphérique GUID](https://docs.microsoft.com/en-us/windows-hardware/drivers/install/overview-of-device-interface-classes)appropriée, qui peut être trouvé dans la section ci-dessous.
+Vous devez remplacer le `{interface class guid}` avec une [classe d’interface de périphérique GUID](https://docs.microsoft.com/windows-hardware/drivers/install/overview-of-device-interface-classes)appropriée, qui peut être trouvé dans la section ci-dessous.
 
 Pour démarrer un conteneur avec différents appareils, utilisez la commande suivante et créer une chaîne de plusieurs `--device` arguments:
 

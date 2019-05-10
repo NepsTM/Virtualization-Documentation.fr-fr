@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 426c87cc-fa50-4b8d-934e-0b653d7dea7d
-ms.openlocfilehash: ea91ea0ffca5479cb0593ef9961625f7b7ab1f42
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 8f1c1b96fe88f46a24b8ebb46d4f387c9717f6ba
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577420"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620707"
 ---
 # <a name="try-pre-release-features-for-hyper-v"></a>Essayer les fonctionnalités de la préversion pour Hyper-V
 
@@ -36,17 +36,17 @@ Vous pouvez créer une machine virtuelle en préversion sur des hôtes Hyper-V q
 
 1. Sur le Bureau Windows, cliquez sur le bouton Démarrer et tapez une partie du nom **Windows PowerShell**.
 2. Cliquez avec le bouton droit sur **Windows PowerShell**, puis sélectionnez **Exécuter en tant qu’administrateur**.
-3. Utilisez l’applet de commande [New-VM](https://technet.microsoft.com/library/hh848537.aspx) avec l’indicateur -Prerelease pour créer la machine virtuelle en préversion. Par exemple, exécutez la commande suivante, où VM Name est le nom de la machine virtuelle que vous souhaitez créer.
+3. Utilisez l’applet de commande [New-VM](https://docs.microsoft.com/powershell/module/hyper-v/new-vm?view=win10-ps) avec l’indicateur -Prerelease pour créer la machine virtuelle en préversion. Par exemple, exécutez la commande suivante, où VM Name est le nom de la machine virtuelle que vous souhaitez créer.
 
 ``` PowerShell
 New-VM -Name <VM Name> -Prerelease
 ```
 Autres exemples d’utilisation de l’indicateur -Prerelease:
- - Pour créer une machine virtuelle qui utilise un disque dur virtuel existant ou un nouveau disque dur, consultez les exemples PowerShell dans [Créer une machine virtuelle dans Hyper-V sur Windows Server2016 Technical Preview](https://technet.microsoft.com/library/mt126140.aspx#BKMK_PowerShell).
- - Pour créer un disque dur virtuel qui démarre sur une image du système d’exploitation, consultez l’exemple PowerShell dans [Déployer une machine virtuelle Windows dans Hyper-V sur Windows10](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_create_vm).
+ - Pour créer une machine virtuelle qui utilise un disque dur virtuel existant ou un nouveau disque dur, consultez les exemples PowerShell dans [Créer une machine virtuelle dans Hyper-V sur Windows Server2016 Technical Preview](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/Create-a-virtual-machine-in-Hyper-V#BKMK_PowerShell).
+ - Pour créer un disque dur virtuel qui démarre sur une image du système d’exploitation, consultez l’exemple PowerShell dans [Déployer une machine virtuelle Windows dans Hyper-V sur Windows10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/create-virtual-machine).
 
  Les exemples présentés dans ces articles fonctionnent pour les hôtes Hyper-V qui exécutent Windows10 ou Windows Server2016 Technical Preview. Pour l’instant, vous ne pouvez utiliser l’indicateur -Prerelease que pour créer une machine virtuelle en préversion sur des hôtes Hyper-V qui exécutent Windows Server2016 Technical Preview.
 
 ## <a name="see-also"></a>Voir aussi
--  [Blog de virtualisation](https://blogs.technet.microsoft.com/virtualization/): Découvrez les fonctionnalités de la préversion qui sont disponibles et comment les tester.
-- [Versions de configuration de machines virtuelles prises en charge](https://technet.microsoft.com/library/mt695898.aspx#BKMK_SupportedConfigVersions): Apprenez à vérifier la version de configuration de la machine virtuelle et les versions prises en charge par Microsoft.
+-  [Blog de virtualisation](https://techcommunity.microsoft.com/t5/Virtualization/bg-p/Virtualization): Découvrez les fonctionnalités de la préversion qui sont disponibles et comment les tester.
+- [Versions de configuration de machines virtuelles prises en charge](https://docs.microsoft.com/windows-server/virtualization/hyper-v/deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server#BKMK_SupportedConfigVersions): Apprenez à vérifier la version de configuration de la machine virtuelle et les versions prises en charge par Microsoft.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
-ms.openlocfilehash: 84974f093cc80f8a216518bab051e13397e89b6e
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 762b82f3714651ffb488f682581680c9526404a8
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577430"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621207"
 ---
 # <a name="hyper-v-integration-services"></a>Services d’intégration Hyper-V
 
@@ -22,7 +22,7 @@ Les services d’intégration (souvent appelés composants d’intégration) son
 Cet article est une référence pour chaque service d’intégration disponible dans Windows.  Il représente également un point de départ pour toutes les informations relatives à des services d’intégration spécifiques ou à leur historique.
 
 **Guides de l’utilisateur:**  
-* [Gestion des services d’intégration](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/manage/manage-Hyper-V-integration-services)
+* [Gestion des services d’intégration](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/Manage-Hyper-V-integration-services)
 
 
 ## <a name="quick-reference"></a>Référence rapide
@@ -52,7 +52,7 @@ Quand Hyper-V signale que l’état d’une machine virtuelle est «en cours d�
 
 ### <a name="check-heartbeat-with-powershell"></a>Vérifier les pulsations avec PowerShell
 
-Exécutez [Get-VM](https://technet.microsoft.com/en-us/library/hh848479.aspx) en tant qu’administrateur pour afficher les pulsations d’une machine virtuelle:
+Exécutez [Get-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm?view=win10-ps) en tant qu’administrateur pour afficher les pulsations d’une machine virtuelle:
 ``` PowerShell
 Get-VM -VMName $VMName | select Name, State, Status
 ```
@@ -102,7 +102,7 @@ Le service Échange de données est un excellent outil pour conserver les inform
 
 
 **Guides de l’utilisateur:**  
-* [Utilisation de paires clé/valeur pour partager des informations entre l’hôte et l’invité sur Hyper-V](https://technet.microsoft.com/en-us/library/dn798287.aspx).  
+* [Utilisation de paires clé/valeur pour partager des informations entre l’hôte et l’invité sur Hyper-V](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn798287(v=ws.11)).  
 
 
 ## <a name="hyper-v-volume-shadow-copy-requestor"></a>Requête du service VSS Microsoft Hyper-V
@@ -113,9 +113,9 @@ Le service Échange de données est un excellent outil pour conserver les inform
 **Ajout dans:** Windows Server2012, Windows8  
 **Impact:** quand il est désactivé, la machine virtuelle ne peut pas être sauvegardée pendant qu’elle est en cours d’exécution (avec VSS).  
 
-Le service d’intégration Requête du service VSS est nécessaire pour le service VSS ([VSS](https://msdn.microsoft.com/en-us/library/aa384589.aspx)).  Le service VSS capture et copie des images pour la sauvegarde sur les systèmes en cours d’exécution, notamment les serveurs, sans trop dégrader les performances et la stabilité des services fournis.  Ce service d’intégration rend cela possible en coordonnant les charges de travail de la machine virtuelle avec le processus de sauvegarde de l’hôte.
+Le service d’intégration Requête du service VSS est nécessaire pour le service VSS ([VSS](https://docs.microsoft.com/windows/desktop/VSS/overview-of-processing-a-backup-under-vss)).  Le service VSS capture et copie des images pour la sauvegarde sur les systèmes en cours d’exécution, notamment les serveurs, sans trop dégrader les performances et la stabilité des services fournis.  Ce service d’intégration rend cela possible en coordonnant les charges de travail de la machine virtuelle avec le processus de sauvegarde de l’hôte.
 
-En savoir plus sur le service VSS [ici](https://msdn.microsoft.com/en-us/library/dd405549.aspx).
+En savoir plus sur le service VSS [ici](https://docs.microsoft.com/previous-versions/windows/desktop/virtual/backing-up-and-restoring-virtual-machines).
 
 
 ## <a name="hyper-v-guest-service-interface"></a>Interface de services d’invité Hyper-V
@@ -124,7 +124,7 @@ En savoir plus sur le service VSS [ici](https://msdn.microsoft.com/en-us/library
 **Nom de démon Linux:** hv_fcopy_daemon  
 **Description:** fournit une interface pour que l’hôte Hyper-V copie de façon bidirectionnelle des fichiers vers ou depuis la machine virtuelle.  
 **Ajout dans:** Windows Server2012R2, Windows8.1  
-**Impact:** quand il est désactivé, l’hôte ne peut pas effectuer la copie de fichiers vers et depuis l’invité avec `Copy-VMFile`.  En savoir plus sur l’[applet de commande Copy-VMFile](https://technet.microsoft.com/library/dn464282.aspx).  
+**Impact:** quand il est désactivé, l’hôte ne peut pas effectuer la copie de fichiers vers et depuis l’invité avec `Copy-VMFile`.  En savoir plus sur l’[applet de commande Copy-VMFile](https://docs.microsoft.com/powershell/module/hyper-v/copy-vmfile?view=win10-ps).  
 
 **Remarques:**  
 Désactivé par défaut.  Voir [PowerShell Direct avec Copy-Item](../user-guide/powershell-direct.md#copy-files-with-new-pssession-and-copy-item). 

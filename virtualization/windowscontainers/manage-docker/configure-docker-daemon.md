@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.openlocfilehash: 354469199f3c7e886760e8a391edccde067986af
-ms.sourcegitcommit: c48dcfe43f73b96e0ebd661164b6dd164c775bfa
+ms.openlocfilehash: a04d356415e7bed84980747edc927cc1eaa1e7c1
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "9610289"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621087"
 ---
 # <a name="docker-engine-on-windows"></a>Moteur Docker sur Windows
 
@@ -220,7 +220,7 @@ Vous pouvez également supprimer les fonctionnalités facultatives Windows assoc
 Cela inclut la fonctionnalité «Conteneurs», qui est automatiquement activée sur Windows 10 ou Windows Server 2016 lorsque Docker est installé. Cela peut également inclure la fonctionnalité «Hyper-V», qui est automatiquement activée sur Windows10 lorsque Docker est installé, mais qui doit être activée explicitement sur Windows Server2016.
 
 >[!IMPORTANT]
->[Fonctionnalité l’Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/) est une fonctionnalité de virtualisation générale bien plus que les conteneurs. Avant de désactiver la fonctionnalité Hyper-V, assurez-vous qu’il n’existe aucun autre composant virtualisé sur votre système qui nécessitent Hyper-V.
+>[Fonctionnalité l’Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/) est une fonctionnalité de virtualisation générale bien plus que les conteneurs. Avant de désactiver la fonctionnalité Hyper-V, assurez-vous qu’il n’existe aucun autre composant virtualisé sur votre système qui nécessitent Hyper-V.
 
 Pour supprimer les fonctionnalités de Windows sur Windows 10:
 

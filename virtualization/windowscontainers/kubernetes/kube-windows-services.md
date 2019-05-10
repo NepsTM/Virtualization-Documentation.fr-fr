@@ -6,14 +6,14 @@ ms.date: 02/12/2019
 ms.topic: get-started-article
 ms.prod: containers
 description: Procédure pour exécuter des composants de Kubernetes en tant que services Windows.
-keywords: kubernetes, 1.13, windows, prise en main
+keywords: kubernetes, 1.14, windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5c18
-ms.openlocfilehash: 6c68edda6e2017640b0a490c3c30f063c81698b3
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: cd5026a244b57b5c70d4abfe076839130315a4f5
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578640"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9623094"
 ---
 # <a name="kubernetes-components-as-windows-services"></a>Composants de Kubernetes en tant que Services Windows 
 

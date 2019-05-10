@@ -7,18 +7,18 @@ ms.date: 07/25/2017
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: 970f039e97ce0628c7a7f78c417017fc95570f82
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 9cfb5cb062259e906ce499423619ec7a5b814ac9
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576880"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620837"
 ---
 # <a name="build-a-sample-app"></a>Créer un exemple d’application
 
 Cet exercice vous guidera tandis que vous utilisez un exemple d’application ASP.net, puis le convertissez afin de l’exécuter dans un conteneur. Pour vous familiariser avec les conteneurs et leur exécution dans Windows10, consultez le [démarrage rapide Windows10](./quick-start-windows-10.md).
 
-Ce démarrage rapide est spécifique à Windows10. Une documentation de démarrage rapide supplémentaire est disponible dans la table des matières affichée sur la gauche de cette page. Dans la mesure où ce didacticiel se rapporte avant tout aux conteneurs, l’écriture du code n’est pas abordée et nous nous concentrerons uniquement sur les conteneurs. Si vous voulez créer entièrement ce didacticiel, il est disponible dans la [documentation de base ASP.NET](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app-xplat/)
+Ce démarrage rapide est spécifique à Windows10. Une documentation de démarrage rapide supplémentaire est disponible dans la table des matières affichée sur la gauche de cette page. Dans la mesure où ce didacticiel se rapporte avant tout aux conteneurs, l’écriture du code n’est pas abordée et nous nous concentrerons uniquement sur les conteneurs. Si vous voulez créer entièrement ce didacticiel, il est disponible dans la [documentation de base ASP.NET](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app-xplat/)
 
 Si le contrôle de code de source Git n’est pas installé sur votre ordinateur, vous pouvez l’obtenir ici: [Git](https://git-scm.com/download)
 

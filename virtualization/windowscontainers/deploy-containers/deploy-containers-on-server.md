@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
-ms.openlocfilehash: 35f35b490ce5aa80068578d78a6427ace7352b73
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: f4c6b37c6e33593be0237bd4059435a99c2bdd86
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574980"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620827"
 ---
 # <a name="container-host-deployment-windows-server"></a>Déploiement d’un conteneur hôte: Windows Server
 
@@ -110,7 +110,7 @@ docker pull microsoft/nanoserver
 
 ## <a name="hyper-v-isolation-host"></a>Hôte de l’isolation Hyper-V
 
-Vous devez disposer du rôle Hyper-V pour exécuter l’isolation Hyper-V. Si l’hôte de conteneur Windows est lui-même une machine virtuelle Hyper-V, la virtualisation imbriquée doit être activée avant d’installer le rôle Hyper-V. Pour plus d’informations sur la virtualisation imbriquée, voir [Virtualisation imbriquée](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting).
+Vous devez disposer du rôle Hyper-V pour exécuter l’isolation Hyper-V. Si l’hôte de conteneur Windows est lui-même une machine virtuelle Hyper-V, la virtualisation imbriquée doit être activée avant d’installer le rôle Hyper-V. Pour plus d’informations sur la virtualisation imbriquée, voir [Virtualisation imbriquée](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).
 
 ### <a name="nested-virtualization"></a>Virtualisation imbriquée
 

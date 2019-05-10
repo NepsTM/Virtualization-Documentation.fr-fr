@@ -6,14 +6,14 @@ ms.date: 02/09/2018
 ms.topic: get-started-article
 ms.prod: containers
 description: Topologies de réseau prises en charge sur Windows et Linux.
-keywords: kubernetes, 1.13, windows, prise en main
+keywords: kubernetes, 1.14, windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 9f96fcc80c533b74ab46d93beecc7ca8629ce395
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 6a2b7021efa0d90b69a88e1b498cddeadb3af80e
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576130"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622914"
 ---
 # <a name="network-solutions"></a>Solutions de réseau #
 

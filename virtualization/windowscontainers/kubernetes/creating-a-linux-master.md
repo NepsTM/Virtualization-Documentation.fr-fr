@@ -6,17 +6,17 @@ ms.date: 02/09/2018
 ms.topic: get-started-article
 ms.prod: containers
 description: Création d’un Kubernetes cluster maître.
-keywords: kubernetes, 1,13, linux maître,
-ms.openlocfilehash: 8a3fb073616d115ab84e6cc36f0fb6cedbcf1f7d
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+keywords: kubernetes, 1.14, linux maître,
+ms.openlocfilehash: b1ec23b039ce6f5c42859452ecf3a8a5b35e006c
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578250"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622954"
 ---
 # <a name="creating-a-kubernetes-master"></a>Création d’un nœud maître Kubernetes #
 > [!NOTE]
-> Ce guide a été validé sur v1.13 Kubernetes. En raison de la volatilité de Kubernetes à partir de la version vers la version, cette section peut émettre des hypothèses qui ne possèdent pas la valeur true pour toutes les versions futures. La documentation officielle de l’initialisation de masques de Kubernetes à l’aide de kubeadm trouverez [ici](https://kubernetes.io/docs/setup/independent/install-kubeadm/). Il suffit d’activer de [section de planification de systèmes d’exploitation mixtes](#enable-mixed-os-scheduling) .
+> Ce guide a été validé sur v1.14 Kubernetes. En raison de la volatilité de Kubernetes à partir de la version vers la version, cette section peut émettre des hypothèses qui ne possèdent pas la valeur true pour toutes les versions futures. La documentation officielle de l’initialisation de masques de Kubernetes à l’aide de kubeadm trouverez [ici](https://kubernetes.io/docs/setup/independent/install-kubeadm/). Il suffit d’activer de [section de planification de systèmes d’exploitation mixtes](#enable-mixed-os-scheduling) .
 
 > [!NOTE]  
 > Une machine Linux récemment mis à jour est nécessaire pour suivre le long; Kubernetes maître des ressources telles que les [kube-dns](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/), [kube-planificateur](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/)et [kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) n'ont pas été transférées vers Windows encore. 

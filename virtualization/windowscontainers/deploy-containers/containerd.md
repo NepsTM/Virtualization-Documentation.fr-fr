@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: a0e62b32-0c4c-4dd4-9956-8056e9abd9e5
-ms.openlocfilehash: 9f38775d56a95d96bef42b3a33c2571cc5fb2ca0
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: f8bfd60af18731537c2ce02ca7abdb081f3c7369
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578380"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620757"
 ---
 # <a name="container-platform-tools-on-windows"></a>Outils de plateforme de conteneur sur Windows
 
@@ -37,7 +37,7 @@ Dans les environnements Linux, les outils de gestion de conteneur comme Docker r
 
 `containerd` est un démon qui gère le cycle de vie de conteneur de télécharger et décompresser l’image de conteneur à l’exécution du conteneur et de surveillance.
 
-Sur Windows, nous avons une approche différente.  Lorsque nous avons commencé à travailler avec Docker pour prendre en charge des conteneurs Windows, nous avons créé directement sur le HCS (Host Compute Service).  [Ce billet de blog](https://blogs.technet.microsoft.com/virtualization/2017/01/27/introducing-the-host-compute-service-hcs/) est plein d’informations sur la raison pour laquelle nous avons créé le HCS et pourquoi nous avons effectué cette approche aux conteneurs initialement.
+Sur Windows, nous avons une approche différente.  Lorsque nous avons commencé à travailler avec Docker pour prendre en charge des conteneurs Windows, nous avons créé directement sur le HCS (Host Compute Service).  [Ce billet de blog](https://techcommunity.microsoft.com/t5/Containers/Introducing-the-Host-Compute-Service-HCS/ba-p/382332) est plein d’informations sur la raison pour laquelle nous avons créé le HCS et pourquoi nous avons effectué cette approche aux conteneurs initialement.
 
 ![Architecture de départ de moteur Docker sur Windows](media/hcs.png)
 
@@ -110,6 +110,16 @@ Pour une vue plus approfondie le HCS, regardez la [Présentation de DockerCon de
 > Développement/test uniquement.
 
 Tandis que les spécifications OCI définit un conteneur unique, [élément de rapport personnalisé](https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/apis/cri/runtime/v1alpha2/api.proto) (interface de runtime de conteneur) décrit les conteneurs en tant que workload(s) dans un bac à sable partagé environnement appelé un pod.  PODS peuvent contenir un ou plusieurs charges de travail de conteneur.  PODS permettent d’orchestrateurs comme Kubernetes et Service Fabric maillage gérer des charges de travail groupées qui doivent se trouver sur le même hôte avec certaines ressources partagées, telles que la mémoire et vNETs.
+
+containerd/élément de rapport personnalisé permet la matrice de compatibilité suivante pour pods:
+
+| Système d’exploitation hôte | Conteneur du système d’exploitation | Isolation | Prise en charge de POD? |
+|:-------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| <ul><li>Windows Server 2019/1809</ul></li><ul><li>Windows 10 1809</ul></li> | Linux | `hyperv` | Oui, prend en charge true multiconteneurs pods. |
+|  | Windows Server 2019/1809 | `process`* ou `hyperv` | Oui, prend en charge la valeur true multiconteneurs pods si chaque conteneur de charge de travail du système d’exploitation correspond à l’utilitaire de système d’exploitation de l’ordinateur virtuel. |
+|  | Windows Server2016</br>Windows Server1709</br>Windows Server 1803 | `hyperv` | Partielle, prend en charge de pod bacs à sable pouvant prendre en charge un conteneur isolé du processus unique par l’utilitaire VM si le système d’exploitation de conteneur correspond à l’utilitaire de système d’exploitation de l’ordinateur virtuel. |
+
+Hôtes \*Windows 10 prennent uniquement en charge l’isolation Hyper-V
 
 Liens vers la spécification de l’élément de rapport personnalisé:
 

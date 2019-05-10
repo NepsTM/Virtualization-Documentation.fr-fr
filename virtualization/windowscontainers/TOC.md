@@ -47,7 +47,7 @@
 ### [Prise en main avec le mode swarm](manage-containers/swarm-mode.md)
 
 # Communauté et support
-## [Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
+## [Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/home?forum=windowscontainers)
 ## [Blogs et vidéos de la Communauté](communitylinks.md)
 ## [Résolution des problèmes](troubleshooting.md)
 
@@ -60,7 +60,7 @@
 ## [Périphériques matériels dans des conteneurs](deploy-containers/hardware-devices-in-containers.md)
 ## [Outils de plateforme de conteneur](deploy-containers/containerd.md)
 ## [Comptes de service administrés de groupe](manage-containers/manage-serviceaccounts.md)
-## [Optimisation de la protection antiviruse](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
+## [Optimisation de la protection antiviruse](https://docs.microsoft.com/windows-hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 ## [Conteneurs Linux sur Windows](deploy-containers/linux-containers.md)
 
 # [Exemples de conteneurs](samples.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-ms.openlocfilehash: cc869cfaf1c433fbfdc351e9120a0e43c02967ee
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 9ee2a0adad762aa3cee53f3b44210976259b693f
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574840"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620697"
 ---
 # <a name="containers-on-windows-documentation"></a>Conteneurs de la documentation Windows
 
@@ -30,7 +30,7 @@ Découvrez comment déployer des conteneurs Windows sur Windows Server 2019
 
 * [Configuration système](deploy-containers/system-requirements.md)
 * [Déployer un hôte de conteneurs](deploy-containers/deploy-containers-on-server.md)
-* [Optimisation de la protection antivirus](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
+* [Optimisation de la protection antivirus](https://docs.microsoft.com/windows-hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 
 ## <a name="docker-on-windows"></a>Docker sur Windows
 Découvrez comment gérer Docker sur Windows.
@@ -45,7 +45,7 @@ Vous souhaitez démonstrations et des interviews de l’équipe des conteneurs W
 
 ## <a name="community"></a>Communauté
 Interagissez avec la communauté, testez des exemples et trouvez d’autres ressources.
-* [Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
+* [Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/home?forum=windowscontainers)
 * [Vidéos et blogs de la communauté](communitylinks.md)
-* [Exemples de conteneurs](https://docs.microsoft.com/en-us/virtualization/windowscontainers/samples)
+* [Exemples de conteneurs](https://docs.microsoft.com/virtualization/windowscontainers/samples)
 * [UserVoice](https://windowsserver.uservoice.com/forums/304624-containers)

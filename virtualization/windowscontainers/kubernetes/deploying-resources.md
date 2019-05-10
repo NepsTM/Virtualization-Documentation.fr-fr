@@ -8,12 +8,12 @@ ms.prod: containers
 description: Déploiement de Kubernetes resoureces sur un cluster Kubernetes de systèmes d’exploitation mixtes.
 keywords: kubernetes, 1.13, windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 7d2f1dd789a96a3ee4898ef196f872e574d6321f
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 380eeb536b9642210c49bc91edf680b695d54a90
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574900"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621037"
 ---
 # <a name="deploying-kubernetes-resources"></a>Déploiement de ressources de Kubernetes #
 En supposant que vous disposez d’un cluster Kubernetes constituée d’au moins 1 maître et de 1 travail, vous êtes prêt à déployer des ressources de Kubernetes.
@@ -31,7 +31,7 @@ kubectl get nodes
 
 Si tout s’affiche correctement, vous pouvez télécharger et exécuter le service suivant:
 > [!Important] 
-> Avant de `kubectl apply`, vous vérifiez à double-check/modifiez le `microsoft/windowsservercore` image dans l’exemple de fichier à [une image de conteneur qui est exécutable par vos nœuds](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility#choosing-container-os-versions)!
+> Avant de `kubectl apply`, vous vérifiez à double-check/modifiez le `microsoft/windowsservercore` image dans l’exemple de fichier à [une image de conteneur qui est exécutable par vos nœuds](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility#choosing-container-os-versions)!
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/flannel/l2bridge/manifests/simpleweb.yml -O win-webserver.yaml

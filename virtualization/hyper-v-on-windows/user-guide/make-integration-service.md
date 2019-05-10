@@ -7,12 +7,12 @@ ms.date: 04/07/2017
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
-ms.openlocfilehash: 966ca3ff267e03e8c380391281c8dde723e4b1dd
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: f33f6deb977ff96da0b70a7e14bf4896af0307eb
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9575323"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620647"
 ---
 # <a name="make-your-own-integration-services"></a>Créez vos propres services d’intégration
 
@@ -27,7 +27,7 @@ Ce document décrit la création d’un programme simple qui repose sur les sock
 **Système d’exploitation invité pris en charge**
 * Windows10 et versions ultérieures
 * Windows Server2016 et versions ultérieures
-* Invités Linux avec services d’intégration Linux (voir [Machines virtuelles Linux et FreeBSD prises en charge pour Hyper-V sur Windows](https://technet.microsoft.com/library/dn531030.aspx))
+* Invités Linux avec services d’intégration Linux (voir [Machines virtuelles Linux et FreeBSD prises en charge pour Hyper-V sur Windows](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows))
 > **Remarque:** un invité Linux pris en charge doit prendre en charge le noyau pour:
 > ```bash
 > CONFIG_VSOCKET=y
@@ -117,9 +117,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 
 Dans le cas le plus simple, la définition d’un socket exige une famille d’adresses, un type de connexion et un protocole.
 
-Voici une [définition de socket](
-https://msdn.microsoft.com/en-us/library/windows/desktop/ms740506(v=vs.85).aspx
-) simple
+Voici une [définition de socket](https://docs.microsoft.com/windows/desktop/api/winsock2/nf-winsock2-socket) simple
 
 ``` C
 // Windows
@@ -152,7 +150,7 @@ int sock = socket(AF_VSOCK, SOCK_STREAM, 0);
 
 La fonction bind associe un socket à des informations de connexion.
 
-La définition de fonction est copiée ci-dessous par souci de commodité. Pour en savoir plus sur bind, cliquez [ici](https://msdn.microsoft.com/en-us/library/windows/desktop/ms737550.aspx).
+La définition de fonction est copiée ci-dessous par souci de commodité. Pour en savoir plus sur bind, cliquez [ici](https://docs.microsoft.com/windows/desktop/api/winsock/nf-winsock-bind).
 
 ``` C
 // Windows
@@ -202,7 +200,7 @@ struct sockaddr_vm {
   ```PowerShell
   (Get-VM -Name $VMName).Id
   ```
-* IDde service: GUID, [décrit ci-dessus](#RegisterANewApplication), avec lequel l’application est inscrite dans le Registre de l’hôte Hyper-V.
+* IDde service: GUID, [décrit ci-dessus](#register-a-new-application), avec lequel l’application est inscrite dans le Registre de l’hôte Hyper-V.
 
 Il existe également un ensemble de caractères génériques VMID disponibles quand une connexion n’est pas propre à une machine virtuelle spécifique.
 
@@ -229,6 +227,6 @@ L’écoute sur ce VmId permet d’accepter une connexion depuis: (Intérieur de
 Socket() Bind() Connect() Send() Listen() Accept()
 
 ## <a name="useful-links"></a>Liens utiles
-[API WinSock complète](https://msdn.microsoft.com/en-us/library/windows/desktop/ms741394.aspx)
+[API WinSock complète](https://docs.microsoft.com/windows/desktop/WinSock/winsock-functions)
 
 [Informations de référence sur les services d’intégration Hyper-V](../reference/integration-services.md)

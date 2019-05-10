@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 001f1abaeefaf34e12b0f7e3323bf32140080d05
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 492e3b0ba3b1abe1109de3f6091f5b60831036df
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9575080"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622974"
 ---
 # <a name="advanced-network-options-in-windows"></a>Options réseau avancées dans Windows
 
@@ -23,7 +23,7 @@ Plusieurs options de pilote réseau sont prises en charge pour tirer parti des c
 
 > S’applique à tous les pilotes réseau
 
-Vous pouvez tirer parti de [SET (Switch Embedded Teaming)](https://technet.microsoft.com/en-us/windows-server-docs/networking/technologies/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming#a-namebkmksswitchembeddedaswitch-embedded-teaming-set) lorsque vous créez des réseaux d'hôte de conteneur à utiliser par Docker, en spécifiant plusieurs cartes réseau (séparées par des virgules) à l'aide de l'option `-o com.docker.network.windowsshim.interface`.
+Vous pouvez tirer parti de [SET (Switch Embedded Teaming)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming#a-namebkmksswitchembeddedaswitch-embedded-teaming-set) lorsque vous créez des réseaux d'hôte de conteneur à utiliser par Docker, en spécifiant plusieurs cartes réseau (séparées par des virgules) à l'aide de l'option `-o com.docker.network.windowsshim.interface`.
 
 ```
 C:\> docker network create -d transparent -o com.docker.network.windowsshim.interface="Ethernet 2", "Ethernet 3" TeamedNet
@@ -41,6 +41,22 @@ C:\> docker network create -d transparent -o com.docker.network.windowsshim.vlan
 Lorsque vous définissez l’ID de réseau virtuel local pour un réseau, vous définissez l’isolation VLAN pour des points de terminaison de conteneur qui seront associés à ce réseau.
 
 > Veillez à ce que votre carte réseau hôte (physique) soit en mode trunk pour permettre à l’ensemble du trafic avec balise d’être traité par le vSwitch avec le port de vNIC (point de terminaison de conteneur) en mode d’accès sur le réseau virtuel local approprié.
+
+## <a name="specify-outboundnat-policy-for-a-network"></a>Spécifier la stratégie de OutboundNAT pour un réseau
+
+> S’applique aux réseaux l2bridge
+
+En règle générale, lorsque vous créez un `l2bridge` réseau de conteneur à l’aide `docker network create`, points de terminaison de conteneur n’ont pas d’une stratégie de OutboundNAT HNS appliquée, ce qui entraîne l’impossibilité d’atteindre l’extérieur de conteneurs. Si vous créez un réseau, vous pouvez utiliser la `-o com.docker.network.windowsshim.enable_outboundnat=<true|false>` permet d’appliquer la stratégie OutboundNAT HNS pour donner accès aux conteneurs à l’extérieur:
+
+```
+C:\> docker network create -d l2bridge -o com.docker.network.windowsshim.enable_outboundnat=true MyL2BridgeNetwork
+```
+
+S’il existe un ensemble de destinations (par exemple, une connectivité conteneur à l’autre est nécessaire) pour où nous ne voulons pas NAT'ing se produise, nous devons également spécifier un ExceptionList:
+
+```
+C:\> docker network create -d l2bridge -o com.docker.network.windowsshim.enable_outboundnat=true -o com.docker.network.windowsshim.outboundnat_exceptions=10.244.10.0/24
+```
 
 ## <a name="specify-the-name-of-a-network-to-the-hns-service"></a>Spécification du nom d’un réseau pour le service HNS
 
@@ -80,13 +96,13 @@ C:\> docker network create -d transparent -o com.docker.network.windowsshim.dnss
 
 ## <a name="vfp"></a>VFP
 
-Pour plus d’informations, consultez [cet article](https://www.microsoft.com/en-us/research/project/azure-virtual-filtering-platform/).
+Pour plus d’informations, consultez [cet article](https://www.microsoft.com/research/project/azure-virtual-filtering-platform/).
 
 ## <a name="tips--insights"></a>Conseils et informations
 Voici une liste de conseils et d'informations pratiques, inspirées de questions courantes sur la mise en réseau de conteneur Windows exprimées par la Communauté...
 
 #### <a name="hns-requires-that-ipv6-is-enabled-on-container-host-machines"></a>HNS nécessite qu'IPv6 soit activé sur les ordinateurs hôtes de conteneur 
-Dans le cadre de [KB4015217](https://support.microsoft.com/en-us/help/4015217/windows-10-update-kb4015217), HNS nécessite qu'IPv6 soit activé sur les hôtes de conteneur Windows. Si vous rencontrez une erreur comme celle indiquée ci-dessous, il est possible qu'IPv6 soit désactivé sur votre ordinateur hôte.
+Dans le cadre de [KB4015217](https://support.microsoft.com/help/4015217/windows-10-update-kb4015217), HNS nécessite qu'IPv6 soit activé sur les hôtes de conteneur Windows. Si vous rencontrez une erreur comme celle indiquée ci-dessous, il est possible qu'IPv6 soit désactivé sur votre ordinateur hôte.
 ```
 docker: Error response from daemon: container e15d99c06e312302f4d23747f2dfda4b11b92d488e8c5b53ab5e4331fd80636d encountered an error during CreateContainer: failure in a Windows system call: Element not found.
 ```
@@ -99,7 +115,7 @@ C:\> reg delete HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Para
 
 #### <a name="linux-containers-on-windows"></a>Conteneurs Linux sur Windows
 
-**Nouveauté:** nous travaillons à rendre possible l’exécution de conteneurs Linux et Windows côte-à-côte _sans l’ordinateur virtuel Moby Linux_. Consultez ce [billet de blog sur les conteneurs Linux sur Windows (LCOW)](https://blog.docker.com/2017/11/docker-for-windows-17-11/) pour plus d’informations. Voici comment [faire](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-10-linux).
+**Nouveauté:** nous travaillons à rendre possible l’exécution de conteneurs Linux et Windows côte-à-côte _sans l’ordinateur virtuel Moby Linux_. Consultez ce [billet de blog sur les conteneurs Linux sur Windows (LCOW)](https://blog.docker.com/2017/11/docker-for-windows-17-11/) pour plus d’informations. Voici comment [faire](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10-linux).
 > Remarque: LCOW remplace l’ordinateur virtuel Moby Linux, il utilisera le vSwitch interne HNS «nat» par défaut.
 
 #### <a name="moby-linux-vms-use-dockernat-switch-with-docker-for-windows-a-product-of-docker-cehttpswwwdockercomcommunity-edition"></a>Les ordinateurs virtuels Moby Linux utilisent le commutateur DockerNAT avec Docker pour Windows (un produit de [Docker CE](https://www.docker.com/community-edition))
@@ -163,7 +179,7 @@ Il existe trois approches pour résoudre ce problème:
 PS C:\> restart-service hns
 PS C:\> restart-service docker
 ```
-* Une autre option consiste à utiliser l’option «-o com.docker.network.windowsshim.interface» pour lier le commutateur externe du réseau transparent à une carte réseau spécifique qui n’est pas déjà utilisée sur l’hôte du conteneur (par exemple une carte réseau autre que celle utilisée par le commutateur virtuel qui a été créé hors bande). L’option «-o» est décrite ci-dessus, dans la section [Réseau transparent](https://msdn.microsoft.com/virtualization/windowscontainers/management/container_networking#transparent-network) de ce document.
+* Une autre option consiste à utiliser l’option «-o com.docker.network.windowsshim.interface» pour lier le commutateur externe du réseau transparent à une carte réseau spécifique qui n’est pas déjà utilisée sur l’hôte du conteneur (par exemple une carte réseau autre que celle utilisée par le commutateur virtuel qui a été créé hors bande). La «-o ' option est décrite dans la section [Création de plusieurs réseaux transparents sur un hôte de conteneur unique](advanced.md#creating-multiple-transparent-networks-on-a-single-container-host) de ce document.
 
 
 ## <a name="windows-server-2016-work-arounds"></a>Solutions de contournement de Windows Server2016 

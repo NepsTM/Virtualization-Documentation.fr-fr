@@ -5,15 +5,15 @@ ms.author: daschott
 ms.date: 02/09/2018
 ms.topic: get-started-article
 ms.prod: containers
-description: Jonction d’un nœud de Linux à un cluster Kubernetes avec v1.13.
-keywords: kubernetes, 1.13, windows, prise en main
+description: Jonction d’un nœud de Linux à un cluster Kubernetes avec v1.14.
+keywords: kubernetes, 1.14, windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: c32cc300fd97eb53605e2f51e6a83e5889747561
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 88207939c82bfe8ffa0b088cfd61cf4ab22cb10a
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577930"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622944"
 ---
 # <a name="joining-linux-nodes-to-a-cluster"></a>Jonction de nœuds Linux à un Cluster
 

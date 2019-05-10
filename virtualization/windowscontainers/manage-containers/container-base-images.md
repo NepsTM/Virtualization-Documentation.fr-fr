@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
-ms.openlocfilehash: eb2df861021f889e335d49a337b379ecbf17a47d
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 1b8bb433781e00bb8a435f14751d180ec52dec30
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576920"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621048"
 ---
 # <a name="windows-container-base-image-history"></a>Historique des images de base des conteneurs Windows
 
@@ -34,7 +34,7 @@ Par exemple, `docker inspect microsoft/windowsservercore:10.0.14393.447` affiche
 
 Il s’agit des deux couches de l’image fournie par Microsoft. La première est constante et représente la version de Windows Server d’origine, tandis que la deuxième change en fonction de la dernière mise à jour cumulative incluse.
 
-Si vous voulez savoir ce qui a changé dans une version particulière, recherchez celle-ci dans l’article [Historique des mises à jour de Windows10 et de Windows Server2016](https://support.microsoft.com/en-us/help/12387/windows-10-update-history) de la base de connaissances.
+Si vous voulez savoir ce qui a changé dans une version particulière, recherchez celle-ci dans l’article [Historique des mises à jour de Windows10 et de Windows Server2016](https://support.microsoft.com/help/12387/windows-10-update-history) de la base de connaissances.
 
 
 ## <a name="tools-to-simplify-this-process"></a>Outils permettant de simplifier ce processus

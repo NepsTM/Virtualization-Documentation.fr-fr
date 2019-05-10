@@ -7,12 +7,12 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
-ms.openlocfilehash: c14027e6ba1b0cd475ec1543205b315240662f2c
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: e3255d236a3fbb5ac4d908143750b84e3db82ceb
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9575860"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621097"
 ---
 # <a name="supported-windows-guests"></a>Invités Windows pris en charge
 
@@ -41,7 +41,7 @@ Pour pouvoir être pris en charge, tous les systèmes d’exploitation (invité 
 | Windows7 | 4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32bits et 64bits). |
 | WindowsVista avec Service Pack2 (SP2) | 2 | Professionnel, Entreprise et Édition Intégrale, notamment les éditions N et KN. |
 | - | | |
-| [Canal semi-annuel WindowsServer](https://docs.microsoft.com/en-us/windows-server/get-started/semi-annual-channel-overview) | 64 | |
+| [Canal semi-annuel WindowsServer](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview) | 64 | |
 | Windows Server2019 | 64 | |
 | Windows Server2016 | 64 | |
 | WindowsServer2012R2 | 64 | |
@@ -57,11 +57,11 @@ Pour pouvoir être pris en charge, tous les systèmes d’exploitation (invité 
 
 | Système d’exploitation invité |  |
 |:-----|:------|
-| [CentOS et Red Hat Enterprise Linux](https://technet.microsoft.com/library/dn531026.aspx) | |
-| [Machines virtuelles Debian sur Hyper-V](https://technet.microsoft.com/library/dn614985.aspx) | |
-| [SUSE](https://technet.microsoft.com/en-us/library/dn531027.aspx) | |
-| [Oracle Linux](https://technet.microsoft.com/en-us/library/dn609828.aspx)  | |
-| [Ubuntu](https://technet.microsoft.com/en-us/library/dn531029.aspx) | |
-| [FreeBSD](https://technet.microsoft.com/library/dn848318.aspx) | |
+| [CentOS et Red Hat Enterprise Linux](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V) | |
+| [Machines virtuelles Debian sur Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Debian-virtual-machines-on-Hyper-V) | |
+| [SUSE](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-SUSE-virtual-machines-on-Hyper-V) | |
+| [Oracle Linux](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Oracle-Linux-virtual-machines-on-Hyper-V)  | |
+| [Ubuntu](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Ubuntu-virtual-machines-on-Hyper-V) | |
+| [FreeBSD](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-FreeBSD-virtual-machines-on-Hyper-V) | |
 
-Pour plus d’informations, notamment concernant la prise en charge sur des versions précédentes d’Hyper-V, voir [Machines virtuelles Linux et FreeBSD sur Hyper-V](https://technet.microsoft.com/library/dn531030.aspx).
+Pour plus d’informations, notamment concernant la prise en charge sur des versions précédentes d’Hyper-V, voir [Machines virtuelles Linux et FreeBSD sur Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows).

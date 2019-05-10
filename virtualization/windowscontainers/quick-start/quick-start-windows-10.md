@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 07f5929505226a50a161b4ae7df5669c2ad89d83
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: be6be81e995dce8ebd757c73793f474f4b0909bf
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9575520"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620737"
 ---
 # <a name="windows-containers-on-windows-10"></a>Conteneurs Windows sur Windows10
 
@@ -33,7 +33,7 @@ Ce démarrage rapide est spécifique à Windows10. Vous trouverez la documentati
 ## <a name="prerequisites"></a>Prérequis
 Vérifiez que vous respectez les exigences suivantes:
 - Un système d’ordinateur physique exécutant Windows 10 Professionnel ou entreprise avec la mise à jour anniversaire (version 1607) ou version ultérieure. 
-- Assurez-vous que [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) est activé.
+- Assurez-vous que [Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) est activé.
 
 ***Isolation Hyper-V:*** Conteneurs Windows Server requièrent l’isolation Hyper-V sur Windows 10 afin de fournir aux développeurs la même version du noyau et configuration qui sera utilisée en production, plus à propos d’Hyper-V isolation sont accessibles sur la page à [propos des conteneurs Windows](../about/index.md) .
 

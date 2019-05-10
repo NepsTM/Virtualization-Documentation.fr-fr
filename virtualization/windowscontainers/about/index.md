@@ -1,15 +1,20 @@
 ---
 title: À propos des conteneurs Windows
 description: En savoir plus sur les conteneurs Windows.
-keywords: 'docker, conteneurs'
+keywords: docker, conteneurs
 author: taylorb-microsoft
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
+ms.openlocfilehash: bf503971ee8b4c0bbe6b9812b2f4965560ff466c
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620857"
 ---
-
 # <a name="containers-on-windows"></a>Conteneurs sur Windows
 
 ## <a name="what-are-containers"></a>Présentation des conteneurs
@@ -51,7 +56,7 @@ Les concepts clés suivants peuvent seront avérer utiles quand vous commencez �
 
 Pour un utilisateur déjà familiarisé avec les machines virtuelles, les conteneurs peuvent sembler très similaires. Un conteneur exécute un système d’exploitation, a un système de fichiers et est accessible via un réseau comme s’il s’agissait d’un système d’ordinateur physique ou virtuel. Ceci dit, la technologie et les concepts derrière les conteneurs sont très différents de ceux des machines virtuelles.
 
-Mark Russinovich, expert MicrosoftAzure, a rédigé [un excellent billet de blog](https://azure.microsoft.com/en-us/blog/containers-docker-windows-and-trends/) détaillant les différences.
+Mark Russinovich, expert MicrosoftAzure, a rédigé [un excellent billet de blog](https://azure.microsoft.com/blog/containers-docker-windows-and-trends/) détaillant les différences.
 
 ## <a name="windows-container-types"></a>Types de conteneurs Windows
 

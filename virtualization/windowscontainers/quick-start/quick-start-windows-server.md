@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: fd2de24a4c8c03817978a53b340e2a77285c69ad
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: df0470fd44c823fe14411d6d3d29188e980d1780
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576710"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621197"
 ---
 # <a name="windows-containers-on-windows-server"></a>Conteneurs Windows sur Windows Server
 
@@ -32,7 +32,7 @@ Ce démarrage rapide est spécifique aux conteneurs Windows Server sur Windows S
 ## <a name="prerequisites"></a>Prérequis
 
 Vérifiez que vous respectez les exigences suivantes:
-- Un système informatique (physique ou virtuel) exécutant Windows Server 2019. Si vous utilisez Windows Server 2019 Insider Preview, mettez à jour vers la [Version d’évaluation de fenêtre Server 2019](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019 ).
+- Un système informatique (physique ou virtuel) exécutant Windows Server 2019. Si vous utilisez Windows Server 2019 Insider Preview, mettez à jour vers la [Version d’évaluation de fenêtre Server 2019](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019 ).
 
 > Mises à jour critiques sont nécessaires dans l’ordre de la fonctionnalité de conteneur Windows pour fonctionner. Installez toutes les mises à jour avant de suivre ce didacticiel.
 
@@ -168,7 +168,7 @@ Platform: .NET Core
 OS: Microsoft Windows 10.0.17763
 ```
 
-Pour obtenir des informations détaillées sur la commande DockerRun, voir [Docker Run Reference]( https://docs.docker.com/engine/reference/run/) sur Docker.com.
+Pour obtenir des informations détaillées sur la commande DockerRun, voir [Docker Run Reference](https://docs.docker.com/engine/reference/run/) sur Docker.com.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

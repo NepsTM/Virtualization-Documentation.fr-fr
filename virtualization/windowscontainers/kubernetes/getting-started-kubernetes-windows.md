@@ -5,27 +5,27 @@ ms.author: gekudray
 ms.date: 02/09/2018
 ms.topic: get-started-article
 ms.prod: containers
-description: Jonction d’un nœud Windows à un cluster Kubernetes avec v1.13.
-keywords: kubernetes, 1.13, windows, prise en main
+description: Jonction d’un nœud Windows à un cluster Kubernetes avec v1.14.
+keywords: kubernetes, 1.14, windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 7c3a0111b3d19ae1b513a84665f870bba24ae33d
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: c380f5dc10430a94959718a5ce92f311603db733
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576983"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622924"
 ---
 # <a name="kubernetes-on-windows"></a>Kubernetes sur Windows
 
-Cette page explique comment une vue d’ensemble de prise en main avec Kubernetes sur Windows en joignant les nœuds de Windows à un cluster Linux. Avec la version de Kubernetes 1.14 sur Windows Server, [version 1809](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1809#container-networking-with-kubernetes), les utilisateurs peuvent tirer parti des fonctionnalités suivantes dans Kubernetes sur Windows:
+Cette page explique comment une vue d’ensemble de prise en main avec Kubernetes sur Windows en joignant les nœuds de Windows à un cluster Linux. Avec la version de Kubernetes 1.14 sur Windows Server, [version 1809](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1809#container-networking-with-kubernetes), les utilisateurs peuvent tirer parti des fonctionnalités suivantes dans Kubernetes sur Windows:
 
 - **mise en réseau de superposition**: utilisez Flannel en mode vxlan pour configurer un réseau virtuel de superposition
-    - nécessite deux Windows Server 2019 avec [KB4489899](https://support.microsoft.com/en-us/help/4489899) installé ou [Windows Server vNext Insider Preview](https://blogs.windows.com/windowsexperience/tag/windows-insider-program/) Build 18317 +
+    - nécessite deux Windows Server 2019 avec [KB4489899](https://support.microsoft.com/help/4489899) installé ou [Windows Server vNext Insider Preview](https://blogs.windows.com/windowsexperience/tag/windows-insider-program/) Build 18317 +
     - nécessite v1.14 Kubernetes (ou version ultérieure) avec `WinOverlay` porte fonctionnalité activée
     - nécessite Flannel v0.11.0 (ou version ultérieure)
 - **une gestion réseau simplifiée**: utiliser Flannel en mode hôte-passerelle pour la gestion de gamme automatique entre les nœuds.
-- **améliorations de l’évolutivité**: profitez de temps de démarrage plus rapide et plus fiable conteneur grâce à [une carte réseau virtuelle sans périphérique pour les conteneurs Windows Server](https://blogs.technet.microsoft.com/networking/2018/04/27/network-start-up-and-performance-improvements-in-windows-10-spring-creators-update-and-windows-server-version-1803/).
-- **Isolation Hyper-V (alpha)**: orchestrer [isolation Hyper-V](https://kubernetes.io/docs/getting-started-guides/windows/#hyper-v-containers) avec l’isolation en mode noyau pour une sécurité améliorée. Pour plus d’informations, [types de conteneurs Windows](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/#windows-container-types).
+- **améliorations de l’évolutivité**: profitez de temps de démarrage plus rapide et plus fiable conteneur grâce à [une carte réseau virtuelle sans périphérique pour les conteneurs Windows Server](https://techcommunity.microsoft.com/t5/Networking-Blog/Network-start-up-and-performance-improvements-in-Windows-10/ba-p/339716).
+- **Isolation Hyper-V (alpha)**: orchestrer [isolation Hyper-V](https://kubernetes.io/docs/getting-started-guides/windows/#hyper-v-containers) avec l’isolation en mode noyau pour une sécurité améliorée. Pour plus d’informations, [types de conteneurs Windows](https://docs.microsoft.com/virtualization/windowscontainers/about/#windows-container-types).
     - nécessite la version 1.10 Kubernetes (ou version ultérieure) avec `HyperVContainer` porte fonctionnalité activée.
 - **plug-ins de stockage**: utiliser le [plug-in de stockage FlexVolume](https://github.com/Microsoft/K8s-Storage-Plugins) SMB et iSCSI prenant en charge pour les conteneurs Windows.
 

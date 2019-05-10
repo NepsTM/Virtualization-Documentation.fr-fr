@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: e2b3c05a35896d51b1fbd1bf3f276791e4e08493
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 358b58da0fc51c03766198e4b25b8b043b2a5029
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577120"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622904"
 ---
 # <a name="windows-container-network-drivers"></a>Pilotes réseau de conteneurs Windows  
 
@@ -34,17 +34,18 @@ En plus de tirer parti du réseau «nat» par défaut créé par Docker sur Wind
 - **superposition** - si le moteur Docker s’exécute en [mode Swarm](../manage-containers/swarm-mode.md), les conteneurs reliés à un réseau de superposition peuvent communiquer avec d’autres conteneurs attachés au même réseau entre plusieurs hôtes de conteneur. Chaque réseau de superposition créé dans un cluster Swarm possède son propre sous-réseau IP, défini par un préfixe IP privé. Le pilote réseau de superposition utilise l’encapsulation VXLAN. **Il peut être utilisé avec Kubernetes lors de l’utilisation des plans de contrôle de réseau approprié (Flannel ou OVN).**
   > Nécessite: Vérifiez que votre environnement satisfait ces [conditions préalables](https://docs.docker.com/network/overlay/#operations-for-all-overlay-networks) de requis pour la création de réseaux de superposition.
 
-  > Nécessite: Nécessite Windows Server 2016 avec [KB4015217](https://support.microsoft.com/en-us/help/4015217/windows-10-update-kb4015217), Windows 10 Creators Update ou une version ultérieure.
+  > Nécessite: Nécessite Windows Server 2016 avec [KB4015217](https://support.microsoft.com/help/4015217/windows-10-update-kb4015217), Windows 10 Creators Update ou une version ultérieure.
 
   >[!NOTE]
   >Sous Windows Server 2019 Docker EE 18.03 en cours d’exécution et ultérieures, les réseaux de superposition créés par Docker Swarm Tirez parti de règles VFP NAT pour la connectivité de trafic sortante. Cela signifie thata donné conteneur reçoit 1 adresse IP. Cela signifie également que basée sur ICMP outils tels que `ping` ou `Test-NetConnection` doit être configuré à l’aide de leurs options TCP/UDP en cas de débogage.
 
 - **l2bridge** - des conteneurs reliés à un réseau créé avec le pilote «l2bridge» se trouvent dans le même sous-réseau IP que l’hôte de conteneur et connectés au réseau physique via un commutateur Hyper-V *externe*. Les adresses IP doivent être attribuées de façon statique à partir du même préfixe que l’hôte de conteneur. Tous les points de terminaison de conteneur sur l’ordinateur hôte ont la même adresse MAC que celles de l’hôte en raison de l’opération de traduction d’adresses de couche2 (réécriture d’adresses MAC) en entrée et en sortie.
-  > Nécessite: Lorsque ce mode est utilisé dans un scénario de la virtualisation (hôte de conteneur est un ordinateur virtuel) _l’usurpation des adresses MAC est nécessaire_.
-  
   > Nécessite: Nécessite Windows Server 2016, Windows 10 Creators Update ou une version ultérieure.
 
-- **l2tunnel** - semblable à l2bridge, toutefois _ce pilote doit uniquement être utilisé dans une pile Microsoft Cloud Stack, par exemple, Azure_. Les paquets provenant d’un conteneur sont envoyés à l’hôte de virtualisation où la stratégie SDN est appliquée.
+  > Nécessite: [stratégie OutboundNAT](./advanced.md#specify-outboundnat-policy-for-a-network) pour la connectivité externe.
+
+- **l2tunne**l: Semblable à l2bridge. Cependant _ce pilote doit uniquement être utilisé dans une pile Microsoft Cloud Stack_. Les paquets provenant d’un conteneur sont envoyés à l’hôte de virtualisation où la stratégie SDN est appliquée.
+
 
 ## <a name="network-topologies-and-ipam"></a>Topologies de réseau et IPAM
 

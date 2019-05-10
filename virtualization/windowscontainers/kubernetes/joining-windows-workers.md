@@ -8,12 +8,12 @@ ms.prod: containers
 description: Jonction d’un nœud Windows à un cluster Kubernetes avec v1.13.
 keywords: kubernetes, 1.13, windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: ed0f13bd429e88f05469f91c3fc691bf0188b0a2
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: fec18baa58ae6aa7d637be575548a1823a551207
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578240"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620987"
 ---
 # <a name="joining-windows-server-nodes-to-a-cluster"></a>Jonction de nœuds de serveur Windows à un Cluster #
 Une fois que vous avez [d’installation d’un nœud maître Kubernetes](./creating-a-linux-master.md) et [sélectionné votre solution de réseau auquel vous souhaitez](./network-topologies.md), vous êtes prêt à joindre des nœuds de Windows Server pour former un cluster. Cela requiert une [préparation sur les nœuds de Windows](#preparing-a-windows-node) avant de joindre.
@@ -83,7 +83,7 @@ Vous devez voir ce qui suit:
 ![texte](./media/docker-run-sample.png)
 
 > [!tip]
-> Si vous ne pouvez pas exécuter le conteneur, voir: [correspondante version d’hôte de conteneur avec une image de conteneur](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility#matching-container-host-version-with-container-image-versions)
+> Si vous ne pouvez pas exécuter le conteneur, voir: [correspondante version d’hôte de conteneur avec une image de conteneur](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility#matching-container-host-version-with-container-image-versions)
 
 
 #### <a name="prepare-kubernetes-for-windows-directory"></a>Préparer le répertoire Kubernetes pour Windows ####
@@ -97,12 +97,12 @@ mkdir c:\k
 Copiez le fichier de certificat de Kubernetes (`$HOME/.kube/config`) [à partir du master](./creating-a-linux-master.md#collect-cluster-information) à ce nouvel `C:\k` répertoire.
 
 > [!tip]
-> Vous pouvez utiliser des outils tels que [xcopy](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/xcopy) ou [WinSCP](https://winscp.net/eng/download.php) pour transférer le fichier de configuration entre les nœuds.
+> Vous pouvez utiliser des outils tels que [xcopy](https://docs.microsoft.com/windows-server/administration/windows-commands/xcopy) ou [WinSCP](https://winscp.net/eng/download.php) pour transférer le fichier de configuration entre les nœuds.
 
 #### <a name="download-kubernetes-binaries"></a>Télécharger les fichiers binaires Kubernetes ####
 Pour être en mesure d’exécuter Kubernetes, vous devez tout d’abord télécharger le `kubectl`, `kubelet`, et `kube-proxy` fichiers binaires. Vous pouvez les télécharger depuis les liens dans le `CHANGELOG.md` fichier des [versions plus récentes](https://github.com/kubernetes/kubernetes/releases/).
  - Par exemple, voici les [fichiers binaires du nœud de v1.13](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.13.md#node-binaries).
- - Utilisez un outil comme [L’archivage Expand](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) pour extraire l’archive et placer les fichiers binaires dans `C:\k\`.
+ - Utilisez un outil comme [L’archivage Expand](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) pour extraire l’archive et placer les fichiers binaires dans `C:\k\`.
 
 #### <a name="optional-setup-kubectl-on-windows"></a>(Facultatif) Le programme d’installation kubectl sur Windows ####
 Si vous souhaitez contrôler le cluster à partir de Windows, vous pouvez le faire avec les `kubectl` commande. Tout d’abord, faire `kubectl` disponibles en dehors de la `C:\k\` répertoire, modifier le `PATH` variable d’environnement:
@@ -213,7 +213,7 @@ La [plage de sous-réseau de service](./getting-started-kubernetes-windows.md#se
 
 
 # [<a name="kubednsserviceip"></a>KubeDnsServiceIP](#tab/KubeDnsServiceIP)
-L' [adresse IP de service DNS Kubernetes](./getting-started-kubernetes-windows.md#kube-dns-def).
+L' [adresse IP de service DNS Kubernetes](./getting-started-kubernetes-windows.md#plan-ip-addressing-for-your-cluster).
 
 |  |  | 
 |---------|---------|

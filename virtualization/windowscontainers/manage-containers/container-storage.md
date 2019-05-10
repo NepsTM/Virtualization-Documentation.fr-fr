@@ -3,12 +3,12 @@ title: Stockage de conteneurs Windows Server
 description: Comment les conteneurs Windows Server peuvent-ils utiliser les hôtes et les autres types de stockage
 keywords: conteneurs, volume, stockage, montage, montage lié
 author: patricklang
-ms.openlocfilehash: 7d22a149da21a3367b82f2920c189ae9a4b1c173
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 87b9c364bfdec2b445bb06caf0e9fd4d849119d4
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574870"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620867"
 ---
 # <a name="overview"></a>Vue d’ensemble
 
@@ -53,7 +53,7 @@ Fichier de configuration de Docker
   ]
 ```
 > Notez que cette méthode fonctionne pour la configuration Docker build.
-Consultez le [document Configure docker](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/configure-docker-daemon#configure-docker-with-configuration-file) pour plus d’informations sur la modification du fichier de configuration docker.
+Consultez le [document Configure docker](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#configure-docker-with-configuration-file) pour plus d’informations sur la modification du fichier de configuration docker.
 
 
 ## <a name="persistent-volumes"></a>Volumes persistants
