@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: a0e62b32-0c4c-4dd4-9956-8056e9abd9e5
-ms.openlocfilehash: f8bfd60af18731537c2ce02ca7abdb081f3c7369
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 74e22702aa4be30055b3f4f48c7fac926d793095
+ms.sourcegitcommit: 03e9203e9769997d8be3f66dc7935a3e5c0a83e1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620757"
+ms.locfileid: "9621607"
 ---
 # <a name="container-platform-tools-on-windows"></a>Outils de plateforme de conteneur sur Windows
 
@@ -117,7 +117,7 @@ containerd/élément de rapport personnalisé permet la matrice de compatibilit�
 |:-------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | <ul><li>Windows Server 2019/1809</ul></li><ul><li>Windows 10 1809</ul></li> | Linux | `hyperv` | Oui, prend en charge true multiconteneurs pods. |
 |  | Windows Server 2019/1809 | `process`* ou `hyperv` | Oui, prend en charge la valeur true multiconteneurs pods si chaque conteneur de charge de travail du système d’exploitation correspond à l’utilitaire de système d’exploitation de l’ordinateur virtuel. |
-|  | Windows Server2016</br>Windows Server1709</br>Windows Server 1803 | `hyperv` | Partielle, prend en charge de pod bacs à sable pouvant prendre en charge un conteneur isolé du processus unique par l’utilitaire VM si le système d’exploitation de conteneur correspond à l’utilitaire de système d’exploitation de l’ordinateur virtuel. |
+|  | Windows Server 2016,</br>Windows Server 1709,</br>Windows Server 1803 | `hyperv` | Partielle, prend en charge de pod bacs à sable pouvant prendre en charge un conteneur isolé du processus unique par l’utilitaire VM si le système d’exploitation de conteneur correspond à l’utilitaire de système d’exploitation de l’ordinateur virtuel. |
 
 Hôtes \*Windows 10 prennent uniquement en charge l’isolation Hyper-V
 
