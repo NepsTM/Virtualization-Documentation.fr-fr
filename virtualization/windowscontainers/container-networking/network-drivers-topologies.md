@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 358b58da0fc51c03766198e4b25b8b043b2a5029
-ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
+ms.openlocfilehash: 40e877c8999574f21ecb9586c3f2bc012607177f
+ms.sourcegitcommit: 40b929dbc72aa308d8e46765ac61616a35b31791
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "9622904"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "9634388"
 ---
 # <a name="windows-container-network-drivers"></a>Pilotes réseau de conteneurs Windows  
 
@@ -22,8 +22,10 @@ En plus de tirer parti du réseau «nat» par défaut créé par Docker sur Wind
 - **nat**: les conteneurs reliés à un réseau créé avec le pilote «nat» sont connectés à un commutateur Hyper-V *interne* reçoivent une adresseIP à partir du préfixeIP (``--subnet``) spécifié par l’utilisateur. Le réacheminement/mappage de ports à partir de l’hôte de conteneur vers des points de terminaison de conteneur est pris en charge.
   
   >[!NOTE]
-  >Plusieurs réseaux NAT sont pris en charge si vous avez installé Windows 10 Creators Update.
+  > Réseaux NAT créés sur Windows Server 2019 (ou ultérieur) n’est plus persistent après le redémarrage.
 
+  > Plusieurs réseaux NAT sont pris en charge si vous avez installé Windows 10 Creators Update (ou ultérieur).
+  
 - **transparent**: les conteneurs reliés à un réseau créé avec le pilote «transparent» sont connectés directement au réseau physique via un commutateur Hyper-V *externe*. Les adressesIP issues du réseau physique peuvent être attribuées de façon statique (nécessite l’option ``--subnet`` spécifiée par l’utilisateur) ou dynamique à l’aide d’un serveur DHCP externe.
   
   >[!NOTE]
