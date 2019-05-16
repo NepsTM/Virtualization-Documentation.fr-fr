@@ -3,12 +3,12 @@ title: Appareils dans des conteneurs sur Windows
 description: Quelle prise en charge de l’appareil existe pour les conteneurs sur Windows
 keywords: docker, conteneurs, les appareils, matériel
 author: cwilhit
-ms.openlocfilehash: f32ba3de347bcf968088d2f3f20f22f82166d652
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: feff730ed21c439312cda65c7b5ccc1a6cf5ae86
+ms.sourcegitcommit: 2b456022ee666863ef53082580ac1d432de86939
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621557"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "9657357"
 ---
 # <a name="devices-in-containers-on-windows"></a>Appareils dans des conteneurs sur Windows
 
@@ -75,7 +75,7 @@ Les périphériques suivants (et leur appareil GUID de classe d’interface) son
 </tr>
 <tr valign="top">
 <td><center>Accélération GPU DirectX</center></td>
-<td><center>Voir la documentation dédiée</center></td>
+<td><center>Voir la documentation de <a href="https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/gpu-acceleration">l’accélération GPU</a></center></td>
 </tr>
 </tbody>
 </table>
