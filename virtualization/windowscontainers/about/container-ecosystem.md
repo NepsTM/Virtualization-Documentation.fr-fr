@@ -1,46 +1,34 @@
 ---
-title: Écosystème de conteneurs
-description: Création d’un écosystème de conteneurs.
+title: À propos de la création d’écosystèmes de conteneurs
+description: Brève présentation de la création d’écosystèmes de conteneurs.
 keywords: métadonnées, conteneurs
 author: PatrickLang
-ms.date: 04/20/2016
+ms.date: 05/22/2019
 ms.topic: about-article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 29fbe13a-228a-4eaa-9d4d-90ae60da5965
-ms.openlocfilehash: c30b28d867a23537699bce99fafa2748d3747fa9
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: a1abc73d706458fbb8b8d3244072b025e433afd6
+ms.sourcegitcommit: daf1d2b5879c382404fc4d59f1c35c88650e20f7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576100"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "9674714"
 ---
-# <a name="building-a-container-ecosystem"></a>Création d’un écosystème de conteneurs
+# <a name="about-building-container-ecosystems"></a>À propos de la création d’écosystèmes de conteneurs
 
-Pour comprendre pourquoi la création d’un écosystème de conteneurs est si importante, parlons tout d’abord de Docker.
+Pour comprendre pourquoi la création d’un écosystème de conteneurs est si importante, parlons d’abord de ses composants.
 
-## <a name="docker"></a>Docker
+## <a name="components-of-a-container-ecosystem"></a>Composants d’un écosystème de conteneurs
 
-Le concept de conteneurs (isolation des espaces de noms et gouvernance des ressources) est connu depuis longtemps et remonte aux jails BSD, aux zones Solaris et au mécanisme chroot (change root) UNIX de base.   La contribution de Docker a consisté à fournir un ensemble d’outils communs, un modèle de package et un mécanisme de déploiement.  En procédant ainsi, Docker a simplifié la CONTENEURISATION et la distribution des applications.  Ces applications peuvent ensuite être exécutées n’importe où sur tout hôte Linux, une fonctionnalité que nous fournissons également sur Windows.
+Les conteneurs Windows sont un composant clé d’un grand écosystème de conteneurs. Nous travaillons dans toute l’industrie pour offrir les choix des développeurs à chaque niveau de la pile de solution.
 
-Technologie de modèle et le déploiement de package très répandue simplifie la gestion en offrant les mêmes commandes d’administration par rapport à n’importe quel hôte et crée une opportunité unique pour transparentes.
-
-Qu’il s’agisse de l’ordinateur de bureau d’un développeur, d’un ordinateur de test ou d’un groupe de machines de production, il est possible de créer une image Docker qui sera déployée de façon identique dans tous les environnements en quelques secondes. Cette histoire a généré un écosystème croissant et à grande échelle d’applications empaquetées dans des conteneurs Docker, avec Docker Hub, le registre public des applications en conteneur géré par Docker.
-
-Docker pose des fondements solides pour le développement.
-
-Parlons maintenant de cet écosystème d’applications et de la façon dont vous pouvez vous baser sur les concepts de Docker pour créer un workflow de développement et de déploiement adapté à vos besoins.
-
-## <a name="components-in-a-container-ecosystem"></a>Composants d’un écosystème de conteneurs
-
-Les conteneurs Windows sont un composant clé d’un important écosystème de conteneurs. Nous travaillons dans toute l’industrie pour offrir les choix des développeurs à chaque niveau de la pile de solution.
-
-L’écosystème de conteneurs fournit des méthodes pour gérer des conteneurs, partager des conteneurs et développer des applications qui s’exécutent dans des conteneurs.
+L’écosystème de conteneurs fournit des méthodes pour gérer, partager et développer des applications qui s’exécutent dans des conteneurs.
 
 ![](media/containerEcosystem.png)
 
-Microsoft souhaite encourager la productivité et les choix des développeurs à mesure qu’ils génèrent ces applications de nouvelle génération.  Notre objectif est d’alimenter la productivité des développeurs, ce qui signifie que les applications doivent pouvoir cibler n’importe quel cloud Microsoft sans avoir à modifier, réécrire ni reconfigurer le code.
+Microsoft souhaite encourager la productivité et les choix des développeurs à mesure qu’ils génèrent ces applications de nouvelle génération. Notre objectif est de dynamiser la productivité des développeurs, ce qui permet aux applications de cibler n’importe quel Cloud Microsoft sans avoir à modifier, réécrire ou reconfigurer du code.
 
-Microsoft s’engage à se montrer ouvert et soucieux des écosystèmes.  Nous supportons de façon active l’union de plusieurs écosystèmes de développeurs dignes d’intérêt, tels que Windows et Linux, pour stimuler l’innovation.
+Microsoft s’engage à être ouvert et compatible avec l’écosystème. Nous prenons activement en charge la combinaison de plusieurs écosystèmes de développement intéressants, comme Windows et Linux, pour favoriser l’innovation.
 
-Dans les prochains mois, nous vous fournirons des informations supplémentaires sur d’autres partenaires dans cet écosystème en expansion.
+Au fil des prochains mois, nous vous fournirons des informations supplémentaires sur les partenaires supplémentaires dans cet écosystème de développement.

@@ -1,73 +1,66 @@
 ---
 title: FAQ sur les conteneurs Windows
-description: FAQ sur les conteneurs Windows Server
+description: Forum aux questions sur les conteneurs Windows Server
 keywords: docker, conteneurs
 author: PatrickLang
-ms.date: 05/02/2016
+ms.date: 05/22/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
-ms.openlocfilehash: 69783f0fc3dcc80eb9614031dc6c9b2c35eeefd1
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 90894278885fde54feab222bb2bf44ca3eba331b
+ms.sourcegitcommit: daf1d2b5879c382404fc4d59f1c35c88650e20f7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577140"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "9674734"
 ---
-# <a name="frequently-asked-questions"></a>Forum aux questions
+# <a name="frequently-asked-questions-about-containers"></a>Forum aux questions sur les conteneurs
 
-## <a name="general"></a>Général
+## <a name="what-are-wcow-and-lcow"></a>Présentation de WCOW et LCOW
 
-### <a name="what-is-wcow-what-is-lcow"></a>Qu’est WCOW? Qu’est LCOW?
+WCOW est l’abréviation de «conteneurs Windows sur Windows». LCOW est l’abréviation de «conteneurs Linux sur Windows».
 
-WCOW est que l’abréviation de conteneurs Windows sur Windows et LCOW est l’abréviation de conteneurs Linux sur Windows.
+## <a name="whats-the-difference-between-linux-and-windows-server-containers"></a>Quelle est la différence entre les conteneurs Linux et Windows Server?
 
-### <a name="what-is-the-difference-between-linux-and-windows-server-containers"></a>Quelle est la différence entre les conteneurs Linux et Windows Server?
+Linux et Windows Server implémentent des technologies similaires au sein de leurs systèmes d’exploitation noyau et noyau. La différence provient de la plateforme et des charges de travail qui s’exécutent dans les conteneurs.  
 
-Conteneurs Linux et Windows Server sont similaires dans la mesure où ils sont tous deux mettre en œuvre des technologies similaires au sein de leur système d’exploitation du noyau et standard. La différence provient de la plateforme et des charges de travail qui s’exécutent dans les conteneurs.  
+Lorsqu’un client utilise des conteneurs Windows Server, il peut s’intégrer aux technologies Windows existantes, telles que .NET, ASP.NET et PowerShell.
 
-Lorsqu’un client utilise des conteneurs Windows Server, ils peuvent intégrer avec Windows existantes technologies telles que .NET, ASP.NET, PowerShell et bien plus encore.
+## <a name="as-a-developer-do-i-have-to-rewrite-my-app-for-each-type-of-container"></a>En tant que développeur, dois-je réécrire mon application pour chaque type de conteneur?
 
-### <a name="as-a-developer-do-i-have-to-rewrite-my-app-for-each-type-of-container"></a>En tant que développeur, dois-je réécrire mon application pour chaque type de conteneur?
+Non. Les images de conteneur Windows sont communes à tous les conteneurs Windows Server et à l’isolation Hyper-V. Le choix du type de conteneur est effectué quand vous démarrez le conteneur. Du point de vue du développeur, les conteneurs Windows Server et l’isolation Hyper-V sont deux versions du même élément. Elles offrent le même niveau de développement, de programmation et de gestion, et sont ouvertes et extensibles, et incluent le même niveau d’intégration et de prise en charge de l’arrimeur.
 
-Non. Images de conteneur Windows sont communes aux conteneurs Windows Server et l’isolation Hyper-V. Le choix du type de conteneur est effectué quand vous démarrez le conteneur. À partir d’un point de vue du développeur, l’isolation de conteneurs Windows Server et Hyper-V sont deux versions du même élément. Ils offrent la même expérience de développement, de programmation et de gestion, sont ouverts et extensibles et présentent le même niveau d’intégration et de prise en charge avec Docker.
+Un développeur peut créer une image de conteneur à l’aide d’un conteneur Windows Server et le déployer dans l’isolation Hyper-V ou inversement sans modifier l’indicateur d’exécution approprié.
 
-Un développeur peut créer une image de conteneur à l’aide d’un conteneur Windows Server et déployez-le dans l’isolation Hyper-V ou inversement sans modification autre que la spécification de l’indicateur d’exécution approprié.
+Les conteneurs Windows Server fournissent une plus grande densité et des performances optimales lorsque la vitesse est importante, par exemple pour réduire le temps de réactivité et des performances du Runtime par rapport aux configurations imbriquées. Isolation Hyper-V, true à son nom, offre une plus grande isolation, ce qui garantit que le code exécuté dans un conteneur ne peut pas être compromis ou influant sur le système d’exploitation hôte ou d’autres conteneurs qui s’exécutent sur le même hôte. Cela s’avère utile pour les scénarios multilocataires avec la configuration requise pour l’hébergement de code non fiable, y compris les applications SaaS et l’hébergement de calcul.
 
-Les conteneurs Windows Server offrent une densité et des performances pour les lorsque la vitesse est la clé, par exemple, de rotation inférieure temps et les performances d’exécution plus rapides par rapport aux configurations imbriquées. Isolation Hyper-V, son nom, offre une isolation supérieure s’assurer que le code s’exécutant dans un conteneur ne peut pas compromettre ou avoir un impact sur le système d’exploitation hôte ou autres conteneurs exécutés sur le même hôte. Cela est utile pour les scénarios mutualisées avec la configuration requise pour l’hébergement de code non fiable, y compris les applications SaaS et l’hébergement d’ordinateurs.
+## <a name="what-are-the-prerequisites-for-running-containers-on-windows"></a>Quelles sont les conditions préalables à l’exécution des conteneurs sur Windows?
 
-### <a name="what-are-the-prerequisites-for-running-containers-on-windows"></a>Quelles sont les conditions requises pour les conteneurs en cours d’exécution sur Windows?
+Des conteneurs ont été introduits dans la plateforme avec Windows Server 2016. Pour utiliser les conteneurs, vous avez besoin de Windows Server 2016 ou de la mise à jour anniversaire Windows 10 (version 1607) ou d’une version ultérieure.
 
-Les conteneurs ont été introduites pour la plateforme avec Windows Server 2016. Pour utiliser les conteneurs, vous aurez besoin de Windows Server 2016 ou Windows 10 Anniversary update (version 1607) ou une version ultérieure.
+## <a name="can-i-run-windows-containers-in-process-isolated-mode-on-windows-10-enterprise-or-professional"></a>Puis-je exécuter des conteneurs Windows en mode d’isolation de processus sur Windows 10 entreprise ou professionnel?
 
-### <a name="can-i-run-windows-containers-in-process-isolated-mode-on-windows-10-enterprise-or-professional"></a>Puis-je exécuter les conteneurs Windows en mode isolées du processus sur Windows 10 entreprise ou Professionnel?
+À partir de la mise à jour 2018 de Windows 10 d’octobre, vous pouvez exécuter un conteneur Windows avec l’isolement de processus, mais vous devez préalablement demander l’isolement du processus à l’aide de l' `--isolation=process` indicateur lors de l’exécution de vos conteneurs avec `docker run`.
 
-Mise à jour, nous n’est plus à partir de Windows 10 octobre 2018 interdisez à un utilisateur de s’exécuter un conteneur Windows avec l’isolation de processus. Toutefois, vous devez demander directement pour l’isolation des processus à l’aide de la `--isolation=process` indicateur lors de l’exécution de vos conteneurs via `docker run`.
-
-Si c’est un élément que vous intéresse, vous devez vous assurer que votre ordinateur hôte est en cours d’exécution Windows 10, build 17763 + et vous disposez d’une version de docker avec le moteur 18.09 ou plus récente.
+Si vous souhaitez exécuter vos conteneurs Windows de cette manière, vous devez vous assurer que votre hôte exécute Windows 10 Build 17763 + et que vous disposez d’une version d’amarrage avec le moteur 18,09 ou version ultérieure.
 
 > [!WARNING]
-> Cette fonctionnalité sert uniquement pour le test/développement. Vous devez continuer à utiliser Windows Server que l’hôte pour les déploiements de production.
->
-> À l’aide de cette fonctionnalité, vous devez également vous assurer que les balises de version de votre hôte et conteneur correspondent, dans le cas contraire, le conteneur peut échouer à démarrer ou peuvent présenter un comportement indéfini.
+> Cette fonctionnalité est uniquement destinée au développement et au test. Vous devez continuer à utiliser Windows Server en tant qu’hôte pour les déploiements de production. En utilisant cette fonctionnalité, vous devez également vous assurer que les balises de version de votre hôte et du conteneur correspondent, sinon le conteneur peut ne pas démarrer ou présenter un comportement non défini.
 
-## <a name="windows-container-management"></a>Gestion des conteneurs Windows
+## <a name="how-do-i-make-my-container-images-available-on-air-gapped-machines"></a>Comment rendre mes images de conteneur disponibles sur les appareils d’entrée aérienne?
 
-### <a name="how-do-i-make-my-container-images-available-on-air-gapped-machines"></a>Comment faire Mes images de conteneur disponibles sur les ordinateurs exploitant?
+Les images de base conteneur Windows contiennent des artefacts dont la distribution est restreinte par licence. Lorsque vous générez sur ces images et les transmettez dans un registre privé ou public, vous remarquerez que le calque de base n’est jamais transmis. Au lieu de cela, nous utilisons le concept de couche étrangère qui pointe vers le véritable calque de base résidant dans le stockage cloud Azure.
 
-Les images de base de conteneur Windows contiennent des artefacts dont la distribution est limitée par la licence. Lorsque vous générez sur ces images et les distribuer à un registre public ou privé, vous remarquerez que la couche de base est transmise jamais. Au lieu de cela, nous utilisons le concept d’une couche étrangère qui pointe vers la couche de base réel résidant dans un stockage cloud Azure.
-
-Cela peut poser un problème lorsque vous disposez d’un ordinateur exploitant qui peut extraire uniquement des images à partir de l’adresse de votre Registre de conteneur privé. Les tentatives de suivre la couche externe pour obtenir l’image de base échoue dans ce cas. Pour remplacer le comportement de la couche étrangère, vous pouvez utiliser la `--allow-nondistributable-artifacts` indicateur dans le démon Docker.
+Cela peut compliquer l’opération lorsque vous disposez d’une machine qui ne peut pas extraire des images à partir de l’adresse de votre registre de conteneurs privés. Dans ce cas, les tentatives de suivi des couches étrangères pour obtenir l’image de base ne fonctionneront pas. Pour remplacer le comportement de la couche étrangère, vous pouvez utiliser `--allow-nondistributable-artifacts` l’indicateur dans le démon de l’ancrage.
 
 > [!IMPORTANT]
-> L’utilisation de cet indicateur ne fait pas obstacle votre obligation de respecter les conditions de la licence image de base du conteneur Windows; Vous devez valider pas de contenu Windows de redistribution public ou tiers. L’utilisation au sein de votre environnement est autorisée.
+> L’utilisation de cet indicateur ne préjuge pas de votre obligation de respecter les conditions de la licence d’image de base du conteneur Windows; vous ne devez pas publier le contenu Windows pour une redistribution publique ou tierce. L’utilisation au sein de votre propre environnement est autorisée.
 
-## <a name="microsofts-open-ecosystem"></a>Écosystème ouvert de Microsoft
+## <a name="is-microsoft-participating-in-the-open-container-initiative-oci"></a>Est-ce que Microsoft participe à l’Open Container Initiative (OCI)?
 
-### <a name="is-microsoft-participating-in-the-open-container-initiative-oci"></a>Est-ce que Microsoft participe à l’Open Container Initiative (OCI)?
+Pour garantir que le format d’emballage reste universel, l’arrimeur a récemment organisé l’initiative de conteneur ouvert (OCI), qui a pour but de garantir que l’emballage du conteneur reste une ouverture et un format à l’autre, avec Microsoft comme membre fondateur.
 
-Pour garantir que le format des packages reste universel, Docker a récemment organisé l’Open Container Initiative (OCI) visant à garantir que le package de conteneur conserve un format ouvert respectant les fondements, avec Microsoft comme l’un des membres fondateurs.
+## <a name="additional-feedback"></a>Commentaires supplémentaires
 
-> [!TIP]
-> Vous avez une recommandation pour un ajout au Forum aux questions? Ouvrir un nouveau problème de commentaires dans la section commentaires ou GitHub permet d’ouvrir une requête de tirage contre ces documents!
+Vous voulez ajouter une information au FAQ? Ouvrez un nouveau problème de commentaires dans la section commentaires ou configurez une demande d’extraction pour cette page avec GitHub.
