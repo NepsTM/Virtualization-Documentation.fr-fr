@@ -7,30 +7,30 @@ ms.date: 02/15/2019
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-ms.openlocfilehash: a710f8d60f9d82be7fe02b950a9782b94f3ae6e4
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: e1b6b55b2e17ac4f0883078748d75f6d4b9fcafa
+ms.sourcegitcommit: 3c06d6b5cebeacc4c0185dca5c20680ad67655bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620727"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "9681900"
 ---
 # <a name="install-hyper-v-on-windows-10"></a>Installer Hyper-V sur Windows10
 
 Activez Hyper-V pour créer des machines virtuelles sur Windows10.  
-Hyper-V peut être activé de nombreuses manières, y compris à l’aide du Panneau de configuration de Windows10, de PowerShell (mon favori) ou de l’outil Gestion et maintenance des images de déploiement (DISM). Ce document présente chacune de ces options.
+Hyper-V peut être activé de diverses manières, notamment à l’aide du panneau de configuration Windows 10, PowerShell ou à l’aide de l’outil de gestion des services d’imagerie de déploiement (DISM). Ce document présente chacune de ces options.
 
 > **Remarque:** Hyper-V est intégré à Windows en tant que fonctionnalité facultative; il n’est pas disponible en téléchargement.
 
 ## <a name="check-requirements"></a>Vérifier la configuration requise
 
-* Windows 10 entreprise, Professionnel ou éducation
+* Windows 10 entreprise, professionnel ou éducation
 * Processeur 64bits avec traduction d’adresse de second niveau (SLAT).
-* Processeur prenant en charge pour les extensions de Mode de moniteur de machine virtuelle (VT-c sur les processeurs Intel).
+* Prise en charge de l’UC pour l’extension du mode moniteur VM (VT-c sur les processeurs Intel).
 * Au minimum 4Go de mémoire.
 
 Le rôle Hyper-V **ne peut pas** être installé sur Windows10 Famille.
 
-Mettez à niveau l’édition Windows 10 famille vers Windows 10 Professionnel en ouvrant des **paramètres** > **mise à jour et sécurité** > **l’Activation**.
+Effectuez la mise à niveau de Windows 10 édition familiale vers Windows 10 professionnel en ouvrant la**mise à jour** > des **paramètres** > et**l’activation**de la sécurité.
 
 Pour plus d’informations et pour connaître les étapes de résolution des problèmes, voir [Configuration requise pour Hyper-V sur Windows10](../reference/hyper-v-requirements.md).
 
@@ -70,7 +70,7 @@ Pour plus d’informations sur DISM, voir [DISM- Informations techniques de réf
 
 1. Cliquez avec le bouton droit sur le bouton Windows et sélectionnez Applications et fonctionnalités.
 
-2. Sélectionnez **programmes et fonctionnalités** sur la droite sous paramètres associés. 
+2. Sélectionnez **programmes et fonctionnalités** dans la partie droite sous paramètres liés. 
 
 3. Sélectionnez **Activer ou désactiver des fonctionnalités Windows**.
 

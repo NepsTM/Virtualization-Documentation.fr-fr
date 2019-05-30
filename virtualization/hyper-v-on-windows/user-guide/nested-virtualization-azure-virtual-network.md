@@ -1,228 +1,228 @@
 ---
-title: Configuration des machines virtuelles imbriquées pour communiquer directement avec les ressources d’un réseau virtuel Azure
+title: Configuration d’ordinateurs virtuels imbriqués pour communiquer directement avec les ressources d’un réseau virtuel Azure
 description: Virtualisation imbriquée
-keywords: Windows 10, hyper-v, Azure
+keywords: Windows 10, Hyper-v, Azure
 author: mrajess
 ms.date: 12/10/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1ecb85a6-d938-4c30-a29b-d18bd007ba08
-ms.openlocfilehash: 2771989b7745605fb3ce4f95e162ae8b03180b0f
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 2f1c6a124ba4f2f9d199d3cc5bb38c9082f72b3d
+ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621577"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "9681139"
 ---
-# <a name="configure-nested-vms-to-communicate-with-resources-in-an-azure-virtual-network"></a>Configurer des ordinateurs virtuels imbriquées pour communiquer avec les ressources d’un réseau virtuel Azure
+# <a name="configure-nested-vms-to-communicate-with-resources-in-an-azure-virtual-network"></a>Configurer des ordinateurs virtuels imbriqués pour communiquer avec des ressources dans un réseau virtuel Azure
 
-Les instructions d’origine sur le déploiement et la configuration des machines virtuelles imbriquées dans Azure nécessite que vous accédez à ces machines virtuelles par le biais d’un commutateur NAT. Cela présente plusieurs limitations:
+Pour plus d’informations sur le déploiement et la configuration des machines virtuelles imbriquées dans Azure, vous devez accéder à ces VM par le biais d’un commutateur NAT. Cela présente plusieurs limitations:
 
-1. Machines virtuelles imbriquées ne peuvent pas accéder aux ressources locales ou au sein d’un réseau virtuel Azure.
-2. Ressources locales ou des ressources dans Azure accessibles uniquement les machines virtuelles imbriquées par le biais d’un périphérique NAT, ce qui signifie que plusieurs invités ne peuvent pas partager le même port.
+1. Les VM imbriquées ne peuvent pas accéder aux ressources locales ou à partir d’un réseau virtuel Azure.
+2. Les ressources locales ou les ressources dans Azure peuvent uniquement accéder aux VM imbriquées par le biais d’un NAT, ce qui signifie que plusieurs invités ne peuvent pas partager le même port.
 
-Ce document guideront à travers un déploiement dans laquelle nous provoquent l’utilisation de RRAS, des itinéraires définis par utilisateur, un sous-réseau dédié à NAT sortante pour autoriser l’accès en invité internet et un espace d’adressage «flottante» pour autoriser les machines virtuelles imbriquées à se comporter et à communiquer comme toute autre machine virtuelle déployé directement à une basculée dans Azure.
+Ce document traite du déploiement par le biais du protocole RRAS, des itinéraires définis par l’utilisateur, du sous-réseau dédié à la traduction d’adresses réseau sortante pour autoriser l’accès à Internet invité et un espace d’adressage «flottant» pour permettre aux VM imbriquées de se comporter et de communiquer comme n’importe quelle autre machine virtuelle. déployé directement sur un VNet dans Azure.
 
-Avant de commencer ce guide, veuillez:
+Avant de démarrer ce guide, procédez comme suit:
 
-1. Lisez les [conseils fournis ici](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) sur la virtualisation imbriquée.
-2. Lisez cet article entière avant la mise en œuvre.
+1. Lisez les [instructions fournies ici](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) sur virtualisation imbriquée.
+2. Lire l’ensemble de cet article avant de l’implémenter.
 
-## <a name="high-level-overview-of-what-were-doing-and-why"></a>Vue d’ensemble de niveau élevé de ce que nous faisons et pourquoi
-* Nous allons créer un ordinateur virtuel capable de d’imbrication a deux cartes réseau. 
-* Une que carte réseau sera utilisé pour fournir des machines virtuelles imbriquées notre ayant accès à internet via NAT et l’autre carte réseau servira à acheminer le trafic à partir de notre commutateur interne aux ressources externes à l’hyperviseur. Chaque carte réseau sera doivent se trouver dans un autre domaine de routage, ce qui signifie qu’un sous-réseau différent.
-* Cela signifie que nous avons besoin d’un réseau virtuel avec un minimum trois sous-réseaux. Une pour NAT, un pour le routage LAN et un qui n’est pas utilisé, mais est «réservé» pour nos machines virtuelles imbriquées. Les noms que nous utilisons pour les sous-réseaux dans ce document sont, «NAT», «Hyper-V-LAN» et «Images».
-* La taille de ces sous-réseaux est à votre convenance, mais il existe certaines considérations. La taille des sous-réseaux «Images» détermine le nombre d’adresses IP vous disposez pour vos machines virtuelles imbriquées. En outre, la taille des sous-réseaux «NAT» et «Hyper-V-LAN» détermine le nombre d’adresses IP vous disposez pour les hyperviseurs. Par conséquent, vous pouvez faire techniquement très petites sous-réseaux ici si vous ont été planification uniquement sur la présence d’un ou deux hyperviseurs.
-* En arrière-plan: Recevoir imbriquée machines virtuelles pas DHCP à partir de la basculée leur hôte est connecté au même si vous configurez une interne ou un commutateur externe. 
-  * Cela signifie que l’hôte Hyper-V doit fournir le service DHCP.
-* L’hôte Hyper-V n’est pas prenant en charge des baux actuellement affectées sur le basculée, afin d’éviter une situation dans laquelle l’hôte attribue une adresse IP déjà existant, nous devons allouer un bloc des adresses IP pour une utilisation simplement par l’ordinateur hôte Hyper-V. Cela va nous permettre d’éviter un scénario IP en double.
-  * Le bloc d’adresses IP nous choisissons correspondra à un sous-réseau au sein de la même basculée votre Hyper-V est en cours.
-  * La raison que nous voulons que cette option pour correspondre à un sous-réseau existant consiste à gérer les publicités BGP sur un ExpressRoute. Si nous compose simplement une plage IP pour l’hôte Hyper-V à utiliser, nous devons créer une série d’itinéraires statiques pour permettre aux clients sur site pour communiquer avec les machines virtuelles imbriquées. Cela ne signifie pas que cela n’est pas une condition requise par dur comme vous pourriez constituent une plage IP pour les machines virtuelles imbriquées et ensuite créer tous les itinéraires nécessaires pour diriger les clients vers l’hôte Hyper-V pour cette plage.
-* Nous allons créer un commutateur interne au sein de Hyper-V et puis nous allons désigner l’interface nouvellement créé une adresse IP dans une plage que nous réservons pour DHCP. Cette adresse IP est devenue la passerelle par défaut pour nos machines virtuelles imbriquées et être utilisé pour l’itinéraire entre le commutateur interne et la carte réseau de l’hôte qui est connecté à notre basculée.
-* Nous allons installer le rôle de routage et d’accès à distance sur l’hôte, ce qui activera notre hôte dans un routeur.  Cela est nécessaire pour permettre la communication entre les ressources externes à l’hôte et nos machines virtuelles imbriquées.
-* Nous indiquera comment accéder à ces machines virtuelles imbriquées autres ressources. Cela nécessite que nous créons une table de routage défini par l’utilisateur qui contient un itinéraire statique pour la plage IP résidant dans les machines virtuelles imbriquées. Cet itinéraire statique pointe vers l’adresse IP pour l’Hyper-V.
-* Vous placera ensuite cette UDR sur le sous-réseau de passerelle afin que les clients en provenance de locaux sachent comment joindre nos machines virtuelles imbriquées.
-* Vous serez également placer ce UDR sur n’importe quel autre sous-réseau au sein d’Azure qui nécessite une connectivité pour les machines virtuelles imbriquées.
-* Pour plusieurs hôtes Hyper-V vous créer des sous-réseaux «flottantes» supplémentaires et ajouter un itinéraire statique supplémentaires à la UDR.
-* Lorsque vous retirez un hôte Hyper-V vous serez supprimer/réaffecter notre sous-réseau «flottante» et supprimer cet itinéraire statique dans notre UDR ou s’il s’agit du dernier hôte Hyper-V, retirez le UDR.
+## <a name="high-level-overview-of-what-were-doing-and-why"></a>Présentation de haut niveau de ce que nous faisons et pourquoi
+* Nous allons créer un ordinateur virtuel doté d’imbrication doté de deux cartes réseau. 
+* Une carte réseau sera utilisée pour fournir nos ordinateurs virtuels imbriqués avec un accès Internet via tar et l’autre carte réseau sera utilisée pour acheminer le trafic de notre commutateur interne vers des ressources extérieures à l’hyperviseur. Chaque carte réseau doit faire partir d’un domaine de routage différent, c’est-à-dire d’un sous-réseau différent.
+* Cela signifie que nous aurons besoin d’un réseau virtuel à trois sous-réseaux minimum. Une pour tar, une pour le routage sur réseau local et une autre qui n’est pas utilisée, mais qui est «réservée» pour nos VM imbriquées. Les noms que nous utilisons pour les sous-réseaux dans ce document sont «NAT», «Hyper-V-LAN» et «fantômes».
+* La taille de ces sous-réseaux est à votre discrétion, mais il existe quelques éléments à prendre en considération. La taille des sous-réseaux «fantômes» détermine le nombre de systèmes IPs pour vos ordinateurs virtuels imbriqués. Par ailleurs, la taille des sous-réseaux «tar» et «Hyper-V-LAN» détermine le nombre de systèmes IPs pour les hyperviseurs. Par conséquent, il est possible de créer des sous-réseaux vraiment petits si vous envisagez de disposer d’un ou de deux hyperviseurs.
+* Arrière-plan: les ordinateurs virtuels imbriqués ne recevront pas le protocole DHCP du VNet auquel leur hôte est connecté, même si vous configurez un commutateur interne ou externe. 
+  * Cela signifie que l’hôte Hyper-V doit fournir le protocole DHCP.
+* L’hôte Hyper-V ne connaît pas les baux actuellement attribués sur le VNet, donc pour éviter une situation dans laquelle l’hôte affecte une adresse IP déjà en cours, nous devons attribuer un bloc d’IPs pour une utilisation seule de l’hôte Hyper-V. Cela nous permettra d’éviter un scénario IP en double.
+  * Le bloc de prévention des intrusions que nous choisis correspond à un sous-réseau au sein de la même VNet que votre Hyper-V.
+  * La raison pour laquelle nous voulons qu’elle corresponde à un sous-réseau existant consiste à gérer les annonces BGP sur une ExpressRoute. Si nous venons de créer une plage d’adresses IP pour l’hôte Hyper-V à utiliser, nous devons créer une série d’itinéraires statiques pour permettre aux clients sur-locaux de communiquer avec les VM imbriquées. Cela signifie qu’il n’est pas nécessaire d’avoir besoin d’une plage d’adresses IP pour les VM imbriquées, puis de créer tous les itinéraires nécessaires pour diriger les clients vers l’hôte Hyper-V de cette plage.
+* Nous allons créer un commutateur interne dans Hyper-V, puis nous affecterons l’interface nouvellement créée à une adresse IP dans une plage que nous avons définie pour le protocole DHCP. Cette adresse IP devient la passerelle par défaut de nos VM imbriquées et sera utilisée pour le routage entre le commutateur interne et la carte réseau de l’hôte connecté à notre VNet.
+* Nous allons installer le rôle routage et accès distant sur l’hôte, ce qui transforme votre hôte en routeur.  Cela est nécessaire pour autoriser la communication entre les ressources extérieures à l’hôte et nos VM imbriquées.
+* Nous allons savoir aux autres ressources comment accéder à ces VM imbriquées. Cela nécessite que nous puissions créer une table d’itinéraires définie par l’utilisateur qui contient un itinéraire statique pour la plage d’adresses IP dans laquelle résident les ordinateurs virtuels imbriqués. Ce routage statique pointe sur l’adresse IP de Hyper-V.
+* Vous pouvez ensuite placer ce UDR sur le sous-réseau des passerelles de telle sorte que les clients qui se trouvent sur site sachent comment joindre nos VM imbriquées.
+* Ce UDR est également placé sur tout autre sous-réseau d’Azure, qui nécessite une connectivité aux ordinateurs virtuels imbriqués.
+* Pour plusieurs hôtes Hyper-V, vous créez des sous-réseaux supplémentaires «flottants» et ajoutez un itinéraire statique supplémentaire à UDR.
+* Lorsque vous désaffectez un hôte Hyper-V, vous devez supprimer/réutiliser le sous-réseau «flottant» et supprimer l’itinéraire statique de notre UDR, ou s’il s’agit du dernier hôte Hyper-V, supprimez UDR.
 
 ## <a name="creating-the-host"></a>Création de l’hôte
 
-J’ai s’attarder sur les valeurs de configuration qui sont jusqu'à préférences personnelles, telles que la machine virtuelle nom, groupe de ressources, etc...
+J’ai une brillance sur les valeurs de configuration qui appartiennent à des préférences personnelles, telles que le nom de l’ordinateur virtuel, le groupe de ressources, etc.
 
 1. Accédez à portal.azure.com
-2. Cliquez sur «Créer une ressource» dans le coin supérieur gauche
-3. Sélectionnez «Fenêtre Server 2016 VM» dans la colonne populaires
-4. Sous l’onglet «Basics» veillez à sélectionner une taille de mémoire virtuelle qui est capable de la virtualisation imbriquée
-5. Déplacer vers l’onglet «Mise en réseau»
-6. Créer un nouveau réseau virtuel avec la configuration suivante
-    * Espace d’adressage basculée: 10.0.0.0/22
+2. Cliquez sur «créer une ressource» dans le coin supérieur gauche
+3. Sélectionnez «Windows Server 2016 VM» dans la colonne populaires
+4. Dans l’onglet «notions de base», n’hésitez pas à sélectionner une taille d’ordinateur virtuel compatible avec la virtualisation imbriquée.
+5. Accéder à l’onglet «mise en réseau»
+6. Créer un réseau virtuel avec la configuration suivante
+    * Espace d’adressage de VNet: 10.0.0.0/22
     * Sous-réseau 1
         * Nom: NAT
-        * Espace d’adresse: 10.0.0.0/24
+        * Espace d’adressage: 10.0.0.0/24
     * Sous-réseau 2
         * Nom: Hyper-V-LAN
-        * Espace d’adresse: 10.0.1.0/24
+        * Espace d’adressage: 10.0.1.0/24
     * Sous-réseau 3
-        * Nom: dupliqué
-        * Espace d’adresse: 10.0.2.0/24
+        * Nom: Ghosté
+        * Espace d’adressage: 10.0.2.0/24
     * Sous-réseau 4
-        * Nom: Machines virtuelles Azure
-        * Espace d’adresse: 10.0.3.0/24
-7. Vérifiez que vous avez sélectionné le sous-réseau NAT pour la machine virtuelle
-8. Accédez à «révision + créer» et sélectionnez «Créer»
+        * Nom: Azure-VMs
+        * Espace d’adressage: 10.0.3.0/24
+7. Vérifiez que vous avez sélectionné le sous-réseau NAT pour l’ordinateur virtuel
+8. Accédez à «révision + création» et sélectionnez «créer».
 
 ## <a name="create-the-second-network-interface"></a>Créer la deuxième interface réseau
-1. Après la machine virtuelle a fini d’approvisionnement Parcourir à celui-ci dans le portail Azure
+1. Après la configuration de l’ordinateur virtuel, accédez-y au portail Azure.
 2. Arrêter l’ordinateur virtuel
-3. Une fois arrêté atteindre la «Mise en réseau» sous Paramètres
-4. «Attacher l’interface réseau»
-5. «Créer l’interface réseau»
-6. Lui donner un nom (n’a pas d’importance ce que vous nommez, mais veillez à vous en souvenir)
-7. Sélectionnez «Hyper-V-LAN» pour le sous-réseau
-8. Veillez à sélectionner le même groupe de ressources votre hôte réside dans
-9. «Créer»
-10. Ceci vous ramène à l’écran précédent, veillez à sélectionner l’Interface réseau nouvellement créé et sélectionnez «OK»
-11. Revenez dans le volet de «Présentation» et redémarrez votre machine virtuelle une fois que l’action précédente est terminée.
-12. Accédez à la seconde carte que nous venons de créer, vous pouvez le trouver dans le groupe de ressources que vous avez précédemment sélectionné
-13. Accédez à «configurations IP» et activer/désactiver «Transfert IP» sur «Activé» et puis enregistrez la modification
+3. Une fois arrêté, accédez à «mise en réseau» sous paramètres
+4. "Attacher une interface réseau"
+5. "Créer une interface réseau"
+6. Donnez-lui un nom (peu importe votre nom, mais veillez à le rappeler)
+7. Sélectionner «Hyper-V-LAN» pour le sous-réseau
+8. Assurez-vous de sélectionner le groupe de ressources dans lequel réside votre hôte.
+9. Creat
+10. Vous revenez à l’écran précédent, vous devez sélectionner l’interface réseau que vous venez de créer, puis sélectionner "OK".
+11. Revenez au volet «vue d’ensemble» et redémarrez votre machine virtuelle une fois l’action précédente terminée.
+12. Naviguez jusqu’à la deuxième carte réseau que nous venons de créer, vous pouvez la Rechercher dans le groupe de ressources que vous avez sélectionné précédemment.
+13. Accédez à «configurations IP» et activez/désactivez l’option «transfert IP» vers «activé», puis enregistrez la modification.
 
-## <a name="setting-up-hyper-v"></a>Configuration d’Hyper-V
-1. À distance à votre ordinateur hôte
-2. Ouvrez une invite PowerShell avec élévation de privilèges
+## <a name="setting-up-hyper-v"></a>Configuration de Hyper-V
+1. Distant dans votre hôte
+2. Ouvrir une invite PowerShell avec élévation de privilèges
 3. Exécutez la commande suivante `Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart`
-4. Cette opération va redémarrer l’ordinateur hôte
-5. Vous reconnecter à l’hôte de continuer avec le reste de l’installation
+4. Cette opération va redémarrer l’hôte.
+5. Reconnectez-vous à l’hôte pour poursuivre la configuration.
 
 ## <a name="creating-our-virtual-switch"></a>Création de notre commutateur virtuel
 
-1. Ouvrez PowerShell en mode d’administration.
+1. Ouvrez PowerShell en mode administratif.
 2. Créer un commutateur interne: `New-VMSwitch -Name "NestedSwitch" -SwitchType Internal`
-3. Affectez l’interface nouvellement créé une adresse IP: `New-NetIPAddress –IPAddress 10.0.2.1 -PrefixLength 24 -InterfaceAlias "vEthernet (NestedSwitch)"`
+3. Assignez l’interface nouvellement créée par adresse IP: `New-NetIPAddress –IPAddress 10.0.2.1 -PrefixLength 24 -InterfaceAlias "vEthernet (NestedSwitch)"`
 
-## <a name="install-and-configure-dhcp"></a>Installer et configurer DHCP
+## <a name="install-and-configure-dhcp"></a>Installer et configurer le protocole DHCP
 
-*De nombreuses personnes manquer ce composant lorsqu’il essaie tout d’abord d’obtenir l’utilisation de la virtualisation imbriquée. Contrairement à local où vos ordinateurs virtuels invités recevront DHCP à partir du réseau résidant sur votre ordinateur hôte machines virtuelles imbriquées dans Azure doivent être fournis DHCP via l’hôte, sur qu'ils s’exécutent. Qui ou vous devez affecter statiquement une adresse IP à chaque machine virtuelle imbriquée, ce qui n’est pas évolutif.*
+*De nombreux utilisateurs ne manquez pas ce composant quand ils essaient d’accéder à la virtualisation imbriquée pour la première fois. À la différence de l’emplacement local où vos ordinateurs virtuels invités recevront le protocole DHCP du réseau sur lequel réside votre hôte, les VM imbriquées dans Azure doivent être fournies via le protocole DHCP sur l’hôte sur lequel elles s’exécutent. Comme vous le souhaitez, vous devez affecter de manière statique une adresse IP à chaque VM imbriquée, qui n’est pas évolutive.*
 
 1. Installez le rôle DHCP: `Install-WindowsFeature DHCP -IncludeManagementTools`
 2. Créer l’étendue DHCP: `Add-DhcpServerV4Scope -Name "Nested VMs" -StartRange 10.0.2.2 -EndRange 10.0.2.254 -SubnetMask 255.255.255.0`
-3. Configurer les options DNS et passerelle par défaut pour l’étendue: `Set-DhcpServerV4OptionValue -DnsServer 168.63.129.16 -Router 10.0.2.1`
-    * Veillez à un serveur DNS valide d’entrée si vous souhaitez que la résolution de nom pour fonctionner. Dans ce cas, j’utilise [récursive d’Azure DNS](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+3. Configurer les options DNS et de passerelle par défaut pour l’étendue: `Set-DhcpServerV4OptionValue -DnsServer 168.63.129.16 -Router 10.0.2.1`
+    * Veillez à entrer un serveur DNS valide si vous souhaitez que la résolution de nom fonctionne. Le cas échéant, j’utilise le [DNS récurrent d’Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
-## <a name="installing-remote-access"></a>L’installation d’accès à distance
+## <a name="installing-remote-access"></a>Installation de l’accès à distance
 
-1. Ouvrez le Gestionnaire de serveur et sélectionnez «Ajouter des rôles et fonctionnalités».
-2. Sélectionnez «Suivant» jusqu'à ce que vous atteigniez «Rôles serveur».
-3. Vérifiez les «Accès à distance» et cliquez sur «Suivant» jusqu'à ce que vous atteigniez «Les Services de rôle».
-4. Vérifier «Routage», sélectionnez «Ajouter des fonctionnalités» et sélectionnez «Suivant» et «Installer». Terminez l’Assistant et attendez pour l’installation se termine.
+1. Ouvrez le gestionnaire de serveur, puis sélectionnez Ajouter des rôles et fonctionnalités.
+2. Sélectionnez «suivant» jusqu’à atteindre «rôles serveur».
+3. Activez l’option «accès à distance» et cliquez sur «suivant» jusqu’à ce que vous atteigniez «services de rôle».
+4. Cochez la case «routage», sélectionnez «Ajouter des fonctionnalités», puis cliquez sur «suivant», puis sur «installer». Terminez l’Assistant et attendez la fin de l’installation.
 
 ## <a name="configuring-remote-access"></a>Configuration de l’accès à distance
 
-1. Ouvrez le Gestionnaire de serveur, puis sélectionnez «Outils» et sélectionnez «Routage et accès à distance».
-2. Sur le côté droit du Panneau de gestion de routage et d’accès à distance vous voir une icône avec votre nom de serveurs en regard de celle-ci, avec le bouton droit cliquez ici et sélectionnez «Configurer et activer le routage et accès à distance».
-3. Sélectionnez «Suivant» à l’Assistant, cochez la case d’option pour «Configuration personnalisée» et sélectionnez «Suivant».
-4. Vérifier «NAT» et «Routage LAN» puis sélectionnez «suivant» et «Terminerez». Si elle vous demande de démarrer le service, puis effectuer cette opération.
-5. Maintenant, accédez au nœud «IPv4» et développer afin que le nœud «NAT» est mis à disposition.
-6. Cliquez avec le bouton droit sur «NAT», sélectionnez «Nouvelle Interface» Sélectionnez «Ethernet», il doit s’agir de votre première carte réseau avec l’adresse IP de «10.0.0.4»
-7. Nous devons maintenant créer des itinéraires statiques pour forcer le trafic réseau local à la seconde carte réseau. Pour cela, vous devez en accédant au nœud «Itinéraires statiques» sous «IPv4».
-8. Une fois qu’il nous allons créer les itinéraires suivants.
+1. Ouvrez le gestionnaire de serveur et sélectionnez «Outils», puis sélectionnez «routage et accès distant».
+2. Sur le côté gauche de la fenêtre de routage et de gestion de l’accès à distance, vous verrez une icône contenant le nom de votre serveur en regard de celui-ci, cliquez avec le bouton droit sur ce bouton et sélectionnez «configurer et activer le service de routage et accès distant».
+3. Dans l’Assistant, sélectionnez «suivant», cliquez sur le bouton radial pour «configuration personnalisée», puis sélectionnez «suivant».
+4. Vérifiez «NAT» et «routage LAN», puis sélectionnez «suivant», puis «terminer». Si vous êtes invité à démarrer le service, procédez ainsi.
+5. À présent, accédez au nœud «IPv4» et développez-le afin que le nœud «NAT» soit disponible.
+6. Cliquez avec le bouton droit sur «traducteur», puis sélectionnez «nouvelle interface». et sélectionnez «Ethernet», il s’agit de votre première carte réseau avec l’adresse IP «10.0.0.4».
+7. À présent, nous devons créer des itinéraires statiques pour forcer le trafic LAN vers la deuxième carte réseau. Pour ce faire, accédez au nœud «itinéraires statiques» sous «IPv4».
+8. Nous allons ensuite créer les itinéraires suivants.
     * Itinéraire 1
         * Interface: Ethernet
         * Destination: 10.0.0.0
-        * Masque de réseau: 255.255.255.0
+        * Masque réseau: 255.255.255.0
         * Passerelle: 10.0.0.1
         * Métrique: 256
-        * Remarque: Nous placez ce code ici pour permettre à la carte réseau principale répondre au trafic destiné à sa sortie sa propre interface. Si nous n’avions pas ce ici l’itinéraire suivant conduira le trafic destiné à la carte réseau 1 accéder à la carte réseau 2. Cela crée un itinéraire asymétrique. 10.0.0.1 est l’adresse IP qui Azure affecte au sous-réseau NAT. Azure utilise la première IP disponibles dans une plage comme la passerelle par défaut. Par conséquent, si vous n’avez utilisé 192.168.0.0/24 pour votre sous-réseau NAT, la passerelle sera 192.168.0.1. Dans le routage l’itinéraire plus spécifique wins, ce qui signifie que cet itinéraire seront remplacent le ci-dessous itinéraire.
+        * Remarque: nous avons mis en place cette section pour permettre à la carte réseau principale de répondre au trafic destiné à son interface. Si ce n’est pas le cas, l’itinéraire suivant entraînerait du trafic pour la carte réseau (NIC) 1 to go. Cela crée un itinéraire asymétrique. 10.0.0.1 est l’adresse IP attribuée par Azure au sous-réseau NAT. Azure utilise la première adresse IP disponible dans une plage comme passerelle par défaut. Par conséquent, si vous avez utilisé 192.168.0.0/24 pour votre sous-réseau NAT, la passerelle sera 192.168.0.1. Dans le routage de l’itinéraire WINS plus spécifique, cela signifie que cette route va remplacer l’itinéraire ci-dessous.
 
-    * Itinéraire 2
+    * Route 2
         * Interface: Ethernet 2
         * Destination: 10.0.0.0
-        * Masque de réseau: 255.255.252.0
+        * Masque réseau: 255.255.252.0
         * Passerelle: 10.0.1.1
         * Métrique: 256
-        * Remarque: Il s’agit d’une capture que toutes les acheminer le trafic destiné à notre basculée Azure. Cela force le trafic à la seconde carte réseau. Vous devez ajouter des itinéraires supplémentaires pour les autres plages que vous souhaitez que vos machines virtuelles imbriquées pour accéder à. Par conséquent, si vous êtes sur site réseau est 172.16.0.0/22, vous ne souhaitez pas posséder un autre itinéraire d’envoyer le trafic correspondant à la seconde carte réseau de notre hyperviseur.
+        * Remarque: il s’agit d’une voie pour le trafic destiné à notre réseau Azure VNet. Le trafic est alors épuisé. Vous devez ajouter des itinéraires supplémentaires pour les autres plages auxquelles vous souhaitez que vos ordinateurs virtuels imbriqués y aient accès. Par conséquent, si vous êtes sur un réseau locaux, vous devez disposer d’un autre itinéraire pour envoyer le trafic vers la deuxième NIC de notre Hypervisor.
 
-## <a name="creating-a-route-table-within-azure"></a>Création d’une table de routage dans Azure
+## <a name="creating-a-route-table-within-azure"></a>Création d’une table d’itinéraires dans Azure
 
-Faire référence à [cet article](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-portal) pour en savoir plus profondeur lire sur la création et la gestion des itinéraires dans Azure.
+Consultez [cet article](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-portal) pour en savoir plus sur la création et la gestion d’itinéraires dans Azure.
 
 1. Accédez à https://portal.azure.com.
-2. Dans le coin supérieur gauche, sélectionnez «Créer une ressource».
-3. Dans le champ de recherche, tapez «Table de routage» et appuyez sur ENTRÉE.
-4. Le résultat supérieur s’être la Table de routage, sélectionnez cette option et sélectionnez «Créer»
-5. Nom de la Table de routage, dans mon cas j’ai nommé «Itinéraires-de-imbriqués-machines virtuelles».
-6. Assurez-vous que vous sélectionnez l’abonnement même résidant dans vos hôtes Hyper-V.
-7. Soit créer un nouveau groupe de ressources ou sélectionnez-en une et n’oubliez pas que la région que vous créez dans la Table de routage est la même région résidant sur votre ordinateur hôte Hyper-V.
-8. Sélectionnez «Créer».
+2. Dans le coin supérieur gauche, sélectionnez «créer une ressource».
+3. Dans le champ de recherche, tapez «table d’itinéraires», puis appuyez sur entrée.
+4. Le résultat le plus élevé sera la table route, sélectionnez cette option, puis sélectionnez «créer».
+5. Nommez la table d’itinéraires, dans mon cas, je le appelle «itinéraires-pour-nestd-VM».
+6. Vérifiez que vous avez bien sélectionné l’abonnement dans lequel résident vos hôtes Hyper-V.
+7. Créez un groupe de ressources ou sélectionnez-en un et assurez-vous que la région dans laquelle vous créez la table d’itinéraires est la même région que celle de votre hôte Hyper-V.
+8. Sélectionnez «créer».
 
-## <a name="configuring-the-route-table"></a>Configuration de la table de routage
+## <a name="configuring-the-route-table"></a>Configuration de la table d’itinéraires
 
-1. Accédez à la Table de routage que nous venons de créer. Vous pouvez le faire en recherchant le nom de la Table de routage à partir de la barre de recherche en haut du portail.
-2. Une fois que vous avez sélectionné la Table de routage accéder aux «Itinéraires» dans le panneau.
+1. Accédez à la table d’itinéraires que nous venons de créer. Pour cela, vous pouvez rechercher le nom de la table d’itinéraires à partir de la barre de recherche dans le centre supérieur du portail.
+2. Après avoir sélectionné la table d’itinéraires, sélectionnez itinéraires dans la Blade.
 3. Sélectionnez «Ajouter».
-4. Attribuez un nom à votre itinéraire, je suis avec «Imbriqué-VM».
-5. Adresse préfixe saisie la plage IP pour notre sous-réseau «flottante». Dans ce cas, il serait 10.0.2.0/24.
-6. Pour «Saut suivant de type» sélectionner «Appliance virtuelle» et puis entrez l’adresse IP adresse pour Hyper-V héberge la seconde carte réseau, ce qui serait être 10.0.1.4 et sélectionnez «OK».
-7. Maintenant à partir d’au sein de la sélection de panneau «Sous-réseaux», il s’agit juste en dessous de «Itinéraires».
-8. Sélectionnez «Associer», puis notre basculée «Imbriqué-amusant» et sélectionnez ensuite le sous-réseau «Machines virtuelles Azure» et puis sélectionnez «OK».
-9. Répétez ce processus même pour le sous-réseau que notre hôte Hyper-V doit résider sur ainsi que pour les autres sous-réseaux qui doivent y accéder les machines virtuelles imbriquées. Si connecté 
+4. Donnez un nom à votre itinéraire, j’ai été suivi de «imbriqué-VMs».
+5. Pour l’entrée de préfixe d’adresse, entrez la plage d’adresses IP de votre sous-réseau «flottant». Le cas échéant, il s’agit de 10.0.2.0/24.
+6. Pour «type de tronçon suivant», sélectionnez «appareil virtuel», puis entrez l’adresse IP de la deuxième carte réseau d’hébergement Hyper-V, qui sera 10.0.1.4, puis sélectionnez «OK».
+7. À présent, à partir de la Blade, sélectionnez «sous-réseaux», qui se trouve juste en dessous de «routes».
+8. Sélectionnez "Associate", puis sélectionnez notre VNet "nestable" et sélectionnez le sous-réseau "Azure-VMs", puis sélectionnez "OK".
+9. Procédez de la même manière pour le sous-réseau sur lequel se trouve notre hôte Hyper-V, ainsi que pour d’autres sous-réseaux qui doivent accéder aux VM imbriquées. S’il est connecté 
 
-# <a name="end-state-configuration-reference"></a>Référence de configuration d’état final
-L’environnement dans ce guide présente les configurations ci-dessous. Cette section est prévu pour être utilisé en tant que référence.
+# <a name="end-state-configuration-reference"></a>Référence de configuration de l’état de fin
+L’environnement de ce guide est soumis aux configurations suivantes. Cette section est inteded à utiliser comme référence.
 
-1. Informations de réseau virtuel Azure.
-    * Configuration de niveau élevé basculée.
-        * Nom: Imbriqués-amusant
-        * Espace d’adresse: 10.0.0.0/22
-        * Remarque: Ce sera être constitué de quatre sous-réseaux. En outre, ces plages ne sont pas définies dans le noyau. N’hésitez pas à résoudre votre environnement comme vous le souhaitez. 
+1. Informations du réseau virtuel Azure
+    * Configuration de haut niveau de VNet.
+        * Nom: imbriqué-sympa
+        * Espace d’adressage: 10.0.0.0/22
+        * Remarque: il s’agit de quatre sous-réseaux. De plus, ces plages ne sont pas définies en pierres. N’hésitez pas à traiter votre environnement comme vous le souhaitez. 
 
-    * Première sous-réseau Configuration de niveau élevé.
+    * Première configuration de niveau élevé de sous-réseau.
         * Nom: NAT
-        * Espace d’adresse: 10.0.0.0/24
-        * Remarque: Il s’agit d’où notre Hyper-V héberge la carte réseau principale réside. Il sera utilisé pour gérer le trafic sortant NAT pour les machines virtuelles imbriquées. Il sera la passerelle à internet pour que vos machines virtuelles imbriquées.
+        * Espace d’adressage: 10.0.0.0/24
+        * Remarque: il s’agit de l’emplacement de la carte réseau principal de votre hôte Hyper-V. Il sera utilisé pour gérer le protocole NAT sortant pour les ordinateurs virtuels imbriqués. Il s’agit de la passerelle vers Internet pour vos VM imbriquées.
 
-    * Deuxième sous-réseau Configuration de niveau élevé.
+    * Deuxième configuration de niveau de sous-réseau.
         * Nom: Hyper-V-LAN
-        * Espace d’adresse: 10.0.1.0/24
-        * Remarque: Notre hôte Hyper-V disposera d’une seconde carte réseau qui sera utilisée pour gérer le routage entre les machines virtuelles imbriquées et les ressources non internet externes à l’hôte Hyper-V.
+        * Espace d’adressage: 10.0.1.0/24
+        * Remarque: notre hôte Hyper-V dispose d’une deuxième carte réseau qui sera utilisée pour gérer le routage entre les machines virtuelles imbriquées et les ressources non Internet externes à l’hôte Hyper-V.
 
-    * Troisième sous-réseau Configuration de niveau élevé.
-        * Nom: dupliqué
-        * Espace d’adresse: 10.0.2.0/24
-        * Remarque: Il s’agit d’un sous-réseau «flottant». L’espace d’adresse sera utilisée par nos machines virtuelles imbriquées et il n’existe pour gérer les annonces d’itinéraires à local. Aucune ordinateurs virtuels ne seront effectivement déployés dans ce sous-réseau.
+    * Configuration de troisième sous-réseau de niveau supérieur.
+        * Nom: Ghosté
+        * Espace d’adressage: 10.0.2.0/24
+        * Remarque: il s’agit d’un sous-réseau «flottant». L’espace d’adressage sera consommé par nos VM imbriquées et il existe pour gérer les annonces d’itinéraire sur site. Aucun VMs ne sera déployé dans ce sous-réseau.
 
-    * Quatrième sous-réseau Configuration de niveau élevé.
-        * Nom: Machines virtuelles Azure
-        * Espace d’adresse: 10.0.3.0/24
-        * Remarque: Sous-réseau contenant des machines virtuelles Azure.
+    * Quatrième configuration de niveau de sous-réseau haut.
+        * Nom: Azure-VMs
+        * Espace d’adressage: 10.0.3.0/24
+        * Remarque: sous-réseau contenant Azure VM.
 
-1. Notre hôte Hyper-V a les configurations de carte réseau ci-dessous.
-    * Carte réseau principale 
+1. Notre hôte Hyper-V est doté des configurations NIC suivantes.
+    * RÉSEAU principal 
         * Adresse IP: 10.0.0.4
-        * Le masque de sous-réseau: 255.255.255.0
+        * Masque de sous-réseau: 255.255.255.0
         * Passerelle par défaut: 10.0.0.1
-        * DNS: Configuré pour DHCP
-        * Activé de la transmission IP: No
+        * DNS: configuré pour le protocole DHCP
+        * Transfert IP activé: non
 
     * Carte réseau secondaire
         * Adresse IP: 10.0.1.4
-        * Le masque de sous-réseau: 255.255.255.0
+        * Masque de sous-réseau: 255.255.255.0
         * Passerelle par défaut: vide
-        * DNS: Configuré pour DHCP
+        * DNS: configuré pour le protocole DHCP
         * Transfert IP activé: Oui
 
-    * Créé de carte réseau pour commutateur virtuel interne Hyper-V
+    * Carte réseau créée par Hyper-V pour commutateur virtuel interne
         * Adresse IP: 10.0.2.1
-        * Le masque de sous-réseau: 255.255.255.0
+        * Masque de sous-réseau: 255.255.255.0
         * Passerelle par défaut: vide
 
-3. Notre Table de routage aura une règle unique.
+3. Notre table d’itinéraires aura une seule règle.
     * Règle 1
-        * Nom: Imbriqués-VM
+        * Nom: imbriqué-VMs
         * Destination: 10.0.2.0/24
-        * Tronçon suivant: Appliance virtuelle - 10.0.1.4
+        * Tronçon suivant: appareil virtuel-10.0.1.4
 
 ## <a name="conclusion"></a>Conclusion
 
-Vous devez maintenant être en mesure de déployer une machine virtuelle (même une machine virtuelle 32 bits!) sur votre ordinateur hôte Hyper-V et qu’il est accessible à partir de locaux et dans Azure.
+Vous devriez maintenant être en mesure de déployer une machine virtuelle (même une VM 32 bits) sur votre hôte Hyper-V et de l’rendre accessible depuis local et dans Azure.

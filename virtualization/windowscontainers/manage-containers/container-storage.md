@@ -3,12 +3,12 @@ title: Stockage de conteneurs Windows Server
 description: Comment les conteneurs Windows Server peuvent-ils utiliser les hôtes et les autres types de stockage
 keywords: conteneurs, volume, stockage, montage, montage lié
 author: patricklang
-ms.openlocfilehash: 87b9c364bfdec2b445bb06caf0e9fd4d849119d4
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 20179f09260b6ae5de802c2372958356f8de3aee
+ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620867"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "9680939"
 ---
 # <a name="overview"></a>Vue d’ensemble
 
@@ -101,12 +101,12 @@ Sur Windows Server version1709, une nouvelle fonctionnalité appelée «Mappage 
 
 ##### <a name="configuration-steps"></a>Étapes de configuration
 
-1. Sur l’hôte de conteneur, globalement mappez le partage SMB à distance:
+1. Dans l’hôte de conteneur, mappez globalement le partage SMB distant:
     ```
     $creds = Get-Credential
     New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:
     ```
-    Cette commande utilise les informations d’identification pour s’authentifier auprès du serveur SMB à distance. Ensuite, mappez le chemin d’accès du partage à distance à la lettre de lecteur G: (il peut s’agir de toute autre lettre de lecteur disponible). Il est désormais possible que les volumes de données des conteneurs créés sur cet hôte conteneur soient mappés à un chemin d’accès sur le lecteur G.
+    Cette commande utilise les informations d’identification pour s’authentifier auprès du serveur SMB distant. Ensuite, mappez le chemin d’accès du partage à distance à la lettre de lecteur G: (il peut s’agir de toute autre lettre de lecteur disponible). Il est désormais possible que les volumes de données des conteneurs créés sur cet hôte conteneur soient mappés à un chemin d’accès sur le lecteur G.
 
     > Remarque: Lorsque le mappage global SMB est appliqué aux conteneurs, tous les utilisateurs de l’hôte conteneur peuvent accéder au partage distant. Toute application en cours d’exécution sur l’hôte conteneur aura également accès au partage distant mappé.
 
@@ -135,3 +135,6 @@ Exemples d’étapes:
 3. Écriture de fichiers dans le répertoire c:\data du conteneur, puis arrêt du conteneur
 4. `docker run -v unwound:c:\data microsoft/windowsservercore` - Démarrage d’un nouveau conteneur
 5. Exécution de `dir c:\data`dans le nouveau conteneur - les fichiers sont toujours présents
+
+> [!NOTE]
+> Windows Server convertira les noms de chemin cibles (chemin à l’intérieur du conteneur) en minuscules. i. e. `-v unwound:c:\MyData`, ou `-v unwound:/app/MyData` dans les conteneurs Linux, entraînent le mappage d’un répertoire à `c:\mydata`l’intérieur `/app/mydata` du conteneur ou des conteneurs Linux, qui est mappé (et créé, s’il n’existe pas).

@@ -7,16 +7,16 @@ ms.date: 04/07/2017
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
-ms.openlocfilehash: f33f6deb977ff96da0b70a7e14bf4896af0307eb
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: b0bbca7bcb4c8c05c50ca68965637a6162a0ab85
+ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620647"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "9680999"
 ---
 # <a name="make-your-own-integration-services"></a>Créez vos propres services d’intégration
 
-Depuis la Mise à jour anniversaire Windows10, tous les utilisateurs peuvent créer des applications qui communiquent entre l’hôte Hyper-V et ses ordinateurs virtuels à l’aide de sockets Hyper-V (socket Windows doté d’une nouvelle famille d’adresses et d’un point de terminaison spécialisé pour cibler des ordinateurs virtuels).  Toute la communication sur les sockets Hyper-V s’exécute sans l’aide de la mise en réseau, et toutes les données restent sur la même mémoire physique.   Les applications utilisant des sockets Hyper-V sont semblables aux services d’intégration de Hyper-V.
+Depuis la Mise à jour anniversaire Windows10, tous les utilisateurs peuvent créer des applications qui communiquent entre l’hôte Hyper-V et ses ordinateurs virtuels à l’aide de sockets Hyper-V (socket Windows doté d’une nouvelle famille d’adresses et d’un point de terminaison spécialisé pour cibler des ordinateurs virtuels).  Toute la communication sur les sockets Hyper-V s’exécute sans l’aide de la mise en réseau, et toutes les données restent sur la même mémoire physique. Les applications utilisant des sockets Hyper-V sont semblables aux services d’intégration de Hyper-V.
 
 Ce document décrit la création d’un programme simple qui repose sur les sockets Hyper-V.
 
@@ -48,7 +48,7 @@ Configuration requise:
 * [Kit de développement logiciel (SDK) Windows10](https://developer.microsoft.com/windows/downloads/windows-10-sdk) -- préinstallé dans Visual Studio2015 avec Update3 et versions ultérieures.
 * Un ordinateur exécutant l’un des systèmes d’exploitation hôtes indiqués ci-dessus avec au moins un ordinateur virtuel. -- cela convient pour le test de votre application.
 
-> **Remarque:** l’API des sockets Hyper-V a été mise à la disposition du public dans Windows10 peu de temps après.  Les applications qui utilisent HVSocket s’exécutent sur n’importe quel hôte ou invité Windows10, mais elles ne peuvent être développées qu’avec un SDK Windows ultérieur à la build14290.
+> **Remarque:** L’API pour les sockets Hyper-V est désormais publiquement disponible dans la mise à jour anniversaire Windows 10. Les applications qui utilisent HVSocket peuvent être exécutées sur les hôtes et invités Windows 10, mais ne peuvent être développées qu’avec un kit de développement logiciel (SDK) Windows plus tard que le Build 14290.
 
 ## <a name="register-a-new-application"></a>Inscrire une nouvelle application
 Pour utiliser des sockets Hyper-V, l’application doit être inscrite auprès du Registre de l’hôte Hyper-V.

@@ -7,12 +7,12 @@ ms.date: 06/25/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: eb2b827c-4a6c-4327-9354-50d14fee7ed8
-ms.openlocfilehash: 14e0f57ca0c952239847e493740048e14889e6d7
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: aab6a285e9c1ed9918b39cb1de88e3e2243fb3a9
+ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620717"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "9680959"
 ---
 # <a name="introduction-to-hyper-v-on-windows-10"></a>Introduction à Hyper-V sur Windows10
 
@@ -36,11 +36,11 @@ La virtualisation vous permet ce qui suit:
 
 ## <a name="system-requirements"></a>Configuration requise
 
-Hyper-V est disponible sur les versions 64 bits de Windows 10 Professionnel, entreprise et éducation. Il n’est pas disponible sur l’Édition familiale.
+Hyper-V est disponible sur les versions 64 bits de Windows 10 professionnel, entreprise et éducation. Elle n’est pas disponible dans l’édition familiale.
 
-> Mettez à niveau l’édition Windows 10 famille vers Windows 10 Professionnel en ouvrant **paramètres** > **mise à jour et sécurité** > **l’Activation**. Vous pouvez alors visiter le magasin et acheter la mise à niveau.
+> Effectuez la mise à niveau de Windows 10 édition familiale vers Windows **** > 10 professionnel en ouvrant la**mise à jour des paramètres et** > **l’activation**de la sécurité. Vous pouvez alors visiter le magasin et acheter la mise à niveau.
 
-La plupart des ordinateurs exécutent Hyper-V mais chaque ordinateur virtuel est un système d’exploitation complètement distinct.  Vous pouvez généralement exécuter une ou plusieurs machines virtuelles sur un ordinateur équipé de 4Go de RAM. Vous aurez cependant besoin de plus de ressources pour des machines virtuelles supplémentaires ou pour installer et exécuter des logiciels gourmands en ressources tels que des jeux, des logiciels de montage vidéo ou de conception d'ingénierie.
+La plupart des ordinateurs exécutent Hyper-V, mais chaque machine virtuelle exécute un système d’exploitation entièrement différent.  Vous pouvez généralement exécuter une ou plusieurs machines virtuelles sur un ordinateur équipé de 4Go de RAM. Vous aurez cependant besoin de plus de ressources pour des machines virtuelles supplémentaires ou pour installer et exécuter des logiciels gourmands en ressources tels que des jeux, des logiciels de montage vidéo ou de conception d'ingénierie.
 
 Pour en savoir plus sur la configuration requise pour Hyper-V et la procédure à suivre pour vérifier que Hyper-V s’exécute sur votre machine, consultez les [Références de la configuration requise pour Hyper-V](../reference/hyper-v-requirements.md).
 
