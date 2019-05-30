@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: 80514884b4c95657f63cf585ece6aa8c8b23cc44
-ms.sourcegitcommit: daf1d2b5879c382404fc4d59f1c35c88650e20f7
+ms.openlocfilehash: fc50938d87aa49c3c57bf3b1172e69a6125ed96a
+ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "9674724"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "9680949"
 ---
 # <a name="about-windows-containers"></a>À propos des conteneurs Windows
 
@@ -25,17 +25,44 @@ Imaginez à présent que vous avez créé une cuisine dans un bâtiment aussi fa
 
 ![Bâtiment d’une cloison constituée de deux piles de zones noires. Quatre de ces cases sont les mêmes que celles utilisées dans l’exemple de cuisine et sont dans des endroits aléatoires tout au long du bâtiment, tandis que les autres sont des salles de vie multicolores ou sont vides et grisées.](media/apartment.png)
 
-Pourquoi ne plus être là? Vous pouvez personnaliser votre bâtiment comme bon vous semble. Remplissez-la avec de nombreux types de pièces, remplissez-les à l’aide de pièces identiques ou combinez les deux.
+EN-tête <<<<<<< pourquoi ne plus y figurer? Vous pouvez personnaliser votre bâtiment comme bon vous semble. Remplissez-la avec de nombreux types de pièces, remplissez-les à l’aide de pièces identiques ou combinez les deux.
+=======
+![](media/box1.png)
+>>>>>>> origine/maître
 
 Les conteneurs agissent comme cette salle en exécutant une application comme nous le voulons dans notre cuisine. Un conteneur place une application et tout ce dont l’application doit s’exécuter dans sa propre zone isolée. Par conséquent, l’application isolée n’a aucune connaissance d’autres applications ou processus qui existent en dehors de son conteneur. Dans la mesure où le conteneur dispose de tout ce dont l’application doit s’exécuter, le conteneur peut être déplacé en tout lieu, à l’aide des seules ressources dont son hébergement s’est tenu sans toucher aux ressources mises en service pour d’autres conteneurs.
 
-La vidéo suivante vous informera plus sur ce que les conteneurs Windows peuvent faire pour vous, ainsi que sur la façon dont Microsoft s’est associé à l’amarrage pour créer un environnement sans friction pour le développement de conteneurs Open Source:
+<<<<<<< la vidéo suivante vous informera des informations sur ce que les conteneurs Windows peuvent faire pour vous, ainsi que sur la façon dont Microsoft s’est associé à l’Arrimateur pour créer un environnement sans friction pour le développement de conteneurs Open Source: = = = = = = = = = = = = =
+![](media/apartment.png)
+>>>>>>> origine/maître
 
 <iframe width="800" height="450" src="https://www.youtube.com/embed/Ryx3o0rD5lY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## <a name="container-fundamentals"></a>Notions de base des conteneurs
 
-Voici quelques termes utiles lorsque vous commencez à travailler avec des conteneurs Windows:.
+<<<<<<< en savoir plus sur les conditions utiles lorsque vous commencez à utiliser les conteneurs Windows: = = = = = = = =
+## <a name="container-fundamentals"></a>Notions de base sur les conteneurs
+
+Les conteneurs constituent un environnement d’exploitation isolé, mobile et contrôlé par les ressources, qui s’exécute sur un ordinateur hôte ou un ordinateur virtuel. Une application ou un processus qui s’exécute dans un conteneur inclut la totalité des dépendances et des fichiers de configuration requis. Il lui semble qu’aucun autre processus n’est en cours d’exécution à l’extérieur du conteneur.
+
+L’hôte du conteneur configure un ensemble de ressources pour le conteneur et ce dernier utilise uniquement ces ressources. En ce qui concerne le conteneur, il n’existe aucune autre ressource en dehors de ce qu’elle a et par conséquent, le conteneur ne peut pas effleurer les ressources qui peuvent avoir été configurées pour un conteneur voisin.
+
+Les concepts clés suivants peuvent s’avérer utiles quand vous commencez à créer des conteneurs Windows et à les utiliser.
+
+**Hôte de conteneur:** système d’ordinateur physique ou virtuel configuré avec la fonctionnalité de conteneur Windows. L’hôte de conteneur exécute un ou plusieurs conteneurs Windows.
+
+**Image de conteneur:** quand des modifications sont apportées au système de fichiers ou au Registre d’un conteneur, par exemple lors de l’installation d’un logiciel, elles sont capturées dans un bac à sable (sandbox). Dans de nombreux cas, vous pouvez capturer cet état pour que des conteneurs qui héritent de ces modifications puissent être créés. C’est ce qui constitue une image: une fois le conteneur arrêté, vous pouvez ignorer ce bac à sable (sandbox) ou vous pouvez le convertir en une nouvelle image de conteneur. Par exemple, imaginons que vous avez déployé un conteneur à partir de l’image de système d’exploitation Windows Server Core. Vous installez ensuite MySQL dans ce conteneur. La création d’une image à partir de ce conteneur fait office de version pouvant être déployée du conteneur. Cette image contient uniquement les modifications apportées (MySQL), mais fonctionne toutefois comme une couche sur l’image de système d’exploitation de conteneur.
+
+**Bac à sable (sandbox):** Une fois un conteneur démarré, toutes les actions d’écriture, telles que les modifications du système de fichiers, les modifications du Registre ou les installations de logiciels, sont capturées dans cette couche.
+
+**Image de système d’exploitation de conteneur:** Les conteneurs sont déployés à partir d’images. L’image de système d’exploitation de conteneur est la première couche d’un nombre éventuellement important de couches d’images qui constituent un conteneur. Cette image fournit l’environnement du système d’exploitation. Une image de système d’exploitation de conteneur est immuable. Autrement dit, elle ne peut pas être modifiée.
+
+**Référentiel de conteneurs:** Chaque fois qu’une image de conteneur est créée, cette image et ses dépendances sont stockées dans un référentiel local. Ces images peuvent être réutilisées plusieurs fois sur l’hôte de conteneur. Les images de conteneur peuvent également être stockées dans un registre public ou privé, tel que DockerHub, afin de pouvoir être utilisées sur plusieurs hôtes de conteneurs différents.
+
+![](media/containerfund.png)
+
+Pour un utilisateur déjà familiarisé avec les machines virtuelles, les conteneurs peuvent sembler très similaires. Un conteneur exécute un système d’exploitation, a un système de fichiers et est accessible via un réseau comme s’il s’agissait d’un système d’ordinateur physique ou virtuel. Ceci dit, la technologie et les concepts derrière les conteneurs sont très différents de ceux des machines virtuelles.
+>>>>>>> origine/maître
 
 - Hôte de conteneur: système d’ordinateur physique ou virtuel configuré à l’aide de la fonctionnalité conteneur Windows. L’hôte de conteneur exécute un ou plusieurs conteneurs Windows.
 - Sandbox: couche qui capture toutes les modifications que vous apportez au conteneur lors de son exécution (par exemple, modifications du système de fichiers, modifications du registre ou installations logicielles).
@@ -59,7 +86,11 @@ L’isolement Hyper-V s’étend sur l’isolement fourni par les conteneurs Win
 
 L’exécution d’un conteneur sur Windows avec ou sans l’isolation Hyper-V est une décision d’exécution. Vous pouvez commencer par créer le conteneur avec l’isolation Hyper-V, puis ultérieurement lors de l’exécution, choisir de l’exécuter en tant que conteneur Windows Server.
 
+<<<<<<< HEAD
 ## <a name="container-users"></a>Utilisateurs de conteneurs
+=======
+![](media/docker.png)
+>>>>>>> origine/maître
 
 ### <a name="containers-for-developers"></a>Conteneurs pour les développeurs
 
