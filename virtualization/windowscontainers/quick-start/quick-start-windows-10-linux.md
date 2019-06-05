@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 91031f9394cb3fcb1af6c4813f8805ad6f79bf8c
-ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
+ms.openlocfilehash: 926e5cd64053b5ea795bb2c75a231700aed443ca
+ms.sourcegitcommit: f6457ee0635864e8e8bb07da43a6f76388ee3cd1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "9681099"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "9734653"
 ---
 # <a name="linux-containers-on-windows-10"></a>Conteneurs Linux sur Windows 10
 
@@ -32,13 +32,9 @@ Ce démarrage rapide est spécifique à Windows10. Pour plus d’informations, r
 
 ## <a name="prerequisites"></a>Prérequis
 
-Veuillez vérifier que vous remplissez les conditions suivantes: <<<<<<< HEAD
-- Un système informatique physique exécutant Windows 10 professionnel ou entreprise avec la mise à jour de la version 1709) ou version ultérieure
-- Vérifiez que [Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) est activé.
-=======
+Veuillez vérifier que vous remplissez les conditions suivantes:
 - Un système informatique physique exécutant Windows 10 professionnel, Windows 10 entreprise ou Windows Server 2019 version 1809 ou ultérieure
-- Vérifiez que [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) est activé.
->>>>>>> origine/maître
+- Vérifiez que [Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) est activé.
 
 ***Isolement Hyper-V:*** Les conteneurs Linux sur Windows nécessitent l’isolement Hyper-V sur Windows 10 afin de fournir aux développeurs le noyau Linux approprié pour exécuter le conteneur. Pour plus d’informations sur l’isolement Hyper-V, consultez la page [à propos des conteneurs Windows](../about/index.md) .
 
@@ -48,7 +44,7 @@ Téléchargez la version de bureau de l' [amarrage](https://store.docker.com/edi
 
 > Si vous avez déjà installé la version d’Arrimateur, assurez-vous que vous disposez de la version 18,02 ou version ultérieure pour prendre en charge LCOW. Vérifiez en exécutant `docker -v` ou en vérifiant s’il s’agit de l' *ancrage*.
 
-> L’option’fonctionnalités expérimentales’du *démon > des paramètres* de l’ancrage doit être activée pour exécuter des conteneurs LCOW.
+> L’option «fonctionnalités expérimentales» dans les paramètres de l' *ancrage > démon* doit être activée pour exécuter les conteneurs LCOW.
 
 ## <a name="run-your-first-lcow-container"></a>Exécuter votre premier conteneur LCOW
 
