@@ -3,17 +3,17 @@ title: Grouper les comptes de service gérés pour les conteneurs Windows
 description: Grouper les comptes de service gérés pour les conteneurs Windows
 keywords: docker, conteneurs, Active Directory, GMSA
 author: rpsqrd
-ms.date: 05/23/2019
+ms.date: 06/12/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 8f184e58743bd41ab208b530976772c5fcffd189
-ms.sourcegitcommit: 8e7fba17c761bf8f80017ba7f9447f986a20a2a7
+ms.openlocfilehash: 77eadf9c1f842ab679b23813cbdd305c2f2de7e9
+ms.sourcegitcommit: a5ee3e35eb272c77dd61f5e5384aab26a26fab76
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "9677318"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "9770234"
 ---
 # <a name="group-managed-service-accounts-for-windows-containers"></a>Grouper les comptes de service gérés pour les conteneurs Windows
 
@@ -187,7 +187,7 @@ Dans le cas d’une configuration classique, un conteneur n’est fourni qu’à
 Si vous hébergez un site Web IIS dans votre conteneur, il vous suffit de définir l’identité de votre pool d’applications sur **service réseau**pour pouvoir utiliser le gMSA. Pour cela, vous pouvez ajouter la commande suivante dans votre Dockerfile:
 
 ```dockerfile
-RUN (Get-IISAppPool DefaultAppPool).ProcessModel.IdentityType = "NetworkService"
+RUN %windir%\system32\inetsrv\appcmd.exe set AppPool DefaultAppPool -processModel.identityType:NetworkService
 ```
 
 Si vous utilisiez précédemment des informations d’identification d’utilisateur statique pour votre pool d’applications IIS, considérez le gMSA comme remplacement de ces informations d’identification. Vous pouvez modifier l’gMSA entre environnements de développement, de test et de production, et les services Internet (IIS) sélectionnent automatiquement l’identité actuelle sans avoir à modifier l’image du conteneur.
