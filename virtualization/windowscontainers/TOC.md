@@ -57,6 +57,7 @@
 # Référence
 ## [Configuration requise](deploy-containers/system-requirements.md)
 ## [Compatibilité des versions](deploy-containers/version-compatibility.md)
+## [Durée de vie des images de base](deploy-containers/base-image-lifecycle.md)
 ## [Isolation Hyper-V](manage-containers/hyperv-container.md)
 ## [Services d’impression](deploy-containers/print-spooler.md)
 ## [Accélération GPU](deploy-containers/gpu-acceleration.md)
