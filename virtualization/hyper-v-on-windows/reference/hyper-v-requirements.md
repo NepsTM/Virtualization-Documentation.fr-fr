@@ -8,16 +8,16 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6e5e6b01-7a9d-4123-8cc7-f986e10cd372
-ms.openlocfilehash: ba0a0a83d74aa6ae73dabddf4057eebc98700f66
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: d4e3f7c1e94d0162ae9ee6251d9c6d8cc51bf1d3
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576070"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9883072"
 ---
 # <a name="windows-10-hyper-v-system-requirements"></a>Configuration requise pour Hyper-V sur Windows10
 
-Hyper-V est disponible dans la version 64 bits de Windows 10 Professionnel, entreprise et éducation. Hyper-V nécessite la technologie SLAT (Second Level Address Translation), présente dans la génération actuelle de processeurs 64bits Intel et AMD.
+Hyper-V est disponible dans la version 64 de Windows 10 professionnel, entreprise et éducation. Hyper-V nécessite la technologie SLAT (Second Level Address Translation), présente dans la génération actuelle de processeurs 64bits Intel et AMD.
 
 Vous pouvez exécuter trois ou quatre machines virtuelles de base sur un hôte disposant de 4Go de RAM. Pour exécuter plus de machines virtuelles, davantage de ressources sont nécessaires. En revanche, vous pouvez créer des machines virtuelles de grande taille avec 32processeurs et 512Go de RAM, selon votre matériel physique.
 
@@ -35,12 +35,12 @@ Le rôle Hyper-V **ne peut pas** être installé sur:
 - Windows10 Mobile
 - Windows10 Mobile Entreprise
 
->Édition Windows 10 famille peut être mis à niveau vers Windows 10 Professionnel. Pour cela, ouvrez **Paramètres** > **Mise à jour et sécurité** > **Activation**. Vous pouvez alors visiter le magasin et acheter la mise à niveau.
+>Windows 10 édition familiale peut être mis à niveau vers Windows 10 professionnel. Pour cela, ouvrez **Paramètres** > **Mise à jour et sécurité** > **Activation**. Vous pouvez alors visiter le magasin et acheter la mise à niveau.
 
 ## <a name="hardware-requirements"></a>Configuration matérielle requise
 
 Bien que ce document ne fournisse pas la liste complète du matériel compatible avec Hyper-V, vous devez disposer des éléments suivants:
-    
+
 - Processeur 64 bits avec traduction d’adresse de second niveau (SLAT).
 - Processeur prenant en charge les extensions de mode du moniteur de machine virtuelle (VT-c sur les processeurs Intel).
 - Au minimum 4Go de mémoire. Étant donné que les machines virtuelles partagent la mémoire avec l’hôte Hyper-V, vous devez fournir suffisamment de mémoire pour gérer la charge de travail virtuelle attendue.

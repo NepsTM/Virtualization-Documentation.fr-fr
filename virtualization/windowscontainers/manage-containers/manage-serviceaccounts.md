@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 77eadf9c1f842ab679b23813cbdd305c2f2de7e9
-ms.sourcegitcommit: a5ee3e35eb272c77dd61f5e5384aab26a26fab76
+ms.openlocfilehash: b908a35f63b2f25da3fb19c0f96b55fe3e513350
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "9770234"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9883172"
 ---
 # <a name="group-managed-service-accounts-for-windows-containers"></a>Grouper les comptes de service gérés pour les conteneurs Windows
 
@@ -103,7 +103,7 @@ Une fois que vous avez décidé du nom de votre gMSA, exécutez les applets de c
 # To install the AD module on older versions of Windows 10, see https://aka.ms/rsat
 
 # Create the security group
-New-ADGroup -Name "WebApp01 Authorized Hosts" -SamAccountName "WebApp01Hosts" -Scope DomainLocal
+New-ADGroup -Name "WebApp01 Authorized Hosts" -SamAccountName "WebApp01Hosts" -GroupScope DomainLocal
 
 # Create the gMSA
 New-ADServiceAccount -Name "WebApp01" -DnsHostName "WebApp01.contoso.com" -ServicePrincipalNames "host/WebApp01", "host/WebApp01.contoso.com" -PrincipalsAllowedToRetrieveManagedPassword "WebApp01Hosts"
@@ -470,7 +470,7 @@ Si vous utilisez une stratégie de pare-feu stricte sur le conteneur ou le rése
 | TCP 636 | SSL LDAP |
 
 Il peut être nécessaire d’autoriser l’accès à des ports supplémentaires en fonction du type de trafic envoyé par votre conteneur à un contrôleur de domaine.
-Pour obtenir la liste complète des ports utilisés par Active Directory [, voir Active Directory et la configuration requise](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) pour les ports de services de domaine Active Directory.
+Pour obtenir la liste complète des ports utilisés par Active Directory [, voir Active Directory et la configuration requise](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) pour les ports de services de domaine Active Directory.
 
 #### <a name="check-the-container"></a>Vérifier le conteneur
 

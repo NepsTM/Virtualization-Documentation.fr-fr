@@ -3,12 +3,12 @@ title: Stockage de conteneurs Windows Server
 description: Comment les conteneurs Windows Server peuvent-ils utiliser les hôtes et les autres types de stockage
 keywords: conteneurs, volume, stockage, montage, montage lié
 author: patricklang
-ms.openlocfilehash: 20179f09260b6ae5de802c2372958356f8de3aee
-ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
+ms.openlocfilehash: bddfb3a3510a6af674be73349a7e422434c1e0f4
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "9680939"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9882972"
 ---
 # <a name="overview"></a>Vue d’ensemble
 
@@ -40,7 +40,7 @@ Vous ne devez pas modifier les fichiers contenus dans les répertoires des nivea
 Les conteneurs en cours d’exécution peuvent utiliser la plupart des opérations de NTFS à l’exception des transactions. Cela implique de paramétrer des ACL et toutes les listes ACL sont vérifiées à l’intérieur du conteneur. Si vous souhaitez exécuter des processus en tant qu’utilisateurs multiples au sein d’un conteneur, vous pouvez créer des utilisateurs dans votre `Dockerfile` avec `RUN net user /create ...`, définir des ACL de fichier, puis configurer les processus à exécuter associés à chaque utilisateur à l’aide de la [directive Dockerfile USER](https://docs.docker.com/engine/reference/builder/#user).
 
 
-##  <a name="image-size"></a>Taille des images
+## <a name="image-size"></a>Taille des images
 Il est courant dans les applications Windows de lancer une requête sur la quantité d’espace disque disponible avant d’installer ou de créer de nouveaux fichiers, ou en tant que déclencheur pour le nettoyage des fichiers temporaires.  Avec l’objectif de renforcer la compatibilité des applications, le disqueC: d’un conteneur Windows représente un volume virtuel libre de 20Go.  Certains utilisateurs peuvent souhaiter remplacer cette valeur par défaut et paramétrer un espace libre plus petit ou plus grand. Pour ce faire, il suffit d’utiliser l’option «size» avec la configuration «storage-opt».
 
 ### <a name="examples"></a>Exemples

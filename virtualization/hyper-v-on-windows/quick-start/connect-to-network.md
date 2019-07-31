@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 532195c6-564b-4954-97c2-5a5795368c09
-ms.openlocfilehash: 2079898ee4a3bd7d15e3cbbaea40486d1682a44a
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 749251e67b4e2eaffba8e43638fe4f596b31bba5
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578290"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9882902"
 ---
 # <a name="create-a-virtual-network"></a>Créer un réseau virtuel
 
@@ -73,13 +73,13 @@ Pour créer un commutateur virtuel avec une connexion externe à l’aide de Pow
 
 2. Sélectionnez la carte réseau à utiliser avec le commutateur Hyper-V, puis placez une instance dans une variable nommée **$net**.
 
-    ```
+    ```powershell
     $net = Get-NetAdapter -Name 'Ethernet'
     ```
 
 3. Exécutez la commande suivante pour créer le commutateur virtuel Hyper-V.
 
-    ```
+    ```powershell
     New-VMSwitch -Name "External VM Switch" -AllowManagementOS $True -NetAdapterName $net.Name
     ```
 
@@ -97,10 +97,10 @@ Pour configurer un réseau NAT et le connecter à une machine virtuelle, reporte
 
 ### <a name="the-two-switch-approach"></a>L’approche à deux commutateurs
 
-Si vous exécutez Windows 10 Hyper-V sur un ordinateur portable et que vous basculez fréquemment entre un réseau sans fil et un réseau câblé, vous voudrez peut-être créer un commutateur virtuel pour les cartes réseau sans fil et ethernet.  En fonction de la façon dont l’ordinateur portable se connecte au réseau, vous pouvez modifier vos machines virtuelles entre ces commutateurs. Machines virtuelles ne pas basculer entre câblées et sans fil automatiquement. 
+Si vous exécutez Windows 10 Hyper-V sur un ordinateur portable et que vous basculez fréquemment entre le réseau sans fil et un réseau câblé, il est possible que vous souhaitiez créer un commutateur virtuel pour les cartes réseau Ethernet et sans fil.  En fonction de la façon dont l’ordinateur portable se connecte au réseau, vous pouvez modifier vos machines virtuelles entre ces commutateurs. Les machines virtuelles ne basculent pas automatiquement entre filaire et sans fil. 
 
 >[!IMPORTANT]
->L’approche à deux commutateurs ne gère pas le commutateur virtuel externe sur la carte sans fil et doit être utilisé uniquement à des fins de test.
+>L’approche à deux commutateurs ne prend pas en charge le protocole vSwitch externe sur la carte sans fil et doit être utilisé à des fins de test uniquement.
 
 ## <a name="next-step---create-a-virtual-machine"></a>Étape suivante: créer une machine virtuelle
 [Créer une machine virtuelle Windows](create-virtual-machine.md)

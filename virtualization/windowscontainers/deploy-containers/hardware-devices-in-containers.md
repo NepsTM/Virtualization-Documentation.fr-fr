@@ -1,29 +1,26 @@
 ---
-title: Appareils dans des conteneurs sur Windows
-description: Quelle prise en charge de l’appareil existe pour les conteneurs sur Windows
-keywords: docker, conteneurs, les appareils, matériel
+title: Appareils dans les conteneurs sur Windows
+description: La prise en charge des appareils pour les conteneurs sur Windows
+keywords: arrimeur, conteneurs, appareils, matériel
 author: cwilhit
-ms.openlocfilehash: feff730ed21c439312cda65c7b5ccc1a6cf5ae86
-ms.sourcegitcommit: 2b456022ee666863ef53082580ac1d432de86939
+ms.openlocfilehash: ee9c5da5ef87dceb3374977670da2ea50ea87382
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "9657357"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9883162"
 ---
-# <a name="devices-in-containers-on-windows"></a>Appareils dans des conteneurs sur Windows
+# <a name="devices-in-containers-on-windows"></a>Appareils dans les conteneurs sur Windows
 
-Par défaut, les conteneurs Windows disposent d’un accès minimal aux appareils hôte--tout comme les conteneurs Linux. Il existe certaines charges de travail où il est utile--ou même impératif--pour accéder et communiquer avec les périphériques de matériel hôte. Ce guide couvre les appareils sont pris en charge dans les conteneurs et comment commencer.
-
-> [!IMPORTANT]
-> Cette fonctionnalité nécessite une version de Docker qui prend en charge la `--device` une option de ligne de commande pour les conteneurs Windows. Prise en charge de Docker formel est planifiée pour la prochaine version de Docker EE moteur 19.03. En attendant, la [source en amont](https://master.dockerproject.org/) pour Docker contient les bits nécessaires.
+Par défaut, les conteneurs Windows disposent d’un accès minimal aux appareils hôtes, de la même façon que les conteneurs Linux. Il existe certaines charges de travail pour lesquelles il est utile, ou même impératif, d’accéder aux périphériques matériels de l’hôte et de communiquer avec eux. Ce guide couvre les appareils qui sont pris en charge dans les conteneurs et la façon de commencer.
 
 ## <a name="requirements"></a>Spécifications
 
-Pour cette fonctionnalité fonctionne, votre environnement doit satisfaire les conditions suivantes:
-- L’hôte de conteneur doit exécuter Windows Server 2019 ou Windows 10, version 1809 ou une version ultérieure.
-- Votre version d’image de base de conteneur doit être 1809 ou une version ultérieure.
-- Vos conteneurs doivent être en cours d’exécution en mode isolées du processus les conteneurs Windows.
-- L’hôte de conteneur doit être en cours d’exécution du moteur Docker 19.03 ou une version ultérieure.
+Pour que cette fonctionnalité fonctionne, votre environnement doit présenter la configuration suivante:
+- L’hôte de conteneur doit exécuter Windows Server 2019 ou Windows 10 version 1809 ou ultérieure.
+- Votre version d’image de base Container doit être 1809 ou une version ultérieure.
+- Les conteneurs doivent être des conteneurs Windows en mode isolé du processus.
+- L’hôte de conteneur doit exécuter le moteur d’amarrage 19,03 ou une version ultérieure.
 
 ## <a name="run-a-container-with-a-device"></a>Exécuter un conteneur avec un appareil
 
@@ -33,21 +30,21 @@ Pour démarrer un conteneur avec un appareil, utilisez la commande suivante:
 docker run --isolation=process --device="class/{interface class GUID}" mcr.microsoft.com/windows/servercore:1809
 ```
 
-Vous devez remplacer le `{interface class guid}` avec une [classe d’interface de périphérique GUID](https://docs.microsoft.com/windows-hardware/drivers/install/overview-of-device-interface-classes)appropriée, qui peut être trouvé dans la section ci-dessous.
+Vous devez remplacer `{interface class guid}` par un GUID de [classe d’interface d’appareil](https://docs.microsoft.com/windows-hardware/drivers/install/overview-of-device-interface-classes)approprié, qui se trouve dans la section ci-dessous.
 
-Pour démarrer un conteneur avec différents appareils, utilisez la commande suivante et créer une chaîne de plusieurs `--device` arguments:
+Pour démarrer un conteneur avec plusieurs appareils, utilisez la commande et la chaîne de caractères `--device` suivants avec plusieurs arguments:
 
 ```shell
 docker run --isolation=process --device="class/{interface class GUID}" --device="class/{interface class GUID}" mcr.microsoft.com/windows/servercore:1809
 ```
 
-Dans Windows, tous les appareils déclarent une liste des classes d’interface qu’ils implémentent. En transmettant cette commande à Docker, il permet de garantir que tous les appareils qui identifient les en tant que l’implémentation de la classe demandée seront être montées dans le conteneur.
+Dans Windows, tous les appareils déclarent une liste de classes d’interface qu’ils implémentent. En passant cette commande à docker, elle garantit que tous les appareils qui identifient l’implémentation de la classe demandée seront montés dans le conteneur.
 
-Cela signifie que vous affectez **pas** l’appareil hôte. Au lieu de cela, l’hôte est le partage avec le conteneur. De même, dans la mesure où vous spécifiez un GUID de la classe, _tous les_ périphériques qui implémentent ce GUID seront partagées avec le conteneur.
+Cela signifie que vous n’affectez **pas** l’appareil à l’hôte. Au lieu de cela, l’hôte le partage avec le conteneur. De même, dans la mesure où vous spécifiez un GUID de classe, _tous les_ appareils qui implémentent ce GUID seront partagés avec le conteneur.
 
-## <a name="what-devices-are-supported"></a>Ce que les appareils sont pris en charge
+## <a name="what-devices-are-supported"></a>Quels sont les appareils pris en charge
 
-Les périphériques suivants (et leur appareil GUID de classe d’interface) sont pris en charge dès aujourd'hui:
+Les appareils suivants (et leurs GUID de classe d’interface de périphérique) sont pris en charge pour le moment:
   
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:75%" cellpadding="5" cellspacing="5">
 <thead>
@@ -74,19 +71,19 @@ Les périphériques suivants (et leur appareil GUID de classe d’interface) son
 <td><center>DCDE6AF9-6610-4285-828F-CAAF78C424CC</center></td>
 </tr>
 <tr valign="top">
-<td><center>Accélération GPU DirectX</center></td>
-<td><center>Voir la documentation de <a href="https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/gpu-acceleration">l’accélération GPU</a></center></td>
+<td><center>Accélération GPU de DirectX</center></td>
+<td><center>Voir les documents sur l' <a href="https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/gpu-acceleration">accélération GPU</a></center></td>
 </tr>
 </tbody>
 </table>
 
 > [!TIP]
-> Les appareils répertoriés ci-dessus sont les _seuls_ les appareils pris en charge dans les conteneurs Windows aujourd'hui. Vous tentez de passer n’importe quel autre GUID de classe entraîne l’échec du démarrage de conteneur.
+> Les appareils indiqués ci-dessus sont les _seuls_ périphériques pris en charge dans les conteneurs Windows. La tentative de passage de tout autre GUID de classe provoquera un échec du démarrage du conteneur.
 
-## <a name="hyper-v-isolated-windows-container-support"></a>Prise en charge du conteneur Hyper-V-isolé de Windows
+## <a name="hyper-v-isolated-windows-container-support"></a>Hyper-V-prise en charge de conteneur Windows isolés
 
-Affectation de périphérique et d’appareil partage pour les charges de travail dans les conteneurs Windows isolé Hyper-V n'est pas pris en charge dès aujourd'hui.
+L’affectation d’appareil et le partage d’appareil pour les charges de travail dans les conteneurs Windows isolés de Hyper-V ne sont pas pris en charge pour le moment.
 
-## <a name="hyper-v-isolated-linux-container-support"></a>Prise en charge des conteneurs Linux Hyper-V-isolé
+## <a name="hyper-v-isolated-linux-container-support"></a>Hyper-V-prise en charge des conteneurs Linux isolés
 
-Affectation de périphérique et d’appareil partage pour les charges de travail dans des conteneurs Linux isolé Hyper-V n'est pas pris en charge dès aujourd'hui.
+L’affectation d’appareil et le partage d’appareil pour les charges de travail dans les conteneurs Linux isolés d’Hyper-V ne sont pas pris en charge pour le moment.

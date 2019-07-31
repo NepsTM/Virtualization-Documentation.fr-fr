@@ -3,12 +3,12 @@ title: Compatibilité des versions avec les conteneurs Windows
 description: Comment Windows peut générer et exécuter des conteneurs dans plusieurs versions
 keywords: métadonnées, conteneurs, version
 author: taylorb-microsoft
-ms.openlocfilehash: 4d01fb1d11ee9e8a5fa4271699a5a7c59c27409d
-ms.sourcegitcommit: 71e46750813a996cecc445181974a79b95affc8c
+ms.openlocfilehash: 019dafe855e0fba696db4618a862ec086d435005
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "9685344"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9882992"
 ---
 # <a name="windows-container-version-compatibility"></a>Compatibilité des versions des conteneurs Windows
 
@@ -16,53 +16,85 @@ Windows Server 2016 et la mise à jour anniversaire de Windows 10 (version 14393
 
 Étant donné que nous avons amélioré les fonctionnalités liées aux conteneurs Windows, nous avons dû apporter des modifications qui affectent la compatibilité. Les conteneurs plus anciens s’exécutent de la même manière sur les hôtes plus récents dotés [d’une isolation Hyper-V](../manage-containers/hyperv-container.md)et utilisent la même version du noyau (plus ancienne). Toutefois, si vous voulez exécuter un conteneur sur la base d’une nouvelle version de Windows, il ne peut être exécuté que sur la build d’hôte la plus récente.
 
-|Version du système d’exploitation du conteneur|Version du système d’exploitation de l‘hôte|Compatibilité|
-|---|---|---|
-|Windows Server 2019, version 1903<br>Builds 18362. * |Windows Server version 1903<br>Builds 18362. * |Prise `process` en `hyperv` charge ou isolement|
-|Windows Server 2019, version 1903<br>Builds 18362. * |Windows 10, version 1903<br>Builds 18362. * |Ne prend `hyperv` en charge que l’isolement|
-|Windows Server 2019, version 1903<br>Builds 18362. * |Windows10, version1809<br>Builds 17763. * |Non prise en charge|
-|Windows Server 2019, version 1903<br>Builds 18362. * |Windows Server2019<br>Builds 17763. * |Non prise en charge|
-|Windows Server 2019, version 1903<br>Builds 18362. * |Windows10 version1803<br>Builds 17134. * |Non prise en charge|
-|Windows Server 2019, version 1903<br>Builds 18362. * |WindowsServer, version1803<br>Builds 17134. * |Non prise en charge|
-|Windows Server 2019, version 1903<br>Builds 18362. * |Windows10 Fall Creators Update<br>Builds16299.* |Non pris en charge|
-|Windows Server 2019, version 1903<br>Builds 18362. * |WindowsServer, version1709<br>Builds16299.* |Non pris en charge|
-|Windows Server 2019, version 1903<br>Builds 18362. * |Windows Server2016<br>Builds: 14393.* |Non prise en charge|
-|Windows Server2019<br>Builds 17763. * |Windows Server version 1903<br>Builds 18362. * |Ne prend `hyperv` en charge que l’isolement|
-|Windows Server2019<br>Builds 17763. * |Windows 10, version 1903<br>Builds 18362. * |Ne prend `hyperv` en charge que l’isolement|
-|Windows Server2019<br>Builds 17763. * |Windows10, version1809<br>Builds 17763. * |Ne prend `hyperv` en charge que l’isolement|
-|Windows Server2019<br>Builds 17763. * |Windows Server2019<br>Builds 17763. * |Prise `process` en `hyperv` charge ou isolement|
-|Windows Server2019<br>Builds 17763. * |Windows10 version1803<br>Builds 17134. * |Non prise en charge|
-|Windows Server2019<br>Builds 17763. * |WindowsServer, version1803<br>Builds 17134. * |Non prise en charge|
-|Windows Server2019<br>Builds 17763. * |Windows10 Fall Creators Update<br>Builds16299.* |Non pris en charge|
-|Windows Server2019<br>Builds 17763. * |WindowsServer, version1709<br>Builds16299.* |Non pris en charge|
-|Windows Server2019<br>Builds 17763. * |Windows Server2016<br>Builds: 14393.* |Non prise en charge|
-|WindowsServer, version1803<br>Builds 17134. * |Windows Server version 1903<br>Builds 18362. * |Ne prend `hyperv` en charge que l’isolement|
-|WindowsServer, version1803<br>Builds 17134. * |Windows 10, version 1903<br>Builds 18362. * |Ne prend `hyperv` en charge que l’isolement|
-|WindowsServer, version1803<br>Builds 17134. * |Windows10, version1809<br>Builds 17763. * |Ne prend `hyperv` en charge que l’isolement|
-|WindowsServer, version1803<br>Builds 17134. * |Windows Server2019<br>Builds 17763. * |Ne prend `hyperv` en charge que l’isolement|
-|WindowsServer, version1803<br>Builds 17134. * |Windows10 version1803<br>Builds 17134. * |Ne prend `hyperv` en charge que l’isolement|
-|WindowsServer, version1803<br>Builds 17134. * |WindowsServer, version1803<br>Builds 17134. * |Prise `process` en `hyperv` charge ou isolement|
-|WindowsServer, version1803<br>Builds 17134. * |Windows10 Fall Creators Update<br>Builds16299.* |Non pris en charge|
-|WindowsServer, version1803<br>Builds 17134. * |WindowsServer, version1709<br>Builds16299.* |Non pris en charge|
-|WindowsServer, version1803<br>Builds 17134. * |Windows Server2016<br>Builds: 14393.* |Non prise en charge|
-|WindowsServer, version1709<br>Builds16299.* |Windows Server version 1903<br>Builds 18362. * |Ne prend `hyperv` en charge que l’isolement|
-|WindowsServer, version1709<br>Builds16299.* |Windows 10, version 1903<br>Builds 18362. * |Ne prend `hyperv` en charge que l’isolement|
-|WindowsServer, version1709<br>Builds16299.* |Windows10, version1809<br>Builds 17763. * |Ne prend `hyperv` en charge que l’isolement|
-|WindowsServer, version1709<br>Builds16299.* |Windows Server2019<br>Builds 17763. * |Ne prend `hyperv` en charge que l’isolement|
-|WindowsServer, version1709<br>Builds16299.* |Windows10 version1803<br>Builds 17134. * |Ne prend `hyperv` en charge que l’isolement|
-|WindowsServer, version1709<br>Builds16299.* |WindowsServer, version1803<br>Builds 17134. * |Ne prend `hyperv` en charge que l’isolement|
-|WindowsServer, version1709<br>Builds16299.* |Windows10 Fall Creators Update<br>Builds16299.* |Ne prend `hyperv` en charge que l’isolement|
-|WindowsServer, version1709<br>Builds16299.* |WindowsServer, version1709<br>Builds16299.* |Prise `process` en `hyperv` charge ou isolement|
-|WindowsServer, version1709<br>Builds16299.* |Windows Server2016<br>Builds: 14393.* |Non prise en charge|
-|Windows Server2016<br>Builds: 14393.* |Windows Server version 1903<br>Builds 18362. * |Ne prend `hyperv` en charge que l’isolement|
-|Windows Server2016<br>Builds: 14393.* |Windows 10, version 1903<br>Builds 18362. * |Ne prend `hyperv` en charge que l’isolement|
-|Windows Server2016<br>Builds: 14393.* |Windows10, version1809<br>Builds 17763. * |Ne prend `hyperv` en charge que l’isolement|
-|Windows Server2016<br>Builds: 14393.* |Windows Server2019<br>Builds 17763. * |Ne prend `hyperv` en charge que l’isolement|
-|Windows Server2016<br>Builds: 14393.* |Windows10 Fall Creators Update<br>Builds16299.* |Ne prend `hyperv` en charge que l’isolement|
-|Windows Server2016<br>Builds: 14393.* |Windows Server version 1803<br>Builds 17134. * |Ne prend `hyperv` en charge que l’isolement|
-|Windows Server2016<br>Builds: 14393.* |Windows10 version1803<br>Builds 17134. * |Ne prend `hyperv` en charge que l’isolement|
-|Windows Server2016<br>Builds: 14393.* |WindowsServer version1709<br>Builds16299.* |Ne prend `hyperv` en charge que l’isolement|
-|Windows Server2016<br>Builds: 14393.* |Windows Server2016<br>Builds: 14393.* |Prise `process` en `hyperv` charge ou isolement|
+## <a name="windows-server-version-1903-host-os-compatibility"></a>Compatibilité avec le système d’exploitation Windows Server version 1903
+
+|Système d’exploitation du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolement de processus|
+|---|:---:|:---:|
+|Windows Server version 1903|Oui|Oui|
+|Windows Server2019|Oui|Non|
+|WindowsServer, version1803|Oui|Non|
+|WindowsServer, version1709|Oui|Non|
+|WindowsServer2016|Oui|Non|
+
+## <a name="windows-server-2019-host-os-compatibility"></a>Compatibilité du système d’exploitation hôte de Windows Server 2019
+
+|Système d’exploitation du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolement de processus|
+|---|:---:|:---:|
+|Windows Server version 1903|Non|Non|
+|Windows Server2019|Oui|Oui|
+|WindowsServer, version1803|Oui|Non|
+|WindowsServer, version1709|Oui|Non|
+|WindowsServer2016|Oui|Non|
+
+## <a name="windows-server-version-1803-host-os-compatibility"></a>Compatibilité avec le système d’exploitation Windows Server version 1803
+
+|Système d’exploitation du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolement de processus|
+|---|:---:|:---:|
+|Windows Server version 1903|Non|Non|
+|Windows Server2019|Non|Non|
+|WindowsServer, version1803|Oui|Oui|
+|WindowsServer, version1709|Oui|Non|
+|WindowsServer2016|Oui|Non|
+
+## <a name="windows-server-version-1709-host-os-compatibility"></a>Compatibilité avec le système d’exploitation Windows Server version 1709
+
+|Système d’exploitation du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolement de processus|
+|---|:---:|:---:|
+|Windows Server version 1903|Non|Non|
+|Windows Server2019|Non|Non|
+|WindowsServer, version1803|Non|Non|
+|WindowsServer, version1709|Oui|Oui|
+|WindowsServer2016|Oui|Non|
+
+## <a name="windows-10-version-1903-host-os-compatibility"></a>Windows 10, version 1903 du système d’exploitation hôte
+
+|Système d’exploitation du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolement de processus|
+|---|:---:|:---:|
+|Windows Server version 1903|Non|Non|
+|Windows Server2019|Non|Non|
+|WindowsServer, version1803|Non|Non|
+|WindowsServer, version1709|Non|Non|
+|WindowsServer2016|Oui|Oui|
+
+## <a name="windows-10-version-1809-host-os-compatibility"></a>Windows 10, version 1809 du système d’exploitation hôte
+
+|Système d’exploitation du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolement de processus|
+|---|:---:|:---:|
+|Windows Server version 1903|Non|Non|
+|Windows Server2019|Oui|Non|
+|WindowsServer, version1803|Oui|Non|
+|WindowsServer, version1709|Oui|Non|
+|WindowsServer2016|Oui|Non|
+
+## <a name="windows-10-version-1803-host-os-compatibility"></a>Windows 10, version 1803 du système d’exploitation hôte
+
+|Système d’exploitation du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolement de processus|
+|---|:---:|:---:|
+|Windows, version 1903|Non|Non|
+|Windows Server2019|Non|Non|
+|WindowsServer, version1803|Oui|Non||
+|WindowsServer, version1709|Oui|Non|
+|WindowsServer2016|Oui|Non|
+
+## <a name="windows-10-fall-creators-update-host-os-compatibility"></a>Windows 10 automne Creators mise à jour de la compatibilité du système d’exploitation hôte
+
+|Système d’exploitation du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolement de processus|
+|---|:---:|:---:|
+|Windows Server version 1903|Non|Non|
+|Windows Server2019|Non|Non|
+|WindowsServer, version1803|Non|Non|
+|WindowsServer, version1709|Oui|Non|
+|WindowsServer2016|Oui|Non|
 
 ## <a name="matching-container-host-version-with-container-image-versions"></a>Version d’hôte de conteneur correspondante avec les versions d’image de conteneur
 
@@ -163,7 +195,7 @@ FROM mcr.microsoft.com/windows/nanoserver:10.0.17763.437
 ...
 ```
 
-Les images de base du serveur principal en fonction de Windows Server 2019 et de Windows Server 2016 sont des publications [de canal de maintenance à long terme (LTSC)](https://docs.microsoft.com/en-us/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) . Si vous souhaitez que Windows Server 2019 soit le système d’exploitation du conteneur de l’image principale du serveur et que vous souhaitez obtenir les derniers correctifs, vous pouvez spécifier des publications LTSC comme suit:
+Les images de base du serveur principal en fonction de Windows Server 2019 et de Windows Server 2016 sont des publications [de canal de maintenance à long terme (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) . Si vous souhaitez que Windows Server 2019 soit le système d’exploitation du conteneur de l’image principale du serveur et que vous souhaitez obtenir les derniers correctifs, vous pouvez spécifier des publications LTSC comme suit:
 
 ``` dockerfile
 FROM mcr.microsoft.com/windows/servercore:ltsc2019

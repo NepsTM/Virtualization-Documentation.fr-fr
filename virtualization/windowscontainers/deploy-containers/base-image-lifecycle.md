@@ -8,12 +8,12 @@ ms.date: 06/17/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: c26f4b225287fbc25566e36376eb8cd604d45a68
-ms.sourcegitcommit: 9cd1aa792a417e71192c7aa39e409ae6ca0bc710
+ms.openlocfilehash: d3a8240dbba8af3c74ce5d185620e129d103ef81
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "9788548"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9883182"
 ---
 # <a name="base-image-servicing-lifecycles"></a>Durée de vie des images de base
 
@@ -35,4 +35,4 @@ Le tableau suivant répertorie chaque type d’image de base, son canal de maint
 |ServerCore                      |Durée de validité        |1607   |14393   |15/10/2016  |11/01/2022                 |11/01/2027           |
 |Nano Server                      |Semestriel      |1607   |14393   |15/10/2016  |10/09/2018                 |N/A                  |
 
-Pour plus d’informations sur les exigences de maintenance et d’autres informations supplémentaires, consultez le [Forum aux questions sur le cycle de vie Windows](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products), les [informations de publication de Windows Server](https://docs.microsoft.com/en-us/windows-server/get-started/windows-server-release-info)et les [images du centre de référentiel Samples](https://hub.docker.com/_/microsoft-windows-base-os-images).
+Pour plus d’informations sur les exigences de maintenance et d’autres informations supplémentaires, consultez le [Forum aux questions sur le cycle de vie Windows](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products), les [informations de publication de Windows Server](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)et les [images du centre de référentiel Samples](https://hub.docker.com/_/microsoft-windows-base-os-images).

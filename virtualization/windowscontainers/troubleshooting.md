@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
-ms.openlocfilehash: dfa558f3b17362b6f9af429842282309430e1da3
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 652b1a8e0ab12ac67dd2754051e36c523e3de509
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620937"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9882942"
 ---
 # <a name="troubleshooting"></a>Résolution des problèmes
 
@@ -28,7 +28,7 @@ Si cela ne permet pas de trouver la source du problème, publiez la sortie de vo
 
 
 ## <a name="finding-logs"></a>Où trouver les journaux
-Il existe plusieurs services sont utilisés pour gérer les conteneurs Windows. Les sections suivantes indiquent où obtenir les journaux de chaque service.
+Plusieurs services sont utilisés pour gérer les conteneurs Windows. Les sections suivantes indiquent où obtenir les journaux de chaque service.
 
 # <a name="docker-engine"></a>Moteur Docker
 Les enregistrements du moteur Docker sont consignés dans le journal des événements des applications Windows, plutôt que dans un fichier. Ces enregistrements peuvent facilement être lus, triés et filtrés à l’aide de Windows PowerShell
@@ -71,7 +71,7 @@ Prenez la valeur `BINARY_PATH_NAME` actuelle, puis modifiez-la:
 - Placez chaque" dans une séquence d’échappement avec\
 - Placez l’ensemble de la commande entre"
 
-Exécutez ensuite la commande `sc.exe config docker binpath= ` suivie de la nouvelle chaîne. Exemple: 
+Exécutez ensuite la commande `sc.exe config docker binpath=` suivie de la nouvelle chaîne. Exemple: 
 ```
 sc.exe config docker binpath= "\"C:\Program Files\Docker\dockerd.exe\" --run-service -D"
 ```
@@ -91,9 +91,9 @@ sc.exe stop docker
 <path\to\>dockerd.exe -D > daemon.log 2>&1
 ```
 
-## <a name="obtaining-stack-dump"></a>Obtention du vidage de pile.
+## <a name="obtaining-stack-dump"></a>Obtention du vidage de la pile.
 
-En règle générale, cela n’est utile si vous demandent explicitement par le support de Microsoft, ou les développeurs du docker. Il peut être utilisé pour diagnostiquer une situation dans laquelle le docker semble bloqué. 
+En règle générale, cette fonction n’est utile que pour les demandes explicitement formulées par le support technique Microsoft ou les développeurs de l’arrimateur. Elle peut être utilisée pour faciliter le diagnostic d’une situation dans laquelle l’arrimateur semble avoir raccroché. 
 
 Télécharger [docker-signal.exe](https://github.com/jhowardmsft/docker-signal).
 
@@ -104,11 +104,11 @@ Get-Process dockerd
 docker-signal -pid=<id>
 ```
 
-Le fichier de sortie sera placé à la racine de données répertoire docker est en cours d’exécution. Le répertoire par défaut est `C:\ProgramData\Docker`. Le répertoire réel peut être confirmé en exécutant `docker info -f "{{.DockerRootDir}}"`.
+Le fichier de sortie sera localisé dans le répertoire de la racine des données. Le répertoire par défaut est `C:\ProgramData\Docker`. Le répertoire réel peut être confirmé en exécutant `docker info -f "{{.DockerRootDir}}"`.
 
-Le fichier sera `goroutine-stacks-<timestamp>.log`.
+Le fichier est `goroutine-stacks-<timestamp>.log`.
 
-Notez que `goroutine-stacks*.log` ne contient aucune information personnelle.
+Notez que `goroutine-stacks*.log` ne contient pas d’informations personnelles.
 
 
 # <a name="host-compute-service"></a>Service de calcul hôte
@@ -131,12 +131,12 @@ Pour activer les journaux d’analyse/débogage de calcul Hyper-V et les enregis
 ```PowerShell
 # Enable the analytic logs
 wevtutil.exe sl Microsoft-Windows-Hyper-V-Compute-Analytic /e:true /q:true
-     
+
 # <reproduce your issue>
-     
+
 # Export to an evtx
 wevtutil.exe epl Microsoft-Windows-Hyper-V-Compute-Analytic <hcslog.evtx>
-     
+
 # Disable
 wevtutil.exe sl Microsoft-Windows-Hyper-V-Compute-Analytic /e:false /q:true
 ```

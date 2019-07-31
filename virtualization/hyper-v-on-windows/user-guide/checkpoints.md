@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9c398c4-ee72-45c6-9ce8-4f06569dae6c
-ms.openlocfilehash: 7ed9c5e3c3067bd8ddfa8005f4d9307c76dce4cd
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 8cdbd7b9881c973b6b5d269f986a03bdb21e276a
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9575400"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9883202"
 ---
 # <a name="using-checkpoints-to-revert-virtual-machines-to-a-previous-state"></a>Utilisation de points de contrôle pour restaurer des machines virtuelles à un état antérieur
 
@@ -21,9 +21,9 @@ L’un des principaux avantages de la virtualisation est la possibilité d’enr
 
 Dans Windows10, Hyper-V comprend deux types de points de contrôle:
 
-* **Points de contrôle standard**: prend un instantané de la machine virtuelle et l’état de la machine virtuelle mémoire au moment du point de contrôle est lancé. Une capture instantanée n’étant pas une sauvegarde complète, il peut entraîner des problèmes de cohérence des données avec les systèmes qui répliquent les données entre différents nœuds (comme Active Directory).  Avant Windows10, Hyper-V offrait uniquement des points de contrôle standard (anciennement nommés captures instantanées).
+* **Points de contrôle standard**: prend une photo de l’état de la machine virtuelle et de la mémoire de l’ordinateur virtuel au moment où le point de contrôle est lancé. Une capture instantanée n’étant pas une sauvegarde complète, il peut entraîner des problèmes de cohérence des données avec les systèmes qui répliquent les données entre différents nœuds (comme Active Directory).  Avant Windows10, Hyper-V offrait uniquement des points de contrôle standard (anciennement nommés captures instantanées).
 
-* **Points de contrôle de production**: utilise le Service VSS ou File System Freeze sur une machine virtuelle Linux pour créer une sauvegarde cohérente des données de la machine virtuelle. Aucune capture instantanée de l’état de la mémoire de la machine virtuelle n’est prise.
+* **Points de contrôle de production**: utilise le service de cliché instantané de volume ou le système de fichiers figé sur une machine virtuelle Linux pour créer une sauvegarde cohérente des données de l’ordinateur virtuel. Aucune capture instantanée de l’état de la mémoire de la machine virtuelle n’est prise.
 
 Les points de contrôle de production sont sélectionnés par défaut, mais vous pouvez les modifier à l’aide du Gestionnaire Hyper-V ou de PowerShell.
 
@@ -40,6 +40,7 @@ Les points de contrôle de production sont sélectionnés par défaut, mais vous
 4. Sélectionnez le type de point de contrôle désiré.
 
 <br />
+
 ![](media/checkpoint_upd.png)
 
 **Avec PowerShell**
@@ -92,9 +93,9 @@ Si vous souhaitez restaurer votre machine virtuelle à un moment donné précéd
 
 **À l’aide du Gestionnaire Hyper-V**
 
-1.  Dans le **Gestionnaire Hyper-V**, sous **Machines virtuelles**, sélectionnez la machine virtuelle.
-2.  Dans la section Points de contrôle, cliquez avec le bouton droit sur le point de contrôle à utiliser, puis cliquez sur **Appliquer**.
-3.  Une boîte de dialogue s’affiche avec les options suivantes:  
+1. Dans le **Gestionnaire Hyper-V**, sous **Machines virtuelles**, sélectionnez la machine virtuelle.
+2. Dans la section Points de contrôle, cliquez avec le bouton droit sur le point de contrôle à utiliser, puis cliquez sur **Appliquer**.
+3. Une boîte de dialogue s’affiche avec les options suivantes:  
   * **Créer un point de contrôle et appliquer**: crée un point de contrôle de la machine virtuelle avant d’appliquer le point de contrôle antérieur. 
   * **Appliquer**: applique uniquement le point de contrôle que vous avez choisi. Vous ne pouvez pas annuler cette action.
   * **Annuler**: ferme la boîte de dialogue sans rien faire.
@@ -116,7 +117,7 @@ Si vous souhaitez restaurer votre machine virtuelle à un moment donné précéd
 
 ## <a name="renaming-checkpoints"></a>Modification du nom des points de contrôle
 
-De nombreux points de contrôle sont créés à un moment donné.  Lui donner un nom identifiable facilite la n’oubliez pas d’informations sur l’état du système lorsque le point de contrôle a été créé.
+De nombreux points de contrôle sont créés à un moment donné.  Le fait de leur donner un nom identifiable permet de mémoriser plus facilement les détails relatifs à l’état du système lors de la création du point de contrôle.
 
 Par défaut, le nom d’un point de contrôle est le nom de la machine virtuelle associé à la date et à l’heure auxquelles le point de contrôle a été créé. Voici le format standard: 
 
@@ -128,10 +129,10 @@ Les noms sont limités à 100caractères, et le nom ne peut pas être vide.
 
 **À l’aide du Gestionnaire Hyper-V**
 
-1.  Dans le **Gestionnaire Hyper-V**, sélectionnez la machine virtuelle.
-2.  Cliquez avec le bouton droit sur le point de contrôle, puis sélectionnez **Renommer**.
-3.  Entrez le nouveau nom du point de contrôle. Il doit comporter moins de 100caractères et le champ ne peut pas être vide.
-4.  Cliquez sur **ENTRÉE** quand vous avez terminé.
+1. Dans le **Gestionnaire Hyper-V**, sélectionnez la machine virtuelle.
+2. Cliquez avec le bouton droit sur le point de contrôle, puis sélectionnez **Renommer**.
+3. Entrez le nouveau nom du point de contrôle. Il doit comporter moins de 100caractères et le champ ne peut pas être vide.
+4. Cliquez sur **ENTRÉE** quand vous avez terminé.
 
 **Avec PowerShell**
 
@@ -151,9 +152,9 @@ Vous ne devez pas supprimer directement les fichiers .avhdx.
 
 Pour supprimer correctement un point de contrôle: 
 
-1.  Dans le **Gestionnaire Hyper-V**, sélectionnez la machine virtuelle.
-2.  Dans la section **points de contrôle** , cliquez sur le point de contrôle que vous souhaitez supprimer, puis cliquez sur Supprimer. Vous pouvez également supprimer un point de contrôle et tous les points de contrôle suivants. Pour ce faire, cliquez avec le bouton droit sur le point de contrôle le plus ancien à supprimer, puis cliquez sur ****Supprimer la sous-arborescence** du point de contrôle**.
-3.  Vous pouvez être invité à vérifier que vous souhaitez supprimer le point de contrôle. Confirmez qu’il s’agit du point de contrôle correct, puis cliquez sur **Supprimer**. 
+1. Dans le **Gestionnaire Hyper-V**, sélectionnez la machine virtuelle.
+2. Dans la section **points de contrôle** , cliquez avec le bouton droit sur le point de contrôle que vous voulez supprimer, puis cliquez sur supprimer. Vous pouvez également supprimer un point de contrôle et tous les points de contrôle suivants. Pour ce faire, cliquez avec le bouton droit sur le point de contrôle le plus ancien à supprimer, puis cliquez sur ****Supprimer la sous-arborescence** du point de contrôle**.
+3. Vous pouvez être invité à vérifier que vous souhaitez supprimer le point de contrôle. Confirmez qu’il s’agit du point de contrôle correct, puis cliquez sur **Supprimer**. 
  
 **Avec PowerShell**
 ```powershell
@@ -171,20 +172,20 @@ Export-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name> -Path
 
 ## <a name="enable-or-disable-checkpoints"></a>Activer ou désactiver des points de contrôle
 
-1.  Dans le **Gestionnaire Hyper-V**, cliquez avec le bouton droit sur le nom de la machine virtuelle, puis cliquez sur **Paramètres**.
-2.  Dans la section **Gestion**, sélectionnez **Points de contrôle**.
-3.  Pour permettre le retrait des points de contrôle de cette machine virtuelle, vérifiez que l’option Activer les points de contrôle est sélectionnée; il s’agit du comportement par défaut.  
+1. Dans le **Gestionnaire Hyper-V**, cliquez avec le bouton droit sur le nom de la machine virtuelle, puis cliquez sur **Paramètres**.
+2. Dans la section **Gestion**, sélectionnez **Points de contrôle**.
+3. Pour permettre le retrait des points de contrôle de cette machine virtuelle, vérifiez que l’option Activer les points de contrôle est sélectionnée; il s’agit du comportement par défaut.  
 Pour désactiver les points de contrôle, décochez la case **Activer les points de contrôle**.
-4.  Cliquez sur **Appliquer** pour appliquer vos modifications. Si vous avez terminé, cliquez sur **OK** pour fermer la boîte de dialogue.
+4. Cliquez sur **Appliquer** pour appliquer vos modifications. Si vous avez terminé, cliquez sur **OK** pour fermer la boîte de dialogue.
 
 ## <a name="configure-checkpoint-location"></a>Configuration de l’emplacement d’un point de contrôle
 
 Si la machine virtuelle ne possède aucun point de contrôle, vous pouvez modifier l’emplacement de stockage de la configuration de point de contrôle et des fichiers d’état de mise en mémoire.
 
-1.  Dans le **Gestionnaire Hyper-V**, cliquez avec le bouton droit sur le nom de la machine virtuelle, puis cliquez sur **Paramètres**.    
-2.  Dans la section **Gestion**, sélectionnez **Points de contrôle** ou **Emplacement du fichier de point de contrôle**.  
-4.  Dans **Emplacement du fichier de point de contrôle**, entrez le chemin d’accès au dossier dans lequel vous souhaitez stocker les fichiers.  
-5.  Cliquez sur **Appliquer** pour appliquer vos modifications. Si vous avez terminé, cliquez sur **OK** pour fermer la boîte de dialogue.
+1. Dans le **Gestionnaire Hyper-V**, cliquez avec le bouton droit sur le nom de la machine virtuelle, puis cliquez sur **Paramètres**.
+2. Dans la section **Gestion**, sélectionnez **Points de contrôle** ou **Emplacement du fichier de point de contrôle**.
+4. Dans **Emplacement du fichier de point de contrôle**, entrez le chemin d’accès au dossier dans lequel vous souhaitez stocker les fichiers.
+5. Cliquez sur **Appliquer** pour appliquer vos modifications. Si vous avez terminé, cliquez sur **OK** pour fermer la boîte de dialogue.
 
 L’emplacement par défaut pour le stockage des fichiers de configuration de point de contrôle est: `%systemroot%\ProgramData\Microsoft\Windows\Hyper-V\Snapshots`.
 
@@ -206,17 +207,19 @@ Cet exercice montre comment créer et appliquer un point de contrôle standard p
 4. Créez un point de contrôle.
 
 <br />
+
 ![](media/std_checkpoint_upd.png) 
 
 **Appliquer le point de contrôle standard avec le Gestionnaire Hyper-V**
 
 Maintenant qu’un point de contrôle existe, apportez une modification à la machine virtuelle, puis appliquez le point de contrôle pour restaurer la machine virtuelle à l’état enregistré. 
 
-1. Fermez le fichier texte s’il est toujours ouvert et supprimez-le bureau de la machine virtuelle.
+1. Fermez le fichier texte s’il est toujours ouvert et supprimez-le à partir du Bureau de l’ordinateur virtuel.
 2. Ouvrez le Gestionnaire Hyper-V, cliquez avec le bouton droit sur le point de contrôle standard, puis sélectionnez Appliquer.
 3. Dans la fenêtre de notification Appliquer le point de contrôle, sélectionnez Appliquer.
 
 <br />
+
 ![](media/apply_standard_upd.png) 
 
 Une fois le point de contrôle appliqué, notez non seulement la présence du fichier texte, mais aussi la restauration du système à l’état dans lequel il se trouvait au moment de la création du point de contrôle. Dans notre cas, le Bloc-notes est ouvert et le fichier texte est chargé.
@@ -227,20 +230,21 @@ Examinons à présent les points de contrôle de production. Le processus d’ut
 
 **Modifier la machine virtuelle et créer un point de contrôle de production**
 
-1. Connectez-vous à la machine virtuelle et créez un fichier texte. Si vous avez suivi de l’exercice précédent, vous pouvez utiliser le fichier texte existant.
+1. Connectez-vous à la machine virtuelle et créez un fichier texte. Si vous avez suivi l’exercice précédent, vous pouvez utiliser le fichier texte existant.
 2. Entrez «Ceci est un point de contrôle de production.» Dans le fichier texte, enregistrez le fichier, mais **ne fermez pas le Bloc-notes**.
-3. Ouvrez le Gestionnaire Hyper-V, cliquez avec le bouton droit sur la machine virtuelle et sélectionnez le **point de contrôle**.
+3. Ouvrez le Gestionnaire Hyper-V, cliquez avec le bouton droit sur la machine virtuelle, puis sélectionnez **Checkpoint**.
 4. Cliquez sur **OK** dans la fenêtre Point de contrôle créé pour la production.
 
 <br />
+
 ![](media/production_Checkpoin_upd.png) 
-    
+
 **Appliquer le point de contrôle de production avec le Gestionnaire Hyper-V**
 
 Maintenant qu’un point de contrôle existe, apportez une modification au système, puis appliquez le point de contrôle pour restaurer la machine virtuelle à l’état enregistré. 
 
-1. Fermez le fichier texte s’il est toujours ouvert et supprimez-le bureau de la machine virtuelle.
-2. Ouvrez le Gestionnaire Hyper-V, cliquez avec le bouton droit sur le point de contrôle de production et sélectionnez **Appliquer**.
+1. Fermez le fichier texte s’il est toujours ouvert et supprimez-le à partir du Bureau de l’ordinateur virtuel.
+2. Ouvrez le Gestionnaire Hyper-V, cliquez avec le bouton droit sur le point de contrôle de la production, puis sélectionnez **appliquer**.
 3. Dans la fenêtre de notification Appliquer le point de contrôle, sélectionnez **Appliquer**.
 
 Une fois le point de contrôle de production appliqué, notez que la machine virtuelle est dans un état désactivé.

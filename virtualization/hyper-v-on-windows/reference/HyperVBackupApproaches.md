@@ -16,9 +16,9 @@ Lors de la création de sauvegardes d’ordinateur virtuel à l’aide de la tec
 Les développeurs peuvent exporter les données de sauvegarde via les interfaces WMI Hyper-V (comme utilisé dans l’exemple ci-dessus).  Hyper-V compile les modifications dans un disque dur virtuel et copie le fichier à l’emplacement demandé.  Cette méthode est facile à utiliser et fonctionne pour tous les scénarios et est accessible à distance.  Toutefois, le disque dur virtuel généré génère souvent un grand volume de données à transférer sur le réseau.
 ### <a name="win32-apis"></a>API Win32
 Les développeurs peuvent utiliser les API SetVirtualDiskInformation, GetVirtualDiskInformation et QueryChangesVirtualDisk sur l’API Win32 de disque dur virtuel définies comme suit https://docs.microsoft.com/windows/desktop/api/_vhd/ : Remarque: pour utiliser ces API, le WMI Hyper-V doit toujours être utilisé pour créer une référence. points sur les machines virtuelles associées.  Ces API Win32 permettent alors d’accéder efficacement aux données de l’ordinateur virtuel sauvegardé.  Les API Win32 présentent plusieurs limitations:
-*   Ils ne peuvent être consultés qu’en local
-*   Les fichiers ne prenant pas en charge la lecture de données provenant de fichiers de disque dur virtuel partagés
-*   Ils renvoient des adresses de données relatives à la structure interne du disque dur virtuel.
+* Ils ne peuvent être consultés qu’en local
+* Les fichiers ne prenant pas en charge la lecture de données provenant de fichiers de disque dur virtuel partagés
+* Ils renvoient des adresses de données relatives à la structure interne du disque dur virtuel.
 
 ### <a name="remote-shared-virtual-disk-protocol"></a>Protocole de disque virtuel partagé distant
 Enfin, si un développeur a besoin d’accéder efficacement aux informations de sauvegarde à partir d’un fichier de disque dur virtuel partagé, il doit utiliser le protocole de disque virtuel partagé distant.  Ce protocole est documenté [ici](https://docs.microsoft.com/openspecs/windows_protocols/ms-rsvd/c865c326-47d6-4a91-a62d-0e8f26007d15).

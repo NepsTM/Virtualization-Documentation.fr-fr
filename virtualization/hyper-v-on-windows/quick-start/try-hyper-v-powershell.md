@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6d1ae036-0841-4ba5-b7e0-733aad31e9a7
-ms.openlocfilehash: f2df1496b798646b590c9cd3eaf101aef24b507d
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: d53bdce3438c6dafe3a1e0350c7a5df30ff8210b
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620657"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9883122"
 ---
 # <a name="working-with-hyper-v-and-windows-powershell"></a>Utilisation d’Hyper-V et de Windows PowerShell
 
@@ -21,8 +21,8 @@ Maintenant que vous connaissez les principes de base liés au déploiement d’H
 
 ### <a name="return-a-list-of-hyper-v-commands"></a>Retourner une liste de commandes de Hyper-V
 
-1.  Cliquez sur le bouton Démarrer de Windows, puis tapez **PowerShell**.
-2.  Exécutez la commande suivante pour afficher une liste pouvant faire l’objet d’une recherche des commandes PowerShell disponibles dans le module Hyper-V PowerShell.
+1. Cliquez sur le bouton Démarrer de Windows, puis tapez **PowerShell**.
+2. Exécutez la commande suivante pour afficher une liste pouvant faire l’objet d’une recherche des commandes PowerShell disponibles dans le module Hyper-V PowerShell.
 
  ```powershell
 Get-Command -Module hyper-v | Out-GridView
