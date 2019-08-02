@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: Solutions aux problèmes courants lors du déploiement de Kubernetes et de la jonction de nœuds Windows.
 keywords: kubernetes, 1,14, Linux, compile
-ms.openlocfilehash: bdf1fd78bbbebcad3562872d9e71c961be6c64eb
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: a0b24782a0e511dfc8b6cf1a0c0bc24882ff977a
+ms.sourcegitcommit: 42cb47ba4f3e22163869d094bd0c9cff415a43b0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883002"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "9884990"
 ---
 # <a name="troubleshooting-kubernetes"></a>Résolution des problèmes Kubernetes #
 Cette page décrit plusieurs problèmes courants lors du déploiement, de la mise en réseau et de la configuration de Kubernetes.
@@ -68,6 +68,12 @@ Les utilisateurs de Windows Server version 1903 peuvent accéder à l’emplacem
 \\Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\vmsmp\parameters\NicList
 ```
 
+### <a name="containers-on-my-flannel-host-gw-deployment-on-azure-cannot-reach-the-internet"></a>Les conteneurs sur mon Flannel Host-le déploiement de GW sur Azure ne peuvent pas accéder à Internet ###
+Lorsque vous déployez Flannel en mode Host-GW sur Azure, les paquets doivent passer par le biais du vSwitch d’hôte physique Azure. Les utilisateurs doivent programmer des [itinéraires définis par l’utilisateur](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#user-defined) de type «application virtuelle» pour chaque sous-réseau attribué à un nœud. Vous pouvez effectuer cette opération sur le portail Azure (Voir l’exemple [ci](https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-create-route-table-portal)-dessous `az` ) ou via le CLI Azure. Voici un exemple de UDR avec le nom «MyRoute» en utilisant les commandes AZ pour un nœud avec IP 10.0.0.4 et le sous-réseau Pod correspondant 10.244.0.0/24:
+```
+az network route-table create --resource-group <my_resource_group> --name BridgeRoute 
+az network route-table route create  --resource-group <my_resource_group> --address-prefix 10.244.0.0/24 --route-table-name BridgeRoute  --name MyRoute --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.0.4 
+```
 
 ### <a name="my-windows-pods-cannot-ping-external-resources"></a>Les ressources externes ne peuvent pas être testées dans mes modules Windows ###
 Les règles de trafic sortant ne sont pas programmées pour le protocole ICMP pour les modules Windows. Néanmoins, TCP/UDP est pris en charge. Lorsque vous tentez de montrer la connectivité aux ressources hors du cluster, `ping <IP>` utilisez les `curl <IP>` commandes correspondantes.
