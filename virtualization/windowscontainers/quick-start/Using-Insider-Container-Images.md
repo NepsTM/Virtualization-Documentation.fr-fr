@@ -11,7 +11,7 @@ Ce démarrage rapide est spécifique aux conteneurs WindowsServer du programme W
 - Utiliser un système informatique (physique ou virtuel) qui exécute la dernière version de WindowsServer du programme WindowsInsider et/ou la dernière version de Windows10 du programme WindowsInsider.
 
 > [!IMPORTANT]
-> Vous devez utiliser une build de Windows Server à partir du programme Windows Server Insider Preview ou une build de Windows 10 à partir du programme Windows Insider Preview pour utiliser l’image de base décrites ci-dessous. Si vous n’utilisez pas l’une de ces builds, la création d’un conteneur échouera lors de l’utilisation de ces images de base.
+> Vous devez utiliser une version de Windows Server du programme Windows Server Insider Preview ou une version de Windows 10 à partir du programme Windows Insider Preview pour utiliser l’image de base décrite ci-dessous. Si vous n’utilisez pas l’une de ces builds, la création d’un conteneur échouera lors de l’utilisation de ces images de base.
 
 ## <a name="install-docker-enterprise-edition-ee"></a>Installer Docker Enterprise Edition (EE)
 
@@ -20,7 +20,7 @@ Vous devez installer Docker EE pour utiliser les conteneurs Windows. Docker EE c
 Pour installer Docker EE, nous allons utiliser le module PowerShell de fournisseur OneGet. Le fournisseur active la fonctionnalité de conteneurs sur votre ordinateur et installe Docker EE. Cette opération nécessite un redémarrage. Ouvrez une session PowerShell avec élévation de privilèges, puis exécutez les commandes suivantes.
 
 > [!NOTE]
-> L’installation de Docker EE avec les builds Windows Server Insider nécessite un autre fournisseur OneGet que celui utilisé pour les builds non-Insider. Si Docker EE et le fournisseur OneGet DockerMsftProvider sont déjà installés, supprimez-les avant de continuer.
+> L’installation de docker EE avec les builds Windows Server Insider nécessite un fournisseur de services de OneGet différent de celui utilisé pour les builds non-Insider. Si Docker EE et le fournisseur OneGet DockerMsftProvider sont déjà installés, supprimez-les avant de continuer.
 
 ```powershell
 Stop-Service docker
@@ -52,10 +52,10 @@ Avant d’utiliser des conteneurs Windows, une image de base doit être install�
 
 | Image de système d’exploitation de base                       | Utilisation                      |
 |-------------------------------------|----------------------------|
-| MCR.Microsoft.com/Windows/servercore         | Production et développement |
-| MCR.Microsoft.com/Windows/nanoserver              | Production et développement |
-| MCR.Microsoft.com/Windows/servercore/Insider | Développement uniquement           |
-| MCR.Microsoft.com/Windows/nanoserver/Insider        | Développement uniquement           |
+| mcr.microsoft.com/windows/servercore         | Production et développement |
+| mcr.microsoft.com/windows/nanoserver              | Production et développement |
+| mcr.microsoft.com/windows/servercore/insider | Développement uniquement           |
+| mcr.microsoft.com/windows/nanoserver/insider        | Développement uniquement           |
 
 Pour extraire l’image de base Insider NanoServer, exécutez la commande suivante:
 
@@ -70,7 +70,7 @@ docker pull mcr.microsoft.com/windows/servercore/insider
 ```
 
 > [!IMPORTANT]
-> Veuillez lire les conteneurs Windows du système d’exploitation image [CLUF](../EULA.md ) et le [Conditions d’utilisation](https://www.microsoft.com/software-download/windowsinsiderpreviewserver)du programme Windows Insider.
+> Prenez connaissance de l’image du système [](../EULA.md ) d’exploitation conteneurs Windows et des [conditions d’utilisation du](https://www.microsoft.com/software-download/windowsinsiderpreviewserver)programme Windows Insider.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

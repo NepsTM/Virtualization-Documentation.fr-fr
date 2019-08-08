@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5ceb9626-7c48-4d42-81f8-9c936595ad85
-ms.openlocfilehash: 5ab7f684bba9cfa73c59b58ce660d3d519be0b72
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 088bc844790d94d30f6b4b05c5cd189392f47e66
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621437"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998276"
 ---
 # <a name="getting-started-with-swarm-mode"></a>Prise en main du mode Swarm 
 
@@ -24,13 +24,13 @@ Le mode Swarm est une fonctionnalité de Docker qui fournit des fonctionnalités
 Un cluster Swarm est composé de deuxtypes d’hôte de conteneur: *nœuds de gestionnaire* et *nœuds de travail*. Chaque Swarm est initialisé via un nœud de gestionnaire, et toutes les commandes de l’interface de ligne de commande Docker pour contrôler et analyser un cluster Swarm doivent être exécutées à partir de l’un de ses nœuds de gestionnaire. Les nœuds de gestionnaire peuvent être comparés aux «gardiens» de l’état Swarm: ensemble, ils forment un groupe consensuel qui gère la reconnaissance de l’état des services exécutés dans le cluster Swarm. Leur tâche consiste à s’assurer que l’état réel du cluster Swarm correspond à son état souhaité, défini par le développeur ou l’administrateur. 
 
 >[!NOTE]
->Tout cluster swarm peut disposer de plusieurs nœuds de gestionnaire, mais il doit toujours avoir *au moins un*. 
+>Tout essaim donné peut avoir plusieurs nœuds Manager, mais il doit toujours *en avoir au moins un*. 
 
 Les nœuds de travail sont orchestrés par DockerSwarm via les nœuds de gestionnaire. Pour joindre un cluster Swarm, un nœud de travail doit utiliser un «jeton de jointure», qui aura été généré par le nœud de gestionnaire à l’initialisation du cluster Swarm. Les nœuds de travail reçoivent et exécutent simplement les tâches des nœuds de gestionnaire. En conséquence, ils ne nécessitent (et ne détiennent) pas de reconnaissance de l’état Swarm.
 
 ## <a name="swarm-mode-system-requirements"></a>Configuration requise du mode Swarm
 
-Au moins un système d’ordinateur physique ou virtuel (pour utiliser les fonctionnalités complètes de swarm au moins deux nœuds est recommandée) exécutant **Windows 10 Creators Update** ou **Windows Server 2016** *avec l’ensemble de la dernière updates\ **, le programme d’installation en tant qu’un hôte de conteneur (voir la rubrique, [les conteneurs Windows sur Windows 10](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10) ou les [conteneurs Windows sur Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) pour plus d’informations sur la façon de commencer à utiliser des conteneurs Docker sur Windows 10).
+Au moins un système d’informatique physique ou virtuel (pour utiliser l’ensemble des fonctionnalités d’essaim au moins deux nœuds sont recommandés) en exécutant **Windows 10 Creators Update** ou **Windows Server 2016** *avec toutes les mises à jour les plus récentes*, le programme d’installation en tant que Pour plus d’informations sur la façon de prendre en main les conteneurs [](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) d’amarrage sur Windows 10, voir hôte de conteneur (voir la rubrique les conteneurs [Windows sur Windows 10](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10) ou Windows 10).
 
 \***Remarque**: DockerSwarm sur WindowsServer2016 nécessite [KB4015217](https://support.microsoft.com/help/4015217/windows-10-update-kb4015217)
 
@@ -53,7 +53,7 @@ Lorsque cette commande est exécutée à partir d’un hôte de conteneur donné
 
 ## <a name="adding-nodes-to-a-swarm"></a>Ajout de nœuds à un cluster Swarm
 
-Plusieurs nœuds ne sont *pas* requis pour exploiter le mode swarm et le mode de mise en réseau de superposition de fonctionnalités. Toutes les fonctionnalités Swarm/superposition peuvent être utilisées avec un seul et même hôte s’exécutant en mode Swarm (autrement dit, un nœud de gestionnaire placé en mode Swarm avec la commande `docker swarm init`).
+Les nœuds multiples ne sont *pas* obligés d’utiliser le mode essaim et les fonctionnalités du mode réseau superposé. Toutes les fonctionnalités Swarm/superposition peuvent être utilisées avec un seul et même hôte s’exécutant en mode Swarm (autrement dit, un nœud de gestionnaire placé en mode Swarm avec la commande `docker swarm init`).
 
 ### <a name="adding-workers-to-a-swarm"></a>Ajout de nœuds de travail à un cluster Swarm
 
@@ -112,7 +112,7 @@ C:\> docker service create --name=<SERVICENAME> --endpoint-mode dnsrr --network=
 Ici, \<SERVICENAME\> est le nom que vous souhaitez donner au service. Il s’agit du nom que vous utiliserez pour référencer le service via la découverte de service (qui utilise un serveur DNS natif de Docker). \<NETWORKNAME\> est le nom du réseau auquel vous souhaitez connecter ce service (par exemple, «myOverlayNet»). \<CONTAINERIMAGE\> est le nom de l’image de conteneur qui définira le service.
 
 >[!NOTE]
->Le deuxième argument de cette commande, `--endpoint-mode dnsrr`, est nécessaire pour spécifier au moteur Docker que la stratégie de tourniquet DNS sera utilisée pour équilibrer le trafic réseau entre les points de terminaison service conteneur. Actuellement, le tourniquet DNS est la seule stratégie d’équilibrage de charge prise en charge sur Windows. Le [routage de maillage](https://docs.docker.com/engine/swarm/ingress/) pour les hôtes Windows Docker n’est pas encore pris en charge, mais il le sera prochainement. Les utilisateurs recherchant une autre stratégie d’équilibrage de charge dès aujourd'hui peuvent configurer un équilibreur de charge externe (par exemple, NGINX) et utiliser le [mode de publication de port](https://docs.docker.com/engine/reference/commandline/service_create/#/publish-service-ports-externally-to-the-swarm--p---publish) de Swarm pour exposer les ports d’hôte de conteneur sur lesquels équilibrer la charge.
+>Le deuxième argument de cette commande, `--endpoint-mode dnsrr`est requis pour spécifier au moteur de l’ancrage que la stratégie de tourniquet arrondi DNS sera utilisée pour équilibrer le trafic réseau entre les points de terminaison du conteneur de services. Actuellement, le tourniquet DNS est la seule stratégie d’équilibrage de charge prise en charge sur Windows. Le [routage de maillage](https://docs.docker.com/engine/swarm/ingress/) pour les hôtes Windows Docker n’est pas encore pris en charge, mais il le sera prochainement. Les utilisateurs recherchant une autre stratégie d’équilibrage de charge dès aujourd'hui peuvent configurer un équilibreur de charge externe (par exemple, NGINX) et utiliser le [mode de publication de port](https://docs.docker.com/engine/reference/commandline/service_create/#/publish-service-ports-externally-to-the-swarm--p---publish) de Swarm pour exposer les ports d’hôte de conteneur sur lesquels équilibrer la charge.
 
 ## <a name="scaling-a-service"></a>Évolutivité d’un service
 Une fois qu’un service est déployé dans un cluster Swarm, les instances de conteneur composant ce service sont déployées dans le cluster. Par défaut, le nombre d’instances de conteneur soutenant un service, autrement dit le nombre de «réplicas» ou de «tâches» d’un service, est de une. Toutefois, un service peut être créé avec plusieurs tâches à l’aide de l’option `--replicas` pour la commande `docker service create` ou en mettant à l’échelle le service après sa création.
@@ -181,7 +181,7 @@ C:\> docker swarm init --advertise-addr=<HOSTIPADDRESS> --listen-addr <HOSTIPADD
 Pour lancer un Service Docker vers un cluster Swarm à systèmes d’exploitation mixtes, il faut pouvoir distinguer ceux des nœuds qui exécutent le système d’exploitation pour lequel ce service est conçu, et ceux qui ne le sont pas. Les [étiquettes d’objet docker](https://docs.docker.com/engine/userguide/labels-custom-metadata/) sont un moyen utile d’étiqueter les nœuds. Les services peuvent ainsi être créés et configurés de manière à ne s’exécuter que sur les nœuds qui correspondent à leur système d’exploitation. 
 
 >[!NOTE]
->[Étiquettes d’objet docker](https://docs.docker.com/engine/userguide/labels-custom-metadata/) peut être utilisé pour appliquer des métadonnées d’une variété d’objets Docker (y compris les réseaux, les conteneurs, les volumes et les images de conteneur) et pour diverses raisons (par exemple, les étiquettes peuvent être utilisés pour séparer les «front-end» et les composants «back-end» de une application, en permettant à microservices front-end pour être secheduled uniquement sur «front-end» étiquetés nœuds et mircoservices back-end uniquement sur «back-end» intitulée des nœuds de la planification). Dans ce cas, nous utiliserons les étiquettes sur des nœuds afin de distinguer les nœuds du système d’exploitation Windows et ceux du système d’exploitation Linux.
+>Les [étiquettes d’objet](https://docs.docker.com/engine/userguide/labels-custom-metadata/) de l’ancrage peuvent être utilisées pour appliquer des métadonnées à un large éventail d’objets d’amarrage (y compris les images, conteneurs, volumes et réseaux) et pour différentes raisons (par exemple, les étiquettes peuvent être utilisées pour séparer les composants «frontal» et «principal» de une application, en permettant aux microservices dorsaux d’être secheduled uniquement sur des nœuds marqués et des mircoservices dorsaux pour être planifiés uniquement sur les nœuds marqués du serveur principal. Dans ce cas, nous utiliserons les étiquettes sur des nœuds afin de distinguer les nœuds du système d’exploitation Windows et ceux du système d’exploitation Linux.
 
 Pour étiqueter vos nœuds de clusters Swarm existants, utilisez la syntaxe suivante:
 

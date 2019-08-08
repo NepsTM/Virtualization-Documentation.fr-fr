@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9238389-7028-4015-8140-27253b156f37
-ms.openlocfilehash: c7a6462b331f469148eb4cf5a0a2740c9929fa29
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 1348b9923d9de1314818f13414abdacee2cb9735
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576800"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998606"
 ---
 # <a name="create-a-custom-virtual-machine-gallery"></a>Créer une bibliothèque d’ordinateurs virtuels personnalisée
 
@@ -103,7 +103,7 @@ Images:
 
 Et, bien entendu, votre ordinateur virtuel (.iso ou .vhdx).
 
-Pour générer les hachages, vous pouvez utiliser la commande powershell suivante:
+Pour générer les hachages, vous pouvez utiliser la commande PowerShell suivante:
 
   ``` PowerShell
   Get-FileHash -Path .\TMLogo.jpg -Algorithm SHA256

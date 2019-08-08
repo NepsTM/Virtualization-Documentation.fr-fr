@@ -1,5 +1,5 @@
 ---
-title: Mise en réseau de conteneur Windows
+title: Gestion des conteneurs Windows
 description: Présentation de l’architecture des réseaux de conteneur Windows.
 keywords: docker, conteneurs
 author: jmesser81
@@ -8,17 +8,17 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: ac0088995dfbda73351d39a494435c431e0939e7
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: cff56843a0eeb48ca5d19b694eb8eb4e758002aa
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576330"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998456"
 ---
-# <a name="windows-container-networking"></a>Mise en réseau de conteneur Windows
+# <a name="windows-container-networking"></a>Gestion des conteneurs Windows
 
 >[!IMPORTANT]
->Veuillez vous reporter à [Mise en réseau de conteneur Docker](https://docs.docker.com/engine/userguide/networking/) pour la mise en réseau de commandes, les options et syntax.* ** à l’exception des cas décrits dans [non pris en charge des fonctionnalités et options réseau](#unsupported-features-and-network-options), Docker toutes les commandes de mise en réseau de docker en général prise en charge sur Windows avec la même syntaxe que sur Linux. Toutefois, les piles réseau Windows et Linux sont différentes, et par conséquent, vous constaterez que certaines commandes réseau de Linux (par exemple, ifconfig) ne sont pas pris en charge sur Windows.
+>Référez-vous à la rubrique [mise en réseau des conteneurs](https://docs.docker.com/engine/userguide/networking/) d’arrimeurs pour les commandes, les options et la syntaxe du réseau de l’ancrage général. * * * sauf si les cas décrits dans les [fonctionnalités non prises en charge et les options réseau](#unsupported-features-and-network-options)sont pris en charge sur Windows avec la même syntaxe que dans Linux. Toutefois, les piles réseau Windows et Linux sont différentes, ce qui vous permet de constater que certaines commandes réseau Linux (par exemple, ifconfig) ne sont pas prises en charge sur Windows.
 
 ## <a name="basic-networking-architecture"></a>Architecture de mise en réseau de base
 
@@ -30,8 +30,8 @@ Lors de sa première exécution, le moteur Docker crée un réseau NAT par défa
 
 ![texte](media/docker-network-ls.png)
 
-- Un vSwitch **interne** est une application qui n’est pas connecté directement à une carte réseau sur l’hôte de conteneur.
-- Un commutateur virtuel **externe** est une application qui est connecté directement à une carte réseau sur l’hôte de conteneur.
+- Un vswitch **interne** est un vswitch qui n’est pas directement connecté à une carte réseau sur l’hôte de conteneur.
+- Un vswitch **externe** est un vswitch qui est connecté directement à une carte réseau sur l’hôte de conteneur.
 
 ![texte](media/get-vmswitch.png)
 
@@ -64,13 +64,13 @@ Le service HNS et le service de calcul hôte (HCS) fonctionnent ensemble pour cr
 
 ## <a name="unsupported-features-and-network-options"></a>Fonctionnalités et options réseau non prises en charge
 
-Les options de mise en réseau suivantes ne sont actuellement **pas** pris en charge sur Windows:
+Les options de mise en réseau suivantes ne sont actuellement **pas** prises en charge sur Windows:
 
-- Les conteneurs Windows connectés à des réseaux de superposition, NAT et l2bridge ne gèrent pas la communication par la pile IPv6.
-- Chiffrements conteneur via IPsec.
-- Prise en charge des proxy HTTP pour les conteneurs.
-- Attacher des points de terminaison à l’exécution dans l’isolation Hyper-V (ajout à chaud).
-- Mise en réseau sur une infrastructure virtualisée Azure via le pilote de réseau transparent.
+- Les conteneurs Windows attachés aux réseaux l2bridge, NAT et Overlay ne prennent pas en charge la communication via la pile IPv6.
+- Communication de conteneurs chiffrés via IPsec.
+- Prise en charge du proxy HTTP pour les conteneurs.
+- Attachement de points de terminaison à exécuter avec l’isolation Hyper-V (ajout à chaud).
+- Mise en réseau sur l’infrastructure Azure virtuelle via le pilote réseau transparent.
 
 | Commande        | Option non prise en charge   |
 |---------------|:--------------------:|

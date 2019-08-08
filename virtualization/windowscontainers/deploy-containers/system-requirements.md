@@ -7,12 +7,12 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: d3df0631a8a61db16ad207f49163a7304c5db717
-ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
+ms.openlocfilehash: 5fc9b5c9135e87a0d3246952c35c9755e9ad209e
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "9681049"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998466"
 ---
 # <a name="windows-container-requirements"></a>Configuration requise pour un conteneur Windows
 
@@ -21,72 +21,21 @@ Ce guide présente la configuration requise pour un hôte de conteneur Windows.
 ## <a name="os-requirements"></a>Configuration requise pour le système d’exploitation
 
 - La fonctionnalité conteneur Windows est uniquement disponible sur Windows Server 2016 (Core et avec expérience de bureau), Windows 10 professionnel et entreprise (édition anniversaire) et versions ultérieures.
-<<<<<<< HEAD
 - Le rôle Hyper-V doit être installé avant d’exécuter l’isolement Hyper-V
 - Sur les hôtes de conteneur Windows Server, Windows doit être installé sur C:\. Cette restriction ne s’applique pas si seuls les conteneurs isolés Hyper-V seront déployés.
-=======
-- Le rôle Hyper-V doit être installé avant d’exécuter des conteneurs avec l’isolation Hyper-V.
-- Sur les hôtes de conteneur Windows Server, Windows doit être installé sur C:\. Cette restriction ne s’applique pas si seuls les conteneurs Hyper-V sont déployés.
->>>>>>> origine/maître
 
 ## <a name="virtualized-container-hosts"></a>Hôtes de conteneur virtualisés
 
-<<<<<<< HEAD si un hôte de conteneur Windows sera exécuté à partir d’une machine virtuelle Hyper-V et sera également en hébergement d’isolement Hyper-V, la virtualisation imbriquée doit être activée. La virtualisation imbriquée présente la configuration requise suivante: = = = = = = si un hôte de conteneur Windows sera exécuté à partir d’une machine virtuelle Hyper-V et qu’il héberge également des conteneurs avec l’isolation Hyper-V, la virtualisation imbriquée doit être activée. La configuration requise pour la virtualisation imbriquée est la suivante:
->>>>>>> origine/maître
+Si un hôte de conteneur Windows sera exécuté à partir d’une machine virtuelle Hyper-V et hébergera également l’isolation Hyper-V, la virtualisation imbriquée doit être activée. La configuration requise pour la virtualisation imbriquée est la suivante:
 
 - Au moins 4 Go de RAM disponible pour l’hôte Hyper-V virtualisé.
 - Windows Server 2019, Windows Server version 1803, Windows Server version 1709, Windows Server 2016 ou Windows 10 sur le système hôte et Windows Server (complet, cœur) sur la machine virtuelle.
 - Un processeur Intel VT-x (cette fonctionnalité est actuellement disponible pour les processeurs Intel uniquement).
-<<<<<<< HEAD
 - L’ordinateur virtuel hôte de conteneur doit également disposer de deux processeurs virtuels.
 
 ## <a name="supported-base-images"></a>Images de base prises en charge
 
-<a name="windows-containers-are-offered-with-four-container-base-images-windows-server-core-nano-server-windows-and-iot-core-not-all-configurations-support-both-os-images-this-table-details-the-supported-configurations"></a>Les conteneurs Windows sont proposés avec quatre images de base conteneur: Windows Server Core, nano Server, Windows et IoT Core. Les configurations ne prennent pas toutes en charge les deux images de système d’exploitation. Ce tableau détaille les configurations prises en charge.
-=======
-- La machine virtuelle de l’hôte de conteneur doit aussi disposer d’au moins 2processeurs virtuels.
-
-## <a name="supported-base-images"></a>Images de base prises en charge
-
 Les conteneurs Windows sont proposés avec quatre images de base conteneur: Windows Server Core, nano Server, Windows et IoT Core. Les configurations ne prennent pas toutes en charge les deux images de système d’exploitation. Ce tableau détaille les configurations prises en charge.
-
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:75%" cellpadding="5" cellspacing="5">
-<thead>
-<tr valign="top">
-<th><center>Système d’exploitation invité</center></th>
-<th><center>Conteneur WindowsServer</center></th>
-<th><center>Isolation Hyper-V</center></th>
-</tr>
-</thead>
-<tbody>
-<tr valign="top">
-<td><center>Windows Server 2016/2019 (standard ou Datacenter)</center></td>
-<td><center>Serveur principal, nano Server, Windows</center></td>
-<td><center>Serveur principal, nano Server, Windows</center></td>
-</tr>
-<tr valign="top">
-<td><center>Nano Server<a href="#warn-1">*</a></center></td>
-<td><center> Nano Server</center></td>
-<td><center>Serveur principal, nano Server, Windows</center></td>
-</tr>
-<tr valign="top">
-<td><center>Windows10 Professionnel / Entreprise</center></td>
-<td><center>Windows<a href="#warn-2">**</a></center></td>
-<td><center>Serveur principal, nano Server, Windows</center></td>
-</tr>
-<tr valign="top">
-<td><center>IoT Standard</center></td>
-<td><center>IoT Standard</center></td>
-<td><center>Non disponible</center></td>
-</tr>
-</tbody>
-</table>
-
-> [!Warning]  
-> <span id="warn-1">* Depuis Windows Server, la version 1709 de nano Server n’est plus disponible en tant qu’hôte de conteneur.</span>
-
-> <span id="warn-2">* * Nécessite la mise à jour de Windows 10 octobre 2018 et l’utilisation directe d’un `--isolation=process` indicateur lors de l’exécution de vos `docker run`conteneurs via.</span>
->>>>>>> origine/maître
 
 |Système d’exploitation hôte|Conteneur Windows|Isolation Hyper-V|
 |---------------------|-----------------|-----------------|

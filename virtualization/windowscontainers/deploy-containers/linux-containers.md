@@ -1,69 +1,69 @@
 ---
 title: Conteneurs Linux sur Windows
-description: Découvrez les différentes façons, que vous pouvez utiliser Hyper-V pour exécuter des conteneurs Linux sur Windows, comme si elles sont natives.
-keywords: LCOW, des conteneurs linux, docker, conteneurs
+description: Découvrez les différentes façons dont vous pouvez utiliser Hyper-V pour exécuter des conteneurs Linux sur Windows comme s’ils étaient en natif.
+keywords: LCOW, conteneurs Linux, ancrage, conteneurs
 author: scooley
 ms.date: 11/02/2018
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: edfd11c8-ee99-42d8-9878-efc126fe1826
-ms.openlocfilehash: 8597a93f035f5e451df8176d1563299120c95cb8
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 0426b14c423c06a0f12ea91529ce794f7a972f47
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578420"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998476"
 ---
 # <a name="linux-containers-on-windows"></a>Conteneurs Linux sur Windows
 
-Conteneurs Linux constituent un pourcentage considérable de l’écosystème de conteneurs globale et sont essentiels à la fois des expériences de développeur et des environnements de production.  Dans la mesure où les conteneurs partagent un noyau avec l’hôte de conteneur, toutefois, en cours d’exécution des conteneurs Linux directement sur Windows n’est pas une option[*](linux-containers.md#other-options-we-considered).  Il s’agit là qu’intervient la virtualisation dans l’image.
+Les conteneurs Linux constituent un pourcentage considérable de l’écosystème global du conteneur et sont fondamentaux pour les expériences des développeurs et les environnements de production.  Étant donné que les conteneurs partagent un noyau avec l’hôte de conteneur, il n’est pas possible[*](linux-containers.md#other-options-we-considered)d’exécuter des conteneurs Linux directement sur Windows.  C’est ici que la virtualisation est proposée dans l’image.
 
-Maintenant, il existe deux façons d’exécuter des conteneurs Linux avec Docker pour Windows et Hyper-v:
+Il existe deux façons d’exécuter des conteneurs Linux avec le Dockr pour Windows et Hyper-V:
 
-1. Exécuter des conteneurs Linux dans une VM Linux complet - c’est ce que Docker en règle générale, dès aujourd'hui.
-1. Exécuter des conteneurs Linux avec [isolation Hyper-V](../manage-containers/hyperv-container.md) (LCOW) - il s’agit une nouvelle option de Docker pour Windows.
+1. Exécutez des conteneurs Linux dans une station virtuelle Linux complète, c’est la version d’arrimeur qui est la plus courante.
+1. Exécuter des conteneurs Linux avec l' [isolation Hyper-V](../manage-containers/hyperv-container.md) (LCOW)-il s’agit d’une nouvelle option dans docker pour Windows.
 
-Cet article explique comment chaque approche fonctionne, fournit des indications sur quand opter pour que la solution et des partages de travail en cours.
+Cet article décrit le fonctionnement de chaque approche, fournit des recommandations sur le moment où choisir la solution et partager le travail en cours.
 
-## <a name="linux-containers-in-a-moby-vm"></a>Conteneurs Linux dans une VM Moby
+## <a name="linux-containers-in-a-moby-vm"></a>Conteneurs Linux dans un VM Moby
 
-Pour exécuter des conteneurs Linux dans une VM Linux, suivez les instructions du [guide de get-démarré de Docker](https://docs.docker.com/docker-for-windows/).
+Pour exécuter les conteneurs Linux dans un VM Linux, suivez les instructions du [Guide de démarrage de l'](https://docs.docker.com/docker-for-windows/)outil de connexion.
 
-Docker a été en mesure d’exécuter des conteneurs Linux sur Windows desktop dans la mesure où il a été relâché tout d’abord dans 2016 (avant que l’isolation Hyper-V ou LCOW soient disponibles) à l’aide d’un [LinuxKit](https://github.com/linuxkit/linuxkit) basée sur machine virtuelle en cours d’exécution sur Hyper-V.
+L’arrimeur a pu exécuter des conteneurs Linux sur le bureau Windows, car il a été lancé pour la première fois dans 2016 (avant l’isolement Hyper-V ou LCOW étaient disponibles) à l’aide d’une machine virtuelle [LinuxKit](https://github.com/linuxkit/linuxkit) exécutée sur Hyper-v.
 
-Dans ce modèle, le Client Docker s’exécute sur le bureau Windows, mais les appels dans le démon Docker sur les VM Linux.
+Dans ce modèle, le client d’amarrage s’exécute sur un ordinateur de bureau Windows, mais il appelle le démon de l’amarrage de l’ordinateur virtuel Linux.
 
-![Moby VM en tant que l’hôte de conteneur](media/MobyVM.png)
+![Moby VM en tant qu’hôte de conteneur](media/MobyVM.png)
 
-Dans ce modèle, tous les conteneurs Linux partagent un hôte de conteneur basé sur Linux unique et tous les conteneurs Linux:
+Dans ce modèle, tous les conteneurs Linux partagent un hôte de conteneurs Linux unique et tous les conteneurs Linux:
 
-* Partagent un noyau entre eux et les VM Moby, mais pas avec l’hôte Windows.
-* Disposer de stockage cohérent et mise en réseau des propriétés avec des conteneurs Linux en cours d’exécution sur Linux (dans la mesure où ils s’exécutent sur un VM Linux).
+* Partagez un noyau entre eux et l’ordinateur virtuel Moby, mais pas avec l’hôte Windows.
+* Disposent de propriétés d’espace de stockage et de réseau cohérentes avec les conteneurs Linux s’exécutant sur Linux (dans la mesure où ils s’exécutent sur un VM Linux).
 
-Cela signifie également que l’hôte de conteneur Linux (Moby VM) doit exécuter démon Docker et toutes les dépendances du démon Docker.
+Par ailleurs, le processus de l’hôte de conteneur Linux (VM Moby) doit exécuter le démon de la station d’accueil et toutes les dépendances du démon de l’ancrage.
 
-Pour voir si vous exécutez avec Moby VM, consultez le Gestionnaire Hyper-V pour les VM Moby l’IU Gestionnaire Hyper-V ou en exécutant `Get-VM` dans une fenêtre PowerShell avec élévation de privilèges.
+Pour savoir si vous utilisez la version VM de Moby, activez le Gestionnaire Hyper-V pour Moby VM à l’aide de l’interface utilisateur du gestionnaire `Get-VM` Hyper-v ou en exécutant une fenêtre PowerShell avec élévation de privilèges.
 
 ## <a name="linux-containers-with-hyper-v-isolation"></a>Conteneurs Linux avec isolation Hyper-V
 
-Pour essayer LCOW, suivez les instructions de conteneur Linux dans [ce guide get-démarré](../quick-start/quick-start-windows-10.md)
+Pour essayer LCOW, suivez les instructions du conteneur Linux dans [ce guide](../quick-start/quick-start-windows-10.md) de mise en route
 
-Conteneurs Linux avec isolation Hyper-V s’exécutent chaque conteneur Linux (LCOW) dans un optimisé VM Linux avec juste assez du système d’exploitation pour exécuter des conteneurs.  Contrairement à l’approche Moby VM, chaque LCOW possède son propre noyau et son propre bac à sable de la machine virtuelle.  Ils sont également gérés directement par Docker sur Windows.
+Les conteneurs Linux disposant d’une isolation Hyper-V exécutent chaque conteneur Linux (LCOW) dans un ordinateur virtuel Linux optimisé doté d’un système d’exploitation suffisant pour exécuter des conteneurs.  Par contraste de l’approche de Moby VM, chaque LCOW dispose de son propre noyau et de son propre sandbox d’ordinateur virtuel.  Ils sont également gérés par l’arrimeur sur Windows directement.
 
 ![Conteneurs Linux avec isolation Hyper-V (LCOW)](media/lcow-approach.png)
 
-Examiner de plus près à la gestion des conteneurs la différence entre l’approche Moby VM et LCOW, dans le LCOW gestion des conteneurs modèle reste à Windows et chaque gestion LCOW se produit via GRPC et containerd.  Cela signifie que les conteneurs de distro Linux utilisent pour LCOW peut avoir un plus petit quantité inventaire.  Droit à présent, nous utilisons LinuxKit pour utilisent les conteneurs distro optimisé, mais les autres projets comme Kata créez similaire hautement optimisées Linux exactes (clair Linux) ainsi.
+Pour plus d’informations sur le fonctionnement de la gestion des conteneurs entre l’approche de la machine virtuelle Moby et LCOW, voir la gestion des conteneurs de modèles LCOW reste sur Windows et chaque gestion LCOW intervient via GRPC et conteneur.  Cela signifie que les conteneurs distro Linux utilisés pour LCOW peuvent présenter un inventaire plus petit.  Pour l’instant, nous utilisons LinuxKit pour l’utilisation des conteneurs distro optimisés, mais d’autres projets comme Kata développent des distros Linux similaires (en clair Linux).
 
-Voici un Examinons de près de chaque LCOW:
+Voici un exemple d’étude plus approfondie de chaque LCOW:
 
 ![Architecture LCOW](media/lcow.png)
 
-Pour voir si vous exécutez LCOW, accédez à `C:\Program Files\Linux Containers`. Si Docker est configuré pour utiliser LCOW, il y aura quelques fichiers ici contenant le distro LinuxKit minimal qui s’exécute dans chaque conteneur en cours d’exécution sous isolation Hyper-V.  Notez que les composants d’ordinateur virtuel optimisés sont moins de 100 Mo, beaucoup plus petite que l’image de LinuxKit dans Moby VM.
+Pour savoir si vous utilisez LCOW, accédez à `C:\Program Files\Linux Containers`. S’il est configuré pour utiliser LCOW, il y aura quelques fichiers contenant le minimum LinuxKit distro qui s’exécute dans chaque conteneur exécuté sous l’isolation Hyper-V.  Notez que les composants d’ordinateur virtuel optimisés sont inférieurs à 100 Mo, beaucoup plus petits que l’image LinuxKit dans l’ordinateur virtuel Moby.
 
 ### <a name="work-in-progress"></a>Travail en cours
 
-LCOW est en cours de développement actif. Suivre la progression en cours dans le projet Moby sur [GitHub](https://github.com/moby/moby/issues/33850)
+LCOW est sous développement actif. Suivre l’avancement en cours dans le projet Moby sur [GitHub](https://github.com/moby/moby/issues/33850)
 
 #### <a name="bind-mounts"></a>Lier des montages
 
@@ -85,7 +85,7 @@ Certaines ne sont pas totalement implémentés:
 * GetAttr: le nombre Nlink est toujours signalé comme étant2
 * Open: seuls les indicateurs ReadWrite, WriteOnly et ReadOnly sont implémentés
 
-Ces applications tous nécessitent le mappage de volume et seront démarrer pas ou ne s’exécutera pas correctement.
+Ces applications nécessitent tout le mappage de volume et ne démarrent pas ou ne s’exécutent pas correctement.
 
 * MySQL
 * PostgreSQL
@@ -96,33 +96,33 @@ Ces applications tous nécessitent le mappage de volume et seront démarrer pas 
 
 ### <a name="extra-information"></a>Informations supplémentaires
 
-[Blog de docker décrivant LCOW](https://blog.docker.com/2017/11/docker-for-windows-17-11/)
+[Blog de l’amarrage décrivant LCOW](https://blog.docker.com/2017/11/docker-for-windows-17-11/)
 
-[Vidéo de conteneur Linux](https://sec.ch9.ms/ch9/1e5a/08ff93f2-987e-4f8d-8036-2570dcac1e5a/LinuxContainer.mp4)
+[Vidéo conteneur Linux](https://sec.ch9.ms/ch9/1e5a/08ff93f2-987e-4f8d-8036-2570dcac1e5a/LinuxContainer.mp4)
 
-[Le noyau LCOW LinuxKit, ainsi que des instructions de génération](https://github.com/linuxkit/lcow)
+[LinuxKit LCOW-kernel plus instructions de génération](https://github.com/linuxkit/lcow)
 
-## <a name="when-to-use-moby-vm-vs-lcow"></a>Quand utiliser les VM Moby Visual Studio LCOW
+## <a name="when-to-use-moby-vm-vs-lcow"></a>Quand utiliser Moby VM ou LCOW
 
 ### <a name="when-to-use-moby-vm"></a>Quand utiliser Moby VM
 
-Droit à présent, nous vous recommandons la méthode Moby VM de conteneurs Linux aux personnes qui en cours d’exécution:
+Pour l’instant, nous vous recommandons d’utiliser la méthode VM Moby pour exécuter des conteneurs Linux aux personnes qui:
 
-- Choix d’un environnement de conteneur stable.  Il s’agit de la valeur par défaut de Docker pour Windows.
-- Exécuter des conteneurs Windows ou Linux, mais rarement les deux en même temps.
-- Sont complexes ou de la mise en réseau personnalisé exigences entre les conteneurs Linux.
-- N’ont pas besoin d’isolation de noyau (isolation Hyper-V) entre les conteneurs Linux.
+- Souhaitez un environnement de conteneur stable.  Il s’agit de l’option d’amarrage pour Windows par défaut.
+- Exécutez des conteneurs Windows ou Linux, mais rarement les deux en même temps.
+- Présentent des exigences de réseau complexes ou personnalisées entre les conteneurs Linux.
+- Vous n’avez pas besoin d’isolement du noyau (isolation Hyper-V) entre les conteneurs Linux.
 
-### <a name="when-to-use-lcow"></a>Quand utiliser LCOW
+### <a name="when-to-use-lcow"></a>Utilisation de LCOW
 
-Droit à présent, nous vous recommandons LCOW aux personnes qui:
+Pour l’instant, nous vous recommandons de LCOWer aux personnes qui:
 
-- Vous souhaitez tester les dernières technologies.
-- Exécuter des conteneurs Windows et Linux en même temps.
-- Besoin d’isolation de noyau (isolation Hyper-V) entre les conteneurs Linux.
+- Vous souhaitez tester notre technologie la plus récente.
+- Exécutez des conteneurs Windows et Linux en même temps.
+- Nécessite l’isolement du noyau (isolation Hyper-V) entre les conteneurs Linux.
 
-## <a name="other-options-we-considered"></a>Autres options que nous avons considéré
+## <a name="other-options-we-considered"></a>Autres options prises en considération
 
-Lorsque nous avons regardant façons d’exécuter des conteneurs Linux sur Windows, nous avons considéré WSL. Pour finir, nous avons choisi une approche basée sur la virtualisation afin que les conteneurs Linux sur Windows sont cohérentes avec des conteneurs Linux sur Linux. L’utilisation d’Hyper-V permet également LCOW plus sécurisée. Nous pouvons réévaluer à l’avenir, mais pour l’instant, LCOW vont continuer à utiliser Hyper-V.
+Pour exécuter les conteneurs Linux sur Windows, nous avons considéré WSL. Pour finir, nous avons opté pour une approche basée sur la virtualisation pour les conteneurs Linux sur Windows, avec les conteneurs Linux sur Linux. L’utilisation de Hyper-V rend LCOW plus sûr. Nous sommes susceptibles de réévaluer à l’avenir, mais pour l’instant, LCOW continuera à utiliser Hyper-V.
 
-Si vous avez des idées, veuillez envoyer des commentaires par le biais de GitHub ou UserVoice.  Nous sont particulièrement précieux commentaires sur l’expérience spécifique que vous souhaitez voir.
+Si vous avez des réflexions, envoyez des commentaires via GitHub ou UserVoice.  Nous aimerions particulièrement nous faire part de vos commentaires concernant l’interface que vous aimeriez voir.

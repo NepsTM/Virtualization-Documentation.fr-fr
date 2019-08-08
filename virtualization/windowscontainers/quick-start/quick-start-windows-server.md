@@ -8,33 +8,33 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: df0470fd44c823fe14411d6d3d29188e980d1780
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 665e6186ff5f9530f12ba3d0a400d82bcac755a7
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621197"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9999196"
 ---
 # <a name="windows-containers-on-windows-server"></a>Conteneurs Windows sur Windows Server
 
-Cet exercice vous guide par le biais de déploiement de base et l’utilisation de la fonctionnalité de conteneur Windows sur Windows Server 2019 et Windows Server 2016.
+Cet exercice décrit le déploiement de base et l’utilisation de la fonctionnalité de conteneur Windows sur Windows Server 2019 et Windows Server 2016.
 
-Dans ce démarrage rapide vous allez accomplir:
+Dans ce démarrage rapide, vous allez effectuer les opérations suivantes:
 
-1. L’activation de la fonctionnalité de conteneurs dans Windows Server
-2. L’installation de Docker
+1. Activation de la fonctionnalité conteneurs dans Windows Server
+2. Installation de l’amarrage
 3. Exécution d’un conteneur Windows simple
 
 Si vous voulez vous familiariser avec les conteneurs, vous trouverez des informations dans la rubrique [À propos des conteneurs](../about/index.md).
 
-Ce démarrage rapide est spécifique aux conteneurs Windows Server sur Windows Server 2019 et Windows Server 2016. Une documentation de démarrage rapide supplémentaire, incluant les conteneurs dans Windows10, est disponible dans la table des matières affichée à gauche dans cette page.
+Ce guide de démarrage rapide est spécifique aux conteneurs Windows Server sur Windows Server 2019 et Windows Server 2016. Une documentation de démarrage rapide supplémentaire, incluant les conteneurs dans Windows10, est disponible dans la table des matières affichée à gauche dans cette page.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vérifiez que vous respectez les exigences suivantes:
-- Un système informatique (physique ou virtuel) exécutant Windows Server 2019. Si vous utilisez Windows Server 2019 Insider Preview, mettez à jour vers la [Version d’évaluation de fenêtre Server 2019](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019 ).
+Veuillez vérifier que vous remplissez les conditions suivantes:
+- Un système informatique (physique ou virtuel) exécutant Windows Server 2019. Si vous utilisez Windows Server 2019 Insider Preview, effectuez une mise à jour vers la version d’évaluation de Windows [server 2019](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019 ).
 
-> Mises à jour critiques sont nécessaires dans l’ordre de la fonctionnalité de conteneur Windows pour fonctionner. Installez toutes les mises à jour avant de suivre ce didacticiel.
+> Des mises à jour critiques sont nécessaires pour que la fonctionnalité du conteneur Windows fonctionne. Installez toutes les mises à jour avant de suivre ce didacticiel.
 
 Si vous souhaitez effectuer un déploiement sur Azure, ce [modèle](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-server-container-tools/containers-azure-template) peut vous aider.
 
@@ -46,7 +46,7 @@ Si vous souhaitez effectuer un déploiement sur Azure, ce [modèle](https://gith
 
 ## <a name="install-docker"></a>Installer Docker
 
-Pour installer Docker, nous allons utiliser le [module PowerShell de fournisseur OneGet](https://github.com/oneget/oneget) qui fonctionne avec les fournisseurs pour effectuer l’installation--dans ce cas, le [MicrosoftDockerProvider](https://github.com/OneGet/MicrosoftDockerProvider). Le fournisseur active la fonctionnalité de conteneurs sur votre ordinateur. Vous installez également Docker, qui nécessite un redémarrage. Docker est nécessaire pour utiliser les conteneurs Windows. Il est constitué du moteur Docker et du client Docker.
+Pour installer l’ancrage, nous utiliserons le [module PowerShell du fournisseur OneGet](https://github.com/oneget/oneget) qui utilise les fournisseurs pour effectuer l’installation, dans le cas présent [MicrosoftDockerProvider](https://github.com/OneGet/MicrosoftDockerProvider). Le fournisseur active la fonctionnalité de conteneurs sur votre ordinateur. Vous installez également Docker, qui nécessite un redémarrage. Docker est nécessaire pour utiliser les conteneurs Windows. Il est constitué du moteur Docker et du client Docker.
 
 Ouvrez une session PowerShell avec élévation de privilèges, puis exécutez les commandes suivantes.
 
@@ -69,7 +69,7 @@ Restart-Computer -Force
 ```
 
 > [!TIP]
-> Si vous souhaitez mettre à jour Docker ultérieurement:
+> Si vous voulez mettre à jour l’ancrage ultérieurement:
 >  - Vérifiez la version installée avec `Get-Package -Name Docker -ProviderName DockerMsftProvider`
 >  - Trouvez la version actuelle avec `Find-Package -Name Docker -ProviderName DockerMsftProvider`
 >  - Lorsque vous êtes prêt, procédez à la mise à niveau `Install-Package -Name Docker -ProviderName DockerMsftProvider -Update -Force`, suivie de `Start-Service Docker`
@@ -106,7 +106,7 @@ Lorsque vous y êtes invité, choisissez l’option A pour télécharger toutes 
 
 Dans cet exercice, vous téléchargez un exemple d’image.NET préalablement créée à partir du Registre Docker Hub, puis vous déployez un conteneur simple qui exécute une application .NET «Hello World».  
 
-Utilisez la commande `docker run` pour déployer le conteneur.Net. Cette opération télécharge également l’image de conteneur, ce qui peut prendre plusieurs minutes. En fonction de la version de votre hôte de Windows Server, exécutez la commande suivante ci-dessous.
+Utilisez la commande `docker run` pour déployer le conteneur.Net. Cette opération télécharge également l’image de conteneur, ce qui peut prendre plusieurs minutes. En fonction de votre version hôte de Windows Server, exécutez la commande suivante.
 
 #### <a name="windows-server-2019"></a>Windows Server2019
 
@@ -173,4 +173,4 @@ Pour obtenir des informations détaillées sur la commande DockerRun, voir [Dock
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Découvrez comment automatiser les builds de conteneur et enregistrer des images](./quick-start-images.md)
+> [Découvrir comment automatiser les builds de conteneur et enregistrer les images](./quick-start-images.md)

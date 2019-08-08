@@ -1,59 +1,59 @@
 ---
 title: Plateforme de conteneur Windows
-description: En savoir plus sur les nouveaux conteneur blocs de construction disponibles dans Windows.
-keywords: LCOW, des conteneurs linux, docker, conteneurs, containerd, élément de rapport personnalisé, runhcs, runc
+description: En savoir plus sur les nouveaux blocs de construction de conteneur disponibles dans Windows.
+keywords: LCOW, conteneurs Linux, ancrage, conteneurs, conteneurs, élément de rapportateur, runhcs, Runc
 author: scooley
 ms.date: 11/19/2018
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: a0e62b32-0c4c-4dd4-9956-8056e9abd9e5
-ms.openlocfilehash: 74e22702aa4be30055b3f4f48c7fac926d793095
-ms.sourcegitcommit: 03e9203e9769997d8be3f66dc7935a3e5c0a83e1
+ms.openlocfilehash: 3107eb48dc9c75224b0c9dd9b436af6f0f451871
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621607"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998416"
 ---
-# <a name="container-platform-tools-on-windows"></a>Outils de plateforme de conteneur sur Windows
+# <a name="container-platform-tools-on-windows"></a>Outils de plateforme de conteneur sous Windows
 
-La plateforme de conteneur Windows est développé! Docker a été la première partie du voyage conteneur, maintenant que nous créons des autres outils de plateforme de conteneur.
+La plateforme de conteneur Windows s’étend! La station d’accueil fut la première partie du voyage du conteneur, nous créons maintenant d’autres outils de plateforme de conteneur.
 
-* [élément de rapport containerd/personnalisé](https://github.com/containerd/cri) - nouveau dans Windows Server 2019/Windows 10 1809.
-* [runhcs](https://github.com/Microsoft/hcsshim/tree/master/cmd/runhcs) - un équivalent d’hôte de conteneur Windows pour runc.
-* [hcs](https://docs.microsoft.com/virtualization/api/) - le Service de calcul hôte + un shim pratique pour rendre plus facile à utiliser.
+* [conteneur/élément personnalisé](https://github.com/containerd/cri) -nouveautés dans Windows Server 2019/Windows 10 1809.
+* [runhcs](https://github.com/Microsoft/hcsshim/tree/master/cmd/runhcs) -homologue d’hôte de conteneur Windows Runc.
+* [HCS](https://docs.microsoft.com/virtualization/api/) : les services de calcul d’hôte + les shims pratiques pour faciliter leur utilisation.
   * [hcsshim](https://github.com/microsoft/hcsshim)
   * [dotnet-computevirtualization](https://github.com/microsoft/dotnet-computevirtualization)
 
-Cet article parler de la plateforme de conteneur Windows et Linux, ainsi que chaque outil de plate-forme de conteneur.
+Cet article parle de la plateforme de conteneurs Windows et Linux ainsi que de chaque outil de plateforme de conteneur.
 
-## <a name="windows-and-linux-container-platform"></a>Plateforme de conteneur Windows et Linux
+## <a name="windows-and-linux-container-platform"></a>Plateforme de conteneurs Windows et Linux
 
-Dans les environnements Linux, les outils de gestion de conteneur comme Docker reposent sur un ensemble plus précis des outils de conteneur: [runc](https://github.com/opencontainers/runc) et [containerd](https://containerd.io/).
+Dans les environnements Linux, les outils de gestion des conteneurs tels que les dockers sont basés sur un ensemble plus granulaire d’outils de conteneur: [Runc](https://github.com/opencontainers/runc) et [conteneur](https://containerd.io/).
 
-![Architecture de docker sur Linux](media/docker-on-linux.png)
+![Architecture de l’ancrage sur Linux](media/docker-on-linux.png)
 
-`runc` est un outil de ligne de commande Linux pour la création et de conteneurs en fonction de la [spécification du runtime OCI conteneur](https://github.com/opencontainers/runtime-spec)en cours d’exécution.
+`runc` est un outil de ligne de commande Linux permettant de créer et d’exécuter des conteneurs conformément à la [spécification d’exécution du conteneur OCI](https://github.com/opencontainers/runtime-spec).
 
-`containerd` est un démon qui gère le cycle de vie de conteneur de télécharger et décompresser l’image de conteneur à l’exécution du conteneur et de surveillance.
+`containerd` est un démon qui gère le cycle de vie d’un conteneur de télécharger et de décompresser l’image du conteneur vers l’exécution et la surveillance du conteneur.
 
-Sur Windows, nous avons une approche différente.  Lorsque nous avons commencé à travailler avec Docker pour prendre en charge des conteneurs Windows, nous avons créé directement sur le HCS (Host Compute Service).  [Ce billet de blog](https://techcommunity.microsoft.com/t5/Containers/Introducing-the-Host-Compute-Service-HCS/ba-p/382332) est plein d’informations sur la raison pour laquelle nous avons créé le HCS et pourquoi nous avons effectué cette approche aux conteneurs initialement.
+Sur Windows, nous avons adopté une approche différente.  Lorsque nous avons commencé à utiliser l’arrimeur pour prendre en charge les conteneurs Windows, nous avons intégré directement sur le HCS (Host Compute service).  [Ce billet de blog](https://techcommunity.microsoft.com/t5/Containers/Introducing-the-Host-Compute-Service-HCS/ba-p/382332) correspond à des informations sur les raisons pour lesquelles nous avons créé le HCS et pourquoi nous avons adopté cette approche aux conteneurs au départ.
 
-![Architecture de départ de moteur Docker sur Windows](media/hcs.png)
+![Architecture initiale du moteur de l’ancrage sur Windows](media/hcs.png)
 
-À ce stade, Docker appelle toujours directement dans le HCS. À l’avenir, toutefois, les outils de gestion conteneur étend pour inclure les conteneurs Windows et les fenêtres hôte de conteneur peut appeler containerd et runhcs la manière qu’ils appellent sur containerd et runc sur Linux.
+À ce stade, l’arrimeur continue à appeler directement dans le HCS. En revanche, les outils de gestion des conteneurs qui s’étendent à l’inclusion de conteneurs Windows et de l’hôte de conteneur Windows pouvaient appeler le conteneur et runhcs la façon dont ils appellent le conteneur et Runc sur Linux.
 
 ## <a name="runhcs"></a>runhcs
 
-`runhcs` représente une branche de `runc`.  Comme `runc`, `runhcs` est un client de ligne de commande pour exécuter des applications empaquetées en fonction du format ouvert conteneur Initiative (OCI) et est une implémentation conforme de la spécification ouverte Initiative de conteneur.
+`runhcs` est une fourche de `runc`.  Par `runc`exemple `runhcs` , il s’agit d’un client de ligne de commande pour exécuter des applications empaquetées conformément au format OCI (Open Container initiative) et est une implémentation conforme de la spécification d’initiative de conteneur ouvert.
 
-Différences fonctionnelles entre runc et runhcs sont les suivantes:
+Les différences fonctionnelles entre Runc et runhcs sont les suivantes:
 
 * `runhcs` s’exécute sur Windows.  Il communique avec le [HCS](containerd.md#hcs) pour créer et gérer des conteneurs.
-* `runhcs` peut s’exécuter une variété de types de conteneurs différents.
+* `runhcs` peut exécuter différentes sortes de conteneurs.
 
-  * Windows et Linux [isolation Hyper-V](../manage-containers/hyperv-container.md)
-  * Windows traite les conteneurs (image de conteneur doit correspondre à l’hôte de conteneur)
+  * [Isolement Hyper-V](../manage-containers/hyperv-container.md) Windows et Linux
+  * Conteneurs de processus Windows (l’image de conteneur doit correspondre à l’hôte de conteneur)
 
 **Utilisation:**
 
@@ -61,71 +61,71 @@ Différences fonctionnelles entre runc et runhcs sont les suivantes:
 runhcs run [ -b bundle ] <container-id>
 ```
 
-`<container-id>` est le nom de l’instance du conteneur que Démarrer. Le nom doit être unique sur votre hôte de conteneur.
+`<container-id>` correspond à votre nom de l’instance de conteneur que vous démarrez. Ce nom doit être unique sur votre hôte de conteneur.
 
-Le répertoire d’un ensemble d’applications (à l’aide de `-b bundle`) est facultative.  
-À l’instar des runc, les conteneurs sont configurées à l’aide des ensembles d’applications. Un ensemble d’applications d’un conteneur est le répertoire contenant le fichier de spécification du conteneur OCI, «config.json».  La valeur par défaut pour «offre groupée» est le répertoire actif.
+L’annuaire d’offres ( `-b bundle`en utilisant) est facultatif.  
+Comme pour Runc, les conteneurs sont configurés à l’aide d’ensembles. Un paqueteur de conteneur est le répertoire contenant le fichier de spécification OCI du conteneur, «config. JSON».  La valeur par défaut de «Bundle» est le répertoire actif.
 
-Le fichier spécification OCI, «config.json», doit avoir deux champs de s’exécuter correctement:
+Le fichier spec OCI, «config. JSON», doit comporter deux champs qui s’exécutent correctement:
 
 * Un chemin d’accès à l’espace de travail du conteneur
-* Un chemin d’accès au répertoire de couche du conteneur
+* Chemin d’accès au répertoire des couches du conteneur
 
-Commandes de conteneur disponibles dans runhcs sont les suivantes:
+Les commandes de conteneur disponibles dans runhcs sont les suivantes:
 
 * Outils pour créer et exécuter un conteneur
-  * **exécutez** crée et s’exécute un conteneur
-  * **créer** de créer un conteneur
+  * **exécuter** crée et exécute un conteneur
+  * **créer** un conteneur
 
-* Outils pour gérer le processus qui s’exécutent dans un conteneur:
-  * **Démarrer** exécute le processus défini par l’utilisateur dans un conteneur créé
-  * **Exec** s’exécute un nouveau processus à l’intérieur du conteneur
-  * **Suspendre** la mise en pause interrompt l’exécution de tous les processus à l’intérieur du conteneur
-  * **reprendre** reprend l’exécution de tous les processus qui ont été précédemment suspendus
-  * **PS** ps affiche les processus en cours d’exécution à l’intérieur d’un conteneur
+* Outils permettant de gérer les processus en cours d’exécution dans un conteneur:
+  * **commencer** exécute le processus défini par l’utilisateur dans un conteneur créé
+  * **Exec** exécute un nouveau processus à l’intérieur du conteneur
+  * **Pause** suspendre interrompt tous les processus à l’intérieur du conteneur
+  * **reprise** reprise de tous les processus déjà en pause
+  * **PS** PS affiche les processus en cours d’exécution au sein d’un conteneur
 
-* Outils pour gérer l’état d’un conteneur
-  * **état** génère l’état d’un conteneur
-  * **Arrêter** envoie le signal spécifié (par défaut: SIGTERM) pour le processus d’initialisation du conteneur
-  * **Delete** supprime toutes les ressources détenues par le conteneur souvent utilisé avec des conteneurs détachés
+* Outils permettant de gérer l’état d’un conteneur
+  * **État** génère l’état d’un conteneur
+  * **Kill** envoie le signal spécifié (par défaut: SIGTERM) au processus init du conteneur.
+  * la **suppression** supprime toutes les ressources détenues par le conteneur souvent utilisées avec le conteneur détaché.
 
-La seule commande qui peut être considérée comme conteneur multiples est la **liste**.  Il répertorie les conteneurs en cours d’exécution ou suspendus démarrés par runhcs avec la racine donnée.
+La seule commande qui aurait pu être considérée comme plusieurs conteneurs est **liste**.  Il recense les conteneurs en cours d’exécution ou suspendus démarrés par runhcs avec la racine spécifiée.
 
 ### <a name="hcs"></a>HCS
 
-Nous avons deux wrappers disponibles sur GitHub pour communiquer avec le HCS. Dans la mesure où le HCS est une API C, wrappers facilitent appeler le HCS à partir des langages de niveau supérieur.  
+Nous avons deux wrappers disponibles sur GitHub pour communiquer avec HCS. Dans la mesure où HCS est une API C, les wrappers permettent d’appeler facilement HCS à partir de langues de niveau supérieur.  
 
-* [hcsshim](https://github.com/microsoft/hcsshim) - HCSShim est écrit dans l’emploi et il est à la base de runhcs.
-Obtenir la dernière version à partir de AppVeyor ou créer une vous-même.
-* [dotnet-computevirtualization](https://github.com/microsoft/dotnet-computevirtualization) -dotnet-computevirtualization est un wrapper pour le HCS en c#.
+* [hcsshim](https://github.com/microsoft/hcsshim) -hcsshim est écrit dans Go et il s’agit de la base pour runhcs.
+Procurez-vous la dernière version de AppVeyor ou créez-la vous-même.
+* [dotnet-computevirtualization](https://github.com/microsoft/dotnet-computevirtualization) -dotnet-computevirtualization est un wrapper C# pour HCS.
 
-Si vous souhaitez utiliser le HCS (directement ou via un wrapper), ou si vous voulez rendre un wrapper rouille/Haskell/InsertYourLanguage autour de la HCS, veuillez laisser un commentaire.
+Si vous souhaitez utiliser le HCS (directement ou via un Wrapper), ou si vous souhaitez créer un wrapper rouille/Haskell/InsertYourLanguage dans l’HCS, laissez un commentaire.
 
-Pour une vue plus approfondie le HCS, regardez la [Présentation de DockerCon de John Stark](https://www.youtube.com/watch?v=85nCF5S8Qok).
+Pour obtenir une vue d’examen plus approfondie du HCS, regardez la [Présentation DockerCon de Jean](https://www.youtube.com/watch?v=85nCF5S8Qok).
 
-## <a name="containerdcri"></a>élément de rapport containerd/personnalisé
+## <a name="containerdcri"></a>contenant/personnalisé
 
 > [!IMPORTANT]
-> Prise en charge de l’élément de rapport personnalisé est uniquement disponible dans Server 2019/Windows 10 1809 et versions ultérieures.  Nous développons également activement containerd pour Windows.
-> Développement/test uniquement.
+> La prise en charge de l’élément personnalisé est uniquement disponible dans Server 2019/Windows 10 1809 et les versions ultérieures.  Il est également possible de développer activement des conteneurs pour Windows.
+> Dev/test only.
 
-Tandis que les spécifications OCI définit un conteneur unique, [élément de rapport personnalisé](https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/apis/cri/runtime/v1alpha2/api.proto) (interface de runtime de conteneur) décrit les conteneurs en tant que workload(s) dans un bac à sable partagé environnement appelé un pod.  PODS peuvent contenir un ou plusieurs charges de travail de conteneur.  PODS permettent d’orchestrateurs comme Kubernetes et Service Fabric maillage gérer des charges de travail groupées qui doivent se trouver sur le même hôte avec certaines ressources partagées, telles que la mémoire et vNETs.
+Tandis que les spécifications OCI définissent un conteneur unique, l' [élément de rapport personnalisé](https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/apis/cri/runtime/v1alpha2/api.proto) (interface runtime du conteneur) décrit les conteneurs comme une charge de travail dans un environnement de bac à sable partagé appelé pod.  Les Pod peuvent contenir une ou plusieurs charges de travail de conteneur.  Les gousses permettent aux de conteneurs comme Kubernetes et de maille de service de maille de traiter des charges de travail groupées qui doivent se trouver sur le même hôte avec des ressources partagées, telles que la mémoire et vNETs.
 
-containerd/élément de rapport personnalisé permet la matrice de compatibilité suivante pour pods:
+conteneur/élément d’élément personnalisé active la matrice de compatibilité suivante pour les Pod:
 
-| Système d’exploitation hôte | Conteneur du système d’exploitation | Isolation | Prise en charge de POD? |
+| Système d’exploitation hôte | Système d’exploitation du conteneur | Problèmes | Support Pod |
 |:-------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| <ul><li>Windows Server 2019/1809</ul></li><ul><li>Windows 10 1809</ul></li> | Linux | `hyperv` | Oui, prend en charge true multiconteneurs pods. |
-|  | Windows Server 2019/1809 | `process`* ou `hyperv` | Oui, prend en charge la valeur true multiconteneurs pods si chaque conteneur de charge de travail du système d’exploitation correspond à l’utilitaire de système d’exploitation de l’ordinateur virtuel. |
-|  | Windows Server 2016,</br>Windows Server 1709,</br>Windows Server 1803 | `hyperv` | Partielle, prend en charge de pod bacs à sable pouvant prendre en charge un conteneur isolé du processus unique par l’utilitaire VM si le système d’exploitation de conteneur correspond à l’utilitaire de système d’exploitation de l’ordinateur virtuel. |
+| <ul><li>Windows Server 2019/1809</ul></li><ul><li>Windows 10 1809</ul></li> | Linux | `hyperv` | Oui, prend en charge des gousses multiples. |
+|  | Windows Server 2019/1809 | `process`* ou `hyperv` | Oui, prend en charge des gousses multiples de conteneurs multiples si chaque système d’exploitation de conteneur de charge de travail correspond au système d’exploitation VM d’utilitaire. |
+|  | Windows Server 2016,</br>Windows Server 1709,</br>Windows Server 1803 | `hyperv` | Partielle: prend en charge les bacs à sable (sandbox) qui peuvent prendre en charge un conteneur de processus unique par ordinateur virtuel, si le système d’exploitation de conteneur correspond au système d’exploitation de l’utilitaire VM. |
 
-Hôtes \*Windows 10 prennent uniquement en charge l’isolation Hyper-V
+Les hôtes Windows 10 prennent uniquement en charge l’isolation Hyper-V
 
-Liens vers la spécification de l’élément de rapport personnalisé:
+Liens vers la spécification du rapport de rapport d’élément:
 
-* [RunPodSandbox](https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/apis/cri/runtime/v1alpha2/api.proto#L24) - Pod spécifications
-* [CreateContainer](https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/apis/cri/runtime/v1alpha2/api.proto#L47) - spécifications de la charge de travail
+* [RunPodSandbox](https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/apis/cri/runtime/v1alpha2/api.proto#L24) -Pod spec
+* [CreateContainer](https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/apis/cri/runtime/v1alpha2/api.proto#L47) -caractéristiques techniques de charge de travail
 
-![Containerd en fonction des environnements de conteneur](media/containerd-platform.png)
+![Environnements de conteneur basés sur un conteneur](media/containerd-platform.png)
 
-Tandis que runHCS et containerd peuvent gérer sur n’importe quel système Windows Server 2016 ou version ultérieure, prise en charge des Pods (groupes de conteneurs) requise changements importants sur les outils de conteneur dans Windows.  Prise en charge de l’élément de rapport personnalisé est disponible sur Windows Server 2019/Windows 10 1809 et versions ultérieures.
+Bien que runHCS et conteneur puissent gérer sur n’importe quel système Windows Server 2016 ou version ultérieure, la prise en charge de gousses (groupes de conteneurs) nécessitait de changer les outils de conteneur dans Windows.  La prise en charge de l’élément de rapport personnalisé est disponible sur Windows Server 2019/Windows 10 1809 et les versions ultérieures.

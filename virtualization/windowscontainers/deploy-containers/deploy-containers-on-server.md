@@ -8,22 +8,22 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
-ms.openlocfilehash: f4c6b37c6e33593be0237bd4059435a99c2bdd86
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: e045539b189eb8cd1594da0784ab0c88e848c948
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620827"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998776"
 ---
-# <a name="container-host-deployment-windows-server"></a>Déploiement d’un conteneur hôte: Windows Server
+# <a name="container-host-deployment-windows-server"></a>Déploiement d’hébergement de conteneur: Windows Server
 
 Les étapes du déploiement d’un hôte de conteneur Windows sont différentes selon le système d’exploitation et le type de système hôte (physique ou virtuel). Ce document décrit en détail le déploiement d’un hôte de conteneur Windows vers Windows Server2016 ou Windows Server Core2016, sur un système physique ou virtuel.
 
 ## <a name="install-docker"></a>Installer Docker
 
-Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker et le client Docker.
+Docker est nécessaire pour utiliser les conteneurs Windows. L’arrimeur se compose du moteur de l’ancrage et du client de l’ancrage.
 
-Pour installer Docker, nous allons utiliser le [module PowerShell de fournisseur OneGet](https://github.com/OneGet/MicrosoftDockerProvider). Le fournisseur Active la fonctionnalité de conteneurs sur votre ordinateur et installe Docker, ce qui nécessite un redémarrage.
+Pour installer docker, nous utilisons le [module PowerShell du fournisseur OneGet](https://github.com/OneGet/MicrosoftDockerProvider). Le fournisseur active la fonctionnalité conteneurs sur votre ordinateur et installateur, ce qui nécessite un redémarrage.
 
 Ouvrez une session PowerShell avec élévation de privilèges et exécutez les applets de commande suivantes.
 
@@ -45,54 +45,54 @@ Une fois l’installation terminée, redémarrez l’ordinateur.
 Restart-Computer -Force
 ```
 
-## <a name="install-a-specific-version-of-docker"></a>Installer une version spécifique de Docker
+## <a name="install-a-specific-version-of-docker"></a>Installer une version spécifique de docker
 
-Deux canaux sont actuellement disponibles pour Docker EE pour Windows Server:
+Deux canaux sont actuellement disponibles pour le docker EE pour Windows Server:
 
-* `17.06` : Utilisez cette version si vous utilisez Docker Enterprise Edition (moteur Docker, UCP, DTR). `17.06` est la valeur par défaut.
-* `18.03` : Utilisez cette version si vous exécutez Docker EE moteur seul.
+* `17.06` -Utilisez cette version si vous utilisez Dockr Enterprise Edition (moteur de l’amarrage, UCP, DTR). `17.06` est la valeur par défaut.
+* `18.03` -Utilisez cette version si vous exécutez le moteur Dockr EE uniquement.
 
-Pour installer une version spécifique, utilisez la `RequiredVersion` indicateur:
+Pour installer une version spécifique, utilisez l' `RequiredVersion` indicateur:
 
 ```PowerShell
 Install-Package -Name docker -ProviderName DockerMsftProvider -Force -RequiredVersion 18.03
 ```
 
-L’installation des versions spécifiques de Docker EE peut nécessiter une mise à jour des modules DockerMsftProvider précédemment installés. Pour mettre à jour:
+Pour installer des versions spécifiques de docker EE, il est possible que vous ayez besoin d’une mise à jour des modules DockerMsftProvider précédemment installés. Pour mettre à jour:
 
 ```PowerShell
 Update-Module DockerMsftProvider
 ```
 
-## <a name="update-docker"></a>Mise à jour Docker
+## <a name="update-docker"></a>Mettre à jour l’ancrage
 
-Si vous avez besoin mettre à jour du moteur de Docker EE à partir d’un canal antérieur à un canal ultérieure, utilisez à la fois le `-Update` et `-RequiredVersion` indicateurs:
+Si vous avez besoin de mettre à jour le moteur docker EE d’un canal antérieur vers un canal ultérieur `-Update` , `-RequiredVersion` utilisez les indicateurs et:
 
 ```PowerShell
 Install-Package -Name docker -ProviderName DockerMsftProvider -Update -Force -RequiredVersion 18.03
 ```
 
-## <a name="install-base-container-images"></a>Installer les images de conteneur de base
+## <a name="install-base-container-images"></a>Installer les images du conteneur de base
 
 Avant d’utiliser des conteneurs Windows, une image de base doit être installée. Les images de base sont disponibles avec Windows Server Core ou Nano Server comme système d’exploitation de conteneur. Pour plus d’informations sur les images de conteneur Docker, consultez [Créer vos propres images sur docker.com](https://docs.docker.com/engine/tutorials/dockerimages/).
 
-Depuis la publication de Windows Server 2019, les images de conteneur proviennent de Microsoft migrent vers un Registre appelé le Registre de conteneur de Microsoft. Publié par Microsoft des images de conteneur doivent continuer à être détecté via Docker Hub. De nouvelles images de conteneur publiés avec Windows Server 2019 et versions ultérieures, vous doivent se présenter pour extraire les règles d’ordinateurs gérés. Pour les images de conteneur plus anciens publiés avant Windows Server 2019, vous devez continuer à les collecter à partir du Registre de Docker.
+Avec la version de Windows Server 2019, les images de conteneur de sources Microsoft sont déplacées vers un nouveau registre appelé Registre de conteneurs Microsoft. Les images de conteneur publiées par Microsoft doivent rester découvertes par le biais du Hub de l’amarrage. Pour les nouvelles images de conteneur publiées avec Windows Server 2019 et les versions ultérieures, vous devez chercher à les récupérer à partir de la fonction de multifonction. Pour les images de conteneur plus anciennes publiées avant Windows Server 2019, vous devez continuer à les extraire du registre de l’ancrage.
 
 ### <a name="windows-server-2019-and-newer"></a>Windows Server 2019 et versions ultérieures
 
-Pour installer l’image de base 'Windows Server Core' exécutez la commande suivante:
+Pour installer l’image de base «Windows Server Core», exécutez la commande suivante:
 
 ```PowerShell
 docker pull mcr.microsoft.com/windows/servercore:ltsc2019
 ```
 
-Pour installer l’image de base 'Nano Server' exécutez la commande suivante:
+Pour installer l’image de base «nano Server», exécutez la commande suivante:
 
 ```PowerShell
 docker pull mcr.microsoft.com/windows/nanoserver:1809
 ```
 
-### <a name="windows-server-2016-versions-1607-1803"></a>Windows Server 2016 (versions 1607-1803)
+### <a name="windows-server-2016-versions-1607-1803"></a>Windows Server 2016 (version 1607-1803)
 
 Exécutez la commande suivante pour installer l’image de base Windows Server Core :
 
@@ -106,11 +106,11 @@ Pour installer l’image de base Nano Server, exécutez la commande suivante:
 docker pull microsoft/nanoserver
 ```
 
-> Veuillez lire les conteneurs Windows du système d’exploitation CLUF de l’image, qui sont disponibles ici: [CLUF](../images-eula.md).
+> Pour plus d’informations, consultez le CLUF sur l’image du système d’exploitation [](../images-eula.md)Windows Container.
 
-## <a name="hyper-v-isolation-host"></a>Hôte de l’isolation Hyper-V
+## <a name="hyper-v-isolation-host"></a>Hôte d’isolation Hyper-V
 
-Vous devez disposer du rôle Hyper-V pour exécuter l’isolation Hyper-V. Si l’hôte de conteneur Windows est lui-même une machine virtuelle Hyper-V, la virtualisation imbriquée doit être activée avant d’installer le rôle Hyper-V. Pour plus d’informations sur la virtualisation imbriquée, voir [Virtualisation imbriquée](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).
+Vous devez avoir le rôle Hyper-V pour exécuter l’isolation Hyper-V. Si l’hôte de conteneur Windows est lui-même une machine virtuelle Hyper-V, la virtualisation imbriquée doit être activée avant d’installer le rôle Hyper-V. Pour plus d’informations sur la virtualisation imbriquée, voir [Virtualisation imbriquée](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).
 
 ### <a name="nested-virtualization"></a>Virtualisation imbriquée
 

@@ -7,12 +7,12 @@ ms.date: 07/25/2017
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: 9cfb5cb062259e906ce499423619ec7a5b814ac9
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 08efc1092777e5649ecce4d978b056a4df644564
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620837"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998226"
 ---
 # <a name="build-a-sample-app"></a>Créer un exemple d’application
 
@@ -66,7 +66,7 @@ FROM microsoft/aspnetcore-build:1.1 AS build-env
 WORKDIR /app
 ```
 
-Ensuite, nous copions les fichiers.csproj dans le conteneur temporaire situé dans le répertoire «/app». Nous procédons ainsi car les fichiers .csproj contiennent une liste de références de package que nécessaires pour le projet.
+Ensuite, nous copions les fichiers.csproj dans le conteneur temporaire situé dans le répertoire «/app». C’est la raison pour laquelle les fichiers. csproj contiennent une liste de références de package dont nous avons besoin pour le projet.
 
 Une fois ce fichier copié, dotnet le lit, puis récupère toutes les dépendances et les outils nécessaires pour le projet.
 
@@ -128,7 +128,7 @@ En cliquant sur «MvcMovie» dans la barre de navigation, vous êtes redirigé v
 
 Après avoir récupéré une application web ASP.NET, nous l’avons correctement configurée et générée à l’aide de Docker, puis nous l’avons déployée dans un conteneur en cours d’exécution. Vous pouvez aller encore plus loin! Ainsi, vous pouvez diviser l’application web en plusieurs composants avec, par exemple, un conteneur qui exécute l’API web, un conteneur qui exécute le serveur frontal et un autre conteneur qui exécute le serveur SQL Server.
 
-Maintenant que vous avez le blocage de conteneurs et à créer de superbes applications logicielles en conteneur!
+Maintenant que vous êtes en train de mettre en place des conteneurs, Découvrez-le et développez un excellent logiciel.
 
 > [!div class="nextstepaction"]
-> [Consultez les autres exemples de conteneurs](../samples.md)
+> [Voir d’autres exemples de conteneurs](../samples.md)

@@ -8,22 +8,22 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
-ms.openlocfilehash: ea6b71200d3115ba3d156b2c133e1be2fa495261
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: ed96c7ba30c83906cd3245a279ab078229400d8d
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620917"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998726"
 ---
 # <a name="virtual-machine-automation-and-management-using-powershell"></a>Gestion et automatisation de machines virtuelles avec PowerShell
 
 PowerShell Direct vous permet d’exécuter du code PowerShell arbitraire dans une machine virtuelle Windows10 ou Windows Server2016 à partir de votre hôte Hyper-V, indépendamment de la configuration réseau ou des paramètres de gestion à distance.
 
-Voici quelques solutions que vous pouvez exécuter PowerShell Direct:
+Voici quelques-unes des façons dont vous pouvez exécuter PowerShell direct:
 
-* [En tant qu’une session interactive à l’aide de l’applet de commande Enter-PSSession](#create-and-exit-an-interactive-powershell-session)
-* [En tant qu’une section à usage unique pour exécuter une commande unique ou un script à l’aide de l’applet de commande Invoke-Command](#run-a-script-or-command-with-invoke-command)
-* [En tant que session persistante (build 14280 et ultérieures) à l’aide de New-PSSession, Copy-Item et les applets de commande Remove-PSSession](#copy-files-with-new-pssession-and-copy-item)
+* [En tant que session interactive à l’aide de l’applet de connexion Enter-PSSession](#create-and-exit-an-interactive-powershell-session)
+* [Comme une section à utilisation unique pour exécuter une commande unique ou un script à l’aide de l’applet de commande Invoke-Command](#run-a-script-or-command-with-invoke-command)
+* [En tant que session persistante (Build 14280 et versions ultérieures) à l’aide des applets de commande New-PSSession, Copy-Item et Remove-PSSession](#copy-files-with-new-pssession-and-copy-item)
 
 ## <a name="requirements"></a>Configuration requise
 **Configuration requise pour le système d’exploitation:**

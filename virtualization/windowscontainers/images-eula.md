@@ -19,4 +19,4 @@ Tous les droits qui ne sont pas expressément concédés par ce contrat sont ré
 
 En utilisant ce Supplément, vous reconnaissez accepter ces termes de contrat. Si vous ne les acceptez pas, n’utilisez pas ce Supplément.
 
-Dans le cadre du contrat de licence supplémentaires de cette Image de système d’exploitation de conteneur pour les conteneurs Windows, vous êtes également soumis aux sous-jacent Windows Server hôte software license terms, ce qui se trouvent dans: https://www.microsoft.com/useterms.  
+Dans le cadre des termes du contrat de licence supplémentaires pour cette image du système d’exploitation pour les conteneurs Windows, vous êtes également soumis aux termes du contrat de licence logiciel de l’hôte https://www.microsoft.com/usetermsWindows Server sous-jacents, qui se trouvent dans:.  

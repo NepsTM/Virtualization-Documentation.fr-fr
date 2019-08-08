@@ -8,28 +8,28 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: db360bdd2b62667ab017549b3c179d11278abc19
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 93c56dba88715df41cab054cda676879b275380b
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620797"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9999206"
 ---
 # <a name="automating-builds-and-saving-images"></a>Automatisation des builds et enregistrement des images
 
-Dans le démarrage rapide précédent de Windows Server, un conteneur Windows était créé à partir d’un exemple .NetCore préalablement créé. Cet exercice montre comment créer votre propre image de conteneur à partir d’un fichier Dockerfile et stocker l’image de conteneur dans le registre public Docker Hub.
+Dans le démarrage rapide précédent de Windows Server, un conteneur Windows était créé à partir d’un exemple .NetCore préalablement créé. Cet exercice montre comment créer votre propre image de conteneur à partir d’un Dockerfile et stocker l’image du conteneur dans le registre public du hub d’ancrage.
 
-Ce démarrage rapide est spécifique aux conteneurs Windows Server sur Windows Server 2019 ou Windows Server 2016 et utilisera l’image de base du conteneur Windows Server Core. Une documentation de démarrage rapide supplémentaire est disponible dans la table des matières affichée à gauche dans cette page.
+Ce guide de démarrage rapide est spécifique aux conteneurs Windows Server sur Windows Server 2019 ou Windows Server 2016 et utilise l’image de base du conteneur Windows Server Core. Une documentation de démarrage rapide supplémentaire est disponible dans la table des matières affichée à gauche dans cette page.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vérifiez que vous respectez les exigences suivantes:
+Veuillez vérifier que vous remplissez les conditions suivantes:
 
 - Un système informatique (physique ou virtuel) exécutant Windows Server 2019 ou Windows Server 2016.
-- Configurez ce système avec la fonctionnalité de conteneur Windows et Docker. Pour une procédure pas à pas sur ces étapes, voir [les conteneurs Windows sur Windows Server](./quick-start-windows-server.md).
+- Configurez-le à l’aide de la fonctionnalité conteneur Windows et de l’outil de connexion. Pour obtenir une procédure pas à pas sur ces étapes, voir [conteneurs Windows sur Windows Server](./quick-start-windows-server.md).
 - Un ID Docker, utilisé pour transférer (push) une image de conteneur vers Docker Hub. Si vous n’avez pas encore d’ID Docker, demandez-en un sur [Docker Cloud](https://cloud.docker.com/).
 
-## <a name="container-image---dockerfile"></a>Image de conteneur - fichier Dockerfile
+## <a name="container-image---dockerfile"></a>Image de conteneur-Dockerfile
 
 Bien qu’un conteneur puisse être créé, modifié, puis capturé manuellement dans une nouvelle image de conteneur, Docker inclut une méthode pour automatiser ce processus à l’aide d’un fichier Dockerfile. Pour effectuer cet exercice, vous avez besoin d’un ID Docker. Si vous n’avez pas encore d’ID Docker, demandez-en un sur [Docker Cloud](https://cloud.docker.com/).
 
@@ -93,7 +93,7 @@ CONTAINER ID   IMAGE            COMMAND               CREATED              STATU
 c1dc6c1387b9   iis-dockerfile   "ping -t localhost"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp   cranky_brown
 ```
 
-Arrêtez le conteneur.
+Conteneur d’arrêt.
 
 ```console
 docker stop <container name>
@@ -105,7 +105,7 @@ Supprimez le conteneur.
 docker rm -f <container name>
 ```
 
-## <a name="docker-push"></a>Docker Push
+## <a name="docker-push"></a>Poussée du Dock
 
 Les images de conteneur Docker peuvent être stockées dans un Registre de conteneur. Une fois stockée dans un Registre, une image peut être récupérée pour être utilisée ultérieurement sur plusieurs hôtes de conteneur. Docker fournit un Registre public pour le stockage des images de conteneur sur [Docker Hub](https://hub.docker.com/).
 
@@ -130,7 +130,7 @@ Une fois que vous êtes connecté, vous pouvez transférer (push) l’image de c
 docker push <user>/iis-dockerfile
 ```
 
-Comme Docker exécute un push de chaque couche jusqu'à Docker Hub, docker ignore les couches qui existent déjà dans le Hub Docker ou autres registres (couches étrangères).  Par exemple, les versions récentes de Windows Server Core qui sont hébergées dans le Registre de conteneur de Microsoft, ou les couches à partir d’un registre d’entreprise privé, seraient être ignorées et non appuyées sur Docker Hub.
+Étant donné que l’ancrage a fait remonter chaque couche au moyeu de l’ancrage, il ignorera les couches qui existent déjà dans le hub de l’ancrage ou dans d’autres registres (couches étrangères).  Par exemple, les versions récentes de Windows Server Core hébergées dans le registre de conteneurs Microsoft, ou les couches du registre d’une entreprise privée, seront ignorées et ne sont pas transmises sur le concentrateur d’amarrage.
 
 L’image de conteneur peut maintenant être téléchargée à partir de Docker Hub sur n’importe quel hôte de conteneur Windows à l’aide de la commande `docker pull`. Pour ce didacticiel, nous allons supprimer l’image existante et l’extraire (pull) de Docker Hub. 
 

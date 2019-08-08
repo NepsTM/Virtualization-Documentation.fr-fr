@@ -1,6 +1,6 @@
 ---
-title: Conteneurs de la documentation Windows
-description: documentation pour les conteneurs en cours d’exécution sur Windows
+title: Conteneurs dans la documentation Windows
+description: documentation sur l’exécution de conteneurs sur Windows
 keywords: docker, conteneurs
 author: cwilhit
 ms.date: 05/02/2016
@@ -8,16 +8,16 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-ms.openlocfilehash: 9ee2a0adad762aa3cee53f3b44210976259b693f
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 771a4ef644525334e9135b8605da74503c16f21b
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620697"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998766"
 ---
-# <a name="containers-on-windows-documentation"></a>Conteneurs de la documentation Windows
+# <a name="containers-on-windows-documentation"></a>Conteneurs dans la documentation Windows
 
-Les conteneurs Windows offrent la virtualisation au niveau du système d’exploitation qui permet à plusieurs applications isolées d’être exécutées sur un seul système. L’ensemble de cette documentation fournit des guides de démarrage rapide, des guides de déploiement et des détails techniques sur les opérations de gestion.
+Les conteneurs Windows fournissent la virtualisation au niveau du système d’exploitation, qui permet d’exécuter plusieurs applications isolées sur un seul système. L’ensemble de cette documentation fournit des guides de démarrage rapide, des guides de déploiement et des détails techniques sur les opérations de gestion.
 
 ## <a name="getting-started"></a>Démarrage
 Découvrez les conteneurs, puis commencez à les utiliser.
@@ -40,7 +40,7 @@ Découvrez comment gérer Docker sur Windows.
 * [Mise en réseau de conteneur](container-networking/architecture.md)
 
 ## <a name="watch"></a>Regarder
-Vous souhaitez démonstrations et des interviews de l’équipe des conteneurs Windows?
+Vous avez besoin d’autres démonstrations et entretiens de l’équipe conteneur Windows?
 * [Chaîne Conteneurs](https://channel9.msdn.com/Blogs/containers)
 
 ## <a name="community"></a>Communauté

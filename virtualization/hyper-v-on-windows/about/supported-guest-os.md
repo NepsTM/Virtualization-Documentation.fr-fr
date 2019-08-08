@@ -7,12 +7,12 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
-ms.openlocfilehash: e3255d236a3fbb5ac4d908143750b84e3db82ceb
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 25c72b910af15fc0b498a5b2abce72d32e6d1efd
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621097"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9999036"
 ---
 # <a name="supported-windows-guests"></a>Invités Windows pris en charge
 
@@ -37,9 +37,9 @@ Pour pouvoir être pris en charge, tous les systèmes d’exploitation (invité 
 | Windows10 | 32 |Le mode de session étendu ne fonctionne pas sur l'édition Windows10 Famille |
 | Windows 8.1 | 32 | |
 | Windows8 | 32 ||
-| Windows7 avec Service Pack1 (SP1) | 4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32bits et 64bits). |
-| Windows7 | 4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32bits et 64bits). |
-| WindowsVista avec Service Pack2 (SP2) | 2 | Professionnel, Entreprise et Édition Intégrale, notamment les éditions N et KN. |
+| Windows7 avec Service Pack1 (SP1) | n°4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32bits et 64bits). |
+| Windows7 | n°4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32bits et 64bits). |
+| WindowsVista avec Service Pack2 (SP2) | deuxième | Professionnel, Entreprise et Édition Intégrale, notamment les éditions N et KN. |
 | - | | |
 | [Canal semi-annuel WindowsServer](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview) | 64 | |
 | Windows Server2019 | 64 | |
@@ -47,8 +47,8 @@ Pour pouvoir être pris en charge, tous les systèmes d’exploitation (invité 
 | WindowsServer2012R2 | 64 | |
 | Windows Server2012 | 64 | |
 | Windows Server2008R2 avec Service Pack1 (SP1) | 64 | Éditions Datacenter, Entreprise, Standard et Web. |
-| Windows Server2008 avec Service Pack2 (SP2) | 4 | Éditions Datacenter, Entreprise, Standard et Web (32bits et 64bits). |
-| Windows Home Server2011 | 4 | |
+| Windows Server2008 avec Service Pack2 (SP2) | n°4 | Éditions Datacenter, Entreprise, Standard et Web (32bits et 64bits). |
+| Windows Home Server2011 | n°4 | |
 | Windows Small Business Server2011 | Édition Essentials - 2, édition Standard - 4 | |
 
 > Windows10 peut s’exécuter en tant que système d’exploitation invité sur les hôtes Hyper-V Windows8.1 et Windows Server2012 R2.
