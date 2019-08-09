@@ -3,18 +3,21 @@ title: Compatibilité des versions avec les conteneurs Windows
 description: Comment Windows peut générer et exécuter des conteneurs dans plusieurs versions
 keywords: métadonnées, conteneurs, version
 author: taylorb-microsoft
-ms.openlocfilehash: 019dafe855e0fba696db4618a862ec086d435005
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: 84c78947284e18dac347bc04b1ea5fcd96e3a814
+ms.sourcegitcommit: c9062b2c75838fcac64e8cd9bcc75d2f1a324d76
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9882992"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "10008655"
 ---
 # <a name="windows-container-version-compatibility"></a>Compatibilité des versions des conteneurs Windows
 
 Windows Server 2016 et la mise à jour anniversaire de Windows 10 (version 14393) étaient les premières versions de Windows qui pouvaient générer et exécuter des conteneurs Windows Server. Les conteneurs créés à l’aide de ces versions peuvent s’exécuter sur des versions plus récentes, telles que Windows Server version1709, mais vous devez être au fait de certains éléments avant de commencer.
 
 Étant donné que nous avons amélioré les fonctionnalités liées aux conteneurs Windows, nous avons dû apporter des modifications qui affectent la compatibilité. Les conteneurs plus anciens s’exécutent de la même manière sur les hôtes plus récents dotés [d’une isolation Hyper-V](../manage-containers/hyperv-container.md)et utilisent la même version du noyau (plus ancienne). Toutefois, si vous voulez exécuter un conteneur sur la base d’une nouvelle version de Windows, il ne peut être exécuté que sur la build d’hôte la plus récente.
+
+>[!NOTE]
+> \ * Windows Server, version 1709, n’est plus pris en charge. Pour plus d’informations, reportez-vous à la rubrique [cycle de vie des images de base](base-image-lifecycle.md).
 
 ## <a name="windows-server-version-1903-host-os-compatibility"></a>Compatibilité avec le système d’exploitation Windows Server version 1903
 
@@ -23,7 +26,7 @@ Windows Server 2016 et la mise à jour anniversaire de Windows 10 (version 14393
 |Windows Server version 1903|Oui|Oui|
 |Windows Server2019|Oui|Non|
 |WindowsServer, version1803|Oui|Non|
-|WindowsServer, version1709|Oui|Non|
+|Windows Server version 1709 *|Oui|Non|
 |WindowsServer2016|Oui|Non|
 
 ## <a name="windows-server-2019-host-os-compatibility"></a>Compatibilité du système d’exploitation hôte de Windows Server 2019
@@ -33,7 +36,7 @@ Windows Server 2016 et la mise à jour anniversaire de Windows 10 (version 14393
 |Windows Server version 1903|Non|Non|
 |Windows Server2019|Oui|Oui|
 |WindowsServer, version1803|Oui|Non|
-|WindowsServer, version1709|Oui|Non|
+|Windows Server version 1709 *|Oui|Non|
 |WindowsServer2016|Oui|Non|
 
 ## <a name="windows-server-version-1803-host-os-compatibility"></a>Compatibilité avec le système d’exploitation Windows Server version 1803
@@ -43,18 +46,28 @@ Windows Server 2016 et la mise à jour anniversaire de Windows 10 (version 14393
 |Windows Server version 1903|Non|Non|
 |Windows Server2019|Non|Non|
 |WindowsServer, version1803|Oui|Oui|
-|WindowsServer, version1709|Oui|Non|
+|Windows Server version 1709 *|Oui|Non|
 |WindowsServer2016|Oui|Non|
 
-## <a name="windows-server-version-1709-host-os-compatibility"></a>Compatibilité avec le système d’exploitation Windows Server version 1709
+## <a name="windows-server-version-1709-host-os-compatibility"></a>Compatibilité avec le système d’exploitation Windows Server version 1709 *
 
 |Système d’exploitation du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolement de processus|
 |---|:---:|:---:|
 |Windows Server version 1903|Non|Non|
 |Windows Server2019|Non|Non|
 |WindowsServer, version1803|Non|Non|
-|WindowsServer, version1709|Oui|Oui|
+|Windows Server version 1709 *|Oui|Oui|
 |WindowsServer2016|Oui|Non|
+
+## <a name="windows-server-2016-host-os-compatibility"></a>Compatibilité du système d’exploitation hôte de Windows Server 2016
+
+|Système d’exploitation du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolement de processus|
+|---|:---:|:---:|
+|Windows Server 2019, version 1903|Non|Non|
+|Windows Server2019|Non|Non|
+|WindowsServer, version1803|Non|Non|
+|Windows Server version 1709 *|Non|Non|
+|WindowsServer2016|Oui|Oui|
 
 ## <a name="windows-10-version-1903-host-os-compatibility"></a>Windows 10, version 1903 du système d’exploitation hôte
 
@@ -63,7 +76,7 @@ Windows Server 2016 et la mise à jour anniversaire de Windows 10 (version 14393
 |Windows Server version 1903|Non|Non|
 |Windows Server2019|Non|Non|
 |WindowsServer, version1803|Non|Non|
-|WindowsServer, version1709|Non|Non|
+|Windows Server version 1709 *|Non|Non|
 |WindowsServer2016|Oui|Oui|
 
 ## <a name="windows-10-version-1809-host-os-compatibility"></a>Windows 10, version 1809 du système d’exploitation hôte
@@ -73,7 +86,7 @@ Windows Server 2016 et la mise à jour anniversaire de Windows 10 (version 14393
 |Windows Server version 1903|Non|Non|
 |Windows Server2019|Oui|Non|
 |WindowsServer, version1803|Oui|Non|
-|WindowsServer, version1709|Oui|Non|
+|Windows Server version 1709 *|Oui|Non|
 |WindowsServer2016|Oui|Non|
 
 ## <a name="windows-10-version-1803-host-os-compatibility"></a>Windows 10, version 1803 du système d’exploitation hôte
@@ -83,7 +96,7 @@ Windows Server 2016 et la mise à jour anniversaire de Windows 10 (version 14393
 |Windows, version 1903|Non|Non|
 |Windows Server2019|Non|Non|
 |WindowsServer, version1803|Oui|Non||
-|WindowsServer, version1709|Oui|Non|
+|Windows Server version 1709 *|Oui|Non|
 |WindowsServer2016|Oui|Non|
 
 ## <a name="windows-10-fall-creators-update-host-os-compatibility"></a>Windows 10 automne Creators mise à jour de la compatibilité du système d’exploitation hôte
@@ -93,7 +106,7 @@ Windows Server 2016 et la mise à jour anniversaire de Windows 10 (version 14393
 |Windows Server version 1903|Non|Non|
 |Windows Server2019|Non|Non|
 |WindowsServer, version1803|Non|Non|
-|WindowsServer, version1709|Oui|Non|
+|Windows Server version 1709 *|Oui|Non|
 |WindowsServer2016|Oui|Non|
 
 ## <a name="matching-container-host-version-with-container-image-versions"></a>Version d’hôte de conteneur correspondante avec les versions d’image de conteneur
