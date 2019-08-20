@@ -3,18 +3,21 @@ title: Accélération GPU dans les conteneurs Windows
 description: Le niveau d’accélération GPU existe dans les conteneurs Windows
 keywords: arrimeur, conteneurs, appareils, matériel
 author: cwilhit
-ms.openlocfilehash: 6e5010efee10f9b488cbeb57b14bc86f30c1e766
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: c6746b45caece9802134831eb6cb3da885957ac5
+ms.sourcegitcommit: 2f8fd4b2e7113fbb7c323d89f3c72df5e1a4437e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883272"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "10045039"
 ---
 # <a name="gpu-acceleration-in-windows-containers"></a>Accélération GPU dans les conteneurs Windows
 
 Pour de nombreux réceptacles de charge de travail, les ressources de calcul de l’UC fournissent des performances suffisantes. Toutefois, dans le cas d’une certaine classe de charge de travail, la puissance de calcul massivement parallèle proposée par des GPU (unités de traitement graphique) peut accélérer les opérations en effectuant des commandes de magnitude, ce qui permet de réduire le coût et d’améliorer considérablement le débit.
 
 Les processeurs graphiques sont déjà des outils communs pour de nombreuses charges de travail populaires, allant du rendu traditionnel et de la simulation à la formation et à l’inférence de l’apprentissage automatique. Les conteneurs Windows prennent en charge l’accélération GPU pour DirectX et toutes les infrastructures qu’il contient.
+
+> [!NOTE]
+> Cette fonctionnalité est disponible dans la version de bureau de l’ordinateur de bureau 2,1, version 19,03 ou ultérieure.
 
 ## <a name="requirements"></a>Spécifications
 
@@ -42,8 +45,12 @@ docker run --isolation process --device class/5B45201D-F2F2-4F3B-85BB-30FF1F9535
 
 ## <a name="hyper-v-isolated-windows-container-support"></a>Hyper-V-prise en charge de conteneur Windows isolés
 
-L’accélération GPU pour les charges de travail dans les conteneurs Windows isolés d’Hyper-V n’est actuellement pas prise en charge.
+Pour l’instant, l’accélération GPU des charges de travail dans Hyper-V-conteneurs Windows n’est pas prise en charge pour le moment.
 
 ## <a name="hyper-v-isolated-linux-container-support"></a>Hyper-V-prise en charge des conteneurs Linux isolés
 
 L’accélération GPU pour les charges de travail dans Hyper-V-les conteneurs Linux isolés n’est actuellement pas prise en charge.
+
+## <a name="more-information"></a>Informations supplémentaires
+
+Pour obtenir un exemple complet d’une application DirectX conteneur qui utilise l’accélération GPU, voir [exemple de conteneur DirectX](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-container-samples/directx).

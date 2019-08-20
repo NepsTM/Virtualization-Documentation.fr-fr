@@ -3,12 +3,12 @@ title: Appareils dans les conteneurs sur Windows
 description: La prise en charge des appareils pour les conteneurs sur Windows
 keywords: arrimeur, conteneurs, appareils, matériel
 author: cwilhit
-ms.openlocfilehash: ee9c5da5ef87dceb3374977670da2ea50ea87382
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: 1ad63c158a42f116882c949b242274dde8d893fc
+ms.sourcegitcommit: 2f8fd4b2e7113fbb7c323d89f3c72df5e1a4437e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883162"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "10045029"
 ---
 # <a name="devices-in-containers-on-windows"></a>Appareils dans les conteneurs sur Windows
 
@@ -77,12 +77,12 @@ Les appareils suivants (et leurs GUID de classe d’interface de périphérique)
 </tbody>
 </table>
 
-> [!TIP]
-> Les appareils indiqués ci-dessus sont les _seuls_ périphériques pris en charge dans les conteneurs Windows. La tentative de passage de tout autre GUID de classe provoquera un échec du démarrage du conteneur.
+> [!IMPORTANT]
+> La prise en charge des appareils est liée au pilote. La tentative de passage de GUID de classe non définis dans le tableau ci-dessus risque de provoquer un comportement non défini.
 
 ## <a name="hyper-v-isolated-windows-container-support"></a>Hyper-V-prise en charge de conteneur Windows isolés
 
-L’affectation d’appareil et le partage d’appareil pour les charges de travail dans les conteneurs Windows isolés de Hyper-V ne sont pas pris en charge pour le moment.
+L’affectation d’appareil et le partage d’appareil pour les charges de travail dans les conteneurs Windows isolés ne sont actuellement pas pris en charge.
 
 ## <a name="hyper-v-isolated-linux-container-support"></a>Hyper-V-prise en charge des conteneurs Linux isolés
 

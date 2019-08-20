@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5c6f6350-f8d6-4426-b53d-9fb09c2bf267
-ms.openlocfilehash: 35becf36d086e325b9c9b0c57fb4a9df65eb57b7
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: e68f99c095d3cc1e7bb3a08d48bef7e1f877b837
+ms.sourcegitcommit: 2f8fd4b2e7113fbb7c323d89f3c72df5e1a4437e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998746"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "10044949"
 ---
 # <a name="windows-container-samples"></a>Exemples de conteneurs Windows
 
@@ -42,6 +42,7 @@ Il s’agit d’une collection d’exemples soumis par l’équipe Windows et le
 [nginx](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/nginx)
 
 ## <a name="programing-languages"></a>Langages de programmation
+
 [dotnet35](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/dotnet35)
 
 [golang](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/golang)
@@ -58,8 +59,8 @@ Il s’agit d’une collection d’exemples soumis par l’équipe Windows et le
 
 [server-jre-8u51-windows-x64](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/server-jre-8u51-windows-x64)
 
-
 ## <a name="databases"></a>Bases de données
+
 [mongodb](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/mongodb)
 
 [mysql](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/mysql)
@@ -80,3 +81,4 @@ sqlserver-express - [Image Docker Hub](https://hub.docker.com/r/microsoft/mssql-
 
 ## <a name="other"></a>Autre
 
+[DirectX](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-container-samples/directx) (y compris l’accélération GPU)
