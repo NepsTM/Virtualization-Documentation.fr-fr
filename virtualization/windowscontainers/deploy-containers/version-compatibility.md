@@ -3,12 +3,12 @@ title: Compatibilité des versions avec les conteneurs Windows
 description: Comment Windows peut générer et exécuter des conteneurs dans plusieurs versions
 keywords: métadonnées, conteneurs, version
 author: taylorb-microsoft
-ms.openlocfilehash: 84c78947284e18dac347bc04b1ea5fcd96e3a814
-ms.sourcegitcommit: c9062b2c75838fcac64e8cd9bcc75d2f1a324d76
+ms.openlocfilehash: 5fe1cca67c330cb59362e82762651d719708b526
+ms.sourcegitcommit: 27e9cd37beaf11e444767699886e5fdea5e1a2d0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "10008655"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "10058504"
 ---
 # <a name="windows-container-version-compatibility"></a>Compatibilité des versions des conteneurs Windows
 
@@ -73,11 +73,11 @@ Windows Server 2016 et la mise à jour anniversaire de Windows 10 (version 14393
 
 |Système d’exploitation du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolement de processus|
 |---|:---:|:---:|
-|Windows Server version 1903|Non|Non|
-|Windows Server2019|Non|Non|
-|WindowsServer, version1803|Non|Non|
-|Windows Server version 1709 *|Non|Non|
-|WindowsServer2016|Oui|Oui|
+|Windows Server version 1903|Oui|Non|
+|Windows Server2019|Oui|Non|
+|WindowsServer, version1803|Oui|Non|
+|Windows Server version 1709 *|Oui|Non|
+|WindowsServer2016|Oui|Non|
 
 ## <a name="windows-10-version-1809-host-os-compatibility"></a>Windows 10, version 1809 du système d’exploitation hôte
 
