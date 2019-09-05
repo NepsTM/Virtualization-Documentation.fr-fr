@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: Solutions aux problèmes courants lors du déploiement de Kubernetes et de la jonction de nœuds Windows.
 keywords: kubernetes, 1,14, Linux, compile
-ms.openlocfilehash: a0b24782a0e511dfc8b6cf1a0c0bc24882ff977a
-ms.sourcegitcommit: 42cb47ba4f3e22163869d094bd0c9cff415a43b0
+ms.openlocfilehash: b6e4e648ff050e13a0930f2834949867e44ce895
+ms.sourcegitcommit: d252f356a3de98f224e1550536810dfc75345303
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "9884990"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "10069933"
 ---
 # <a name="troubleshooting-kubernetes"></a>Résolution des problèmes Kubernetes #
 Cette page décrit plusieurs problèmes courants lors du déploiement, de la mise en réseau et de la configuration de Kubernetes.
@@ -43,6 +43,9 @@ nssm set <Service Name> AppStderr C:\k\mysvc.log
 Pour en savoir plus, consultez la rubrique documents d' [utilisation officiels NSSM](https://nssm.cc/usage) .
 
 ## <a name="common-networking-errors"></a>Erreurs réseau courantes ##
+
+### <a name="hostport-publishing-is-not-working"></a>La publication HostPort ne fonctionne pas ###
+Il n’est pas possible actuellement de publier des ports à `containers.ports.hostPort` l’aide du champ Kubernetes, car ce champ n’est pas respecté par les plug-ins Windows CNI. Pour le moment, vous devez utiliser la publication à l’élément à l’aide de l’éditeur.
 
 ### <a name="i-am-seeing-errors-such-as-hnscall-failed-in-win32-the-wrong-diskette-is-in-the-drive"></a>Je reçois des messages d’erreur tels que «hnsCall a échoué dans Win32: la mauvaise disquette est dans le lecteur.» ###
 Cette erreur peut se produire lorsque vous effectuez des modifications personnalisées d’objets HNS ou de nouvelles mises à jour de Windows qui introduisent des modifications apportées à HNS sans déchirer les anciens objets SNPD. Il indique qu’un objet SNPD précédemment créé avant la mise à jour n’est pas compatible avec la version HNS actuellement installée.

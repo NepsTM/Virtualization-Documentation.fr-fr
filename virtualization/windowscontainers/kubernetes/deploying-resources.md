@@ -8,12 +8,12 @@ ms.prod: containers
 description: Déploiement d’Kubernetes Resoureces sur un cluster Kubernetes de systèmes d’exploitation mixte.
 keywords: kubernetes, 1,14, Windows, mise en route
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 8c21581433f672a22a247db6643a19168eedea6c
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: e6c569ae8d5bf50e24ea0fc7a6dd04734b60a863
+ms.sourcegitcommit: d252f356a3de98f224e1550536810dfc75345303
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883192"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "10069943"
 ---
 # <a name="deploying-kubernetes-resources"></a>Déploiement de ressources Kubernetes #
 En supposant que vous disposez d’un cluster Kubernetes composé d’au moins 1 maître et 1 travailleur, vous pouvez déployer des ressources Kubernetes.
@@ -54,18 +54,6 @@ Si tout va bien, il est possible de:
 
 > [!Note]  
 > Les *hôtes de conteneur* Windows ne seront **pas** en mesure d’accéder à l’adresse IP du service via les services programmés. Il s’agit d’une [limitation de plateforme connue](./common-problems.md#my-windows-node-cannot-access-my-services-using-the-service-ip) qui sera améliorée dans les futures versions de Windows Server. Les *gousses* Windows **sont** néanmoins en mesure d’accéder à l’adresse IP du service.
-
-### <a name="port-mapping"></a>Mappage de port ### 
-Il est également possible d’accéder aux services hébergés dans les pods au travers de leurs nœuds respectifs en mappant un port sur le nœud. Il existe un [autre exemple YAML disponible](https://github.com/Microsoft/SDN/blob/master/Kubernetes/PortMapping.yaml) avec le mappage du port4444 sur le nœud au port80 sur le nœud qui montre cette fonctionnalité. Pour le déployer, suivez les mêmes étapes que précédemment:
-
-```bash
-wget https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/PortMapping.yaml -O win-webserver-port-mapped.yaml
-kubectl apply -f win-webserver-port-mapped.yaml
-watch kubectl get pods -o wide
-```
-
-Il devrait maintenant être possible de `curl` sur l'adresse IP du *nœud* sur le port4444 et recevoir une réponse du serveur web. N’oubliez pas que cela limite la montée en charge à un seul pod par nœud dans la mesure où cela oblige à un mappage de un-à-un.
-
 
 ## <a name="next-steps"></a>Étapes suivantes ##
 Dans cette section, nous avons expliqué comment planifier des ressources Kubernetes sur des nœuds Windows. Cela conclut le guide. En cas de problème, consultez la section résolution des problèmes:
