@@ -41,7 +41,12 @@
 ### [En essaim d’amarrage](manage-containers/swarm-mode.md)
 ### [Gestion à distance d’un hôte de station d’accueil Windows](management/manage_remotehost.md)
 ## Charges
-### [Comptes de service administrés de groupe](manage-containers/manage-serviceaccounts.md)
+### Comptes de service administrés de groupe
+#### [Créer un compte gMSA](manage-containers/manage-serviceaccounts.md)
+#### [Configurer votre application pour utiliser une gMSA](manage-containers/gmsa-configure-app.md)
+#### [Exécuter un conteneur avec un gMSA](manage-containers/gmsa-run-container.md)
+#### [Orchestrer des conteneurs avec un gMSA](manage-containers/gmsa-orchestrate-containers.md)
+#### [Résoudre les problèmes de gMSAs](manage-containers/gmsa-troubleshooting.md)
 ### [Services d’impression](deploy-containers/print-spooler.md)
 ## Réseaux
 ### [Vue d'ensemble](container-networking/architecture.md)
