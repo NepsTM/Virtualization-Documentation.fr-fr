@@ -8,19 +8,19 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8ccd4192-4a58-42a5-8f74-2574d10de98e
-ms.openlocfilehash: 2cc5853648a9e1bb62ae684472fa7d9512cdb978
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 3e9f7e3208222cd6c0f512c5f892453ac6e6980c
+ms.sourcegitcommit: 73134bf279f3ed18235d24ae63cdc2e34a20e7b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998336"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "10107873"
 ---
 # <a name="implementing-resource-controls-for-windows-containers"></a>Implémentation de contrôles de ressources pour les conteneurs Windows
 Plusieurs contrôles de ressources peuvent être implémentés par conteneur et par ressource.  Par défaut, les conteneurs exécutés sont soumis à la gestion des ressources Windows classique. Celle-ci est généralement exécutée de manière équitable, mais en configurant ces contrôles, un développeur ou un administrateur est en mesure de limiter ou d’influencer l’utilisation des ressources.  Les ressources pouvant être contrôlées sont notamment: UC/processeur, mémoire/mémoire RAM, disque/stockage et réseau/débit.
 
 Les conteneurs Windows utilisent des [objets de traitement](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects) pour regrouper les processus associés à chaque conteneur et en assurer le suivi.  Les contrôles de ressources sont implémentés sur l’objet de traitement parent associé au conteneur. 
 
-Dans le cas d’[isolation Hyper-V](https://docs.microsoft.com/virtualization/windowscontainers/about/index#windows-container-types), les contrôles de ressources sont appliqués à la fois à l’ordinateur virtuel et à l’objet de traitement du conteneur en cours d’exécution automatique sur l’ordinateur virtuel. Cela garantit que, même si un processus en cours d’exécution dans le conteneur contourne ou échappe aux contrôles de l’objet de traitement, l’ordinateur virtuel s’assurera qu’il ne peut pas dépasser les contrôles de ressources définis.
+Dans le cas d’[isolation Hyper-V](./hyperv-container.md), les contrôles de ressources sont appliqués à la fois à l’ordinateur virtuel et à l’objet de traitement du conteneur en cours d’exécution automatique sur l’ordinateur virtuel. Cela garantit que, même si un processus en cours d’exécution dans le conteneur contourne ou échappe aux contrôles de l’objet de traitement, l’ordinateur virtuel s’assurera qu’il ne peut pas dépasser les contrôles de ressources définis.
 
 ## <a name="resources"></a>Ressources
 Pour chaque ressource, cette section fournit un mappage entre l’interface de ligne de commande Docker, comme exemple d’utilisation du contrôle de ressources (il peut être configuré par un orchestrateur ou d’autres outils) et l’API du service de calcul hôte (HCS) Windows correspondante, en indiquant la façon dont le contrôle de ressources a généralement été implémenté par Windows (notez que cette description est une vue d’ensemble et que l’implémentation sous-jacente est susceptible d’être modifiée).
