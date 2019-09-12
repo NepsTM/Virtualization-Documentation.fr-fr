@@ -1,51 +1,211 @@
 ---
+layout: LandingPage
 title: Conteneurs dans la documentation Windows
 description: documentation sur l’exécution de conteneurs sur Windows
 keywords: docker, conteneurs
 author: cwilhit
-ms.date: 05/02/2016
-ms.topic: article
+ms.date: 09/11/2019
+ms.topic: landing-page
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-ms.openlocfilehash: 771a4ef644525334e9135b8605da74503c16f21b
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 22585a9783066043aed16ccebb49770f9b6fe443
+ms.sourcegitcommit: b50270ba1f84e65dff60aef7a8d7fa66b1ebad52
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998766"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "10107706"
 ---
-# <a name="containers-on-windows-documentation"></a>Conteneurs dans la documentation Windows
-
-Les conteneurs Windows fournissent la virtualisation au niveau du système d’exploitation, qui permet d’exécuter plusieurs applications isolées sur un seul système. L’ensemble de cette documentation fournit des guides de démarrage rapide, des guides de déploiement et des détails techniques sur les opérations de gestion.
-
-## <a name="getting-started"></a>Démarrage
-Découvrez les conteneurs, puis commencez à les utiliser.
-* [À propos des conteneurs Windows](about/index.md)
-* [Utilisation de conteneurs sur WindowsServer](quick-start/quick-start-windows-server.md)
-* [Utilisation de conteneurs sur Windows10](quick-start/quick-start-windows-10.md)
-
-## <a name="deployment"></a>Déploiement
-Découvrez comment déployer des conteneurs Windows sur Windows Server 2019
-
-* [Configuration système](deploy-containers/system-requirements.md)
-* [Déployer un hôte de conteneurs](deploy-containers/deploy-containers-on-server.md)
-* [Optimisation de la protection antivirus](https://docs.microsoft.com/windows-hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
-
-## <a name="docker-on-windows"></a>Docker sur Windows
-Découvrez comment gérer Docker sur Windows.
-* [Moteur Docker sur Windows](manage-docker/configure-docker-daemon.md)
-* [Fichiers Dockerfile sur Windows](manage-docker/manage-windows-dockerfile.md)
-* [Optimiser les fichiers Dockerfile](manage-docker/optimize-windows-dockerfile.md)
-* [Mise en réseau de conteneur](container-networking/architecture.md)
-
-## <a name="watch"></a>Regarder
-Vous avez besoin d’autres démonstrations et entretiens de l’équipe conteneur Windows?
-* [Chaîne Conteneurs](https://channel9.msdn.com/Blogs/containers)
-
-## <a name="community"></a>Communauté
-Interagissez avec la communauté, testez des exemples et trouvez d’autres ressources.
-* [Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/home?forum=windowscontainers)
-* [Vidéos et blogs de la communauté](communitylinks.md)
-* [Exemples de conteneurs](https://docs.microsoft.com/virtualization/windowscontainers/samples)
-* [UserVoice](https://windowsserver.uservoice.com/forums/304624-containers)
+<div id="main" class="v2">
+    <ul class="cardsY panelContent featuredContent">
+        <li>
+            <a href="https://docs.microsoft.com/en-us/azure/aks/windows-container-cli" data-linktype="external">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/logo_kubernetes.svg" alt="" data-linktype="relative-path">
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Essayez les conteneurs Windows dans AKS!</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="https://hub.docker.com/_/microsoft-windows-base-os-images" data-linktype="external">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/logo_docker.svg" alt="" data-linktype="relative-path">
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Consultez nos images de conteneurs sur le hub de l’Arrimateur</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="https://techcommunity.microsoft.com/t5/Containers/bg-p/Containers" data-linktype="external">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/i_blog.svg" alt="" data-linktype="relative-path">
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Lisez le blog conteneurs.</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <h1>Conteneurs dans la documentation Windows</h1>
+    <br/>
+    <div class="abstract">Les conteneurs Windows permettent aux utilisateurs de empaqueter des applications avec leurs dépendances et d’exploiter la virtualisation au niveau du système d’exploitation pour fournir des environnements rapides et totalement isolés sur un système unique. Découvrez comment utiliser les conteneurs Windows avec nos guides de démarrage rapide, nos guides de déploiement et nos exemples.</div>
+    <ul class="cardsW panelContent featuredContent">
+        <li>
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage bgdAccent1">
+                                <img src="media/virtualization-containers-about.svg" alt="" data-linktype="relative-path">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3 style="margin: 8px 0 2px 0;">Vue d'ensemble</h3>
+                            <ul>
+                                <li><a href="/en-us/virtualization/windowscontainers/about/index" data-linktype="absolute-path">Conteneurs 101</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/deploy-containers/system-requirements" data-linktype="absolute-path">Configuration système</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/about/faq" data-linktype="absolute-path">FAQ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage bgdAccent1">
+                                <img src="media/virtualization-containers-quick-start.svg" alt="" data-linktype="relative-path">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3 style="margin: 8px 0 2px 0;">Prise en main</h3>
+                            <ul>
+                                <li><a href="/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-10" data-linktype="external">Windows10</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server" data-linktype="external">WindowsServer</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/quick-start/using-insider-container-images" data-linktype="external">WindowsInsider</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage bgdAccent1">
+                                <img src="media/container-tutorials.svg" alt="" data-linktype="relative-path">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3 style="margin: 8px 0 2px 0;">Didacticiels</h3>
+                            <ul>
+                                <li><a href="/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile" data-linktype="external">Création d’un conteneur Windows</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/kubernetes/getting-started-kubernetes-windows" data-linktype="external">Kubernetes sur Windows</a></li>
+                                <li><a href="/en-us/azure/service-fabric/service-fabric-quickstart-containers" data-linktype="external">Service Fabric sur Windows</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/deploy-containers/linux-containers" data-linktype="external">Conteneurs Linux sur Windows</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage bgdAccent1">
+                                <img src="media/virtualization-containers-management-tools.svg" alt="" data-linktype="relative-path">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3 style="margin: 8px 0 2px 0;">Concepts</h3>
+                            <ul>
+                                <li><a href="/en-us/virtualization/windowscontainers/manage-docker/configure-docker-daemon" data-linktype="external">Docker</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/manage-containers/manage-serviceaccounts" data-linktype="external">Charges</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/container-networking/architecture" data-linktype="external">Réseaux</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/manage-containers/container-storage" data-linktype="external">Stockage</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/deploy-containers/hardware-devices-in-containers" data-linktype="external">Appareils</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/manage-containers/hyperv-container" data-linktype="external">Isolation Hyper-V</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage bgdAccent1">
+                                <img src="media/container-reference.svg" alt="" data-linktype="relative-path">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3 style="margin: 8px 0 2px 0;">Référence</h3>
+                            <ul>
+                                <li><a href="/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility" data-linktype="external">Compatibilité des versions</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/deploy-containers/base-image-lifecycle" data-linktype="external">Durée de vie des images</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/images-eula" data-linktype="external">CLUF de l’image du conteneur</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage bgdAccent1">
+                                <img src="media/virtualization-containers-community.svg" alt="" data-linktype="relative-path">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3 style="margin: 8px 0 2px 0;">Ressources</h3>
+                            <ul>
+                                <li><a href="/en-us/virtualization/windowscontainers/samples" data-linktype="external">Exemples</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/troubleshooting" data-linktype="external">Résolution des problèmes</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/communitylinks" data-linktype="external">Vidéos et blogs de la communauté</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
