@@ -9,12 +9,12 @@ ms.topic: landing-page
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-ms.openlocfilehash: 22585a9783066043aed16ccebb49770f9b6fe443
-ms.sourcegitcommit: b50270ba1f84e65dff60aef7a8d7fa66b1ebad52
+ms.openlocfilehash: d28f91ca5c0957a91c38d51b461449ef869f7493
+ms.sourcegitcommit: 868a64eb97c6ff06bada8403c6179185bf96675f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "10107706"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "10129279"
 ---
 <div id="main" class="v2">
     <ul class="cardsY panelContent featuredContent">
@@ -110,9 +110,9 @@ ms.locfileid: "10107706"
                         <div class="cardText">
                             <h3 style="margin: 8px 0 2px 0;">Prise en main</h3>
                             <ul>
-                                <li><a href="/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-10" data-linktype="external">Windows10</a></li>
-                                <li><a href="/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server" data-linktype="external">WindowsServer</a></li>
-                                <li><a href="/en-us/virtualization/windowscontainers/quick-start/using-insider-container-images" data-linktype="external">WindowsInsider</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/quick-start/set-up-environment" data-linktype="external">Configurer votre environnement</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/quick-start/run-your-first-container" data-linktype="external">Exécuter votre premier conteneur</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/quick-start/building-sample-app" data-linktype="external">Conteneur d’un exemple d’application</a></li>
                             </ul>
                         </div>
                     </div>

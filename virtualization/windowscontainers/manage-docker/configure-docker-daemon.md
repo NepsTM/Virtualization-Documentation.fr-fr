@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.openlocfilehash: 953dfaf71170de656f4e6ba5e91d524708d5a12a
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: c84a6652b5918238ee8ef6e1fa7a9b2aa596aefd
+ms.sourcegitcommit: 868a64eb97c6ff06bada8403c6179185bf96675f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998216"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "10129259"
 ---
 # <a name="docker-engine-on-windows"></a>Moteur Docker sur Windows
 
@@ -21,14 +21,13 @@ Le moteur et le client d’ancrage ne sont pas inclus dans Windows et doivent ê
 
 ## <a name="install-docker"></a>Installer Docker
 
-Pour utiliser les conteneurs Windows, vous devez disposer de l’arrimeur. Docker comprend le moteur Docker (dockerd.exe) et le client Docker (docker.exe). Le moyen le plus simple d’obtenir tous les éléments installés figure dans les guides de démarrage rapide, qui vous aideront à configurer tous les éléments et à exécuter votre premier conteneur.
+Pour utiliser les conteneurs Windows, vous devez disposer de l’arrimeur. Docker comprend le moteur Docker (dockerd.exe) et le client Docker (docker.exe). Le moyen le plus simple d’obtenir tous les éléments installés figure dans le Guide de démarrage rapide pour vous aider à configurer votre premier conteneur.
 
-- [Conteneurs Windows sur Windows Server 2019](../quick-start/quick-start-windows-server.md)
-- [Conteneurs Windows sur Windows 10](../quick-start/quick-start-windows-10.md)
+- [Installer Docker](../quick-start/set-up-environment.md)
 
 Pour les installations par script, reportez-vous [à la rubrique utiliser un script pour installer le docker EE](https://docs.docker.com/install/windows/docker-ee/#use-a-script-to-install-docker-ee).
 
-Pour pouvoir utiliser la station d’accueil, vous devez installer les images du conteneur. Pour plus d’informations, consultez [le Guide de démarrage rapide sur l’utilisation d’images](../quick-start/quick-start-images.md).
+Pour pouvoir utiliser la station d’accueil, vous devez installer les images du conteneur. Pour plus d’informations, reportez-vous à la rubrique [documents pour les images de base du conteneur](../manage-containers/container-base-images.md).
 
 ## <a name="configure-docker-with-a-configuration-file"></a>Configurer l’ancrage avec un fichier de configuration
 
@@ -187,11 +186,11 @@ Pour désinstaller l’ancrage sur Windows 10
 
 - Accédez à **paramètres** > des**applications** sur votre ordinateur Windows 10.
 - Sous **applications & fonctionnalités**, recherchez **docker pour Windows** .
-- Accéder à la **fenêtre** > **** de désinstallation de l’amarrage
+- Accéder à la **fenêtre** > de**désinstallation** de l’amarrage
 
 Pour désinstaller docker sur Windows Server 2016:
 
-À partir d’une session PowerShell avec élévation de **** privilèges, vous pouvez utiliser les applets de commande de désinstallation et de désinstallation pour supprimer le module d’amarrage et son fournisseur de gestion de packages correspondant de votre système, comme le montre l’exemple suivant: ****
+À partir d’une session PowerShell avec élévation de privilèges, vous pouvez utiliser les applets de commande de **désinstallation** et de **désinstallation** pour supprimer le module d’amarrage et son fournisseur de gestion de packages correspondant de votre système, comme le montre l’exemple suivant:
 
 ```powershell
 Uninstall-Package -Name docker -ProviderName DockerMsftProvider

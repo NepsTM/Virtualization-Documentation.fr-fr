@@ -7,30 +7,20 @@ ms.date: 09/10/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: f5a51fd1211868195126f06d917c0bef6e496c3d
-ms.sourcegitcommit: f3b6b470dd9cde8e8cac7b13e7e7d8bf2a39aa34
+ms.openlocfilehash: 8165d9c7ee3744fae31711e28be028208140813e
+ms.sourcegitcommit: 868a64eb97c6ff06bada8403c6179185bf96675f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "10077470"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "10129269"
 ---
 # <a name="containerize-a-net-core-app"></a>Conteneur d’une application .NET Core
 
-
-Dans ce démarrage rapide, vous allez découvrir comment conteneurr une application simple .NET Core. Vous allez:
-
-> [!div class="checklist"]
-> * Cloner la source de l’exemple d’application à partir de GitHub
-> * Créer un dockerfile pour générer une image de conteneur avec la source d’application
-> * Testez l’application .NET Core conteneur dans un environnement d’amarrage local.
-
-## <a name="before-you-begin"></a>Avant de commencer
-
-Ce démarrage rapide suppose que votre environnement de développement est déjà configuré pour l’utilisation de conteneurs. Si vous n’avez pas d’environnement configuré pour les conteneurs, consultez le Guide de [démarrage rapide de Windows 10](./quick-start-windows-10.md) pour découvrir comment commencer.
+Ce segment suppose que votre environnement de développement est déjà configuré pour l’utilisation de conteneurs. Si vous n’avez pas de environnement configuré pour les conteneurs, consultez la section «[configurer votre environnement](./set-up-environment.md)» pour découvrir comment commencer.
 
 Le système de contrôle de source git doit être installé sur votre ordinateur. Vous pouvez le saisir ici: [git](https://git-scm.com/download)
 
-## <a name="getting-started"></a>Prise en main
+## <a name="clone-the-sample-code"></a>Cloner l’exemple de code
 
 Tout le code source de l’exemple de conteneur est conservé sous la section [virtualisation-](https://github.com/MicrosoftDocs/Virtualization-Documentation) référentiel samples de la `windows-container-samples`documentation dans un dossier appelé. Clonez ce git référentiel samples dans votre répertoire de travail actuel.
 

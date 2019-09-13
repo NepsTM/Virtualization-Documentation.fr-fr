@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
-ms.openlocfilehash: f23fe8c5e5ad9dc3257f8b99d239b5fc97607add
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 9fef74c029dc3efc220b1f9924d2695cdbaa61be
+ms.sourcegitcommit: 868a64eb97c6ff06bada8403c6179185bf96675f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998236"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "10129299"
 ---
 # <a name="dockerfile-on-windows"></a>Fichier Dockerfile sur Windows
 
@@ -31,7 +31,7 @@ La version d’amarrage est la commande du moteur de l’ancrage qui utilise un 
 
 Cette rubrique vous montre comment utiliser Dockerfiles avec des conteneurs Windows, comprendre leur syntaxe de base et les instructions Dockerfile les plus courantes.
 
-Ce document traite du concept d’images de conteneurs et de couches d’image de conteneur. Pour en savoir plus sur les images et les couches d’images, voir [le Guide de démarrage rapide pour les images](../quick-start/quick-start-images.md).
+Ce document traite du concept d’images de conteneurs et de couches d’image de conteneur. Pour en savoir plus sur les images et le calque d’image, voir [images de base du conteneur](../manage-containers/container-base-images.md).
 
 Pour obtenir une vue d’ensemble de Dockerfiles, voir la [référence Dockerfile](https://docs.docker.com/engine/reference/builder/).
 
@@ -69,7 +69,7 @@ Dockerfile instructions fournissent aux instructions du moteur de l’ancrage le
 
 ### <a name="from"></a>FROM
 
-L’instruction `FROM` définit l’image de conteneur qui sera utilisée pendant le processus de création de l’image. Par exemple, quand vous utilisez l’instruction `FROM microsoft/windowsservercore`, l’image obtenue est dérivée de l’image du système d’exploitation de base Windows Server Core et a une dépendance sur celle-ci. Si l’image spécifiée n’est pas présente sur le système où le processus de génération Docker est en cours d’exécution, le moteur Docker tente de télécharger l’image à partir d’un Registre d’images public ou privé.
+L’instruction `FROM` définit l’image de conteneur qui sera utilisée pendant le processus de création de l’image. Par exemple, quand vous utilisez l’instruction `FROM mcr.microsoft.com/windows/servercore`, l’image obtenue est dérivée de l’image du système d’exploitation de base Windows Server Core et a une dépendance sur celle-ci. Si l’image spécifiée n’est pas présente sur le système où le processus de génération Docker est en cours d’exécution, le moteur Docker tente de télécharger l’image à partir d’un Registre d’images public ou privé.
 
 Le format de l’instruction est semblable à ce qui suit:
 
@@ -332,7 +332,7 @@ Pour plus d’informations sur l' `CMD` instruction, voir la [référence de cmd
 
 ## <a name="escape-character"></a>Caractère d’échappement
 
-Dans de nombreux cas, une instruction Dockerfile doit s’étendre sur plusieurs lignes. Pour cela, vous pouvez utiliser un caractère d’échappement. Le caractère d’échappement de fichier Dockerfile par défaut est une barre oblique inverse `\`. Toutefois, étant donné que la barre oblique inverse est également un séparateur de chemin d’accès à un fichier dans Windows, son utilisation pour s’étendre sur plusieurs lignes peut poser des problèmes. Pour y accéder, vous pouvez utiliser une directive d’analyse pour modifier le caractère d’échappement par défaut. Pour plus d’informations sur les directives de l’analyseur, voir [directives](https://docs.docker.com/engine/reference/builder/#parser-directives)de l’analyseur.
+Dans de nombreux cas, une instruction Dockerfile doit s’étendre sur plusieurs lignes. Pour cela, vous pouvez utiliser un caractère d’échappement. Le caractère d’échappement de fichier Dockerfile par défaut est une barre oblique inverse `\`. Toutefois, étant donné que la barre oblique inverse est également un séparateur de chemin d’accès à un fichier dans Windows, son utilisation pour s’étendre sur plusieurs lignes peut poser des problèmes. Pour y accéder, vous pouvez utiliser une directive d’analyse pour modifier le caractère d’échappement par défaut. Pour plus d’informations sur les directives de l’analyseur, voir directives de l' [analyseur](https://docs.docker.com/engine/reference/builder/#parser-directives).
 
 L’exemple suivant illustre une instruction RUN unique qui s’étend sur plusieurs lignes à l’aide du caractère d’échappement par défaut:
 
