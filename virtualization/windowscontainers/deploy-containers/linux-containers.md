@@ -3,17 +3,17 @@ title: Conteneurs Linux sur Windows
 description: Découvrez les différentes façons dont vous pouvez utiliser Hyper-V pour exécuter des conteneurs Linux sur Windows comme s’ils étaient en natif.
 keywords: LCOW, conteneurs Linux, ancrage, conteneurs
 author: scooley
-ms.date: 11/02/2018
+ms.date: 09/17/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: edfd11c8-ee99-42d8-9878-efc126fe1826
-ms.openlocfilehash: 0426b14c423c06a0f12ea91529ce794f7a972f47
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 14445f3e9d292dbdab28986e772d0c045fca1586
+ms.sourcegitcommit: 9100d2218c160bbe9fbf24f3524c8ff5e3dd826c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998476"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "10135322"
 ---
 # <a name="linux-containers-on-windows"></a>Conteneurs Linux sur Windows
 
@@ -21,8 +21,8 @@ Les conteneurs Linux constituent un pourcentage considérable de l’écosystèm
 
 Il existe deux façons d’exécuter des conteneurs Linux avec le Dockr pour Windows et Hyper-V:
 
-1. Exécutez des conteneurs Linux dans une station virtuelle Linux complète, c’est la version d’arrimeur qui est la plus courante.
-1. Exécuter des conteneurs Linux avec l' [isolation Hyper-V](../manage-containers/hyperv-container.md) (LCOW)-il s’agit d’une nouvelle option dans docker pour Windows.
+- Exécutez des conteneurs Linux dans une station virtuelle Linux complète, c’est la version d’arrimeur qui est la plus courante.
+- Exécuter des conteneurs Linux avec l' [isolation Hyper-V](../manage-containers/hyperv-container.md) (LCOW)-il s’agit d’une nouvelle option dans docker pour Windows.
 
 Cet article décrit le fonctionnement de chaque approche, fournit des recommandations sur le moment où choisir la solution et partager le travail en cours.
 
@@ -30,7 +30,7 @@ Cet article décrit le fonctionnement de chaque approche, fournit des recommanda
 
 Pour exécuter les conteneurs Linux dans un VM Linux, suivez les instructions du [Guide de démarrage de l'](https://docs.docker.com/docker-for-windows/)outil de connexion.
 
-L’arrimeur a pu exécuter des conteneurs Linux sur le bureau Windows, car il a été lancé pour la première fois dans 2016 (avant l’isolement Hyper-V ou LCOW étaient disponibles) à l’aide d’une machine virtuelle [LinuxKit](https://github.com/linuxkit/linuxkit) exécutée sur Hyper-v.
+Il a été en mesure d’exécuter des conteneurs Linux sur le bureau Windows, car il a été lancé pour la première fois dans 2016 (avant l’isolement Hyper-V ou les conteneurs Linux sur Windows) à l’aide d’une machine virtuelle basée sur [LinuxKit](https://github.com/linuxkit/linuxkit) exécutée sur Hyper-v.
 
 Dans ce modèle, le client d’amarrage s’exécute sur un ordinateur de bureau Windows, mais il appelle le démon de l’amarrage de l’ordinateur virtuel Linux.
 
@@ -47,9 +47,9 @@ Pour savoir si vous utilisez la version VM de Moby, activez le Gestionnaire Hype
 
 ## <a name="linux-containers-with-hyper-v-isolation"></a>Conteneurs Linux avec isolation Hyper-V
 
-Pour essayer LCOW, suivez les instructions du conteneur Linux dans [ce guide](../quick-start/quick-start-windows-10.md) de mise en route
+Pour essayer les conteneurs Linux sur Windows (LCOW), suivez les instructions du conteneur Linux dans les [conteneurs Linux sur Windows 10](../quick-start/quick-start-windows-10-linux.md).
 
-Les conteneurs Linux disposant d’une isolation Hyper-V exécutent chaque conteneur Linux (LCOW) dans un ordinateur virtuel Linux optimisé doté d’un système d’exploitation suffisant pour exécuter des conteneurs.  Par contraste de l’approche de Moby VM, chaque LCOW dispose de son propre noyau et de son propre sandbox d’ordinateur virtuel.  Ils sont également gérés par l’arrimeur sur Windows directement.
+Les conteneurs Linux avec l’isolation Hyper-V exécutent chaque conteneur Linux dans un ordinateur virtuel Linux optimisé doté d’un système d’exploitation suffisant pour exécuter des conteneurs. Par contraste de l’approche de la VM Moby, chaque conteneur Linux possède son propre noyau et son propre sandbox d’ordinateur virtuel. Ils sont également gérés par l’arrimeur sur Windows directement.
 
 ![Conteneurs Linux avec isolation Hyper-V (LCOW)](media/lcow-approach.png)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: 1a66ef0fd07162f8bcd78b9bffa159d3f96e4763
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: dbe0e629428bbd8ecfe3ec01bb1a69e3c9c3e231
+ms.sourcegitcommit: 9100d2218c160bbe9fbf24f3524c8ff5e3dd826c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998796"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "10135342"
 ---
 # <a name="about-windows-containers"></a>À propos des conteneurs Windows
 
@@ -43,7 +43,7 @@ Voici quelques termes utiles lorsque vous commencez à travailler avec des conte
 - Image de conteneur: modèle en lecture seule d’instructions pour la création d’un conteneur. Les images peuvent être basées sur un environnement de système d’exploitation basique et non modifié, mais peuvent également être créées à partir du bac à sable d’un conteneur modifié. Ces images modifiées calquent leurs modifications en haut du calque d’image de base, et ces couches peuvent être copiées puis réappliquées à d’autres images de base pour créer une nouvelle image avec ces mêmes modifications.
 - Référentiel de conteneurs: référentiel local qui stocke l’image de votre conteneur et ses dépendances chaque fois que vous créez une nouvelle image. Vous pouvez réutiliser les images stockées autant de fois que vous le souhaitez sur l’hôte de conteneur. Vous pouvez également stocker les images du conteneur dans un registre public ou privé, tel qu’un hub d’ancrage, afin qu’ils puissent être utilisés dans de nombreux hôtes de conteneur différents.
 - Conteneur Orchestrator: processus qui automatise et gère un grand nombre de conteneurs et la manière dont ils interagissent entre eux. Pour en savoir plus, voir [à propos des orchestraistes des conteneurs Windows](overview-container-orchestrators.md).
-- Docker: processus automatisé qui empaquet et fournit des images de conteneur. Pour en savoir plus, voir [vue d’ensemble](docker-overview.md)de l’arrimateur, [moteur de l’ancrage sur Windows](../manage-docker/configure-docker-daemon.md) ou visitez le [site Web](https://www.docker.com)de l’ancrage.
+- Docker: processus automatisé qui empaquet et fournit des images de conteneur. Pour en savoir plus, voir [vue d’ensemble de l’arrimateur](docker-overview.md), [moteur de l’ancrage sur Windows](../manage-docker/configure-docker-daemon.md) ou visitez le [site Web](https://www.docker.com)de l’ancrage.
 
 ![Organigramme qui montre comment créer des conteneurs. Les images d’application et de base servent à créer un bac à sable (sandbox) et une nouvelle image d’application, qui sont superposées en haut de l’image de base pour créer un nouveau conteneur.](media/containerfund.png)
 
@@ -85,4 +85,4 @@ Vous êtes prêt à exploiter les impressionnantes fonctionnalités des conteneu
 
 Pour configurer un conteneur sur Windows Server, voir [démarrage rapide de Windows Server](../quick-start/quick-start-windows-server.md).
 
-Pour configurer un conteneur sur Windows 10, voir l’aide au [démarrage de Windows 10](../quick-start/quick-start-windows-10.md).
+Pour configurer un conteneur sur Windows 10, voir mise en [route: configurer votre environnement pour les conteneurs](../quick-start/set-up-environment.md?tabs=Windows-10-Client).
