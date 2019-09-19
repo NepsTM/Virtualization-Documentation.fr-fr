@@ -8,14 +8,14 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: 01e687cfa2fd479eb87e5639581e1552ed801aef
-ms.sourcegitcommit: 9100d2218c160bbe9fbf24f3524c8ff5e3dd826c
+ms.openlocfilehash: 99b324c8cae5c8c8ed887b6e39d6818d9eddba15
+ms.sourcegitcommit: 668d0c0a81e6d74d75a655be5a47c2bbc5e268de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "10135332"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "10138500"
 ---
-# <a name="automating-builds-and-saving-images"></a>Automatisation des builds et enregistrement des images
+# <a name="automating-builds-and-saving-images"></a>Automatisation de la création et de l’enregistrement d’images
 
 Dans le démarrage rapide précédent de Windows Server, un conteneur Windows était créé à partir d’un exemple .NetCore préalablement créé. Cet exercice montre comment créer votre propre image de conteneur à partir d’un Dockerfile et stocker l’image du conteneur dans le registre public du hub d’ancrage.
 
@@ -26,7 +26,7 @@ Ce guide de démarrage rapide est spécifique aux conteneurs Windows Server sur 
 Veuillez vérifier que vous remplissez les conditions suivantes:
 
 - Un système informatique (physique ou virtuel) exécutant Windows Server 2019 ou Windows Server 2016.
-- Configurez-le à l’aide de la fonctionnalité conteneur Windows et de l’outil de connexion. Pour obtenir une procédure pas à pas sur ces étapes, voir [conteneurs Windows sur Windows Server](./quick-start-windows-server.md).
+- Configurez-le à l’aide de la fonctionnalité conteneur Windows et de l’outil de connexion. Pour obtenir une procédure pas à pas sur ces étapes, voir mise en [route: configurer votre environnement pour les conteneurs](../quick-start/set-up-environment.md).
 - Un ID Docker, utilisé pour transférer (push) une image de conteneur vers Docker Hub. Si vous n’avez pas encore d’ID Docker, demandez-en un sur [Docker Cloud](https://cloud.docker.com/).
 
 ## <a name="container-image---dockerfile"></a>Image de conteneur-Dockerfile
@@ -159,4 +159,4 @@ docker pull <user>/iis-dockerfile
 Pour découvrir comment mettre en package un exemple d’application ASP.NET, consultez les didacticiels de Windows10 dont les liens figurent ci-dessous.
 
 > [!div class="nextstepaction"]
-> [Conteneurs sur Windows 10](./set-up-environment.md?tabs=Windows-10-Client)
+> [Conteneurs sur Windows 10](set-up-environment.md?tabs=Windows-10-Client)
