@@ -7,12 +7,12 @@ ms.date: 06/25/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: eb2b827c-4a6c-4327-9354-50d14fee7ed8
-ms.openlocfilehash: 80bed57672fff97ac4384846af9ba344016d7a2c
-ms.sourcegitcommit: 0762bfade5dd8b01a9affce72ad308831d9eaf5a
+ms.openlocfilehash: b43c3b112700591f67fcd0247b5ebd88a9c53729
+ms.sourcegitcommit: 62fff5436770151a28b6fea2be3a8818564f3867
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "10009206"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "10147202"
 ---
 # <a name="introduction-to-hyper-v-on-windows-10"></a>Introduction à Hyper-V sur Windows10
 

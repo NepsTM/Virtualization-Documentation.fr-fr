@@ -1,22 +1,40 @@
 
-# <a name="microsoft-software-supplemental-license-terms"></a>TERMES SUPPLÉMENTAIRES DU CONTRAT DE LICENCE LOGICIEL MICROSOFT
+# <a name="microsoft-software-supplemental-license"></a>LICENCE DE COMPLÉMENT LOGICIEL MICROSOFT
+# <a name="for-windows-container-base-image"></a>IMAGE DE LA BASE CONTENEUR WINDOWS 
 
-Licence: En demandant et en utilisant cette Image de système d’exploitation de conteneur pour les conteneurs Windows, vous reconnaissez comprendre et accepter les Termes supplémentaires du Contrat de licence suivants:
+Cette licence supplémentaire est destinée à l’image de base du conteneur Windows («image de conteneur»).  Si vous respectez les conditions de cette licence supplémentaire, vous pouvez utiliser l’image du conteneur comme décrit ci-dessous.
 
-## <a name="container-os-image"></a>IMAGE DE SYSTÈME D’EXPLOITATION DE CONTENEUR 
+L’image du conteneur ne doit être utilisée qu’avec une copie sous licence valide de:
+* Le logiciel Windows Server standard ou Windows Server Datacenter (collectivement «logiciel hôte serveur»), ou
+* Le logiciel du système d’exploitation Microsoft Windows (version 10) («logiciel hôte du client»), ou
+* Windows 10 IoT entreprise et Windows 10 IoT standard (collectivement «logiciel d’hébergement IoT»).
 
-Microsoft Corporation (ou en fonction du lieu où vous vivez, l’un de ses affiliés) (désignée sous les termes «nous» ou «Microsoft») vous concède sous licence ce supplément Image de système d’exploitation de conteneur (le «Supplément»). Vous êtes autorisé à utiliser ce Supplément conjointement avec le logiciel de système d’exploitation hôte sous-jacent (le «Logiciel Hôte») uniquement dans le but de permettre l’exécution des fonctionnalités de conteneur dans le Logiciel Hôte.  Les termes du contrat de licence du Logiciel Hôte s’appliquent à votre utilisation du Supplément. Vous n’êtes pas autorisé à l’utiliser si vous n’avez pas de licence pour le Logiciel Hôte. Vous êtes autorisé à utiliser ce Supplément avec chaque version sous licence valide du Logiciel Hôte.
+Le logiciel d’hébergement du serveur, le logiciel d’hébergement client et le logiciel d’hébergement IoT sont désignés collectivement sous le nom de «logiciel hôte» et une licence pour le logiciel hôte est une «licence d’hôte».
 
-## <a name="additional-licensing-requirements-andor-use-rights"></a>AUTRES CONDITIONS DE LICENCE ET/OU DROITS D’UTILISATION 
+Vous ne pouvez pas utiliser l’image du conteneur si vous ne disposez pas d’une version et d’une édition correspondantes de la licence hôte.  Certaines restrictions et conditions supplémentaires peuvent s’appliquer, qui sont décrites dans le présent document.  Si les termes du contrat de licence entrent en conflit avec la licence hôte, cette licence supplémentaire s’engage à respecter l’image du conteneur. EN ACCEPTANT CETTE LICENCE SUPPLÉMENTAIRE OU EN UTILISANT L’IMAGE DU CONTENEUR, VOUS VOUS ENGAGEZ À RESPECTER LES PRÉSENTES CONDITIONS.  SI VOUS N’ACCEPTEZ PAS LES PRÉSENTES CONDITIONS D’UTILISATION, VOUS NE POUVEZ PAS UTILISER L’IMAGE DU CONTENEUR.  
 
-L’utilisation du Supplément comme spécifié dans le paragraphe précédent peut entraîner la création ou la modification d’une image de conteneur («Image de Conteneur») qui inclut certains composants du Supplément. Pour plus de clarté, une Image de Conteneur est séparée et distincte d’une image d’appliance virtuelle ou de machine virtuelle.  Conformément à ces termes du contrat de licence, nous vous accordons des droits limités pour redistribuer ces composants du Supplément dans les conditions suivantes:
+## <a name="definitions"></a>DÉFINITIONS 
 
-* (i) vous êtes autorisé à utiliser les composants du Supplément uniquement pour l’usage prévu dans votre Image de Conteneur;
-* (ii) vous êtes autorisé à utiliser ces composants du Supplément dans votre Image de Conteneur à condition que les fonctionnalités importantes et majeures utilisées dans votre Image de Conteneur soient matériellement séparées et distinctes du Supplément; et 
-* (iii) vous acceptez d’inclure ces termes du contrat de licence (ou d’autres termes similaires exigés par Microsoft ou un hébergeur) avec votre Image de Conteneur pour accorder une licence d’utilisation des composants du Supplément à vos utilisateurs finaux.
+**Conteneur Windows Server** (sans l’isolation Hyper-V) est une fonctionnalité du logiciel Microsoft Windows Server. 
 
-Tous les droits qui ne sont pas expressément concédés par ce contrat sont réservés par Microsoft.
+**Conteneur Windows Server avec isolation Hyper-V.**  La section 2 (k) des termes du contrat de licence Microsoft Windows Server (version 10) est supprimée dans son intégralité et remplacée par les termes corrigés, comme indiqué dans la section «mise à jour» ci-dessous.  
 
-En utilisant ce Supplément, vous reconnaissez accepter ces termes de contrat. Si vous ne les acceptez pas, n’utilisez pas ce Supplément.
+MISE à jour: le conteneur Windows Server with Hyper-V isolation (auparavant connu sous le nom de conteneur Hyper-V) est une technologie de conteneur de Windows Server qui utilise un environnement de système d’exploitation virtuel pour héberger un ou plusieurs conteneurs Windows Server.  Chaque instance d’isolation Hyper-V utilisée pour héberger un ou plusieurs conteneurs Windows Server est considérée comme un environnement de système d’exploitation virtuel.  
 
-Dans le cadre des termes du contrat de licence supplémentaires pour cette image du système d’exploitation pour les conteneurs Windows, vous êtes également soumis aux termes du contrat de licence logiciel de l’hôte https://www.microsoft.com/usetermsWindows Server sous-jacents, qui se trouvent dans:.  
+## <a name="license-terms"></a>TERMES DU CONTRAT DE LICENCE
+
+**Licence hôte.** Les termes du contrat de licence hôte s’appliquent à l’utilisation de l’image du conteneur et du ou des conteneurs Windows créés avec l’image du conteneur qui sont distincts et séparés d’une machine virtuelle.
+
+**Droits d’utilisation.**  L’image de conteneur est utilisée pour créer un environnement de système d’exploitation Windows virtualisé isolé incluant au moins une application qui ajoute des fonctionnalités principales et significatives. Vous pouvez utiliser l’image du conteneur uniquement pour créer, générer et exécuter des conteneurs Windows sur le logiciel hôte.  Il est possible que les mises à jour apportées au logiciel hôte ne mettent pas à jour l’image du conteneur, de sorte que vous pouvez recréer des conteneurs Windows en fonction d’une image de conteneur mise à jour.   
+ 
+**Limiter.**  Vous ne pouvez pas supprimer le fichier de document de licence supplémentaire de l’image du conteneur.  Il est possible que vous ne puissiez pas activer l’accès distant aux applications que vous exécutez dans votre conteneur pour éviter des frais de licence applicables.  Il est possible que vous ne puissiez pas réosser, décompiler ou désassembler l’image du conteneur ou tenter de le faire, sauf dans la mesure où il est nécessaire de recourir à des conditions de licence tierces en matière d’utilisation de certains composants Open source qui pourraient être inclus dans le logiciel.  Des restrictions supplémentaires sont susceptibles d’être appliquées à la licence hôte.
+
+## <a name="additional-terms"></a>CONDITIONS SUPPLÉMENTAIRES
+
+**Le logiciel hôte du client.**  Lors de l’exécution d’une image de conteneur dans le logiciel hôte du client, vous pouvez exécuter n’importe quel nombre de l’image du conteneur instancié en tant que conteneurs Windows à des fins de test ou de développement uniquement.  Il est possible que vous ne puissiez pas utiliser ces conteneurs Windows dans un environnement de production sur un logiciel hôte client.
+
+**Le logiciel d’hébergement IoT.**  Lors de l’exécution d’une image de conteneur sur un logiciel d’hébergement IoT, vous pouvez exécuter n’importe quel nombre d’images de conteneur instanciées comme conteneurs Windows à des fins de test ou de développement uniquement. Vous pouvez utiliser l’image du conteneur uniquement dans un environnement de production, si vous avez accepté les conditions générales de l’utilisation de Microsoft pour les images principales de Windows 10 ou la licence de l’appareil entreprise Windows 10 (contrat commercial Windows). Des conditions générales supplémentaires relatives aux contrats commerciaux Windows IoT s’appliquent à votre utilisation d’une image de conteneur dans un environnement de production.
+
+**Logiciel tiers.** L’image du conteneur risque d’inclure des applications tierces que vous avez achetées dans le cadre de cette licence supplémentaire ou dans leurs propres conditions. Les termes du contrat de licence, les mentions et les accusés de réception pour les applications tierces sont accessibles http://aka.ms/thirdpartynotices en ligne sur ou dans un fichier d’avis associé. Même si de telles applications sont régies par d’autres accords, les exclusions de responsabilité, les limites et les exclusions de dommages dans la licence de l’hôte s’appliquent également dans la limite autorisée par la loi en vigueur.  
+  
+**Ouvrez les composants sources.** L’image du conteneur est susceptible de contenir un logiciel tiers protégé par les droits d’auteur sous licence Open source avec les obligations de disponibilité du code source. Des copies de ces licences sont incluses dans le fichier ThirdPartyNotices ou dans d’autres fichiers d’avis annexes. Il est possible que vous obteniez le code source correspondant à la demande, si nécessaire, sous la licence Open source appropriée, en envoyant un ordre d’argent ou en effectuant une recherche sur $5,00 à: équipe de conformité du code source, Microsoft Corporation, 1 Microsoft Way, Redmond, WA 98052, États-Unis. Incluez le nom «licence supplémentaire logiciel Microsoft pour l’image de base du conteneur Windows», «le nom du composant source ouvert et le numéro de version dans la ligne mémo de votre paiement. Vous pouvez également trouver une copie de la source à http://aka.ms/getsourcel’adresse.

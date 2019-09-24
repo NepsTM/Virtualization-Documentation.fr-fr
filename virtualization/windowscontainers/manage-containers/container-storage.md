@@ -3,12 +3,12 @@ title: Stockage de conteneurs Windows Server
 description: Comment les conteneurs Windows Server peuvent-ils utiliser les hôtes et les autres types de stockage
 keywords: conteneurs, volume, stockage, montage, montage lié
 author: patricklang
-ms.openlocfilehash: bddfb3a3510a6af674be73349a7e422434c1e0f4
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: 5f8ff4b25ad4a4c34ed2e28683607cfc02891e1e
+ms.sourcegitcommit: 62fff5436770151a28b6fea2be3a8818564f3867
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9882972"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "10147222"
 ---
 # <a name="overview"></a>Vue d’ensemble
 
@@ -108,7 +108,8 @@ Sur Windows Server version1709, une nouvelle fonctionnalité appelée «Mappage 
     ```
     Cette commande utilise les informations d’identification pour s’authentifier auprès du serveur SMB distant. Ensuite, mappez le chemin d’accès du partage à distance à la lettre de lecteur G: (il peut s’agir de toute autre lettre de lecteur disponible). Il est désormais possible que les volumes de données des conteneurs créés sur cet hôte conteneur soient mappés à un chemin d’accès sur le lecteur G.
 
-    > Remarque: Lorsque le mappage global SMB est appliqué aux conteneurs, tous les utilisateurs de l’hôte conteneur peuvent accéder au partage distant. Toute application en cours d’exécution sur l’hôte conteneur aura également accès au partage distant mappé.
+    > [!NOTE]
+    > Lorsque vous utilisez le mappage global SMB pour les conteneurs, tous les utilisateurs sur l’hôte de conteneur peuvent accéder au partage distant. Toute application en cours d’exécution sur l’hôte conteneur aura également accès au partage distant mappé.
 
 2. Créez des conteneurs avec des volumes de données mappés vers un partage SMB monté de manière globale: docker run -it --name demo -v g:\ContainerData:G:\AppData1 microsoft/windowsservercore:1709 cmd.exe
 
