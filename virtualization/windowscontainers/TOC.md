@@ -33,14 +33,16 @@
 
 # Concepts
 ## Notions fondamentales sur les conteneurs Windows
-### [Contrôles de ressources](manage-containers/resource-controls.md)
-### [Isolation Hyper-V](manage-containers/hyperv-container.md)
-### [Compatibilité des versions](deploy-containers/version-compatibility.md)
 ### [Images de base du conteneur](manage-containers/container-base-images.md)
+### [Modes d’isolation](manage-containers/hyperv-container.md)
+### [Compatibilité des versions](deploy-containers/version-compatibility.md)
+### [Contrôles de ressources](manage-containers/resource-controls.md)
 ## Docker
 ### [Moteur Docker sur Windows](manage-docker/configure-docker-daemon.md)
 ### [En essaim d’amarrage](manage-containers/swarm-mode.md)
 ### [Gestion à distance d’un hôte de station d’accueil Windows](management/manage_remotehost.md)
+## Orchestration de conteneur
+### [Vue d'ensemble](about/overview-container-orchestrators.md)
 ## Charges
 ### Comptes de service administrés de groupe
 #### [Créer un compte gMSA](manage-containers/manage-serviceaccounts.md)
