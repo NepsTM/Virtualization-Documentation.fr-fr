@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
-ms.openlocfilehash: 0aa93b721ab1279cb789e3a18cad04bb668d2644
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: af12aff787cf178ff80d5db15cc926266816882f
+ms.sourcegitcommit: 579349d7bc6a7dbf68445339c468ad8d2b87d7de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998516"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "10152730"
 ---
 # <a name="frequently-asked-questions-about-containers"></a>Forum aux questions sur les conteneurs
 
@@ -46,7 +46,7 @@ Des conteneurs ont été introduits dans la plateforme avec Windows Server 2016.
 Si vous souhaitez exécuter vos conteneurs Windows de cette manière, vous devez vous assurer que votre hôte exécute Windows 10 Build 17763 + et que vous disposez d’une version d’amarrage avec le moteur 18,09 ou version ultérieure.
 
 > [!WARNING]
-> Cette fonctionnalité est uniquement destinée au développement et au test. Vous devez continuer à utiliser Windows Server en tant qu’hôte pour les déploiements de production. En utilisant cette fonctionnalité, vous devez également vous assurer que les balises de version de votre hôte et du conteneur correspondent, sinon le conteneur peut ne pas démarrer ou présenter un comportement non défini.
+> Cette fonctionnalité est réservée aux développements et aux tests. Vous devez continuer à utiliser Windows Server en tant qu’hôte pour les déploiements de production. En utilisant cette fonctionnalité, vous devez également vous assurer que les balises de version de votre hôte et du conteneur correspondent, sinon le conteneur peut ne pas démarrer ou présenter un comportement non défini.
 
 ## <a name="how-do-i-make-my-container-images-available-on-air-gapped-machines"></a>Comment rendre mes images de conteneur disponibles sur les appareils d’entrée aérienne?
 
