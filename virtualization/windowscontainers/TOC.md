@@ -14,19 +14,15 @@
 ## Créer un conteneur Windows
 ### [Écrire un Dockerfile](manage-docker/manage-windows-dockerfile.md)
 ### [Optimiser une Dockerfile](manage-docker/optimize-windows-dockerfile.md)
-## Kubernetes sur Windows
-### [Kubernetes sur Windows](kubernetes/getting-started-kubernetes-windows.md)
-### [Créer un maître Kubernetes](kubernetes/creating-a-linux-master.md)
-### [Choisir une solution réseau](kubernetes/network-topologies.md)
-### [Rejoindre des travailleurs Windows](kubernetes/joining-windows-workers.md)
-### [Rejoignez des travailleurs Linux](kubernetes/joining-linux-workers.md)
-### [Déploiement de ressources Kubernetes](kubernetes/deploying-resources.md)
-### [Résolution des problèmes](kubernetes/common-problems.md)
-### [Services Windows sur Kubernetes](kubernetes/kube-windows-services.md)
-### [Compiler des fichiers binaires Kubernetes](kubernetes/compiling-kubernetes-binaries.md)
-## Service Fabric sur Windows
+## Exécution sur le service Azure Kubernetes
+### [Créer un groupe de conteneurs Windows sur AKS](/azure/aks/windows-container-cli)
+### [Limitations actuelles](/azure/aks/windows-node-limitations)
+## Exécution sur service Fabric
 ### [Déployer votre premier conteneur](/azure/service-fabric/service-fabric-quickstart-containers)
 ### [Déployer une application .NET dans un conteneur Windows](/azure/service-fabric/service-fabric-host-app-in-a-container)
+## Exécuter sur le service d’application Azure
+### [Démarrage rapide du service d’application Azure](/azure/app-service/app-service-web-get-started-windows-container)
+### [Migrer une application ASP.NET avec des conteneurs Windows et service d’application Azure](/azure/app-service/app-service-web-tutorial-windows-containers-custom-fonts)
 ## Conteneurs Linux sur Windows
 ### [Vue d'ensemble](deploy-containers/linux-containers.md)
 ### [Exécuter votre premier conteneur LCOW](quick-start/quick-start-windows-10-linux.md)
@@ -39,10 +35,24 @@
 ### [Contrôles de ressources](manage-containers/resource-controls.md)
 ## Docker
 ### [Moteur Docker sur Windows](manage-docker/configure-docker-daemon.md)
-### [En essaim d’amarrage](manage-containers/swarm-mode.md)
 ### [Gestion à distance d’un hôte de station d’accueil Windows](management/manage_remotehost.md)
 ## Orchestration de conteneur
 ### [Vue d'ensemble](about/overview-container-orchestrators.md)
+### Kubernetes sur Windows
+#### [Kubernetes sur Windows](kubernetes/getting-started-kubernetes-windows.md)
+#### [Créer un maître Kubernetes](kubernetes/creating-a-linux-master.md)
+#### [Choisir une solution réseau](kubernetes/network-topologies.md)
+#### [Rejoindre des travailleurs Windows](kubernetes/joining-windows-workers.md)
+#### [Rejoignez des travailleurs Linux](kubernetes/joining-linux-workers.md)
+#### [Déploiement de ressources Kubernetes](kubernetes/deploying-resources.md)
+#### [Résolution des problèmes](kubernetes/common-problems.md)
+#### [Services Windows sur Kubernetes](kubernetes/kube-windows-services.md)
+#### [Compiler des fichiers binaires Kubernetes](kubernetes/compiling-kubernetes-binaries.md)
+### Service Fabric
+#### [Service fabric et conteneurs](/azure/service-fabric/service-fabric-containers-overview)
+#### [Gouvernance des ressources](/azure/service-fabric/service-fabric-resource-governance)
+### En essaim d’amarrage
+#### [Mode essaim](manage-containers/swarm-mode.md)
 ## Charges
 ### Comptes de service administrés de groupe
 #### [Créer un compte gMSA](manage-containers/manage-serviceaccounts.md)
@@ -58,6 +68,7 @@
 ### [Configurer les options de mise en réseau avancées](container-networking/advanced.md)
 ## Stockage
 ### [Vue d'ensemble](manage-containers/container-storage.md)
+### [Stockage persistant](manage-containers/persistent-storage.md)
 ## Appareils
 ### [Périphériques matériels](deploy-containers/hardware-devices-in-containers.md)
 ### [Accélération GPU](deploy-containers/gpu-acceleration.md)
