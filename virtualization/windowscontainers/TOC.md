@@ -1,7 +1,8 @@
 # [Conteneurs dans la documentation Windows](index.md) 
 
-# Vue d'ensemble
+# Présentation
 ## [À propos des conteneurs Windows](about/index.md)
+## [Conteneurs et VM](about/containers-vs-vm.md)
 ## [Configuration requise](deploy-containers/system-requirements.md)
 ## [FAQ](about/faq.md)
 
@@ -24,8 +25,10 @@
 ### [Démarrage rapide du service d’application Azure](/azure/app-service/app-service-web-get-started-windows-container)
 ### [Migrer une application ASP.NET avec des conteneurs Windows et service d’application Azure](/azure/app-service/app-service-web-tutorial-windows-containers-custom-fonts)
 ## Conteneurs Linux sur Windows
-### [Vue d'ensemble](deploy-containers/linux-containers.md)
+### [Présentation](deploy-containers/linux-containers.md)
 ### [Exécuter votre premier conteneur LCOW](quick-start/quick-start-windows-10-linux.md)
+## Utiliser des conteneurs avec le programme Windows Insider
+### [Présentation](deploy-containers/insider-overview.md)
 
 # Concepts
 ## Notions fondamentales sur les conteneurs Windows
@@ -37,7 +40,7 @@
 ### [Moteur Docker sur Windows](manage-docker/configure-docker-daemon.md)
 ### [Gestion à distance d’un hôte de station d’accueil Windows](management/manage_remotehost.md)
 ## Orchestration de conteneur
-### [Vue d'ensemble](about/overview-container-orchestrators.md)
+### [Présentation](about/overview-container-orchestrators.md)
 ### Kubernetes sur Windows
 #### [Kubernetes sur Windows](kubernetes/getting-started-kubernetes-windows.md)
 #### [Créer un maître Kubernetes](kubernetes/creating-a-linux-master.md)
@@ -62,12 +65,12 @@
 #### [Résoudre les problèmes de gMSAs](manage-containers/gmsa-troubleshooting.md)
 ### [Services d’impression](deploy-containers/print-spooler.md)
 ## Réseaux
-### [Vue d'ensemble](container-networking/architecture.md)
+### [Présentation](container-networking/architecture.md)
 ### [Topologies et pilotes réseau](container-networking/network-drivers-topologies.md)
 ### [Isolement réseau et sécurité](container-networking/network-isolation-security.md)
 ### [Configurer les options de mise en réseau avancées](container-networking/advanced.md)
 ## Stockage
-### [Vue d'ensemble](manage-containers/container-storage.md)
+### [Présentation](manage-containers/container-storage.md)
 ### [Stockage persistant](manage-containers/persistent-storage.md)
 ## Appareils
 ### [Périphériques matériels](deploy-containers/hardware-devices-in-containers.md)

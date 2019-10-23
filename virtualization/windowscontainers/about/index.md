@@ -1,84 +1,112 @@
 ---
 title: À propos des conteneurs Windows
-description: En savoir plus sur les conteneurs Windows.
+description: Les conteneurs constituent une technologie de création de packages et d’exécution d’applications, y compris des applications Windows, dans différents environnements locaux et dans le Cloud. Cette rubrique vous explique comment Microsoft, Windows et Azure vous permettent de développer et de déployer des applications dans des conteneurs, notamment à l’aide de docker et d’Azure Kubernetes service.
 keywords: docker, conteneurs
 author: taylorb-microsoft
-ms.date: 05/22/2019
+ms.date: 10/22/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: 55fc032613b901ef1f5f9cf989891ceef99aac36
-ms.sourcegitcommit: 668d0c0a81e6d74d75a655be5a47c2bbc5e268de
+ms.openlocfilehash: acce214cc8991f20c979b6dbe636590416841cb9
+ms.sourcegitcommit: d0411b05d1ef7328a770766b84fd0743f9d9c237
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "10138510"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "10254289"
 ---
-# <a name="about-windows-containers"></a>À propos des conteneurs Windows
+# <a name="windows-and-containers"></a>Windows et conteneurs
 
-Prenons l’exemple d’une cuisine. Tout ce dont vous avez besoin au sein de la même pièce, c’est tout ce dont vous avez besoin pour cuisiner une farine: four, panoramique, lavabo, etc. Voici notre conteneur.
+Les conteneurs constituent une technologie permettant d’empaqueter et d’exécuter des applications Windows et Linux dans divers environnements locaux et dans le Cloud. Les conteneurs fournissent un environnement léger et isolé qui simplifie le développement, le déploiement et la gestion des applications. Les conteneurs débutent et arrêtent rapidement, ce qui les rend idéaux pour les applications qui doivent s’adapter rapidement à la modification de la demande. Le caractère léger des conteneurs rend également un outil utile pour améliorer la densité et l’utilisation de votre infrastructure.
 
-![Illustration d’une cuisine entièrement apportée avec un papier peint jaune dans un carré noir.](media/box1.png)
+![Graphique illustrant la façon dont les conteneurs peuvent s’exécuter dans le Cloud ou sur site, prenant en charge des applications ou des microservices monolithiques écrits en presque n’importe quelle langue.](media/about-3-box.png)
 
-Imaginez à présent que vous avez créé une cuisine dans un bâtiment aussi facilement que de faire glisser un livre dans une bibliothèque virtuelle. Dans la mesure où tout ce dont vous avez besoin pour la cuisine est déjà là, tout ce dont nous avons besoin pour commencer à cuire consiste à relier l’électricité et la plomberie.
+## <a name="the-microsoft-container-ecosystem"></a>Écosystème de conteneurs Microsoft
 
-![Bâtiment d’une cloison constituée de deux piles de zones noires. Quatre de ces cases sont les mêmes que celles utilisées dans l’exemple de cuisine et sont dans des endroits aléatoires tout au long du bâtiment, tandis que les autres sont des salles de vie multicolores ou sont vides et grisées.](media/apartment.png)
+Microsoft fournit un certain nombre d’outils et de plateformes pour vous aider à développer et déployer des applications dans des conteneurs:
 
-Pourquoi ne plus être là? Vous pouvez personnaliser votre bâtiment comme bon vous semble. Remplissez-la avec de nombreux types de pièces, remplissez-les à l’aide de pièces identiques ou combinez les deux.
+- <strong>Exécutez des conteneurs Windows ou Linux sur Windows 10 pour le</strong> développement et les tests à l’aide de la version de bureau de l' [amarrage](https://store.docker.com/editions/community/docker-ce-desktop-windows), qui utilise la fonctionnalité conteneurs intégrée à Windows. Vous pouvez également [exécuter des conteneurs en mode natif sur Windows Server](../quick-start/set-up-environment.md?tabs=Windows-Server).
+- <strong>Développez, testez, publiez et déployez des conteneurs Windows</strong> à l’aide de la [puissante prise en charge des conteneurs dans Visual Studio](https://docs.microsoft.com/visualstudio/containers/overview) et [Visual Studio](https://code.visualstudio.com/docs/azure/docker), qui incluent la prise en charge de l’arrimeur, de la composition du Dock, de Kubernetes, de Helm et d’autres fonctionnalités utiles. disponibles.
+- <strong>Publiez vos applications en tant qu’images de conteneurs</strong> sur le DockerHub public pour permettre à d’autres personnes de les utiliser, ou à un [Registre de conteneur Azure](https://azure.microsoft.com/services/container-registry/) privé pour le développement et le déploiement de votre organisation, en envoyant et en tirant directement à partir de Visual Studio et du code Visual Studio .
+- <strong>Déployer des conteneurs à l’échelle sur Azure ou sur d'</strong> autres nuages:
 
-Les conteneurs agissent comme cette salle en exécutant une application comme nous le voulons dans notre cuisine. Un conteneur place une application et tout ce dont l’application doit s’exécuter dans sa propre zone isolée. Par conséquent, l’application isolée n’a aucune connaissance d’autres applications ou processus qui existent en dehors de son conteneur. Dans la mesure où le conteneur dispose de tout ce dont l’application doit s’exécuter, le conteneur peut être déplacé en tout lieu, à l’aide des seules ressources dont son hébergement s’est tenu sans toucher aux ressources mises en service pour d’autres conteneurs.
+  - Tirez votre application (image de conteneur) à partir d’un registre de conteneurs, tel que le registre de conteneur Azure, puis déployez et gérez-la à l’aide d’un système d’évaluation tel qu’Azure [Kubernetes service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes) (en Preview pour les applications Windows) ou [Azure service. Fabrics](https://docs.microsoft.com/azure/service-fabric/).
+  - Le service Azure Kubernetes déploie des conteneurs sur les machines virtuelles Azure, et les gère à l’échelle, qu’il s’agisse de des conteneurs, des centaines ou même des milliers. Les machines virtuelles Azure exécutent une image Windows Server personnalisée (si vous déployez une application Windows) ou une image Linux Ubuntu personnalisée (si vous déployez une application basée sur Linux).
+- <strong>Déployez les conteneurs en local</strong> à l’aide de [la pile Azure avec le moteur AKS](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) (en preview avec les conteneurs Linux) ou [Azure Stack with OpenShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-azure-stack). Vous pouvez également configurer Kubernetes vous-même sur Windows Server (voir [Kubernetes sur Windows](../kubernetes/getting-started-kubernetes-windows.md)), et nous travaillons à la prise en charge de l’exécution de [conteneurs Windows sur la plateforme de conteneur OpenShift RedHat](https://techcommunity.microsoft.com/t5/Networking-Blog/Managing-Windows-containers-with-Red-Hat-OpenShift-Container/ba-p/339821) .
 
-La vidéo suivante vous informera plus sur ce que les conteneurs Windows peuvent faire pour vous, ainsi que sur la façon dont Microsoft s’est associé à l’amarrage pour créer un environnement sans friction pour le développement de conteneurs Open Source:
+## <a name="how-containers-work"></a>Fonctionnement des conteneurs
 
-<iframe width="800" height="450" src="https://www.youtube.com/embed/Ryx3o0rD5lY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Un conteneur est un silo léger isolé d’exécution d’une application sur le système d’exploitation hôte. Les conteneurs se créent au-dessus du noyau du système d’exploitation hôte (qui peut être pensé comme la plomberie du système d’exploitation), comme illustré dans ce diagramme.
 
-## <a name="container-fundamentals"></a>Notions de base des conteneurs
+![Diagramme architectural montrant la façon dont les conteneurs s’exécutent au-dessus du noyau](media/container-diagram.svg)
 
-Voici quelques termes utiles lorsque vous commencez à travailler avec des conteneurs Windows:.
+Tant qu’un conteneur partage le noyau du système d’exploitation hôte, le conteneur ne dispose pas d’un accès sans entrave. Au lieu de cela, le conteneur obtient un isolement, et dans certains cas, un affichage du système. Par exemple, un conteneur peut accéder à une version virtualisée du système de fichiers et du Registre, mais les modifications affectent uniquement le conteneur et sont supprimées lorsqu’il s’arrête. Pour enregistrer des données, le conteneur peut monter un stockage persistant tel qu’un [disque Azure](https://azure.microsoft.com/services/storage/disks/) ou un partage de fichiers (y compris les [fichiers Azure](https://azure.microsoft.com/services/storage/files/)).
 
-- Hôte de conteneur: système d’ordinateur physique ou virtuel configuré à l’aide de la fonctionnalité conteneur Windows. L’hôte de conteneur exécute un ou plusieurs conteneurs Windows.
-- Sandbox: couche qui capture toutes les modifications que vous apportez au conteneur lors de son exécution (par exemple, modifications du système de fichiers, modifications du registre ou installations logicielles).
-- Image de base: première couche dans les couches d’image d’un conteneur qui fournit l’environnement du système d’exploitation du conteneur. Une image de base ne peut pas être modifiée.
-- Image de conteneur: modèle en lecture seule d’instructions pour la création d’un conteneur. Les images peuvent être basées sur un environnement de système d’exploitation basique et non modifié, mais peuvent également être créées à partir du bac à sable d’un conteneur modifié. Ces images modifiées calquent leurs modifications en haut du calque d’image de base, et ces couches peuvent être copiées puis réappliquées à d’autres images de base pour créer une nouvelle image avec ces mêmes modifications.
-- Référentiel de conteneurs: référentiel local qui stocke l’image de votre conteneur et ses dépendances chaque fois que vous créez une nouvelle image. Vous pouvez réutiliser les images stockées autant de fois que vous le souhaitez sur l’hôte de conteneur. Vous pouvez également stocker les images du conteneur dans un registre public ou privé, tel qu’un hub d’ancrage, afin qu’ils puissent être utilisés dans de nombreux hôtes de conteneur différents.
-- Conteneur Orchestrator: processus qui automatise et gère un grand nombre de conteneurs et la manière dont ils interagissent entre eux. Pour en savoir plus, voir [à propos des orchestraistes des conteneurs Windows](overview-container-orchestrators.md).
-- Docker: processus automatisé qui empaquet et fournit des images de conteneur. Pour en savoir plus, voir [vue d’ensemble de l’arrimateur](docker-overview.md), [moteur de l’ancrage sur Windows](../manage-docker/configure-docker-daemon.md) ou visitez le [site Web](https://www.docker.com)de l’ancrage.
+Un conteneur repose sur le noyau, mais le noyau ne fournit pas toutes les API et services qu’une application doit exécuter: la plupart de ces fonctions sont fournies par des fichiers système (bibliothèques) qui s’exécutent au-dessus du noyau dans le mode utilisateur. Dans la mesure où un conteneur est isolé de l’environnement du mode utilisateur de l’hôte, il a besoin de sa propre copie de ces fichiers système en mode utilisateur, qui sont empaquetés dans une image de base. L’image de base sert de calque de base sur lequel votre conteneur est créé, et fournit des services de système d’exploitation non fournis par le noyau. Néanmoins, nous vous parlerons plus tard.
 
-![Organigramme qui montre comment créer des conteneurs. Les images d’application et de base servent à créer un bac à sable (sandbox) et une nouvelle image d’application, qui sont superposées en haut de l’image de base pour créer un nouveau conteneur.](media/containerfund.png)
+## <a name="containers-vs-virtual-machines"></a>Conteneurs et machines virtuelles
 
-Les conteneurs et machines virtuelles peuvent paraître similaires pour une personne qui connaît les machines virtuelles. Un conteneur exécute un système d’exploitation, dispose d’un système de fichiers, et est accessible via un réseau comme un système d’informatique physique ou virtuel. Ceci dit, la technologie et les concepts derrière les conteneurs sont très différents de ceux des machines virtuelles. Pour plus d’informations sur ces concepts, voir le [billet de blog](https://azure.microsoft.com/blog/containers-docker-windows-and-trends/) de Mark Russinovich qui explique les différences plus en détail.
+Contrairement à un conteneur, une machine virtuelle (VM) exécute un système d’exploitation complet, y compris son propre noyau, comme le montre ce diagramme.
 
-### <a name="windows-container-types"></a>Types de conteneurs Windows
+![Diagramme architectural montrant comment les ordinateurs virtuels exécutent un système d’exploitation complet en regard du système d’exploitation hôte](media/virtual-machine-diagram.svg)
 
-Une autre chose que vous devez savoir est qu’il existe deux types de conteneur différents, également appelés runtimes.
+Les conteneurs et machines virtuelles ont chacun de leurs usages: en fait, de nombreux déploiements de conteneurs utilisent des machines virtuelles comme système d’exploitation hôte plutôt que de s’exécuter directement sur le matériel, en particulier lors de l’exécution de conteneurs dans le Cloud.
 
-Les conteneurs Windows Server fournissent l’isolement de l’application par le biais de la technologie d’isolation de processus et d’espaces de noms, ce qui explique pourquoi ces conteneurs sont également désignés sous le nom de conteneurs isolés de processus. Un conteneur Windows Server partage un noyau avec l’hôte de conteneur et tous les conteneurs exécutés sur l’hôte. Ces conteneurs isolés du processus ne fournissent pas de limite de sécurité hostile et ne doivent pas être utilisés pour isoler du code non fiable. En raison de l’espace de noyau partagé, ces conteneurs requièrent la même version et configuration de noyau.
+Pour plus d’informations sur les similitudes et les différences entre ces technologies complémentaires, voir [conteneurs et machines virtuelles](containers-vs-vm.md).
 
-L’isolement Hyper-V s’étend sur l’isolement fourni par les conteneurs Windows Server en exécutant chaque conteneur dans une machine virtuelle hautement optimisée. Dans cette configuration, l’hôte de conteneur ne partage pas son noyau avec d’autres conteneurs sur le même hôte. Ces conteneurs sont conçus pour un hébergement mutualisé hostile avec les mêmes garanties de sécurité qu’une machine virtuelle. Dans la mesure où ces conteneurs ne partagent pas le noyau avec l’hôte ou d’autres conteneurs sur l’hôte, ils peuvent exécuter des noyaux avec différentes versions et configurations (dans les versions prises en charge). Par exemple, tous les conteneurs Windows sur Windows 10 utilisent l’isolation Hyper-V pour utiliser la version et la configuration du noyau Windows Server.
+## <a name="container-images"></a>Images de conteneurs
 
-L’exécution d’un conteneur sur Windows avec ou sans l’isolation Hyper-V est une décision d’exécution. Vous pouvez commencer par créer le conteneur avec l’isolation Hyper-V, puis ultérieurement lors de l’exécution, choisir de l’exécuter en tant que conteneur Windows Server.
+Tous les conteneurs sont créés à partir d’images de conteneurs. Les images de conteneur sont un ensemble de fichiers organisés en une pile de couches se trouvant sur votre ordinateur local ou dans un registre de conteneur distant. L’image du conteneur se compose des fichiers du système d’exploitation du mode utilisateur nécessaires à la prise en charge de votre application, de votre application, de tout Runtime ou dépendance de votre application, ainsi que de tout autre fichier de configuration divers dont votre application a besoin pour fonctionner correctement.
+
+Microsoft propose plusieurs images (appelées images de base) que vous pouvez utiliser comme point de départ pour créer votre propre image de conteneur:
+
+* <strong>Windows</strong> : contient l’ensemble complet d’API Windows et de services système (moins de rôles de serveur).
+* <strong>Windows Server Core</strong> : image plus petite contenant un sous-ensemble des API du serveur Windows, à savoir le .NET Framework complet. Il inclut également la plupart des rôles de serveur, même s’il s’agit de personnes qui ne sont pas des serveurs de télécopie.
+* <strong>Nano Server</strong> : l’image la plus petite du serveur Windows, avec la prise en charge des API .net Core et de certains rôles de serveur.
+* <strong>Windows 10 IOT</strong> standard-version de Windows utilisée par des fabricants de matériel informatique pour les appareils mobiles qui utilisent des processeurs ARM ou x86/x64.
+
+Comme indiqué précédemment, les images de conteneur sont composées d’une série de couches. Chaque couche contient un ensemble de fichiers qui, lors de leur suivi, représentent l’image de votre conteneur. En raison de la nature stratifiée des conteneurs, vous ne devez pas nécessairement cibler une image de base pour créer un conteneur Windows. Au lieu de cela, vous pouvez cibler une autre image qui porte déjà l’infrastructure de votre choix. Par exemple, l’équipe .NET publie une [image .net Core](https://hub.docker.com/_/microsoft-dotnet-core) qui comporte .net Core Runtime. Il évite aux utilisateurs de devoir dupliquer le processus d’installation de .NET Core: il peut réutiliser les couches de cette image de conteneur. L’image principale de .NET est basée sur nano Server.
+
+Pour plus d’informations, consultez [images de base du conteneur](../manage-containers/container-base-images.md).
 
 ## <a name="container-users"></a>Utilisateurs de conteneurs
 
 ### <a name="containers-for-developers"></a>Conteneurs pour les développeurs
 
-Les conteneurs permettent aux développeurs de créer et d’expédier des applications de meilleure qualité plus rapidement. Les développeurs peuvent créer une image d’amarrage qui s’déploiera de manière identique sur tous les environnements en quelques secondes. Il y a un écosystème énorme et croissant d’applications conditionnées dans des conteneurs d’amarrage. DockerHub, un registre de l’application publique géré par l’arrimeur, a publié plus de 180 000 applications dans son référentiel de la communauté publique et ce numéro reste en augmentation.
+Les conteneurs permettent aux développeurs de créer et d’expédier des applications de meilleure qualité plus rapidement. Les conteneurs permettent aux développeurs de créer une image de conteneur qui s’déploie en quelques secondes, de la même façon que dans les environnements. Les conteneurs permettent de partager du code au sein des équipes et d’amorcer un environnement de développement sans influer sur le système de fichiers de votre hôte.
 
-Lorsqu’un développeur containerizes une application, seule l’application et les composants qu’elle doit exécuter sont combinés dans une image. Les conteneurs sont ensuite créés à partir de cette image si vous en avez besoin. Vous pouvez également utiliser une image comme référence pour créer une autre image, ce qui accélère encore davantage la création d’images. Les conteneurs multiples peuvent partager la même image, ce qui signifie que les conteneurs démarrent très rapidement et utilisent moins de ressources. Par exemple, un développeur peut utiliser des conteneurs pour faire tourner les composants d’application léger et léger, également appelés microservices, pour les applications distribuées et mettre rapidement à l’échelle chaque service séparément.
-
-Les conteneurs sont portables et polyvalents, peuvent être rédigés dans n’importe quelle langue et sont compatibles avec les ordinateurs exécutant Windows Server 2016. Les développeurs peuvent créer et tester un conteneur localement sur leur ordinateur portable ou de bureau, puis déployer ce même type d’image sur le cloud privé de leur entreprise, le cloud public ou le fournisseur de services. La souplesse naturelle des conteneurs prend en charge les modèles de développement d’applications modernes dans les environnements Cloud virtualisés à grande échelle.
+Les conteneurs sont portables et polyvalents, peuvent exécuter des applications écrites dans n’importe quel langage, et sont compatibles avec les ordinateurs exécutant Windows 10, version 1607 ou ultérieure, ou Windows 2016 ou une version ultérieure. Les développeurs peuvent créer et tester un conteneur localement sur leur ordinateur portable ou de bureau, puis déployer ce même type d’image dans le cloud privé de leur entreprise, le cloud public ou le fournisseur de services. La souplesse naturelle des conteneurs prend en charge les modèles de développement d’applications modernes dans les environnements Cloud virtualisés à grande échelle.
 
 ### <a name="containers-for-it-professionals"></a>Conteneurs pour les professionnels de l’informatique
 
-Les conteneurs permettent aux administrateurs de créer une infrastructure plus facile à mettre à jour et à mettre à jour. Les professionnels de l’informatique peuvent utiliser des conteneurs pour fournir des environnements normalisés pour leurs équipes de développement, de QA et de production. Ils n’ont plus à se soucier des procédures d’installation et de configuration complexes. L’utilisation de conteneurs permet aux administrateurs de systèmes de soustraire les différences dans les installations du système d’exploitation et dans l’infrastructure sous-jacente.
+Les conteneurs permettent aux administrateurs de créer une infrastructure plus facile à mettre à jour et à mettre à jour, et ce qui utilise davantage de ressources matérielles. Les professionnels de l’informatique peuvent utiliser des conteneurs pour fournir des environnements normalisés pour leurs équipes de développement, de QA et de production. L’utilisation de conteneurs permet aux administrateurs de systèmes de soustraire les différences dans les installations du système d’exploitation et dans l’infrastructure sous-jacente.
 
-## <a name="containers-101-video-presentation"></a>Présentation vidéo de conteneurs 101
+## <a name="container-orchestration"></a>Orchestration de conteneur
 
-La présentation vidéo suivante vous offre une vue d’ensemble approfondie de l’historique et de l’implémentation des conteneurs Windows.
+Les orchestreurs constituent un élément essentiel d’infrastructure lors de la configuration d’un environnement basé sur un conteneur. Même si vous pouvez gérer quelques conteneurs manuellement à l’aide de l’arrimeur et de Windows, les applications utilisent souvent cinq, dix ou même des centaines de conteneurs, qui sont les uns des autres.
 
-<iframe src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-and-Docker/player" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
+Les administrateurs de conteneurs ont été conçus pour aider à gérer les conteneurs à l’échelle et en production. Les orchestrarons fournissent des fonctionnalités pour:
 
-## <a name="try-windows-server-containers"></a>Essayer les conteneurs Windows Server
+- Déploiement à l’échelle
+- Planification de charge de travail
+- Analyse du fonctionnement
+- Basculement en cas d’échec d’un nœud
+- Mise à l’échelle vers le haut ou vers le bas
+- Réseaux
+- Découverte de service
+- Coordination des mises à niveau d’applications
+- Affinité de nœud de cluster
 
-Pour commencer à utiliser les conteneurs sur Windows Server ou Windows 10, voir [commencer: configurer votre environnement pour les conteneurs](../quick-start/set-up-environment.md).
+Il existe de nombreux orchestrauses que vous pouvez utiliser avec des conteneurs Windows. Voici les options proposées par Microsoft:
+- [Service Azure Kubernetes (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes) -utilisez un service Azure Kubernetes géré
+- [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/) -utiliser un service géré
+- [Pile Azure avec le moteur AKS](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) -utilisez le service Azure Kubernetes en local
+- [Kubernetes sur Windows](../kubernetes/getting-started-kubernetes-windows.md) -configurez vous-même Kubernetes sur Windows
+
+## <a name="try-containers-on-windows"></a>Utiliser des conteneurs sur Windows
+
+Pour commencer à utiliser les conteneurs sur Windows Server ou Windows 10, voir les rubriques suivantes:
+> [!div class="nextstepaction"]
+> [Commencer: configurer votre environnement pour les conteneurs](../quick-start/set-up-environment.md)
+
+Pour vous aider à choisir les services Azure qui conviennent le mieux à votre scénario, voir [services de conteneur Azure](https://azure.microsoft.com/product-categories/containers/) et [sélectionnez les services Azure à utiliser pour héberger votre application](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree).

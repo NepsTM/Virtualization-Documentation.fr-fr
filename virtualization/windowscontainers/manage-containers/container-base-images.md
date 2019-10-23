@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
-ms.openlocfilehash: f5dcaf4958828b1bcf31a96e5fb70eda0508eb96
-ms.sourcegitcommit: e9dda81f1f68359ece9ef132a184a30880bcdb1b
+ms.openlocfilehash: 2a69fbace51589cce08476bd68fdb5c34a7907e6
+ms.sourcegitcommit: d0411b05d1ef7328a770766b84fd0743f9d9c237
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "10161746"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "10254269"
 ---
 # <a name="container-base-images"></a>Images de base du conteneur
 
@@ -124,9 +124,21 @@ Comment choisir l’image de base appropriée pour la création? Pour la plupart
 - **Vous créez une application Windows basée sur .NET Core?** Si la réponse à cette question est oui, vous devez cibler `Nanoserver`.
 - **Créez-vous une application IoT?** Si la réponse à cette question est oui, vous devez cibler `IoT Core`.
 - **L’image du conteneur Windows Server Core ne dispose-t-elle pas d’une dépendance requise par votre application?** Si la réponse à cette question est oui, essayez de vous cibler `Windows`. Cette image est beaucoup plus grande que les autres images de base, mais elle comporte de nombreuses bibliothèques Windows principales (par exemple, la bibliothèque GDI).
+- **Êtes-vous un Windows Insider?** Si oui, vous devez envisager d’utiliser la version Insider des images. Voir «images de base pour les Windows Insiders» ci-dessous.
 
 > [!TIP]
 > De nombreux utilisateurs Windows souhaitent emporter des applications qui ont une dépendance sur .NET. Outre les quatre images de base décrites dans cet article, Microsoft publie plusieurs images de conteneur Windows qui sont préconfigurées avec des infrastructures Microsoft populaires, telles qu’une image [.NET Framework](https://hub.docker.com/_/microsoft-dotnet-framework) et l’image [ASP .net](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/) .
+
+### <a name="base-images-for-windows-insiders"></a>Images de base pour les Windows Insiders
+
+Microsoft fournit une version «Insider» de chaque image de base du conteneur. Ces images de conteneur Insider comportent le plus récent et le plus grand du développement des fonctionnalités dans les images de conteneurs. Lorsque vous exécutez un hôte qui est une version Insider de Windows (Windows Insider ou Windows Server Insider), il est préférable d’utiliser ces images. Les images Insider sont disponibles dans le hub d’amarrage:
+
+- [mcr.microsoft.com/windows/servercore/insider](https://hub.docker.com/_/microsoft-windows-servercore-insider)
+- [mcr.microsoft.com/windows/nanoserver/insider](https://hub.docker.com/_/microsoft-windows-nanoserver-insider)
+- [mcr.microsoft.com/windows/iotcore/insider](https://hub.docker.com/_/microsoft-windows-iotcore-insider)
+- [mcr.microsoft.com/windows/insider](https://hub.docker.com/_/microsoft-windows-insider)
+
+Pour en savoir plus, consultez [les conteneurs d’utilisation avec le programme Windows Insider](../deploy-containers/insider-overview.md) .
 
 ### <a name="windows-server-core-vs-nanoserver"></a>Windows Server Core vs Server
 
