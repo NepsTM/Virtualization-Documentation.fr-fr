@@ -7,12 +7,12 @@ ms.date: 09/10/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: cf8a14002e962242c34e9a10086120e6942d382b
-ms.sourcegitcommit: 6080b2c5053720490d374f6fb0daa870d5ddd4e8
+ms.openlocfilehash: db3caea3f7911ec6641930302198f976bd61240d
+ms.sourcegitcommit: da762ce138467e50dce22d5086ad407138b38e48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "10257773"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "10261828"
 ---
 # <a name="containerize-a-net-core-app"></a>Conteneur d’une application .NET Core
 
@@ -121,7 +121,7 @@ Dissect la commande suivante:
 * `--name myapp` indique à l’expéditeur qu’il doit fournir un nom pratique de requête (au lieu d’avoir besoin de Rechercher l’ID contaienr affecté lors de l’exécution par l’Arrimateur).
 * `my-asp-app` est l’image que nous voulons qu’elle exécute. Il s’agit de l’image de conteneur créée en tant que `docker build` «culminement du processus».
 
-Ouvrez un navigateur Web et accédez `https://localhost:5000` à votre application conteneur pour l’accueillir.
+Ouvrez un navigateur Web et accédez `http://localhost:5000` à votre application conteneur pour l’accueillir.
 
 >![](media/SampleAppScreenshot.png)
 
