@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
-ms.openlocfilehash: aeb2b5dd0d9df95ee417b3a160d10d4991304689
-ms.sourcegitcommit: 4b37076f988608b6bf1270497c24325993ef41d3
+ms.openlocfilehash: 405b2abc43a4ae2c546de351679deb755e4a9317
+ms.sourcegitcommit: 64573b539438de6ec5564b2949642ef12e55fc62
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "10264360"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "10274066"
 ---
 # <a name="frequently-asked-questions-about-containers"></a>Forum aux questions sur les conteneurs
 
@@ -55,14 +55,14 @@ Un développeur peut créer une image de conteneur à l’aide d’un conteneur 
 
 Les conteneurs Windows Server fournissent une plus grande densité et des performances optimales lorsque la vitesse est importante, par exemple pour réduire le temps de réactivité et des performances du Runtime par rapport aux configurations imbriquées. Isolation Hyper-V, true à son nom, offre une plus grande isolation, ce qui garantit que le code exécuté dans un conteneur ne peut pas être compromis ou influant sur le système d’exploitation hôte ou d’autres conteneurs qui s’exécutent sur le même hôte. Cela s’avère utile pour les scénarios multilocataires avec la configuration requise pour l’hébergement de code non fiable, y compris les applications SaaS et l’hébergement de calcul.
 
-## <a name="can-i-run-windows-containers-in-process-isolated-mode-on-windows-10-enterprise-or-professional"></a>Puis-je exécuter des conteneurs Windows en mode d’isolation de processus sur Windows 10 entreprise ou professionnel?
+## <a name="can-i-run-windows-containers-in-process-isolated-mode-on-windows-10"></a>Puis-je exécuter des conteneurs Windows en mode d’isolation de processus sur Windows 10?
 
-À partir de la mise à jour 2018 de Windows 10 d’octobre, vous pouvez exécuter un conteneur Windows avec l’isolement de processus, mais vous devez préalablement demander l’isolement du processus à l’aide de l' `--isolation=process` indicateur lors de l’exécution de vos conteneurs avec `docker run`.
+À partir de la mise à jour 2018 de Windows 10 d’octobre, vous pouvez exécuter un conteneur Windows avec l’isolement de processus, mais vous devez préalablement demander l’isolement du processus à l’aide de l' `--isolation=process` indicateur lors de l’exécution de vos conteneurs avec `docker run`. Le processus d’isolement est compatible avec Windows 10 professionnel, Windows 10 entreprise, Windows 10 IoT standard et Windows 10 IoT entreprise.
 
 Si vous souhaitez exécuter vos conteneurs Windows de cette manière, vous devez vous assurer que votre hôte exécute Windows 10 Build 17763 + et que vous disposez d’une version d’amarrage avec le moteur 18,09 ou version ultérieure.
 
 > [!WARNING]
-> Cette fonctionnalité est réservée aux développements et aux tests. Vous devez continuer à utiliser Windows Server en tant qu’hôte pour les déploiements de production. En utilisant cette fonctionnalité, vous devez également vous assurer que les balises de version de votre hôte et du conteneur correspondent, sinon le conteneur peut ne pas démarrer ou présenter un comportement non défini.
+> Outre les hôtes d’entreprise IOT standard et IoT (après avoir accepté les conditions et restrictions supplémentaires), cette fonctionnalité est conçue uniquement pour le développement et le test. Vous devez continuer à utiliser Windows Server en tant qu’hôte pour les déploiements de production. En utilisant cette fonctionnalité, vous devez également vous assurer que les balises de version de votre hôte et du conteneur correspondent, sinon le conteneur peut ne pas démarrer ou présenter un comportement non défini.
 
 ## <a name="how-do-i-make-my-container-images-available-on-air-gapped-machines"></a>Comment rendre mes images de conteneur disponibles sur les appareils d’entrée aérienne?
 
