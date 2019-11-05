@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 6480f0657d7def8d6da69bfc52ace81d08b0add4
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: deea1bfbcd3032f52a6912eb0c36ba467d8b9a9c
+ms.sourcegitcommit: b38f6abb399c87c57e1bb146f3dbcdaefd991245
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998806"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "10276492"
 ---
 # <a name="advanced-network-options-in-windows"></a>Options réseau avancées dans Windows
 
@@ -115,7 +115,7 @@ C:\> reg delete HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Para
 
 #### <a name="linux-containers-on-windows"></a>Conteneurs Linux sur Windows
 
-**Nouveauté:** nous travaillons à rendre possible l’exécution de conteneurs Linux et Windows côte-à-côte _sans l’ordinateur virtuel Moby Linux_. Consultez ce [billet de blog sur les conteneurs Linux sur Windows (LCOW)](https://blog.docker.com/2017/11/docker-for-windows-17-11/) pour plus d’informations. Voici comment commencer. [](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10-linux)
+**Nouveauté:** nous travaillons à rendre possible l’exécution de conteneurs Linux et Windows côte-à-côte _sans l’ordinateur virtuel Moby Linux_. Consultez ce [billet de blog sur les conteneurs Linux sur Windows (LCOW)](https://blog.docker.com/2017/11/docker-for-windows-17-11/) pour plus d’informations. Voici [comment commencer.](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10-linux)
 > Remarque: LCOW remplace l’ordinateur virtuel Moby Linux, il utilisera le vSwitch interne HNS «nat» par défaut.
 
 #### <a name="moby-linux-vms-use-dockernat-switch-with-docker-for-windows-a-product-of-docker-cehttpswwwdockercomcommunity-edition"></a>Les ordinateurs virtuels Moby Linux utilisent le commutateur DockerNAT avec Docker pour Windows (un produit de [Docker CE](https://www.docker.com/community-edition))
@@ -162,7 +162,6 @@ Si plusieurs réseaux utilisant un vSwitch externe pour la connectivité (par ex
 
 #### <a name="ip-assignment-on-stopped-vs-running-containers"></a>Attribution d'adresses IP sur des conteneurs arrêtés ou en cours d’exécution
 L’attribution d’adressesIP statiques est effectuée directement sur la carte réseau du conteneur et ne doit être réalisée que quand le conteneur est dans un état ARRÊTÉ. Ni un «ajout à chaud» de cartes réseau de conteneurs ni un apport de modifications à la pile réseau n'est pris en charge (dans Windows Server2016) pendant l’exécution du conteneur.
-> Remarque: ce comportement change sur Windows10 Creators Update, la plateforme prenant désormais en charge l'«ajout à chaud». Cette fonctionnalité mettra en évidence E2E après la fusion de cette [requête de tirage Docker en attente](https://github.com/docker/libnetwork/pull/1661)
 
 #### <a name="existing-vswitch-not-visible-to-docker-can-block-transparent-network-creation"></a>Un vSwitch existant (non visible pour Docker) peut bloquer la création de réseau transparent
 Si vous rencontrez une erreur lors de la création d'un réseau transparent, il est possible qu’il existe un vSwitch externe sur votre système qui n’a pas été découvert automatiquement par Docker, et qui par conséquent empêche la liaison du réseau transparent à la carte réseau externe de votre hôte de conteneur. 
