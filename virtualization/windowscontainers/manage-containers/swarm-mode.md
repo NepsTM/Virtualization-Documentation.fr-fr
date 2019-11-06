@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5ceb9626-7c48-4d42-81f8-9c936595ad85
-ms.openlocfilehash: 088bc844790d94d30f6b4b05c5cd189392f47e66
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 560e9ffc92728628268d7d557b8fa8428316c8ec
+ms.sourcegitcommit: 551b783410ba49b4d439e3da084986cceffcb7e0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998276"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "10278961"
 ---
 # <a name="getting-started-with-swarm-mode"></a>Prise en main du mode Swarm 
 
@@ -30,7 +30,7 @@ Les nœuds de travail sont orchestrés par DockerSwarm via les nœuds de gestion
 
 ## <a name="swarm-mode-system-requirements"></a>Configuration requise du mode Swarm
 
-Au moins un système d’informatique physique ou virtuel (pour utiliser l’ensemble des fonctionnalités d’essaim au moins deux nœuds sont recommandés) en exécutant **Windows 10 Creators Update** ou **Windows Server 2016** *avec toutes les mises à jour les plus récentes*, le programme d’installation en tant que Pour plus d’informations sur la façon de prendre en main les conteneurs [](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) d’amarrage sur Windows 10, voir hôte de conteneur (voir la rubrique les conteneurs [Windows sur Windows 10](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10) ou Windows 10).
+Au moins un système d’informatique physique ou virtuel (pour utiliser l’ensemble des fonctionnalités d’essaim au moins deux nœuds sont recommandés) en exécutant **Windows 10 Creators Update** ou **Windows Server 2016** *avec toutes les mises à jour les plus récentes*, le programme d’installation en tant que [pour plus](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) d’informations sur la façon de prendre en main les conteneurs d’amarrage sur Windows 10, voir hôte de conteneur (voir la rubrique les conteneurs [Windows sur Windows 10](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10) ou Windows 10).
 
 \***Remarque**: DockerSwarm sur WindowsServer2016 nécessite [KB4015217](https://support.microsoft.com/help/4015217/windows-10-update-kb4015217)
 
@@ -112,7 +112,7 @@ C:\> docker service create --name=<SERVICENAME> --endpoint-mode dnsrr --network=
 Ici, \<SERVICENAME\> est le nom que vous souhaitez donner au service. Il s’agit du nom que vous utiliserez pour référencer le service via la découverte de service (qui utilise un serveur DNS natif de Docker). \<NETWORKNAME\> est le nom du réseau auquel vous souhaitez connecter ce service (par exemple, «myOverlayNet»). \<CONTAINERIMAGE\> est le nom de l’image de conteneur qui définira le service.
 
 >[!NOTE]
->Le deuxième argument de cette commande, `--endpoint-mode dnsrr`est requis pour spécifier au moteur de l’ancrage que la stratégie de tourniquet arrondi DNS sera utilisée pour équilibrer le trafic réseau entre les points de terminaison du conteneur de services. Actuellement, le tourniquet DNS est la seule stratégie d’équilibrage de charge prise en charge sur Windows. Le [routage de maillage](https://docs.docker.com/engine/swarm/ingress/) pour les hôtes Windows Docker n’est pas encore pris en charge, mais il le sera prochainement. Les utilisateurs recherchant une autre stratégie d’équilibrage de charge dès aujourd'hui peuvent configurer un équilibreur de charge externe (par exemple, NGINX) et utiliser le [mode de publication de port](https://docs.docker.com/engine/reference/commandline/service_create/#/publish-service-ports-externally-to-the-swarm--p---publish) de Swarm pour exposer les ports d’hôte de conteneur sur lesquels équilibrer la charge.
+>Le deuxième argument de cette commande, `--endpoint-mode dnsrr`est requis pour spécifier au moteur de l’ancrage que la stratégie de tourniquet arrondi DNS sera utilisée pour équilibrer le trafic réseau entre les points de terminaison du conteneur de services. Pour l’instant, la fonctionnalité de répétition alternée DNS est la seule stratégie d’équilibrage de charge prise en charge sur Windows Server 2016. Le [maillage de routage](https://docs.docker.com/engine/swarm/ingress/) pour les hôtes de la station d’accueil Windows est pris en charge sur windows server 2019 (et versions ultérieures), mais pas sur windows server 2016. Les utilisateurs qui recherchent une autre stratégie d’équilibrage de charge sur Windows Server 2016 peuvent désormais configurer un équilibreur de charge externe (par exemple, NGINX) et utiliser le [mode de port de publication](https://docs.docker.com/engine/reference/commandline/service_create/#/publish-service-ports-externally-to-the-swarm--p---publish) d’essaim pour afficher les ports hôtes de conteneur sur lesquels équilibrer le trafic.
 
 ## <a name="scaling-a-service"></a>Évolutivité d’un service
 Une fois qu’un service est déployé dans un cluster Swarm, les instances de conteneur composant ce service sont déployées dans le cluster. Par défaut, le nombre d’instances de conteneur soutenant un service, autrement dit le nombre de «réplicas» ou de «tâches» d’un service, est de une. Toutefois, un service peut être créé avec plusieurs tâches à l’aide de l’option `--replicas` pour la commande `docker service create` ou en mettant à l’échelle le service après sa création.
@@ -224,10 +224,13 @@ C:\> docker service create --name=linux_s1 --endpoint-mode dnsrr --network testo
 ## <a name="limitations"></a>Limitations
 Actuellement, le mode Swarm sur Windows connaît les limitations suivantes:
 - Chiffrement du plan de données non pris en charge (autrement dit, le trafic conteneur à conteneur à l’aide de l’option `--opt encrypted`)
-- Le [routage de maillage](https://docs.docker.com/engine/swarm/ingress/) pour les hôtes Windows Docker n’est pas encore pris en charge, mais il le sera prochainement. Les utilisateurs recherchant une autre stratégie d’équilibrage de charge dès aujourd'hui peuvent configurer un équilibreur de charge externe (par exemple, NGINX) et utiliser le [mode de publication de port](https://docs.docker.com/engine/reference/commandline/service_create/#/publish-service-ports-externally-to-the-swarm--p---publish) de Swarm pour exposer les ports d’hôte de conteneur sur lesquels équilibrer la charge. Plus de détails sur ce point ci-dessous.
+- Le [maillage de routage](https://docs.docker.com/engine/swarm/ingress/) pour les hôtes de la station d’accueil Windows n’est pas pris en charge sur windows server 2016, mais uniquement dans windows server 2019. Les utilisateurs recherchant une autre stratégie d’équilibrage de charge dès aujourd'hui peuvent configurer un équilibreur de charge externe (par exemple, NGINX) et utiliser le [mode de publication de port](https://docs.docker.com/engine/reference/commandline/service_create/#/publish-service-ports-externally-to-the-swarm--p---publish) de Swarm pour exposer les ports d’hôte de conteneur sur lesquels équilibrer la charge. Plus de détails sur ce point ci-dessous.
+
+ >[!NOTE]
+>Pour plus d’informations sur la configuration de la maille de routage en essaim de la station d’accueil, veuillez consulter ce [billet de blog](https://docs.microsoft.com/en-us/virtualization/community/team-blog/2017/20170926-docker-s-routing-mesh-available-with-windows-server-version-1709) .
 
 ## <a name="publish-ports-for-service-endpoints"></a>Publication de ports pour les points de terminaison du service
-La fonctionnalité de docker Swarm [maillage de routage](https://docs.docker.com/engine/swarm/ingress/) n’est pas encore prise en charge sous Windows, mais les utilisateurs qui cherchent à publier des ports pour leurs points de terminaison de service peuvent aujourd'hui le faire à l’aide du mode de publication de port. 
+ Les utilisateurs souhaitant publier des ports pour leurs points de terminaison de service peuvent le faire dès aujourd’hui en utilisant le mode de publication ou le [maillage de routage](https://docs.docker.com/engine/swarm/ingress/) de l’essaim d’amarrage. 
 
 Pour que les ports hôtes soient publiés pour chacun des points de terminaison de tâches/conteneur qui définissent un service, utilisez l’argument `--publish mode=host,target=<CONTAINERPORT>` de la commande `docker service create`:
 
