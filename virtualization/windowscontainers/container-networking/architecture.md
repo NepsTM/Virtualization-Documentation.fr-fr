@@ -8,17 +8,17 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: cff56843a0eeb48ca5d19b694eb8eb4e758002aa
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 8d2ddb80aa05b511dbc8c9532654b18956e340da
+ms.sourcegitcommit: 7fd95333bd7fd2ef3627b0b5c558067e0bd0e09f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998456"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "10276514"
 ---
 # <a name="windows-container-networking"></a>Gestion des conteneurs Windows
 
 >[!IMPORTANT]
->Référez-vous à la rubrique [mise en réseau des conteneurs](https://docs.docker.com/engine/userguide/networking/) d’arrimeurs pour les commandes, les options et la syntaxe du réseau de l’ancrage général. * * * sauf si les cas décrits dans les [fonctionnalités non prises en charge et les options réseau](#unsupported-features-and-network-options)sont pris en charge sur Windows avec la même syntaxe que dans Linux. Toutefois, les piles réseau Windows et Linux sont différentes, ce qui vous permet de constater que certaines commandes réseau Linux (par exemple, ifconfig) ne sont pas prises en charge sur Windows.
+>Référez-vous à la rubrique [mise en réseau des conteneurs d’arrimeurs](https://docs.docker.com/engine/userguide/networking/) pour les commandes, les options et la syntaxe du réseau de l’ancrage général. * * * sauf si les cas décrits dans les [fonctionnalités non prises en charge et les options réseau](#unsupported-features-and-network-options)sont pris en charge sur Windows avec la même syntaxe que dans Linux. Toutefois, les piles réseau Windows et Linux sont différentes, ce qui vous permet de constater que certaines commandes réseau Linux (par exemple, ifconfig) ne sont pas prises en charge sur Windows.
 
 ## <a name="basic-networking-architecture"></a>Architecture de mise en réseau de base
 
@@ -58,7 +58,7 @@ Le service HNS et le service de calcul hôte (HCS) fonctionnent ensemble pour cr
 - Réseau NAT par défaut: HNS crée des règles de réacheminement de port WinNAT / mappages avec les règles d’autorisation de Pare-feu Windows correspondantes
 - Tous les autres réseaux: HNS utilise la plateforme de filtrage virtuel (VFP, Virtual Filtering Platform) pour la création de stratégie
     - Cela inclut: l’équilibrage de charge, les ACL, l’encapsulation, etc.
-    - Recherchez nos API et schéma HNS **bientôt publiés **.
+    - Recherchez nos API et schémas SNPD publiés [ici](https://docs.microsoft.com/en-us/windows-server/networking/technologies/hcn/hcn-top)
 
 ![texte](media/HNS-Management-Stack.png)
 
