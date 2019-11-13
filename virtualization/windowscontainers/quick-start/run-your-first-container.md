@@ -3,94 +3,94 @@ title: Conteneurs Windows et Linux sur Windows 10
 description: Démarrage rapide du déploiement de conteneurs
 keywords: dockers, conteneurs, LCOW
 author: cwilhit
-ms.date: 09/11/2019
+ms.author: crwilhit
+ms.date: 11/12/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 3d651a4a68acefa25f1b647b1b33618bbfb91ae9
-ms.sourcegitcommit: 868a64eb97c6ff06bada8403c6179185bf96675f
+ms.openlocfilehash: a664b5b8eb87adffdf7eba3ffca9f4194128df80
+ms.sourcegitcommit: e61db4d98d9476a622e6cc8877650d9e7a6b4dd9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "10129363"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "10288127"
 ---
-# <a name="get-started-run-your-first-container"></a>Commencer: exécuter votre premier conteneur
+# <a name="get-started-run-your-first-windows-container"></a>Commencer: exécuter votre premier conteneur Windows
 
-Dans le [segment précédent](./set-up-environment.md), nous avons configuré notre environnement pour les conteneurs en cours d’exécution. Cet exercice montre comment extraire une image de conteneur et l’exécuter.
+Cette rubrique décrit comment exécuter votre premier conteneur Windows, après avoir configuré votre environnement comme décrit dans la rubrique mise en [route pour préparer Windows pour les conteneurs](./set-up-environment.md). Pour exécuter un conteneur, vous devez commencer par installer une image de base, qui fournit une couche de services de système d’exploitation à votre conteneur. Ensuite, vous créez et exécutez une image de conteneur, qui est basée sur l’image de base. Pour plus d’informations, poursuivez votre lecture.
 
-## <a name="install-container-base-image"></a>Image de la base du conteneur d’installation
+## <a name="install-a-container-base-image"></a>Installer une image de base du conteneur
 
-Les conteneurs sont instanciés à `container images`partir de. Microsoft propose plusieurs images d’accueil (appelées `base images`) à votre choix. La commande suivante extraira l’image de base Nano Server.
+Tous les conteneurs sont créés à partir d’images de conteneurs. Microsoft propose plusieurs images de démarrage, appelées images de base, à partir desquelles vous pouvez effectuer votre choix (pour plus d’informations, consultez la section [images de base du conteneur](../manage-containers/container-base-images.md)). Cette procédure récupère (télécharge et installe) l’image de base nano Server légère.
 
-```console
-docker pull mcr.microsoft.com/windows/nanoserver:1809
-```
+1. Ouvrez une fenêtre d’invite de commandes (par exemple, une invite de commandes intégrée, PowerShell ou [terminal Windows](https://www.microsoft.com/p/windows-terminal-preview/9n0dx20hk701?activetab=pivot:overviewtab)), puis exécutez la commande suivante pour télécharger et installer l’image de base:
 
-> [!TIP]
-> Si un message d’erreur s’affiche `no matching manifest for unknown in the manifest list entries`, assurez-vous que la station d’accueil n’est pas configurée pour exécuter les conteneurs Linux.
+   ```console
+   docker pull mcr.microsoft.com/windows/nanoserver:1903
+   ```
 
-Après l’extraction de l’image, vous pouvez vérifier son existence sur votre ordinateur en interrogeant votre référentiel d’image d’ancrage local. L’exécution de `docker images` la commande renvoie une liste des images installées, dans le cas présent, l’image nano Server.
+   > [!TIP]
+   > Si un message d’erreur s’affiche `no matching manifest for unknown in the manifest list entries`, assurez-vous que la station d’accueil n’est pas configurée pour exécuter les conteneurs Linux.
 
-```console
-docker images
+2. Une fois le téléchargement de l’image terminée, lisez le [CLUF](../images-eula.md) lorsque vous patientez: Vérifiez qu’il existe sur votre système en interrogeant votre référentiel d’image de l’arrimeur local. L’exécution de `docker images` la commande renvoie une liste des images installées.
 
-REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
-microsoft/nanoserver   latest              105d76d0f40e        4 days ago          652 MB
-```
+   Voici un exemple de sortie illustrant l’image nano Server.
 
-> [!IMPORTANT]
-> Consultez le [CLUF](../images-eula.md)de l’image du système d’exploitation Windows.
+   ```console
+   REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
+   microsoft/nanoserver   latest              105d76d0f40e        4 days ago          652 MB
+   ```
 
-## <a name="run-your-first-windows-container"></a>Exécuter votre premier conteneur Windows
+## <a name="run-a-windows-container"></a>Exécuter un conteneur Windows
 
-Pour cet exemple simple, une image de conteneur «Hello World» sera créée et déployée. Pour une utilisation optimale, exécutez les commandes suivantes dans un interpréteur de commande Windows avec élévation de privilèges ou PowerShell.
+Pour cet exemple simple, une image de conteneur «Hello World» sera créée et déployée. Pour une utilisation optimale, exécutez les commandes suivantes dans une fenêtre d’invite de commandes avec élévation de privilèges (sans utiliser Windows PowerShell ISE), elle ne fonctionne pas pour les sessions interactives à l’aide de conteneurs, car ils semblent se bloquer.
 
-> Windows PowerShell ISE ne fonctionne pas pour les sessions interactives avec des conteneurs. Même si le conteneur est en cours d’exécution, il apparaît comme étant bloqué.
+1. Démarrez un conteneur avec une session interactive à partir `nanoserver` de l’image en entrant la commande suivante dans la fenêtre d’invite de commandes:
 
-Commencez par démarrer un conteneur avec une session interactive à partir de l’image `nanoserver`. Lorsque le conteneur est démarré, un interpréteur de commandes s’affiche à l’intérieur du conteneur.  
+   ```console
+   docker run -it mcr.microsoft.com/windows/nanoserver:1903 cmd.exe
+   ```
+2. Une fois le conteneur démarré, la fenêtre d’invite de commandes change de contexte pour le conteneur. Dans le conteneur, nous allons créer un fichier texte «Hello World» simple, puis quitter le conteneur en entrant les commandes suivantes:
 
-```console
-docker run -it mcr.microsoft.com/windows/nanoserver:1809 cmd.exe
-```
+   ```cmd
+   echo "Hello World!" > Hello.txt
+   exit
+   ```   
 
-À l’intérieur du conteneur, nous allons créer un simple fichier texte «Hello World».
+3. Obtenez l’ID de conteneur du conteneur que vous venez de quitter en exécutant la commande [dockr PS](https://docs.docker.com/engine/reference/commandline/ps/) :
 
-```cmd
-echo "Hello World!" > Hello.txt
-```   
+   ```console
+   docker ps -a
+   ```
 
-Quand vous avez terminé, quittez le conteneur.
+4. Créez une image «HelloWorld» incluant les modifications dans le premier conteneur que vous avez exécuté. Pour ce faire, exécutez la commande [Commit du docker](https://docs.docker.com/engine/reference/commandline/commit/) , `<containerid>` en remplaçant par l’ID de votre conteneur:
 
-```cmd
-exit
-```
+   ```console
+   docker commit <containerid> helloworld
+   ```
 
-Créer une nouvelle image de conteneur à partir du conteneur modifié. Pour afficher une liste des conteneurs qui s’exécutent ou sont en sortie, exécutez les éléments suivants et prenez note de l’ID de conteneur.
+   Quand vous avez terminé, vous disposez d’une image personnalisée qui contient le script «Hello World». Pour cela, vous pouvez utiliser la commande images de l' [ancrage](https://docs.docker.com/engine/reference/commandline/images/) .
 
-```console
-docker ps -a
-```
+   ```console
+   docker images
+   ```
 
-Exécutez la commande suivante pour créer l’image «Hello World». Remplacez `<containerid>` par l’ID de votre conteneur.
+   Voici un exemple de sortie:
 
-```console
-docker commit <containerid> helloworld
-```
+   ```console
+   REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
+   helloworld                             latest              a1064f2ec798        10 seconds ago      258MB
+   mcr.microsoft.com/windows/nanoserver   1903                2b9c381d0911        3 weeks ago         256MB
+   ```
 
-Quand vous avez terminé, vous disposez d’une image personnalisée qui contient le script «Hello World». Pour l’afficher, utilisez la commande suivante.
+5. Enfin, exécutez le nouveau conteneur à l’aide de la commande exécuter de l' `--rm` [ancrer](https://docs.docker.com/engine/reference/commandline/run/) avec le paramètre qui supprime automatiquement le conteneur une fois la ligne de commande (cmd. exe) arrêtée.
 
-```console
-docker images
-```
+   ```console
+   docker run --rm helloworld cmd.exe /s /c type Hello.txt
+   ```
 
-Enfin, exécutez le conteneur à l’aide `docker run` de la commande.
-
-```console
-docker run --rm helloworld cmd.exe /s /c type Hello.txt
-```
-
-Le résultat de la `docker run` commande est qu’un conteneur a été créé à partir de l’image «HelloWorld», qu’une instance de cmd a été démarrée dans le conteneur et a exécuté une lecture de notre fichier (sortie renvoyée vers l’interpréteur de commandes), puis que le conteneur est arrêté et supprimé.
+   Le résultat est qu’un conteneur a été créé à partir de l’image’HelloWorld', qu’une instance de cmd. exe a été démarrée dans le conteneur qui a lu notre fichier et qu’il a copié le contenu du fichier sur le shell, puis que le conteneur est arrêté et supprimé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

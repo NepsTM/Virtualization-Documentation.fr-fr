@@ -8,12 +8,12 @@ ms.date: 06/17/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: d3a8240dbba8af3c74ce5d185620e129d103ef81
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: bb5e5fabadde421de9d420edd2fc921457432930
+ms.sourcegitcommit: e61db4d98d9476a622e6cc8877650d9e7a6b4dd9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883182"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "10288137"
 ---
 # <a name="base-image-servicing-lifecycles"></a>Durée de vie des images de base
 
@@ -27,6 +27,7 @@ Le tableau suivant répertorie chaque type d’image de base, son canal de maint
 
 |Image de base                       |Canal de maintenance|Version|Version du système d’exploitation|Disponibilité|Date de fin du support standard|Date du support prolongé|
 |---------------------------------|-----------------|-------|--------|------------|---------------------------|---------------------|
+|Serveur principal, nano Server, Windows|Semestriel      |1909   |18363   |12/11/2019  |05/11/2021                 |N/A                  |
 |Serveur principal, nano Server, Windows|Semestriel      |1903   |18362   |05/21/2019  |12/08/2020                 |N/A                  |
 |ServerCore                      |Durée de validité        |1809   |17763   |13/11/2018  |01/09/2024                 |01/09/2029           |
 |Serveur principal, nano Server, Windows|Semestriel      |1809   |17763   |13/11/2018  |05/12/2020                 |N/A                  |
