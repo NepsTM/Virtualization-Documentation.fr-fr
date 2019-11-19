@@ -8,17 +8,17 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 8d2ddb80aa05b511dbc8c9532654b18956e340da
-ms.sourcegitcommit: 7fd95333bd7fd2ef3627b0b5c558067e0bd0e09f
+ms.openlocfilehash: e9d4a9ac88c6853ce019a2469ee80688490b8fdf
+ms.sourcegitcommit: bb4ec1f05921f982c00bdb3ace6d9bc1d5355296
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "10276514"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "10297240"
 ---
 # <a name="windows-container-networking"></a>Gestion des conteneurs Windows
 
 >[!IMPORTANT]
->Référez-vous à la rubrique [mise en réseau des conteneurs d’arrimeurs](https://docs.docker.com/engine/userguide/networking/) pour les commandes, les options et la syntaxe du réseau de l’ancrage général. * * * sauf si les cas décrits dans les [fonctionnalités non prises en charge et les options réseau](#unsupported-features-and-network-options)sont pris en charge sur Windows avec la même syntaxe que dans Linux. Toutefois, les piles réseau Windows et Linux sont différentes, ce qui vous permet de constater que certaines commandes réseau Linux (par exemple, ifconfig) ne sont pas prises en charge sur Windows.
+>Référez-vous à la rubrique [mise en réseau des conteneurs d’arrimeurs](https://docs.docker.com/engine/userguide/networking/) pour les commandes, les options et la syntaxe du réseau de l’ancrage général. * * * à l’exception des cas décrits dans les [fonctionnalités non prises en charge et les options réseau](#unsupported-features-and-network-options). Toutefois, les piles réseau Windows et Linux sont différentes, ce qui vous permet de constater que certaines commandes réseau Linux (par exemple, ifconfig) ne sont pas prises en charge sur Windows.
 
 ## <a name="basic-networking-architecture"></a>Architecture de mise en réseau de base
 
@@ -69,7 +69,7 @@ Les options de mise en réseau suivantes ne sont actuellement **pas** prises en 
 - Les conteneurs Windows attachés aux réseaux l2bridge, NAT et Overlay ne prennent pas en charge la communication via la pile IPv6.
 - Communication de conteneurs chiffrés via IPsec.
 - Prise en charge du proxy HTTP pour les conteneurs.
-- Attachement de points de terminaison à exécuter avec l’isolation Hyper-V (ajout à chaud).
+- Mise [en réseau en mode hôte](https://docs.docker.com/ee/ucp/interlock/config/host-mode-networking/) 
 - Mise en réseau sur l’infrastructure Azure virtuelle via le pilote réseau transparent.
 
 | Commande        | Option non prise en charge   |
