@@ -4,7 +4,7 @@
 ## [À propos des conteneurs Windows](about/index.md)
 ## [Conteneurs et VM](about/containers-vs-vm.md)
 ## [Configuration requise](deploy-containers/system-requirements.md)
-## [FAQ](about/faq.md)
+## [Forum Aux Questions](about/faq.md)
 
 # Prise en main
 ## [Configurer votre environnement](quick-start/set-up-environment.md)
@@ -49,7 +49,7 @@
 #### [Rejoignez des travailleurs Linux](kubernetes/joining-linux-workers.md)
 #### [Déploiement de ressources Kubernetes](kubernetes/deploying-resources.md)
 #### [Résolution des problèmes](kubernetes/common-problems.md)
-#### [Services Windows sur Kubernetes](kubernetes/kube-windows-services.md)
+#### [Kubernetes en tant que service Windows](kubernetes/kube-windows-services.md)
 #### [Compiler des fichiers binaires Kubernetes](kubernetes/compiling-kubernetes-binaries.md)
 ### Service Fabric
 #### [Service fabric et conteneurs](/azure/service-fabric/service-fabric-containers-overview)
