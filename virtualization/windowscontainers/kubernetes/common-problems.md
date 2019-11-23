@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: Solutions aux problèmes courants lors du déploiement de Kubernetes et de la jonction de nœuds Windows.
 keywords: kubernetes, 1,14, Linux, compile
-ms.openlocfilehash: b6e4e648ff050e13a0930f2834949867e44ce895
-ms.sourcegitcommit: d252f356a3de98f224e1550536810dfc75345303
+ms.openlocfilehash: 8bebc83e03fe919f6af3968b0e0463ab3c6bb987
+ms.sourcegitcommit: 6b925368d122ba600d7d4c73bd240cdcb915cccd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "10069933"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "10305723"
 ---
 # <a name="troubleshooting-kubernetes"></a>Résolution des problèmes Kubernetes #
 Cette page décrit plusieurs problèmes courants lors du déploiement, de la mise en réseau et de la configuration de Kubernetes.
@@ -43,6 +43,19 @@ nssm set <Service Name> AppStderr C:\k\mysvc.log
 Pour en savoir plus, consultez la rubrique documents d' [utilisation officiels NSSM](https://nssm.cc/usage) .
 
 ## <a name="common-networking-errors"></a>Erreurs réseau courantes ##
+
+### <a name="load-balancers-are-plumbed-inconsistently-across-the-cluster-nodes"></a>Les équilibreurs de charge sont montés de manière incohérente sur les nœuds de cluster ###
+Dans la configuration (par défaut) Kube-proxy, les clusters contenant 100 + équilibreurs de charge peuvent manquer de ports éphémères disponibles en raison du nombre élevé de ports réservés sur chaque nœud pour chaque équilibrage de charge (non-DSR). Cela risque de se manifester par le biais d’erreurs dans Kube-proxy comme suit:
+```
+Policy creation failed: hcnCreateLoadBalancer failed in Win32: The specified port already exists.
+```
+
+Les utilisateurs peuvent identifier ce problème en exécutant le script [CollectLogs. ps1](https://github.com/microsoft/SDN/blob/master/Kubernetes/windows/debug/collectlogs.ps1) et `*portrange.txt` en consultant les fichiers. Une synthèse heuristique sera également générée dans `reservedports.txt`.
+
+Pour résoudre ce problème, vous pouvez prendre les mesures suivantes:
+1.  Dans le cas d’une solution permanente, l’équilibrage de charge Kube-proxy doit être défini sur le [mode DSR](https://techcommunity.microsoft.com/t5/Networking-Blog/Direct-Server-Return-DSR-in-a-nutshell/ba-p/693710). Le mode DSR est malheureusement entièrement implémenté sur [Windows Server Insider version 18945](https://blogs.windows.com/windowsexperience/2019/07/30/announcing-windows-server-vnext-insider-preview-build-18945/#o1bs7T2DGPFpf7HM.97) (ou une version ultérieure) uniquement.
+2. Pour contourner ce problème, les utilisateurs peuvent également augmenter la configuration Windows par défaut des ports éphémères disponibles `netsh int ipv4 dynamicportrange TCP <start_range> <end_range>`à l’aide d’une commande telle que. *Avertissement:* Le remplacement de la plage de ports dynamiques par défaut peut avoir des conséquences sur les autres processus/services de l’hôte qui s’appuient sur les ports TCP disponibles à partir de la plage non éphémère, de sorte que cette plage soit soigneusement sélectionnée.
+3. Nous travaillons également sur une amélioration de l’évolutivité des équilibreurs de charge de type non-DSR utilisant le partage de la liste de ports intelligents, qui est planifiée pour être publiée via une mise à jour cumulative du 1er trim 2020.
 
 ### <a name="hostport-publishing-is-not-working"></a>La publication HostPort ne fonctionne pas ###
 Il n’est pas possible actuellement de publier des ports à `containers.ports.hostPort` l’aide du champ Kubernetes, car ce champ n’est pas respecté par les plug-ins Windows CNI. Pour le moment, vous devez utiliser la publication à l’élément à l’aide de l’éditeur.
@@ -84,7 +97,7 @@ Les règles de trafic sortant ne sont pas programmées pour le protocole ICMP po
 Si vous rencontrez toujours des problèmes, vous devez probablement être attentif à votre configuration réseau dans [CNI. conf](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf) . Vous pouvez toujours modifier ce fichier statique, la configuration est appliquée aux ressources Kubernetes nouvellement créées.
 
 Pourquoi?
-L’une des exigences réseau Kubernetes (voir [modèle Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/networking/)) consiste à faire en sorte que la communication de cluster se produise sans NAT en interne. Pour respecter cette exigence, nous avons une [](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf#L20) «consul» pour toutes les communications pour lesquelles il n’est pas nécessaire de procéder à la traduction d’adresses réseau sortante. Toutefois, cela signifie également que vous devez exclure l’adresse IP externe que vous essayez d’interroger à partir de la demande. Le trafic provenant de vos boîtiers Windows est le SNAT’ed correctement pour recevoir une réponse du monde extérieur. De cette façon, votre compte- `cni.conf` rendu doit ressortir comme suit:
+L’une des exigences réseau Kubernetes (voir [modèle Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/networking/)) consiste à faire en sorte que la communication de cluster se produise sans NAT en interne. Pour respecter cette exigence, nous avons une «consul» pour toutes les communications pour lesquelles il n’est pas nécessaire de procéder à la [traduction d’adresses](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf#L20) réseau sortante. Toutefois, cela signifie également que vous devez exclure l’adresse IP externe que vous essayez d’interroger à partir de la demande. Le trafic provenant de vos boîtiers Windows est le SNAT’ed correctement pour recevoir une réponse du monde extérieur. De cette façon, votre compte- `cni.conf` rendu doit ressortir comme suit:
 ```conf
 "ExceptionList": [
   "10.244.0.0/16",  # Cluster subnet
@@ -130,7 +143,7 @@ Get-VMNetworkAdapter -VMName "<name>" | Set-VMNetworkAdapter -MacAddressSpoofing
 > Si vous utilisez un produit basée sur VMware pour répondre à vos besoins en matière de virtualisation, recherchez le [mode de promiscuité](https://kb.vmware.com/s/article/1004099) pour la configuration requise pour l’usurpation Mac.
 
 >[!TIP]
-> Si vous déployez Kubernetes sur des ordinateurs virtuels Azure ou IaaS d’autres fournisseurs de Cloud Computing, vous pouvez également utiliser la [mise en réseau](./network-topologies.md#flannel-in-vxlan-mode) de superposition à la place.
+> Si vous déployez Kubernetes sur des ordinateurs virtuels Azure ou IaaS d’autres fournisseurs de Cloud Computing, vous pouvez également utiliser la [mise en réseau de superposition](./network-topologies.md#flannel-in-vxlan-mode) à la place.
 
 ### <a name="my-windows-pods-cannot-launch-because-of-missing-runflannelsubnetenv"></a>Mes modules Windows ne peuvent pas être lancés en raison d’un/Run/Flannel/subnet.env manquant ###
 Cela indique que Flannel n’a pas été lancé correctement. Vous pouvez essayer de redémarrer flanneld. exe, ou copier les fichiers manuellement de `/run/flannel/subnet.env` sur le maître `C:\run\flannel\subnet.env` Kubernetes sur le nœud Windows Worker et de modifier la `FLANNEL_SUBNET` ligne sur le sous-réseau affecté. Par exemple, si le noeud de sous-réseau 10.244.4.1/24 a été attribué:
