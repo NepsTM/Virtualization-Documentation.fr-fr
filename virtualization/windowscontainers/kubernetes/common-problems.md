@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: Solutions aux problèmes courants lors du déploiement de Kubernetes et de la jonction de nœuds Windows.
 keywords: kubernetes, 1,14, Linux, compile
-ms.openlocfilehash: 54396f4b350fa7dfe59e073601f41b0a73f06dca
-ms.sourcegitcommit: 76dce6463e820420073dda2dbad822ca4a6241ef
+ms.openlocfilehash: 471731ec50c7c03816a956bd7aae859ad218be6d
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "10307262"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "10332360"
 ---
 # Résolution des problèmes Kubernetes #
 Cette page décrit plusieurs problèmes courants lors du déploiement, de la mise en réseau et de la configuration de Kubernetes.
@@ -45,7 +45,7 @@ Pour en savoir plus, consultez la rubrique documents d' [utilisation officiels N
 ## Erreurs réseau courantes ##
 
 ### Les équilibreurs de charge sont montés de manière incohérente sur les nœuds de cluster ###
-Dans la configuration (par défaut) Kube-proxy, les clusters contenant 100 + équilibreurs de charge peuvent manquer sur les ports TCP éphémères disponibles (alias plage de ports dynamiques, qui couvre généralement les ports 49152 à 65535) en raison du nombre élevé de ports réservés sur chaque nœud pour chaque équilibrage de charge (non-DSR). Cela risque de se manifester par le biais d’erreurs dans Kube-proxy comme suit:
+Sur Windows, KUBE-proxy crée un équilibreur de charge SNPD pour chaque service Kubernetes du cluster. Dans la configuration (par défaut) Kube-proxy, les nœuds dans des clusters contenant de nombreux nombreux (en général, plus de 100) peuvent manquer sur les ports TCP éphémères disponibles (alias plage de ports dynamiques, qui, par défaut, couvre les ports 49152 à 65535). Cela est dû au nombre élevé de ports réservés sur chaque nœud pour chaque équilibrage de charge (non-DSR). Ce problème se manifeste par le biais d’erreurs dans Kube-proxy comme suit:
 ```
 Policy creation failed: hcnCreateLoadBalancer failed in Win32: The specified port already exists.
 ```
@@ -55,9 +55,9 @@ Les utilisateurs peuvent identifier ce problème en exécutant le script [Collec
 La `CollectLogs.ps1` logique de répartition de l’allocation de l’allocation de la part des ressources de l’allocation de port TCP est également mise en rapport `reservedports.txt`avec la réussite et l’échec du test. Le script réserve 10 plages de ports éphémères TCP 64 (pour émuler le comportement de HNS), compte les réussites de réservation & les échecs, puis libère les plages de port affectées. Un nombre de réussite inférieur à 10 indique que le pool éphémère ne dispose pas de l’espace disponible. Un résumé de la quantité d’informations de réservation de port 64 (approximativement disponible) est également généré dans `reservedports.txt`.
 
 Pour résoudre ce problème, vous pouvez prendre les mesures suivantes:
-1.  Dans le cas d’une solution permanente, l’équilibrage de charge Kube-proxy doit être défini sur le [mode DSR](https://techcommunity.microsoft.com/t5/Networking-Blog/Direct-Server-Return-DSR-in-a-nutshell/ba-p/693710). Le mode DSR est malheureusement entièrement implémenté sur [Windows Server Insider version 18945](https://blogs.windows.com/windowsexperience/2019/07/30/announcing-windows-server-vnext-insider-preview-build-18945/#o1bs7T2DGPFpf7HM.97) (ou une version ultérieure) uniquement.
+1.  Dans le cas d’une solution permanente, l’équilibrage de charge Kube-proxy doit être défini sur le [mode DSR](https://techcommunity.microsoft.com/t5/Networking-Blog/Direct-Server-Return-DSR-in-a-nutshell/ba-p/693710). Le mode DSR est entièrement implémenté et disponible sur [Windows Server Insider version 18945](https://blogs.windows.com/windowsexperience/2019/07/30/announcing-windows-server-vnext-insider-preview-build-18945/#o1bs7T2DGPFpf7HM.97) (ou version ultérieure) uniquement.
 2. Pour contourner ce problème, les utilisateurs peuvent également augmenter la configuration Windows par défaut des ports éphémères disponibles `netsh int ipv4 set dynamicportrange TCP <start_port> <port_count>`à l’aide d’une commande telle que. *Avertissement:* Le remplacement de la plage de ports dynamiques par défaut peut avoir des conséquences sur les autres processus/services de l’hôte qui s’appuient sur les ports TCP disponibles à partir de la plage non éphémère, de sorte que cette plage soit soigneusement sélectionnée.
-3. Nous travaillons également sur une amélioration de l’évolutivité des équilibreurs de charge de type non-DSR utilisant le partage de la liste de ports intelligents, qui est planifiée pour être publiée via une mise à jour cumulative du 1er trim 2020.
+3. Une amélioration de l’évolutivité est apportée aux équilibreurs de charge de type non DSR utilisant le partage de la liste de ports intelligents, qui est planifiée pour être publiée par le biais d’une mise à jour cumulative du 1er trim 2020.
 
 ### La publication HostPort ne fonctionne pas ###
 Il n’est pas possible actuellement de publier des ports à `containers.ports.hostPort` l’aide du champ Kubernetes, car ce champ n’est pas respecté par les plug-ins Windows CNI. Pour le moment, vous devez utiliser la publication à l’élément à l’aide de l’éditeur.
