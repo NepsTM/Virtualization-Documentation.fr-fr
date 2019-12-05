@@ -1,22 +1,42 @@
 {
   "build": {
-    "content":
-      [
-        {
-          "files": ["**/**.md"],
-          "exclude": ["**/obj/**"]
-        }
-      ],
+    "content": [
+      {
+        "files": ["**/**.md", "**/**.yml"],
+        "exclude": [
+          "**/obj/**",
+          "**/includes/**",
+          "README.md",
+          "LICENSE",
+          "LICENSE-CODE",
+          "ThirdPartyNotices"
+        ]
+      }
+    ],
     "resource": [
-        {
-          "files": ["**/media/**"],
-          "exclude": ["**/obj/**"]
-        }
+      {
+        "files": [
+          "**/*.png",
+          "**/*.jpg",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**/includes/**"
+        ]
+      }
     ],
-    "externalReference": [
-    ],
-    "template": "op.html",
+    "overwrite": [],
+    "externalReference": [],
+
+    "globalMetadata": {
+      "breadcrumb_path": "/virtualization/toc.json",
+      "extendBreadcrumb": true, 
+      "disable_contribution_on_translation_quality": ["MTE95","MTE75","MT"]
+    },
+    "fileMetadata": {},
+    
+    "template": [],
     "dest": "virtualization/windowscontainers"
   }
 }
-
