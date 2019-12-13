@@ -6,24 +6,24 @@ ms.date: 11/02/2018
 ms.topic: get-started-article
 ms.prod: containers
 description: Compilation et compilation croisée des fichiers binaires Kubernetes à partir de la source.
-keywords: kubernetes, 1.12, linux, compiler
+keywords: kubernetes, 1,12, Linux, compiler
 ms.openlocfilehash: 40bf7e65a8910cdab095abb269aa0a92508189cd
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574820"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909869"
 ---
 # <a name="compiling-kubernetes-binaries"></a>Compilation de fichiers binaires Kubernetes #
 La compilation de Kubernetes requiert un environnement Go de travail. Cette page passe en revue plusieurs façons de compiler les fichiers binaires Linux et d’effectuer une compilation croisée des binaires Windows.
 > [!NOTE] 
-> Cette page est complètement volontaires et uniquement inclus pour les développeurs intéressés par Kubernetes qui souhaitent faire des essais avec le dernier code source plus grand &.
+> Cette page est entièrement volontaire et incluse uniquement pour les développeurs intéressés Kubernetes qui veulent expérimenter la dernière & code source le plus récent.
 
 > [!tip]
-> Pour recevoir des notifications sur les dernières améliorations, vous pouvez vous abonner à [@kubernetes-announce](https://groups.google.com/forum/#!forum/kubernetes-announce).
+> Pour recevoir des notifications sur les développements les plus récents, vous pouvez vous abonner à [@kubernetes-announce](https://groups.google.com/forum/#!forum/kubernetes-announce).
 
 ## <a name="installing-go"></a>Installation de Go ##
-Par souci de simplicité, cela implique d’installer Go dans un emplacement temporaire et personnalisé:
+Par souci de simplicité, cela implique d’installer Go dans un emplacement temporaire et personnalisé :
 
 ```bash
 cd ~
@@ -38,7 +38,7 @@ export PATH="$GOROOT/bin:$PATH"
 > [!Note]  
 > Cela définit les variables d’environnement pour votre session. Ajoutez `export` à votre `~/.profile`pour un réglage permanent.
 
-Exécutez `go env`pour vérifier que les chemins ont été correctement définis. Il existe plusieurs options pour la création des fichiers binaires Kubernetes:
+Exécutez `go env`pour vérifier que les chemins ont été correctement définis. Il existe plusieurs options pour la création des fichiers binaires Kubernetes :
 
   - Générez-les [localement ](#build-locally).
   - Générez les fichiers binaires à l’aide de [Vagrant ](#build-with-vagrant).
@@ -47,13 +47,13 @@ Exécutez `go env`pour vérifier que les chemins ont été correctement définis
 Pour copier les binaires Windows sur leurs nœuds respectifs, utilisez un outil graphique tel que [WinSCP](https://winscp.net/eng/download.php) ou un outil de ligne de commande comme [pscp](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) pour les transférer vers le répertoire `C:\k`.
 
 
-## <a name="building-locally"></a>Construction en local ##
+## <a name="building-locally"></a>Créer localement ##
 > [!Tip]  
-> Si vous rencontrez des erreurs «autorisation refusée», elles peuvent être évitées en créant tout d’abord le Linux `kubelet`, selon la note dans [`acs-engine`](https://github.com/Azure/acs-engine/blob/master/scripts/build-windows-k8s.sh#L176):
+> Si vous rencontrez des erreurs « autorisation refusée », elles peuvent être évitées en créant tout d’abord le Linux `kubelet`, selon la note dans [`acs-engine`](https://github.com/Azure/acs-engine/blob/master/scripts/build-windows-k8s.sh#L176) :
 >  
-> _En raison de ce qui semble être un bogue dans le système de génération Kubernetes Windows, il faut d’abord créer un fichier binaire Linux pour générer `_output/bin/deepcopy-gen`. La création sur Windows sans effectuer cette opération génère un `deepcopy-gen` vide._
+> _En raison de ce qui semble être un bogue dans le système de génération Windows Kubernetes, il faut d’abord créer un fichier binaire Linux pour générer `_output/bin/deepcopy-gen`. Si vous générez sur Windows avec cette opération, une `deepcopy-gen`vide sera générée._
 
-En premier lieu, récupérez l’espace de stockage Kubernetes:
+En premier lieu, récupérez l’espace de stockage Kubernetes :
 
 ```bash
 KUBEREPO="k8s.io/kubernetes"
@@ -70,7 +70,7 @@ git checkout tags/v1.12.2
 make clean && make WHAT=cmd/kubelet
 ```
 
-Pour finir, créez les fichiers binaires client Windows nécessaires (la dernière étape peut varier, en fonction d’où les fichiers binaires Windows doivent être récupérés ultérieurement):
+Pour finir, créez les fichiers binaires client Windows nécessaires (la dernière étape peut varier, en fonction d’où les fichiers binaires Windows doivent être récupérés ultérieurement) :
 
 ```bash
 KUBE_BUILD_PLATFORMS=windows/amd64 make WHAT=cmd/kubectl
@@ -79,11 +79,11 @@ KUBE_BUILD_PLATFORMS=windows/amd64 make WHAT=cmd/kube-proxy
 cp _output/local/bin/windows/amd64/kube*.exe ~/kube-win/
 ```
 
-Les étapes de création des fichiers binaires Linux sont identiques; laissez le préfixe  `KUBE_BUILD_PLATFORMS=windows/amd64` pour les commandes. Le répertoire de sortie sera en l’occurrence `_output/.../linux/amd64`.
+Les étapes de création des fichiers binaires Linux sont identiques ; laissez le préfixe  `KUBE_BUILD_PLATFORMS=windows/amd64` pour les commandes. Le répertoire de sortie sera en l’occurrence `_output/.../linux/amd64`.
 
 
 ## <a name="build-with-vagrant"></a>Création avec Vagrant ##
-Il existe un programme d’installation Vagrant [ici ](https://github.com/Microsoft/SDN/tree/master/Kubernetes/linux/vagrant). Utilisez-le pour préparer un ordinateur virtuel Vagrant, puis exécutez ces commandes qu’il contient:
+Il existe un programme d’installation Vagrant [ici ](https://github.com/Microsoft/SDN/tree/master/Kubernetes/linux/vagrant). Utilisez-le pour préparer un ordinateur virtuel Vagrant, puis exécutez ces commandes qu’il contient :
 
 ```bash
 DIST_DIR="${HOME}/kube/"

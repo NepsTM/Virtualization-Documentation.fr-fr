@@ -1,6 +1,6 @@
 ---
 title: Conteneur d’une application .NET Core
-description: Découvrez comment créer un exemple d’application .NET Core avec des conteneurs
+description: Apprenez à créer un exemple d’application .NET Core avec des conteneurs
 keywords: docker, conteneurs
 author: cwilhit
 ms.author: crwilhit
@@ -9,32 +9,32 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.openlocfilehash: fab0dc46ddcc8c82a010d408032e5f3c4cea8d69
-ms.sourcegitcommit: e61db4d98d9476a622e6cc8877650d9e7a6b4dd9
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "10288067"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74910139"
 ---
 # <a name="containerize-a-net-core-app"></a>Conteneur d’une application .NET Core
 
-Cette rubrique décrit comment empaqueter un exemple d’application .NET pour déploiement en tant que conteneur Windows, après avoir configuré votre environnement comme décrit dans la rubrique [prise en main: préparer Windows pour les conteneurs](set-up-environment.md)et exécuter votre premier conteneur comme décrit dans [exécuter votre premier conteneur Windows](run-your-first-container.md).
+Cette rubrique explique comment empaqueter un exemple d’application .NET existant pour le déploiement en tant que conteneur Windows, après avoir configuré votre environnement, comme décrit dans [prise en main : préparer Windows pour les conteneurs](set-up-environment.md)et exécuter votre premier conteneur comme décrit dans [exécuter votre premier conteneur Windows](run-your-first-container.md).
 
-Le système de contrôle de code source git doit également être installé sur votre ordinateur. Pour l’installer, visitez le site [git](https://git-scm.com/download).
+Le système de contrôle de code source git doit également être installé sur votre ordinateur. Pour l’installer, visitez [git](https://git-scm.com/download).
 
-## <a name="clone-the-sample-code-from-github"></a>Cloner l’exemple de code de GitHub
+## <a name="clone-the-sample-code-from-github"></a>Cloner l’exemple de code à partir de GitHub
 
-Tout le code source de l’exemple de conteneur est conservé sous la [virtualisation-](https://github.com/MicrosoftDocs/Virtualization-Documentation) référentiel git de la documentation (connu sous le nom de référentiel Samples) dans un `windows-container-samples`dossier appelé.
+Tous les exemples de code source de conteneur sont conservés dans le référentiel git de [documentation de virtualisation](https://github.com/MicrosoftDocs/Virtualization-Documentation) (connu de manière informelle en tant que référentiel) dans un dossier appelé `windows-container-samples`.
 
-1. Ouvrez une session PowerShell et changez de répertoires pour le dossier dans lequel vous voulez stocker ce référentiel. (D’autres types de fenêtre d’invite de commandes fonctionnent également, mais nos exemples de commandes utilisent PowerShell.)
-2. Clonez le référentiel samples dans votre répertoire de travail actuel:
+1. Ouvrez une session PowerShell et accédez au dossier dans lequel vous souhaitez stocker ce dépôt. (Les autres types de fenêtre d’invite de commandes fonctionnent également, mais nos exemples de commandes utilisent PowerShell.)
+2. Clonez le référentiel dans votre répertoire de travail actuel :
 
    ```PowerShell
    git clone https://github.com/MicrosoftDocs/Virtualization-Documentation.git
    ```
 
-3. Accédez à l’exemple d’annuaire figurant `Virtualization-Documentation\windows-container-samples\asp-net-getting-started` dans et créez un Dockerfile à l’aide des commandes suivantes.
+3. Accédez à l’exemple de répertoire situé sous `Virtualization-Documentation\windows-container-samples\asp-net-getting-started` et créez un fichier dockerfile à l’aide des commandes suivantes.
 
-   Un [Dockerfile](https://docs.docker.com/engine/reference/builder/) est comme un Makefile: il s’agit d’une liste d’instructions indiquant au moteur du conteneur comment créer l’image du conteneur.
+   Un [fichier dockerfile](https://docs.docker.com/engine/reference/builder/) est comme un Makefile : il s’agit d’une liste d’instructions qui indiquent au moteur de conteneur comment créer l’image de conteneur.
 
    ```Powershell
    # Navigate into the sample directory
@@ -44,9 +44,9 @@ Tout le code source de l’exemple de conteneur est conservé sous la [virtualis
    New-Item -Name Dockerfile -ItemType file
    ```
 
-## <a name="write-the-dockerfile"></a>Écrire le Dockerfile
+## <a name="write-the-dockerfile"></a>Écrire le fichier dockerfile
 
-Ouvrez le Dockerfile que vous venez de créer à l’aide de l’éditeur de texte de votre choix, puis ajoutez le contenu suivant:
+Ouvrez le fichier dockerfile que vous venez de créer avec l’éditeur de texte de votre choix, puis ajoutez le contenu suivant :
 
 ```Dockerfile
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build-env
@@ -64,33 +64,33 @@ COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "asp-net-getting-started.dll"]
 ```
 
-Divisez-le en ligne et expliquez ce que fait chaque instruction.
+Divisez-le en ligne par ligne et expliquez ce que fait chaque instruction.
 
 ```Dockerfile
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build-env
 WORKDIR /app
 ```
 
-Le premier groupe de lignes déclare à partir de quelle image de base nous allons créer le conteneur. Si cette image ne se trouve pas sur le système local, Docker essaie automatiquement de la récupérer. Le `mcr.microsoft.com/dotnet/core/sdk:2.1` Kit de développement logiciel (SDK) .net Core 2,1 est intégré au programme de création de projets principaux ASP .net ciblant la version 2,1. L’instruction suivante transforme le répertoire de travail dans son conteneur `/app`, de sorte que toutes les commandes qui suivent celle-ci s’exécutent sous ce contexte.
+Le premier groupe de lignes déclare à partir de quelle image de base nous allons créer le conteneur. Si cette image ne se trouve pas sur le système local, Docker essaie automatiquement de la récupérer. Le `mcr.microsoft.com/dotnet/core/sdk:2.1` est fourni avec le kit de développement logiciel (SDK) .NET Core 2,1 installé. il s’agit donc de la tâche de création de projets ASP .NET Core ciblant la version 2,1. L’instruction suivante modifie le répertoire de travail dans notre conteneur pour qu’il soit `/app`, donc toutes les commandes qui suivent celle-ci s’exécutent dans ce contexte.
 
 ```Dockerfile
 COPY *.csproj ./
 RUN dotnet restore
 ```
 
-Les instructions suivantes sont ensuite copiées sur les fichiers. csproj `build-env` dans l' `/app` annuaire du conteneur. Après avoir copié ce fichier, .NET en liraa à partir de celui-ci, puis aura accès à toutes les dépendances et outils nécessaires à notre projet.
+Ensuite, ces instructions copient les fichiers. csproj dans le répertoire de `/app` du conteneur `build-env`. Une fois ce fichier copié, .NET le lit, puis récupère toutes les dépendances et tous les outils nécessaires à notre projet.
 
 ```Dockerfile
 COPY . ./
 RUN dotnet publish -c Release -o out
 ```
 
-Lorsque .NET a extrait toutes les dépendances dans `build-env` le conteneur, l’instruction suivante copie tous les fichiers sources du projet dans le conteneur. Ensuite, nous indiquons à .NET de publier l’application auprès d’une configuration de publication et de spécifier le chemin de sortie dans le.
+Une fois que .NET a extrait toutes les dépendances dans le conteneur `build-env`, l’instruction suivante copie tous les fichiers sources du projet dans le conteneur. Nous indiquons ensuite à .NET de publier notre application avec une configuration Release et de spécifier le chemin de sortie dans le.
 
-La compilation doit aboutir. Nous devons maintenant générer l’image finale. 
+La compilation doit être effectuée correctement. Nous devons à présent créer l’image finale. 
 
 > [!TIP]
-> Ce démarrage rapide génère un projet .NET principal à partir de la source. Lors de la création d’images de conteneur, il est conseillé d’inclure _uniquement_ la charge utile de production et ses dépendances dans l’image du conteneur. Nous ne voulons pas que le kit de développement logiciel (SDK) .NET Core est inclus dans notre image finale, car nous avons uniquement besoin de .NET Core Runtime, de sorte que dockerfile est écrit `build-env` de manière à utiliser un conteneur temporaire fourni avec le SDK appelé pour générer l’application.
+> Ce guide de démarrage rapide crée un projet .NET Core à partir de la source. Lors de la génération d’images de conteneur, il est conseillé d’inclure _uniquement_ la charge utile de production et ses dépendances dans l’image de conteneur. Nous ne voulons pas que le kit de développement logiciel (SDK) .NET Core soit inclus dans notre image finale, car nous avons uniquement besoin du Runtime .NET Core, donc le fichier dockerfile est écrit pour utiliser un conteneur temporaire qui est empaqueté avec le kit de développement logiciel (SDK) appelé `build-env` pour créer l’application.
 
 ```Dockerfile
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.1
@@ -99,53 +99,53 @@ COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "asp-net-getting-started.dll"]
 ```
 
-Dans la mesure où notre application est ASP.NET, nous spécifions une image avec ce Runtime inclus. Ensuite, nous copions tous les fichiers du répertoire de sortie de notre conteneur temporaire dans notre conteneur final. Nous configurons notre conteneur pour qu’il s’exécute avec notre nouvelle application comme point d’entrée lors du démarrage du conteneur.
+Étant donné que notre application est ASP.NET, nous spécifions une image avec ce Runtime inclus. Ensuite, nous copions tous les fichiers du répertoire de sortie de notre conteneur temporaire dans notre conteneur final. Nous configurons notre conteneur pour qu’il s’exécute avec notre nouvelle application comme son point d’entrée au démarrage du conteneur.
 
-Nous avons rédigé le dockerfile pour effectuer une _Build en plusieurs étapes_. Lorsque le dockerfile est exécuté, il utilise le conteneur temporaire, `build-env`avec le kit de développement logiciel .net Core 2,1 pour générer l’exemple d’application, puis copie les fichiers binaires entrés dans un autre conteneur contenant uniquement le Runtime .net Core 2,1, afin que nous n’ayons plus à réduire la taille du conteneur final.
+Nous avons écrit le fichier dockerfile pour effectuer une _génération en plusieurs étapes_. Lorsque le fichier dockerfile est exécuté, il utilise le conteneur temporaire, `build-env`, avec le kit de développement logiciel (SDK) .NET Core 2,1 pour générer l’exemple d’application, puis copier les fichiers binaires générés dans un autre conteneur contenant uniquement le Runtime .NET Core 2,1, afin de réduire la taille du conteneur final.
 
 ## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
 
-Avec Dockerfile, nous pouvons vous permettre de pointer sur notre Dockerfile et de lui dire de générer et d’exécuter l’image suivante:
+Une fois l’fichier dockerfile écrit, nous pouvons pointer le Dockeur sur notre fichier dockerfile et lui demander de générer et d’exécuter l’image :
 
-1. Dans une fenêtre d’invite de commandes, accédez au répertoire dans lequel se trouve le dockerfile, puis exécutez la commande de build de l' [amarrage](https://docs.docker.com/engine/reference/commandline/build/) pour générer le conteneur à partir du dockerfile.
+1. Dans une fenêtre d’invite de commandes, accédez au répertoire où se trouve le fichier dockerfile, puis exécutez la commande [dockr Build](https://docs.docker.com/engine/reference/commandline/build/) pour générer le conteneur à partir du fichier dockerfile.
 
    ```Powershell
    docker build -t my-asp-app .
    ```
 
-2. Pour exécuter le conteneur nouvellement créé, exécutez la commande d’exécution de l' [ancrage](https://docs.docker.com/engine/reference/commandline/run/) .
+2. Pour exécuter le conteneur qui vient d’être créé, exécutez la commande [dockr Run](https://docs.docker.com/engine/reference/commandline/run/) .
 
    ```Powershell
    docker run -d -p 5000:80 --name myapp my-asp-app
    ```
 
-   Dissect la commande suivante:
+   Étudier en détail cette commande :
 
-   * `-d` indique à l’tunur d’exécuter le conteneur «détaché», ce qui signifie qu’il n’y a pas de console relié à la console à l’intérieur du conteneur. Le conteneur s’exécute en arrière-plan. 
-   * `-p 5000:80` indique à l’ancrage de mapper le port 5000 sur l’hôte au port 80 dans le conteneur. Chaque conteneur obtient sa propre adresse IP. ASP .NET écoute par défaut sur le port 80. Le mappage de port nous permet d’accéder à l’adresse IP de l’hôte au niveau du port mappé et de l’arrière-plan transférant tout le trafic vers le port de destination à l’intérieur du conteneur.
-   * `--name myapp` indique à l’expéditeur qu’il doit fournir un nom pratique de requête (au lieu d’avoir besoin de Rechercher l’ID contaienr affecté lors de l’exécution par l’Arrimateur).
-   * `my-asp-app` est l’image que nous voulons qu’elle exécute. Il s’agit de l’image de conteneur créée en tant que `docker build` «culminement du processus».
+   * `-d` indique à Dockr exécutez d’exécuter le conteneur’détaché', ce qui signifie qu’aucune console n’est raccordée à la console à l’intérieur du conteneur. Le conteneur s’exécute en arrière-plan. 
+   * `-p 5000:80` indique à l’arrimeur de mapper le port 5000 sur l’hôte au port 80 dans le conteneur. Chaque conteneur obtient sa propre adresse IP. ASP .NET écoute par défaut sur le port 80. Le mappage de port nous permet d’accéder à l’adresse IP de l’hôte au niveau du port mappé et l’arrimeur transmet tout le trafic vers le port de destination à l’intérieur du conteneur.
+   * `--name myapp` indique à Dockr d’attribuer à ce conteneur un nom pratique à interroger (au lieu d’avoir à Rechercher l’ID contaienr assigné au moment de l’exécution par docker).
+   * `my-asp-app` est l’image que l’Assistant de connexion doit exécuter. Il s’agit de l’image de conteneur produite comme l’aboutissement du processus de `docker build`.
 
-3. Ouvrez un navigateur Web, puis accédez `http://localhost:5000` à l’application pour afficher votre application conteneur, comme illustré dans la capture d’écran suivante:
+3. Ouvrez un navigateur Web de navigateur Web et accédez à `http://localhost:5000` pour voir votre application en conteneur, comme illustré dans cette capture d’écran :
 
-   >![Page Web principale de ASP.NET, en cours d’exécution à partir du localhost dans un conteneur](media/SampleAppScreenshot.png)
+   >![ASP.NET Core page Web, exécution à partir de localhost dans un conteneur](media/SampleAppScreenshot.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-1. L’étape suivante consiste à publier votre application Web ASP.NET dans un registre privé à l’aide du registre de conteneur Azure. Cela vous permet de le déployer dans votre organisation.
+1. L’étape suivante consiste à publier votre application Web ASP.NET en conteneur dans un registre privé à l’aide de Azure Container Registry. Cela vous permet de le déployer dans votre organisation.
 
    > [!div class="nextstepaction"]
-   > [Créer un registre de conteneur privé](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-powershell)
+   > [Créer un registre de conteneurs privé](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-powershell)
 
-   Lorsque vous accédez à la section sur laquelle vous avez [envoyé votre image de conteneur dans le registre](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-powershell#push-image-to-registry), spécifiez le nom de l’application ASP.NET`my-asp-app`que vous venez de empaqueter () avec `contoso-container-registry`le registre de votre conteneur (par exemple:):
+   Lorsque vous accédez à la section où vous envoyez [votre image conteneur vers le registre](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-powershell#push-image-to-registry), spécifiez le nom de l’application ASP.net que vous venez de empaqueter (`my-asp-app`) avec votre registre de conteneurs (par exemple : `contoso-container-registry`) :
 
    ```PowerShell
    docker tag my-asp-app contoso-container-registry.azurecr.io/my-asp-app:v1
    ```
 
-   Pour afficher d’autres exemples d’applications et leurs dockerfiles associées, voir [exemples de conteneurs supplémentaires](../samples.md).
+   Pour voir d’autres exemples d’applications et les fichiers dockerfile associés, consultez [exemples de conteneurs supplémentaires](../samples.md).
 
-2. Une fois que vous avez publié votre application sur le registre de conteneurs, l’étape suivante consiste à déployer l’application sur un cluster Kubernetes que vous créez avec le service Azure Kubernetes.
+2. Une fois que vous avez publié votre application dans le registre de conteneurs, l’étape suivante consiste à déployer l’application sur un cluster Kubernetes que vous créez avec le service Azure Kubernetes.
 
    > [!div class="nextstepaction"]
-   > [Créer un groupe Kubernetes](https://docs.microsoft.com/azure/aks/windows-container-cli)
+   > [Créer un cluster Kubernetes](https://docs.microsoft.com/azure/aks/windows-container-cli)

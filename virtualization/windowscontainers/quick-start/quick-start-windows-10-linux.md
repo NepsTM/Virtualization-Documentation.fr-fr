@@ -1,7 +1,7 @@
 ---
 title: Conteneurs Windows et Linux sur Windows 10
 description: Démarrage rapide du déploiement de conteneurs
-keywords: dockers, conteneurs, LCOW
+keywords: ancrage, conteneurs, LCOW
 author: taylorb-microsoft
 ms.date: 08/16/2019
 ms.topic: article
@@ -9,60 +9,60 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 ms.openlocfilehash: a52c18f13d0d6bd2102f045827285821a187579b
-ms.sourcegitcommit: 2f8fd4b2e7113fbb7c323d89f3c72df5e1a4437e
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "10045019"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909579"
 ---
 # <a name="linux-containers-on-windows-10"></a>Conteneurs Linux sur Windows 10
 
-Dans cet exercice, vous allez découvrir comment créer et exécuter des conteneurs Linux sur Windows 10.
+L’exercice vous guide dans la création et l’exécution de conteneurs Linux sur Windows 10.
 
-Dans ce démarrage rapide, vous allez effectuer les opérations suivantes:
+Dans ce démarrage rapide, vous allez effectuer les opérations suivantes :
 
-1. Installation de la version de bureau de l’amarrage
-2. Exécution d’un conteneur Linux simple utilisant des conteneurs Linux sur Windows (LCOW)
+1. Installation du Bureau de station d’accueil
+2. Exécution d’un conteneur Linux simple à l’aide de conteneurs Linux sur Windows (LCOW)
 
-Ce démarrage rapide est spécifique à Windows10. Pour plus d’informations, reportez-vous à la documentation de démarrage rapide supplémentaire disponible dans la table des matières sur le côté gauche de cette page.
+Ce démarrage rapide est spécifique à Windows 10. Vous trouverez une documentation de démarrage rapide supplémentaire dans la table des matières sur le côté gauche de cette page.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
-Veuillez vérifier que vous remplissez les conditions suivantes:
-- Un système informatique physique exécutant Windows 10 professionnel, Windows 10 entreprise ou Windows Server 2019 version 1809 ou ultérieure
+Assurez-vous que vous remplissez les conditions suivantes :
+- Un système d’ordinateur physique exécutant Windows 10 professionnel, Windows 10 entreprise ou Windows Server 2019 version 1809 ou ultérieure
 - Vérifiez que [Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) est activé.
 
-***Isolement Hyper-V:*** Les conteneurs Linux sur Windows nécessitent l’isolement Hyper-V sur Windows 10 afin de fournir aux développeurs le noyau Linux approprié pour exécuter le conteneur. Pour plus d’informations sur l’isolement Hyper-V, consultez la page [à propos des conteneurs Windows](../about/index.md) .
+***Isolation Hyper-V :*** Les conteneurs Linux sur Windows nécessitent l’isolation Hyper-V sur Windows 10 afin de fournir aux développeurs le noyau Linux approprié pour exécuter le conteneur. Pour plus d’informations sur l’isolation Hyper-V, consultez la page [à propos des conteneurs Windows](../about/index.md) .
 
 ## <a name="install-docker-desktop"></a>Installer le Bureau de l’ancrage
 
-Téléchargez la version de bureau de l' [amarrage](https://store.docker.com/editions/community/docker-ce-desktop-windows) et exécutez le programme d’installation (vous devez vous connecter. Créez un compte si vous n’en avez pas encore. [Des instructions d’installation détaillées](https://docs.docker.com/docker-for-windows/install) sont disponibles dans la documentation de Docker.
+Téléchargez le Bureau de l' [ancrage](https://store.docker.com/editions/community/docker-ce-desktop-windows) et exécutez le programme d’installation (vous devez vous connecter. Créez un compte si vous n’en avez pas déjà un. [Des instructions d’installation détaillées](https://docs.docker.com/docker-for-windows/install) sont disponibles dans la documentation de Docker.
 
-> Si vous avez déjà installé la version d’Arrimateur, assurez-vous que vous disposez de la version 18,02 ou version ultérieure pour prendre en charge LCOW. Vérifiez en exécutant `docker -v` ou en vérifiant s’il s’agit de l' *ancrage*.
+> Si vous avez déjà installé la station d’accueil, assurez-vous que vous disposez de la version 18,02 ou ultérieure pour prendre en charge LCOW. Vérifiez en exécutant `docker -v` ou en vérifiant l' *ancrage*.
 
-> L’option «fonctionnalités expérimentales» dans les paramètres de l' *ancrage > démon* doit être activée pour exécuter les conteneurs LCOW.
+> L’option « fonctionnalités expérimentales » dans les paramètres de l' *arrimeur > démon* doit être activée pour exécuter des conteneurs LCOW.
 
 ## <a name="run-your-first-lcow-container"></a>Exécuter votre premier conteneur LCOW
 
-Pour cet exemple, un conteneur BusyBox est déployé. Tout d’abord, essayez d’exécuter une image de BusyBox’Hello World'.
+Pour cet exemple, un conteneur BusyBox sera déployé. Tout d’abord, essayez d’exécuter une image BusyBox’Hello World'.
 
 ```console
 docker run --rm busybox echo hello_world
 ```
 
-Notez que cette opération renvoie une erreur lorsque l’ancrage tente de tirer l’image. Cela se produit parce que les Dockeurs requièrent `--platform` une directive via l’indicateur pour vérifier que le système d’exploitation de l’image et de l’hôte est satisfait de manière appropriée. Comme la plateforme par défaut dans le mode conteneur Windows est Windows, `--platform linux` ajoutez un indicateur pour extraire et exécuter le conteneur.
+Notez que cette opération renvoie une erreur lorsque l’ancrage tente d’extraire l’image. Cela est dû au fait que les Ancreurs requièrent une directive via l’indicateur `--platform` pour vérifier que l’image et le système d’exploitation hôte sont correctement mis en correspondance. Étant donné que la plateforme par défaut en mode conteneur Windows est Windows, ajoutez un indicateur `--platform linux` pour extraire et exécuter le conteneur.
 
 ```console
 docker run --rm --platform linux busybox echo hello_world
 ```
 
-Une fois l’image récupérée avec la plateforme indiquée, l' `--platform` indicateur n’est plus nécessaire. Exécutez la commande sans la vérifier.
+Une fois que l’image a été extraite avec la plateforme indiquée, l’indicateur `--platform` n’est plus nécessaire. Exécutez la commande sans la tester.
 
 ```console
 docker run --rm busybox echo hello_world
 ```
 
-Exécuter `docker images` pour renvoyer une liste d’images installées. Dans ce cas, les images Windows et Linux.
+Exécutez `docker images` pour retourner une liste d’images installées. Dans ce cas, les images Windows et Linux.
 
 ```console
 docker images
@@ -73,7 +73,7 @@ busybox                latest              59788edf1f3e        4 weeks ago      
 ```
 
 > [!TIP]
-> Bonus: consultez le [billet de blog](https://blog.docker.com/2018/02/docker-for-windows-18-02-with-windows-10-fall-creators-update/) correspondant de votre Dock sur l’exécution d’LCOW.
+> Bonus : consultez le billet de [blog](https://blog.docker.com/2018/02/docker-for-windows-18-02-with-windows-10-fall-creators-update/) correspondant de l’arrimeur sur l’exécution de LCOW.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

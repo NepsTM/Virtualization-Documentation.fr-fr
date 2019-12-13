@@ -1,34 +1,34 @@
 ---
 title: Créez vos propres services d’intégration
-description: Services d’intégration Windows10.
-keywords: windows10, hyper-v, HVSocket, AF_HYPERV
+description: Services d’intégration Windows 10.
+keywords: windows 10, hyper-v, HVSocket, AF_HYPERV
 author: scooley
 ms.date: 04/07/2017
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
 ms.openlocfilehash: 89a36ee87bce1da18852f0ebff248e239165eb7d
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883012"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74911029"
 ---
 # <a name="make-your-own-integration-services"></a>Créez vos propres services d’intégration
 
-Depuis la Mise à jour anniversaire Windows10, tous les utilisateurs peuvent créer des applications qui communiquent entre l’hôte Hyper-V et ses ordinateurs virtuels à l’aide de sockets Hyper-V (socket Windows doté d’une nouvelle famille d’adresses et d’un point de terminaison spécialisé pour cibler des ordinateurs virtuels).  Toute la communication sur les sockets Hyper-V s’exécute sans l’aide de la mise en réseau, et toutes les données restent sur la même mémoire physique. Les applications utilisant des sockets Hyper-V sont semblables aux services d’intégration de Hyper-V.
+Depuis la Mise à jour anniversaire Windows 10, tous les utilisateurs peuvent créer des applications qui communiquent entre l’hôte Hyper-V et ses ordinateurs virtuels à l’aide de sockets Hyper-V (socket Windows doté d’une nouvelle famille d’adresses et d’un point de terminaison spécialisé pour cibler des ordinateurs virtuels).  Toute la communication sur les sockets Hyper-V s’exécute sans l’aide de la mise en réseau, et toutes les données restent sur la même mémoire physique. Les applications utilisant des sockets Hyper-V sont semblables aux services d’intégration de Hyper-V.
 
 Ce document décrit la création d’un programme simple qui repose sur les sockets Hyper-V.
 
 **Système d’exploitation hôte pris en charge**
-* Windows10 et versions ultérieures
-* Windows Server2016 et versions ultérieures
+* Windows 10 et versions ultérieures
+* Windows Server 2016 et versions ultérieures
 
 **Système d’exploitation invité pris en charge**
-* Windows10 et versions ultérieures
-* Windows Server2016 et versions ultérieures
+* Windows 10 et versions ultérieures
+* Windows Server 2016 et versions ultérieures
 * Invités Linux avec services d’intégration Linux (voir [Machines virtuelles Linux et FreeBSD prises en charge pour Hyper-V sur Windows](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows))
-> **Remarque:** un invité Linux pris en charge doit prendre en charge le noyau pour:
+> **Remarque :** un invité Linux pris en charge doit prendre en charge le noyau pour :
 > ```bash
 > CONFIG_VSOCKET=y
 > CONFIG_HYPERV_VSOCKETS=y
@@ -43,21 +43,21 @@ Ce document décrit la création d’un programme simple qui repose sur les sock
 
 ## <a name="getting-started"></a>Prise en main
 
-Configuration requise:
-* CompilateurC/C++.  Si vous n’en avez pas, voir [Visual Studio Community](https://aka.ms/vs)
-* [Kit de développement logiciel (SDK) Windows10](https://developer.microsoft.com/windows/downloads/windows-10-sdk) -- préinstallé dans Visual Studio2015 avec Update3 et versions ultérieures.
+Configuration requise :
+* Compilateur C/C++.  Si vous n’en avez pas, voir [Visual Studio Community](https://aka.ms/vs)
+* [Kit de développement logiciel (SDK) Windows 10](https://developer.microsoft.com/windows/downloads/windows-10-sdk) -- préinstallé dans Visual Studio 2015 avec Update 3 et versions ultérieures.
 * Un ordinateur exécutant l’un des systèmes d’exploitation hôtes indiqués ci-dessus avec au moins un ordinateur virtuel. -- cela convient pour le test de votre application.
 
-> **Remarque:** L’API pour les sockets Hyper-V est désormais publiquement disponible dans la mise à jour anniversaire Windows 10. Les applications qui utilisent HVSocket peuvent être exécutées sur les hôtes et invités Windows 10, mais ne peuvent être développées qu’avec un kit de développement logiciel (SDK) Windows plus tard que le Build 14290.
+> **Remarque :** L’API pour les sockets Hyper-V est devenue publiquement disponible dans la mise à jour anniversaire Windows 10. Les applications qui utilisent HVSocket s’exécutent sur n’importe quel hôte et invité Windows 10, mais ne peuvent être développées qu’avec une SDK Windows ultérieure à la version 14290.
 
 ## <a name="register-a-new-application"></a>Inscrire une nouvelle application
 Pour utiliser des sockets Hyper-V, l’application doit être inscrite auprès du Registre de l’hôte Hyper-V.
 
-En inscrivant le service dans le Registre, vous obtenez:
-*  la gestion WMI pour activer, désactiver et répertorier les services disponibles;
+En inscrivant le service dans le Registre, vous obtenez :
+*  la gestion WMI pour activer, désactiver et répertorier les services disponibles ;
 *  l’autorisation de communiquer directement avec les machines virtuelles.
 
-La commande PowerShell suivante inscrit une nouvelle application appelée «HV Socket Demo».  Elle doit être exécutée en tant qu’administrateur.  Instructions du manuel ci-dessous.
+La commande PowerShell suivante inscrit une nouvelle application appelée « HV Socket Demo ».  Elle doit être exécutée en tant qu’administrateur.  Instructions du manuel ci-dessous.
 
 ``` PowerShell
 $friendlyName = "HV Socket Demo"
@@ -73,21 +73,21 @@ $service.PSChildName | clip.exe
 ```
 
 
-**Emplacement du Registre et informations:**
+**Emplacement du Registre et informations :**
 ```
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices\
 ```
 Vous voyez plusieurs GUID à cet emplacement du Registre.  Il s’agit des services que nous fournissons.
 
-Informations dans le Registre pour chaque service:
+Informations dans le Registre pour chaque service :
 * `Service GUID`
-    * `ElementName (REG_SZ)` nom convivial du service
+    * `ElementName (REG_SZ)` -- nom convivial du service
 
 Pour inscrire votre propre service, créez une clé de Registre à l’aide de vos propre GUID et nom convivial.
 
 Le nom convivial est associé à votre nouvelle application.  Il apparaît dans les compteurs de performance et d’autres emplacements où un GUID n’est pas approprié.
 
-L’entrée de Registre doit ressembler à ceci:
+L’entrée de Registre doit ressembler à ceci :
 ```
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices\
     999E53D4-3D5C-4C3E-8779-BED06EC056E1\
@@ -96,7 +96,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
         ElementName    REG_SZ    Your Service Friendly Name
 ```
 
-> **Remarque:** le GUID du Service d'un invité Linux utilise le protocole VSOCK qui adresse via un `svm_cid` et `svm_port` au lieu d’un GUIDS. Pour palier cette incohérence avec Windows, le GUID bien connu est utilisé comme modèle de service sur l’ordinateur hôte, ce qui se traduit par un port dans l’invité. Pour personnaliser votre GUID de service, il vous suffit de modifier le premier «00000000» en le numéro de port de votre choix. Ex: «00000ac9» est le port 2761.
+> **Remarque :** le GUID du Service d'un invité Linux utilise le protocole VSOCK qui adresse via un `svm_cid` et `svm_port` au lieu d’un GUIDS. Pour palier cette incohérence avec Windows, le GUID bien connu est utilisé comme modèle de service sur l’ordinateur hôte, ce qui se traduit par un port dans l’invité. Pour personnaliser votre GUID de service, il vous suffit de modifier le premier « 00000000 » en le numéro de port de votre choix. Ex : « 00000ac9 » est le port 2761.
 > ```C++
 > // Hyper-V Socket Linux guest VSOCK template GUID
 > struct __declspec(uuid("00000000-facb-11e6-bd58-64006a7986d3")) VSockTemplate{};
@@ -108,7 +108,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 > ```
 >
 
-> **Conseil: ** pour générer un GUID dans PowerShell et le copier dans le Presse-papiers, exécutez:
+> **Conseil :**  pour générer un GUID dans PowerShell et le copier dans le Presse-papiers, exécutez :
 >``` PowerShell
 >(New-Guid).Guid | clip.exe
 >```
@@ -131,13 +131,13 @@ SOCKET WSAAPI socket(
 int socket(int domain, int type, int protocol);
 ```
 
-Pour un socket Hyper-V:
-* Famille d’adresses: `AF_HYPERV` (Windows) ou `AF_VSOCK` (invités Linux)
-* Type: `SOCK_STREAM`
+Pour un socket Hyper-V :
+* Famille d’adresses : `AF_HYPERV` (Windows) ou `AF_VSOCK` (invités Linux)
+* type : `SOCK_STREAM`
 * Protocole - `HV_PROTOCOL_RAW` (Windows) ou `0` (invité Linux)
 
 
-Voici un exemple de déclaration/d’instanciation:
+Voici un exemple de déclaration/d’instanciation :
 ``` C
 // Windows
 SOCKET sock = socket(AF_HYPERV, SOCK_STREAM, HV_PROTOCOL_RAW);
@@ -165,11 +165,11 @@ int bind(int sockfd, const struct sockaddr *addr,
          socklen_t addrlen);
 ```
 
-Contrairement à l’adresse de socket (sockaddr) pour une famille d’adressesIP standard (`AF_INET`) qui se compose de l’adresseIP de l’ordinateur hôte et d’un numéro de port sur cet hôte, l’adresse de socket pour `AF_HYPERV` utilise lesID de la machine virtuelle et de l’application définis ci-dessus pour établir une connexion. En cas de liaison à partir d’un invité Linux `AF_VSOCK` utilise le `svm_cid` et `svm_port`.
+Contrairement à l’adresse de socket (sockaddr) pour une famille d’adresses IP standard (`AF_INET`) qui se compose de l’adresse IP de l’ordinateur hôte et d’un numéro de port sur cet hôte, l’adresse de socket pour `AF_HYPERV` utilise les ID de la machine virtuelle et de l’application définis ci-dessus pour établir une connexion. En cas de liaison à partir d’un invité Linux `AF_VSOCK` utilise le `svm_cid` et `svm_port`.
 
-Comme les sockets Hyper-V ne dépendent pas, entre autres, d’une pile réseau, de TCP/IP ni de DNS, le point de terminaison de socket exigeait un format autre qu’un nom d’hôte ou qu’une adresseIP qui décrive toujours sans ambiguïté la connexion.
+Comme les sockets Hyper-V ne dépendent pas, entre autres, d’une pile réseau, de TCP/IP ni de DNS, le point de terminaison de socket exigeait un format autre qu’un nom d’hôte ou qu’une adresse IP qui décrive toujours sans ambiguïté la connexion.
 
-Voici la définition de l’adresse d’un socket Hyper-V:
+Voici la définition de l’adresse d’un socket Hyper-V :
 
 ``` C
 // Windows
@@ -195,12 +195,12 @@ struct sockaddr_vm {
 };
 ```
 
-À la place d’une adresseIP ou d’un nom d’hôte, les points de terminaison AF_HYPERV reposent largement sur deux GUID:
-* IDde machine virtuelle: il s’agit de l’ID unique affecté par machine virtuelle.  L’ID d’une machine virtuelle est accessible à l’aide de l’extrait de code PowerShell suivant.
+À la place d’une adresse IP ou d’un nom d’hôte, les points de terminaison AF_HYPERV reposent largement sur deux GUID :
+* ID de machine virtuelle : il s’agit de l’ID unique affecté par machine virtuelle.  L’ID d’une machine virtuelle est accessible à l’aide de l’extrait de code PowerShell suivant.
   ```PowerShell
   (Get-VM -Name $VMName).Id
   ```
-* IDde service: GUID, [décrit ci-dessus](#register-a-new-application), avec lequel l’application est inscrite dans le Registre de l’hôte Hyper-V.
+* ID de service : GUID, [décrit ci-dessus](#register-a-new-application), avec lequel l’application est inscrite dans le Registre de l’hôte Hyper-V.
 
 Il existe également un ensemble de caractères génériques VMID disponibles quand une connexion n’est pas propre à une machine virtuelle spécifique.
 
@@ -216,11 +216,11 @@ Il existe également un ensemble de caractères génériques VMID disponibles qu
 | HV_GUID_PARENT | a42e7cda-d03f-480c-9cc2-a4de20abb878 | Adresse parente. L’utilisation de ce VMID permet de se connecter à la partition parente du connecteur.* |
 
 
-\* `HV_GUID_PARENT` Le parent d’une machine virtuelle est son hôte.  Le parent d’un conteneur est l’hôte du conteneur.
+\* `HV_GUID_PARENT` le parent d’une machine virtuelle est son hôte.  Le parent d’un conteneur est l’hôte du conteneur.
 Une connexion à partir d’un conteneur exécuté dans une machine virtuelle permet de se connecter à la machine virtuelle qui héberge le conteneur.
-L’écoute sur ce VmId permet d’accepter une connexion depuis: (Intérieur des conteneurs): hôte de conteneur.
-(Intérieur de machine virtuelle: hôte de conteneur/aucun conteneur): hôte de machine virtuelle.
-(Extérieur de machine virtuelle: hôte de conteneur/aucun conteneur): aucune prise en charge.
+L’écoute sur ce VmId permet d’accepter une connexion depuis : (Intérieur des conteneurs) : hôte de conteneur.
+(Intérieur de machine virtuelle : hôte de conteneur/aucun conteneur) : hôte de machine virtuelle.
+(Extérieur de machine virtuelle : hôte de conteneur/aucun conteneur) : aucune prise en charge.
 
 ## <a name="supported-socket-commands"></a>Commandes de socket prises en charge
 
@@ -229,4 +229,4 @@ Socket() Bind() Connect() Send() Listen() Accept()
 ## <a name="useful-links"></a>Liens utiles
 [API WinSock complète](https://docs.microsoft.com/windows/desktop/WinSock/winsock-functions)
 
-[Informations de référence sur les services d’intégration Hyper-V](../reference/integration-services.md)
+[Informations de référence sur le Integration Services Hyper-V](../reference/integration-services.md)

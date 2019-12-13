@@ -1,18 +1,18 @@
 ---
 title: Invités Windows pris en charge
 description: Invités Windows pris en charge.
-keywords: Windows10, Hyper-V
+keywords: Windows 10, Hyper-V
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
-ms.openlocfilehash: 25c72b910af15fc0b498a5b2abce72d32e6d1efd
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: e3255d236a3fbb5ac4d908143750b84e3db82ceb
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9999036"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74911679"
 ---
 # <a name="supported-windows-guests"></a>Invités Windows pris en charge
 
@@ -20,13 +20,13 @@ Cet article répertorie les combinaisons de systèmes d’exploitation prises en
 
 Microsoft a testé ces combinaisons hôte/invité.  Les problèmes liés à ces combinaisons peuvent être traités par les services PSS (Product Support Services).
 
-Microsoft assure la prise en charge de la manière suivante:
+Microsoft assure la prise en charge de la manière suivante :
 
 * Les problèmes détectés dans les services d’intégration et systèmes d’exploitation Microsoft sont pris en charge par le support technique Microsoft.
 
 * En ce qui concerne les problèmes dans d’autres systèmes d’exploitation ayant été certifiés par le fournisseur de système d’exploitation comme fonctionnant sur Hyper-V, la prise en charge est assurée par le fournisseur.
 
-* En ce qui concerne les problèmes détectés dans d’autres systèmes d’exploitation, Microsoft soumet le problème à la communauté de support multifournisseur, [TSANet](http://www.tsanet.org/).
+* En ce qui concerne les problèmes détectés dans d’autres systèmes d’exploitation, Microsoft soumet le problème à la communauté de support multifournisseur, [TASNet](http://www.tsanet.org/).
 
 Pour pouvoir être pris en charge, tous les systèmes d’exploitation (invité et hôte) doit être mis à jour.  Recherchez les mises à jour critiques dans Windows Update.
 
@@ -34,24 +34,24 @@ Pour pouvoir être pris en charge, tous les systèmes d’exploitation (invité 
 
 | Système d’exploitation invité |  Nombre maximal de processeurs virtuels | Remarques |
 |:-----|:-----|:-----|
-| Windows10 | 32 |Le mode de session étendu ne fonctionne pas sur l'édition Windows10 Famille |
-| Windows 8.1 | 32 | |
-| Windows8 | 32 ||
-| Windows7 avec Service Pack1 (SP1) | n°4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32bits et 64bits). |
-| Windows7 | n°4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32bits et 64bits). |
-| WindowsVista avec Service Pack2 (SP2) | deuxième | Professionnel, Entreprise et Édition Intégrale, notamment les éditions N et KN. |
+| Windows 10 | 32 |Le mode de session étendu ne fonctionne pas sur l'édition Windows 10 Famille |
+| Windows 8.1 | 32 | |
+| Windows 8 | 32 ||
+| Windows 7 avec Service Pack 1 (SP1) | 4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32 bits et 64 bits). |
+| Windows 7 | 4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32 bits et 64 bits). |
+| Windows Vista avec Service Pack 2 (SP2) | 2 | Professionnel, Entreprise et Édition Intégrale, notamment les éditions N et KN. |
 | - | | |
-| [Canal semi-annuel WindowsServer](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview) | 64 | |
-| Windows Server2019 | 64 | |
-| Windows Server2016 | 64 | |
-| WindowsServer2012R2 | 64 | |
-| Windows Server2012 | 64 | |
-| Windows Server2008R2 avec Service Pack1 (SP1) | 64 | Éditions Datacenter, Entreprise, Standard et Web. |
-| Windows Server2008 avec Service Pack2 (SP2) | n°4 | Éditions Datacenter, Entreprise, Standard et Web (32bits et 64bits). |
-| Windows Home Server2011 | n°4 | |
-| Windows Small Business Server2011 | Édition Essentials - 2, édition Standard - 4 | |
+| [Canal semi-annuel Windows Server](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview) | 64 | |
+| Windows Server 2019 | 64 | |
+| Windows Server 2016 | 64 | |
+| Windows Server 2012 R2 | 64 | |
+| Windows Server 2012 | 64 | |
+| Windows Server 2008 R2 avec Service Pack 1 (SP1) | 64 | Éditions Datacenter, Entreprise, Standard et Web. |
+| Windows Server 2008 avec Service Pack 2 (SP2) | 4 | Éditions Datacenter, Entreprise, Standard et Web (32 bits et 64 bits). |
+| Windows Home Server 2011 | 4 | |
+| Windows Small Business Server 2011 | Édition Essentials - 2, édition Standard - 4 | |
 
-> Windows10 peut s’exécuter en tant que système d’exploitation invité sur les hôtes Hyper-V Windows8.1 et Windows Server2012 R2.
+> Windows 10 peut s’exécuter en tant que système d’exploitation invité sur les hôtes Hyper-V Windows 8.1 et Windows Server 2012 R2.
 
 ## <a name="supported-linux-and-free-bsd"></a>Linux et FreeBSD pris en charge
 

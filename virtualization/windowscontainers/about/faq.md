@@ -1,6 +1,6 @@
 ---
 title: FAQ sur les conteneurs Windows
-description: Forum aux questions sur les conteneurs Windows Server
+description: FAQ sur les conteneurs Windows Server
 keywords: docker, conteneurs
 author: PatrickLang
 ms.date: 10/25/2019
@@ -9,70 +9,70 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
 ms.openlocfilehash: 405b2abc43a4ae2c546de351679deb755e4a9317
-ms.sourcegitcommit: 64573b539438de6ec5564b2949642ef12e55fc62
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "10274066"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74910799"
 ---
 # <a name="frequently-asked-questions-about-containers"></a>Forum aux questions sur les conteneurs
 
-## <a name="whats-the-difference-between-linux-and-windows-server-containers"></a>Quelle est la différence entre les conteneurs Linux et Windows Server?
+## <a name="whats-the-difference-between-linux-and-windows-server-containers"></a>Quelle est la différence entre les conteneurs Linux et Windows Server ?
 
-Linux et Windows Server implémentent des technologies similaires au sein de leurs systèmes d’exploitation noyau et noyau. La différence provient de la plateforme et des charges de travail qui s’exécutent dans les conteneurs.  
+Linux et Windows Server implémentent tous deux des technologies similaires au sein de leurs systèmes d’exploitation noyau et principal. La différence provient de la plateforme et des charges de travail qui s’exécutent dans les conteneurs.  
 
-Lorsqu’un client utilise des conteneurs Windows Server, il peut s’intégrer aux technologies Windows existantes, telles que .NET, ASP.NET et PowerShell.
+Lorsqu’un client utilise des conteneurs Windows Server, il peut s’intégrer à des technologies Windows existantes, telles que .NET, ASP.NET et PowerShell.
 
-## <a name="what-are-the-prerequisites-for-running-containers-on-windows"></a>Quelles sont les conditions préalables à l’exécution des conteneurs sur Windows?
+## <a name="what-are-the-prerequisites-for-running-containers-on-windows"></a>Quelles sont les conditions préalables à l’exécution des conteneurs sur Windows ?
 
-Des conteneurs ont été introduits dans la plateforme avec Windows Server 2016. Pour utiliser les conteneurs, vous avez besoin de Windows Server 2016 ou de la mise à jour anniversaire Windows 10 (version 1607) ou d’une version ultérieure. Pour en savoir plus, consultez la [Configuration système requise](../deploy-containers/system-requirements.md) .
+Les conteneurs ont été introduits sur la plateforme avec Windows Server 2016. Pour utiliser des conteneurs, vous avez besoin de Windows Server 2016 ou de la mise à jour anniversaire Windows 10 (version 1607) ou plus récente. Pour en savoir plus, consultez la [Configuration système requise](../deploy-containers/system-requirements.md) .
 
-## <a name="what-are-wcow-and-lcow"></a>Présentation de WCOW et LCOW
+## <a name="what-are-wcow-and-lcow"></a>Qu’est-ce que WCOW et LCOW ?
 
-WCOW est l’abréviation de «conteneurs Windows sur Windows». LCOW est l’abréviation de «conteneurs Linux sur Windows».
+WCOW est short pour « conteneurs Windows sur Windows ». LCOW est short pour les « conteneurs Linux sur Windows ».
 
-## <a name="how-are-containers-licensed-is-there-a-limit-to-the-number-of-containers-i-can-run"></a>Quels sont les conteneurs sous licence? Est-ce que le nombre de conteneurs que je peux exécuter est limité?
+## <a name="how-are-containers-licensed-is-there-a-limit-to-the-number-of-containers-i-can-run"></a>Comment les conteneurs sont-ils sous licence ? Le nombre de conteneurs que je peux exécuter est-il limité ?
 
-Le [CLUF](../images-eula.md) d’image de conteneur Windows décrit une utilisation qui dépend d’un utilisateur ayant un système d’exploitation hôte sous licence valide. Le nombre de conteneurs qu’un utilisateur peut exécuter dépend de l’édition de l’OS OS et du [mode d’isolation](../manage-containers/hyperv-container.md) sur lequel est exécuté un conteneur, ainsi que de l’exécution de ces conteneurs à des fins de développement/test ou en production.
+Le [CLUF](../images-eula.md) de l’image de conteneur Windows décrit une utilisation qui dépend d’un utilisateur disposant d’un système d’exploitation hôte sous licence valide. Le nombre de conteneurs qu’un utilisateur est autorisé à exécuter dépend de l’édition du système d’exploitation hôte et du [mode d’isolation](../manage-containers/hyperv-container.md) avec lequel un conteneur est exécuté, ainsi que de l’exécution de ces conteneurs à des fins de développement/test ou en production.
 
-|Système d’exploitation hôte                                                         |Limite de conteneur isolé processus                   |Hyper-V-limite de conteneurs isolés                   |
+|Système d’exploitation hôte                                                         |Limite de conteneur isolée dans les processus                   |Limite de conteneur Hyper-V-isolé                   |
 |----------------------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
-|WindowsServerStandard                                         |Illimité                                          |deuxième                                                  |
-|WindowsServerDatacenter                                       |Illimité                                          |Illimité                                          |
-|Windows 10 professionnel et entreprise                                   |Illimité *(aux fins de test ou de développement uniquement)*|Illimité *(aux fins de test ou de développement uniquement)*|
-|Windows 10 IoT standard et entreprise                             |Gratuit                                         |Gratuit                                          |
+|Windows Server Standard                                         |Illimité                                          |2                                                  |
+|Windows Server Datacenter                                       |Illimité                                          |Illimité                                          |
+|Windows 10 professionnel et entreprise                                   |Illimité *(à des fins de test ou de développement uniquement)*|Illimité *(à des fins de test ou de développement uniquement)*|
+|Windows 10 IoT Core et Enterprise                             |Quantité                                         |Quantité                                          |
 
-L’utilisation des images du conteneur Windows Server est déterminée par la lecture du nombre de invités de virtualisation pris en charge pour cette [édition](/windows-server/get-started-19/editions-comparison-19.md). <br/>
+L’utilisation des images de conteneur Windows Server est déterminée en lisant le nombre d’invités de virtualisation pris en charge pour cette [édition](/windows-server/get-started-19/editions-comparison-19.md). <br/>
 
 >[!NOTE]
->\ * L’utilisation de conteneurs sur une édition IoT de Windows dépend de la manière dont vous avez accepté les conditions générales de l’utilisation de Microsoft pour les images principales de Windows 10 ou la licence d’appareil entreprise Windows 10 (contrat commercial Windows Des conditions générales supplémentaires relatives aux contrats commerciaux Windows IoT s’appliquent à votre utilisation d’une image de conteneur dans un environnement de production. Lisez l' [image du conteneur CLUF](../images-eula.md) pour comprendre exactement ce qui est autorisé et ce qui ne l’est pas.
+>\*l’utilisation de la production de conteneurs sur une édition IoT de Windows dépend de si vous avez convenu des conditions d’utilisation commerciales Microsoft pour les images du runtime Windows 10 Core ou la licence d’appareil Windows 10 IoT Enterprise (« contrat commercial Windows IoT »). Des termes et restrictions supplémentaires dans les contrats commerciaux Windows IoT s’appliquent à votre utilisation de l’image conteneur dans un environnement de production. Veuillez lire le [CLUF de l’image conteneur](../images-eula.md) pour comprendre exactement ce qui est autorisé et ce qui ne l’est pas.
 
-## <a name="as-a-developer-do-i-have-to-rewrite-my-app-for-each-type-of-container"></a>En tant que développeur, dois-je réécrire mon application pour chaque type de conteneur?
+## <a name="as-a-developer-do-i-have-to-rewrite-my-app-for-each-type-of-container"></a>En tant que développeur, dois-je réécrire mon application pour chaque type de conteneur ?
 
-Non. Les images de conteneur Windows sont communes à tous les conteneurs Windows Server et à l’isolation Hyper-V. Le choix du type de conteneur est effectué quand vous démarrez le conteneur. Du point de vue du développeur, les conteneurs Windows Server et l’isolation Hyper-V sont deux versions du même élément. Elles offrent le même niveau de développement, de programmation et de gestion, et sont ouvertes et extensibles, et incluent le même niveau d’intégration et de prise en charge de l’arrimeur.
+Non. Les images de conteneur Windows sont communes aux conteneurs Windows Server et à l’isolation Hyper-V. Le choix du type de conteneur est effectué quand vous démarrez le conteneur. Du point de vue du développeur, les conteneurs Windows Server et l’isolation Hyper-V sont deux versions du même élément. Ils offrent la même expérience de développement, de programmation et de gestion, et sont ouverts et extensibles, et incluent le même niveau d’intégration et de prise en charge de l’arrimeur.
 
-Un développeur peut créer une image de conteneur à l’aide d’un conteneur Windows Server et le déployer dans l’isolation Hyper-V ou inversement sans modifier l’indicateur d’exécution approprié.
+Un développeur peut créer une image de conteneur à l’aide d’un conteneur Windows Server et la déployer dans l’isolation Hyper-V ou inversement sans modification autre que la spécification de l’indicateur d’exécution approprié.
 
-Les conteneurs Windows Server fournissent une plus grande densité et des performances optimales lorsque la vitesse est importante, par exemple pour réduire le temps de réactivité et des performances du Runtime par rapport aux configurations imbriquées. Isolation Hyper-V, true à son nom, offre une plus grande isolation, ce qui garantit que le code exécuté dans un conteneur ne peut pas être compromis ou influant sur le système d’exploitation hôte ou d’autres conteneurs qui s’exécutent sur le même hôte. Cela s’avère utile pour les scénarios multilocataires avec la configuration requise pour l’hébergement de code non fiable, y compris les applications SaaS et l’hébergement de calcul.
+Les conteneurs Windows Server offrent une plus grande densité et de meilleures performances quand la vitesse est importante, par exemple une réduction du temps de rotation et des performances d’exécution plus rapides par rapport aux configurations imbriquées. L’isolation Hyper-V, true pour son nom, offre une isolation plus importante, en garantissant que le code s’exécutant dans un conteneur ne peut pas compromettre ni affecter le système d’exploitation hôte ou d’autres conteneurs exécutés sur le même hôte. Cela est utile pour les scénarios multi-locataires avec des exigences pour l’hébergement de code non fiable, y compris les applications SaaS et l’hébergement de calcul.
 
-## <a name="can-i-run-windows-containers-in-process-isolated-mode-on-windows-10"></a>Puis-je exécuter des conteneurs Windows en mode d’isolation de processus sur Windows 10?
+## <a name="can-i-run-windows-containers-in-process-isolated-mode-on-windows-10"></a>Puis-je exécuter des conteneurs Windows en mode isolé du processus sur Windows 10 ?
 
-À partir de la mise à jour 2018 de Windows 10 d’octobre, vous pouvez exécuter un conteneur Windows avec l’isolement de processus, mais vous devez préalablement demander l’isolement du processus à l’aide de l' `--isolation=process` indicateur lors de l’exécution de vos conteneurs avec `docker run`. Le processus d’isolement est compatible avec Windows 10 professionnel, Windows 10 entreprise, Windows 10 IoT standard et Windows 10 IoT entreprise.
+À compter de la mise à jour 2018 de Windows 10 octobre, vous pouvez exécuter un conteneur Windows avec l’isolation des processus, mais vous devez d’abord demander l’isolation du processus à l’aide de l’indicateur `--isolation=process` lors de l’exécution de vos conteneurs avec `docker run`. L’isolation des processus est compatible sur Windows 10 professionnel, Windows 10 entreprise, Windows 10 IoT Core et Windows 10 IoT Enterprise.
 
-Si vous souhaitez exécuter vos conteneurs Windows de cette manière, vous devez vous assurer que votre hôte exécute Windows 10 Build 17763 + et que vous disposez d’une version d’amarrage avec le moteur 18,09 ou version ultérieure.
+Si vous souhaitez exécuter vos conteneurs Windows de cette manière, vous devez vous assurer que votre ordinateur hôte exécute Windows 10 Build 17763 + et que vous disposez d’une version de l’arrimeur avec le moteur 18,09 ou une version ultérieure.
 
 > [!WARNING]
-> Outre les hôtes d’entreprise IOT standard et IoT (après avoir accepté les conditions et restrictions supplémentaires), cette fonctionnalité est conçue uniquement pour le développement et le test. Vous devez continuer à utiliser Windows Server en tant qu’hôte pour les déploiements de production. En utilisant cette fonctionnalité, vous devez également vous assurer que les balises de version de votre hôte et du conteneur correspondent, sinon le conteneur peut ne pas démarrer ou présenter un comportement non défini.
+> Hormis sur les hôtes IoT Core et IoT Enterprise (après avoir accepté des conditions générales supplémentaires), cette fonctionnalité est uniquement destinée au développement et aux tests. Vous devez continuer à utiliser Windows Server comme hôte pour les déploiements de production. En utilisant cette fonctionnalité, vous devez également vous assurer que les balises de version de l’hôte et du conteneur correspondent. sinon, le conteneur peut ne pas démarrer ou présenter un comportement indéfini.
 
-## <a name="how-do-i-make-my-container-images-available-on-air-gapped-machines"></a>Comment rendre mes images de conteneur disponibles sur les appareils d’entrée aérienne?
+## <a name="how-do-i-make-my-container-images-available-on-air-gapped-machines"></a>Comment faire rendre mes images de conteneur disponibles sur les machines à airer ?
 
-Les images de base conteneur Windows contiennent des artefacts dont la distribution est restreinte par licence. Lorsque vous générez sur ces images et les transmettez dans un registre privé ou public, vous remarquerez que le calque de base n’est jamais transmis. Au lieu de cela, nous utilisons le concept de couche étrangère qui pointe vers le véritable calque de base résidant dans le stockage cloud Azure.
+Les images de base de conteneur Windows contiennent des artefacts dont la distribution est limitée par la licence. Lorsque vous créez sur ces images et les transmettent à un registre public ou privé, vous remarquerez que la couche de base n’est jamais envoyée. Au lieu de cela, nous utilisons le concept de couche étrangère qui pointe vers la couche de base réelle résidant dans le stockage cloud Azure.
 
-Cela peut compliquer l’opération lorsque vous disposez d’une machine qui ne peut pas extraire des images à partir de l’adresse de votre registre de conteneurs privés. Dans ce cas, les tentatives de suivi des couches étrangères pour obtenir l’image de base ne fonctionneront pas. Pour remplacer le comportement de la couche étrangère, vous pouvez utiliser `--allow-nondistributable-artifacts` l’indicateur dans le démon de l’ancrage.
+Cela peut compliquer les choses lorsque vous avez une machine de type « air » qui ne peut extraire que des images à partir de l’adresse de votre registre de conteneurs privé. Dans ce cas, les tentatives de suivi de la couche étrangère pour récupérer l’image de base ne fonctionneront pas. Pour remplacer le comportement de la couche étrangère, vous pouvez utiliser l’indicateur `--allow-nondistributable-artifacts` dans le démon de l’ancrage.
 
 > [!IMPORTANT]
-> L’utilisation de cet indicateur ne préjuge pas de votre obligation de respecter les conditions de la licence d’image de base du conteneur Windows; vous ne devez pas publier le contenu Windows pour une redistribution publique ou tierce. L’utilisation au sein de votre propre environnement est autorisée.
+> L’utilisation de cet indicateur n’exclut pas votre obligation de se conformer aux termes de la licence d’image de base du conteneur Windows ; vous ne devez pas poster un contenu Windows pour une redistribution publique ou tierce. L’utilisation dans votre propre environnement est autorisée.
 
 ## <a name="additional-feedback"></a>Commentaires supplémentaires
 
-Vous voulez ajouter une information au FAQ? Ouvrez un nouveau problème de commentaires dans la section commentaires ou configurez une demande d’extraction pour cette page avec GitHub.
+Vous souhaitez ajouter des éléments au Forum aux questions ? Ouvrez un nouveau problème de commentaires dans la section commentaires ou configurez une demande de tirage (pull request) pour cette page avec GitHub.

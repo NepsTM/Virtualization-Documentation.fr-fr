@@ -1,34 +1,34 @@
 ---
 title: Créer une bibliothèque d’ordinateurs virtuels personnalisée
-description: Créez vos propres entrées dans la bibliothèque d’ordinateurs virtuels dans Windows10 Creators Update et versions ultérieures.
-keywords: windows10, hyper-v, création rapide, ordinateur virtuel, bibliothèque
+description: Créez vos propres entrées dans la bibliothèque d’ordinateurs virtuels dans Windows 10 Creators Update et versions ultérieures.
+keywords: windows 10, hyper-v, création rapide, ordinateur virtuel, bibliothèque
 ms.author: scooley
 ms.date: 05/04/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9238389-7028-4015-8140-27253b156f37
-ms.openlocfilehash: 1348b9923d9de1314818f13414abdacee2cb9735
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: c7a6462b331f469148eb4cf5a0a2740c9929fa29
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998606"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74911059"
 ---
 # <a name="create-a-custom-virtual-machine-gallery"></a>Créer une bibliothèque d’ordinateurs virtuels personnalisée
 
-> Windows10FallCreatorsUpdate et versions ultérieures.
+> Windows 10 Fall Creators Update et versions ultérieures.
 
 Dans Fall Creators Update, Création rapide étendue pour inclure une bibliothèque d’ordinateurs virtuels.
 
 ![Création rapide d’une bibliothèque d’ordinateurs virtuels avec des images personnalisées](media/vmgallery.png)
 
-Bien qu’il existe un ensemble d’images fournies parMicrosoft et les partenaires de Microsoft, la bibliothèque peut également contenir vos propres images.
+Bien qu’il existe un ensemble d’images fournies par Microsoft et les partenaires de Microsoft, la bibliothèque peut également contenir vos propres images.
 
-Cet article détaille:
+Cet article détaille :
 
-* la création d’ordinateurs virtuels compatibles avec la bibliothèque;
-* la création d’une nouvelle source de bibliothèque;
+* la création d’ordinateurs virtuels compatibles avec la bibliothèque ;
+* la création d’une nouvelle source de bibliothèque ;
 * l’ajout d’une nouvelle source de bibliothèque personnalisée dans la bibliothèque.
 
 ## <a name="gallery-architecture"></a>Architecture de bibliothèque
@@ -39,41 +39,41 @@ La liste des ordinateurs virtuels que vous voyez dans la bibliothèque correspon
 
 ![architecture de bibliothèque](media/vmgallery-architecture.png)
 
-Clé de Registre: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization`
+Clé de Registre : `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization`
 
-Nom de valeur: `GalleryLocations`
+Nom de la valeur : `GalleryLocations`
 
-Tapez: `REG_MULTI_SZ`
+Type : `REG_MULTI_SZ`
 
 ## <a name="create-gallery-compatible-virtual-machines"></a>Créer des ordinateurs virtuels compatibles avec une bibliothèque
 
 Les ordinateurs virtuels de la bibliothèque peuvent être une image de disque (.iso) ou un disque dur virtuel (.vhdx).
 
-Les ordinateurs virtuels créés à partir d’un disque dur virtuel ont quelques exigences de configuration:
+Les ordinateurs virtuels créés à partir d’un disque dur virtuel ont quelques exigences de configuration :
 
 1. Conçus pour prendre en charge le microprogramme UEFI. S’ils sont créés à l’aide d’Hyper-V, qui est un ordinateur virtuel deuxième génération.
-1. Le disque dur virtuel doit contenir au moins 20Go - n’oubliez pas que c’est la taille maximale.  Hyper-V ne prend pas l’espace que l’ordinateur virtuel n’utilise pas activement.
+1. Le disque dur virtuel doit contenir au moins 20 Go - n’oubliez pas que c’est la taille maximale.  Hyper-V ne prend pas l’espace que l’ordinateur virtuel n’utilise pas activement.
 
 ### <a name="testing-a-new-vm-image"></a>Test d’une nouvelle image d’ordinateur virtuelle
 
 La bibliothèque d’ordinateurs virtuels crée des ordinateurs virtuels à l’aide du même mécanisme que l’installation à partir d’une source d’installation locale.
 
-Pour valider qu’une image d’ordinateur virtuel va démarrer et s’exécuter:
+Pour valider qu’une image d’ordinateur virtuel va démarrer et s’exécuter :
 
 1. Ouvrez la bibliothèque d’ordinateurs virtuels (Création rapide Hyper-V) et sélectionnez **Source d’installation locale**.
-  ![Bouton pour utiliser une source d’installation locale](media/use-local-source.png)
+  ![bouton pour utiliser une source d’installation locale](media/use-local-source.png)
 1. Sélectionnez **Change Installation Source**.
-  ![Bouton pour utiliser une source d’installation locale](media/change-source.png)
+  ![bouton pour utiliser une source d’installation locale](media/change-source.png)
 1. Choisissez le fichier .iso ou .vhdx qui sera utilisé dans la bibliothèque.
 1. Si l’image est une image Linux, désélectionnez l’option de démarrage sécurisé.
-  ![Bouton pour utiliser une source d’installation locale](media/toggle-secure-boot.png)
+  ![bouton pour utiliser une source d’installation locale](media/toggle-secure-boot.png)
 1. Créez un ordinateur virtuel.  Si l’ordinateur virtuel démarre correctement, il est prêt pour la bibliothèque.
 
 ## <a name="build-a-new-gallery-source"></a>Créer une nouvelle source de bibliothèque
 
 L’étape suivante consiste à créer une nouvelle source de bibliothèque.  Il s’agit du fichier JSON qui répertorie vos ordinateurs virtuels et qui ajoute toutes les informations supplémentaires que vous voyez dans la bibliothèque.
 
-Informations textuelles:
+Informations textuelles :
 
 ![Emplacements de texte de bibliothèque étiquetés](media/gallery-text.png)
 
@@ -81,11 +81,11 @@ Informations textuelles:
 * **publisher** - obligatoire
 * **description** - obligatoire - liste de chaînes qui décrivent l’ordinateur virtuel.
 * **version** - obligatoire
-* lastUpdated - par défaut, lundi, 1erjanvier0001.
+* lastUpdated - par défaut, lundi, 1er janvier 0001.
 
-  Le format doit être: aaaa-mm-jj-Thh:mm:ssZ
+  Le format doit être : aaaa-mm-jj-Thh:mm:ssZ
 
-  La commande PowerShell suivante fournit la date du jour au format correct et la place dans le Presse-papiers:
+  La commande PowerShell suivante fournit la date du jour au format correct et la place dans le Presse-papiers :
 
   ``` PowerShell
   Get-Date -UFormat "%Y-%m-%dT%TZ" | clip.exe
@@ -93,17 +93,17 @@ Informations textuelles:
 
 * locale - vide par défaut.
 
-Images:
+Images :
 
 ![Emplacements d’images de bibliothèque étiquetés](media/gallery-pictures.png)
 
 * **logo** - obligatoire
 * symbol
-* thumbnail
+* miniature
 
 Et, bien entendu, votre ordinateur virtuel (.iso ou .vhdx).
 
-Pour générer les hachages, vous pouvez utiliser la commande PowerShell suivante:
+Pour générer les hachages, vous pouvez utiliser la commande PowerShell suivante :
 
   ``` PowerShell
   Get-FileHash -Path .\TMLogo.jpg -Algorithm SHA256
@@ -118,10 +118,10 @@ Le modèle JSON ci-après comporte des éléments de démarrage et de schéma de
 La meilleure façon d’ajouter la source de votre bibliothèque personnalisée à la bibliothèque de l’ordinateur virtuel consiste à l’ajouter à regedit.
 
 1. Ouvrez **regedit.exe**
-1. Accédez à `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\`
+1. Accédez à `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\`.
 1. Recherchez l’élément `GalleryLocations`.
 
-    S’il existe déjà, accédez au menu **Edition** et **Modifier **.
+    S’il existe déjà, accédez au menu **Edition** et **Modifier** .
 
     S’il n’existe pas déjà, accédez au menu **Edition**, naviguez de **New** à **Valeur de chaînes multiples**
 
@@ -133,9 +133,9 @@ La meilleure façon d’ajouter la source de votre bibliothèque personnalisée 
 
 ### <a name="check-for-errors-loading-gallery"></a>Recherchez des erreurs de chargement de la bibliothèque
 
-La bibliothèque d’ordinateurs virtuels ne signale pas les erreurs dans l’Observateur d’événements Windows.  Pour rechercher des erreurs:
+La bibliothèque d’ordinateurs virtuels ne signale pas les erreurs dans l’Observateur d’événements Windows.  Pour rechercher des erreurs :
 
-1. Ouvrez l’observateur d’événements
+1. Ouvrez l'Observateur d'événements.
 1. Naviguez vers **Journaux Windows** -> **Application**
 1. Recherchez des événements à partir du fichier VMCreate source.
 

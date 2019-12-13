@@ -1,32 +1,32 @@
 ---
 title: Spouleur d’impression dans les conteneurs Windows
-description: Décrit le comportement de travail actuel pour le service de spouleur d’impression dans les conteneurs Windows.
-keywords: docker, conteneurs, imprimante, spouleur
+description: Explique le comportement de travail actuel du service spouleur d’impression dans les conteneurs Windows.
+keywords: ancrage, conteneurs, imprimante, spouleur
 author: cwilhit
-ms.openlocfilehash: e104a87046545b90d244783aafb62ad9d151e14b
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 48130bc6a826a45dfa49d0a3b4600d227f34704e
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9999096"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74910529"
 ---
 # <a name="print-spooler-in-windows-containers"></a>Spouleur d’impression dans les conteneurs Windows
 
-Les applications dotées d’une dépendance sur les services d’impression peuvent être conteneurs avec succès avec les conteneurs Windows. Des exigences spéciales doivent être satisfaites pour pouvoir activer la fonctionnalité de service de l’imprimante. Ce guide décrit comment configurer correctement votre déploiement.
+Les applications avec une dépendance sur les services d’impression peuvent être correctement en conteneur avec les conteneurs Windows. Des exigences particulières doivent être remplies pour activer correctement les fonctionnalités du service d’impression. Ce guide explique comment configurer correctement votre déploiement.
 
 > [!IMPORTANT]
-> Lorsque l’accès aux services d’impression dans les conteneurs fonctionne correctement, la fonctionnalité est limitée dans le formulaire. certaines actions liées à l’impression risquent de ne pas fonctionner. Par exemple, les applications qui ont une dépendance à l’installation de pilotes d’imprimante dans l’hôte ne peuvent pas être dépendantes dans la mesure où l' **installation de pilotes à partir d’un conteneur n’est pas prise en charge**. Ouvrez un commentaire ci-dessous si vous trouvez une fonctionnalité d’impression non prise en charge que vous voulez prendre en charge dans les conteneurs.
+> Lorsque l’accès aux services d’impression s’effectue correctement dans les conteneurs, les fonctionnalités sont limitées dans le formulaire. certaines actions liées à l’impression peuvent ne pas fonctionner. Par exemple, les applications qui dépendent de l’installation de pilotes d’imprimante dans l’hôte ne peuvent pas être en conteneur, car **l’installation de pilotes à partir d’un conteneur n’est pas prise en charge**. Veuillez ouvrir un commentaire ci-dessous si vous trouvez une fonctionnalité d’impression non prise en charge que vous souhaitez prendre en charge dans les conteneurs.
 
-## <a name="setup"></a>Configuration
+## <a name="setup"></a>Configurer
 
-* L’hôte doit être Windows Server 2019 ou Windows 10 professionnel, version d’octobre 2018 ou une mise à jour.
-* L’image [MCR.Microsoft.com/Windows](https://hub.docker.com/_/microsoft-windowsfamily-windows) doit correspondre à l’image de base ciblée. Les autres images de base de conteneur Windows (par exemple, nano Server et Windows Server Core) ne comportent pas le rôle de serveur d’impression.
+* L’hôte doit être Windows Server 2019 ou Windows 10 professionnel/entreprise mise à jour 2018 ou version ultérieure.
+* L’image [MCR.Microsoft.com/Windows](https://hub.docker.com/_/microsoft-windowsfamily-windows) doit être l’image de base ciblée. Les autres images de base du conteneur Windows (telles que nano Server et Windows Server Core) ne transmettent pas le rôle de serveur d’impression.
 
 ### <a name="hyper-v-isolation"></a>Isolation Hyper-V
 
-Nous vous recommandons d’utiliser votre conteneur avec l’isolation Hyper-V. Lorsque cette fonction est exécutée dans ce mode, vous pouvez avoir autant de conteneurs que vous le souhaitez en cours d’exécution avec l’accès aux services d’impression. Vous n’avez pas besoin de modifier le service de spouleur sur l’hôte.
+Nous vous recommandons d’exécuter votre conteneur avec l’isolation Hyper-V. Lorsqu’il est exécuté dans ce mode, vous pouvez avoir autant de conteneurs que vous souhaitez exécuter avec un accès aux services d’impression. Vous n’avez pas besoin de modifier le service spouleur sur l’ordinateur hôte.
 
-Vous pouvez vérifier la fonctionnalité à l’aide de la requête PowerShell suivante:
+Vous pouvez vérifier la fonctionnalité avec la requête PowerShell suivante :
 
 ```PowerShell
 PS C:\Users\Administrator> docker run -it --isolation hyperv mcr.microsoft.com/windows:1809 powershell.exe
@@ -52,14 +52,14 @@ Fax                                            Local        Microsoft Shared Fax
 PS C:\>
 ```
 
-### <a name="process-isolation"></a>Isolement du processus
+### <a name="process-isolation"></a>Isolement des processus
 
-En raison de la nature du noyau partagé de conteneurs isolés du processus, le comportement actuel limite l’utilisateur à n’exécuter qu' **une seule instance** du service de spouleur d’impression sur l’hôte et sur tous ses enfants. Si le spouleur d’imprimante est en cours d’exécution sur l’hôte, vous devez arrêter le service sur l’hôte avant Attemping pour lancer le service d’imprimante dans l’invité.
+En raison de la nature partagée du noyau des conteneurs isolés par processus, le comportement actuel limite l’utilisateur à exécuter **une seule instance** du service spouleur d’impression sur l’hôte et tous ses enfants de conteneur. Si le spouleur de l’ordinateur hôte est en cours d’exécution, vous devez arrêter le service sur l’ordinateur hôte avant de tentative le lancement du service d’impression dans l’invité.
 
 > [!TIP]
-> Si vous lancez un conteneur et que vous interrogez le service de spouleur à la fois dans le conteneur et dans l’hôte, les deux indiquent qu’il s’agit de l’État «en cours d’exécution». Sans être tromper: le conteneur ne sera pas en mesure d’effectuer une requête pour obtenir la liste des imprimantes disponibles. Le service de spouleur de l’hôte ne doit pas s’exécuter. 
+> Si vous lancez un conteneur et une requête pour le service de spouleur à la fois dans le conteneur et l’hôte simultanément, les deux rapports signalent leur état comme « en cours d’exécution ». Mais ne sont pas tromper : le conteneur ne peut pas interroger la liste des imprimantes disponibles. Le service spouleur de l’hôte ne doit pas s’exécuter. 
 
-Pour vérifier si l’hôte exécute le service d’imprimante, utilisez la requête dans PowerShell ci-dessous:
+Pour vérifier si l’ordinateur hôte exécute le service d’imprimante, utilisez la requête dans PowerShell ci-dessous :
 
 ```PowerShell
 PS C:\Users\Administrator> Get-Service spooler
@@ -71,7 +71,7 @@ Running  spooler            Print Spooler
 PS C:\Users\Administrator>
 ```
 
-Pour arrêter le service de spouleur sur l’hôte, utilisez les commandes suivantes dans PowerShell ci-dessous:
+Pour arrêter le service Spooler sur l’ordinateur hôte, utilisez les commandes suivantes dans PowerShell ci-dessous :
 
 ```PowerShell
 Stop-Service spooler

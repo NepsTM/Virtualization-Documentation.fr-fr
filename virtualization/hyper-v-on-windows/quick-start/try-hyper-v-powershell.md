@@ -1,7 +1,7 @@
 ---
 title: Utilisation d’Hyper-V et de Windows PowerShell
 description: Utilisation d’Hyper-V et de Windows PowerShell
-keywords: Windows10, Hyper-V
+keywords: Windows 10, Hyper-V
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
@@ -9,11 +9,11 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6d1ae036-0841-4ba5-b7e0-733aad31e9a7
 ms.openlocfilehash: d53bdce3438c6dafe3a1e0350c7a5df30ff8210b
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883122"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74911509"
 ---
 # <a name="working-with-hyper-v-and-windows-powershell"></a>Utilisation d’Hyper-V et de Windows PowerShell
 
@@ -27,7 +27,7 @@ Maintenant que vous connaissez les principes de base liés au déploiement d’H
  ```powershell
 Get-Command -Module hyper-v | Out-GridView
 ```
-  Vous obtenez une liste qui ressemble à ceci:
+  Vous obtenez une liste qui ressemble à ceci :
 
   ![](./media/command_grid.png)
 
@@ -45,12 +45,12 @@ Get-Command -Module hyper-v | Out-GridView
 
 Pour obtenir la liste des machines virtuelles, utilisez la commande `Get-VM`.
 
-1. Dans PowerShell, exécutez la commande suivante:
+1. Dans PowerShell, exécutez la commande suivante :
  
  ```powershell
  Get-VM
  ```
- Une liste semblable à celle-ci s’affiche:
+ Une liste semblable à celle-ci s’affiche :
 
  ![](./media/get_vm.png)
 
@@ -59,7 +59,7 @@ Pour obtenir la liste des machines virtuelles, utilisez la commande `Get-VM`.
  ```powershell
  Get-VM | where {$_.State -eq 'Running'}
  ```
-3.  Pour répertorier toutes les machines virtuelles dans un état hors tension, exécutez la commande suivante. Cette commande est une copie de la commande de l’étape2 dans laquelle le filtre «Running» est remplacé par le filtre «Off».
+3.  Pour répertorier toutes les machines virtuelles dans un état hors tension, exécutez la commande suivante. Cette commande est une copie de la commande de l’étape 2 dans laquelle le filtre « Running » est remplacé par le filtre « Off ».
 
  ```powershell
  Get-VM | where {$_.State -eq 'Off'}
@@ -67,18 +67,18 @@ Pour obtenir la liste des machines virtuelles, utilisez la commande `Get-VM`.
 
 ### <a name="start-and-shut-down-virtual-machines"></a>Démarrer et arrêter des machines virtuelles
 
-1. Pour démarrer une machine virtuelle spécifique, exécutez la commande suivante avec le nom de la machine virtuelle:
+1. Pour démarrer une machine virtuelle spécifique, exécutez la commande suivante avec le nom de la machine virtuelle :
 
  ```powershell
  Start-VM -Name <virtual machine name>
  ```
 
-2. Pour démarrer toutes les machines virtuelles actuellement hors tension, obtenez la liste de ces machines et canalisez-la vers la commande `Start-VM`:
+2. Pour démarrer toutes les machines virtuelles actuellement hors tension, obtenez la liste de ces machines et canalisez-la vers la commande `Start-VM` :
 
   ```powershell
   Get-VM | where {$_.State -eq 'Off'} | Start-VM
   ```
-3. Pour arrêter toutes les machines virtuelles en cours d’exécution, exécutez la commande suivante:
+3. Pour arrêter toutes les machines virtuelles en cours d’exécution, exécutez la commande suivante :
  
   ```powershell
   Get-VM | where {$_.State -eq 'Running'} | Stop-VM
@@ -86,7 +86,7 @@ Pour obtenir la liste des machines virtuelles, utilisez la commande `Get-VM`.
 
 ### <a name="create-a-vm-checkpoint"></a>Créer un point de contrôle de machine virtuelle
 
-Pour créer un point de contrôle à l’aide de PowerShell, sélectionnez la machine virtuelle à l’aide de la commande `Get-VM` et canalisez-la vers la commande `Checkpoint-VM`. Pour terminer, nommez le point de contrôle à l’aide de `-SnapshotName`. La commande complète ressemble à ce qui suit:
+Pour créer un point de contrôle à l’aide de PowerShell, sélectionnez la machine virtuelle à l’aide de la commande `Get-VM` et canalisez-la vers la commande `Checkpoint-VM`. Pour terminer, nommez le point de contrôle à l’aide de `-SnapshotName`. La commande complète ressemble à ce qui suit :
 
  ```powershell
  Get-VM -Name <VM Name> | Checkpoint-VM -SnapshotName <name for snapshot>

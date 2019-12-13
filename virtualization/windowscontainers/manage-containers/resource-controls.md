@@ -9,14 +9,14 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8ccd4192-4a58-42a5-8f74-2574d10de98e
 ms.openlocfilehash: 3e9f7e3208222cd6c0f512c5f892453ac6e6980c
-ms.sourcegitcommit: 73134bf279f3ed18235d24ae63cdc2e34a20e7b7
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "10107873"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74910169"
 ---
 # <a name="implementing-resource-controls-for-windows-containers"></a>Implémentation de contrôles de ressources pour les conteneurs Windows
-Plusieurs contrôles de ressources peuvent être implémentés par conteneur et par ressource.  Par défaut, les conteneurs exécutés sont soumis à la gestion des ressources Windows classique. Celle-ci est généralement exécutée de manière équitable, mais en configurant ces contrôles, un développeur ou un administrateur est en mesure de limiter ou d’influencer l’utilisation des ressources.  Les ressources pouvant être contrôlées sont notamment: UC/processeur, mémoire/mémoire RAM, disque/stockage et réseau/débit.
+Plusieurs contrôles de ressources peuvent être implémentés par conteneur et par ressource.  Par défaut, les conteneurs exécutés sont soumis à la gestion des ressources Windows classique. Celle-ci est généralement exécutée de manière équitable, mais en configurant ces contrôles, un développeur ou un administrateur est en mesure de limiter ou d’influencer l’utilisation des ressources.  Les ressources pouvant être contrôlées sont notamment : UC/processeur, mémoire/mémoire RAM, disque/stockage et réseau/débit.
 
 Les conteneurs Windows utilisent des [objets de traitement](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects) pour regrouper les processus associés à chaque conteneur et en assurer le suivi.  Les contrôles de ressources sont implémentés sur l’objet de traitement parent associé au conteneur. 
 
@@ -28,20 +28,20 @@ Pour chaque ressource, cette section fournit un mappage entre l’interface de l
 |  | |
 | ----- | ------|
 | *Mémoire* ||
-| Interface Docker | [--memory](https://docs.docker.com/engine/admin/resource_constraints/#memory) |
+| Interface Docker | [--mémoire](https://docs.docker.com/engine/admin/resource_constraints/#memory) |
 | Interface HCS | [MemoryMaximumInMB](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Noyau partagé | [JOB_OBJECT_LIMIT_JOB_MEMORY](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_basic_limit_information) |
 | Isolation Hyper-V | Mémoire de l’ordinateur virtuel |
-| _Remarque Concernant l’isolation Hyper-V dans Windows Server2016: si vous utilisez une limite de mémoire, vous constaterez que le conteneur alloue initialement la quantité de mémoire maximale, puis commence à la renvoyer à l’hôte du conteneur.  Dans les versions ultérieures (1709 ou au-delà), cela a été optimisé._ |
+| _Remarque relative à l’isolation Hyper-V dans Windows Server 2016 : quand vous utilisez une limite de mémoire, vous voyez que le conteneur alloue initialement la quantité de mémoire Cap, puis commence à le renvoyer à l’hôte de conteneur.  Dans les versions ultérieures (1709 ou supérieur), cela a été optimisé._ |
 | ||
 | *UC (nombre)* ||
-| Interface Docker | [--cpus](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
+| Interface Docker | [--processeurs](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
 | Interface HCS | [ProcessorCount](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Noyau partagé | Simulé avec [JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_cpu_rate_control_information)* |
 | Isolation Hyper-V | Nombre de processeurs virtuels exposés |
 | ||
-| *UC (pourcent)* ||
-| Interface Docker | [--cpu-percent](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
+| *PROCESSEUR (en pourcentage)* ||
+| Interface Docker | [--UC-pourcentage](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
 | Interface HCS | [ProcessorMaximum](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Noyau partagé | [JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_cpu_rate_control_information) |
 | Isolation Hyper-V | Limites de l’hyperviseur sur les processeurs virtuels |
@@ -53,13 +53,13 @@ Pour chaque ressource, cette section fournit un mappage entre l’interface de l
 | Isolation Hyper-V | Poids de processeurs virtuels de l’hyperviseur |
 | ||
 | *Stockage (image)* ||
-| Interface Docker | [--io-maxbandwidth/--io-maxiops](https://docs.docker.com/edge/engine/reference/commandline/run/#usage) |
-| Interface HCS | [StorageIOPSMaximum and StorageBandwidthMaximum](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
+| Interface Docker | [--IO-MaxBandwidth/--IO-maxiops](https://docs.docker.com/edge/engine/reference/commandline/run/#usage) |
+| Interface HCS | [StorageIOPSMaximum et StorageBandwidthMaximum](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Noyau partagé | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |
 | Isolation Hyper-V | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |
 | ||
 | *Stockage (volumes)* ||
-| Interface Docker | [--storage-opt size=](https://docs.docker.com/edge/engine/reference/commandline/run/#set-storage-driver-options-per-container) |
+| Interface Docker | [--Storage-opt Size =](https://docs.docker.com/edge/engine/reference/commandline/run/#set-storage-driver-options-per-container) |
 | Interface HCS | [StorageSandboxSize](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Noyau partagé | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |
 | Isolation Hyper-V | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |
@@ -72,4 +72,4 @@ Les conteneurs Windows exécutent quelques processus système dans chaque conten
 
 ### <a name="cpu-shares-without-hyper-v-isolation"></a>Partages UC (sans isolation Hyper-V)
 
-Lors de l’utilisation de partages de processeur, l’implémentation sous-jacente (lorsque l’isolation Hyper-V n’est pas utilisée) configure [JOBOBJECT_CPU_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_cpu_rate_control_information), en définissant de manière spécifique l’indicateur du contrôle sur JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED et en fournissant un poids approprié.  Les plages de poids valides pour l’objet de traitement sont comprises entre 1et9 et la valeur par défaut est5, ce qui correspond à une fidélité plus faible que les valeurs de services de calcul hôtes qui sont comprises entre 1à10000.  Par exemple, un poids de partage de 7500 entraînerait un poids égal à7, tandis qu’un poids de partage de 2500 produirait la valeur2.
+Lors de l’utilisation de partages de processeur, l’implémentation sous-jacente (lorsque l’isolation Hyper-V n’est pas utilisée) configure [JOBOBJECT_CPU_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_cpu_rate_control_information), en définissant de manière spécifique l’indicateur du contrôle sur JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED et en fournissant un poids approprié.  Les plages de poids valides pour l’objet de traitement sont comprises entre 1 et 9 et la valeur par défaut est 5, ce qui correspond à une fidélité plus faible que les valeurs de services de calcul hôtes qui sont comprises entre 1 à 10 000.  Par exemple, un poids de partage de 7 500 entraînerait un poids égal à 7, tandis qu’un poids de partage de 2 500 produirait la valeur 2.

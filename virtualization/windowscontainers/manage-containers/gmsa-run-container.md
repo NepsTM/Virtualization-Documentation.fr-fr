@@ -1,7 +1,7 @@
 ---
 title: Exécuter un conteneur avec un gMSA
-description: Comment exécuter un conteneur Windows avec un compte de service géré de groupe (gMSA).
-keywords: dockeur, conteneurs, Active Directory, GMSA, compte de service géré de groupe, comptes de service géré par groupe
+description: Comment exécuter un conteneur Windows avec un compte de service administré de groupe (gMSA).
+keywords: ancrage, conteneurs, Active Directory, GMSA, compte de service administré de groupe, comptes de service administrés de groupe
 author: rpsqrd
 ms.date: 09/10/2019
 ms.topic: article
@@ -9,15 +9,15 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
 ms.openlocfilehash: 52625517748356251aa41115caebd7801ec3cdaf
-ms.sourcegitcommit: 22dcc1400dff44fb85591adf0fc443360ea92856
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "10209860"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909759"
 ---
 # <a name="run-a-container-with-a-gmsa"></a>Exécuter un conteneur avec un gMSA
 
-Pour exécuter un conteneur avec un [compte de service](https://docs.docker.com/engine/reference/run)géré par groupe (gMSA), spécifiez le fichier de `--security-opt` spécifications d’informations d’identification pour le paramètre de l’administrateur.
+Pour exécuter un conteneur avec un compte de service administré de groupe (gMSA), fournissez le fichier de spécification des informations d’identification au paramètre `--security-opt` de l’écran d' [ancrage](https://docs.docker.com/engine/reference/run):
 
 ```powershell
 # For Windows Server 2016, change the image name to mcr.microsoft.com/windows/servercore:ltsc2016
@@ -25,13 +25,13 @@ docker run --security-opt "credentialspec=file://contoso_webapp01.json" --hostna
 ```
 
 >[!IMPORTANT]
->Sur Windows Server 2016 versions 1709 et 1803, le nom d’hôte du conteneur doit correspondre au nom court gMSA.
+>Sur les versions 1709 et 1803 de Windows Server 2016, le nom d’hôte du conteneur doit correspondre au nom abrégé gMSA.
 
-Dans l’exemple précédent, le nom du compte SAM gMSA est «webapp01», donc le nom d’hôte du conteneur est également appelé «webapp01».
+Dans l’exemple précédent, le nom de compte SAM gMSA est « webapp01 », de sorte que le nom d’hôte du conteneur est également nommé « webapp01 ».
 
-Sur Windows Server 2019 et les versions ultérieures, le champ hostname n’est pas obligatoire, mais le conteneur restera identifiant par le nom gMSA à la place du nom d’hôte, même si vous en spécifiez explicitement un autre.
+Sur Windows Server 2019 et versions ultérieures, le champ nom d’hôte n’est pas obligatoire, mais le conteneur s’identifie toujours par le nom gMSA au lieu du nom d’hôte, même si vous en fournissez un explicitement différent.
 
-Pour vérifier si le fonctionnement correct de gMSA fonctionne, exécutez l’applet de commande suivante dans le conteneur:
+Pour vérifier si le gMSA fonctionne correctement, exécutez l’applet de commande suivante dans le conteneur :
 
 ```powershell
 # Replace contoso.com with your own domain
@@ -44,9 +44,9 @@ Trust Verification Status = 0 0x0 NERR_Success
 The command completed successfully
 ```
 
-Si l’état de la connexion à un CD de confiance et `NERR_Success`l’état de vérification de l’approbation ne le sont pas, suivez les [instructions de dépannage](gmsa-troubleshooting.md#check-the-container) pour déboguer le problème.
+Si l’état de la connexion DC approuvée et l’état de vérification de l’approbation ne sont pas `NERR_Success`, suivez les [instructions de résolution des problèmes](gmsa-troubleshooting.md#check-the-container) pour déboguer le problème.
 
-Vous pouvez vérifier l’identité gMSA à partir du conteneur en exécutant la commande suivante et en vérifiant le nom du client:
+Vous pouvez vérifier l’identité gMSA à partir du conteneur en exécutant la commande suivante et en vérifiant le nom du client :
 
 ```powershell
 PS C:\> klist get krbtgt
@@ -70,14 +70,14 @@ Cached Tickets: (2)
 [...]
 ```
 
-Pour ouvrir PowerShell ou une autre application de console en tant que compte gMSA, vous pouvez demander à l’application de s’exécuter sous le compte de service réseau au lieu du compte ContainerAdministrator normal (ou ContainerUser pour le serveur de serveur):
+Pour ouvrir PowerShell ou une autre application console en tant que compte gMSA, vous pouvez demander au conteneur de s’exécuter sous le compte service réseau au lieu du compte normal ContainerAdministrator (ou ContainerUser pour le serveur) :
 
 ```powershell
 # NOTE: you can only run as Network Service or SYSTEM on Windows Server 1709 and later
 docker run --security-opt "credentialspec=file://contoso_webapp01.json" --hostname webapp01 --user "NT AUTHORITY\NETWORK SERVICE" -it mcr.microsoft.com/windows/servercore:ltsc2019 powershell
 ```
 
-Lorsque vous exécutez le service réseau, vous pouvez tester l’authentification réseau en tant que gMSA en tentant de se connecter à SYSVOL sur un contrôleur de domaine:
+Quand vous exécutez en tant que service réseau, vous pouvez tester l’authentification réseau en tant que gMSA en tentant de se connecter à SYSVOL sur un contrôleur de domaine :
 
 ```powershell
 # This command should succeed if you're successfully running as the gMSA
@@ -94,9 +94,9 @@ d----l        2/27/2019   8:09 PM                contoso.com
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En plus des conteneurs en cours d’exécution, vous pouvez également utiliser gMSAs pour:
+En plus des conteneurs en cours d’exécution, vous pouvez également utiliser service administrés pour :
 
 - [Configurer des applications](gmsa-configure-app.md)
 - [Orchestrer des conteneurs](gmsa-orchestrate-containers.md)
 
-Si vous rencontrez des problèmes lors de l’installation, consultez notre [Guide de résolution des problèmes](gmsa-troubleshooting.md) pour consulter les solutions possibles.
+Si vous rencontrez des problèmes lors de l’installation, consultez notre [Guide de résolution](gmsa-troubleshooting.md) des problèmes pour obtenir des solutions possibles.

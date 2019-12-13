@@ -1,7 +1,7 @@
 ---
-title: Durée de vie des images de base
+title: Cycles de vie de maintenance des images de base
 description: Informations sur le cycle de vie de l’image de base du conteneur Windows.
-keywords: conteneurs Windows, conteneurs, cycle de vie, informations de publication, image de base, image de base du conteneur
+keywords: conteneurs Windows, conteneurs, cycle de vie, informations sur la version, image de base, image de base du conteneur
 author: Heidilohr
 ms.author: helohr
 ms.date: 06/17/2019
@@ -9,31 +9,31 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.openlocfilehash: bb5e5fabadde421de9d420edd2fc921457432930
-ms.sourcegitcommit: e61db4d98d9476a622e6cc8877650d9e7a6b4dd9
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "10288137"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909989"
 ---
-# <a name="base-image-servicing-lifecycles"></a>Durée de vie des images de base
+# <a name="base-image-servicing-lifecycles"></a>Cycles de vie de maintenance des images de base
 
-Les images de base des conteneurs Windows sont basées sur des publications de canal semi-annuel ou de maintenance de canal de maintenance à long terme de Windows Server. Cet article vous indique la durée de prise en charge de différentes versions d’images de base sur les deux canaux.
+Les images de base de conteneur Windows reposent sur des versions de canaux semi-annuelles ou des versions de canaux de maintenance à long terme de Windows Server. Cet article vous indique la durée de la prise en charge pour les différentes versions des images de base des deux canaux.
 
-Le canal semi-annuel est une version de mise à jour de la fonctionnalité à la fois par année avec des plannings de maintenance de 18 mois pour chaque version. Cela permet aux utilisateurs de profiter des nouvelles fonctionnalités du système d’exploitation à un rythme plus rapide, à la fois dans les applications (notamment celles basées sur les conteneurs et les microservices) et dans le centre de donnes hybrides logiciel. Pour plus d’informations, consultez la [vue d’ensemble du canal semi-annuel de Windows Server](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview).
+Le canal semi-annuel est une version de mise à jour de la fonctionnalité à deux fois par an avec des chronologies de maintenance de 18 mois pour chaque version. Cela permet aux clients de tirer parti des nouvelles fonctionnalités du système d’exploitation à un rythme plus rapide, à la fois dans les applications (en particulier celles basées sur les conteneurs et les microservices) et dans le centre de donnes hybrides défini par logiciel. Pour plus d’informations, consultez la [vue d’ensemble du canal semi-annuel Windows Server](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview).
 
-Pour les images principales du serveur, les clients peuvent également utiliser le canal de maintenance à long terme qui libère une nouvelle version majeure de Windows Server toutes les deux à trois ans. Les publications de canaux de maintenance à long terme bénéficient de cinq années d’assistance standard et de cinq ans de support technique étendu. Ce canal fonctionne avec les systèmes qui nécessitent une option de maintenance plus longue et une stabilité fonctionnelle.
+Pour les images Server Core, les clients peuvent également utiliser le canal de maintenance à long terme qui libère une nouvelle version majeure de Windows Server toutes les deux à trois ans. Les versions de canaux de maintenance à long terme reçoivent cinq ans de support standard et cinq ans de support étendu. Ce canal fonctionne avec les systèmes qui nécessitent une option de maintenance plus longue et une stabilité fonctionnelle.
 
-Le tableau suivant répertorie chaque type d’image de base, son canal de maintenance et sa durée de prise en charge.
+Le tableau suivant répertorie chaque type d’image de base, son canal de maintenance et la durée de sa prise en charge.
 
-|Image de base                       |Canal de maintenance|Version|Version du système d’exploitation|Disponibilité|Date de fin du support standard|Date du support prolongé|
+|Base image                       |Canal de maintenance|Version|Version du système d’exploitation|Disponibilité|Date de fin du support standard|Date de prise en charge étendue|
 |---------------------------------|-----------------|-------|--------|------------|---------------------------|---------------------|
-|Serveur principal, nano Server, Windows|Semestriel      |1909   |18363   |12/11/2019  |05/11/2021                 |N/A                  |
-|Serveur principal, nano Server, Windows|Semestriel      |1903   |18362   |05/21/2019  |12/08/2020                 |N/A                  |
-|ServerCore                      |Durée de validité        |1809   |17763   |13/11/2018  |01/09/2024                 |01/09/2029           |
-|Serveur principal, nano Server, Windows|Semestriel      |1809   |17763   |13/11/2018  |05/12/2020                 |N/A                  |
-|Serveur principal, nano Server         |Semestriel      |1803   |17134   |30/04/2018  |12/11/2019                 |N/A                  |
-|Serveur principal, nano Server         |Semestriel      |1709   |16299   |17/10/2017  |09/04/2019                 |N/A                  |
-|ServerCore                      |Durée de validité        |1607   |14393   |15/10/2016  |11/01/2022                 |11/01/2027           |
-|Nano Server                      |Semestriel      |1607   |14393   |15/10/2016  |10/09/2018                 |N/A                  |
+|Server Core, nano Server, Windows|Semi-annuel      |1909   |18363   |12/11/2019  |11/05/2021                 |N/A                  |
+|Server Core, nano Server, Windows|Semi-annuel      |1903   |18362   |05/21/2019  |08/12/2020                 |N/A                  |
+|Server Core                      |Long terme        |1809   |17763   |13/11/2018  |09/01/2024                 |09/01/2029           |
+|Server Core, nano Server, Windows|Semi-annuel      |1809   |17763   |13/11/2018  |05/12/2020                 |N/A                  |
+|Server Core, nano Server         |Semi-annuel      |1803   |17134   |30/04/2018  |12/11/2019                 |N/A                  |
+|Server Core, nano Server         |Semi-annuel      |1709   |16299   |17/10/2017  |09/04/2019                 |N/A                  |
+|Server Core                      |Long terme        |1607   |14393   |15/10/2016  |11/01/2022                 |11/01/2027           |
+|Nano Server                      |Semi-annuel      |1607   |14393   |15/10/2016  |10/09/2018                 |N/A                  |
 
-Pour plus d’informations sur les exigences de maintenance et d’autres informations supplémentaires, consultez le [Forum aux questions sur le cycle de vie Windows](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products), les [informations de publication de Windows Server](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)et les [images du centre de référentiel Samples](https://hub.docker.com/_/microsoft-windows-base-os-images).
+Pour les exigences de maintenance et d’autres informations supplémentaires, consultez le [Forum aux questions](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products)sur le cycle de vie de Windows, les [informations de version de Windows Server](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)et les [images du système d’exploitation de base Windows référentiel Hub](https://hub.docker.com/_/microsoft-windows-base-os-images).
