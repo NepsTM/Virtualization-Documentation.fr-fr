@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: f0ec8eb4-ffc4-4bf1-9a19-7a8c3975b359
-ms.openlocfilehash: 03bbb4494bbbd790f16c4b6afef387905f7c6c83
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: bdb9feeb2452f2784a3b814e85dc72f3b967a9d3
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910889"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439326"
 ---
 # <a name="troubleshoot-hyper-v-on-windows-10"></a>Résoudre les problèmes liés à Hyper-V sur Windows 10
 

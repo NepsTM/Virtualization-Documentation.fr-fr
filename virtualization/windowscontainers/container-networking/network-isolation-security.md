@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: b39ec17ac04995e8e1ce8795b5721df7a291e31c
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: d5081104f1614a91d6441a5e879a439f1df1bf77
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910589"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439286"
 ---
 # <a name="network-isolation-and-security"></a>Isolement et sécurité réseau
 
@@ -27,7 +27,7 @@ Chaque point de terminaison de conteneur est placé dans son propre __espace de 
 Get-NetCompartment
 ```
 
-## <a name="network-security"></a>Sécurité du réseau
+## <a name="network-security"></a>Sécurité réseau
 
 Selon le conteneur et le pilote réseau utilisé, les ACL de port sont appliquées par une combinaison du Pare-feu Windows et [VFP ](https://www.microsoft.com/research/project/azure-virtual-filtering-platform/).
 
@@ -65,7 +65,7 @@ Si vous souhaitez modifier les listes de contrôle d’accès des ports par déf
 
 | Pilote réseau | Conteneurs Windows Server | Isolation Hyper-V  |
 | -------------- |-------------------------- | ------------------- |
-| Mode transparent | Pare-feu Windows | X |
+| Transparent | Pare-feu Windows | X |
 | NAT | Pare-feu Windows | X |
 | L2Bridge | Les deux | VFP |
 | L2Tunnel | Les deux | VFP |

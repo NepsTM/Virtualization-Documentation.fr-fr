@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
-ms.openlocfilehash: 762b82f3714651ffb488f682581680c9526404a8
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 6568b68a77fc5506b58249caea44ec78e3e44de2
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74911149"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439566"
 ---
 # <a name="hyper-v-integration-services"></a>Services d’intégration Hyper-V
 
@@ -25,20 +25,20 @@ Cet article est une référence pour chaque service d’intégration disponible 
 * [Gestion d’Integration Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/Manage-Hyper-V-integration-services)
 
 
-## <a name="quick-reference"></a>Référence rapide
+## <a name="quick-reference"></a>Aide-mémoire
 
 | Nom | Nom du service Windows | Nom de démon Linux |  Description | Impact de sa désactivation sur la machine virtuelle |
 |:---------|:---------|:---------|:---------|:---------|
 | [Service Pulsation Hyper-V](#hyper-v-heartbeat-service) |  vmicheartbeat | hv_utils | Signale que la machine virtuelle fonctionne correctement. | Varie |
-| [Service Arrêt de l’invité Hyper-V](#hyper-v-guest-shutdown-service) | vmicshutdown | hv_utils |  Permet à l’hôte de déclencher l’arrêt des machines virtuelles. | **Importante** |
-| [Service Synchronisation date/heure Hyper-V](#hyper-v-time-synchronization-service) | vmictimesync | hv_utils | Synchronise l’horloge de la machine virtuelle avec celle de l’ordinateur hôte. | **Importante** |
-| [Service d’échange de données Hyper-V (KVP)](#hyper-v-data-exchange-service-kvp) | vmickvpexchange | hv_kvp_daemon | Fournit un moyen d’échanger des métadonnées de base entre la machine virtuelle et l’hôte. | Moyen |
+| [Service Arrêt de l’invité Hyper-V](#hyper-v-guest-shutdown-service) | vmicshutdown | hv_utils |  Permet à l’hôte de déclencher l’arrêt des machines virtuelles. | **Rapide** |
+| [Service Synchronisation date/heure Hyper-V](#hyper-v-time-synchronization-service) | vmictimesync | hv_utils | Synchronise l’horloge de la machine virtuelle avec celle de l’ordinateur hôte. | **Rapide** |
+| [Service d’échange de données Hyper-V (KVP)](#hyper-v-data-exchange-service-kvp) | vmickvpexchange | hv_kvp_daemon | Fournit un moyen d’échanger des métadonnées de base entre la machine virtuelle et l’hôte. | Moyenne |
 | [Requête du service VSS Hyper-V](#hyper-v-volume-shadow-copy-requestor) | vmicvss | hv_vss_daemon | Permet au service VSS de sauvegarder la machine virtuelle sans l’arrêter. | Varie |
-| [Interface de services d’invité Hyper-V](#hyper-v-powershell-direct-service) | vmicguestinterface | hv_fcopy_daemon | Fournit une interface pour que l’hôte Hyper-V copie des fichiers vers ou depuis la machine virtuelle. | Faible |
-| [Service direct PowerShell Hyper-V](#hyper-v-powershell-direct-service) | vmicvmsession | non disponibles | Fournit un moyen de gérer la machine virtuelle avec PowerShell sans connexion réseau. | Faible |  
+| [Interface de services d’invité Hyper-V](#hyper-v-powershell-direct-service) | vmicguestinterface | hv_fcopy_daemon | Fournit une interface pour que l’hôte Hyper-V copie des fichiers vers ou depuis la machine virtuelle. | Basse |
+| [Service direct PowerShell Hyper-V](#hyper-v-powershell-direct-service) | vmicvmsession | non disponibles | Fournit un moyen de gérer la machine virtuelle avec PowerShell sans connexion réseau. | Basse |  
 
 
-## <a name="hyper-v-heartbeat-service"></a>Service Pulsation Microsoft Hyper-V
+## <a name="hyper-v-heartbeat-service"></a>Service Pulsation Hyper-V
 
 **Nom du service Windows :** vmicheartbeat  
 **Nom de démon Linux :** hv_utils  
@@ -68,22 +68,22 @@ Le champ `Status` est déterminé par le service Pulsation.
 
 
 
-## <a name="hyper-v-guest-shutdown-service"></a>Service Arrêt de l’invité Microsoft Hyper-V
+## <a name="hyper-v-guest-shutdown-service"></a>Service Arrêt de l’invité Hyper-V
 
 **Nom du service Windows :** vmicshutdown  
 **Nom de démon Linux :** hv_utils  
 **Description :** permet à l’hôte Hyper-V de demander l’arrêt de la machine virtuelle.  L’hôte peut toujours forcer l’arrêt de la machine virtuelle, mais cela revient à utiliser le bouton marche/arrêt au lieu de sélectionner Arrêter.  
 **Ajout dans :** Windows Server 2012, Windows 8  
-**Impact :** **Impact élevé** Quand il est désactivé, l’hôte ne peut pas déclencher un arrêt convivial à l’intérieur de la machine virtuelle.  Tous les arrêts sont une mise hors tension difficile, ce qui peut entraîner une perte de données ou une altération des données.  
+**Impact :** **impact élevé** quand il est désactivé, l’hôte ne peut pas déclencher un arrêt convivial à l’intérieur de la machine virtuelle.  Tous les arrêts sont une mise hors tension difficile, ce qui peut entraîner une perte de données ou une altération des données.  
 
 
-## <a name="hyper-v-time-synchronization-service"></a>Service Synchronisation date/heure Microsoft Hyper-V
+## <a name="hyper-v-time-synchronization-service"></a>Service Synchronisation date/heure Hyper-V
 
 **Nom du service Windows :** vmictimesync  
 **Nom de démon Linux :** hv_utils  
 **Description :** synchronise l’horloge système de la machine virtuelle avec celle de l’ordinateur physique.  
 **Ajout dans :** Windows Server 2012, Windows 8  
-**Impact :** **Impact élevé** Quand il est désactivé, l’horloge de la machine virtuelle dérive de manière irrégulière.  
+**Impact :** **impact élevé** quand il est désactivé, l’horloge de la machine virtuelle est incohérente.  
 
 
 ## <a name="hyper-v-data-exchange-service-kvp"></a>Service Échange de données Microsoft Hyper-V
@@ -105,7 +105,7 @@ Le service Échange de données est un excellent outil pour conserver les inform
 * [Utilisation de paires clé/valeur pour partager des informations entre l’hôte et l’invité sur Hyper-V](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn798287(v=ws.11)).  
 
 
-## <a name="hyper-v-volume-shadow-copy-requestor"></a>Requête du service VSS Microsoft Hyper-V
+## <a name="hyper-v-volume-shadow-copy-requestor"></a>Requête du service VSS Hyper-V
 
 **Nom du service Windows :** vmicvss  
 **Nom de démon Linux :** hv_vss_daemon  

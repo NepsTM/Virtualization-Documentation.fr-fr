@@ -8,12 +8,12 @@ ms.prod: containers
 description: Joindre un nœud Windows à un cluster Kubernetes avec v 1.14.
 keywords: kubernetes, 1,14, Windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: c380f5dc10430a94959718a5ce92f311603db733
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 18734f102042ec951255061dcd82229e18d29a15
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910359"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439526"
 ---
 # <a name="kubernetes-on-windows"></a>Kubernetes sur Windows
 
@@ -32,7 +32,7 @@ Cette page fournit une vue d’ensemble de la prise en main de Kubernetes sur Wi
 >[!TIP]
 >Si vous souhaitez déployer un cluster sur Azure, l’outil open source AKS-Engine vous facilite la tâche. Pour plus d’informations, consultez notre [procédure pas](https://github.com/Azure/aks-engine/blob/master/docs/topics/windows.md)à pas.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
 ### <a name="plan-ip-addressing-for-your-cluster"></a>Planifier l’adressage IP pour votre cluster
 
@@ -41,7 +41,7 @@ Cette page fournit une vue d’ensemble de la prise en main de Kubernetes sur Wi
 | Sous-réseau/plage d’adresses | Description | Valeur par défaut |
 | --------- | ------------- | ------------- |
 | <a name="service-subnet-def"></a>**Sous-réseau de service** | Un sous-réseau non routable, purement virtuel qui est utilisé par les Pod pour accéder uniformément aux services sans se soucier de la topologie du réseau. Il est converti vers/depuis l’espace d’adressage routable par `kube-proxy` en cours d’exécution sur les nœuds. | « 10.96.0.0/12 » |
-| <a name="cluster-subnet-def"></a>**Sous-réseau de cluster** |  Il s’agit d’un sous-réseau global qui est utilisé par tous les Pod du cluster. Un sous-réseau plus petit/24 est attribué à chaque nœud pour les Pod à utiliser. Elle doit être suffisamment grande pour accueillir tous les modules utilisés dans votre cluster. Pour calculer la taille *minimale* du sous-réseau : `(number of nodes) + (number of nodes * maximum pods per node that you configure)` <p/>Exemple pour un cluster à 5 nœuds pour 100 Pod par nœud : `(5) + (5 *  100) = 505`.  | « 10.244.0.0/16 » |
+| <a name="cluster-subnet-def"></a>**Sous-réseau de cluster** |  Il s’agit d’un sous-réseau global qui est utilisé par tous les Pod du cluster. Un sous-réseau plus petit/24 est attribué à chaque nœud pour les Pod à utiliser. Elle doit être suffisamment grande pour accueillir tous les modules utilisés dans votre cluster. Pour calculer la taille *minimale* du sous-réseau : `(number of nodes) + (number of nodes * maximum pods per node that you configure)` <p/>Exemple pour un cluster à 5 nœuds pour 100 Pod par nœud : `(5) + (5 *  100) = 505`.  | « 10.244.0.0/16 » |
 | **Adresse IP du service DNS Kubernetes** | Adresse IP du service « Kube-DNS » qui sera utilisée pour la résolution DNS & la détection du service de cluster. | "10.96.0.10" |
 
 > [!NOTE]
@@ -58,7 +58,7 @@ Cette page fournit une vue d’ensemble de la prise en main de Kubernetes sur Wi
 > * Déploiement d’un [exemple de ressource Kubernetes](./deploying-resources.md).  
 > * Abordé les [erreurs et problèmes courants](./common-problems.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 Dans cette section, nous avons parlé des conditions préalables importantes & hypothèses nécessaires au déploiement de Kubernetes sur Windows avec succès. Continuez à apprendre à configurer un maître Kubernetes :
 

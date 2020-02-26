@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6e5e6b01-7a9d-4123-8cc7-f986e10cd372
-ms.openlocfilehash: d4e3f7c1e94d0162ae9ee6251d9c6d8cc51bf1d3
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: d3375cd912097f85f0a350b8f329c008323cab37
+ms.sourcegitcommit: cea415924b7b6a690d0ba9ff31beed30e9c187d2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74911219"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750190"
 ---
 # <a name="windows-10-hyper-v-system-requirements"></a>Configuration requise pour Hyper-V sur Windows 10
 
@@ -42,7 +42,7 @@ Le rôle Hyper-V **ne peut pas** être installé sur :
 Bien que ce document ne fournisse pas la liste complète du matériel compatible avec Hyper-V, vous devez disposer des éléments suivants :
 
 - Processeur 64 bits avec traduction d’adresse de second niveau (SLAT).
-- Processeur prenant en charge les extensions de mode du moniteur de machine virtuelle (VT-c sur les processeurs Intel).
+- Prise en charge de l’UC pour l’extension du mode d’analyse de machine virtuelle (VT-x sur les PROCESSEURs Intel).
 - Au minimum 4 Go de mémoire. Étant donné que les machines virtuelles partagent la mémoire avec l’hôte Hyper-V, vous devez fournir suffisamment de mémoire pour gérer la charge de travail virtuelle attendue.
 
 Les éléments suivants doivent être activés dans le BIOS du système :

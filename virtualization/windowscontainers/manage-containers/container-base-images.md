@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
-ms.openlocfilehash: 2a69fbace51589cce08476bd68fdb5c34a7907e6
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 9884cc0ae2d2f398d2dc2fb1997a70493a6de6c0
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909779"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76764178"
 ---
 # <a name="container-base-images"></a>Images de base du conteneur
 
@@ -144,4 +144,4 @@ Pour en savoir plus, consultez [utiliser des conteneurs avec le programme Window
 
 `Windows Server Core` et `Nanoserver` sont les images de base les plus courantes à cibler. La principale différence entre ces images est que la surface de l’API de serveur est beaucoup plus petite. PowerShell, WMI et la pile de maintenance Windows sont absents de l’image de serveur.
 
-Le serveur de serveurs a été conçu pour fournir juste assez de surface d’API pour exécuter des applications qui ont une dépendance sur .NET Core ou d’autres infrastructures Open source modernes. En guise de compromis avec la surface d’APi plus petite, l’image du serveur est beaucoup plus petite que le reste des images de base Windows. N’oubliez pas que vous pouvez ajouter autant de couches que vous le souhaitez sur Nano Server. Pour obtenir un exemple, consultez le [fichier Dockerfile Nano Server .NET Core](https://github.com/dotnet/dotnet-docker/blob/master/2.1/sdk/nanoserver-1803/amd64/Dockerfile).
+Le serveur de serveurs a été conçu pour fournir juste assez de surface d’API pour exécuter des applications qui ont une dépendance sur .NET Core ou d’autres infrastructures Open source modernes. En guise de compromis avec la surface d’APi plus petite, l’image du serveur est beaucoup plus petite que le reste des images de base Windows. N’oubliez pas que vous pouvez ajouter autant de couches que vous le souhaitez sur Nano Server. Pour obtenir un exemple, consultez le [fichier Dockerfile Nano Server .NET Core](https://github.com/dotnet/dotnet-docker/blob/master/2.1/sdk/nanoserver-1909/amd64/Dockerfile).

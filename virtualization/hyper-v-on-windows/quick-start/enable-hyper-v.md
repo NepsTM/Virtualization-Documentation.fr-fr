@@ -7,12 +7,12 @@ ms.date: 02/15/2019
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-ms.openlocfilehash: e1b6b55b2e17ac4f0883078748d75f6d4b9fcafa
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: bad59fcc65bf66ab3c6dc940a17111e46a9bc226
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909459"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439696"
 ---
 # <a name="install-hyper-v-on-windows-10"></a>Installer Hyper-V sur Windows 10
 
@@ -25,7 +25,7 @@ Hyper-V peut être activé de nombreuses façons, notamment par le biais du pann
 
 * Windows 10 entreprise, professionnel ou éducation
 * Processeur 64 bits avec traduction d’adresse de second niveau (SLAT).
-* Prise en charge par l’UC de l’extension du mode de supervision de machine virtuelle (VT-c sur les UC Intel)
+* Prise en charge de l’UC pour l’extension du mode d’analyse de machine virtuelle (VT-c sur les processeurs Intel).
 * Au minimum 4 Go de mémoire.
 
 Le rôle Hyper-V **ne peut pas** être installé sur Windows 10 Famille.

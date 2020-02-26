@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 426c87cc-fa50-4b8d-934e-0b653d7dea7d
-ms.openlocfilehash: 8f1c1b96fe88f46a24b8ebb46d4f387c9717f6ba
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 725466f657ae8fc4f14813822e90657e12d26fa6
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74911159"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439556"
 ---
 # <a name="try-pre-release-features-for-hyper-v"></a>Essayer les fonctionnalités de la préversion pour Hyper-V
 
@@ -47,6 +47,6 @@ Autres exemples d’utilisation de l’indicateur -Prerelease :
 
  Les exemples présentés dans ces articles fonctionnent pour les hôtes Hyper-V qui exécutent Windows 10 ou Windows Server 2016 Technical Preview. Pour l’instant, vous ne pouvez utiliser l’indicateur -Prerelease que pour créer une machine virtuelle en préversion sur des hôtes Hyper-V qui exécutent Windows Server 2016 Technical Preview.
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Voir aussi
 -  [Blog de virtualisation](https://techcommunity.microsoft.com/t5/Virtualization/bg-p/Virtualization) : Découvrez les fonctionnalités de la préversion qui sont disponibles et comment les tester.
 - [Versions de configuration de machines virtuelles prises en charge](https://docs.microsoft.com/windows-server/virtualization/hyper-v/deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server#BKMK_SupportedConfigVersions) : Apprenez à vérifier la version de configuration de la machine virtuelle et les versions prises en charge par Microsoft.

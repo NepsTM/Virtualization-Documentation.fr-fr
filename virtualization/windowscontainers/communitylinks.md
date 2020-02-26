@@ -8,18 +8,18 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: cfbb2542-fead-48e7-8318-4da92a7b5b6f
-ms.openlocfilehash: 55b428894b22ded48ce9db8f24928924964ce96d
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 338dd0570f1a2e73295b2bacf2c4282b3fdd7956
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910079"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439296"
 ---
 # <a name="community-videos-and-blogs"></a>Vidéos et blogs de la communauté
 
 Cette page contient des liens vers des vidéos et des blogs créés par des membres de la communauté sur les conteneurs.  Si vous connaissez une ressource intéressante ou si vous en avez vous-même créé une, envoyez une demande de publication pour l’ajouter à cette liste.
 
-## <a name="getting-started"></a>Prise en main
+## <a name="getting-started"></a>Mise en route
 
 [Exécuter des conteneurs Linux et Windows sur Windows 10](https://stefanscherer.github.io/run-linux-and-windows-containers-on-windows-10/) -Stefan Scherer
 

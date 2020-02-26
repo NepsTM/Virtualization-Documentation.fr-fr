@@ -3,12 +3,12 @@ title: Spouleur d’impression dans les conteneurs Windows
 description: Explique le comportement de travail actuel du service spouleur d’impression dans les conteneurs Windows.
 keywords: ancrage, conteneurs, imprimante, spouleur
 author: cwilhit
-ms.openlocfilehash: 48130bc6a826a45dfa49d0a3b4600d227f34704e
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: e104a87046545b90d244783aafb62ad9d151e14b
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910529"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439536"
 ---
 # <a name="print-spooler-in-windows-containers"></a>Spouleur d’impression dans les conteneurs Windows
 
@@ -17,7 +17,7 @@ Les applications avec une dépendance sur les services d’impression peuvent ê
 > [!IMPORTANT]
 > Lorsque l’accès aux services d’impression s’effectue correctement dans les conteneurs, les fonctionnalités sont limitées dans le formulaire. certaines actions liées à l’impression peuvent ne pas fonctionner. Par exemple, les applications qui dépendent de l’installation de pilotes d’imprimante dans l’hôte ne peuvent pas être en conteneur, car **l’installation de pilotes à partir d’un conteneur n’est pas prise en charge**. Veuillez ouvrir un commentaire ci-dessous si vous trouvez une fonctionnalité d’impression non prise en charge que vous souhaitez prendre en charge dans les conteneurs.
 
-## <a name="setup"></a>Configurer
+## <a name="setup"></a>Programme d'installation
 
 * L’hôte doit être Windows Server 2019 ou Windows 10 professionnel/entreprise mise à jour 2018 ou version ultérieure.
 * L’image [MCR.Microsoft.com/Windows](https://hub.docker.com/_/microsoft-windowsfamily-windows) doit être l’image de base ciblée. Les autres images de base du conteneur Windows (telles que nano Server et Windows Server Core) ne transmettent pas le rôle de serveur d’impression.
@@ -52,7 +52,7 @@ Fax                                            Local        Microsoft Shared Fax
 PS C:\>
 ```
 
-### <a name="process-isolation"></a>Isolement des processus
+### <a name="process-isolation"></a>Isolation des processus
 
 En raison de la nature partagée du noyau des conteneurs isolés par processus, le comportement actuel limite l’utilisateur à exécuter **une seule instance** du service spouleur d’impression sur l’hôte et tous ses enfants de conteneur. Si le spouleur de l’ordinateur hôte est en cours d’exécution, vous devez arrêter le service sur l’ordinateur hôte avant de tentative le lancement du service d’impression dans l’invité.
 

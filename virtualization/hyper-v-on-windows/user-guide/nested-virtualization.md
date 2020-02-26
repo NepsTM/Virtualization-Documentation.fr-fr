@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
-ms.openlocfilehash: 625a9b36ff782c86065ef3d9124708e5716e066f
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: f819ac04773188525af202d370ba271a2d93e259
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910929"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439346"
 ---
 # <a name="run-hyper-v-in-a-virtual-machine-with-nested-virtualization"></a>Exécuter Hyper-V dans une machine virtuelle avec la virtualisation imbriquée
 
@@ -21,7 +21,7 @@ La virtualisation imbriquée est une fonctionnalité qui vous permet d’exécut
 
 ![](./media/HyperVNesting.png)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
 * L’hôte et l’invité Hyper-V doivent tous deux exécuter Windows Server 2016/la Mise à jour anniversaire Windows 10 ou version ultérieure.
 * Configuration de machine virtuelle version 8.0 ou ultérieure.
@@ -31,7 +31,7 @@ La virtualisation imbriquée est une fonctionnalité qui vous permet d’exécut
 
 ## <a name="configure-nested-virtualization"></a>Configurer la virtualisation imbriquée
 
-1. Créer une machine virtuelle. Consultez la configuration requise ci-dessus pour les versions de système d’exploitation et les machines virtuelles.
+1. Créer un ordinateur virtuel. Consultez la configuration requise ci-dessus pour les versions de système d’exploitation et les machines virtuelles.
 2. Pendant que la machine virtuelle est à l’état DÉSACTIVÉ, exécutez la commande suivante sur l’hôte Hyper-V physique. Cela permet d’activer la virtualisation imbriquée de la machine virtuelle.
 
 ```
@@ -94,7 +94,7 @@ Les processeurs modernes incluent des fonctionnalités matérielles qui rendent 
 
 Grâce à la virtualisation imbriquée, cette prise en charge matérielle est disponible pour les machines virtuelles invitées.
 
-Le schéma ci-dessous illustre Hyper-V sans imbrication.  L’hyperviseur Hyper-V prend le contrôle total des fonctionnalités de virtualisation matérielle (flèche orange) et ne les expose pas au système d’exploitation invité.
+Le diagramme ci-dessous illustre Hyper-V sans imbrication.  L’hyperviseur Hyper-V prend le contrôle total des fonctionnalités de virtualisation matérielle (flèche orange) et ne les expose pas au système d’exploitation invité.
 
 ![](./media/HVNoNesting.PNG)
 
