@@ -3,12 +3,12 @@ title: Compatibilité des versions avec les conteneurs Windows
 description: Comment Windows peut générer et exécuter des conteneurs dans plusieurs versions
 keywords: métadonnées, conteneurs, version
 author: taylorb-microsoft
-ms.openlocfilehash: 1f068cd011b2172e75c240d566473ccab25d984a
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 32d40997ffef47e4eae2d06303f45522623a5e54
+ms.sourcegitcommit: 530712469552a1ef458883001ee748bab2c65ef7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910479"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77628944"
 ---
 # <a name="windows-container-version-compatibility"></a>Compatibilité des versions de conteneur Windows
 
@@ -19,41 +19,41 @@ Windows Server 2016 et la mise à jour anniversaire Windows 10 (version 14393) �
 ## <a name="windows-server-host-os-compatibility"></a>Compatibilité du système d’exploitation hôte Windows Server
 
 <!-- start tab view -->
-# <a name="windows-server-version-1909tabwindows-server-1909"></a>[Windows Server, version 1909](#tab/windows-server-1909)
+# <a name="windows-server-version-1909"></a>[Windows Server, version 1909](#tab/windows-server-1909)
 
 |Version du système d’exploitation de l’image de base du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolation des processus|
 |---|:---:|:---:|
 |Windows Server, version 1909|&#10004;|&#10004;|
 |Windows Server, version 1903|&#10004;|&#10060;|
 |Windows Server 2019|&#10004;|&#10060;|
-|Windows Server 2016|&#10004;|&#10060;|
+|Windows Server 2016|&#10004;|&#10060;|
 
-# <a name="windows-server-version-1903tabwindows-server-1903"></a>[Windows Server, version 1903](#tab/windows-server-1903)
+# <a name="windows-server-version-1903"></a>[Windows Server, version 1903](#tab/windows-server-1903)
 
 |Version du système d’exploitation de l’image de base du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolation des processus|
 |---|:---:|:---:|
 |Windows Server, version 1909|&#10060;|&#10060;|
 |Windows Server, version 1903|&#10004;|&#10004;|
 |Windows Server 2019|&#10004;|&#10060;|
-|Windows Server 2016|&#10004;|&#10060;|
+|Windows Server 2016|&#10004;|&#10060;|
 
-# <a name="windows-server-2019tabwindows-server-2019"></a>[Windows Server 2019](#tab/windows-server-2019)
+# <a name="windows-server-2019"></a>[Windows Server 2019](#tab/windows-server-2019)
 
 |Version du système d’exploitation de l’image de base du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolation des processus|
 |---|:---:|:---:|
 |Windows Server, version 1909|&#10060;|&#10060;|
 |Windows Server, version 1903|&#10060;|&#10060;|
 |Windows Server 2019|&#10004;|&#10004;|
-|Windows Server 2016|&#10004;|&#10060;|
+|Windows Server 2016|&#10004;|&#10060;|
 
-# <a name="windows-server-2016tabwindows-server-2016"></a>[Windows Server 2016](#tab/windows-server-2016)
+# <a name="windows-server-2016"></a>[Windows Server 2016](#tab/windows-server-2016)
 
 |Version du système d’exploitation de l’image de base du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolation des processus|
 |---|:---:|:---:|
 |Windows Server, version 1909|&#10060;|&#10060;|
 |Windows Server, version 1903|&#10060;|&#10060;|
 |Windows Server 2019|&#10060;|&#10060;|
-|Windows Server 2016|&#10004;|&#10004;|
+|Windows Server 2016|&#10004;|&#10004;|
 
 ---
 <!-- stop tab view -->
@@ -62,39 +62,39 @@ Windows Server 2016 et la mise à jour anniversaire Windows 10 (version 14393) �
 
 <!-- start tab view -->
 
-# <a name="windows-10-version-1909tabwindows-10-1909"></a>[Windows 10, version 1909](#tab/windows-10-1909)
+# <a name="windows-10-version-1909"></a>[Windows 10, version 1909](#tab/windows-10-1909)
 
 |Version du système d’exploitation de l’image de base du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolation des processus|
 |---|:---:|:---:|
 |Windows Server, version 1909|&#10004;|&#10060;|
 |Windows Server, version 1903|&#10004;|&#10060;|
 |Windows Server 2019|&#10004;|&#10060;|
-|Windows Server 2016|&#10004;|&#10060;|
+|Windows Server 2016|&#10004;|&#10060;|
 
-# <a name="windows-10-version-1903tabwindows-10-1903"></a>[Windows 10, version 1903](#tab/windows-10-1903)
+# <a name="windows-10-version-1903"></a>[Windows 10, version 1903](#tab/windows-10-1903)
 
 |Version du système d’exploitation de l’image de base du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolation des processus|
 |---|:---:|:---:|
 |Windows Server, version 1909|&#10060;|&#10060;|
 |Windows Server, version 1903|&#10004;|&#10060;|
 |Windows Server 2019|&#10004;|&#10060;|
-|Windows Server 2016|&#10004;|&#10060;|
+|Windows Server 2016|&#10004;|&#10060;|
 
-# <a name="windows-10-version-1809tabwindows-10-1809"></a>[Windows 10, version 1809](#tab/windows-10-1809)
+# <a name="windows-10-version-1809"></a>[Windows 10, version 1809](#tab/windows-10-1809)
 
 |Version du système d’exploitation de l’image de base du conteneur|Prend en charge l’isolation Hyper-V|Prend en charge l’isolation des processus|
 |---|:---:|:---:|
 |Windows Server, version 1909|&#10060;|&#10060;|
 |Windows Server, version 1903|&#10060;|&#10060;|
 |Windows Server 2019|&#10004;|&#10060;|
-|Windows Server 2016|&#10004;|&#10060;|
+|Windows Server 2016|&#10004;|&#10060;|
 
 ---
 <!-- stop tab view -->
 
 ## <a name="matching-container-host-version-with-container-image-versions"></a>Mise en correspondance de la version de l’hôte de conteneur avec les versions d’image conteneur
 
-### <a name="windows-server-containers"></a>Conteneurs Windows Server
+### <a name="windows-server-containers"></a>Conteneurs Windows Server
 
 Étant donné que les conteneurs Windows Server et l’hôte sous-jacent partagent un seul noyau, la version du système d’exploitation de l’image de base du conteneur doit correspondre à celle de l’hôte. Si les versions sont différentes, le conteneur peut démarrer, mais la fonctionnalité complète n’est pas garantie. Le système d’exploitation Windows dispose de quatre niveaux de contrôle de version : majeur, mineur, Build et révision. Par exemple, la version 10.0.14393.103 aurait une version majeure de 10, une version mineure de 0, un numéro de build de 14393 et un numéro de révision de 103. Le numéro de build change uniquement lorsque de nouvelles versions du système d’exploitation sont publiées, telles que la version 1709, 1903, etc. Le numéro de révision est mis à jour quand des mises à jour Windows sont appliquées.
 
@@ -104,15 +104,17 @@ Le démarrage des conteneurs Windows Server est bloqué lorsque le numéro de bu
 
 #### <a name="revision-number-patching"></a>Numéro de révision (mise à jour corrective)
 
-Le démarrage des conteneurs Windows Server n’est pas bloqué lorsque les numéros de révision de l’hôte de conteneur et de l’image de conteneur sont différents. Par exemple, si l’hôte de conteneur est de version 10.0.14393.1914 (Windows Server 2016 avec KB4051033 appliqué) et que l’image de conteneur est la version 10.0.14393.1944 (Windows Server 2016 avec KB4053579 appliqué), l’image sera toujours démarrée même si sa révision les nombres sont différents.
+Le démarrage des conteneurs basés sur Windows Server 2016 est bloqué lorsque les numéros de révision de l’hôte de conteneur et de l’image de conteneur sont différents. Par exemple, si la version de l’hôte de conteneur est 10.0.14393. **1914** (Windows Server 2016 avec KB4051033 appliqué) et l’image de conteneur est la version 10.0.14393. **1944** (Windows Server 2016 avec KB4053579 appliqué), l’image ne démarrera pas.
 
-Pour les hôtes ou les images basés sur Windows Server 2016, la révision de l’image de conteneur doit correspondre à celle de l’hôte dans une configuration prise en charge. Toutefois, pour les ordinateurs hôtes ou les images qui utilisent Windows Server version 1709 et versions ultérieures, cette règle ne s’applique pas, et l’image de l’hôte et du conteneur n’ont pas besoin de révisions correspondantes. Nous vous recommandons de maintenir vos systèmes à jour avec les derniers correctifs et mises à jour.
+Toutefois, pour les ordinateurs hôtes ou les images qui utilisent Windows Server version 1809 et versions ultérieures, cette règle ne s’applique pas, et l’image de l’hôte et du conteneur n’ont pas besoin de révisions correspondantes. 
+
+Nous vous recommandons de maintenir à jour vos systèmes (hôte et conteneur) avec les derniers correctifs et mises à jour pour rester sécurisés.
 
 #### <a name="practical-application"></a>Application pratique
 
 Exemple 1 : l’hôte de conteneur exécute Windows Server 2016 avec KB4041691 appliqué. Tout conteneur Windows Server déployé sur cet hôte doit être basé sur les images de base du conteneur version 10.0.14393.1770. Si vous appliquez KB4053579 au conteneur hôte, vous devez également mettre à jour les images pour vous assurer que le conteneur hôte les prend en charge.
 
-Exemple 2 : l’hôte de conteneur exécute Windows Server version 1709 avec KB4043961 appliqué. Tout conteneur Windows Server déployé sur cet ordinateur hôte doit être basé sur une image de base de conteneur Windows Server version 1709 (10.0.16299), mais il n’a pas besoin de correspondre à la base de connaissances de l’hôte. Si KB4054517 est appliqué à l’hôte, les images de conteneur sont toujours prises en charge, mais nous vous recommandons de les mettre à jour pour résoudre les problèmes de sécurité potentiels.
+Exemple 2 : l’hôte de conteneur exécute Windows Server version 1809 avec KB4534273 appliqué. Tout conteneur Windows Server déployé sur cet ordinateur hôte doit être basé sur une image de base de conteneur Windows Server version 1809 (10.0.17763), mais il n’a pas besoin de correspondre à la base de connaissances de l’hôte. Si KB4534273 est appliqué à l’hôte, les images de conteneur sont toujours prises en charge, mais nous vous recommandons de les mettre à jour pour résoudre les problèmes de sécurité potentiels.
 
 #### <a name="querying-version"></a>Interrogation de la version
 
@@ -271,7 +273,7 @@ Il existe une proposition de prise en charge de l’isolation Hyper-V par conten
 
 Cela nécessite la modification de la configuration du service Docker, puis le redémarrage du moteur Docker.
 
-1. Modifiez `C:\ProgramData\docker\config\daemon.json`
+1. Modifier `C:\ProgramData\docker\config\daemon.json`
 2. Ajouter une ligne avec `"exec-opts":["isolation=hyperv"]`
 
     >[!NOTE]
@@ -489,7 +491,7 @@ Utilisons cet exemple pour montrer comment faire correspondre les versions :
 
     Dans notre exemple, les informations se présentent comme suit :
 
-    Nom         | Version
+    Nom         | cible
     -------------|--------------------------------------------------------
     38519acs9010 | 14393.1715.amd64fre.rs1_release_inmarket.170906-1810
     38519acs9011 | 16299.0.amd64fre.rs3_release.170922-1354
