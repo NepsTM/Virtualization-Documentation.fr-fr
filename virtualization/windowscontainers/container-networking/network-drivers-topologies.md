@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 46eefb03f8f5a53333f5e7eca7074ab34e72a767
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: cd16f496b85c0977af0d40142768833acadea0f4
+ms.sourcegitcommit: 6f505becbafb1e9785c67d6b0715c4c3af074116
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910069"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78338043"
 ---
 # <a name="windows-container-network-drivers"></a>Pilotes réseau de conteneur Windows  
 
@@ -48,9 +48,8 @@ En plus de tirer parti du réseau « nat » par défaut créé par Docker sur 
   2. Le réseau L2bridge est configuré avec un nouveau sous-réseau IP personnalisé
   
   Dans la configuration 2, les utilisateurs doivent ajouter un point de terminaison sur le compartiment réseau hôte qui agit en tant que passerelle et configurer des fonctionnalités de routage pour le préfixe désigné. 
-  > Requiert : requiert Windows Server 2016, Windows 10 Creators Update ou une version ultérieure.
-
-  > Requiert : [stratégie de OutboundNAT](./advanced.md#specify-outboundnat-policy-for-a-network) pour la connectivité externe.
+  >[!TIP]
+  >Vous trouverez plus d’informations sur la configuration et l’installation de l2bridge [ici](https://techcommunity.microsoft.com/t5/networking-blog/l2bridge-container-networking/ba-p/1180923).
 
 - **l2tunnel** : similaire à l2bridge, mais _ce pilote ne doit être utilisé que dans une pile de Microsoft Cloud (Azure)_ . Les paquets provenant d’un conteneur sont envoyés à l’hôte de virtualisation où la stratégie SDN est appliquée.
 
@@ -61,7 +60,7 @@ Le tableau ci-dessous montre de quelle manière est fournie la connectivité ré
 
 ### <a name="networking-modesdocker-drivers"></a>Modes de mise en réseau/pilotes de l’ancrage
 
-  | Pilote de réseau Windows Docker | Utilisations classiques | Conteneur à conteneur (nœud unique) | Conteneur vers externe (nœud unique + plusieurs nœuds) | Conteneur à conteneur (nœuds multiples) |
+  | Pilote de réseau Windows Docker | Utilisations courantes | Conteneur à conteneur (nœud unique) | Conteneur vers externe (nœud unique + plusieurs nœuds) | Conteneur à conteneur (nœuds multiples) |
   |-------------------------------|:------------:|:------------------------------------:|:------------------------------------------------:|:-----------------------------------:|
   | **NAT (par défaut)** | Bon pour les développeurs | <ul><li>Même sous-réseau : Connexion reliée via un commutateur virtuel Hyper-V</li><li> Sous-réseau croisé : non pris en charge (un seul préfixe NAT interne)</li></ul> | Acheminé via la carte réseau virtuelle de gestion (lié à WinNAT) | Pas directement pris en charge : nécessite l’exposition de ports via un ordinateur hôte |
   | **Transparente** | Bon pour les développeurs ou les petits déploiements | <ul><li>Même sous-réseau : Connexion reliée via un commutateur virtuel Hyper-V</li><li>Entre sous-réseaux : Acheminé via l’hôte de conteneur</li></ul> | Acheminé via l’hôte de conteneur avec un accès direct à l’adaptateur réseau (physique) | Acheminé via l’hôte de conteneur avec un accès direct à l’adaptateur réseau (physique) |
@@ -76,7 +75,7 @@ Les adresses IP sont attribuées et assignées différemment pour chaque pilote 
 | Mode de mise en réseau / Pilote | IPAM |
 | -------------------------|:----:|
 | NAT | Attribution et attribution d’adresses IP dynamiques par le service de mise en réseau hôte (HNS) à partir du préfixe de sous-réseau NAT interne |
-| Mode transparent | Allocation IP et affectation d’IP statiques ou dynamiques (à l’aide du serveur DHCP externe) à partir d’adresses IP au sein du préfixe réseau de l’hôte de conteneur |
+| Transparent | Allocation IP et affectation d’IP statiques ou dynamiques (à l’aide du serveur DHCP externe) à partir d’adresses IP au sein du préfixe réseau de l’hôte de conteneur |
 | Superposition | Allocation IP dynamique à partir de préfixes gérés et d’affectations en mode Swarm du moteur Docker via HNS |
 | L2Bridge | Allocation et attribution d’adresses IP statiques à partir d’adresses IP au préfixe réseau de l’hôte de conteneur (peut également être affectée via HNS) |
 | L2Tunnel | Azure uniquement - Allocation IP et affectation dynamiques à partir d’un plug-in |
