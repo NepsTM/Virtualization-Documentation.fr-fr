@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: cd16f496b85c0977af0d40142768833acadea0f4
-ms.sourcegitcommit: 6f505becbafb1e9785c67d6b0715c4c3af074116
+ms.openlocfilehash: f54c715f474c50c4b3073912adc4e0ab1c42d662
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78338043"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853923"
 ---
 # <a name="windows-container-network-drivers"></a>Pilotes réseau de conteneur Windows  
 
@@ -48,6 +48,14 @@ En plus de tirer parti du réseau « nat » par défaut créé par Docker sur 
   2. Le réseau L2bridge est configuré avec un nouveau sous-réseau IP personnalisé
   
   Dans la configuration 2, les utilisateurs doivent ajouter un point de terminaison sur le compartiment réseau hôte qui agit en tant que passerelle et configurer des fonctionnalités de routage pour le préfixe désigné. 
+  > Requiert : requiert Windows Server 2016, Windows 10 Creators Update ou une version ultérieure.
+
+
+- **l2bridge** : similaire au mode de mise en réseau `transparent`, les conteneurs attachés à un réseau créé avec le pilote « l2bridge » sont connectés au réseau physique via un commutateur Hyper-V *externe* . La différence dans l2bridge réside dans le fait que les points de terminaison de conteneur auront la même adresse MAC que l’hôte en raison de l’opération de traduction d’adresse de couche 2 (réécriture MAC) sur l’entrée et la sortie. Dans les scénarios de clustering, cela permet d’atténuer la contrainte sur les commutateurs qui ont besoin d’apprendre des adresses MAC de conteneurs parfois à courte durée de vie. Les réseaux L2bridge peuvent être configurés de deux manières différentes :
+  1. Le réseau L2bridge est configuré avec le même sous-réseau IP que l’hôte de conteneur
+  2. Le réseau L2bridge est configuré avec un nouveau sous-réseau IP personnalisé
+  
+  Dans la configuration 2, les utilisateurs doivent ajouter un point de terminaison sur le compartiment réseau hôte qui agit en tant que passerelle et configurer des fonctionnalités de routage pour le préfixe désigné. 
   >[!TIP]
   >Vous trouverez plus d’informations sur la configuration et l’installation de l2bridge [ici](https://techcommunity.microsoft.com/t5/networking-blog/l2bridge-container-networking/ba-p/1180923).
 
@@ -76,7 +84,7 @@ Les adresses IP sont attribuées et assignées différemment pour chaque pilote 
 | -------------------------|:----:|
 | NAT | Attribution et attribution d’adresses IP dynamiques par le service de mise en réseau hôte (HNS) à partir du préfixe de sous-réseau NAT interne |
 | Transparent | Allocation IP et affectation d’IP statiques ou dynamiques (à l’aide du serveur DHCP externe) à partir d’adresses IP au sein du préfixe réseau de l’hôte de conteneur |
-| Superposition | Allocation IP dynamique à partir de préfixes gérés et d’affectations en mode Swarm du moteur Docker via HNS |
+| Overlay | Allocation IP dynamique à partir de préfixes gérés et d’affectations en mode Swarm du moteur Docker via HNS |
 | L2Bridge | Allocation et attribution d’adresses IP statiques à partir d’adresses IP au préfixe réseau de l’hôte de conteneur (peut également être affectée via HNS) |
 | L2Tunnel | Azure uniquement - Allocation IP et affectation dynamiques à partir d’un plug-in |
 

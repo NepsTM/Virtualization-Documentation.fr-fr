@@ -3,12 +3,12 @@ title: Compatibilité des versions avec les conteneurs Windows
 description: Comment Windows peut générer et exécuter des conteneurs dans plusieurs versions
 keywords: métadonnées, conteneurs, version
 author: taylorb-microsoft
-ms.openlocfilehash: 32d40997ffef47e4eae2d06303f45522623a5e54
-ms.sourcegitcommit: 530712469552a1ef458883001ee748bab2c65ef7
+ms.openlocfilehash: 326a56789d07f601beceebed01fdc3d49bc7471e
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77628944"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853863"
 ---
 # <a name="windows-container-version-compatibility"></a>Compatibilité des versions de conteneur Windows
 
@@ -137,7 +137,7 @@ Par exemple :
 C:\>reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion" /v BuildLabEx
 ```
 
-```batch
+```powershell
 Windows PowerShell
 Copyright (C) 2016 Microsoft Corporation. All rights reserved.
 
@@ -174,28 +174,28 @@ Vous pouvez résoudre cette erreur de trois façons :
 
 Vous devez connaître la version que vous devez utiliser pour votre conteneur. Par exemple, si vous souhaitez utiliser la version 1809 de Windows Server comme système d’exploitation de conteneur et que vous souhaitez disposer des derniers correctifs, vous devez utiliser la balise `1809` lorsque vous spécifiez la version des images de conteneur du système d’exploitation de base que vous souhaitez, comme ceci :
 
-``` dockerfile
+```dockerfile
 FROM mcr.microsoft.com/windows/nanoserver:1809
 ...
 ```
 
 Toutefois, si vous souhaitez un correctif spécifique de Windows Server version 1809, vous pouvez spécifier le numéro de la base de connaissances dans la balise. Par exemple, pour obtenir une image de conteneur de système d’exploitation de base nano Server à partir de Windows Server version 1809 avec le KB4493509 appliqué, vous devez le spécifier comme suit :
 
-``` dockerfile
+```dockerfile
 FROM mcr.microsoft.com/windows/nanoserver:1809-KB4493509
 ...
 ```
 
 Vous pouvez également spécifier les correctifs exacts dont vous avez besoin avec le schéma que nous avons utilisé précédemment, en spécifiant la version du système d’exploitation dans la balise :
 
-``` dockerfile
+```dockerfile
 FROM mcr.microsoft.com/windows/nanoserver:10.0.17763.437
 ...
 ```
 
 Les images de base Server Core basées sur Windows Server 2019 et Windows Server 2016 sont des versions [LTSC (long-term Servicing Channel)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) . Si, par exemple, vous souhaitez que Windows Server 2019 soit le système d’exploitation du conteneur de votre image Server Core et que vous souhaitiez disposer des derniers correctifs, vous pouvez spécifier les versions de LTSC comme suit :
 
-``` dockerfile
+```dockerfile
 FROM mcr.microsoft.com/windows/servercore:ltsc2019
 ...
 ```

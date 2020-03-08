@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
-ms.openlocfilehash: 6e3996af36b4a710f9a12b3a1371138b053a43d8
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 9899a2d76bfa1fe312e3bd983f60d09d77c272e9
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909899"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853910"
 ---
 # <a name="container-host-deployment-windows-server"></a>Déploiement d’un hôte de conteneur : Windows Server
 
@@ -76,7 +76,8 @@ Install-Package -Name docker -ProviderName DockerMsftProvider -Update -Force -Re
 
 Avant d’utiliser des conteneurs Windows, une image de base doit être installée. Les images de base sont disponibles avec Windows Server Core ou Nano Server comme système d’exploitation de conteneur. Pour plus d’informations sur les images de conteneur Docker, consultez [Créer vos propres images sur docker.com](https://docs.docker.com/engine/tutorials/dockerimages/).
 
-Avec la sortie de Windows Server 2019, les images de conteneur sources Microsoft sont déplacées vers un nouveau registre appelé Microsoft Container Registry. Les images de conteneur publiées par Microsoft doivent continuer à être découvertes par le biais du Hub de l’amarrage. Pour les nouvelles images de conteneur publiées avec Windows Server 2019 et versions ultérieures, vous devez envisager de les extraire de la compression. Pour les anciennes images de conteneur publiées avant Windows Server 2019, vous devez continuer à les extraire du registre de l’ancrage.
+> [!TIP]
+> À partir du 2018 mai, offrant une expérience d’acquisition cohérente et digne de confiance, presque toutes les images de conteneur basées sur Microsoft sont servies à partir de la Container Registry Microsoft, _MCR.Microsoft.com_, tout en conservant le processus de découverte actuel via le hub de l' [_arrimeur_](https://hub.docker.com/publishers/microsoftowner).
 
 ### <a name="windows-server-2019-and-newer"></a>Windows Server 2019 et versions ultérieures
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
-ms.openlocfilehash: 1de86a2492ca899dc3fb932e0d57927fa4000fd0
-ms.sourcegitcommit: 15b5ab92b7b8e96c180767945fdbb2963c3f6f88
+ms.openlocfilehash: 549209c40c2332bdc197375ce4e501467280fa18
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74911709"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853884"
 ---
 # <a name="troubleshooting"></a>Résolution des problèmes
 
@@ -136,7 +136,7 @@ sc.exe stop docker
 
 En règle générale, cela s’avère utile uniquement si le support technique de Microsoft ou les développeurs de l’arrimeur le demandent explicitement. Il peut être utilisé pour aider à diagnostiquer une situation où la station d’accueil semble avoir été suspendue. 
 
-Télécharger [docker-signal.exe](https://github.com/jhowardmsft/docker-signal).
+Télécharger [docker-signal.exe](https://github.com/moby/docker-signal).
 
 Utilisation :
 ```PowerShell
@@ -155,7 +155,7 @@ Le moteur Docker dépend d’un service de calcul hôte spécifique à Windows. 
 - Microsoft-Windows-Hyper-V-Compute-Admin
 - Microsoft-Windows-Hyper-V-Compute-Operational
 
-Ils sont visibles dans l’Observateur d’événements et peuvent également être interrogés avec PowerShell.
+Ils sont visibles dans observateur d’événements et peuvent également être interrogés avec PowerShell.
 
 Par exemple :
 ```PowerShell

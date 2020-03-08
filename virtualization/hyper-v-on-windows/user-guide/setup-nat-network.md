@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1f8a691c-ca75-42da-8ad8-a35611ad70ec
-ms.openlocfilehash: e69775c15359645f3659c9bee3562733415228d5
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 1652c3bcb32ddbc4e05e8821d0e646a76a2fd4f0
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909429"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853963"
 ---
 # <a name="set-up-a-nat-network"></a>Configurer un réseau NAT
 
@@ -24,7 +24,7 @@ Ce guide vous aidera tout au long des processus suivants :
 * Connexion d’une machine virtuelle existante à votre nouveau réseau
 * Vérification que la machine virtuelle est correctement connectée
 
-Configuration requise :
+Conditions requises :
 * Mise à jour anniversaire Windows 10 ou ultérieure
 * Hyper-V est activé (instructions [ici](../quick-start/enable-hyper-v.md))
 
@@ -43,13 +43,13 @@ Pour toutes ces raisons, la mise en réseau NAT est très répandue pour la tech
 ## <a name="create-a-nat-virtual-network"></a>Créer un réseau virtuel NAT
 Examinons la configuration d’un nouveau réseau NAT.
 
-1.  Ouvrez une console PowerShell en tant qu’administrateur.  
+1. Ouvrez une console PowerShell en tant qu’administrateur.  
 
 2. Créez un commutateur interne.
 
-  ``` PowerShell
-  New-VMSwitch -SwitchName "SwitchName" -SwitchType Internal
-  ```
+    ```powershell
+    New-VMSwitch -SwitchName "SwitchName" -SwitchType Internal
+    ```
 
 3. Recherchez l’index d’interface du commutateur virtuel que vous venez de créer.
 
@@ -57,7 +57,7 @@ Examinons la configuration d’un nouveau réseau NAT.
 
     Votre sortie doit ressembler à ceci :
 
-    ```
+    ```console
     PS C:\> Get-NetAdapter
 
     Name                  InterfaceDescription               ifIndex Status       MacAddress           LinkSpeed
@@ -72,54 +72,54 @@ Examinons la configuration d’un nouveau réseau NAT.
 
 4. Configurez la passerelle NAT à l’aide de [New-NetIPAddress](https://docs.microsoft.com/powershell/module/nettcpip/New-NetIPAddress).  
 
-  Voici la commande générique :
-  ``` PowerShell
-  New-NetIPAddress -IPAddress <NAT Gateway IP> -PrefixLength <NAT Subnet Prefix Length> -InterfaceIndex <ifIndex>
-  ```
+    Voici la commande générique :
+    ```powershell
+    New-NetIPAddress -IPAddress <NAT Gateway IP> -PrefixLength <NAT Subnet Prefix Length> -InterfaceIndex <ifIndex>
+    ```
 
-  Pour configurer la passerelle, vous aurez besoin de certaines informations concernant votre réseau :  
-  * **IPAddress** : l’adresse IP de la passerelle NAT spécifie l’adresse IPv4 ou IPv6 à utiliser en tant qu’adresse IP de la passerelle NAT.  
-    La forme générique est a.b.c.1 (par exemple, 172.16.0.1).  Même si la position finale ne doit pas obligatoirement être .1, c’est généralement le cas (en fonction de la longueur du préfixe).
+    Pour configurer la passerelle, vous aurez besoin de certaines informations concernant votre réseau :  
+    * **IPAddress** : l’adresse IP de la passerelle NAT spécifie l’adresse IPv4 ou IPv6 à utiliser en tant qu’adresse IP de la passerelle NAT.  
+      La forme générique est a.b.c.1 (par exemple, 172.16.0.1).  Même si la position finale ne doit pas obligatoirement être .1, c’est généralement le cas (en fonction de la longueur du préfixe).
 
-    Une adresse IP de passerelle courante est 192.168.0.1  
+      Une adresse IP de passerelle courante est 192.168.0.1  
 
-  * **PrefixLength** : la longueur du préfixe de sous-réseau NAT définit la taille du sous-réseau local NAT (masque de sous-réseau).
-    La longueur du préfixe de sous-réseau est une valeur entière comprise entre 0 et 32.
+    * **PrefixLength** --la longueur du préfixe du sous-réseau NAT définit la taille du sous-réseau local NAT (masque de sous-réseau).
+      La longueur du préfixe de sous-réseau est une valeur entière comprise entre 0 et 32.
 
-    0 mappe la totalité d’Internet ; 32 permet une seule adresse IP mappée.  Les valeurs courantes sont comprises entre 24 et 12 en fonction du nombre d’adresses IP attachées à NAT.
+      0 mappe la totalité d’Internet ; 32 permet une seule adresse IP mappée.  Les valeurs courantes sont comprises entre 24 et 12 en fonction du nombre d’adresses IP attachées à NAT.
 
-    24 est une valeur PrefixLength courante : il s’agit d’un masque de sous-réseau 255.255.255.0
+      24 est une valeur PrefixLength courante : il s’agit d’un masque de sous-réseau 255.255.255.0
 
-  * **InterfaceIndex** --ifIndex est l’index d’interface du commutateur virtuel défini à l’étape précédente.
+    * **InterfaceIndex** --ifIndex est l’index d’interface du commutateur virtuel défini à l’étape précédente.
 
-  Exécutez la commande suivante pour créer une passerelle NAT :
+    Exécutez la commande suivante pour créer une passerelle NAT :
 
-  ``` PowerShell
-  New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 24
-  ```
+    ```powershell
+    New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 24
+    ```
 
 5. Configurez le réseau NAT à l’aide de [New-NetNat](https://docs.microsoft.com/powershell/module/netnat/New-NetNat).  
 
-  Voici la commande générique :
+    Voici la commande générique :
 
-  ``` PowerShell
-  New-NetNat -Name <NATOutsideName> -InternalIPInterfaceAddressPrefix <NAT subnet prefix>
-  ```
+    ```powershell
+    New-NetNat -Name <NATOutsideName> -InternalIPInterfaceAddressPrefix <NAT subnet prefix>
+    ```
 
-  Pour configurer la passerelle, vous devez fournir des informations relatives au réseau et à la passerelle NAT :  
-  * **Name** : NATOutsideName décrit le nom du réseau NAT.  Cette valeur permet de supprimer le réseau NAT.
+    Pour configurer la passerelle, vous devez fournir des informations relatives au réseau et à la passerelle NAT :  
+    * **Name** : NATOutsideName décrit le nom du réseau NAT.  Cette valeur permet de supprimer le réseau NAT.
 
-  * **InternalIPInterfaceAddressPrefix** : le préfixe de sous-réseau NAT décrit à la fois le préfixe IP de la passerelle NAT ci-dessus et la longueur du préfixe de sous-réseau NAT ci-dessus.
+    * **InternalIPInterfaceAddressPrefix** : le préfixe de sous-réseau NAT décrit à la fois le préfixe IP de la passerelle NAT ci-dessus et la longueur du préfixe de sous-réseau NAT ci-dessus.
 
     La forme générique est a.b.c.0/Longueur du préfixe de sous-réseau NAT
 
     Conformément à ce qui précède, pour cet exemple, nous utiliserons 192.168.0.0/24
 
-  Pour notre exemple, exécutez la commande suivante pour configurer le réseau NAT :
+    Pour notre exemple, exécutez la commande suivante pour configurer le réseau NAT :
 
-  ``` PowerShell
-  New-NetNat -Name MyNATnetwork -InternalIPInterfaceAddressPrefix 192.168.0.0/24
-  ```
+    ```powershell
+    New-NetNat -Name MyNATnetwork -InternalIPInterfaceAddressPrefix 192.168.0.0/24
+    ```
 
 Félicitations !  Vous avez maintenant un réseau NAT virtuel !  Pour ajouter une machine virtuelle, pour le réseau NAT, suivez [ces instructions](#connect-a-virtual-machine).
 
@@ -203,52 +203,55 @@ Au final, vous devez avoir deux commutateurs virtuels internes : l’un nommé 
 Ce guide suppose qu’il n’y a pas d’autre NAT sur l’hôte. Toutefois, les applications ou services qui nécessitent l’utilisation d’un NAT peuvent en créer un au moment de l’installation. Étant donné que Windows (WinNAT) ne prend en charge qu’un seul préfixe de sous-réseau NAT interne, si vous essayez de créer plusieurs NAT, le système est placé dans un état inconnu.
 
 Pour voir si c’est le problème, vérifiez que vous avez un seul NAT :
-``` PowerShell
+```powershell
 Get-NetNat
 ```
 
 Si un NAT existe déjà, supprimez-le.
-``` PowerShell
+```powershell
 Get-NetNat | Remove-NetNat
 ```
 Vérifiez que vous avez uniquement un commutateur de machine virtuelle « interne » pour l’application ou la fonctionnalité (par exemple, des conteneurs Windows). Enregistrez le nom du commutateur virtuel
-``` PowerShell
+```powershell
 Get-VMSwitch
 ```
 
-Vérifiez s’il existe des adresses IP privées (par exemple, l’adresse IP de la passerelle par défaut NAT, généralement *.1) de l’ancien NAT toujours affectées à un adaptateur
-``` PowerShell
+Vérifiez s’il existe des adresses IP privées (par exemple, l’adresse IP de la passerelle par défaut NAT, généralement _x_. _y_. _z_. 1) de l’ancien NAT encore affecté à un adaptateur
+```powershell
 Get-NetIPAddress -InterfaceAlias "vEthernet (<name of vSwitch>)"
 ```
 
 Si une ancienne adresse IP privée est en cours d’utilisation, supprimez-la
-``` PowerShell
+```powershell
 Remove-NetIPAddress -InterfaceAlias "vEthernet (<name of vSwitch>)" -IPAddress <IPAddress>
 ```
 
 **Suppression de plusieurs NAT**  
 Nous avons vu des rapports concernant plusieurs réseaux NAT créés par inadvertance. Cela est dû à un bogue dans les builds récentes (notamment Windows Server 2016 Technical Preview 5 et Windows 10 Insider Preview). Si vous voyez plusieurs réseaux NAT après avoir exécuté docker network ls ou Get-ContainerNetwork, exécutez ce qui suit à partir d’une invite PowerShell avec élévation des privilèges :
 
+```powershell
+$keys = Get-ChildItem "HKLM:\SYSTEM\CurrentControlSet\Services\vmsmp\parameters\SwitchList"
+foreach($key in $keys)
+{
+   if ($key.GetValue("FriendlyName") -eq 'nat')
+   {
+      $newKeyPath = $KeyPath+"\"+$key.PSChildName
+      Remove-Item -Path $newKeyPath -Recurse
+   }
+}
+Remove-NetNat -Confirm:$false
+Get-ContainerNetwork | Remove-ContainerNetwork
+Get-VmSwitch -Name nat | Remove-VmSwitch # failure is expected
+Stop-Service docker
+Set-Service docker -StartupType Disabled
 ```
-PS> $KeyPath = "HKLM:\SYSTEM\CurrentControlSet\Services\vmsmp\parameters\SwitchList"
-PS> $keys = get-childitem $KeyPath
-PS> foreach($key in $keys)
-PS> {
-PS>    if ($key.GetValue("FriendlyName") -eq 'nat')
-PS>    {
-PS>       $newKeyPath = $KeyPath+"\"+$key.PSChildName
-PS>       Remove-Item -Path $newKeyPath -Recurse
-PS>    }
-PS> }
-PS> remove-netnat -Confirm:$false
-PS> Get-ContainerNetwork | Remove-ContainerNetwork
-PS> Get-VmSwitch -Name nat | Remove-VmSwitch (_failure is expected_)
-PS> Stop-Service docker
-PS> Set-Service docker -StartupType Disabled
-Reboot Host
-PS> Get-NetNat | Remove-NetNat
-PS> Set-Service docker -StartupType automaticac
-PS> Start-Service docker 
+
+Redémarrez le système d’exploitation avant d’exécuter les commandes suivantes (`Restart-Computer`)
+
+```powershell
+Get-NetNat | Remove-NetNat
+Set-Service docker -StartupType Automatic
+Start-Service docker 
 ```
 
 Consultez ce [guide d’installation concernant l’utilisation du même NAT par plusieurs applications](#multiple-applications-using-the-same-nat) pour recréer votre environnement NAT, si nécessaire. 

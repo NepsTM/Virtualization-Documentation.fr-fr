@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6e5e6b01-7a9d-4123-8cc7-f986e10cd372
-ms.openlocfilehash: d3375cd912097f85f0a350b8f329c008323cab37
-ms.sourcegitcommit: cea415924b7b6a690d0ba9ff31beed30e9c187d2
+ms.openlocfilehash: ebc9be132f05c20eb8daf9b5e6713b9258012305
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2020
-ms.locfileid: "76750190"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853986"
 ---
 # <a name="windows-10-hyper-v-system-requirements"></a>Configuration requise pour Hyper-V sur Windows 10
 
@@ -21,18 +21,18 @@ Hyper-V est disponible en version 64 bits de Windows 10 professionnel, entrepris
 
 Vous pouvez exécuter trois ou quatre machines virtuelles de base sur un hôte disposant de 4 Go de RAM. Pour exécuter plus de machines virtuelles, davantage de ressources sont nécessaires. En revanche, vous pouvez créer des machines virtuelles de grande taille avec 32 processeurs et 512 Go de RAM, selon votre matériel physique.
 
-## <a name="operating-system-requirements"></a>Configuration requise pour le système d’exploitation
+## <a name="operating-system-requirements"></a>Systèmes d'exploitation requis
 
 Le rôle Hyper-V peut être activé sur ces versions de Windows 10 :
 
-- Windows 10 Entreprise
-- Windows 10 Professionnel
-- Windows 10 Éducation
+- Windows 10 Entreprise
+- Windows 10 Professionnel
+- Windows 10 Éducation
 
 Le rôle Hyper-V **ne peut pas** être installé sur :
 
 - Windows 10 Famille
-- Windows 10 Mobile
+- Windows 10 Mobile
 - Windows 10 Mobile Entreprise
 
 >Windows 10 édition personnelle peut être mis à niveau vers Windows 10 professionnel. Pour cela, ouvrez **Paramètres** > **Mise à jour et sécurité** > **Activation**. Vous pouvez alors visiter le magasin et acheter la mise à niveau.
@@ -51,12 +51,23 @@ Les éléments suivants doivent être activés dans le BIOS du système :
 
 ## <a name="verify-hardware-compatibility"></a>Vérifier la compatibilité matérielle
 
-Pour vérifier la compatibilité, ouvrez PowerShell ou une invite de commandes (cmd.exe), puis tapez **systeminfo**. Si tous les éléments de la configuration requise pour Hyper-V ont la valeur **Oui**, votre système peut exécuter le rôle Hyper-V. Si l’un des éléments a la valeur **Non**, passez en revue la configuration requise figurant dans ce document et apportez des ajustements dans la mesure du possible.
+Après avoir vérifié la configuration requise et le système d’exploitation ci-dessus, vérifiez la compatibilité matérielle dans Windows en ouvrant une session PowerShell ou une fenêtre d’invite de commandes (cmd. exe), en tapant **systeminfo**, puis en vérifiant la section Configuration requise pour Hyper-V. Si tous les éléments de la configuration requise pour Hyper-V ont la valeur **Oui**, votre système peut exécuter le rôle Hyper-V. Si l’un des éléments a la valeur **Non**, passez en revue la configuration requise figurant dans ce document et apportez des ajustements dans la mesure du possible.
 
 ![](media/SystemInfo-upd.png)
 
-Si vous exécutez **systeminfo** sur un hôte Hyper-V existant, la section Configuration requise pour Hyper-V indique ce qui suit :
+## <a name="final-check"></a>Vérification finale
 
-```
-Hyper-V Requirements: A hypervisor has been detected. Features required for Hyper-V will not be displayed.
-```
+Si toutes les conditions requises pour le système d’exploitation, le matériel et la compatibilité sont remplies, vous verrez **Hyper-V** dans **le panneau de configuration : activez ou désactivez les fonctionnalités de Windows** et deux options s’offrent à vous.
+
+1. Plateforme Hyper-V
+1. Outils de gestion Hyper-V
+
+![](media/hyper_v_feature_screenshot.png)
+
+> [!NOTE] Si vous voyez **plateforme d’hyperviseur Windows** au lieu d' **Hyper-V** dans le **panneau de configuration : activez ou dés>z les fonctionnalités Windows sur** votre système.
+>
+>Si vous exécutez **systeminfo** sur un hôte Hyper-V existant, la section Configuration requise pour Hyper-V indique ce qui suit :
+>
+>```
+>Hyper-V Requirements: A hypervisor has been detected. Features required for Hyper-V will not be displayed.
+>```

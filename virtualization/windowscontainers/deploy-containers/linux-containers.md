@@ -1,21 +1,21 @@
 ---
-title: Conteneurs Linux sur Windows
-description: Découvrez les différentes façons dont vous pouvez utiliser Hyper-V pour exécuter des conteneurs Linux sur Windows comme s’ils étaient natifs.
-keywords: LCOW, conteneurs Linux, arrimeur, conteneurs
+title: Conteneurs Linux sur Windows 10
+description: Découvrez les différentes façons dont vous pouvez utiliser Hyper-V pour exécuter des conteneurs Linux sur Windows 10 comme s’ils étaient natifs.
+keywords: LCOW, conteneurs Linux, arrimeur, conteneurs, Windows 10
 author: scooley
 ms.date: 09/17/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: edfd11c8-ee99-42d8-9878-efc126fe1826
-ms.openlocfilehash: 14445f3e9d292dbdab28986e772d0c045fca1586
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 843bd0ab7ccf3a227482ba3a3d2677e36b395b29
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910569"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78854013"
 ---
-# <a name="linux-containers-on-windows"></a>Conteneurs Linux sur Windows
+# <a name="linux-containers-on-windows-10"></a>Conteneurs Linux sur Windows 10
 
 Les conteneurs Linux constituent un pourcentage énorme de l’écosystème de conteneurs global et sont fondamentaux pour les environnements de développement et les environnements de production.  Étant donné que les conteneurs partagent un noyau avec l’hôte de conteneur, toutefois, l’exécution de conteneurs Linux directement sur Windows n’est pas une option[*](linux-containers.md#other-options-we-considered).  C’est là qu’intervient la virtualisation dans l’image.
 
@@ -23,6 +23,8 @@ Les conteneurs Linux constituent un pourcentage énorme de l’écosystème de c
 
 - Exécuter des conteneurs Linux sur une machine virtuelle Linux complète : c’est ce que l’arrimeur effectue généralement aujourd’hui.
 - Exécuter des conteneurs Linux avec l' [isolation Hyper-V](../manage-containers/hyperv-container.md) (LCOW) : il s’agit d’une nouvelle option dans docker pour Windows.
+
+> _L’exécution de conteneurs Linux sur un système d’exploitation Windows Server est actuellement toujours à l’État expérimental. Des licences supplémentaires pour le programme Dockr EE seront nécessaires pour essayer cela. **Le reste de cet article s’applique uniquement à Windows 10**._
 
 Cet article décrit le fonctionnement de chaque approche, fournit des conseils sur la manière de choisir la solution et les partages de travail en cours.
 
@@ -47,7 +49,7 @@ Pour voir si vous utilisez une machine virtuelle Moby, vérifiez le Gestionnaire
 
 ## <a name="linux-containers-with-hyper-v-isolation"></a>Conteneurs Linux avec isolation Hyper-V
 
-Pour essayer les conteneurs Linux sur Windows (LCOW), suivez les instructions du conteneur Linux dans [conteneurs Linux sur Windows 10](../quick-start/quick-start-windows-10-linux.md).
+Pour tester les conteneurs Linux sur Windows 10 (LCOW10), suivez les instructions du conteneur Linux dans [conteneurs Linux sur Windows 10](../quick-start/quick-start-windows-10-linux.md). 
 
 Les conteneurs Linux avec isolation Hyper-V exécutent chaque conteneur Linux sur une machine virtuelle Linux optimisée avec juste assez de système d’exploitation pour exécuter des conteneurs. Contrairement à l’approche de machine virtuelle Moby, chaque conteneur Linux a son propre noyau et son propre bac à sable (sandbox) de machine virtuelle. Elles sont également gérées directement par l’arrimeur sur Windows.
 
@@ -74,10 +76,10 @@ Ces opérations ne fonctionnent actuellement pas pour les volumes montés par li
 * MkNod
 * XAttrWalk
 * XAttrCreate
-* Lock
+* Verrouiller
 * Getlock
 * Auth
-* Flush
+* Purge
 * INotify
 
 Certaines ne sont pas totalement implémentés :

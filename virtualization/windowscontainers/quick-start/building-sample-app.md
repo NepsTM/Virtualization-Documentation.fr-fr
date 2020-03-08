@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: fab0dc46ddcc8c82a010d408032e5f3c4cea8d69
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 587e8de5f0d593f92f6301c87bf68e08a8bbd839
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910139"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78854003"
 ---
 # <a name="containerize-a-net-core-app"></a>Conteneur d’une application .NET Core
 
@@ -103,7 +103,7 @@ ENTRYPOINT ["dotnet", "asp-net-getting-started.dll"]
 
 Nous avons écrit le fichier dockerfile pour effectuer une _génération en plusieurs étapes_. Lorsque le fichier dockerfile est exécuté, il utilise le conteneur temporaire, `build-env`, avec le kit de développement logiciel (SDK) .NET Core 2,1 pour générer l’exemple d’application, puis copier les fichiers binaires générés dans un autre conteneur contenant uniquement le Runtime .NET Core 2,1, afin de réduire la taille du conteneur final.
 
-## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
+## <a name="build-and-run-the-app"></a>Générer et exécuter l'application
 
 Une fois l’fichier dockerfile écrit, nous pouvons pointer le Dockeur sur notre fichier dockerfile et lui demander de générer et d’exécuter l’image :
 
@@ -126,11 +126,11 @@ Une fois l’fichier dockerfile écrit, nous pouvons pointer le Dockeur sur notr
    * `--name myapp` indique à Dockr d’attribuer à ce conteneur un nom pratique à interroger (au lieu d’avoir à Rechercher l’ID contaienr assigné au moment de l’exécution par docker).
    * `my-asp-app` est l’image que l’Assistant de connexion doit exécuter. Il s’agit de l’image de conteneur produite comme l’aboutissement du processus de `docker build`.
 
-3. Ouvrez un navigateur Web de navigateur Web et accédez à `http://localhost:5000` pour voir votre application en conteneur, comme illustré dans cette capture d’écran :
+3. Ouvrez un navigateur Web et accédez à `http://localhost:5000` pour voir votre application en conteneur, comme illustré dans cette capture d’écran :
 
    >![ASP.NET Core page Web, exécution à partir de localhost dans un conteneur](media/SampleAppScreenshot.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 1. L’étape suivante consiste à publier votre application Web ASP.NET en conteneur dans un registre privé à l’aide de Azure Container Registry. Cela vous permet de le déployer dans votre organisation.
 
@@ -148,4 +148,4 @@ Une fois l’fichier dockerfile écrit, nous pouvons pointer le Dockeur sur notr
 2. Une fois que vous avez publié votre application dans le registre de conteneurs, l’étape suivante consiste à déployer l’application sur un cluster Kubernetes que vous créez avec le service Azure Kubernetes.
 
    > [!div class="nextstepaction"]
-   > [Créer un cluster Kubernetes](https://docs.microsoft.com/azure/aks/windows-container-cli)
+   > [Créer un cluster Kubernetes](https://docs.microsoft.com/azure/aks/windows-container-cli)

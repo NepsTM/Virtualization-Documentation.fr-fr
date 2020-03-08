@@ -8,18 +8,18 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 42154683-163b-47a1-add4-c7e7317f1c04
-ms.openlocfilehash: fa95ffe1c699a2c837076fcc1b662f6b792b7dfb
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 362805fa230f461414ccc53643644f6c1b3474a8
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909749"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853953"
 ---
 # <a name="isolation-modes"></a>Modes d’isolation
 
 Les conteneurs Windows offrent deux modes distincts d’isolation du Runtime : `process` et `Hyper-V` isolation. Les conteneurs s’exécutant sous les deux modes d’isolation sont créés, gérés et fonctionnent de manière identique. Ils produisent et consomment aussi les mêmes images de conteneur. La différence entre les modes d’isolation est le degré d’isolement créé entre le conteneur, le système d’exploitation hôte et tous les autres conteneurs exécutés sur cet hôte.
 
-## <a name="process-isolation"></a>Isolement des processus
+## <a name="process-isolation"></a>Isolation des processus
 
 Il s’agit du mode d’isolation « traditionnel » pour les conteneurs. c’est ce qui est décrit dans la [vue d’ensemble des conteneurs Windows](../about/index.md). Avec l’isolation des processus, plusieurs instances de conteneur s’exécutent simultanément sur un hôte donné avec l’isolation fournie par le biais des technologies d’espace de noms, de contrôle des ressources et d’isolation des processus. Lors de son exécution dans ce mode, les conteneurs partagent le même noyau avec l’hôte et l’ordinateur hôte.  Cela est quasiment identique à celui de l’exécution des conteneurs Linux.
 
@@ -40,7 +40,7 @@ La gestion d’un conteneur isolé Hyper-V avec l’arrimeur est presque identiq
 docker run -it --isolation=hyperv mcr.microsoft.com/windows/servercore:ltsc2019 cmd
 ```
 
-Pour créer un conteneur avec l’isolation de processus complet, utilisez le paramètre `--isolation` pour définir `--isolation=process`.
+Pour créer un conteneur avec l’isolation des processus par le biais de Dockr, utilisez le paramètre `--isolation` pour définir `--isolation=process`.
 
 ```cmd
 docker run -it --isolation=process mcr.microsoft.com/windows/servercore:ltsc2019 cmd

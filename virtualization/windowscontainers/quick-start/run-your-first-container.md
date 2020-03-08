@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: a664b5b8eb87adffdf7eba3ffca9f4194128df80
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 551d405d836cfb16b587ef78bc2d5f5abbd8648f
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909569"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853813"
 ---
 # <a name="get-started-run-your-first-windows-container"></a>Prise en main : exécuter votre premier conteneur Windows
 
@@ -22,7 +22,7 @@ Cette rubrique décrit comment exécuter votre premier conteneur Windows, après
 
 ## <a name="install-a-container-base-image"></a>Installer une image de base de conteneur
 
-Tous les conteneurs sont créés à partir d’images de conteneur. Microsoft propose plusieurs images de démarrage, appelées images de base, à choisir. pour en savoir plus, consultez [images de base du conteneur](../manage-containers/container-base-images.md). Cette procédure extrait (télécharge et installe) l’image de base nano Server légère.
+Tous les conteneurs sont créés à partir d’images conteneur. Microsoft propose plusieurs images de démarrage, appelées images de base, à choisir. pour en savoir plus, consultez [images de base du conteneur](../manage-containers/container-base-images.md). Cette procédure extrait (télécharge et installe) l’image de base nano Server légère.
 
 1. Ouvrez une fenêtre d’invite de commandes (telle que l’invite de commandes intégrée, PowerShell ou [Windows Terminal](https://www.microsoft.com/p/windows-terminal-preview/9n0dx20hk701?activetab=pivot:overviewtab)), puis exécutez la commande suivante pour télécharger et installer l’image de base :
 
@@ -33,7 +33,7 @@ Tous les conteneurs sont créés à partir d’images de conteneur. Microsoft pr
    > [!TIP]
    > Si vous voyez s’afficher un message d’erreur `no matching manifest for unknown in the manifest list entries`, assurez-vous que la station d’accueil n’est pas configurée pour exécuter des conteneurs Linux.
 
-2. Une fois le téléchargement de l’image terminé, lisez le [CLUF](../images-eula.md) en cours d’attente. Vérifiez qu’il existe sur votre système en interrogeant votre référentiel d’images de l’arrimeur local. L’exécution de la commande `docker images` retourne une liste d’images installées.
+2. Une fois le téléchargement de l’image terminé, lisez le [CLUF](../images-eula.md) en cours d’attente. Vérifiez son existence sur votre système en interrogeant votre référentiel d’images d’ancrage local. L’exécution de la commande `docker images` retourne une liste d’images installées.
 
    Voici un exemple de la sortie qui affiche l’image nano Server.
 
@@ -92,7 +92,7 @@ Pour cet exemple simple, une image de conteneur « Hello World » est créée 
 
    Le résultat est qu’un conteneur a été créé à partir de l’image « HelloWorld », une instance de cmd. exe a été démarrée dans le conteneur qui lit notre fichier et génère le contenu du fichier dans le shell, puis le conteneur s’est arrêté et a été supprimé.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur la mise en conteneur d’un exemple d’application](./building-sample-app.md)

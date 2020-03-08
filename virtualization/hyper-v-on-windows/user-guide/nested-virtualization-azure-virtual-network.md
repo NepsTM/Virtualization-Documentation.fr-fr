@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1ecb85a6-d938-4c30-a29b-d18bd007ba08
-ms.openlocfilehash: efd180c458457da1cea6b379e21ba3a37083d15a
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: b7944e34cab66df07df0ccc78947a774d775c9a7
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910959"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853943"
 ---
 # <a name="configure-nested-vms-to-communicate-with-resources-in-an-azure-virtual-network"></a>Configurer des machines virtuelles imbriquées pour communiquer avec les ressources d’un réseau virtuel Azure
 
@@ -47,7 +47,7 @@ Avant de commencer ce guide, veuillez :
 * Pour plusieurs ordinateurs hôtes Hyper-V, vous devez créer des sous-réseaux « flottants » supplémentaires et ajouter un itinéraire statique supplémentaire au UDR.
 * Lorsque vous désaffectez un hôte Hyper-V, vous supprimez/réaffectez le sous-réseau « flottant » et supprimez cet itinéraire statique de notre UDR, ou s’il s’agit du dernier ordinateur hôte Hyper-V, supprimez complètement le UDR.
 
-## <a name="creating-the-host"></a>Création de l'hôte
+## <a name="creating-the-host"></a>Création de l’hôte
 
 Je vais vous conformer à toutes les valeurs de configuration qui sont des préférences personnelles, telles que le nom de la machine virtuelle, le groupe de ressources, etc.
 
@@ -58,13 +58,13 @@ Je vais vous conformer à toutes les valeurs de configuration qui sont des préf
 5. Passer à l’onglet « mise en réseau »
 6. Créer un nouveau réseau virtuel avec la configuration suivante
     * Espace d’adressage du réseau virtuel : 10.0.0.0/22
-    * Sous-réseau 1
+    * Sous-réseau 1
         * Nom : NAT
         * Espace d’adressage : 10.0.0.0/24
-    * Sous-réseau 2
+    * Sous-réseau 2
         * Nom : Hyper-V-LAN
         * Espace d’adressage : 10.0.1.0/24
-    * Sous-réseau 3
+    * Sous-réseau 3
         * Nom : fantôme
         * Espace d’adressage : 10.0.2.0/24
     * Sous-réseau 4
@@ -75,7 +75,7 @@ Je vais vous conformer à toutes les valeurs de configuration qui sont des préf
 
 ## <a name="create-the-second-network-interface"></a>Créer la deuxième interface réseau
 1. Une fois l’approvisionnement de la machine virtuelle terminé, accédez-y dans le portail Azure.
-2. Arrêtez la machine virtuelle.
+2. Arrêter la machine virtuelle
 3. Une fois arrêté, accédez à « mise en réseau » sous paramètres.
 4. « Attacher l’interface réseau »
 5. « Créer une interface réseau »
@@ -91,7 +91,7 @@ Je vais vous conformer à toutes les valeurs de configuration qui sont des préf
 ## <a name="setting-up-hyper-v"></a>Configuration d’Hyper-V
 1. À distance dans votre hôte
 2. Ouvrir une invite PowerShell avec élévation de privilèges
-3. Exécutez la commande suivante : `Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart`
+3. Exécutez la commande suivante `Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart`
 4. Cette opération redémarre l’ordinateur hôte
 5. Reconnectez-vous à l’hôte pour poursuivre le programme d’installation
 
@@ -124,7 +124,7 @@ Je vais vous conformer à toutes les valeurs de configuration qui sont des préf
 3. Dans l’Assistant, sélectionnez « suivant », vérifiez le bouton radial pour « configuration personnalisée », puis sélectionnez « suivant ».
 4. Vérifiez « NAT » et « routage LAN », puis sélectionnez « suivant » et « terminer ». Si vous êtes invité à démarrer le service, faites-le.
 5. À présent, accédez au nœud « IPv4 » et développez-le afin que le nœud « NAT » soit disponible.
-6. Cliquez avec le bouton droit sur « NAT », puis sélectionnez « nouvelle interface... ». et sélectionnez « Ethernet ». il doit s’agir de votre première carte réseau avec l’adresse IP « 10.0.0.4 ».
+6. Cliquez avec le bouton droit sur « NAT », puis sélectionnez « nouvelle interface... ». et sélectionnez « Ethernet ». il doit s’agir de votre première carte d’interface réseau avec l’adresse IP « 10.0.0.4 », puis sélectionnez interface publique connexion à Internet et activer NAT sur cette interface. 
 7. Nous devons maintenant créer des itinéraires statiques pour forcer le trafic LAN sur la seconde carte réseau. Pour ce faire, accédez au nœud « itinéraires statiques » sous « IPv4 ».
 8. Nous allons créer les itinéraires suivants.
     * Itinéraire 1
@@ -154,13 +154,13 @@ Pour plus d’informations, consultez [cet article](https://docs.microsoft.com/a
 5. Nommez la table d’itinéraires, dans mon cas, je l’ai nommée « routes-for-imbriqued-machines virtuelles ».
 6. Veillez à sélectionner l’abonnement dans lequel se trouvent les hôtes Hyper-V.
 7. Créez un groupe de ressources ou sélectionnez un groupe existant et assurez-vous que la région dans laquelle vous créez la table de routage correspond à la région dans laquelle se trouve votre hôte Hyper-V.
-8. Sélectionnez « Create  (Créer) ».
+8. Sélectionnez « créer ».
 
 ## <a name="configuring-the-route-table"></a>Configuration de la table de routage
 
 1. Accédez à la table de routage que nous venons de créer. Pour ce faire, recherchez le nom de la table de routage dans la barre de recherche en haut au centre du portail.
 2. Une fois que vous avez sélectionné la table de routage, accédez à « routes » dans le panneau.
-3. Sélectionner « Ajouter ».
+3. Sélectionnez « Ajouter ».
 4. Donnez un nom à votre itinéraire, j’ai effectué une « imbrication de machines virtuelles ».
 5. Pour le préfixe d’adresse, entrez la plage d’adresses IP de notre sous-réseau « flottant ». Dans ce cas, il s’agit de 10.0.2.0/24.
 6. Pour « type de tronçon suivant », sélectionnez « appliance virtuelle », puis entrez l’adresse IP de la seconde carte réseau hôtes Hyper-V, qui serait 10.0.1.4, puis sélectionnez « OK ».
@@ -218,7 +218,7 @@ L’environnement de ce guide présente les configurations ci-dessous. Cette sec
         * Passerelle par défaut : vide
 
 3. Notre table de routage n’a qu’une seule règle.
-    * Règle 1
+    * Règle 1
         * Nom : imbriqué-machines virtuelles
         * Destination : 10.0.2.0/24
         * Tronçon suivant : appliance virtuelle-10.0.1.4
