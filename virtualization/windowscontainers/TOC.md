@@ -4,9 +4,9 @@
 ## [À propos des conteneurs Windows](about/index.md)
 ## [Conteneurs ou machines virtuelles](about/containers-vs-vm.md)
 ## [Configuration système requise](deploy-containers/system-requirements.md)
-## [FAQ](about/faq.md)
+## [Questions fréquentes (FAQ)](about/faq.md)
 
-# Prise en main
+# Démarrer
 ## [Configurer votre environnement](quick-start/set-up-environment.md)
 ## [Exécuter votre premier conteneur](quick-start/run-your-first-container.md)
 ## [Conteneuriser un exemple d’application](quick-start/building-sample-app.md)
@@ -35,6 +35,7 @@
 ### [Images de base de conteneur](manage-containers/container-base-images.md)
 ### [Modes d’isolement](manage-containers/hyperv-container.md)
 ### [Compatibilité des versions](deploy-containers/version-compatibility.md)
+### [Gérer les conteneurs](deploy-containers/update-containers.md)
 ### [Contrôles des ressources](manage-containers/resource-controls.md)
 ## Docker
 ### [Moteur Docker sur Windows](manage-docker/configure-docker-daemon.md)
@@ -57,7 +58,7 @@
 ### Docker Swarm
 #### [Mode Swarm](manage-containers/swarm-mode.md)
 ## Charges de travail
-### Comptes de service administrés de groupe
+### Group Managed Service Accounts
 #### [Créer un gMSA](manage-containers/manage-serviceaccounts.md)
 #### [Configurer votre application pour utiliser un gMSA](manage-containers/gmsa-configure-app.md)
 #### [Exécuter un conteneur avec un gMSA](manage-containers/gmsa-run-container.md)
@@ -72,7 +73,7 @@
 ## Stockage
 ### [Vue d’ensemble](manage-containers/container-storage.md)
 ### [Stockage persistant](manage-containers/persistent-storage.md)
-## Appareils
+## Périphériques
 ### [Périphériques matériels](deploy-containers/hardware-devices-in-containers.md)
 ### [Accélération GPU](deploy-containers/gpu-acceleration.md)
 
