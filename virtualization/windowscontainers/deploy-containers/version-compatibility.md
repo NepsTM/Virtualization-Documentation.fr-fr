@@ -3,12 +3,12 @@ title: Compatibilité des versions avec les conteneurs Windows
 description: Comment Windows peut générer et exécuter des conteneurs dans plusieurs versions
 keywords: métadonnées, conteneurs, version
 author: taylorb-microsoft
-ms.openlocfilehash: 326a56789d07f601beceebed01fdc3d49bc7471e
-ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
+ms.openlocfilehash: 917c07e13d6a0ec5b5e73213da4dc4f04ec0d9bb
+ms.sourcegitcommit: 8eedfdc1fda9d0abb36e28dc2b5fb39891777364
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78853863"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79027862"
 ---
 # <a name="windows-container-version-compatibility"></a>Compatibilité des versions de conteneur Windows
 
@@ -104,11 +104,16 @@ Le démarrage des conteneurs Windows Server est bloqué lorsque le numéro de bu
 
 #### <a name="revision-number-patching"></a>Numéro de révision (mise à jour corrective)
 
-Le démarrage des conteneurs basés sur Windows Server 2016 est bloqué lorsque les numéros de révision de l’hôte de conteneur et de l’image de conteneur sont différents. Par exemple, si la version de l’hôte de conteneur est 10.0.14393. **1914** (Windows Server 2016 avec KB4051033 appliqué) et l’image de conteneur est la version 10.0.14393. **1944** (Windows Server 2016 avec KB4053579 appliqué), l’image ne démarrera pas.
+Les conteneurs Windows Server ne prennent actuellement pas en charge les scénarios où les conteneurs basés sur Windows Server 2016 s’exécutent dans un système où les numéros de révision de l’hôte de conteneur et de l’image de conteneur sont différents. Par exemple, si la version de l’hôte de conteneur est 10.0.14393. **1914** (Windows Server 2016 avec KB4051033 appliqué) et l’image de conteneur est la version 10.0.14393. **1944** (Windows Server 2016 avec KB4053579 appliqué), l’image risque de ne pas démarrer.
 
-Toutefois, pour les ordinateurs hôtes ou les images qui utilisent Windows Server version 1809 et versions ultérieures, cette règle ne s’applique pas, et l’image de l’hôte et du conteneur n’ont pas besoin de révisions correspondantes. 
+Toutefois, pour les ordinateurs hôtes ou les images qui utilisent Windows Server version 1809 et versions ultérieures, cette règle ne s’applique pas, et l’image de l’hôte et du conteneur n’ont pas besoin d’avoir des révisions correspondantes.
 
 Nous vous recommandons de maintenir à jour vos systèmes (hôte et conteneur) avec les derniers correctifs et mises à jour pour rester sécurisés.
+
+>[!NOTE]
+>Vous pouvez rencontrer des problèmes lors de l’utilisation de conteneurs Windows Server avec la version de mise à jour de sécurité du 11 février 2020 (également appelée « 2B ») ou des mises à jour de sécurité mensuelles ultérieures. Pour plus d’informations, consultez [cet article](https://support.microsoft.com/help/4542617/you-might-encounter-issues-when-using-windows-server-containers-with-t) .  
+>
+>Nous vous recommandons vivement de mettre à jour votre hôte et vos conteneurs avec les derniers correctifs et mises à jour pour rester sécurisé et compatible. Pour obtenir des instructions importantes sur la mise à jour des conteneurs Windows, consultez [mettre à jour les conteneurs Windows Server](update-containers.md).
 
 #### <a name="practical-application"></a>Application pratique
 
