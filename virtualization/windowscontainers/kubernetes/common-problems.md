@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: Solutions aux problèmes courants lors du déploiement de Kubernetes et de la jonction de nœuds Windows.
 keywords: kubernetes, 1,14, Linux, compiler
-ms.openlocfilehash: 471731ec50c7c03816a956bd7aae859ad218be6d
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 19b467b657708627dcb6ca93b64fa292d3db8de8
+ms.sourcegitcommit: 8eedfdc1fda9d0abb36e28dc2b5fb39891777364
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910449"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79402920"
 ---
 # <a name="troubleshooting-kubernetes"></a>Résolution des problèmes Kubernetes #
 Cette page décrit plusieurs problèmes courants lors du déploiement, de la mise en réseau et de la configuration de Kubernetes.
@@ -112,7 +112,10 @@ L’une des exigences de mise en réseau Kubernetes (voir [modèle Kubernetes](h
 ```
 
 ### <a name="my-windows-node-cannot-access-a-nodeport-service"></a>Mon nœud Windows ne peut pas accéder à un service deexclusion ###
-L’accès à l’exclusion locale à partir du nœud lui-même échoue. Cette limitation est connue. L’accès DEPART fonctionne à partir d’autres nœuds ou clients externes.
+L’accès à l’exclusion locale à partir du nœud lui-même échoue en raison d’une limitation de conception sur Windows Server 2019. L’accès DEPART fonctionne à partir d’autres nœuds ou clients externes.
+
+### <a name="my-windows-node-stops-routing-thourgh-nodeports-after-i-scaled-down-my-pods"></a>Mon nœud Windows arrête le routage des thourgh noexclusions après la mise à l’échelle de mes Pod ###
+En raison d’une limitation de conception, il doit y avoir au moins un pod en cours d’exécution sur le nœud Windows pour que le transfert de noexclusion fonctionne.
 
 ### <a name="after-some-time-vnics-and-hns-endpoints-of-containers-are-being-deleted"></a>Après un certain temps, les points de terminaison cartes réseau virtuelles et HNS des conteneurs sont en cours de suppression ###
 Ce problème peut survenir lorsque le paramètre `hostname-override` n’est pas transmis à [Kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/). Pour le résoudre, les utilisateurs doivent passer le nom d’hôte à Kube-proxy comme suit :
@@ -188,7 +191,7 @@ New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Paramet
 New-ItemPropery -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord
 ```
 
-### <a name="i-am-still-seeing-problems-what-should-i-do"></a>Je constate toujours des problèmes. Que faire ? ### 
+### <a name="i-am-still-seeing-problems-what-should-i-do"></a>Je constate toujours des problèmes. Que dois-je faire ? ### 
 Il peut exister des restrictions supplémentaires sur votre réseau ou sur des ordinateurs hôtes empêchant certains types de communication entre les nœuds. Vérifiez que :
   - vous avez correctement configuré la topologie de votre [réseau](./network-topologies.md) choisie
   - le trafic qui semble émaner des pods est autorisé
