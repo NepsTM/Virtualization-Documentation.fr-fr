@@ -10,7 +10,7 @@ ms.service: windows-10-hyperv
 ms.assetid: f0ec8eb4-ffc4-4bf1-9a19-7a8c3975b359
 ms.openlocfilehash: bdb9feeb2452f2784a3b814e85dc72f3b967a9d3
 ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/18/2020
 ms.locfileid: "77439326"
@@ -29,11 +29,11 @@ Fermez et rouvrez VMConnect pour que le bon type de point de contrôle soit pris
 
 ## <a name="when-i-try-to-create-a-virtual-hard-disk-on-a-flash-drive-an-error-message-is-displayed"></a>Quand j’essaie de créer un disque dur virtuel sur un lecteur flash, un message d’erreur s’affiche
 Hyper-V ne prend pas en charge les lecteurs de disque au format FAT/FAT32, car ces systèmes de fichiers ne fournissent pas de listes de contrôle d’accès et ne prennent pas en charge les fichiers de plus de 4 Go. Les disques au format ExFAT fournissent uniquement des listes de contrôle d’accès avec des fonctionnalités limitées. Ils ne sont donc pas non plus pris en charge pour des raisons de sécurité.
-Le message d’erreur affiché dans PowerShell est le suivant : « Le système n’a pas pu créer '\[chemin du disque dur virtuel\]'. Impossible de terminer l’opération demandée du fait d’une limitation du système de fichiers (0x80070299). »
+Le message d'erreur affiché dans PowerShell est le suivant : Le système n'a pas pu créer « \[chemin d'accès à VHD\] » : Impossible de terminer l'opération demandée du fait d'une limitation du système de fichiers. (0x80070299).
 
 Utilisez plutôt un lecteur au format NTFS. 
 
-## <a name="i-get-this-message-when-i-try-to-install-hyper-v-cannot-be-installed-the-processor-does-not-support-second-level-address-translation-slat"></a>J’obtiens le message suivant pendant l’installation : « Impossible d’installer Hyper-V : le processeur ne prend pas en charge la traduction d’adresse de second niveau (SLAT). »
+## <a name="i-get-this-message-when-i-try-to-install-hyper-v-cannot-be-installed-the-processor-does-not-support-second-level-address-translation-slat"></a>Je reçois le message suivant lorsque j'essaie de procéder à l'installation : « Impossible d'installer Hyper-V. le processeur ne prend pas en charge la traduction d'adresse de second niveau (SLAT). »
 Hyper-V a besoin de SLAT pour exécuter des machines virtuelles. Si votre ordinateur ne prend pas en charge SLAT, vous ne pouvez pas l’utiliser en tant qu’hôte pour des machines virtuelles.
 
 Si vous essayez uniquement d’installer les outils de gestion, désélectionnez **Plateforme Hyper-V** dans **Programmes et fonctionnalités** > **Activer ou désactiver des fonctionnalités Windows**.

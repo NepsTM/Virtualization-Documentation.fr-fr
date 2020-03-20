@@ -10,7 +10,7 @@ ms.service: windows-10-hyperv
 ms.assetid: 1f8a691c-ca75-42da-8ad8-a35611ad70ec
 ms.openlocfilehash: 1652c3bcb32ddbc4e05e8821d0e646a76a2fd4f0
 ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/06/2020
 ms.locfileid: "78853963"
@@ -28,7 +28,7 @@ Conditions requises :
 * Mise à jour anniversaire Windows 10 ou ultérieure
 * Hyper-V est activé (instructions [ici](../quick-start/enable-hyper-v.md))
 
-> **Remarque :** pour le moment, vous pouvez créer un seul réseau NAT par hôte. Pour plus d’informations sur l’implémentation, les fonctionnalités et les limitations de NAT Windows (WinNAT), reportez-vous au billet de blog [Fonctionnalités et limitations de WinNAT](https://techcommunity.microsoft.com/t5/Virtualization/Windows-NAT-WinNAT-Capabilities-and-limitations/ba-p/382303)
+> **Remarque :**  pour le moment, vous êtes limité à un réseau NAT par hôte. Pour plus d’informations sur l’implémentation, les fonctionnalités et les limitations de NAT Windows (WinNAT), reportez-vous au billet de blog [Fonctionnalités et limitations de WinNAT](https://techcommunity.microsoft.com/t5/Virtualization/Windows-NAT-WinNAT-Capabilities-and-limitations/ba-p/382303)
 
 ## <a name="nat-overview"></a>Vue d’ensemble de NAT
 NAT permet à une machine virtuelle d’accéder à des ressources réseau à l’aide de l’adresse IP de l’ordinateur hôte et d’un port via un commutateur virtuel Hyper-V interne.
@@ -53,7 +53,7 @@ Examinons la configuration d’un nouveau réseau NAT.
 
 3. Recherchez l’index d’interface du commutateur virtuel que vous venez de créer.
 
-    Vous pouvez rechercher l’index d’interface en exécutant `Get-NetAdapter`
+    Pour trouver l'index d'interface, exécutez `Get-NetAdapter`
 
     Votre sortie doit ressembler à ceci :
 
@@ -83,7 +83,7 @@ Examinons la configuration d’un nouveau réseau NAT.
 
       Une adresse IP de passerelle courante est 192.168.0.1  
 
-    * **PrefixLength** --la longueur du préfixe du sous-réseau NAT définit la taille du sous-réseau local NAT (masque de sous-réseau).
+    * **PrefixLength** : la longueur du préfixe de sous-réseau NAT définit la taille du sous-réseau local NAT (masque de sous-réseau).
       La longueur du préfixe de sous-réseau est une valeur entière comprise entre 0 et 32.
 
       0 mappe la totalité d’Internet ; 32 permet une seule adresse IP mappée.  Les valeurs courantes sont comprises entre 24 et 12 en fonction du nombre d’adresses IP attachées à NAT.
@@ -132,7 +132,7 @@ Pour connecter une machine virtuelle à votre nouveau réseau NAT, connectez le 
 
 ## <a name="configuration-example-attaching-vms-and-containers-to-a-nat-network"></a>Exemple de configuration : Association de machines virtuelles et de conteneurs à un réseau NAT
 
-_Si vous devez attacher plusieurs machines virtuelles et conteneurs à un seul NAT, vous devez vous assurer que le préfixe de sous-réseau interne NAT est suffisamment grand pour englober les plages d’adresses IP assignées par des applications ou services différents (par exemple, Docker pour Windows et le conteneur Windows). HNS). Cela nécessite l’affectation d’adresses IP et la configuration réseau ou la configuration manuelle au niveau de l’application, ce qui doit être effectué par un administrateur et garantissant la non-réutilisation des attributions d’adresses IP existantes sur le même hôte._
+_Si vous devez associer plusieurs machines virtuelles et conteneurs à un seul réseau NAT, vous devrez vous assurer que le préfixe de sous-réseau interne NAT est suffisamment important pour englober les plages IP affectées par différents services ou applications (par exemple, Docker pour Windows et conteneur Windows – HNS). Cela nécessite une affectation d'adresses IP et une configuration réseau au niveau de l'application, ou bien une configuration manuelle à effectuer par un administrateur et qui ne doit pas réutiliser les affectations d'adresses IP existantes sur le même hôte._
 
 ### <a name="docker-for-windows-linux-vm-and-windows-containers"></a>Docker pour Windows (machine virtuelle Linux) et conteneurs Windows
 La solution ci-dessous permet à la fois à Docker pour Windows (machine virtuelle Linux exécutant des conteneurs Linux) et aux conteneurs Windows de partager la même instance WinNAT à l’aide de commutateurs virtuels internes distincts. La connectivité entre les conteneurs Windows et Linux fonctionne.
@@ -148,7 +148,7 @@ PS C:\> Get-NetNat | Remove-NetNAT (again, this will remove the NAT but keep the
 PS C:\> New-NetNat -Name SharedNAT -InternalIPInterfaceAddressPrefix <shared prefix>
 PS C:\> Start-Service docker
 ```
-Le dockr/HNS attribuera des adresses IP à des conteneurs Windows et l’administrateur attribuera des adresses IP aux machines virtuelles à partir de l’ensemble de différences des deux.
+Docker/HNS affecte des adresses IP aux conteneurs Windows, et l'administrateur affecte des adresses IP aux machines virtuelles à partir de l'ensemble différentiel des deux.
 
 L’utilisateur a installé la fonctionnalité de conteneur Windows avec le moteur Docker en cours d’exécution et veut maintenant connecter les machines virtuelles au réseau NAT
 ```
@@ -162,7 +162,7 @@ PS C:\> New-NetNat -Name SharedNAT -InternalIPInterfaceAddressPrefix <shared pre
 PS C:\> New-VirtualSwitch -Type internal (attach VMs to this new vSwitch)
 PS C:\> Start-Service docker
 ```
-Le dockr/HNS attribuera des adresses IP à des conteneurs Windows et l’administrateur attribuera des adresses IP aux machines virtuelles à partir de l’ensemble de différences des deux.
+Docker/HNS affecte des adresses IP aux conteneurs Windows, et l'administrateur affecte des adresses IP aux machines virtuelles à partir de l'ensemble différentiel des deux.
 
 Au final, vous devez disposer de deux commutateurs de machine virtuelle internes et d’un réseau NAT partagé entre eux.
 
@@ -170,29 +170,29 @@ Au final, vous devez disposer de deux commutateurs de machine virtuelle internes
 
 Certains scénarios exigent que plusieurs applications ou services utilisent la même NAT. Dans ce cas, le workflow suivant doit être suivi afin que plusieurs applications/services puissent utiliser un préfixe de sous-réseau interne NAT plus grand
 
-**_Nous allons détailler la version bêta de Windows-Dockr bêta 4 de la machine virtuelle Linux coexistante avec la fonctionnalité de conteneur Windows sur le même hôte comme exemple. Ce flux de travail est susceptible de changer_**
+**_À titre d'exemple, nous allons décrire en détail la machine virtuelle Windows Docker 4/Docker Beta/Linux qui coexiste avec la fonctionnalité de conteneur Windows sur le même hôte. Ce flux de travail est susceptible d'être modifié_**
 
 1. C:\> net stop docker
 2. Arrêter la machine virtuelle Docker4Windows MobyLinux
 3. PS C:\> Get-ContainerNetwork | Remove-ContainerNetwork -force
 4. PS C:\> Get-NetNat | Remove-NetNat  
-   *Supprime tous les réseaux de conteneurs précédemment existants (c.-à-d. supprime vSwitch, supprime NetNat, nettoie)*  
+   *Supprime tous les réseaux de conteneur existants (par exemple, supprime vSwitch, supprime NetNat, nettoie)*  
 
 5. New-ContainerNetwork -Name nat -Mode NAT –subnetprefix 10.0.76.0/24 (ce sous-réseau sera utilisé pour la fonctionnalité de conteneurs Windows) *Crée un commutateur virtuel interne nommé nat*  
-   *Crée un réseau NAT nommé « NAT » avec le préfixe IP 10.0.76.0/24*  
+   *Crée un réseau NAT nommé « nat » avec le préfixe IP 10.0.76.0/24*  
 
 6. Remove-NetNAT  
-   *Suppression des réseaux NAT DockerNAT et NAT (conserve les commutateurs virtuels internes)*  
+   *Supprime les réseaux NAT DockerNAT et nat (conserve les commutateurs virtuels internes)*  
 
 7. New-NetNat -Name DockerNAT -InternalIPInterfaceAddressPrefix 10.0.0.0/17 (cela crée un réseau NAT plus large à partager entre D4W et les conteneurs)  
    *Crée un réseau NAT nommé DockerNAT avec un plus grand préfixe 10.0.0.0/17*  
 
 8. Run Docker4Windows (MobyLinux.ps1)  
-   *Crée un DockerNAT vSwitch interne*  
-   *Crée un réseau NAT nommé « DockerNAT » avec le préfixe IP 10.0.75.0/24*  
+   *Crée un commutateur virtuel interne DockerNAT*  
+   *Crée un réseau NAT nommé « DockerNAT » avec un préfixe IP 10.0.75.0/24*  
 
 9. Net start docker  
-   *L’ancrage utilise le réseau NAT défini par l’utilisateur comme paramètre par défaut pour connecter les conteneurs Windows*  
+   *Docker utilisera par défaut le réseau NAT défini par l'utilisateur pour se connecter à des conteneurs Windows*  
 
 Au final, vous devez avoir deux commutateurs virtuels internes : l’un nommé DockerNAT et l’autre nommé nat. Vous avez un seul réseau NAT (10.0.0.0/17), ce que vous avez vérifié en exécutant la commande Get-NetNat. Les adresses IP des conteneurs Windows seront affectées par le service de réseau hôte (HNS, Host Network Service) Windows à partir du sous-réseau 10.0.76.0/24. Basées sur le script MobyLinux.ps1 existant, les adresses IP pour Windows Docker 4 seront affectées à partir du sous-réseau 10.0.75.0/24.
 
@@ -216,7 +216,7 @@ Vérifiez que vous avez uniquement un commutateur de machine virtuelle « inter
 Get-VMSwitch
 ```
 
-Vérifiez s’il existe des adresses IP privées (par exemple, l’adresse IP de la passerelle par défaut NAT, généralement _x_. _y_. _z_. 1) de l’ancien NAT encore affecté à un adaptateur
+Vérifiez s'il existe des adresses IP privées (par exemple, l'adresse IP de la passerelle NAT par défaut ; généralement _x_._y_._z_.1) de l'ancienne NAT toujours affectées à un adaptateur
 ```powershell
 Get-NetIPAddress -InterfaceAlias "vEthernet (<name of vSwitch>)"
 ```
@@ -226,7 +226,7 @@ Si une ancienne adresse IP privée est en cours d’utilisation, supprimez-la
 Remove-NetIPAddress -InterfaceAlias "vEthernet (<name of vSwitch>)" -IPAddress <IPAddress>
 ```
 
-**Suppression de plusieurs NAT**  
+**Suppression des NAT multiples**  
 Nous avons vu des rapports concernant plusieurs réseaux NAT créés par inadvertance. Cela est dû à un bogue dans les builds récentes (notamment Windows Server 2016 Technical Preview 5 et Windows 10 Insider Preview). Si vous voyez plusieurs réseaux NAT après avoir exécuté docker network ls ou Get-ContainerNetwork, exécutez ce qui suit à partir d’une invite PowerShell avec élévation des privilèges :
 
 ```powershell
@@ -246,7 +246,7 @@ Stop-Service docker
 Set-Service docker -StartupType Disabled
 ```
 
-Redémarrez le système d’exploitation avant d’exécuter les commandes suivantes (`Restart-Computer`)
+Redémarrez le système d'exploitation avant d'exécuter les commandes suivantes (`Restart-Computer`)
 
 ```powershell
 Get-NetNat | Remove-NetNat

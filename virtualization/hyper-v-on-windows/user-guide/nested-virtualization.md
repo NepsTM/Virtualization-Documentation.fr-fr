@@ -10,7 +10,7 @@ ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
 ms.openlocfilehash: f819ac04773188525af202d370ba271a2d93e259
 ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/18/2020
 ms.locfileid: "77439346"
@@ -21,7 +21,7 @@ La virtualisation imbriquée est une fonctionnalité qui vous permet d’exécut
 
 ![](./media/HyperVNesting.png)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 * L’hôte et l’invité Hyper-V doivent tous deux exécuter Windows Server 2016/la Mise à jour anniversaire Windows 10 ou version ultérieure.
 * Configuration de machine virtuelle version 8.0 ou ultérieure.
@@ -31,13 +31,13 @@ La virtualisation imbriquée est une fonctionnalité qui vous permet d’exécut
 
 ## <a name="configure-nested-virtualization"></a>Configurer la virtualisation imbriquée
 
-1. Créer un ordinateur virtuel. Consultez la configuration requise ci-dessus pour les versions de système d’exploitation et les machines virtuelles.
+1. Créer une machine virtuelle. Consultez la configuration requise ci-dessus pour les versions de système d’exploitation et les machines virtuelles.
 2. Pendant que la machine virtuelle est à l’état DÉSACTIVÉ, exécutez la commande suivante sur l’hôte Hyper-V physique. Cela permet d’activer la virtualisation imbriquée de la machine virtuelle.
 
 ```
 Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
 ```
-3. Démarrez l'ordinateur virtuel.
+3. Démarrez l’ordinateur virtuel.
 4. Installez Hyper-V sur la machine virtuelle, comme vous le feriez sur un serveur physique. Pour plus d’informations sur l’installation d’Hyper-V, consultez [Installer Hyper-V](../quick-start/enable-hyper-v.md).
 
 ## <a name="disable-nested-virtualization"></a>Désactiver la virtualisation imbriquée
@@ -59,7 +59,7 @@ Il existe deux options pour la mise en réseau des machines virtuelles imbriqué
 2. Mise en réseau NAT
 
 ### <a name="mac-address-spoofing"></a>Usurpation des adresses MAC
-Pour que les paquets réseau puissent être acheminés via deux commutateurs virtuels, l’usurpation des adresses MAC doit être activée sur le premier niveau (L1) du commutateur virtuel. Pour cela, exécutez la commande PowerShell suivante.
+Pour que les paquets réseau puissent être acheminés via deux commutateurs virtuels, l'usurpation des adresses MAC doit être activée sur le premier niveau (L1) du commutateur virtuel. Pour cela, exécutez la commande PowerShell suivante.
 
 ``` PowerShell
 Get-VMNetworkAdapter -VMName <VMName> | Set-VMNetworkAdapter -MacAddressSpoofing On
@@ -94,7 +94,7 @@ Les processeurs modernes incluent des fonctionnalités matérielles qui rendent 
 
 Grâce à la virtualisation imbriquée, cette prise en charge matérielle est disponible pour les machines virtuelles invitées.
 
-Le diagramme ci-dessous illustre Hyper-V sans imbrication.  L’hyperviseur Hyper-V prend le contrôle total des fonctionnalités de virtualisation matérielle (flèche orange) et ne les expose pas au système d’exploitation invité.
+Le schéma ci-dessous illustre Hyper-V sans imbrication.  L’hyperviseur Hyper-V prend le contrôle total des fonctionnalités de virtualisation matérielle (flèche orange) et ne les expose pas au système d’exploitation invité.
 
 ![](./media/HVNoNesting.PNG)
 
