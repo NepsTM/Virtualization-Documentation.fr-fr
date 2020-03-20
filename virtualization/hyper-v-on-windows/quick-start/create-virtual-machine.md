@@ -9,7 +9,7 @@ ms.prod: windows-10-hyperv
 ms.assetid: 66723f33-b12c-49d1-82cf-71ba9d6087e9
 ms.openlocfilehash: 94ac197f5bc660e52d215fa132eae78f521e1c30
 ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/04/2019
 ms.locfileid: "74911649"
@@ -27,7 +27,7 @@ Découvrez comment créer une machine virtuelle et y installer un système d’e
 1. Passez en revue le contenu de la section « Avant de commencer », puis cliquez sur **Suivant**.
 
 1. Attribuez un nom à la machine virtuelle.
-  > **Remarque :** Il s’agit du nom utilisé par Hyper-V pour la machine virtuelle, et non pas du nom d’ordinateur attribué au système d’exploitation invité qui sera déployé dans la machine virtuelle.
+  > **Remarque :** Il s’agit du nom utilisé par Hyper-V pour la machine virtuelle, et non pas du nom d’ordinateur attribué au système d’exploitation invité qui sera déployé dans la machine virtuelle.
 
 1. Choisissez un emplacement dans lequel stocker les fichiers de la machine virtuelle, par exemple **c:\virtualmachine**. Vous pouvez aussi accepter l’emplacement par défaut. Quand vous avez terminé, cliquez sur **Suivant**.
 
@@ -97,10 +97,10 @@ Pour terminer la création de votre machine virtuelle, vous devez la démarrer e
 
 2. Dans VMConnect, cliquez sur le bouton vert Démarrer. Cela revient à appuyer sur le bouton Marche/Arrêt d’un ordinateur physique. Vous pouvez être invité à appuyer sur une touche quelconque pour démarrer à partir d’un CD ou d’un DVD. Dans ce cas, appuyez sur une touche pour continuer.
 
-  > **Remarque :** Vous devrez éventuellement cliquer dans la fenêtre VMConnect pour vérifier que vos séquences de touches sont envoyées à la machine virtuelle.
+  > **Remarque :** vous devrez éventuellement cliquer dans la fenêtre VMConnect pour vérifier que vos séquences de touches sont envoyées à la machine virtuelle.
 
 3. Quand la machine virtuelle démarre, suivez les étapes du programme d’installation comme sur un ordinateur physique.
 
   ![](media/OSDeploy_upd.png) 
 
-  > **Remarque :** si vous n’exécutez pas une version de Windows sous licence en volume, vous devez posséder une licence distincte pour l'exemplaire de Windows qui s’exécute sur une machine virtuelle. Le système d’exploitation de la machine virtuelle est indépendant du système d’exploitation de l’hôte.
+  > **Remarque :** si vous n’exécutez pas une version de Windows sous licence en volume, vous devez posséder une licence distincte pour l'exemplaire de Windows qui s’exécute sur une machine virtuelle. Le système d’exploitation de la machine virtuelle est indépendant du système d’exploitation de l’hôte.

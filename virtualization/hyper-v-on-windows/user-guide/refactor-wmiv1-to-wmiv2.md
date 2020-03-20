@@ -9,7 +9,7 @@ ms.prod: windows-10-hyperv
 ms.assetid: b13a3594-d168-448b-b0a1-7d77153759a8
 ms.openlocfilehash: 963a1cc356c34c8d051c427a069c49021e3c0d27
 ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/18/2020
 ms.locfileid: "77439336"
@@ -27,25 +27,25 @@ Ce document contient des références à des ressources permettant de convertir 
 ## <a name="msdn-samples"></a>Exemples sur MSDN
 
 [Exemple de migration de machine virtuelle Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-virtual-machine-aef356ee)  
-[Exemple de Fibre Channel virtuel Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-virtual-Fiber-35d27dcd)  
-[Exemple d’ordinateurs virtuels planifiés Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-planned-virtual-8c7b7499)  
-[Exemple de surveillance de l’intégrité des applications Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-application-health-dc0294f2)  
+[Exemple de Fibre Channel virtuelle Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-virtual-Fiber-35d27dcd)  
+[Exemple de machines virtuelles Hyper-V planifiées](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-planned-virtual-8c7b7499)  
+[Exemple d’analyse d'intégrité des applications Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-application-health-dc0294f2)  
 [Exemple de gestion de disque dur virtuel](http://code.msdn.microsoft.com/windowsdesktop/Virtual-hard-disk-03108ed3)  
 [Exemple de réplication Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-replication-sample-d2558867)  
 [Exemple de métriques Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-metrics-sample-2dab2cb1)  
 [Exemple de mémoire dynamique Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-dynamic-memory-9b0b1d05)  
 [Pilote de filtre d’extension de commutateur extensible Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-Extensible-Virtual-e4b31fbb)  
-[Exemple de réseau Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-networking-sample-7c47e6f5)  
-[Exemple de gestion du pool de ressources Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-resource-pool-df906d95)  
-[Exemple d’instantané de récupération Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-recovery-snapshot-ea72320c)  
+[Exemple de mise en réseau Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-networking-sample-7c47e6f5)  
+[Exemple de gestion de pool de ressources Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-resource-pool-df906d95)  
+[Exemple d'instantané de récupération Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-recovery-snapshot-ea72320c)  
 
 ## <a name="samples-from-blogs"></a>Exemples tirés de blogs
 
-[Ajout d’une carte réseau à une machine virtuelle à l’aide de l’espace de noms Hyper-V WMI v2](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/adding-a-network-adapter-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[Connexion d’une carte réseau d’ordinateur virtuel à un commutateur à l’aide de l’espace de noms Hyper-V WMI v2](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/connecting-a-vm-network-adapter-to-a-switch-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[Modification de l’adresse MAC de la carte réseau à l’aide de l’espace de noms WMI v2 Hyper-V](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/changing-the-mac-address-of-nic-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[Suppression d’une carte réseau sur une machine virtuelle à l’aide de l’espace de noms Hyper-V WMI v2](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/removing-a-network-adapter-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[Attachement d’un disque dur virtuel à une machine virtuelle à l’aide de l’espace de noms Hyper-V WMI v2](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/attaching-a-vhd-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[Suppression d’un disque dur virtuel d’une machine virtuelle à l’aide de l’espace de noms Hyper-V WMI v2](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/removing-a-vhd-from-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[Création d’une machine virtuelle à l’aide de l’espace de noms Hyper-V WMI v2](http://blogs.msdn.com/b/virtual_pc_guy/archive/2013/06/20/creating-a-virtual-machine-with-wmi-v2.aspx)
+[Ajout d’une carte réseau à une machine virtuelle à l’aide de l'espace de noms WMI Hyper-V V2](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/adding-a-network-adapter-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[Connexion d’une carte réseau de machine virtuelle à un commutateur à l’aide de l'espace de noms WMI Hyper-V V2](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/connecting-a-vm-network-adapter-to-a-switch-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[Modification de l’adresse MAC d'une carte réseau à l’aide de l'espace de noms WMI Hyper-V V2](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/changing-the-mac-address-of-nic-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[Retrait d’une carte réseau de machine virtuelle à l’aide de l'espace de noms WMI Hyper-V V2](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/removing-a-network-adapter-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[Connexion d'un disque dur virtuel à une machine virtuelle à l’aide de l'espace de noms WMI Hyper-V V2](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/attaching-a-vhd-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[Suppression d’un disque dur virtuel à partir d’une machine virtuelle à l’aide de l'espace de noms WMI Hyper-V V2](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/removing-a-vhd-from-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[Création d’une machine virtuelle à l’aide de l'espace de noms WMI Hyper-V V2](http://blogs.msdn.com/b/virtual_pc_guy/archive/2013/06/20/creating-a-virtual-machine-with-wmi-v2.aspx)
 

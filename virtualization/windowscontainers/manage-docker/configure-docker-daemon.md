@@ -10,31 +10,31 @@ ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 ms.openlocfilehash: c84a6652b5918238ee8ef6e1fa7a9b2aa596aefd
 ms.sourcegitcommit: 8eedfdc1fda9d0abb36e28dc2b5fb39891777364
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/15/2020
 ms.locfileid: "79402880"
 ---
 # <a name="docker-engine-on-windows"></a>Moteur Docker sur Windows
 
-Le moteur et le client Dockr ne sont pas inclus avec Windows et doivent être installés et configurés individuellement. De plus, le moteur Docker accepte de nombreuses configurations personnalisées. Certains exemples incluent la configuration de la façon dont le démon accepte les requêtes entrantes, les options de mise en réseau par défaut et les paramètres de débogage/du journal. Sur Windows, ces configurations peuvent être spécifiées dans un fichier de configuration ou à l’aide du Gestionnaire de contrôle des services Windows. Ce document décrit en détail comment installer et configurer le moteur de l’ancrage et fournit également quelques exemples de configurations couramment utilisées.
+Le moteur et le client Docker ne sont pas inclus avec Windows, et doivent être installés et configurés individuellement. De plus, le moteur Docker accepte de nombreuses configurations personnalisées. Certains exemples incluent la configuration de la façon dont le démon accepte les requêtes entrantes, les options de mise en réseau par défaut et les paramètres de débogage/du journal. Sur Windows, ces configurations peuvent être spécifiées dans un fichier de configuration ou à l’aide du Gestionnaire de contrôle des services Windows. Ce document décrit en détail comment installer et configurer le moteur Docker, et fournit également quelques exemples de configurations fréquemment utilisées.
 
 ## <a name="install-docker"></a>Installer Docker
 
-Pour utiliser des conteneurs Windows, vous devez disposer d’un ancrage. Docker comprend le moteur Docker (dockerd.exe) et le client Docker (docker.exe). Le moyen le plus simple d’obtenir tout ce qui est installé est dans le Guide de démarrage rapide, qui vous permet d’obtenir tout ce que vous allez configurer et d’exécuter votre premier conteneur.
+Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker (dockerd.exe) et le client Docker (docker.exe). Le moyen le plus simple de tout installé se trouve dans le guide de démarrage rapide, qui vous permet de tout configurer et d'exécuter votre premier conteneur.
 
 - [Installer Docker](../quick-start/set-up-environment.md)
 
-Pour les installations à l’aide de scripts, consultez [utiliser un script pour installer dockr EE](https://docs.docker.com/install/windows/docker-ee/#use-a-script-to-install-docker-ee).
+Pour les installations par script, consultez [Utiliser un script pour installer Docker EE](https://docs.docker.com/install/windows/docker-ee/#use-a-script-to-install-docker-ee).
 
-Avant de pouvoir utiliser l’ancrage, vous devez installer les images de conteneur. Pour plus d’informations, consultez [docs pour les images de base de votre conteneur](../manage-containers/container-base-images.md).
+Avant d'utiliser Docker, vous devez installer les images de conteneur. Pour plus d’informations, consultez la [documentation relative à nos images de base de conteneur](../manage-containers/container-base-images.md).
 
-## <a name="configure-docker-with-a-configuration-file"></a>Configurer l’arrimeur avec un fichier de configuration
+## <a name="configure-docker-with-a-configuration-file"></a>Configurer Docker avec un fichier de configuration
 
 La méthode privilégiée pour configurer le moteur Docker sur Windows consiste à utiliser un fichier de configuration. Ce fichier de configuration se trouve dans C:\ProgramData\Docker\config\daemon.json. Vous pouvez créer ce fichier s’il n’existe pas déjà.
 
 >[!NOTE]
->Toutes les options de configuration de l’arrimeur disponibles ne s’appliquent pas à l’ancrage sur Windows. L’exemple suivant montre les options de configuration qui s’appliquent. Pour plus d’informations sur la configuration du moteur de l’ancrage, consultez le [fichier de configuration du démon](https://docs.docker.com/engine/reference/commandline/dockerd/#/windows-configuration-file)de l’ancrage.
+>Toutes les options de configuration de Docker disponibles ne s’appliquent pas à Docker sur Windows. L'exemple suivant illustre les options de configuration qui s'appliquent. Pour plus d'informations sur la configuration du moteur Docker, consultez [Fichier de configuration du démon Docker](https://docs.docker.com/engine/reference/commandline/dockerd/#/windows-configuration-file).
 
 ```json
 {
@@ -70,7 +70,7 @@ La méthode privilégiée pour configurer le moteur Docker sur Windows consiste 
 }
 ```
 
-Il vous suffit d’ajouter les modifications de configuration souhaitées au fichier de configuration. Par exemple, l’exemple suivant configure le moteur de l’ancrage pour qu’il accepte les connexions entrantes sur le port 2375. Toutes les autres options de configuration utiliseront les valeurs par défaut.
+Seules les modifications de configuration souhaitées doivent être ajoutées au fichier de configuration. Ainsi, l'exemple suivant configure le moteur Docker pour accepter les connexions entrantes sur le port 2375. Toutes les autres options de configuration utiliseront les valeurs par défaut.
 
 ```json
 {
@@ -78,7 +78,7 @@ Il vous suffit d’ajouter les modifications de configuration souhaitées au fic
 }
 ```
 
-De même, l’exemple suivant configure le démon de la station d’accueil pour conserver les images et les conteneurs dans un autre chemin d’accès. S’il n’est pas spécifié, la valeur par défaut est `c:\programdata\docker`.
+De même, l'exemple suivant configure le démon Docker pour conserver les images et les conteneurs dans un autre chemin. Si aucune valeur n’est spécifiée, la valeur par défaut est `c:\programdata\docker`.
 
 ```json
 {    
@@ -86,7 +86,7 @@ De même, l’exemple suivant configure le démon de la station d’accueil pour
 }
 ```
 
-L’exemple suivant configure le démon de l’arrimeur pour qu’il n’accepte que les connexions sécurisées sur le port 2376.
+L'exemple suivant configure le démon Docker pour accepter uniquement les connexions sécurisées sur le port 2376.
 
 ```json
 {
@@ -98,16 +98,16 @@ L’exemple suivant configure le démon de l’arrimeur pour qu’il n’accepte
 }
 ```
 
-## <a name="configure-docker-on-the-docker-service"></a>Configurer l’arrimeur sur le service d’ancrage
+## <a name="configure-docker-on-the-docker-service"></a>Configurer Docker sur le service Docker
 
-Le moteur de l’ancrage peut également être configuré en modifiant le service d’ancrage avec `sc config`. Avec cette méthode, les indicateurs du moteur Docker sont définis directement sur le service de Docker. Exécutez la commande suivante dans une invite de commandes (cmd.exe, pas PowerShell) :
+Le moteur Docker peut également être configuré en modifiant le service Docker avec `sc config`. Avec cette méthode, les indicateurs du moteur Docker sont définis directement sur le service de Docker. Exécutez la commande suivante dans une invite de commandes (cmd.exe, pas PowerShell) :
 
 ```cmd
 sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service -H tcp://0.0.0.0:2375"
 ```
 
 >[!NOTE]
->Vous n’avez pas besoin d’exécuter cette commande si votre fichier daemon. JSON contient déjà l’entrée `"hosts": ["tcp://0.0.0.0:2375"]`.
+>Vous n’êtes pas tenu d’exécuter cette commande si votre fichier daemon.json contient déjà l’entrée `"hosts": ["tcp://0.0.0.0:2375"]`.
 
 ## <a name="common-configuration"></a>Configuration commune
 
@@ -115,7 +115,7 @@ Les exemples de fichiers de configuration suivants présentent des configuration
 
 ### <a name="default-network-creation"></a>Création de réseau par défaut
 
-Pour configurer le moteur de l’ancrage afin qu’il ne crée pas de réseau NAT par défaut, utilisez la configuration suivante.
+Pour configurer le moteur Docker de sorte qu’un réseau NAT par défaut ne soit pas créé, utilisez la configuration suivante.
 
 ```json
 {
@@ -125,9 +125,9 @@ Pour configurer le moteur de l’ancrage afin qu’il ne crée pas de réseau NA
 
 Pour plus d’informations, voir la rubrique indiquant comment [gérer les réseaux Docker](../container-networking/network-drivers-topologies.md).
 
-### <a name="set-docker-security-group"></a>Définir le groupe de sécurité de l’arrimeur
+### <a name="set-docker-security-group"></a>Définir un groupe de sécurité Docker
 
-Lorsque vous vous êtes connecté à l’hôte de l’ordinateur de la station d’accueil et que vous exécutez des commandes de l’arrimeur localement, ces commandes sont exécutées via un canal nommé. Par défaut, seuls les membres du groupe Administrateurs peuvent accéder au moteur Docker via le canal nommé. Pour spécifier un groupe de sécurité bénéficiant de cet accès, utilisez l’indicateur `group`.
+Lorsque vous êtes connecté à l’hôte Docker et exécutez des commandes Docker localement, ces commandes sont exécutées via un canal nommé. Par défaut, seuls les membres du groupe Administrateurs peuvent accéder au moteur Docker via le canal nommé. Pour spécifier un groupe de sécurité bénéficiant de cet accès, utilisez l’indicateur `group`.
 
 ```json
 {
@@ -149,20 +149,20 @@ Une fois que la variable a été définie, redémarrez le service Docker.
 Restart-Service docker
 ```
 
-Pour plus d’informations, consultez [fichier de configuration Windows sur docker.com](https://docs.docker.com/engine/reference/commandline/dockerd/#/windows-configuration-file).
+Pour plus d’informations, consultez [Fichier de configuration Windows sur Docker.com](https://docs.docker.com/engine/reference/commandline/dockerd/#/windows-configuration-file).
 
-## <a name="how-to-uninstall-docker"></a>Comment désinstaller l’ancrage
+## <a name="how-to-uninstall-docker"></a>Désinstaller Docker
 
-Cette section vous indique comment désinstaller Dockr et effectuer un nettoyage complet des composants système de l’ordinateur d’amarrage à partir de votre système Windows 10 ou Windows Server 2016.
+Cette section vous explique comment désinstaller Docker et effectuer un nettoyage complet des composants système Docker de votre système Windows 10 ou Windows Server 2016.
 
 >[!NOTE]
 >Vous devez exécuter toutes les commandes de ces instructions à partir d’une session PowerShell avec élévation de privilèges.
 
-### <a name="prepare-your-system-for-dockers-removal"></a>Préparer votre système pour la suppression de l’ancrage
+### <a name="prepare-your-system-for-dockers-removal"></a>Préparer votre système à la suppression de Docker
 
-Avant de désinstaller Dockr, assurez-vous qu’aucun conteneur n’est en cours d’exécution sur votre système.
+Avant de désinstaller Docker, assurez-vous qu’aucun conteneur n’est en cours d’exécution sur votre système.
 
-Exécutez les applets de commande suivantes pour vérifier les conteneurs en cours d’exécution :
+Exécutez les cmdlets suivantes pour vérifier les conteneurs en cours d’exécution :
 
 ```powershell
 # Leave swarm mode (this will automatically stop and remove services and overlay networks)
@@ -172,7 +172,7 @@ docker swarm leave --force
 docker ps --quiet | ForEach-Object {docker stop $_}
 ```
 
-Il est également conseillé de supprimer tous les conteneurs, les images de conteneur, les réseaux et les volumes de votre système avant de supprimer Dockr. Pour ce faire, exécutez l’applet de commande suivante :
+Il est également recommandé de supprimer tous les conteneurs, images de conteneur, réseaux et volumes de votre système avant la suppression de Docker. Pour ce faire, exécutez la cmdlet suivante :
 
 ```powershell
 docker system prune --volumes --all
@@ -180,17 +180,17 @@ docker system prune --volumes --all
 
 ### <a name="uninstall-docker"></a>Désinstallation de Docker
 
-Ensuite, vous devez désinstaller la station d’accueil.
+Vous devez ensuite désinstaller Docker.
 
-Pour désinstaller l’amarrage sur Windows 10
+Pour désinstaller Docker sur Windows 10
 
-- Accédez à **paramètres** > **applications** sur votre ordinateur Windows 10.
-- Sous **applications & fonctionnalités**, recherchez **docker pour Windows**
-- Accédez à **Docker pour Windows** > **désinstaller**
+- Accédez à **Paramètres** > **Applications** sur votre ordinateur Windows 10
+- Sous **Applications et fonctionnalités**, recherchez **Docker pour Windows**
+- Accédez à **Docker pour Windows** > **Désinstaller**
 
-Pour désinstaller l’amarrage sur Windows Server 2016 :
+Pour désinstaller Docker sur Windows Server 2016 :
 
-À partir d’une session PowerShell avec élévation de privilèges, utilisez les applets de commande **Uninstall-package** et **Uninstall-Module** pour supprimer le module d’ancrage et son fournisseur de Package Management correspondant de votre système, comme illustré dans l’exemple suivant :
+À partir d’une session PowerShell avec élévation de privilèges, utilisez les cmdlets **Uninstall-Package** et **Uninstall-Module** pour supprimer le module Docker et le fournisseur de gestion de packages correspondant de votre système, comme illustré dans l'exemple suivant :
 
 ```powershell
 Uninstall-Package -Name docker -ProviderName DockerMsftProvider
@@ -198,48 +198,48 @@ Uninstall-Module -Name DockerMsftProvider
 ```
 
 >[!TIP]
->Vous pouvez trouver le fournisseur de package que vous avez utilisé pour installer l’amarrage avec `PS C:\> Get-PackageProvider -Name *Docker*`
+>Vous pouvez rechercher le fournisseur de packages que vous avez utilisé pour installer Docker avec `PS C:\> Get-PackageProvider -Name *Docker*`
 
-### <a name="clean-up-docker-data-and-system-components"></a>Nettoyer les données et les composants système de l’ancrage
+### <a name="clean-up-docker-data-and-system-components"></a>Nettoyer les données et les composants système Docker
 
-Une fois que vous avez désinstallé la station d’accueil, vous devez supprimer les réseaux par défaut de l’arrimeur afin que leur configuration ne reste pas sur votre système une fois que l’ordinateur a disparu. Pour ce faire, exécutez l’applet de commande suivante :
+Après avoir désinstallé Docker, vous devez supprimer les réseaux Docker par défaut afin de supprimer leur configuration de votre système. Pour ce faire, exécutez la cmdlet suivante :
 
 ```powershell
 Get-HNSNetwork | Remove-HNSNetwork
 ```
 
-Exécutez l’applet de commande suivante pour supprimer les données de programme de l’ancrage de votre système :
+Exécutez la cmdlet suivante pour supprimer les données programme Docker de votre système :
 
 ```powershell
 Remove-Item "C:\ProgramData\Docker" -Recurse
 ```
 
-Vous pouvez également supprimer les fonctionnalités Windows facultatives associées à l’ancrage/aux conteneurs sur Windows.
+Vous pouvez également supprimer les fonctionnalités facultatives Windows associés aux conteneurs/Docker sur Windows.
 
-Cela comprend la fonctionnalité « conteneurs », qui est automatiquement activée sur n’importe quel ordinateur Windows 10 ou Windows Server 2016 quand l’outil de connexion est installé. Cela peut également inclure la fonctionnalité « Hyper-V », qui est automatiquement activée sur Windows 10 lorsque Docker est installé, mais qui doit être activée explicitement sur Windows Server 2016.
+Cela inclut la fonctionnalité « Conteneurs », qui est automatiquement activée sur Windows 10 ou Windows Server 2016 lorsque Docker est installé. Cela peut également inclure la fonctionnalité « Hyper-V », qui est automatiquement activée sur Windows 10 lorsque Docker est installé, mais qui doit être activée explicitement sur Windows Server 2016.
 
 >[!IMPORTANT]
->[La fonctionnalité Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/) est une fonctionnalité de virtualisation générale qui active bien plus qu’un simple conteneur. Avant de désactiver la fonctionnalité Hyper-V, assurez-vous qu’il n’y a pas d’autres composants virtualisés sur votre système qui nécessitent Hyper-V.
+>[La fonctionnalité Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/) est une fonctionnalité de virtualisation générale bien plus puissante que les conteneurs. Avant de désactiver la fonctionnalité Hyper-V, assurez-vous qu'aucun autre composant virtualisé de votre système ne requiert Hyper-V.
 
-Pour supprimer les fonctionnalités Windows sur Windows 10 :
+Pour supprimer les fonctionnalités Windows sur Windows 10 :
 
-- Accédez au **panneau de configuration** > **programmes** > **programmes et fonctionnalités** > **activer ou désactiver des fonctionnalités Windows**.
-- Recherchez le nom de la fonctionnalité ou des fonctionnalités que vous souhaitez désactiver, dans ce cas, les **conteneurs** et (éventuellement) **Hyper-V**.
-- Désactivez la case à cocher en regard du nom de la fonctionnalité que vous souhaitez désactiver.
+- Sélectionnez **Panneau de configuration** > **Programmes** > **Programmes et fonctionnalités** > **Activer ou désactiver des fonctionnalités Windows**.
+- Recherchez le nom de la ou des fonctionnalités que vous souhaitez désactiver, en l’occurrence **Conteneurs** et (éventuellement) **Hyper-V**.
+- Décochez la case en regard du nom de la fonctionnalité que vous souhaitez désactiver.
 - Sélectionnez **« OK »** .
 
-Pour supprimer les fonctionnalités Windows sur Windows Server 2016 :
+Pour supprimer les fonctionnalités Windows sur Windows Server 2016 :
 
-À partir d’une session PowerShell avec élévation de privilèges, exécutez les applets de commande suivantes pour désactiver les **conteneurs** et (éventuellement) les fonctionnalités **Hyper-V** de votre système :
+À partir d’une session PowerShell avec élévation de privilèges, exécutez les cmdlets suivantes pour désactiver les fonctionnalités **Conteneurs** et (éventuellement) **Hyper-V** de votre système :
 
 ```powershell
 Remove-WindowsFeature Containers
 Remove-WindowsFeature Hyper-V
 ```
 
-### <a name="reboot-your-system"></a>Redémarrez votre système
+### <a name="reboot-your-system"></a>Redémarrer votre système
 
-Pour terminer la désinstallation et le nettoyage, exécutez l’applet de commande suivante à partir d’une session PowerShell avec élévation de privilèges pour redémarrer votre système :
+Pour terminer la désinstallation et le nettoyage, exécutez la cmdlet suivante à partir d’une session PowerShell avec élévation de privilèges afin de redémarrer votre système :
 
 ```powershell
 Restart-Computer -Force

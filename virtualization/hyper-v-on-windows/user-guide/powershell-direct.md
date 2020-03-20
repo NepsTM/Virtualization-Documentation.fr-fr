@@ -10,7 +10,7 @@ ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
 ms.openlocfilehash: ed96c7ba30c83906cd3245a279ab078229400d8d
 ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/18/2020
 ms.locfileid: "77439546"
@@ -19,13 +19,13 @@ ms.locfileid: "77439546"
 
 PowerShell Direct vous permet d’exécuter du code PowerShell arbitraire dans une machine virtuelle Windows 10 ou Windows Server 2016 à partir de votre hôte Hyper-V, indépendamment de la configuration réseau ou des paramètres de gestion à distance.
 
-Voici quelques méthodes permettant d’exécuter PowerShell direct :
+Voici quelques méthodes permettant d’exécuter PowerShell Direct :
 
-* [En tant que session interactive à l’aide de l’applet de commande Enter-PSSession](#create-and-exit-an-interactive-powershell-session)
-* [En tant que section à usage unique pour exécuter une commande ou un script unique à l’aide de l’applet de commande Invoke-Command](#run-a-script-or-command-with-invoke-command)
-* [En tant que session persistante (Build 14280 et versions ultérieures) à l’aide des applets de commande New-PSSession, Copy-Item et Remove-PSSession](#copy-files-with-new-pssession-and-copy-item)
+* [En tant que session interactive à l’aide de la cmdlet Enter-PSSession](#create-and-exit-an-interactive-powershell-session)
+* [En tant que section à usage unique pour exécuter une commande ou un script unique à l’aide de la cmdlet Invoke-Command](#run-a-script-or-command-with-invoke-command)
+* [En tant que session persistante (Build 14280 et ultérieures) à l’aide des cmdlets New-PSSession, Copy-Item et Remove-PSSession](#copy-files-with-new-pssession-and-copy-item)
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Conditions requises
 **Configuration requise pour le système d’exploitation :**
 * Hôte : Windows 10, Windows Server 2016 ou version ultérieure exécutant Hyper-V.
 * Invité/Machine virtuelle : Windows 10, Windows Server 2016 ou version ultérieure.
@@ -75,7 +75,7 @@ Quand la session démarre, les commandes que vous tapez s’exécutent sur la ma
    Exit-PSSession 
    ``` 
 
-> Remarque : Si votre session ne se connecte pas, voir la section de [dépannage](#troubleshooting) pour déterminer les causes potentielles. 
+> Remarque :  si votre session ne se connecte pas, consultez la section de [résolution des problèmes](#troubleshooting) pour déterminer les causes possibles. 
 
 Pour en savoir plus sur ces applets de commande, consultez [Enter-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Enter-PSSession?view=powershell-5.1) et [Exit-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Exit-PSSession?view=powershell-5.1). 
 
@@ -122,13 +122,13 @@ Pour en savoir plus sur cette applet de commande, voir [Invoke-Command](https://
 
 ## <a name="copy-files-with-new-pssession-and-copy-item"></a>Copier des fichiers avec New-PSSession et Copy-Item
 
-> **Remarque :** PowerShell Direct ne prend en charge les sessions persistantes que dans Windows build 14280 et ultérieures.
+> **Remarque :** PowerShell Direct ne prend en charge les sessions persistantes que dans Windows build 14280 et ultérieures.
 
 Les sessions persistantes PowerShell sont extrêmement utiles lors de l’écriture de scripts qui coordonnent des actions sur un ou plusieurs ordinateurs distants.  Une fois créées, les sessions persistantes existent en arrière-plan jusqu’à ce que vous décidiez de les supprimer.  Cela signifie que vous pouvez référencer la même session indéfiniment avec `Invoke-Command` ou `Enter-PSSession` sans passer d’informations d’identification.
 
 De la même manière, les sessions conservent l’état.  Étant donné que les sessions persistantes sont maintenues, toutes les variables créées dans une session ou passées à une session sont conservées entre plusieurs appels. Un certain nombre d’outils sont disponibles pour travailler avec les sessions persistantes.  Pour cet exemple, nous allons utiliser [New-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/New-PSSession?view=powershell-5.1) et [Copy-Item](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Management/Copy-Item?view=powershell-5.1) pour déplacer des données de l’hôte vers une machine virtuelle ou d’une machine virtuelle vers l’hôte.
 
-**Pour créer une session, puis copier les fichiers :**  
+**Pour créer une session, copiez des fichiers :**  
 
 1. Sur l’hôte Hyper-V, ouvrez PowerShell en tant qu’administrateur.
 
@@ -173,8 +173,8 @@ De la même manière, les sessions conservent l’état.  Étant donné que les 
 Les messages d’erreur liés à l’utilisation de PowerShell Direct sont peu nombreux.  Voici les plus courants, les causes possibles et les outils à utiliser pour diagnostiquer les problèmes.
 
 ### <a name="-vmname-or--vmid-parameters-dont-exist"></a>Les paramètres -VMName ou -VMID n’existent pas
-**Problème**  
-`Enter-PSSession`, `Invoke-Command`ou `New-PSSession` n’ont pas de paramètre `-VMName` ou `-VMId`.
+**Problème :**  
+`Enter-PSSession`, `Invoke-Command` ou `New-PSSession` n’ont pas de paramètre `-VMName` ou `-VMId`.
 
 **Causes possibles :**  
 Le problème le plus probable est que PowerShell Direct n’est pas pris en charge par votre système d’exploitation hôte.
@@ -195,7 +195,7 @@ $PSVersionTable.PSVersion
 
 
 ### <a name="error-a-remote-session-might-have-ended"></a>Erreur : une session à distance a peut-être pris fin.
-> **Remarque :**  
+> **Remarque :**  
 Pour Enter-PSSession entre les builds d’hôte 10240 et 12400, toutes les erreurs ci-dessous sont signalées sous la forme « Une session à distance a peut-être pris fin ».
 
 **Message d’erreur :**
@@ -219,7 +219,7 @@ New-PSSession : An error has occurred which Windows PowerShell cannot handle. A 
 ```
 
 **Causes possibles :**
-* L’une des raisons répertoriées ci-dessus, elles sont toutes applicables à `New-PSSession`  
+* Une des raisons répertoriées ci-dessus : elles sont également applicables à `New-PSSession`  
 * Un bogue dans les builds actuelles dans lesquelles des informations d’identification doivent être passées explicitement avec `-Credential`.  Quand cela se produit, l’ensemble du service se bloque dans le système d’exploitation invité et doit être redémarré.  Vous pouvez vérifier si la session est toujours disponible avec Enter-PSSession.
 
 Pour contourner le problème des informations d’identification, connectez-vous à la machine virtuelle avec VMConnect, ouvrez PowerShell, puis redémarrez le service vmicvmsession à l’aide de la commande PowerShell suivante :
@@ -242,7 +242,7 @@ Enter-PSSession : Parameter set cannot be resolved using the specified named par
 Les informations d’identification d’administrateur peuvent être passées à la machine virtuelle avec le paramètre `-Credential` ou en les entrant manuellement quand vous y êtes invité.
 
 
-### <a name="error-the-credential-is-invalid"></a>Erreur : Les informations d’identification ne sont pas valides.
+### <a name="error-the-credential-is-invalid"></a>Erreur : les informations d’identification ne sont pas valides.
 
 **Message d’erreur :**  
 ```
@@ -253,9 +253,9 @@ Enter-PSSession : The credential is invalid.
 * Impossible de valider les informations d’identification de l’invité.
   * Les informations d’identification fournies sont incorrectes.
   * Aucun compte d’utilisateur n’existe dans l’invité (le système d’exploitation n’a pas encore démarré)
-  * Si vous vous connectez en tant qu’administrateur : l’administrateur n’a pas été défini comme un utilisateur actif.  Pour en savoir plus, cliquez [ici](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825104(v=win.10)>).
+  * Si vous vous connectez en tant qu’administrateur :  l’administrateur n’a pas été défini comme utilisateur actif.  Pour en savoir plus, cliquez [ici](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825104(v=win.10)>).
   
-### <a name="error-the-input-vmname-parameter-does-not-resolve-to-any-virtual-machine"></a>Erreur : Impossible de résoudre le paramètre d’entrée VMName en une machine virtuelle quelconque.
+### <a name="error-the-input-vmname-parameter-does-not-resolve-to-any-virtual-machine"></a>Erreur : impossible de résoudre le paramètre d’entrée VMName en une machine virtuelle quelconque.
 
 **Message d’erreur :**  
 ```

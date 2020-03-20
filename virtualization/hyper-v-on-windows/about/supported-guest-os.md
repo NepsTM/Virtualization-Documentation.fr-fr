@@ -9,7 +9,7 @@ ms.prod: windows-10-hyperv
 ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
 ms.openlocfilehash: 25c72b910af15fc0b498a5b2abce72d32e6d1efd
 ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/18/2020
 ms.locfileid: "77439596"
@@ -28,22 +28,22 @@ Microsoft assure la prise en charge de la manière suivante :
 
 * En ce qui concerne les problèmes détectés dans d’autres systèmes d’exploitation, Microsoft soumet le problème à la communauté de support multifournisseur, [TASNet](http://www.tsanet.org/).
 
-Pour pouvoir être pris en charge, tous les systèmes d’exploitation (invité et hôte) doit être mis à jour.  Recherchez les mises à jour critiques dans Windows Update.
+Pour être pris en charge, tous les systèmes d’exploitation (invité et hôte) doivent être mis à jour.  Recherchez les mises à jour critiques dans Windows Update.
 
 ## <a name="supported-guest-operating-systems"></a>Systèmes d’exploitation invités pris en charge
 
-| Système d’exploitation invité |  Nombre maximal de processeurs virtuels | Remarques |
+| Systèmes d’exploitation invités |  Nombre maximal de processeurs virtuels | Remarques |
 |:-----|:-----|:-----|
-| Windows 10 | 32 |Le mode de session étendu ne fonctionne pas sur l'édition Windows 10 Famille |
-| Windows 8.1 | 32 | |
+| Windows 10 | 32 |Le mode de session étendu ne fonctionne pas sur l'édition Windows 10 Famille |
+| Windows 8.1 | 32 | |
 | Windows 8 | 32 ||
 | Windows 7 avec Service Pack 1 (SP1) | 4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32 bits et 64 bits). |
 | Windows 7 | 4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32 bits et 64 bits). |
 | Windows Vista avec Service Pack 2 (SP2) | 2 | Professionnel, Entreprise et Édition Intégrale, notamment les éditions N et KN. |
 | - | | |
-| [Canal semi-annuel Windows Server](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview) | 64 | |
+| [Canal semi-annuel Windows Server](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview) | 64 | |
 | Windows Server 2019 | 64 | |
-| Windows Server 2016 | 64 | |
+| Windows Server 2016 | 64 | |
 | Windows Server 2012 R2 | 64 | |
 | Windows Server 2012 | 64 | |
 | Windows Server 2008 R2 avec Service Pack 1 (SP1) | 64 | Éditions Datacenter, Entreprise, Standard et Web. |
@@ -55,7 +55,7 @@ Pour pouvoir être pris en charge, tous les systèmes d’exploitation (invité 
 
 ## <a name="supported-linux-and-free-bsd"></a>Linux et FreeBSD pris en charge
 
-| Système d’exploitation invité |  |
+| Systèmes d’exploitation invités |  |
 |:-----|:------|
 | [CentOS et Red Hat Enterprise Linux](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V) | |
 | [Machines virtuelles Debian sur Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Debian-virtual-machines-on-Hyper-V) | |
