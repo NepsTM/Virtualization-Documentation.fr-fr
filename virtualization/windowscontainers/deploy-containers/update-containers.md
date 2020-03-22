@@ -6,12 +6,12 @@ author: heidilohr
 ms. author: helohr
 manager: lizross
 ms.date: 03/10/2020
-ms.openlocfilehash: 12a60398a12437ea733b2da31aae853a7afd2c57
-ms.sourcegitcommit: 8eedfdc1fda9d0abb36e28dc2b5fb39891777364
+ms.openlocfilehash: 84413f27bfce66e7d259c05795a280ed34b582ab
+ms.sourcegitcommit: 6f216408434a437da87a72d582500a4ca6c2679c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037416"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80112692"
 ---
 # <a name="update-windows-server-containers"></a>Mettre à jour les conteneurs Windows Server
 
@@ -77,8 +77,9 @@ Pour référence, le tableau suivant répertorie les numéros de version pour le
 
 | Version de Windows Server (étiquette flottante) | Version de mise à jour pour la version 1/14/20 (1B)| Version de mise à jour pour la version 2/18/20 (2B) | Mise à jour de la version 3/10/20 (3B) |
 |---|---|---|---|
-| Windows Server 2016 (ltsc2016) | 10.0.14393.3443 (B4534271) | 10.0.14393.3506 (KB4546850) | Conteneur à publier dans les jours à venir |
+| Windows Server 2016 (ltsc2016) | 10.0.14393.3443 (KB4534271) | 10.0.14393.3506 (KB4546850) | 10.0.14393.3568 (KB4551573) |
 | Windows Server, version 1803 (1803) | 10.0.17134.1246 (KB4534293) | 10.0.17134.1305 (KB4546851)  | Cette version a atteint la fin de la prise en charge. Pour plus d’informations, consultez [cycles de vie de maintenance des images de base](base-image-lifecycle.md).|
+| Windows Server, version 1809 (1809)| 10.0.17763.973 (KB4534273) | 10.0.17763.1040 (KB4546852) | 10.0.17763.1098 (KB4538461) |
 | Windows Server 2019 (ltsc2019) | 10.0.17763.973 (KB4534273) | 10.0.17763.1040 (KB4546852) | 10.0.17763.1098 (KB4538461) |
 | Windows Server, version 1903 (1903) |10.0.18362.592 (KB4528760) | 10.0.18362.658 (KB4546853) | 10.0.18362.719 (KB4540673) |
 | Windows Server, version 1909 (1909) | 10.0.18363.592 (KB4528760) | 10.0.18363.658 (KB4546853) | 10.0.18363.719 (KB4540673) |
