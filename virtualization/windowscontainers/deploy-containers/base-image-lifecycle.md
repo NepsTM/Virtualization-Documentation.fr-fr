@@ -8,14 +8,17 @@ ms.date: 06/17/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: 27672f6a8e71989bfd47fe9810dfd429eedd9206
-ms.sourcegitcommit: 379eb650f6af90f5963e2fcf9de7196238fbe9fa
+ms.openlocfilehash: 2dcd228af0984b55162894555fa21f9e02dd1934
+ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705684"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81395742"
 ---
 # <a name="base-image-servicing-lifecycles"></a>Cycles de vie de maintenance des images de base
+
+> [!Note]  
+> Microsoft a retardé la fin des dates de prise en charge et de maintenance planifiées pour un certain nombre de produits afin d’aider les personnes et les organisations à concentrer leur attention sur la conservation de la continuité des activités. Pour plus d’informations, consultez [modifications du cycle de vie de la fin de la prise en charge et des dates de maintenance](https://support.microsoft.com/en-us/help/4557164/lifecycle-changes-to-end-of-support-and-servicing-dates) à partir du 14 avril 2020.
 
 Les images de base de conteneur Windows reposent sur des versions de canaux semi-annuelles ou des versions de canaux de maintenance à long terme de Windows Server. Cet article vous indique la durée de la prise en charge pour les différentes versions des images de base des deux canaux.
 
@@ -30,7 +33,7 @@ Le tableau suivant répertorie chaque type d’image de base, son canal de maint
 |Server Core, nano Server, Windows|Semi-annuel      |1909   |18363   |12/11/2019  |11/05/2021                 |N/A                  |
 |Server Core, nano Server, Windows|Semi-annuel      |1903   |18362   |05/21/2019  |08/12/2020                 |N/A                  |
 |Minimale                      |À long terme        |2019   |17763   |13/11/2018  |09/01/2024                 |09/01/2029           |
-|Server Core, nano Server, Windows|Semi-annuel      |1809   |17763   |13/11/2018  |05/12/2020                 |N/A                  |
+|Server Core, nano Server, Windows|Semi-annuel      |1809   |17763   |13/11/2018  |11/10/2020                 |N/A                  |
 |Server Core, nano Server         |Semi-annuel      |1803   |17134   |30/04/2018  |12/11/2019                 |N/A                  |
 |Server Core, nano Server         |Semi-annuel      |1709   |16299   |17/10/2017  |09/04/2019                 |N/A                  |
 |Minimale                      |À long terme        |1607   |14393   |15/10/2016  |11/01/2022                 |11/01/2027           |
