@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1ecb85a6-d938-4c30-a29b-d18bd007ba08
-ms.openlocfilehash: b7944e34cab66df07df0ccc78947a774d775c9a7
-ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
+ms.openlocfilehash: 63007d21fcc046f384405c7d85143bfc576ecc07
+ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78853943"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81395752"
 ---
 # <a name="configure-nested-vms-to-communicate-with-resources-in-an-azure-virtual-network"></a>Configurer des machines virtuelles imbriquées pour qu'elles communiquent avec les ressources d'un réseau virtuel Azure
 
@@ -121,7 +121,7 @@ Je ferai abstraction de toutes les valeurs de configuration basées sur les pré
 
 1. Ouvrez Gestionnaire de serveur, sélectionnez « Outils », puis sélectionnez « Routage et accès à distance ».
 2. Sur le côté gauche du panneau de gestion Routage et accès à distance, vous verrez une icône accompagnée du nom de vos serveurs. Cliquez sur cette icône avec le bouton droit et sélectionnez « Configurer et activer le routage et l'accès à distance ».
-3. Dans l'Assistant, sélectionnez « Suivant », cochez « Configuration personnalisée », puis sélectionnez « Suivant ».
+3. Dans l’Assistant, sélectionnez « Suivant », « Configuration personnalisée », puis « Suivant ».
 4. Cochez « NAT » et « Routage LAN », puis sélectionnez « Suivant » et « Terminer ». Si vous êtes invité à démarrer le service, faites-le.
 5. À présent, accédez au nœud « IPv4 » et développez-le afin que le nœud « NAT » soit disponible.
 6. Cliquez avec le bouton droit sur « NAT », sélectionnez « Nouvelle interface... », puis sélectionnez « Ethernet ». Il doit s'agir de votre première carte réseau avec l'adresse IP « 10.0.0.4 ». Sélectionnez ensuite Interface publique, connectez-vous à Internet et activez NAT sur cette interface. 
