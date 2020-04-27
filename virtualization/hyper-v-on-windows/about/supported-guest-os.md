@@ -8,10 +8,10 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
 ms.openlocfilehash: 25c72b910af15fc0b498a5b2abce72d32e6d1efd
-ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
+ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "77439596"
 ---
 # <a name="supported-windows-guests"></a>Invités Windows pris en charge
@@ -32,19 +32,19 @@ Pour être pris en charge, tous les systèmes d’exploitation (invité et hôte
 
 ## <a name="supported-guest-operating-systems"></a>Systèmes d’exploitation invités pris en charge
 
-| Systèmes d’exploitation invités |  Nombre maximal de processeurs virtuels | Remarques |
+| Système d’exploitation invité |  Nombre maximal de processeurs virtuels | Remarques |
 |:-----|:-----|:-----|
 | Windows 10 | 32 |Le mode de session étendu ne fonctionne pas sur l'édition Windows 10 Famille |
-| Windows 8.1 | 32 | |
+| Windows 8.1 | 32 | |
 | Windows 8 | 32 ||
 | Windows 7 avec Service Pack 1 (SP1) | 4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32 bits et 64 bits). |
-| Windows 7 | 4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32 bits et 64 bits). |
+| Windows 7 | 4 | Édition Intégrale, Édition Entreprise et Édition Professionnel (32 bits et 64 bits). |
 | Windows Vista avec Service Pack 2 (SP2) | 2 | Professionnel, Entreprise et Édition Intégrale, notamment les éditions N et KN. |
 | - | | |
 | [Canal semi-annuel Windows Server](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview) | 64 | |
 | Windows Server 2019 | 64 | |
-| Windows Server 2016 | 64 | |
-| Windows Server 2012 R2 | 64 | |
+| Windows Server 2016 | 64 | |
+| Windows Server 2012 R2 | 64 | |
 | Windows Server 2012 | 64 | |
 | Windows Server 2008 R2 avec Service Pack 1 (SP1) | 64 | Éditions Datacenter, Entreprise, Standard et Web. |
 | Windows Server 2008 avec Service Pack 2 (SP2) | 4 | Éditions Datacenter, Entreprise, Standard et Web (32 bits et 64 bits). |
@@ -55,7 +55,7 @@ Pour être pris en charge, tous les systèmes d’exploitation (invité et hôte
 
 ## <a name="supported-linux-and-free-bsd"></a>Linux et FreeBSD pris en charge
 
-| Systèmes d’exploitation invités |  |
+| Système d’exploitation invité |  |
 |:-----|:------|
 | [CentOS et Red Hat Enterprise Linux](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V) | |
 | [Machines virtuelles Debian sur Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Debian-virtual-machines-on-Hyper-V) | |

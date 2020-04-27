@@ -9,10 +9,10 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d1aeb9cb-b18f-43cb-a568-46b33346a188
 ms.openlocfilehash: c891a723d43a9e6e0a0a8bc7bfc2b47a960732d1
-ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
+ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "77439586"
 ---
 # <a name="share-devices-with-your-virtual-machine"></a>Partager des périphériques avec votre ordinateur virtuel
@@ -29,7 +29,7 @@ Le protocole RDP/mode de session étendu :
   * Partage de fichiers par glisser-déplacer et copier-coller
 * Permet le partage de périphériques
   * Microphone/haut-parleurs
-  * Périphériques USB
+  * Périphériques USB
   * Disques de données (y compris C:)
   * Imprimantes
 
@@ -91,7 +91,7 @@ Vous pouvez vérifier le type de connexion dont vous bénéficiez grâce à l’
 
 ![](media/esm-button-location.png)
 
-| icône | état de la connexion |
+| icon | état de la connexion |
 |:-----|:---------|
 |![](media/esm-basic.png)| Vous êtes actuellement en mode de session étendu.  Cliquez sur cette icône pour vous reconnecter à votre ordinateur virtuel en mode simple. |
 |![](media/esm-connect.png)| Vous êtes actuellement en mode de session simple, mais le mode de session étendu est disponible.  Cliquez sur cette icône pour vous reconnecter à votre ordinateur virtuel en mode de session étendu.  |

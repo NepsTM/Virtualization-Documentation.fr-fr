@@ -9,15 +9,15 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 05269ce0-a54f-4ad8-af75-2ecf5142b866
 ms.openlocfilehash: 0621a06832844b0350b33c763f0546afa9b596e6
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "74909119"
 ---
 # <a name="hyper-v-on-windows-10"></a>Hyper-V sur Windows 10 
 
-Intégrée à plusieurs versions de Windows 10, la technologie de virtualisation Hyper-V. permet d’exécuter des systèmes informatiques virtualisés sur un hôte physique. Vous pouvez utiliser et gérer ces systèmes virtualisés au même titre que des systèmes informatiques physiques, à la différence près qu’ils existent dans un environnement virtualisé et isolé. Pour gérer l’accès entre les systèmes virtuels et les ressources matérielles physiques, vous utilisez un logiciel spécial appelé un « hyperviseur ». Grâce à la virtualisation, vous pouvez rapidement déployer des systèmes informatiques, les restaurer à un état valide antérieur et les migrer entre différents hôtes physiques.
+Intégrée à plusieurs versions de Windows 10, la technologie de virtualisation Hyper-V permet d’exécuter des systèmes informatiques virtualisés sur un hôte physique. Vous pouvez utiliser et gérer ces systèmes virtualisés au même titre que des systèmes informatiques physiques, à la différence près qu’ils existent dans un environnement virtualisé et isolé. Pour gérer l’accès entre les systèmes virtuels et les ressources matérielles physiques, vous utilisez un logiciel spécial appelé un « hyperviseur ». Grâce à la virtualisation, vous pouvez rapidement déployer des systèmes informatiques, les restaurer à un état valide antérieur et les migrer entre différents hôtes physiques.
 
 Dans les documents suivants, vous trouverez une présentation détaillée de la fonctionnalité Hyper-V dans Windows 10, un guide de démarrage rapide interactif, ainsi que des liens vers des forums communautaires et d’autres ressources. 
 

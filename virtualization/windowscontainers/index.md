@@ -10,10 +10,10 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
 ms.openlocfilehash: 9a5b08f87983e285418ae333e3a948af9911d73d
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "74909159"
 ---
 <div id="main" class="v2">
@@ -176,7 +176,7 @@ ms.locfileid: "74909159"
                             <ul>
                                 <li><a href="/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility" data-linktype="external">Compatibilité des versions</a></li>
                                 <li><a href="/en-us/virtualization/windowscontainers/deploy-containers/base-image-lifecycle" data-linktype="external">Cycles de vie de maintenance des images</a></li>
-                                <li><a href="/en-us/virtualization/windowscontainers/images-eula" data-linktype="external">CLUF de l’image de système d’exploitation de conteneur</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/images-eula" data-linktype="external">CLUF de l’image système d’exploitation de conteneur</a></li>
                             </ul>
                         </div>
                     </div>

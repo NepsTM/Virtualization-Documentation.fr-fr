@@ -9,10 +9,10 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9c398c4-ee72-45c6-9ce8-4f06569dae6c
 ms.openlocfilehash: 8cdbd7b9881c973b6b5d269f986a03bdb21e276a
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "74911229"
 ---
 # <a name="using-checkpoints-to-revert-virtual-machines-to-a-previous-state"></a>Utilisation de points de contrôle pour restaurer des machines virtuelles à un état antérieur
@@ -27,14 +27,14 @@ Dans Windows 10, Hyper-V comprend deux types de points de contrôle :
 
 Les points de contrôle de production sont sélectionnés par défaut, mais vous pouvez les modifier à l’aide du Gestionnaire Hyper-V ou de PowerShell.
 
-> **Remarque :** le module PowerShell Hyper-V possède plusieurs alias afin que le point de contrôle et la capture instantanée puissent être utilisés de manière interchangeable.  
+> **Remarque :** le module PowerShell Hyper-V ayant plusieurs alias, vous pouvez utiliser indifféremment un point de terminaison ou une capture instantanée.  
   Bien que ce document utilise le point de contrôle, sachez que des commandes similaires peuvent utiliser le terme « capture instantanée ».
 
 ## <a name="changing-the-checkpoint-type"></a>Modification du type de point de contrôle
 
 **À l’aide du Gestionnaire Hyper-V**
 
-1. Ouvrez le Gestionnaire Hyper-V.
+1. Ouvrez le Gestionnaire Hyper-V.
 2. Cliquez avec le bouton droit sur une machine virtuelle, puis sélectionnez **Paramètres**.
 3. Sous Gestion, sélectionnez **Points de contrôle**.
 4. Sélectionnez le type de point de contrôle désiré.
@@ -96,7 +96,7 @@ Si vous souhaitez restaurer votre machine virtuelle à un moment donné précéd
 1. Dans le **Gestionnaire Hyper-V**, sous **Machines virtuelles**, sélectionnez la machine virtuelle.
 2. Dans la section Points de contrôle, cliquez avec le bouton droit sur le point de contrôle à utiliser, puis cliquez sur **Appliquer**.
 3. Une boîte de dialogue s’affiche avec les options suivantes :  
-  * **Créer un point de contrôle et appliquer** : crée un point de contrôle de la machine virtuelle avant d'appliquer le point de contrôle antérieur. 
+  * **Créer un point de contrôle et appliquer** : crée un point de contrôle de la machine virtuelle avant d’appliquer le point de contrôle antérieur. 
   * **Appliquer** : applique uniquement le point de contrôle que vous avez choisi. Vous ne pouvez pas annuler cette action.
   * **Annuler** : ferme la boîte de dialogue sans rien faire.
   

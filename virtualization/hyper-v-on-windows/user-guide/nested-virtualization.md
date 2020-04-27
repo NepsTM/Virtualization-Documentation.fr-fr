@@ -9,10 +9,10 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
 ms.openlocfilehash: f819ac04773188525af202d370ba271a2d93e259
-ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
+ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "77439346"
 ---
 # <a name="run-hyper-v-in-a-virtual-machine-with-nested-virtualization"></a>Exécuter Hyper-V dans une machine virtuelle avec la virtualisation imbriquée
@@ -21,7 +21,7 @@ La virtualisation imbriquée est une fonctionnalité qui vous permet d’exécut
 
 ![](./media/HyperVNesting.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * L’hôte et l’invité Hyper-V doivent tous deux exécuter Windows Server 2016/la Mise à jour anniversaire Windows 10 ou version ultérieure.
 * Configuration de machine virtuelle version 8.0 ou ultérieure.
@@ -37,7 +37,7 @@ La virtualisation imbriquée est une fonctionnalité qui vous permet d’exécut
 ```
 Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
 ```
-3. Démarrez l’ordinateur virtuel.
+3. Démarrez l'ordinateur virtuel.
 4. Installez Hyper-V sur la machine virtuelle, comme vous le feriez sur un serveur physique. Pour plus d’informations sur l’installation d’Hyper-V, consultez [Installer Hyper-V](../quick-start/enable-hyper-v.md).
 
 ## <a name="disable-nested-virtualization"></a>Désactiver la virtualisation imbriquée

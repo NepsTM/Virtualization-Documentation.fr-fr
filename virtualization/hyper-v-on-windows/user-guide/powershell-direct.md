@@ -9,10 +9,10 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
 ms.openlocfilehash: ed96c7ba30c83906cd3245a279ab078229400d8d
-ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
+ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "77439546"
 ---
 # <a name="virtual-machine-automation-and-management-using-powershell"></a>Gestion et automatisation de machines virtuelles avec PowerShell
@@ -25,7 +25,7 @@ Voici quelques méthodes permettant d’exécuter PowerShell Direct :
 * [En tant que section à usage unique pour exécuter une commande ou un script unique à l’aide de la cmdlet Invoke-Command](#run-a-script-or-command-with-invoke-command)
 * [En tant que session persistante (Build 14280 et ultérieures) à l’aide des cmdlets New-PSSession, Copy-Item et Remove-PSSession](#copy-files-with-new-pssession-and-copy-item)
 
-## <a name="requirements"></a>Conditions requises
+## <a name="requirements"></a>Configuration requise
 **Configuration requise pour le système d’exploitation :**
 * Hôte : Windows 10, Windows Server 2016 ou version ultérieure exécutant Hyper-V.
 * Invité/Machine virtuelle : Windows 10, Windows Server 2016 ou version ultérieure.
@@ -75,7 +75,7 @@ Quand la session démarre, les commandes que vous tapez s’exécutent sur la ma
    Exit-PSSession 
    ``` 
 
-> Remarque :  si votre session ne se connecte pas, consultez la section de [résolution des problèmes](#troubleshooting) pour déterminer les causes possibles. 
+> Remarque : Si votre session ne se connecte pas, voir la section de [dépannage](#troubleshooting) pour déterminer les causes potentielles. 
 
 Pour en savoir plus sur ces applets de commande, consultez [Enter-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Enter-PSSession?view=powershell-5.1) et [Exit-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Exit-PSSession?view=powershell-5.1). 
 
@@ -122,7 +122,7 @@ Pour en savoir plus sur cette applet de commande, voir [Invoke-Command](https://
 
 ## <a name="copy-files-with-new-pssession-and-copy-item"></a>Copier des fichiers avec New-PSSession et Copy-Item
 
-> **Remarque :** PowerShell Direct ne prend en charge les sessions persistantes que dans Windows build 14280 et ultérieures.
+> **Remarque :** PowerShell Direct ne prend en charge les sessions persistantes que dans Windows build 14280 et ultérieures.
 
 Les sessions persistantes PowerShell sont extrêmement utiles lors de l’écriture de scripts qui coordonnent des actions sur un ou plusieurs ordinateurs distants.  Une fois créées, les sessions persistantes existent en arrière-plan jusqu’à ce que vous décidiez de les supprimer.  Cela signifie que vous pouvez référencer la même session indéfiniment avec `Invoke-Command` ou `Enter-PSSession` sans passer d’informations d’identification.
 
@@ -195,7 +195,7 @@ $PSVersionTable.PSVersion
 
 
 ### <a name="error-a-remote-session-might-have-ended"></a>Erreur : une session à distance a peut-être pris fin.
-> **Remarque :**  
+> **Remarque :**  
 Pour Enter-PSSession entre les builds d’hôte 10240 et 12400, toutes les erreurs ci-dessous sont signalées sous la forme « Une session à distance a peut-être pris fin ».
 
 **Message d’erreur :**
@@ -242,7 +242,7 @@ Enter-PSSession : Parameter set cannot be resolved using the specified named par
 Les informations d’identification d’administrateur peuvent être passées à la machine virtuelle avec le paramètre `-Credential` ou en les entrant manuellement quand vous y êtes invité.
 
 
-### <a name="error-the-credential-is-invalid"></a>Erreur : les informations d’identification ne sont pas valides.
+### <a name="error-the-credential-is-invalid"></a>Erreur : Les informations d’identification ne sont pas valides.
 
 **Message d’erreur :**  
 ```
@@ -253,9 +253,9 @@ Enter-PSSession : The credential is invalid.
 * Impossible de valider les informations d’identification de l’invité.
   * Les informations d’identification fournies sont incorrectes.
   * Aucun compte d’utilisateur n’existe dans l’invité (le système d’exploitation n’a pas encore démarré)
-  * Si vous vous connectez en tant qu’administrateur :  l’administrateur n’a pas été défini comme utilisateur actif.  Pour en savoir plus, cliquez [ici](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825104(v=win.10)>).
+  * Si vous vous connectez en tant qu’administrateur : l’administrateur n’a pas été défini comme un utilisateur actif.  Pour en savoir plus, cliquez [ici](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825104(v=win.10)>).
   
-### <a name="error-the-input-vmname-parameter-does-not-resolve-to-any-virtual-machine"></a>Erreur : impossible de résoudre le paramètre d’entrée VMName en une machine virtuelle quelconque.
+### <a name="error-the-input-vmname-parameter-does-not-resolve-to-any-virtual-machine"></a>Erreur : Impossible de résoudre le paramètre d’entrée VMName en une machine virtuelle quelconque.
 
 **Message d’erreur :**  
 ```

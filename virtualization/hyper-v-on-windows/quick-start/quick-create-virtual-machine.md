@@ -8,10 +8,10 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: f1e75efa-8745-4389-b8dc-91ca931fe5ae
 ms.openlocfilehash: 6035143bc1449bc4a8e9bb7a4484b4c5329e6d3c
-ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
+ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "77439626"
 ---
 # <a name="create-a-virtual-machine-with-hyper-v"></a>Créer une machine virtuelle avec Hyper-V
@@ -79,7 +79,7 @@ Votre machine virtuelle doit ressembler plus ou moins à ceci :
 
 ![Écran de démarrage de la machine virtuelle](media/OSDeploy_upd.png)
 
-> **Remarque :** si vous n’exécutez pas une version de Windows sous licence en volume, vous devez posséder une licence distincte pour l'exemplaire de Windows qui s’exécute sur une machine virtuelle. Le système d’exploitation de la machine virtuelle est indépendant du système d’exploitation de l’hôte.
+> **Remarque :** si vous n’exécutez pas une version de Windows sous licence en volume, vous devez posséder une licence distincte pour l'exemplaire de Windows qui s’exécute sur une machine virtuelle. Le système d’exploitation de la machine virtuelle est indépendant du système d’exploitation de l’hôte.
 
 ## <a name="before-windows-10-creators-update-windows-10-version-1607-and-earlier"></a>Avant Windows 10 Creators Update (Windows 10 version 1607 et versions antérieures)
 
