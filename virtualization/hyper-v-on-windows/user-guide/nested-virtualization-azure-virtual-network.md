@@ -12,7 +12,7 @@ ms.openlocfilehash: 63007d21fcc046f384405c7d85143bfc576ecc07
 ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "81395752"
 ---
 # <a name="configure-nested-vms-to-communicate-with-resources-in-an-azure-virtual-network"></a>Configurer des machines virtuelles imbriquées pour qu'elles communiquent avec les ressources d'un réseau virtuel Azure
