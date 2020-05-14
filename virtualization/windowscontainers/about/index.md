@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: 4fad299db2c897a6be860ef0cc71e80969c75357
-ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
+ms.openlocfilehash: 67ac6e39ca4b3c485d1bb376be1893e871317fac
+ms.sourcegitcommit: 85e257cfd543bf5a37680cde07e184cbdd573bd7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "74909409"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83368010"
 ---
 # <a name="windows-and-containers"></a>Windows et conteneurs
 
@@ -30,7 +30,7 @@ Microsoft fournit un certain nombre d’outils et de plateformes pour vous aider
 - <strong>Publiez vos applications sous forme d’images conteneur</strong> sur l’instance DockerHub publique afin que d’autres personnes puissent les utiliser, ou sur une instance [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) privée pour le développement et déploiement de votre propre organisation, en procédant à l’envoi (push) et au tirage (pull) directement à partir de Visual Studio et de Visual Studio Code.
 - <strong>Déployez des conteneurs à grande échelle sur Azure</strong> ou d’autres clouds :
 
-  - Tirez (pull) votre application (image conteneur) d’un registre de conteneurs comme Azure Container Registry, puis déployez-la et gérez-la à grande échelle avec un orchestrateur comme [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes) (en préversion pour les applications Windows) ou [Azure Fabric Service](https://docs.microsoft.com/azure/service-fabric/).
+  - Tirez (pull) votre application (image conteneur) d’un registre de conteneurs comme Azure Container Registry, puis déployez-la et gérez-la à grande échelle avec un orchestrateur comme [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes) ou [Azure Fabric Service](https://docs.microsoft.com/azure/service-fabric/).
   - Azure Fabric Service déploie des conteneurs sur des machines virtuelles Azure et les gère à grande échelle, qu’il s’agisse de douzaines, de centaines, voire de milliers de conteneurs. Les machines virtuelles Azure exécutent une image Windows Server personnalisée (si vous déployez une application Windows) ou une image Ubuntu Linux personnalisée (si vous déployez une application Linux).
 - <strong>Déployez des conteneurs locaux</strong> au moyen d’[Azure Stack avec le moteur AKS](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) (en préversion pour des conteneurs Linux) ou d’[Azure Stack avec OpenShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-azure-stack). Vous pouvez également configurer Kubernetes vous-même sur Windows Server (voir [Kubernetes sur Windows](../kubernetes/getting-started-kubernetes-windows.md)) ; nous travaillons également sur la prise en charge de l’exécution des [conteneurs Windows sur RedHat OpenShift Container Platform](https://techcommunity.microsoft.com/t5/Networking-Blog/Managing-Windows-containers-with-Red-Hat-OpenShift-Container/ba-p/339821).
 
