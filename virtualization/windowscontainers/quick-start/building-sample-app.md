@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: d81c6cb99b1d12b1df87e83220b39eef80f066c0
-ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
+ms.openlocfilehash: c9e175a7ced0f328e342f3cdd4f99adc717d5700
+ms.sourcegitcommit: 62f4bcca4e07f2a34a927e5c4d786e505821d559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "81395762"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82784398"
 ---
 # <a name="containerize-a-net-core-app"></a>Conteneuriser une application .NET Core
 
@@ -123,7 +123,7 @@ Une fois le fichier Dockerfile écrit, nous pouvons pointer Docker sur notre fic
 
    * `-d` indique à Docker d'exécuter le conteneur « detached », ce qui signifie qu’aucune console n’est reliée à la console à l’intérieur du conteneur. Le conteneur s’exécute en arrière-plan. 
    * `-p 5000:80` indique à Docker de mapper le port 5000 de l’hôte au port 80 du conteneur. Chaque conteneur obtient sa propre adresse IP. Par défaut, ASP .NET écoute sur le port 80. Le mappage de ports nous permet d’accéder à l’adresse IP de l’hôte au niveau du port mappé et Docker transmet tout le trafic vers le port de destination à l’intérieur du conteneur.
-   * `--name myapp` indique à Docker d’attribuer à ce conteneur un nom convivial à interroger (plutôt que de devoir rechercher l'ID de conteneur attribué au moment de l’exécution par Docker).
+   * `--name myapp` indique à Docker d’attribuer à ce conteneur un nom convivial à interroger (plutôt que de devoir rechercher l’ID de conteneur attribué au moment de l’exécution par Docker).
    * `my-asp-app` correspond à l’image que nous souhaitons que Docker exécute. Il s’agit de l’image de conteneur générée au terme du processus `docker build`.
 
 3. Ouvrez un navigateur web et accédez à `http://localhost:5000` pour voir votre application en conteneur, comme illustré dans cette capture d’écran :
