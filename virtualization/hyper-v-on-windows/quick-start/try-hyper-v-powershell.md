@@ -96,7 +96,7 @@ Pour créer un point de contrôle à l’aide de PowerShell, sélectionnez la ma
 L’exemple suivant montre comment créer une machine virtuelle dans l’environnement d’écriture de scripts intégré de Windows PowerShell (ISE). Vous pouvez étendre cet exemple simple de manière à inclure des fonctionnalités supplémentaires de PowerShell et des déploiements de machines virtuelles plus avancés.
 
 1. Pour ouvrir PowerShell ISE, cliquez sur Démarrer, puis tapez **PowerShell ISE**.
-2. Exécutez le code suivant pour créer une machine virtuelle. Pour plus d’informations sur la commande [, consultez la documentation de ](https://docs.microsoft.com/powershell/module/hyper-v/new-vm?view=win10-ps)New-VM`New-VM`.
+2. Exécutez le code suivant pour créer une machine virtuelle. Pour plus d’informations sur la commande `New-VM`, consultez la documentation de [New-VM](https://docs.microsoft.com/powershell/module/hyper-v/new-vm?view=win10-ps).
 
  ```powershell
   $VMName = "VMNAME"
