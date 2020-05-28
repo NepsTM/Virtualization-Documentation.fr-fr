@@ -10,13 +10,13 @@ ms.service: windows-containers
 ms.assetid: 8ccd4192-4a58-42a5-8f74-2574d10de98e
 ms.openlocfilehash: 3e9f7e3208222cd6c0f512c5f892453ac6e6980c
 ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/04/2019
 ms.locfileid: "74910169"
 ---
 # <a name="implementing-resource-controls-for-windows-containers"></a>Implémentation de contrôles de ressources pour les conteneurs Windows
-Plusieurs contrôles de ressources peuvent être implémentés par conteneur et par ressource.  Par défaut, les conteneurs exécutés sont soumis à la gestion des ressources Windows classique. Celle-ci est généralement exécutée de manière équitable, mais en configurant ces contrôles, un développeur ou un administrateur est en mesure de limiter ou d’influencer l’utilisation des ressources.  Les ressources pouvant être contrôlées sont notamment : UC/processeur, mémoire/mémoire RAM, disque/stockage et réseau/débit.
+Plusieurs contrôles de ressources peuvent être implémentés par conteneur et par ressource.  Par défaut, les conteneurs exécutés sont soumis à la gestion des ressources Windows classique. Celle-ci est généralement exécutée de manière équitable, mais en configurant ces contrôles, un développeur ou un administrateur est en mesure de limiter ou d’influencer l’utilisation des ressources.  Les ressources contrôlables sont les suivantes : UC/Processeur, Mémoire/RAM, Disque/Stockage et Réseau/Débit.
 
 Les conteneurs Windows utilisent des [objets de traitement](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects) pour regrouper les processus associés à chaque conteneur et en assurer le suivi.  Les contrôles de ressources sont implémentés sur l’objet de traitement parent associé au conteneur. 
 
@@ -28,20 +28,20 @@ Pour chaque ressource, cette section fournit un mappage entre l’interface de l
 |  | |
 | ----- | ------|
 | *Mémoire* ||
-| Interface Docker | [--mémoire](https://docs.docker.com/engine/admin/resource_constraints/#memory) |
+| Interface Docker | [--memory](https://docs.docker.com/engine/admin/resource_constraints/#memory) |
 | Interface HCS | [MemoryMaximumInMB](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Noyau partagé | [JOB_OBJECT_LIMIT_JOB_MEMORY](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_basic_limit_information) |
 | Isolation Hyper-V | Mémoire de l’ordinateur virtuel |
-| _Remarque relative à l’isolation Hyper-V dans Windows Server 2016 : quand vous utilisez une limite de mémoire, vous voyez que le conteneur alloue initialement la quantité de mémoire Cap, puis commence à le renvoyer à l’hôte de conteneur.  Dans les versions ultérieures (1709 ou supérieur), cela a été optimisé._ |
+| _Remarque concernant l’isolation Hyper-V dans Windows Server 2016 : si vous utilisez une limite de mémoire, vous constaterez que le conteneur alloue initialement la quantité de mémoire maximale, puis commence à la renvoyer à l’hôte du conteneur.  Dans les versions ultérieures (1709 ou au-delà), cela a été optimisé._ |
 | ||
 | *UC (nombre)* ||
-| Interface Docker | [--processeurs](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
+| Interface Docker | [--cpus](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
 | Interface HCS | [ProcessorCount](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Noyau partagé | Simulé avec [JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_cpu_rate_control_information)* |
 | Isolation Hyper-V | Nombre de processeurs virtuels exposés |
 | ||
-| *PROCESSEUR (en pourcentage)* ||
-| Interface Docker | [--UC-pourcentage](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
+| *UC (pourcentage)* ||
+| Interface Docker | [--cpu-percent](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
 | Interface HCS | [ProcessorMaximum](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Noyau partagé | [JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_cpu_rate_control_information) |
 | Isolation Hyper-V | Limites de l’hyperviseur sur les processeurs virtuels |
@@ -53,20 +53,20 @@ Pour chaque ressource, cette section fournit un mappage entre l’interface de l
 | Isolation Hyper-V | Poids de processeurs virtuels de l’hyperviseur |
 | ||
 | *Stockage (image)* ||
-| Interface Docker | [--IO-MaxBandwidth/--IO-maxiops](https://docs.docker.com/edge/engine/reference/commandline/run/#usage) |
+| Interface Docker | [--io-maxbandwidth/--io-maxiops](https://docs.docker.com/edge/engine/reference/commandline/run/#usage) |
 | Interface HCS | [StorageIOPSMaximum et StorageBandwidthMaximum](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Noyau partagé | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |
 | Isolation Hyper-V | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |
 | ||
 | *Stockage (volumes)* ||
-| Interface Docker | [--Storage-opt Size =](https://docs.docker.com/edge/engine/reference/commandline/run/#set-storage-driver-options-per-container) |
+| Interface Docker | [--storage-opt size=](https://docs.docker.com/edge/engine/reference/commandline/run/#set-storage-driver-options-per-container) |
 | Interface HCS | [StorageSandboxSize](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Noyau partagé | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |
 | Isolation Hyper-V | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |
 
 ## <a name="additional-notes-or-details"></a>Remarques supplémentaires ou détails
 
-### <a name="memory"></a>Mémoire
+### <a name="memory"></a>Memory
 
 Les conteneurs Windows exécutent quelques processus système dans chaque conteneur. Il s’agit généralement de ceux qui fournissent des fonctionnalités par conteneur, comme la gestion des utilisateurs, la mise en réseau, etc… Si la majeure partie de la mémoire requise par ces processus est partagée entre les conteneurs, la limite de mémoire doit être suffisamment élevée pour l’ensemble des conteneurs.  Un tableau est fourni dans le document [Configuration requise](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/system-requirements#memory-requirments) pour chaque type d’image de base, avec et sans isolation Hyper-V.
 

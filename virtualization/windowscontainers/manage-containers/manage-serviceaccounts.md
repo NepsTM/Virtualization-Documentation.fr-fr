@@ -1,7 +1,7 @@
 ---
-title: Créer des service administrés pour les conteneurs Windows
-description: Création de comptes de service administrés de groupe (service administrés) pour les conteneurs Windows.
-keywords: ancrage, conteneurs, Active Directory, GMSA, compte de service administré de groupe, comptes de service administrés de groupe
+title: Créer des comptes de service administré de groupe pour des conteneurs Windows
+description: Comment créer des comptes de service administré de groupe pour des conteneurs Windows.
+keywords: docker, conteneurs, Active Directory, compte de service administré de groupe, comptes de service administré de groupe
 author: rpsqrd
 ms.date: 01/03/2019
 ms.topic: article
@@ -10,53 +10,53 @@ ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
 ms.openlocfilehash: 36061cfc491dd9dd581d1e6bce92a29e4a6f217d
 ms.sourcegitcommit: 530712469552a1ef458883001ee748bab2c65ef7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/26/2020
 ms.locfileid: "77628934"
 ---
-# <a name="create-gmsas-for-windows-containers"></a>Créer des service administrés pour les conteneurs Windows
+# <a name="create-gmsas-for-windows-containers"></a>Créer des comptes de service administré de groupe pour des conteneurs Windows
 
-Les réseaux Windows utilisent couramment Active Directory (AD) pour faciliter l’authentification et l’autorisation entre les utilisateurs, les ordinateurs et d’autres ressources réseau. Les développeurs d’applications d’entreprise conçoivent souvent leurs applications pour qu’elles soient intégrées à AD et s’exécutent sur des serveurs joints à un domaine pour tirer parti de l’authentification Windows intégrée, ce qui permet aux utilisateurs et aux autres services de se connecter de manière automatique et transparente à l’application avec leurs identités.
+Les réseaux Windows utilisent couramment Active Directory (AD) pour faciliter l’authentification et l’autorisation entre utilisateurs, ordinateurs et autres ressources réseau. Les développeurs d’applications d’entreprise conçoivent souvent leurs applications pour qu’elles soient intégrées avec AD et s’exécutent sur des serveurs joints à un domaine afin de tirer parti de l’authentification Windows intégrée, ce qui facilite pour les utilisateurs et d’autres services la connexion automatique et transparente à l’application avec leurs identités.
 
-Bien que les conteneurs Windows ne puissent pas être joints à un domaine, ils peuvent toujours utiliser des identités de domaine Active Directory pour prendre en charge différents scénarios d’authentification.
+Si les conteneurs Windows ne peuvent pas être joints à un domaine, ils peuvent toujours utiliser des identités de domaine Active Directory pour divers scénarios d’authentification.
 
-Pour ce faire, vous pouvez configurer un conteneur Windows pour qu’il s’exécute avec un [compte de service administré de groupe](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) (gMSA), qui est un type spécial de compte de service introduit dans Windows Server 2012 conçu pour permettre à plusieurs ordinateurs de partager une identité sans avoir besoin de connaître son mot de passe.
+Pour ce faire, vous pouvez configurer un conteneur Windows pour qu’il s’exécute avec un [compte de service administré de groupe](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview), qui est un type spécial de compte de service introduit dans Windows Server 2012, conçu pour permettre à plusieurs ordinateurs de partager une identité sans avoir besoin de connaître son mot de passe.
 
-Quand vous exécutez un conteneur avec un gMSA, l’hôte de conteneur récupère le mot de passe gMSA à partir d’un contrôleur de domaine Active Directory et le transmet à l’instance de conteneur. Le conteneur utilisera les informations d’identification gMSA chaque fois que son compte d’ordinateur (système) a besoin d’accéder aux ressources réseau.
+Quand vous exécutez un conteneur avec un compte de service administré de groupe, l’hôte du conteneur récupère le mot de passe du compte de service administré de groupe à partir d’un contrôleur de domaine Active Directory, et le transmet à l’instance de conteneur. Le conteneur utilise les informations d’identification du compte de service administré de groupe chaque fois que son compte d’ordinateur (système) a besoin d’accéder aux ressources réseau.
 
-Cet article explique comment commencer à utiliser Active Directory comptes de service administrés de groupe avec des conteneurs Windows.
+Cet article explique comment commencer à utiliser des comptes de service administré de groupe Active Directory avec des conteneurs Windows.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour exécuter un conteneur Windows avec un compte de service administré de groupe, vous aurez besoin des éléments suivants :
 
-- Un domaine Active Directory avec au moins un contrôleur de domaine exécutant Windows Server 2012 ou une version ultérieure. Aucune exigence de niveau fonctionnel de forêt ou de domaine n’est requise pour utiliser service administrés, mais les mots de passe gMSA peuvent être distribués uniquement par les contrôleurs de domaine exécutant Windows Server 2012 ou une version ultérieure. Pour plus d’informations, consultez [Active Directory Requirements for service administrés](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts#BKMK_gMSA_Req).
-- Autorisation de créer un compte gMSA. Pour créer un compte gMSA, vous devez être un administrateur de domaine ou utiliser un compte pour lequel l’autorisation *créer des objets MSDS-GroupManagedServiceAccount* a été déléguée.
-- Accès à Internet pour télécharger le module CredentialSpec PowerShell. Si vous travaillez dans un environnement déconnecté, vous pouvez [enregistrer le module](https://docs.microsoft.com/powershell/module/powershellget/save-module?view=powershell-5.1) sur un ordinateur disposant d’un accès Internet et le copier sur votre ordinateur de développement ou hôte de conteneur.
+- Un domaine Active Directory avec au moins un contrôleur de domaine exécutant Windows Server 2012 ou version ultérieure. Aucune exigence de niveau fonctionnel de forêt ou de domaine n’est liée à l’utilisation de comptes de service administré de groupe, mais les mots de passe de ceux-ci ne peuvent être distribués que par des contrôleurs de domaine exécutant Windows Server 2012 ou version ultérieure. Pour plus d’informations, consultez [Exigences Active Directory pour les comptes de service administré de groupe](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts#BKMK_gMSA_Req).
+- L’autorisation de créer un compte de service administré de groupe. Pour créer un compte de service administré de groupe, vous devez être administrateur de domaine ou utiliser un compte auquel est déléguée l’autorisation *Créer des objets msDS-GroupManagedServiceAccount*.
+- Un accès à Internet pour télécharger le module PowerShell CredentialSpec. Si vous travaillez dans un environnement déconnecté, vous pouvez [enregistrer le module](https://docs.microsoft.com/powershell/module/powershellget/save-module?view=powershell-5.1) sur un ordinateur disposant d’un accès à Internet et le copier sur votre ordinateur de développement ou hôte de conteneur.
 
 ## <a name="one-time-preparation-of-active-directory"></a>Préparation unique d’Active Directory
 
-Si vous n’avez pas encore créé de gMSA dans votre domaine, vous devez générer la clé racine du service de distribution de clés (KDS). Le KDS est chargé de créer, de faire pivoter et de libérer le mot de passe gMSA pour les hôtes autorisés. Lorsqu’un hôte de conteneur doit utiliser le gMSA pour exécuter un conteneur, il contacte l’KDS pour récupérer le mot de passe actuel.
+Si vous n’avez pas encore créé de compte de service administré de groupe dans votre domaine, vous devez générer la clé racine du service de distribution de clés. Le service de distribution de clés est chargé de la création, de la rotation et de la publication du mot de passe de compte de service administré de groupe pour les hôtes autorisés. Quand un hôte de conteneur doit utiliser le compte de service administré de groupe pour exécuter un conteneur, il contacte le service de distribution de clés pour récupérer le mot de passe actuel.
 
-Pour vérifier si la clé racine KDS a déjà été créée, exécutez l’applet de commande PowerShell suivante en tant qu’administrateur de domaine sur un contrôleur de domaine ou membre de domaine sur lequel les outils AD PowerShell sont installés :
+Pour vérifier si la clé racine du service de distribution de clés a déjà été créée, exécutez la cmdlet PowerShell suivante en tant qu’administrateur de domaine sur un contrôleur de domaine ou un membre de domaine sur lequel les outils AD PowerShell sont installés :
 
 ```powershell
 Get-KdsRootKey
 ```
 
-Si la commande retourne un ID de clé, vous êtes ensemble et pouvez passer directement à la section [créer un compte de service administré de groupe](#create-a-group-managed-service-account) . Sinon, passez à la création de la clé racine KDS.
+Si la commande retourne un ID de clé, vous êtes prêt et pouvez passer directement à la section [Créer un compte de service administré de groupe](#create-a-group-managed-service-account). Sinon, poursuivez pour créer la clé racine du service de distribution de clés.
 
-Dans un environnement de production ou de test avec plusieurs contrôleurs de domaine, exécutez l’applet de commande suivante dans PowerShell en tant qu’administrateur de domaine pour créer la clé racine KDS.
+Dans un environnement de production ou de test comptant plusieurs contrôleurs de domaine, exécutez la cmdlet suivante dans PowerShell en tant qu’administrateur de domaine pour créer la clé racine du service de distribution de clés.
 
 ```powershell
 # For production environments
 Add-KdsRootKey -EffectiveImmediately
 ```
 
-Bien que la commande implique que la clé sera appliquée immédiatement, vous devrez attendre 10 heures avant que la clé racine KDS soit répliquée et disponible pour une utilisation sur tous les contrôleurs de domaine.
+Bien que la commande implique que la clé prendra effet immédiatement, vous devrez attendre 10 heures avant que la clé racine du service de distribution de clés soit répliquée et disponible pour utilisation sur tous les contrôleurs de domaine.
 
-Si vous n’avez qu’un seul contrôleur de domaine dans votre domaine, vous pouvez accélérer le processus en définissant la clé pour qu’elle soit effective il y a 10 heures.
+Si vous n’avez qu’un seul contrôleur de domaine dans votre domaine, vous pouvez accélérer le processus en définissant l’horodatage de prise d’effet de la clé pour 10 heures plut tôt.
 
 >[!IMPORTANT]
 >N’utilisez pas cette technique dans un environnement de production.
@@ -68,32 +68,32 @@ Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
 
 ## <a name="create-a-group-managed-service-account"></a>Créer un compte de service administré de groupe
 
-Chaque conteneur qui utilise l’authentification Windows intégrée a besoin d’au moins un gMSA. Le gMSA principal est utilisé chaque fois que les applications qui s’exécutent en tant que service système ou réseau accèdent aux ressources du réseau. Le nom du gMSA deviendra le nom du conteneur sur le réseau, quel que soit le nom d’hôte affecté au conteneur. Les conteneurs peuvent également être configurés avec des service administrés supplémentaires, au cas où vous souhaiteriez exécuter un service ou une application dans le conteneur sous la forme d’une identité différente du compte d’ordinateur de conteneur.
+Chaque conteneur utilisant l’authentification Windows intégrée a besoin d’au moins un compte de service administré de groupe. Le compte de service administré de groupe principal est utilisé chaque fois que des applications s’exécutant en tant que service système ou réseau accèdent à des ressources sur le réseau. Le nom du compte de service administré de groupe devient le nom du conteneur sur le réseau, quel que soit le nom d’hôte attribué au conteneur. Vous pouvez également configurer des conteneurs avec des comptes de service administré de groupe supplémentaires si vous souhaitez exécuter un service ou une application dans le conteneur sous une identité différente de celle du compte d’ordinateur de conteneur.
 
-Lorsque vous créez un gMSA, vous créez également une identité partagée qui peut être utilisée simultanément sur plusieurs ordinateurs différents. L’accès au mot de passe gMSA est protégé par une liste de Access Control Active Directory. Nous vous recommandons de créer un groupe de sécurité pour chaque compte gMSA et d’ajouter les hôtes de conteneur appropriés au groupe de sécurité pour limiter l’accès au mot de passe.
+Lorsque vous créez un compte de service administré de groupe, vous créez également une identité partagée que vous pouvez utiliser simultanément sur de nombreux ordinateurs différents. L’accès au mot de passe du compte de service administré de groupe est protégé par une liste de contrôle d’accès Active Directory. Nous vous recommandons de créer un groupe de sécurité pour chaque compte de service administré de groupe, et d’ajouter les hôtes de conteneur appropriés au groupe de sécurité pour limiter l’accès au mot de passe.
 
-Enfin, étant donné que les conteneurs n’inscrivent pas automatiquement les noms de principal du service (SPN), vous devrez créer manuellement au moins un SPN d’hôte pour votre compte gMSA.
+Enfin, étant donné que les conteneurs n’inscrivent pas automatiquement de noms de principal de service, vous devez créer manuellement au moins un nom de principal de service d’hôte pour votre compte de service administré de groupe.
 
-En règle générale, l’hôte ou le SPN http est inscrit avec le même nom que le compte gMSA, mais vous devrez peut-être utiliser un nom de service différent si les clients accèdent à l’application en conteneur derrière un équilibreur de charge ou un nom DNS différent du nom de gMSA.
+En règle générale, l’hôte ou le nom de principal de service HTTP sont inscrits sous le même nom que le compte de service administré de groupe, mais il se peut que vous deviez utiliser un nom de service différent si les clients accèdent à l’application en conteneur derrière un équilibreur de charge ou un nom DNS différent du nom de compte de service administré de groupe.
 
-Par exemple, si le compte gMSA est nommé « WebApp01 », mais que vos utilisateurs accèdent au site à `mysite.contoso.com`, vous devez inscrire un SPN `http/mysite.contoso.com` sur le compte gMSA.
+Par exemple, si le compte de service administré de groupe est nommé « WebApp01 », mais que vos utilisateurs accèdent au site via la page `mysite.contoso.com`, vous devez inscrire un nom de principal de service `http/mysite.contoso.com` sur le compte de service administré de groupe.
 
-Certaines applications peuvent nécessiter des SPN supplémentaires pour leurs protocoles uniques. Par exemple, SQL Server requiert le nom de principal du service `MSSQLSvc/hostname`.
+Certaines applications peuvent nécessiter des noms de principal de service supplémentaires pour leurs protocoles spécifiques. Par exemple, SQL Server requiert le nom de principal de service `MSSQLSvc/hostname`.
 
-Le tableau suivant répertorie les attributs requis pour la création d’un gMSA.
+Le tableau suivant répertorie les attributs requis pour la création d’un compte de service administré de groupe.
 
-|propriété gMSA | Valeur requise | Exemple |
+|Propriété de compte de service administré de groupe | Valeur requise | Exemple |
 |--------------|----------------|--------|
 |Nom | N’importe quel nom de compte valide. | `WebApp01` |
-|DnsHostName | Nom de domaine ajouté au nom du compte. | `WebApp01.contoso.com` |
-|ServicePrincipalNames | Définissez au moins le nom principal de service de l’hôte, puis ajoutez d’autres protocoles si nécessaire. | `'host/WebApp01', 'host/WebApp01.contoso.com'` |
+|DNSHostName | Nom de domaine ajouté au nom du compte. | `WebApp01.contoso.com` |
+|ServicePrincipalNames | Définissez au moins le nom de principal de service de l’hôte, puis ajoutez d’autres protocoles si nécessaire. | `'host/WebApp01', 'host/WebApp01.contoso.com'` |
 |PrincipalsAllowedToRetrieveManagedPassword | Groupe de sécurité contenant vos hôtes de conteneur. | `WebApp01Hosts` |
 
-Une fois que vous avez choisi le nom de votre gMSA, exécutez les applets de commande suivantes dans PowerShell pour créer le groupe de sécurité et gMSA.
+Une fois que vous avez choisi le nom de votre compte de service administré de groupe, exécutez les cmdlets suivantes dans PowerShell pour créer le groupe de sécurité et le compte de service administré de groupe.
 
 > [!TIP]
-> Vous devez utiliser un compte qui appartient au groupe de sécurité **Admins du domaine** , ou l’autorisation **créer des objets MSDS-GroupManagedServiceAccount** pour exécuter les commandes suivantes vous a été déléguée.
-> L’applet de commande [New-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/new-adserviceaccount?view=win10-ps) fait partie des outils ad PowerShell de [Outils d’administration de serveur distant](https://aka.ms/rsat).
+> Vous devez utiliser un compte appartenant au groupe de sécurité **Admins du domaine** ou auquel est déléguée l’autorisation **Créer des objets msDS-GroupManagedServiceAccount** nécessaire pour exécuter les commandes suivantes.
+> La cmdlet [New-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/new-adserviceaccount?view=win10-ps) fait partie des outils PowerShell Active Directory appelés [Outils d’administration de serveur distant](https://aka.ms/rsat).
 
 ```powershell
 # Replace 'WebApp01' and 'contoso.com' with your own gMSA and domain names, respectively
@@ -112,17 +112,17 @@ New-ADServiceAccount -Name "WebApp01" -DnsHostName "WebApp01.contoso.com" -Servi
 Add-ADGroupMember -Identity "WebApp01Hosts" -Members "ContainerHost01$", "ContainerHost02$", "ContainerHost03$"
 ```
 
-Nous vous recommandons de créer des comptes gMSA distincts pour vos environnements de développement, de test et de production.
+Nous vous recommandons de créer des comptes de service administré de groupe distincts pour vos environnements de développement, de test et de production.
 
 ## <a name="prepare-your-container-host"></a>Préparer votre hôte de conteneur
 
-Chaque hôte de conteneur qui exécutera un conteneur Windows avec un gMSA doit être joint à un domaine et avoir accès pour récupérer le mot de passe gMSA.
+Chaque hôte de conteneur appelé à exécuter un conteneur Windows avec un compte de service administré de groupe doit être joint à un domaine et disposer de l’accès nécessaire pour récupérer le mot de passe du compte de service administré de groupe.
 
-1. Joignez votre ordinateur à votre domaine Active Directory.
-2. Assurez-vous que votre hôte appartient au groupe de sécurité contrôlant l’accès au mot de passe gMSA.
-3. Redémarrez l’ordinateur pour qu’il récupère sa nouvelle appartenance au groupe.
-4. Configurez le [Bureau de l’amarrage pour Windows 10](https://docs.docker.com/docker-for-windows/install/) ou [docker pour Windows Server](https://docs.docker.com/install/windows/docker-ee/).
-5. Recommandations Vérifiez que l’ordinateur hôte peut utiliser le compte gMSA en exécutant [test-ADServiceAccount](https://docs.microsoft.com/powershell/module/activedirectory/test-adserviceaccount). Si la commande retourne la **valeur false**, suivez les [instructions de résolution des problèmes](gmsa-troubleshooting.md#make-sure-the-host-can-use-the-gmsa).
+1. Joignez votre ordinateur à un domaine Active Directory.
+2. Assurez-vous que votre hôte appartient au groupe de sécurité contrôlant l’accès au mot de passe du compte de service administré de groupe.
+3. Redémarrez l’ordinateur pour qu’il récupère sa nouvelle appartenance de groupe.
+4. Configurez [Docker Desktop pour Windows 10](https://docs.docker.com/docker-for-windows/install/) ou [Docker pour Windows Server](https://docs.docker.com/install/windows/docker-ee/).
+5. (Recommandé) Vérifiez que l’hôte peut utiliser le compte de service administré de groupe en exécutant la commande [test-ADServiceAccount](https://docs.microsoft.com/powershell/module/activedirectory/test-adserviceaccount). Si la commande retourne **False**, suivez les [Instructions de résolution des problèmes](gmsa-troubleshooting.md#make-sure-the-host-can-use-the-gmsa).
 
     ```powershell
     # To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
@@ -134,35 +134,35 @@ Chaque hôte de conteneur qui exécutera un conteneur Windows avec un gMSA doit 
 
 ## <a name="create-a-credential-spec"></a>Créer une spécification d’informations d’identification
 
-Un fichier de spécification d’informations d’identification est un document JSON qui contient les métadonnées relatives au (x) compte (s) gMSA que vous souhaitez qu’un conteneur utilise. En gardant la configuration d’identité séparée de l’image de conteneur, vous pouvez changer le gMSA utilisé par le conteneur en échangeant simplement le fichier de spécification d’informations d’identification, aucune modification de code n’est nécessaire.
+Un fichier de spécification d’informations d’identification est un document JSON contenant des métadonnées relatives aux comptes de service administré de groupe que vous souhaitez qu’un conteneur utilise. En gardant la configuration d’identité séparée de l’image de conteneur, vous pouvez changer le compte de service administré de groupe que le conteneur utilise en remplaçant simplement le fichier de spécification d’informations d’identification. Aucun changement de code n’est nécessaire.
 
-Le fichier de spécification des informations d’identification est créé à l’aide du [module PowerShell CredentialSpec](https://aka.ms/credspec) sur un hôte de conteneur joint à un domaine.
-Une fois que vous avez créé le fichier, vous pouvez le copier vers d’autres hôtes de conteneur ou votre Orchestrator de conteneur.
-Le fichier de spécification d’informations d’identification ne contient pas de secrets, tels que le mot de passe gMSA, car l’hôte de conteneur récupère le gMSA pour le compte du conteneur.
+Le fichier de spécification d’informations d’identification est créé à l’aide du [module PowerShell CredentialSpec](https://aka.ms/credspec) sur un hôte de conteneur joint à un domaine.
+Une fois que vous avez créé le fichier, vous pouvez le copier vers d’autres hôtes de conteneur ou votre orchestrateur de conteneurs.
+Le fichier de spécification d’informations d’identification ne contient pas de secret tel que le mot de passe du compte de service administré de groupe, car l’hôte de conteneur récupère le compte de service administré de groupe au nom du conteneur.
 
-L’ancrage s’attend à trouver le fichier de spécification des informations d’identification sous le répertoire **CredentialSpecs** dans le répertoire des données de l’arrimeur. Dans une installation par défaut, vous trouverez ce dossier sur `C:\ProgramData\Docker\CredentialSpecs`.
+Docker s’attend à trouver le fichier de spécification d’informations d’identification sous le sous-répertoire **CredentialSpecs** du répertoire de données Docker. Dans une installation par défaut, vous trouverez ce dossier à l’adresse `C:\ProgramData\Docker\CredentialSpecs`.
 
 Pour créer un fichier de spécification d’informations d’identification sur votre hôte de conteneur :
 
-1. Installer les outils PowerShell pour les outils d’installation à REINSTALLATION Active Directory
-    - Pour Windows Server, exécutez **install-WINDOWSFEATURE RSAT-ad-PowerShell**.
-    - Pour Windows 10, version 1809 ou ultérieure, exécutez **Add-WindowsCapability-Online-Name’RSAT. ActiveDirectory. DS-LDS. Tools ~ ~ ~ ~ 0.0.1.0 '** .
-    - Pour les versions antérieures de Windows 10, consultez <https://aka.ms/rsat>.
-2. Exécutez l’applet de commande suivante pour installer la dernière version du [module PowerShell CredentialSpec](https://aka.ms/credspec):
+1. Installer les outils PowerShell Active Directory nommés Outils d’administration de serveur distant
+    - Pour Windows Server, exécutez la commande **install-WindowsFeature RSAT-AD-PowerShell**.
+    - Pour Windows 10, version 1809 ou ultérieure, exécutez la commande **Add-WindowsCapability -Online -Name ’Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0’** .
+    - Pour les versions antérieures de Windows 10, consultez la page <https://aka.ms/rsat>.
+2. Exécutez la cmdlet suivante pour installer la dernière version du [module PowerShell CredentialSpec](https://aka.ms/credspec) :
 
     ```powershell
     Install-Module CredentialSpec
     ```
 
-    Si vous n’avez pas accès à Internet sur votre hôte de conteneur, exécutez `Save-Module CredentialSpec` sur une machine connectée à Internet et copiez le dossier du module vers `C:\Program Files\WindowsPowerShell\Modules` ou un autre emplacement dans `$env:PSModulePath` sur l’hôte de conteneur.
+    Si vous n’avez pas accès à Internet sur votre hôte de conteneur, exécutez la commande `Save-Module CredentialSpec` sur un ordinateur connecté à Internet, et copiez le dossier du module vers `C:\Program Files\WindowsPowerShell\Modules` ou un autre emplacement dans `$env:PSModulePath` sur l’hôte de conteneur.
 
-3. Exécutez l’applet de commande suivante pour créer le fichier de spécification d’informations d’identification :
+3. Exécutez la cmdlet suivante pour créer le fichier de spécification d’informations d’identification :
 
     ```powershell
     New-CredentialSpec -AccountName WebApp01
     ```
 
-    Par défaut, l’applet de commande crée une spécification cred en utilisant le nom gMSA fourni comme compte d’ordinateur pour le conteneur. Le fichier est enregistré dans le répertoire CredentialSpecs de l’ancrage en utilisant le domaine gMSA et le nom de compte pour le nom de fichier.
+    Par défaut, la cmdlet crée une spécification d’informations d’identification utilisant le nom de compte de service administré de groupe fourni comme compte d’ordinateur pour le conteneur. Le fichier est enregistré dans le répertoire CredentialSpecs de Docker en utilisant comme nom de fichier le domaine du compte de service administré de groupe et le nom du compte.
 
     Si vous souhaitez enregistrer le fichier dans un autre répertoire, utilisez le paramètre `-Path` :
 
@@ -170,31 +170,31 @@ Pour créer un fichier de spécification d’informations d’identification sur
     New-CredentialSpec -AccountName WebApp01 -Path "C:\MyFolder\WebApp01_CredSpec.json"
     ```
 
-    Vous pouvez également créer des spécifications d’informations d’identification qui incluent des comptes gMSA supplémentaires si vous exécutez un service ou un processus en tant que gMSA secondaire dans le conteneur. Pour ce faire, utilisez le paramètre `-AdditionalAccounts` :
+    Vous pouvez également créer une spécification d’informations d’identification qui inclut des comptes de service administré de groupe supplémentaires si vous exécutez un service ou un processus en tant que compte de service administré de groupe secondaire dans le conteneur. Pour ce faire, utilisez le paramètre `-AdditionalAccounts` :
 
     ```powershell
     New-CredentialSpec -AccountName WebApp01 -AdditionalAccounts LogAgentSvc, OtherSvc
     ```
 
-    Pour obtenir la liste complète des paramètres pris en charge, exécutez `Get-Help New-CredentialSpec -Full`.
+    Pour obtenir la liste complète des paramètres pris en charge, exécutez la commande `Get-Help New-CredentialSpec -Full`.
 
-4. Vous pouvez afficher une liste de toutes les spécifications d’informations d’identification et leur chemin d’accès complet avec l’applet de commande suivante :
+4. Pour afficher la liste de toutes les spécifications d’informations d’identification avec leur chemin d’accès complet, utilisez la cmdlet suivante :
 
     ```powershell
     Get-CredentialSpec
     ```
 
-## <a name="next-steps"></a>Étapes suivantes :
+## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez configuré votre compte gMSA, vous pouvez l’utiliser pour :
+Maintenant que vous avez configuré votre compte de service administré de groupe, vous pouvez l’utiliser pour :
 
 - [Configurer des applications](gmsa-configure-app.md)
 - [Exécuter des conteneurs](gmsa-run-container.md)
 - [Orchestrer des conteneurs](gmsa-orchestrate-containers.md)
 
-Si vous rencontrez des problèmes lors de l’installation, consultez notre [Guide de résolution](gmsa-troubleshooting.md) des problèmes pour obtenir des solutions possibles.
+Si vous rencontrez des problèmes lors de la configuration, vous trouverez peut-être des solutions dans notre [Guide de résolution des problèmes](gmsa-troubleshooting.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- Pour en savoir plus sur service administrés, consultez la [vue d’ensemble des comptes de service administrés de groupe](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
-- Pour une démonstration vidéo, regardez notre [démonstration enregistrée](https://youtu.be/cZHPz80I-3s?t=2672) de l’allumage 2016.
+- Pour en savoir plus sur les comptes de service administré de groupe, consultez la [Vue d’ensemble des comptes de service administré de groupe](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
+- Pour une démonstration vidéo, regardez notre [démonstration enregistrée dans le cadre d’Ignite 2016](https://youtu.be/cZHPz80I-3s?t=2672).

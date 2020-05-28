@@ -1,7 +1,7 @@
 ---
-title: Orchestrer des conteneurs avec un gMSA
-description: Comment orchestrer des conteneurs Windows avec un compte de service administré de groupe (gMSA).
-keywords: docker, conteneurs, Active Directory, GMSA, orchestration, kubernetes, compte de service administré de groupe, comptes de service administrés de groupe
+title: Orchestrer des conteneurs avec un compte de service administré de groupe
+description: Comment orchestrer des conteneurs Windows avec un compte de service administré de groupe.
+keywords: docker, conteneurs, ACTIVE DIRECTORY, compte de service administré de groupe, orchestration, kubernetes, comptes de service administré de groupe
 author: rpsqrd
 ms.date: 09/10/2019
 ms.topic: article
@@ -10,48 +10,48 @@ ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
 ms.openlocfilehash: 3d102aac45a1becf1879a718bb255d753b215006
 ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/04/2019
 ms.locfileid: "74910259"
 ---
-# <a name="orchestrate-containers-with-a-gmsa"></a>Orchestrer des conteneurs avec un gMSA
+# <a name="orchestrate-containers-with-a-gmsa"></a>Orchestrer des conteneurs avec un compte de service administré de groupe
 
-Dans les environnements de production, vous utiliserez souvent un Orchestrator de conteneur pour déployer et gérer vos applications et services. Chaque orchestrateur possède ses propres paradigmes de gestion et est chargé d’accepter les spécifications d’informations d’identification à fournir à la plateforme de conteneur Windows.
+En environnement de production, vous utiliserez souvent un orchestrateur de conteneur pour déployer et gérer vos applications et services. Chaque orchestrateur a ses propres paradigmes de gestion et est chargé d’accepter les spécifications d’informations d’identification à fournir à la plateforme de conteneurs Windows.
 
-Lorsque vous orchestrez des conteneurs avec des comptes de service administrés de groupe (service administrés), assurez-vous que :
+Quand vous orchestrez des conteneurs avec des comptes de service administré de groupe, vérifiez les points suivants :
 
 > [!div class="checklist"]
-> * Tous les hôtes de conteneur qui peuvent être planifiés pour exécuter des conteneurs avec service administrés sont joints à un domaine
-> * Les hôtes de conteneur ont accès pour récupérer les mots de passe de tous les service administrés utilisés par les conteneurs
-> * Les fichiers de spécification d’informations d’identification sont créés et téléchargés vers l’orchestrateur ou copiés vers chaque hôte de conteneur, en fonction de la façon dont l’orchestrateur préfère les gérer.
-> * Les réseaux de conteneurs permettent aux conteneurs de communiquer avec les contrôleurs de domaine Active Directory pour récupérer les tickets gMSA
+> * Tous les hôtes de conteneur qui peuvent être planifiés pour exécuter des conteneurs avec des comptes de service administré de groupe sont joints à un domaine.
+> * Les hôtes de conteneur disposent d’un accès pour récupérer les mots de passe de tous les comptes de service administré de groupe que les conteneurs utilisent.
+> * Les fichiers de spécifications d’informations d’identification sont créés et chargés sur l’orchestrateur, ou copiés sur chaque hôte de conteneur, selon la façon dont l’orchestrateur préfère les traiter.
+> * Les réseaux de conteneurs permettent aux conteneurs de communiquer avec les contrôleurs de domaine Active Directory pour récupérer les tickets de compte de service administré de groupe.
 
-## <a name="how-to-use-gmsa-with-service-fabric"></a>Utilisation de gMSA avec Service Fabric
+## <a name="how-to-use-gmsa-with-service-fabric"></a>Comment utiliser un compte de service administré de groupe avec Service Fabric
 
-Service Fabric prend en charge l’exécution de conteneurs Windows avec un gMSA quand vous spécifiez l’emplacement des spécifications des informations d’identification dans votre manifeste d’application. Vous devez créer le fichier de spécification des informations d’identification et le placer dans le sous-répertoire **CredentialSpecs** du répertoire des données de l’ancrage sur chaque hôte afin que service Fabric puisse le localiser. Vous pouvez exécuter l’applet de commande **CredentialSpec** , qui fait partie du [module PowerShell CredentialSpec](https://aka.ms/credspec), pour vérifier si les spécifications de vos informations d’identification se trouvent à l’emplacement approprié.
+Service Fabric prend en charge l’exécution de conteneurs Windows avec un compte de service administré de groupe quand vous spécifiez l’emplacement des spécifications d’informations d’identification dans le manifeste de votre application. Vous devez créer le fichier de spécification d’informations d’identification et le placer dans le sous-répertoire **CredentialSpecs** du répertoire de données de Docker sur chaque hôte afin que Service Fabric puisse le localiser. Vous pouvez exécuter la cmdlet **CredentialSpec**, qui fait partie du [module PowerShell CredentialSpec](https://aka.ms/credspec), pour vérifier si vos spécifications d’informations d’identification se trouvent à l’emplacement approprié.
 
-Pour plus d’informations sur la configuration de votre application, consultez [démarrage rapide : déployer des conteneurs Windows pour service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers) et configurer [gMSA pour les conteneurs Windows s’exécutant sur service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-setup-gmsa-for-windows-containers) .
+Pour plus d’informations sur la configuration de votre application, consultez [Démarrage rapide : déployer des conteneurs Windows sur Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers) et [Configurer un compte de service administré de groupe pour des conteneurs Windows s’exécutant sur Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-setup-gmsa-for-windows-containers).
 
-## <a name="how-to-use-gmsa-with-docker-swarm"></a>Guide pratique pour utiliser gMSA avec Dockr essaim
+## <a name="how-to-use-gmsa-with-docker-swarm"></a>Comment utiliser un compte de service administré de groupe avec Docker Swarm
 
-Pour utiliser un gMSA avec des conteneurs gérés par le Dockr essaim, exécutez la commande [dockr service Create](https://docs.docker.com/engine/reference/commandline/service_create/) avec le paramètre `--credential-spec` :
+Pour utiliser un compte de service administré de groupe avec des conteneurs gérés par Docker Swarm, exécutez la commande [docker service create](https://docs.docker.com/engine/reference/commandline/service_create/) avec le paramètre `--credential-spec` :
 
 ```powershell
 docker service create --credential-spec "file://contoso_webapp01.json" --hostname "WebApp01" <image name>
 ```
 
-Pour plus d’informations sur l’utilisation des spécifications d’informations d’identification avec les services d’ancrage, consultez l' [exemple d’ancrage](https://docs.docker.com/engine/reference/commandline/service_create/#provide-credential-specs-for-managed-service-accounts-windows-only) de l’amarrage.
+Pour plus d’informations sur l’utilisation des spécifications d’informations d’identification avec des services Docker, consultez [Exemple de Docker Swarm](https://docs.docker.com/engine/reference/commandline/service_create/#provide-credential-specs-for-managed-service-accounts-windows-only).
 
-## <a name="how-to-use-gmsa-with-kubernetes"></a>Utilisation de gMSA avec Kubernetes
+## <a name="how-to-use-gmsa-with-kubernetes"></a>Comment utiliser un compte de service administré de groupe avec Kubernetes
 
-La prise en charge de la planification des conteneurs Windows avec service administrés dans Kubernetes est disponible en tant que fonctionnalité alpha dans Kubernetes 1,14. Pour obtenir les informations les plus récentes sur cette fonctionnalité et pour savoir comment la tester dans votre distribution Kubernetes, consultez [configurer gMSA pour](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa) les boîtiers et les conteneurs Windows.
+La prise en charge de la planification de conteneurs Windows avec des comptes de service administré de groupe dans Kubernetes est disponible en tant que fonctionnalité alpha dans Kubernetes 1.14. Pour obtenir les informations les plus récentes sur cette fonctionnalité et la manière de la tester dans votre distribution Kubernetes, consultez [Configurer un compte de service administré de groupe pour les pods et les conteneurs Windows](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Outre l’orchestration des conteneurs, vous pouvez également utiliser service administrés pour :
+Outre l’orchestration de conteneurs, vous pouvez utiliser des comptes de service administré de groupe pour effectuer les opérations suivantes :
 
 - [Configurer des applications](gmsa-configure-app.md)
 - [Exécuter des conteneurs](gmsa-run-container.md)
 
-Si vous rencontrez des problèmes lors de l’installation, consultez notre [Guide de résolution](gmsa-troubleshooting.md) des problèmes pour obtenir des solutions possibles.
+Si vous rencontrez des problèmes lors de la configuration, vous trouverez peut-être des solutions dans notre [Guide de résolution des problèmes](gmsa-troubleshooting.md).

@@ -1,11 +1,11 @@
 ---
 title: Utiliser des conteneurs avec le programme Windows Insider
-description: Découvrez comment prendre en main les conteneurs Windows avec le programme Windows Insider
-keywords: ancrage, conteneurs, Insider, Windows
+description: Découvrez comment prendre en main l’utilisation de conteneurs Windows avec le programme Windows Insider.
+keywords: docker, conteneurs, insider, windows
 author: cwilhit
 ms.openlocfilehash: 92fb359df1c207b848fb985caf7f46852f6b4f90
 ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/04/2019
 ms.locfileid: "74909889"
@@ -16,18 +16,18 @@ Cet exercice va vous guider tout au long du déploiement et de l’utilisation d
 
 ## <a name="join-the-windows-insider-program"></a>Rejoignez le Programme Windows Insider
 
-Pour exécuter la version Insider des conteneurs Windows, vous devez disposer d’un hôte exécutant la dernière version de Windows Server à partir du programme Windows Insider et/ou de la dernière version de Windows 10 du programme Windows Insider. Rejoignez le [programme Windows Insider](https://insider.windows.com/GettingStarted) et passez en revue les conditions d’utilisation.
+Pour exécuter la version Insider des conteneurs Windows, vous devez disposer d’un hôte exécutant la dernière build de Windows Server et/ou de Windows 10 disponible dans le cadre du programme Windows Insider. Rejoigne le [Programme Windows Insider](https://insider.windows.com/GettingStarted) et consultez les conditions d’utilisation.
 
 > [!IMPORTANT]
-> Vous devez utiliser une version de Windows Server à partir du programme Windows Server Insider Preview ou une version de Windows 10 du programme Windows Insider Preview pour utiliser l’image de base décrite ci-dessous. Si vous n’utilisez pas l’une de ces builds, la création d’un conteneur échouera lors de l’utilisation de ces images de base.
+> Pour pouvoir utiliser l’image de base décrite ci-dessous, vous devez utiliser une build de Windows Server ou de Windows 10 disponible dans le cadre du Programme Windows Server Insider en préversion. Si vous n’utilisez pas l’une de ces builds, la création d’un conteneur échouera lors de l’utilisation de ces images de base.
 
 ## <a name="install-docker"></a>Installer Docker
 
-Si vous n’avez pas déjà installé vous-même, suivez le Guide de [prise en main](../quick-start/set-up-environment.md) pour installer la station d’accueil.
+Si vous n’avez pas encore installé Docker, suivez le Guide [Prise en main](../quick-start/set-up-environment.md) pour l’installer.
 
 ## <a name="pull-an-insider-container-image"></a>Extraire une image de conteneur Insider
 
-En faisant partie du programme Windows Insider, vous pouvez utiliser nos dernières builds pour les images de base.
+En tant que participant au Programme Windows Insider, vous pouvez également utiliser les images de base de nos builds les plus récentes.
 
 Pour extraire l’image de base Insider Nano Server, exécutez la commande suivante :
 
@@ -41,7 +41,7 @@ Exécutez la commande suivante pour extraire l’image de base Insider Windows 
 docker pull mcr.microsoft.com/windows/servercore/insider
 ```
 
-Les images de base « Windows » et « IoTCore » disposent également d’une version d’Insider qui est disponible pour l’extraction. Vous pouvez en savoir plus sur les images de base disponibles dans le document [images de base du conteneur](../manage-containers/container-base-images.md) .
+Les images de base « Windows » et « IoTCore » disposent également d’une version Insider disponible pour extraction. Pour en savoir plus sur les images de base Insider disponibles, lisez la documentation [Images de base de conteneur](../manage-containers/container-base-images.md).
 
 > [!IMPORTANT]
-> Veuillez lire le [CLUF](../images-eula.md ) de l’image du système d’exploitation des conteneurs Windows et les [conditions d’utilisation du](https://www.microsoft.com/software-download/windowsinsiderpreviewserver)programme Windows Insider.
+> Veuillez lire le [CLUF](../images-eula.md ) applicable à l’image de système d’exploitation de conteneurs Windows et les [Conditions d’utilisation](https://www.microsoft.com/software-download/windowsinsiderpreviewserver) du programme Windows Insider.

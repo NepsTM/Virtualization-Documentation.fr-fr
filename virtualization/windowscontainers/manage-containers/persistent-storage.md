@@ -1,20 +1,20 @@
 ---
-title: Stockage persistant dans les conteneurs
-description: Comment les conteneurs Windows peuvent être stockés de manière permanente
+title: Stockage persistant dans des conteneurs
+description: Comment des conteneurs Windows peuvent stocker de manière persistante
 keywords: conteneurs, volume, stockage, montage, montage lié
 author: cwilhit
 ms.openlocfilehash: 945a78d4ecb9c96da4de8f7246f84b6b444dd5b5
 ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/04/2019
 ms.locfileid: "74909669"
 ---
-# <a name="persistent-storage-in-containers"></a>Stockage persistant dans les conteneurs
+# <a name="persistent-storage-in-containers"></a>Stockage persistant dans des conteneurs
 
 <!-- Great diagram would be great! -->
 
-Vous pouvez avoir des cas où il est important qu’une application soit en mesure de conserver des données dans un conteneur, ou que vous souhaitiez afficher des fichiers dans un conteneur qui n’étaient pas inclus au moment de la génération du conteneur. Un stockage persistant peut être donné aux conteneurs de deux manières :
+Vous pouvez rencontrer des cas où il est important qu’une application soit en mesure de conserver des données dans un conteneur, ou bien où vous souhaitiez afficher dans un conteneur des fichiers qui n’y étaient pas inclus au moment de sa génération. Un stockage persistant peut être attribué à des conteneurs de deux façons :
 
 - Montages liés
 - Volumes nommés
@@ -25,24 +25,24 @@ Docker propose une excellente présentation de la façon dont [utiliser les volu
 
 [Les montages liés](https://docs.docker.com/engine/admin/volumes/bind-mounts/) permettent à un conteneur de partager un répertoire avec l’hôte. Cela s’avère utile lorsque vous avez besoin d’un espace de stockage de fichiers sur l’ordinateur local qui soit disponible quand vous redémarrez un conteneur, ou que vous puissiez partager avec plusieurs conteneurs. Si vous souhaitez que le conteneur s’exécute sur plusieurs ordinateurs avec un accès aux mêmes fichiers, alors un volume nommé ou un montage SMB doit être utilisé à la place.
 
-### <a name="permissions"></a>Permissions
+### <a name="permissions"></a>Autorisations
 
 Le modèle d’autorisation utilisé pour les montages liés varie en fonction du niveau d’isolement pour votre conteneur.
 
-Les conteneurs utilisant l' **isolation Hyper-V** utilisent un modèle d’autorisation simple en lecture seule ou en lecture-écriture. Les fichiers sont accessibles sur l’ordinateur hôte à l’aide du compte `LocalSystem`. Si l’accès au conteneur vous est refusé, assurez-vous que `LocalSystem` a accès au répertoire sur l’ordinateur hôte. Lorsque l’indicateur Lecture seule est utilisé, les modifications apportées au volume au sein du conteneur ne seront pas visibles ou persistantes dans le répertoire sur l’ordinateur hôte.
+Les conteneurs utilisant une **isolation Hyper-V** sont basés sur un modèle d’autorisation simple en lecture seule ou en lecture-écriture. Les fichiers sont accessibles sur l’ordinateur hôte à l’aide du compte `LocalSystem`. Si l’accès au conteneur vous est refusé, assurez-vous que `LocalSystem` a accès au répertoire sur l’ordinateur hôte. Lorsque l’indicateur Lecture seule est utilisé, les modifications apportées au volume au sein du conteneur ne seront pas visibles ou persistantes dans le répertoire sur l’ordinateur hôte.
 
-Les conteneurs Windows utilisant l' **isolation des processus** sont légèrement différents, car ils utilisent l’identité du processus dans le conteneur pour accéder aux données, ce qui signifie que les ACL du fichier sont honorées. L’identité du processus en cours d’exécution dans le conteneur (« ContainerAdministrator » sur Windows Server Core et « ContainerUser » dans les conteneurs Nano Server, par défaut) sera utilisée pour accéder aux fichiers et répertoires du volume monté au lieu de `LocalSystem` et l’accès devra être accordé pour l’exploitation des données.
+Les conteneurs Windows ayant recours à une **isolation des processus** sont légèrement différents parce qu’ils utilisent l’identité des processus au sein du conteneur pour accéder aux données, ce qui signifie que les ACL sont respectées. L’identité du processus en cours d’exécution dans le conteneur (« ContainerAdministrator » sur Windows Server Core et « ContainerUser » dans les conteneurs Nano Server, par défaut) sera utilisée pour accéder aux fichiers et répertoires du volume monté au lieu de `LocalSystem` et l’accès devra être accordé pour l’exploitation des données.
 
-Étant donné que ces identités existent uniquement dans le contexte du conteneur (et non sur l’hôte où les fichiers sont stockés), vous devez utiliser un groupe de sécurité connu comme `Authenticated Users` lors de la configuration des listes de contrôle d’accès (ACL) pour accorder l’accès aux conteneurs.
+Dans la mesure où ces identités existent uniquement dans le contexte du conteneur, et pas sur l’hôte sur lequel les fichiers sont stockés, vous devez utiliser un groupe de sécurité bien connu, comme `Authenticated Users`, lors de la configuration des ACL pour accorder l’accès aux conteneurs.
 
 > [!WARNING]
 > Abstenez-vous de monter-lier des répertoires sensibles comme `C:\` dans un conteneur non approuvé. Cela permettrait de modifier des fichiers sur l’ordinateur hôte auxquels il ne serait normalement pas possible d’accéder, ce qui pourrait créer une faille de sécurité.
 
-Exemple d’utilisation :
+Exemple d'utilisation :
 
 - `docker run -v c:\ContainerData:c:\data:RO` pour un accès en lecture seule
-- `docker run -v c:\ContainerData:c:\data:RW` pour l’accès en lecture-écriture
-- `docker run -v c:\ContainerData:c:\data` pour l’accès en lecture-écriture (par défaut)
+- `docker run -v c:\ContainerData:c:\data:RW` pour un accès en lecture-écriture
+- `docker run -v c:\ContainerData:c:\data` pour un accès en lecture-écriture (par défaut)
 
 ### <a name="symlinks"></a>Liens symboliques
 
@@ -50,11 +50,11 @@ Les liens symboliques sont résolus dans le conteneur. Si vous liez-montez un ch
 
 ### <a name="smb-mounts"></a>Montages SMB
 
-Sur Windows Server version 1709 et versions ultérieures, la fonctionnalité appelée « mappage global SMB » permet de monter un partage SMB sur l’hôte, puis de transmettre des répertoires sur ce partage dans un conteneur. Le conteneur n’a pas besoin d’être configuré avec un serveur, un partage, un nom d’utilisateur ou un mot de passe spécifiques, ces éléments étant tous gérés sur l’ordinateur hôte. Le conteneur fonctionnera de la même façon que s’il possédait un stockage local.
+Sur Windows Server, version 1709 ou ultérieure, une nouvelle fonctionnalité appelée « Mappage Global SMB » permet de monter un partage SMB sur l’hôte, puis de transférer des répertoires via ce partage dans un conteneur. Le conteneur n’a pas besoin d’être configuré avec un serveur, un partage, un nom d’utilisateur ou un mot de passe spécifiques, ces éléments étant tous gérés sur l’ordinateur hôte. Le conteneur fonctionnera de la même façon que s’il possédait un stockage local.
 
 #### <a name="configuration-steps"></a>Étapes de configuration
 
-1. Sur l’hôte de conteneur, mappez globalement le partage SMB distant :
+1. Sur l’hôte du conteneur, mappez globalement le partage SMB distant :
     ```
     $creds = Get-Credential
     New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:
@@ -62,7 +62,7 @@ Sur Windows Server version 1709 et versions ultérieures, la fonctionnalité app
     Cette commande utilise les informations d’identification pour s’authentifier auprès du serveur SMB distant. Ensuite, mappez le chemin d’accès du partage à distance à la lettre de lecteur G: (il peut s’agir de toute autre lettre de lecteur disponible). Il est désormais possible que les volumes de données des conteneurs créés sur cet hôte conteneur soient mappés à un chemin d’accès sur le lecteur G.
 
     > [!NOTE]
-    > Lorsque vous utilisez le mappage global SMB pour les conteneurs, tous les utilisateurs sur l’hôte de conteneur peuvent accéder au partage distant. Toute application en cours d’exécution sur l’hôte conteneur aura également accès au partage distant mappé.
+    > En cas d’utilisation d’un mappage global SMB pour des conteneurs, tous les utilisateurs de l’hôte du conteneur peuvent accéder au partage distant. Toute application en cours d’exécution sur l’hôte conteneur aura également accès au partage distant mappé.
 
 2. Créez des conteneurs avec des volumes de données mappés vers un partage SMB monté de manière globale : docker run -it --name demo -v g:\ContainerData:G:\AppData1 microsoft/windowsservercore:1709 cmd.exe
 
@@ -73,7 +73,7 @@ Cette prise en charge du mappage global SMB est une fonction côté client SMB q
 - Serveur de fichiers ScaleOut basé sur des espaces de stockage Direct (S2D) ou un réseau SAN traditionnel
 - Azure Files (partage SMB)
 - Serveur de fichiers traditionnel
-- Implémentation tierce du protocole SMB (ex : dispositifs NAS)
+- Implémentation tierce du protocole SMB (par exemple, appareils de stockage NAS)
 
 > [!NOTE]
 > Le mappage global SMB ne prend pas en charge les partages DFS, DFSN, DFSR dans Windows Server version 1709.
@@ -84,11 +84,11 @@ Les volumes nommés vous permettent de créer un volume par nom, de l’affecter
 
 Exemples d’étapes :
 
-1. `docker volume create unwound`-créer un volume nommé « non enroulé »
-2. `docker run -v unwound:c:\data microsoft/windowsservercore`-démarrer un conteneur avec le volume mappé à c:\data
+1. `docker volume create unwound` - Création d’un volume nommé « Unwound »
+2. `docker run -v unwound:c:\data microsoft/windowsservercore` - Démarrage d’un conteneur avec le volume mappé à c:\data
 3. Écriture de fichiers dans le répertoire c:\data du conteneur, puis arrêt du conteneur
-4. `docker run -v unwound:c:\data microsoft/windowsservercore`-démarrer un nouveau conteneur
+4. `docker run -v unwound:c:\data microsoft/windowsservercore` - Démarrage d’un nouveau conteneur
 5. Exécution de `dir c:\data`dans le nouveau conteneur - les fichiers sont toujours présents
 
 > [!NOTE]
-> Windows Server convertira les chemins d’accès cibles (le chemin d’accès à l’intérieur du conteneur) en minuscules ; i. e. `-v unwound:c:\MyData`, ou `-v unwound:/app/MyData` dans les conteneurs Linux, entraîne un répertoire à l’intérieur du conteneur de `c:\mydata`, ou `/app/mydata` dans des conteneurs Linux, qui est mappé (et créé, s’il n’existe pas).
+> Windows Server convertit les chemins d’accès cibles (chemins d’accès à l’intérieur du conteneur) en minuscules. Cela signifie que `-v unwound:c:\MyData` ou `-v unwound:/app/MyData` dans des conteneurs Linux ont pour effet qu’un répertoire à l’intérieur du conteneur de `c:\mydata` ou de `/app/mydata` dans des conteneurs Linux est mappé (et créé, s’il n’existe pas).

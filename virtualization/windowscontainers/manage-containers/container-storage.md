@@ -5,7 +5,7 @@ keywords: conteneurs, volume, stockage, montage, montage lié
 author: cwilhit
 ms.openlocfilehash: f758877f1131813fe4637a01c03b49d7a18a83c4
 ms.sourcegitcommit: db085db8a54664184a2f7cfa01d00598a1c66992
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/04/2020
 ms.locfileid: "78288671"
@@ -14,15 +14,15 @@ ms.locfileid: "78288671"
 
 <!-- Great diagram would be great! -->
 
-Cette rubrique fournit une vue d’ensemble des différentes méthodes utilisées par les conteneurs pour utiliser le stockage sur Windows. Les conteneurs se comportent différemment des machines virtuelles lorsqu’il s’agit d’un stockage. Par nature, les conteneurs sont conçus pour empêcher une application s’exécutant dans ceux-ci d’écrire l’État sur le système de fichiers de l’hôte. Les conteneurs utilisent un espace « scratch » par défaut, mais Windows fournit également un moyen de conserver le stockage.
+Cette rubrique fournit une vue d’ensemble des différentes manières dont les conteneurs utilisent le stockage sur Windows. Quand il s’agit de stockage, les conteneurs se comportent différemment des machines virtuelles. Par nature, les conteneurs sont conçus pour empêcher une application s’exécutant dans ceux-ci d’écrire un état dans le système de fichiers de l’hôte. Les conteneurs utilisent un espace « de travail » par défaut, mais Windows fournit également un moyen de conserver le stockage.
 
 ## <a name="scratch-space"></a>Espace de travail
 
-Les conteneurs Windows utilisent par défaut le stockage éphémère. Toutes les e/s de conteneur se produisent dans un « espace de travail » et chaque conteneur obtient son propre travail. La création de fichier et les écritures de fichier sont capturées dans l’espace de travail et n’échappent pas à l’hôte. Lorsqu’une instance de conteneur est arrêtée, toutes les modifications qui se sont produites dans l’espace de travail sont supprimées. Quand une nouvelle instance de conteneur est démarrée, un nouvel espace de travail est fourni pour l’instance.
+Les conteneurs Windows utilisent par défaut un stockage éphémère. Toutes les E/S de conteneur se produisent dans un « espace de travail » et chaque conteneur reçois son propre travail. La création de fichier et les écritures de fichier sont capturées dans l’espace de travail et n’échappent pas à l’hôte. Lors de l’arrêt d’une instance de conteneur, toutes les modifications apportées à l’espace de travail sont écartées. Lors du démarrage d’une nouvelle instance de conteneur, un nouvel espace de travail est fourni pour l’instance.
 
 ## <a name="layer-storage"></a>Stockage par niveaux
 
-Comme décrit dans la [vue d’ensemble des conteneurs](../about/index.md), les images de conteneur sont un ensemble de fichiers exprimés sous la forme d’une série de couches. Le stockage de couche est tous les fichiers qui sont intégrés au conteneur. Chaque fois que vous effectuez un `docker pull`, puis un `docker run` de ce conteneur, vous obtenez un résultat identique.
+Comme décrit dans la [Vue d’ensemble des conteneurs](../about/index.md), les images de conteneur sont un ensemble de fichiers qui se présente sous la forme d’une série de couches. Le stockage en couches englobe tous les fichiers intégrés dans le conteneur. Chaque fois que vous effectuez un `docker pull`, puis un `docker run` de ce conteneur, vous obtenez un résultat identique.
 
 ### <a name="where-layers-are-stored-and-how-to-change-it"></a>Où sont stockées les niveaux et comment modifier cette configuration
 
@@ -36,7 +36,7 @@ Vous ne devez pas modifier les fichiers contenus dans les répertoires des nivea
 - [docker images](https://docs.docker.com/engine/reference/commandline/images/)
 - [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/)
 - [docker pull](https://docs.docker.com/engine/reference/commandline/pull/)
-- [charge de l’ancrage](https://docs.docker.com/engine/reference/commandline/load/)
+- [docker load](https://docs.docker.com/engine/reference/commandline/load/)
 - [docker save](https://docs.docker.com/engine/reference/commandline/save/)
 
 ### <a name="supported-operations-in-layer-storage"></a>Opérations prises en charge dans le stockage de niveaux
@@ -45,19 +45,19 @@ Les conteneurs en cours d’exécution peuvent utiliser la plupart des opératio
 
 ## <a name="persistent-storage"></a>Stockage persistant
 
-Les conteneurs Windows prennent en charge des mécanismes permettant de fournir un stockage persistant via des montages et des volumes de liaison. Pour plus d’informations, consultez [stockage persistant dans les conteneurs](./persistent-storage.md).
+Les conteneurs Windows prennent en charge des mécanismes permettant de fournir un stockage persistant via des montages et volumes liés. Pour plus d’informations, consultez [Stockage persistant dans des conteneurs](./persistent-storage.md).
 
 ## <a name="storage-limits"></a>Limites de stockage
 
-Il est courant dans les applications Windows de lancer une requête sur la quantité d’espace disque disponible avant d’installer ou de créer de nouveaux fichiers, ou en tant que déclencheur pour le nettoyage des fichiers temporaires.  Dans le but d’optimiser la compatibilité des applications, le lecteur C : dans un conteneur Windows représente une taille libre de 20 Go.
+Il est courant dans les applications Windows de lancer une requête sur la quantité d’espace disque disponible avant d’installer ou de créer de nouveaux fichiers, ou en tant que déclencheur pour le nettoyage des fichiers temporaires.  Afin d’optimiser la compatibilité des applications, le disque C: d’un conteneur Windows représente un volume virtuel libre de 20 Go.
 
-Certains utilisateurs peuvent souhaiter remplacer ce paramètre par défaut et configurer l’espace libre sur une valeur inférieure ou supérieure. pour ce faire, vous pouvez utiliser l’option « Size » dans la configuration « Storage-opt ».
+Si des utilisateurs le souhaitent, ils peuvent remplacer ce paramétrage par défaut pour configurer l’espace libre sur une valeur inférieure ou supérieure. À cette fin, ils peuvent utiliser l’option « size » dans la configuration « storage-opt ».
 
 ### <a name="examples"></a>Exemples
 
 Ligne de commande : `docker run --storage-opt "size=50GB" mcr.microsoft.com/windows/servercore:ltsc2019 cmd`
 
-Vous pouvez modifier directement le fichier de configuration de l’arrimeur :
+Vous pouvez également modifier directement le fichier de configuration de Docker :
 
 ```Docker Configuration File
 "storage-opt": [
@@ -66,4 +66,4 @@ Vous pouvez modifier directement le fichier de configuration de l’arrimeur :
 ```
 
 > [!TIP]
-> Cette méthode fonctionne également pour l’ancrage de la Build. Consultez le [document Configure docker](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#configure-docker-with-configuration-file) pour plus d’informations sur la modification du fichier de configuration docker.
+> Cette méthode fonctionne également pour la build de Docker. Consultez le [document Configure docker](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#configure-docker-with-configuration-file) pour plus d’informations sur la modification du fichier de configuration docker.
