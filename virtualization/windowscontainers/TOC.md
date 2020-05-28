@@ -84,6 +84,7 @@
 ## [CLUF de l’image système d’exploitation de conteneur](Images_EULA.md)
 
 # Ressources
+## [Problèmes connus](manage-containers/known-issues.md)
 ## [Exemples de conteneurs](samples.md)
 ## [Résolution des problèmes](troubleshooting.md)
 ## [Forum sur les conteneurs](https://social.msdn.microsoft.com/Forums/home?forum=windowscontainers)
