@@ -4,16 +4,16 @@ description: Informations sur le cycle de vie des images de base de conteneur Wi
 keywords: conteneurs windows, conteneurs, cycle de vie, informations sur la publication, image de base, image de base de conteneur
 author: Heidilohr
 ms.author: helohr
-ms.date: 06/17/2019
+ms.date: 05/12/2020
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: 2dcd228af0984b55162894555fa21f9e02dd1934
-ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
+ms.openlocfilehash: c6276db89f093b62a01cadc095f5357d2e5a8eba
+ms.sourcegitcommit: dd80813679df2de89fe523a26600cfe58a2d39a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81395742"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84023144"
 ---
 # <a name="base-image-servicing-lifecycles"></a>Cycles de vie de la maintenance des images de base
 
@@ -30,13 +30,14 @@ Le tableau suivant répertorie chaque type d’image de base, son canal de maint
 
 |Base image                       |Canal de maintenance|Version|Build du système d’exploitation|Disponibilité|Date de fin du support standard|Date de support étendue|
 |---------------------------------|-----------------|-------|--------|------------|---------------------------|---------------------|
+|Server Core, Nano Server, Windows|Semi-annuel      |2004   |19041   |27/05/2020  |14/12/2021                 |NON APPLICABLE                  |
 |Server Core, Nano Server, Windows|Semi-annuel      |1909   |18363   |12/11/2019  |11/05/2021                 |NON APPLICABLE                  |
 |Server Core, Nano Server, Windows|Semi-annuel      |1903   |18362   |21/05/2019  |08/12/2020                 |NON APPLICABLE                  |
 |Server Core                      |À long terme        |2019   |17763   |13/11/2018  |09/01/2024                 |09/01/2029           |
 |Server Core, Nano Server, Windows|Semi-annuel      |1809   |17763   |13/11/2018  |10/11/2020                 |NON APPLICABLE                  |
 |Server Core, Nano Server         |Semi-annuel      |1803   |17134   |30/04/2018  |12/11/2019                 |NON APPLICABLE                  |
 |Server Core, Nano Server         |Semi-annuel      |1709   |16299   |17/10/2017  |09/04/2019                 |NON APPLICABLE                  |
-|Server Core                      |À long terme        |1607   |14393   |15/10/2016  |11/01/2022                 |11/01/2027           |
+|Server Core                      |À long terme        |2016   |14393   |15/10/2016  |11/01/2022                 |11/01/2027           |
 |Nano Server                      |Semi-annuel      |1607   |14393   |15/10/2016  |10/09/2018                 |NON APPLICABLE                  |
 
-Pour plus d’informations sur les conditions requises pour la maintenance et autres, consultez les pages  [FAQ sur le cycle de vie - Produits Windows](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products) et [Informations de publication de Windows Server](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info), ainsi que le [dépôt du Docker Hub Windows base OS images](https://hub.docker.com/_/microsoft-windows-base-os-images).
+Pour plus d’informations sur les conditions requises pour la maintenance et autres, consultez les pages [FAQ sur le cycle de vie - Produits Windows](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products) et [Informations de publication de Windows Server](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info), ainsi que le [dépôt du Docker Hub Windows base OS images](https://hub.docker.com/_/microsoft-windows-base-os-images).
