@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: Solutions aux problèmes courants lors du déploiement de Kubernetes et de la jonction de nœuds Windows.
 keywords: kubernetes, 1,14, Linux, compiler
-ms.openlocfilehash: 19b467b657708627dcb6ca93b64fa292d3db8de8
-ms.sourcegitcommit: 8eedfdc1fda9d0abb36e28dc2b5fb39891777364
+ms.openlocfilehash: dfb9be5bb5a5dd3507ee7266346634579df503c0
+ms.sourcegitcommit: 7f3d98da46c73e428565268683691f383c72221f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2020
-ms.locfileid: "79402920"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84461607"
 ---
 # <a name="troubleshooting-kubernetes"></a>Résolution des problèmes Kubernetes #
 Cette page décrit plusieurs problèmes courants lors du déploiement, de la mise en réseau et de la configuration de Kubernetes.
@@ -50,17 +50,22 @@ Sur Windows, KUBE-proxy crée un équilibreur de charge HNS pour chaque service 
 Policy creation failed: hcnCreateLoadBalancer failed in Win32: The specified port already exists.
 ```
 
-Les utilisateurs peuvent identifier ce problème en exécutant le script [CollectLogs. ps1](https://github.com/microsoft/SDN/blob/master/Kubernetes/windows/debug/collectlogs.ps1) et en consultant les fichiers `*portrange.txt`.
+Les utilisateurs peuvent identifier ce problème en exécutant le script [CollectLogs. ps1](https://github.com/microsoft/SDN/blob/master/Kubernetes/windows/debug/collectlogs.ps1) et en consultant les `*portrange.txt` fichiers.
 
-Le `CollectLogs.ps1` imite également la logique d’allocation HNS pour tester la disponibilité de l’allocation du pool de ports dans la plage de ports TCP éphémères, et signale la réussite ou l’échec dans `reservedports.txt`. Le script réserve 10 plages de ports éphémères TCP 64 (pour émuler le comportement de HNS), compte les réussites de réservation & les échecs, puis libère les plages de ports allouées. Un nombre de réussite inférieur à 10 indique que le pool éphémère ne dispose plus de suffisamment d’espace libre. Une synthèse heuristique du nombre de réservations de port de bloc 64 est également générée dans `reservedports.txt`.
+L' `CollectLogs.ps1` imite également la logique d’allocation HNS pour tester la disponibilité de l’allocation du pool de ports dans la plage de ports TCP éphémères, et signale la réussite ou l’échec dans `reservedports.txt` . Le script réserve 10 plages de ports éphémères TCP 64 (pour émuler le comportement de HNS), compte les réussites de réservation & les échecs, puis libère les plages de ports allouées. Un nombre de réussite inférieur à 10 indique que le pool éphémère ne dispose plus de suffisamment d’espace libre. Une synthèse heuristique du nombre de réservations de port de bloc 64 disponibles est également générée dans `reservedports.txt` .
 
 Pour résoudre ce problème, quelques étapes sont nécessaires :
 1.  Pour une solution permanente, l’équilibrage de charge Kube-proxy doit être défini en [mode DSR](https://techcommunity.microsoft.com/t5/Networking-Blog/Direct-Server-Return-DSR-in-a-nutshell/ba-p/693710). Le mode DSR est entièrement implémenté et disponible sur une version plus récente de [Windows Server Insider 18945](https://blogs.windows.com/windowsexperience/2019/07/30/announcing-windows-server-vnext-insider-preview-build-18945/#o1bs7T2DGPFpf7HM.97) (ou version ultérieure) uniquement.
-2. En guise de solution de contournement, les utilisateurs peuvent également augmenter la configuration Windows par défaut des ports éphémères disponibles à l’aide d’une commande telle que `netsh int ipv4 set dynamicportrange TCP <start_port> <port_count>`. *Avertissement :* La substitution de la plage de ports dynamiques par défaut peut avoir des conséquences sur d’autres processus/services sur l’hôte qui reposent sur les ports TCP disponibles à partir de la plage non éphémère. par conséquent, cette plage doit être sélectionnée avec précaution.
+2. En guise de solution de contournement, les utilisateurs peuvent également augmenter la configuration Windows par défaut des ports éphémères disponibles à l’aide d’une commande telle que `netsh int ipv4 set dynamicportrange TCP <start_port> <port_count>` . *Avertissement :* La substitution de la plage de ports dynamiques par défaut peut avoir des conséquences sur d’autres processus/services sur l’hôte qui reposent sur les ports TCP disponibles à partir de la plage non éphémère. par conséquent, cette plage doit être sélectionnée avec précaution.
 3. Il existe une amélioration de l’évolutivité des équilibreurs de charge en mode non DSR utilisant le partage de pool de ports intelligent, qui est planifiée pour être publiée via une mise à jour cumulative au 1er trimestre 2020.
 
 ### <a name="hostport-publishing-is-not-working"></a>La publication appelait hostport ne fonctionne pas ###
-Il n’est actuellement pas possible de publier des ports à l’aide du champ Kubernetes `containers.ports.hostPort`, car ce champ n’est pas respecté par les plug-ins CNI Windows. Utilisez la publication Deporte pour le moment où les ports doivent être publiés sur le nœud.
+Pour utiliser la fonctionnalité appelait hostport, vérifiez que vos plug-ins CNI sont configurés avec la version [v 0.8.6](https://github.com/containernetworking/plugins/releases/tag/v0.8.6) ou une version ultérieure, et que le fichier de configuration CNI dispose des `portMappings` fonctionnalités suivantes :
+```
+"capabilities": {
+    "portMappings":  true
+}
+```
 
 ### <a name="i-am-seeing-errors-such-as-hnscall-failed-in-win32-the-wrong-diskette-is-in-the-drive"></a>Je vois des erreurs telles que « échec de hnsCall dans Win32 : la mauvaise disquette est dans le lecteur ». ###
 Cette erreur peut se produire lorsque vous apportez des modifications personnalisées aux objets HNS ou que vous installez de nouveaux Windows Update qui introduisent des modifications dans HNS sans détruire les anciens objets HNS. Elle indique qu’un objet HNS précédemment créé avant une mise à jour est incompatible avec la version HNS actuellement installée.
@@ -81,7 +86,7 @@ hnsdiag delete networks <id>
 Restart-Service HNS
 ```
 
-Les utilisateurs de Windows Server version 1903 peuvent accéder à l’emplacement de Registre suivant et supprimer toutes les cartes réseau commençant par le nom du réseau (par exemple, `vxlan0` ou `cbr0`) :
+Les utilisateurs de Windows Server version 1903 peuvent accéder à l’emplacement de Registre suivant et supprimer toutes les cartes réseau commençant par le nom du réseau (par exemple, `vxlan0` ou `cbr0` ) :
 ```
 \\Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\vmsmp\parameters\NicList
 ```
@@ -97,11 +102,11 @@ az network route-table route create  --resource-group <my_resource_group> --add
 > Si vous déployez des Kubernetes sur des machines virtuelles Azure ou IaaS à partir d’autres fournisseurs de Cloud, vous pouvez également utiliser la [mise en réseau de superposition](./network-topologies.md#flannel-in-vxlan-mode) .
 
 ### <a name="my-windows-pods-cannot-ping-external-resources"></a>Mes modules Windows ne peuvent pas effectuer de test ping sur les ressources externes ###
-Les cadres Windows n’ont pas de règles sortantes programmées pour le protocole ICMP dès aujourd’hui. Toutefois, TCP/UDP est pris en charge. Lorsque vous essayez d’illustrer la connectivité aux ressources en dehors du cluster, remplacez `ping <IP>` par les commandes de `curl <IP>` correspondantes.
+Les cadres Windows n’ont pas de règles sortantes programmées pour le protocole ICMP dès aujourd’hui. Toutefois, TCP/UDP est pris en charge. Lorsque vous essayez d’illustrer la connectivité aux ressources en dehors du cluster, remplacez `ping <IP>` par les commandes correspondantes `curl <IP>` .
 
 Si vous rencontrez toujours des problèmes, il est probable que votre configuration réseau dans [CNI. conf](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf) mérite une attention particulière. Vous pouvez toujours modifier ce fichier statique, la configuration sera appliquée aux ressources Kubernetes nouvellement créées.
 
-Pourquoi ?
+Pourquoi ?
 L’une des exigences de mise en réseau Kubernetes (voir [modèle Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/networking/)) concerne la communication en cluster sans NAT en interne. Pour honorer cette exigence, nous avons [une sélection](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf#L20) dans le cadre de toutes les communications pour lesquelles nous ne voulons pas que le NAT sortant se produise. Toutefois, cela signifie également que vous devez exclure l’adresse IP externe que vous essayez d’interroger à partir de la nouvelle. Seul le trafic provenant de vos boîtiers Windows sera SNAT’ed correctement pour recevoir une réponse du monde extérieur. À cet égard, votre exceptions dans `cni.conf` doit se présenter comme suit :
 ```conf
 "ExceptionList": [
@@ -118,7 +123,7 @@ L’accès à l’exclusion locale à partir du nœud lui-même échoue en raiso
 En raison d’une limitation de conception, il doit y avoir au moins un pod en cours d’exécution sur le nœud Windows pour que le transfert de noexclusion fonctionne.
 
 ### <a name="after-some-time-vnics-and-hns-endpoints-of-containers-are-being-deleted"></a>Après un certain temps, les points de terminaison cartes réseau virtuelles et HNS des conteneurs sont en cours de suppression ###
-Ce problème peut survenir lorsque le paramètre `hostname-override` n’est pas transmis à [Kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/). Pour le résoudre, les utilisateurs doivent passer le nom d’hôte à Kube-proxy comme suit :
+Ce problème peut survenir lorsque le `hostname-override` paramètre n’est pas passé à [Kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/). Pour le résoudre, les utilisateurs doivent passer le nom d’hôte à Kube-proxy comme suit :
 ```
 C:\k\kube-proxy.exe --hostname-override=$(hostname)
 ```
@@ -141,7 +146,7 @@ Il y a également un [PR](https://github.com/coreos/flannel/pull/1042) qui réso
 
 
 ### <a name="my-windows-pods-cannot-launch-because-of-missing-runflannelsubnetenv"></a>Mes modules Windows ne peuvent pas être lancés en raison d’un/Run/Flannel/subnet.env manquant ###
-Cela indique que Flannel n’a pas été lancé correctement. Vous pouvez essayer de redémarrer flanneld. exe, ou vous pouvez copier les fichiers manuellement à partir de `/run/flannel/subnet.env` sur le maître Kubernetes pour `C:\run\flannel\subnet.env` sur le nœud Worker de Windows et modifier la ligne `FLANNEL_SUBNET` sur le sous-réseau qui a été affecté. Par exemple, si le sous-réseau de nœud 10.244.4.1/24 a été affecté :
+Cela indique que Flannel n’a pas été lancé correctement. Vous pouvez essayer de redémarrer flanneld. exe, ou vous pouvez copier les fichiers manuellement de `/run/flannel/subnet.env` sur le serveur maître Kubernetes vers `C:\run\flannel\subnet.env` sur le nœud Worker Windows et modifier la `FLANNEL_SUBNET` ligne en sous-réseau qui a été affecté. Par exemple, si le sous-réseau de nœud 10.244.4.1/24 a été affecté :
 ```
 FLANNEL_NETWORK=10.244.0.0/16
 FLANNEL_SUBNET=10.244.4.1/24
@@ -179,7 +184,7 @@ Get-HnsNetwork | ? Name -ieq "cbr0"
 Get-NetAdapter | ? Name -Like "vEthernet (Ethernet*"
 ```
 
-Il est souvent utile de modifier le paramètre [NomInterface](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/start.ps1#L6) du script start. ps1, dans les cas où la carte réseau de l’hôte n’est pas « Ethernet ». Dans le cas contraire, consultez la sortie du script `start-kubelet.ps1` pour voir s’il existe des erreurs lors de la création du réseau virtuel. 
+Il est souvent utile de modifier le paramètre [NomInterface](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/start.ps1#L6) du script start. ps1, dans les cas où la carte réseau de l’hôte n’est pas « Ethernet ». Dans le cas contraire, consultez la sortie du `start-kubelet.ps1` script pour voir s’il existe des erreurs lors de la création du réseau virtuel. 
 
 ### <a name="pods-stop-resolving-dns-queries-successfully-after-some-time-alive"></a>Les pods arrêtent de résoudre les requêtes DNS correctement après être restés actifs un certain temps ###
 La pile de mise en réseau de Windows Server, version 1803 et inférieure peut parfois provoquer l’échec des requêtes DNS. Pour contourner ce problème, vous pouvez définir les valeurs MAX TTL cache sur zéro à l’aide des clés de Registre suivantes :
@@ -192,7 +197,7 @@ New-ItemPropery -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Paramete
 ```
 
 ### <a name="i-am-still-seeing-problems-what-should-i-do"></a>Je constate toujours des problèmes. Que dois-je faire ? ### 
-Il peut exister des restrictions supplémentaires sur votre réseau ou sur des ordinateurs hôtes empêchant certains types de communication entre les nœuds. Vérifiez que :
+Il peut exister des restrictions supplémentaires sur votre réseau ou sur des ordinateurs hôtes empêchant certains types de communication entre les nœuds. Assurez-vous que :
   - vous avez correctement configuré la topologie de votre [réseau](./network-topologies.md) choisie
   - le trafic qui semble émaner des pods est autorisé
   - le trafic HTTP est autorisé, si vous déployez des services web
