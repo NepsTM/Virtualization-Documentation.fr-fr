@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1ecb85a6-d938-4c30-a29b-d18bd007ba08
-ms.openlocfilehash: 63007d21fcc046f384405c7d85143bfc576ecc07
-ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
+ms.openlocfilehash: b287ea091ad283ddf57727f315c7086865375ce7
+ms.sourcegitcommit: e9b3c9dcf7b5c9b9222edbc344764fb038529739
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "81395752"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84334099"
 ---
 # <a name="configure-nested-vms-to-communicate-with-resources-in-an-azure-virtual-network"></a>Configurer des machines virtuelles imbriquées pour qu'elles communiquent avec les ressources d'un réseau virtuel Azure
 
@@ -49,7 +49,7 @@ Avant d'entamer ce guide :
 
 ## <a name="creating-the-host"></a>Création de l'hôte
 
-Je ferai abstraction de toutes les valeurs de configuration basées sur les préférences personnelles, comme le nom de la machine virtuelle, le groupe de ressources, etc.
+Je ferai abstraction de toutes les valeurs de configuration basées sur les préférences personnelles, comme le nom de la machine virtuelle, le groupe de ressources et ainsi de suite.
 
 1. Accédez à portal.azure.com.
 2. Cliquez sur « Créer une ressource » en haut à gauche.
@@ -124,7 +124,7 @@ Je ferai abstraction de toutes les valeurs de configuration basées sur les pré
 3. Dans l’Assistant, sélectionnez « Suivant », « Configuration personnalisée », puis « Suivant ».
 4. Cochez « NAT » et « Routage LAN », puis sélectionnez « Suivant » et « Terminer ». Si vous êtes invité à démarrer le service, faites-le.
 5. À présent, accédez au nœud « IPv4 » et développez-le afin que le nœud « NAT » soit disponible.
-6. Cliquez avec le bouton droit sur « NAT », sélectionnez « Nouvelle interface... », puis sélectionnez « Ethernet ». Il doit s'agir de votre première carte réseau avec l'adresse IP « 10.0.0.4 ». Sélectionnez ensuite Interface publique, connectez-vous à Internet et activez NAT sur cette interface. 
+6. Cliquez avec le bouton droit sur « NAT », sélectionnez « Nouvelle interface... », puis sélectionnez « Ethernet ». Il doit s'agir de votre première carte réseau avec l'adresse IP « 10.0.0.4 ». Sélectionnez ensuite « Interface publique », connectez-vous à Internet et activez NAT sur cette interface. 
 7. Nous devons maintenant créer des itinéraires statiques pour forcer le trafic LAN sur la deuxième carte réseau. Pour ce faire, accédez au nœud « Itinéraires statiques » sous « IPv4 ».
 8. Nous allons créer les itinéraires suivants.
     * Itinéraire 1
@@ -168,7 +168,8 @@ Pour plus d'informations sur la création et la gestion d'itinéraires dans Azur
 8. Sélectionnez successivement « Associer », notre réseau virtuel « Nested-Fun », le sous-réseau « Machines virtuelles Azure », puis « OK ».
 9. Suivez le même processus pour le sous-réseau sur lequel notre hôte Hyper-V réside ainsi que pour tous les autres sous-réseaux qui doivent accéder aux machines virtuelles imbriquées. En cas de connexion. 
 
-# <a name="end-state-configuration-reference"></a>Référence de configuration de l'état final
+## <a name="end-state-configuration-reference"></a>Référence de configuration de l'état final
+
 Les configurations suivantes s'appliquent à l'environnement décrit dans ce guide. Cette section est destinée à être utilisée comme référence.
 
 1. Informations sur le réseau virtuel Azure.

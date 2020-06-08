@@ -3,12 +3,12 @@ title: Stockage persistant dans des conteneurs
 description: Comment des conteneurs Windows peuvent stocker de manière persistante
 keywords: conteneurs, volume, stockage, montage, montage lié
 author: cwilhit
-ms.openlocfilehash: 945a78d4ecb9c96da4de8f7246f84b6b444dd5b5
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 8bdf45a46f2e88a2206894f7d412cb93d4491cac
+ms.sourcegitcommit: 57b1c0931a464ad040a7af81b749c7d66c0bc899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909669"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84421005"
 ---
 # <a name="persistent-storage-in-containers"></a>Stockage persistant dans des conteneurs
 
@@ -64,16 +64,16 @@ Sur Windows Server, version 1709 ou ultérieure, une nouvelle fonctionnalité a
     > [!NOTE]
     > En cas d’utilisation d’un mappage global SMB pour des conteneurs, tous les utilisateurs de l’hôte du conteneur peuvent accéder au partage distant. Toute application en cours d’exécution sur l’hôte conteneur aura également accès au partage distant mappé.
 
-2. Créez des conteneurs avec des volumes de données mappés vers un partage SMB monté de manière globale : docker run -it --name demo -v g:\ContainerData:G:\AppData1 microsoft/windowsservercore:1709 cmd.exe
+2. Créez des conteneurs avec des volumes de données mappés vers un partage SMB monté de manière globale : docker run -it --name demo -v g:\ContainerData:c:\AppData1 mcr.microsoft.com/windows/servercore:ltsc2019 cmd.exe
 
-    Au sein du conteneur, G:\AppData1 sera ensuite mappé au répertoire distant partagé « ContainerData ». Toutes les données stockées sur un partage distant globalement mappé sera disponible pour les applications présentes dans le conteneur. Plusieurs conteneurs peuvent accéder en lecture/écriture à ces données partagées à l’aide de la même commande.
+    Au sein du conteneur, c:\AppData1 sera ensuite mappé au répertoire distant partagé « ContainerData ». Toutes les données stockées sur un partage distant globalement mappé sera disponible pour les applications présentes dans le conteneur. Plusieurs conteneurs peuvent accéder en lecture/écriture à ces données partagées à l’aide de la même commande.
 
 Cette prise en charge du mappage global SMB est une fonction côté client SMB qui peut fonctionner sur n’importe quel serveur SMB compatible, notamment :
 
 - Serveur de fichiers ScaleOut basé sur des espaces de stockage Direct (S2D) ou un réseau SAN traditionnel
 - Azure Files (partage SMB)
 - Serveur de fichiers traditionnel
-- Implémentation tierce du protocole SMB (par exemple, appareils de stockage NAS)
+- Implémentation tierce du protocole SMB (par exemple : appliances NAS)
 
 > [!NOTE]
 > Le mappage global SMB ne prend pas en charge les partages DFS, DFSN, DFSR dans Windows Server version 1709.
