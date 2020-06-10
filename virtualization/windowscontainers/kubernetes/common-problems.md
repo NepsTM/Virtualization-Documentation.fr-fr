@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: Solutions aux problèmes courants lors du déploiement de Kubernetes et de la jonction de nœuds Windows.
 keywords: kubernetes, 1,14, Linux, compiler
-ms.openlocfilehash: dfb9be5bb5a5dd3507ee7266346634579df503c0
-ms.sourcegitcommit: 7f3d98da46c73e428565268683691f383c72221f
+ms.openlocfilehash: eb8162a55eb1a639cde40faed7b01a48f0c50ad3
+ms.sourcegitcommit: fed735dafbe40179b1e1c46840655248b52617b0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84461607"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84614869"
 ---
 # <a name="troubleshooting-kubernetes"></a>Résolution des problèmes Kubernetes #
 Cette page décrit plusieurs problèmes courants lors du déploiement, de la mise en réseau et de la configuration de Kubernetes.
@@ -57,7 +57,7 @@ L' `CollectLogs.ps1` imite également la logique d’allocation HNS pour tester 
 Pour résoudre ce problème, quelques étapes sont nécessaires :
 1.  Pour une solution permanente, l’équilibrage de charge Kube-proxy doit être défini en [mode DSR](https://techcommunity.microsoft.com/t5/Networking-Blog/Direct-Server-Return-DSR-in-a-nutshell/ba-p/693710). Le mode DSR est entièrement implémenté et disponible sur une version plus récente de [Windows Server Insider 18945](https://blogs.windows.com/windowsexperience/2019/07/30/announcing-windows-server-vnext-insider-preview-build-18945/#o1bs7T2DGPFpf7HM.97) (ou version ultérieure) uniquement.
 2. En guise de solution de contournement, les utilisateurs peuvent également augmenter la configuration Windows par défaut des ports éphémères disponibles à l’aide d’une commande telle que `netsh int ipv4 set dynamicportrange TCP <start_port> <port_count>` . *Avertissement :* La substitution de la plage de ports dynamiques par défaut peut avoir des conséquences sur d’autres processus/services sur l’hôte qui reposent sur les ports TCP disponibles à partir de la plage non éphémère. par conséquent, cette plage doit être sélectionnée avec précaution.
-3. Il existe une amélioration de l’évolutivité des équilibreurs de charge en mode non DSR utilisant le partage de pool de ports intelligent, qui est planifiée pour être publiée via une mise à jour cumulative au 1er trimestre 2020.
+3. Il existe une amélioration de l’évolutivité des équilibreurs de charge en mode non-DSR utilisant le partage de pool de ports intelligent inclus dans la mise à jour cumulative [KB4551853](https://support.microsoft.com/en-us/help/4551853) (et toutes les mises à jour cumulatives les plus récentes).
 
 ### <a name="hostport-publishing-is-not-working"></a>La publication appelait hostport ne fonctionne pas ###
 Pour utiliser la fonctionnalité appelait hostport, vérifiez que vos plug-ins CNI sont configurés avec la version [v 0.8.6](https://github.com/containernetworking/plugins/releases/tag/v0.8.6) ou une version ultérieure, et que le fichier de configuration CNI dispose des `portMappings` fonctionnalités suivantes :
