@@ -26,7 +26,7 @@
 ### [Migrer une application ASP.NET avec des conteneurs Windows et Azure App Service](/azure/app-service/app-service-web-tutorial-windows-containers-custom-fonts)
 ## Conteneurs Linux sur Windows
 ### [Vue d’ensemble](deploy-containers/linux-containers.md)
-### [Exécuter votre premier conteneur LCOW](quick-start/quick-start-windows-10-linux.md)
+### [Exécuter votre premier conteneur Linux](quick-start/quick-start-windows-10-linux.md)
 ## Utiliser des conteneurs avec le programme Windows Insider
 ### [Vue d’ensemble](deploy-containers/insider-overview.md)
 
