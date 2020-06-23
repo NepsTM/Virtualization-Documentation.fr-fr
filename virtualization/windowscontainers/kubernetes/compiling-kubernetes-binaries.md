@@ -3,24 +3,24 @@ title: Compilation de fichiers binaires Kubernetes
 author: gkudra-msft
 ms.author: gekudray
 ms.date: 11/02/2018
-ms.topic: get-started-article
+ms.topic: how-to
 ms.prod: containers
 description: Compilation et compilation croisée des fichiers binaires Kubernetes à partir de la source.
 keywords: kubernetes, 1,12, Linux, compiler
-ms.openlocfilehash: 40bf7e65a8910cdab095abb269aa0a92508189cd
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: a0c9ed6ef0872e19de49fa97f4727b6e0e09ed43
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909869"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192346"
 ---
 # <a name="compiling-kubernetes-binaries"></a>Compilation de fichiers binaires Kubernetes #
 La compilation de Kubernetes requiert un environnement Go de travail. Cette page passe en revue plusieurs façons de compiler les fichiers binaires Linux et d’effectuer une compilation croisée des binaires Windows.
-> [!NOTE] 
+> [!NOTE]
 > Cette page est entièrement volontaire et incluse uniquement pour les développeurs intéressés Kubernetes qui veulent expérimenter la dernière & code source le plus récent.
 
 > [!tip]
-> Pour recevoir des notifications sur les développements les plus récents, vous pouvez vous abonner à [@kubernetes-announce](https://groups.google.com/forum/#!forum/kubernetes-announce).
+> Pour recevoir des notifications sur les dernières évolutions auxquelles vous pouvez vous abonner [@kubernetes-announce](https://groups.google.com/forum/#!forum/kubernetes-announce) .
 
 ## <a name="installing-go"></a>Installation de Go ##
 Par souci de simplicité, cela implique d’installer Go dans un emplacement temporaire et personnalisé :
@@ -35,7 +35,7 @@ export GOPATH="$HOME/gopath"
 export PATH="$GOROOT/bin:$PATH"
 ```
 
-> [!Note]  
+> [!Note]
 > Cela définit les variables d’environnement pour votre session. Ajoutez `export` à votre `~/.profile`pour un réglage permanent.
 
 Exécutez `go env`pour vérifier que les chemins ont été correctement définis. Il existe plusieurs options pour la création des fichiers binaires Kubernetes :
@@ -48,17 +48,17 @@ Pour copier les binaires Windows sur leurs nœuds respectifs, utilisez un outil 
 
 
 ## <a name="building-locally"></a>Créer localement ##
-> [!Tip]  
-> Si vous rencontrez des erreurs « autorisation refusée », elles peuvent être évitées en créant tout d’abord le Linux `kubelet`, selon la note dans [`acs-engine`](https://github.com/Azure/acs-engine/blob/master/scripts/build-windows-k8s.sh#L176) :
->  
-> _En raison de ce qui semble être un bogue dans le système de génération Windows Kubernetes, il faut d’abord créer un fichier binaire Linux pour générer `_output/bin/deepcopy-gen`. Si vous générez sur Windows avec cette opération, une `deepcopy-gen`vide sera générée._
+> [!Tip]
+> Si vous rencontrez des erreurs « autorisation refusée », vous pouvez les éviter en générant Linux en `kubelet` premier, conformément à la note indiquée dans [`acs-engine`](https://github.com/Azure/acs-engine/blob/master/scripts/build-windows-k8s.sh#L176) :
+>
+> _En raison de ce qui semble être un bogue dans le système de génération Windows Kubernetes, il faut d’abord créer un fichier binaire Linux à générer `_output/bin/deepcopy-gen` . Si vous générez sur Windows avec cette opération, vous obtiendrez un vide `deepcopy-gen` ._
 
 En premier lieu, récupérez l’espace de stockage Kubernetes :
 
 ```bash
 KUBEREPO="k8s.io/kubernetes"
 go get -d $KUBEREPO
-# Note: the above command may spit out a message about 
+# Note: the above command may spit out a message about
 #       "no Go files in...", but it can be safely ignored!
 cd $GOPATH/src/$KUBEREPO
 ```
@@ -96,8 +96,8 @@ git clone https://github.com/kubernetes/kubernetes.git ${SRC_DIR}
 cd ${SRC_DIR}
 git checkout tags/v1.12.2
 KUBE_BUILD_PLATFORMS=linux/amd64   build/run.sh make WHAT=cmd/kubelet
-KUBE_BUILD_PLATFORMS=windows/amd64 build/run.sh make WHAT=cmd/kubelet 
-KUBE_BUILD_PLATFORMS=windows/amd64 build/run.sh make WHAT=cmd/kube-proxy 
+KUBE_BUILD_PLATFORMS=windows/amd64 build/run.sh make WHAT=cmd/kubelet
+KUBE_BUILD_PLATFORMS=windows/amd64 build/run.sh make WHAT=cmd/kube-proxy
 cp _output/dockerized/bin/windows/amd64/kube*.exe ${DIST_DIR}
 
 ls ${DIST_DIR}

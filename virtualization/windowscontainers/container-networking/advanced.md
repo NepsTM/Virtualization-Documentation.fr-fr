@@ -4,20 +4,20 @@ description: Mise en réseau avancée pour les conteneurs Windows.
 keywords: docker, conteneurs
 author: jmesser81
 ms.date: 03/27/2018
-ms.topic: article
+ms.topic: how-to
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: deea1bfbcd3032f52a6912eb0c36ba467d8b9a9c
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 5278d1d0aefadf81905c843609e1c922f5ca446a
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910709"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192686"
 ---
 # <a name="advanced-network-options-in-windows"></a>Options réseau avancées dans Windows
 
-Plusieurs options de pilote réseau sont prises en charge pour tirer parti des capacités et des fonctionnalités spécifiques de Windows. 
+Plusieurs options de pilote réseau sont prises en charge pour tirer parti des capacités et des fonctionnalités spécifiques de Windows.
 
 ## <a name="switch-embedded-teaming-with-docker-networks"></a>SET (Switch Embedded Teaming) avec les réseaux Docker
 
@@ -46,7 +46,7 @@ Lorsque vous définissez l’ID de réseau virtuel local pour un réseau, vous d
 
 > S’applique aux réseaux l2bridge
 
-En règle générale, lorsque vous créez un réseau de conteneurs `l2bridge` à l’aide de `docker network create`, les points de terminaison de conteneur n’ont pas de stratégie OutboundNAT HNS appliquée, ce qui empêche les conteneurs d’atteindre le monde extérieur. Si vous créez un réseau, vous pouvez utiliser l’option `-o com.docker.network.windowsshim.enable_outboundnat=<true|false>` pour appliquer la stratégie HNS OutboundNAT pour permettre aux conteneurs d’accéder au monde extérieur :
+En règle générale, lorsque vous créez un `l2bridge` réseau de conteneurs à l’aide de `docker network create` , les points de terminaison de conteneur n’ont pas de stratégie de OutboundNAT HNS appliquée, ce qui entraîne l’incapacité des conteneurs à atteindre le monde extérieur. Si vous créez un réseau, vous pouvez utiliser l' `-o com.docker.network.windowsshim.enable_outboundnat=<true|false>` option pour appliquer la stratégie HNS OutboundNAT pour permettre aux conteneurs d’accéder au monde extérieur :
 
 ```
 C:\> docker network create -d l2bridge -o com.docker.network.windowsshim.enable_outboundnat=true MyL2BridgeNetwork
@@ -60,7 +60,7 @@ C:\> docker network create -d l2bridge -o com.docker.network.windowsshim.enable_
 
 ## <a name="specify-the-name-of-a-network-to-the-hns-service"></a>Spécification du nom d’un réseau pour le service HNS
 
-> S’applique à tous les pilotes réseau 
+> S’applique à tous les pilotes réseau
 
 En règle générale, lorsque vous créez un réseau de conteneur à l’aide de `docker network create`, le nom de réseau que vous indiquez est utilisé par le service Docker, mais pas par le service HNS. Si vous créez un réseau, vous pouvez spécifier le nom qui lui est attribué par le service HNS en utilisant l’option `-o com.docker.network.windowsshim.networkname=<network name>` pour la commande `docker network create`. Par exemple, vous pouvez utiliser la commande suivante pour créer un réseau transparent avec un nom spécifié pour le service HNS :
 
@@ -70,7 +70,7 @@ C:\> docker network create -d transparent -o com.docker.network.windowsshim.netw
 
 ## <a name="bind-a-network-to-a-specific-network-interface"></a>Lier un réseau à une interface réseau spécifique
 
-> S’applique à tous les pilotes réseau à l’exception de « nat »  
+> S’applique à tous les pilotes réseau à l’exception de « nat »
 
 Pour lier un réseau (connecté via le commutateur virtuel Hyper-V) à une interface réseau spécifique, utilisez l’option `-o com.docker.network.windowsshim.interface=<Interface>` pour la commande `docker network create`. Par exemple, vous pouvez utiliser la commande suivante pour créer un réseau transparent associé à l’interface réseau « Ethernet 2 » :
 
@@ -86,7 +86,7 @@ PS C:\> Get-NetAdapter
 
 ## <a name="specify-the-dns-suffix-andor-the-dns-servers-of-a-network"></a>Spécifier le suffixe DNS et/ou des serveurs DNS d’un réseau
 
-> S’applique à tous les pilotes réseau 
+> S’applique à tous les pilotes réseau
 
 Utilisez l’option `-o com.docker.network.windowsshim.dnssuffix=<DNS SUFFIX>` pour spécifier le suffixe DNS d’un réseau et l’option `-o com.docker.network.windowsshim.dnsservers=<DNS SERVER/S>` pour spécifier les serveurs DNS d’un réseau. Par exemple, vous pouvez utiliser la commande suivante pour définir le suffixe DNS d’un réseau sur « example.com », et les serveurs DNS d’un réseau sur 4.4.4.4 et 8.8.8.8 :
 
@@ -96,12 +96,12 @@ C:\> docker network create -d transparent -o com.docker.network.windowsshim.dnss
 
 ## <a name="vfp"></a>VFP
 
-Pour plus d’informations, consultez [cet article](https://www.microsoft.com/research/project/azure-virtual-filtering-platform/).
+Pour plus d’informations, voir [cet article](https://www.microsoft.com/research/project/azure-virtual-filtering-platform/).
 
 ## <a name="tips--insights"></a>Conseils et informations
 Voici une liste de conseils et d'informations pratiques, inspirées de questions courantes sur la mise en réseau de conteneur Windows exprimées par la Communauté...
 
-#### <a name="hns-requires-that-ipv6-is-enabled-on-container-host-machines"></a>HNS nécessite qu'IPv6 soit activé sur les ordinateurs hôtes de conteneur 
+#### <a name="hns-requires-that-ipv6-is-enabled-on-container-host-machines"></a>HNS nécessite qu'IPv6 soit activé sur les ordinateurs hôtes de conteneur
 Dans le cadre de [KB4015217](https://support.microsoft.com/help/4015217/windows-10-update-kb4015217), HNS nécessite qu'IPv6 soit activé sur les hôtes de conteneur Windows. Si vous rencontrez une erreur comme celle indiquée ci-dessous, il est possible qu'IPv6 soit désactivé sur votre ordinateur hôte.
 ```
 docker: Error response from daemon: container e15d99c06e312302f4d23747f2dfda4b11b92d488e8c5b53ab5e4331fd80636d encountered an error during CreateContainer: failure in a Windows system call: Element not found.
@@ -115,12 +115,12 @@ C:\> reg delete HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Para
 
 #### <a name="linux-containers-on-windows"></a>Conteneurs Linux sur Windows
 
-**Nouveauté :** nous travaillons à rendre possible l’exécution de conteneurs Linux et Windows côte-à-côte _sans l’ordinateur virtuel Moby Linux_. Consultez ce [billet de blog sur les conteneurs Linux sur Windows (LCOW)](https://blog.docker.com/2017/11/docker-for-windows-17-11/) pour plus d’informations. Voici [comment commencer.](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10-linux)
-> Remarque : LCOW remplace l’ordinateur virtuel Moby Linux, il utilisera le vSwitch interne HNS « nat » par défaut.
+**Nouveau :** Nous travaillons à la possibilité d’exécuter des conteneurs Linux et Windows côte à côte _sans la machine virtuelle Linux Moby_. Pour plus d’informations, consultez ce billet de [blog sur les conteneurs Linux sur Windows (LCOW)](https://blog.docker.com/2017/11/docker-for-windows-17-11/) . Voici [comment commencer.](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10-linux)
+> Remarque : LCOW déprécie la machine virtuelle Linux Moby, et utilisera le vSwitch interne par défaut « NAT ».
 
-#### <a name="moby-linux-vms-use-dockernat-switch-with-docker-for-windows-a-product-of-docker-cehttpswwwdockercomcommunity-edition"></a>Les ordinateurs virtuels Moby Linux utilisent le commutateur DockerNAT avec Docker pour Windows (un produit de [Docker CE](https://www.docker.com/community-edition))
+#### <a name="moby-linux-vms-use-dockernat-switch-with-docker-for-windows-a-product-of-docker-ce"></a>Les machines virtuelles Linux Moby utilisent le commutateur DockerNAT avec Docker pour Windows (un produit de [dockr ce](https://www.docker.com/community-edition))
 
-Docker pour Windows (le pilote Windows du moteur Docker CE) sur Windows 10 utilise un vSwitch interne nommé « DockerNAT » pour connecter des ordinateurs virtuels Moby Linux à l’hôte de conteneur. Les développeurs qui utilisent des machines virtuelles Moby Linux sur Windows doivent savoir que leurs ordinateurs hôtes, utilisent le vSwitch DockerNAT au lieu du vSwitch « nat » créé par le service HNS (qui est le commutateur par défaut utilisé pour les conteneurs Windows).
+Docker pour Windows (le pilote Windows pour le moteur Dockr CE) sur Windows 10 utilise un vSwitch interne nommé « DockerNAT » pour connecter des machines virtuelles Linux Moby à l’hôte de conteneur. Les développeurs qui utilisent des machines virtuelles Linux Moby sur Windows doivent savoir que leurs hôtes utilisent le vSwitch DockerNAT plutôt que le vSwitch « NAT » créé par le service SNPD (qui est le commutateur par défaut utilisé pour les conteneurs Windows).
 
 
 
@@ -137,7 +137,7 @@ Si vous exécutez VMware en tant qu’hyperviseur, vous devez activer le mode Pr
 Pour créer plusieurs réseaux transparents, vous devez spécifier la carte réseau (virtuelle) à laquelle le commutateur virtuel Hyper-V externe doit être lié. Pour spécifier l’interface pour un réseau, utilisez la syntaxe suivante :
 ```
 # General syntax:
-C:\> docker network create -d transparent -o com.docker.network.windowsshim.interface=<INTERFACE NAME> <NETWORK NAME> 
+C:\> docker network create -d transparent -o com.docker.network.windowsshim.interface=<INTERFACE NAME> <NETWORK NAME>
 
 # Example:
 C:\> docker network create -d transparent -o com.docker.network.windowsshim.interface="Ethernet 2" myTransparent2
@@ -158,13 +158,13 @@ C:\> docker run -it --network=MyTransparentNet --ip=10.123.174.105 windowsserver
 Seule l’attribution d'adresses IP statiques est prise en charge avec les réseaux de conteneur créés à l’aide du pilote l2bridge. Comme indiqué ci-dessus, n’oubliez pas d’utiliser les paramètres *--subnet* et *--gateway* pour créer un réseau configuré pour l’attribution d'adresses IP statiques.
 
 #### <a name="networks-that-leverage-external-vswitch-must-each-have-their-own-network-adapter"></a>Chaque réseau qui exploite un vSwitch externe doit avoir sa propre carte réseau
-Si plusieurs réseaux utilisant un vSwitch externe pour la connectivité (par exemple, Transparent, L2 Bridge, L2 Transparent) sont créés sur le même hôte de conteneur, chacun d’eux requiert sa propre carte réseau. 
+Si plusieurs réseaux utilisant un vSwitch externe pour la connectivité (par exemple, Transparent, L2 Bridge, L2 Transparent) sont créés sur le même hôte de conteneur, chacun d’eux requiert sa propre carte réseau.
 
 #### <a name="ip-assignment-on-stopped-vs-running-containers"></a>Attribution d'adresses IP sur des conteneurs arrêtés ou en cours d’exécution
 L’attribution d’adresses IP statiques est effectuée directement sur la carte réseau du conteneur et ne doit être réalisée que quand le conteneur est dans un état ARRÊTÉ. Ni un « ajout à chaud » de cartes réseau de conteneurs ni un apport de modifications à la pile réseau n'est pris en charge (dans Windows Server 2016) pendant l’exécution du conteneur.
 
 #### <a name="existing-vswitch-not-visible-to-docker-can-block-transparent-network-creation"></a>Un vSwitch existant (non visible pour Docker) peut bloquer la création de réseau transparent
-Si vous rencontrez une erreur lors de la création d'un réseau transparent, il est possible qu’il existe un vSwitch externe sur votre système qui n’a pas été découvert automatiquement par Docker, et qui par conséquent empêche la liaison du réseau transparent à la carte réseau externe de votre hôte de conteneur. 
+Si vous rencontrez une erreur lors de la création d'un réseau transparent, il est possible qu’il existe un vSwitch externe sur votre système qui n’a pas été découvert automatiquement par Docker, et qui par conséquent empêche la liaison du réseau transparent à la carte réseau externe de votre hôte de conteneur.
 
 Quand vous créez un réseau transparent, Docker crée un commutateur virtuel externe pour le réseau, puis essaie de lier le commutateur à une carte réseau (externe) : l’adaptateur peut être une carte réseau de machine virtuelle ou la carte réseau physique. Si un commutateur virtuel a déjà été créé sur l’hôte du conteneur *et qu’il est visible par Docker*, le moteur Docker Windows utilise ce commutateur au lieu d’en créer un nouveau. Cependant, si le commutateur virtuel a été créé hors bande (c’est-à-dire sur l’hôte du conteneur à l’aide du gestionnaire Hyper-V ou de PowerShell) et qu’il n’est pas encore visible par Docker, le moteur Docker Windows tente de créer un commutateur virtuel sans parvenir par la suite à connecter le nouveau commutateur à la carte réseau externe de l’hôte de conteneur (car la carte réseau est déjà connectée au commutateur qui a été créé hors bande).
 
@@ -181,7 +181,7 @@ PS C:\> restart-service docker
 * Une autre option consiste à utiliser l’option « -o com.docker.network.windowsshim.interface » pour lier le commutateur externe du réseau transparent à une carte réseau spécifique qui n’est pas déjà utilisée sur l’hôte du conteneur (par exemple une carte réseau autre que celle utilisée par le commutateur virtuel qui a été créé hors bande). L’option « -o » est décrite plus en détail dans la section [création de plusieurs réseaux transparents sur un seul hôte de conteneur](advanced.md#creating-multiple-transparent-networks-on-a-single-container-host) de ce document.
 
 
-## <a name="windows-server-2016-work-arounds"></a>Solutions de contournement de Windows Server 2016 
+## <a name="windows-server-2016-work-arounds"></a>Solutions de contournement de Windows Server 2016
 
 Bien que nous continuions à ajouter de nouvelles fonctionnalités et à contribuer au développement, certaines de ces fonctionnalités ne seront pas répercutées sur des plateformes plus anciennes. Le meilleur plan d’action consiste plutôt à « prendre le train en marche » avec les dernières mises à jour vers Windows 10 et Windows Server.  La section ci-dessous indique certaines réserves et solutions de contournement qui s’appliquent à Windows Server 2016 et aux versions antérieures de Windows 10 (c'est-à-dire avant la version 1704 de Creators Update)
 
