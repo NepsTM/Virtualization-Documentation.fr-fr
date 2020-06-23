@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: a52c18f13d0d6bd2102f045827285821a187579b
-ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
+ms.openlocfilehash: 17186d868c0934c4af670e522b26f9205dd16f76
+ms.sourcegitcommit: 6a5c237bff2c953fec2ce1e09424375a7c615010
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "74909579"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84632982"
 ---
 # <a name="linux-containers-on-windows-10"></a>Conteneurs Linux sur Windows 10
 
@@ -22,7 +22,7 @@ Cet exercice vous permet de créer et d'exécuter des conteneurs Linux sur Windo
 Dans ce démarrage rapide, vous allez effectuer ce qui suit :
 
 1. Installation de Docker Desktop
-2. Exécution d’un conteneur Linux simple à l’aide de conteneurs Linux sur Windows (LCOW)
+2. Exécution d’un conteneur Linux simple
 
 Ce démarrage rapide est spécifique à Windows 10. Une documentation supplémentaire du démarrage rapide est disponible dans la table des matières affichée sur la gauche de cette page.
 
@@ -30,50 +30,34 @@ Ce démarrage rapide est spécifique à Windows 10. Une documentation suppléme
 
 Assurez-vous que vous remplissez les conditions suivantes :
 - Un ordinateur physique exécutant Windows 10 Professionnel, Windows 10 Entreprise ou Windows Server 2019 version 1809 ou ultérieure
-- Assurez-vous que [Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) est activé.
-
-***Isolation Hyper-V :*** Les conteneurs Linux sur Windows requièrent l’isolation Hyper-V sur Windows 10 afin de fournir aux développeurs le noyau Linux qui convient pour exécuter le conteneur. Pour plus d’informations sur l’isolation Hyper-V, consultez la page [À propos des conteneurs Windows](../about/index.md).
+- Assurez-vous que [Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) est activé. 
 
 ## <a name="install-docker-desktop"></a>Installer Docker Desktop
 
 Téléchargez [Docker Desktop](https://store.docker.com/editions/community/docker-ce-desktop-windows), puis exécutez le programme d’installation. (Vous serez invité à vous connecter. Créez un compte si vous n'en avez pas déjà un). [Des instructions d’installation détaillées](https://docs.docker.com/docker-for-windows/install) sont disponibles dans la documentation de Docker.
 
-> Si vous avez déjà installé Docker, assurez-vous que vous disposez de la version 18.02 ou ultérieure pour prendre en charge LCOW. Pour ce faire, exécutez `docker -v` ou consultez *À propos de Docker*.
+## <a name="run-your-first-linux-container"></a>Exécuter votre premier conteneur Linux
 
-> L’option « Fonctionnalités expérimentales » dans *Paramètres Docker >* Démon doit être activée pour exécuter des conteneurs LCOW.
+Pour exécuter des conteneurs Linux, vous devez vous assurer que Docker cible le démon approprié. Vous pouvez activer cette option en sélectionnant `Switch to Linux Containers` dans le menu Action après avoir cliqué sur l’icône de la baleine Docker dans la barre d’état système. Si vous voyez `Switch to Windows Containers`, cela signifie que vous ciblez déjà le démon Linux.
 
-## <a name="run-your-first-lcow-container"></a>Exécuter votre premier conteneur LCOW
+![Menu de la barre d'état système de Docker affichant la commande « Switch to Windows containers ».](./media/switchDaemon.png)
 
-Pour cet exemple, un conteneur BusyBox sera déployé. Dans un premier temps, essayez d’exécuter une image BusyBox « Hello World ».
-
-```console
-docker run --rm busybox echo hello_world
-```
-
-Notez que cette opération renvoie une erreur lorsque Docker tente d’extraire l’image. Cela est dû au fait que Docker requiert une directive via l’indicateur `--platform` afin de vérifier que l’image et le système d’exploitation hôte correspondent. La plateforme par défaut du mode de conteneur Windows étant Windows, ajoutez un indicateur `--platform linux` pour extraire et exécuter le conteneur.
-
-```console
-docker run --rm --platform linux busybox echo hello_world
-```
-
-Une fois l’image extraite avec la plateforme indiquée, l’indicateur `--platform` n’est plus nécessaire. Exécutez la commande sans cet indicateur pour le tester.
+Une fois que vous avez confirmé que vous ciblez le bon démon, exécutez le conteneur avec la commande suivante :
 
 ```console
 docker run --rm busybox echo hello_world
 ```
 
-Exécutez `docker images` pour retourner une liste d’images installées. Dans ce cas, les images Windows et Linux.
+Le conteneur doit s’exécuter, afficher "hello_world", puis se fermer. 
+
+Lorsque vous interrogez `docker images`, vous devez voir l’image conteneur Linux que vous venez juste de tirer (pull) et d’exécuter :
 
 ```console
 docker images
 
 REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
-microsoft/nanoserver   latest              105d76d0f40e        4 days ago          652 MB
 busybox                latest              59788edf1f3e        4 weeks ago         3.41MB
 ```
-
-> [!TIP]
-> Bonus : Consultez le [billet de blog](https://blog.docker.com/2018/02/docker-for-windows-18-02-with-windows-10-fall-creators-update/) Docker correspondant sur l’exécution de LCOW.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
