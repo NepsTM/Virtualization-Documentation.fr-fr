@@ -3,12 +3,13 @@ title: Spouleur d’impression dans des conteneurs Windows
 description: Explique le comportement de travail actuel du service de spouleur d’impression dans des conteneurs Windows.
 keywords: docker, conteneurs, imprimante, spouleur
 author: cwilhit
-ms.openlocfilehash: e104a87046545b90d244783aafb62ad9d151e14b
-ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
+ms.topic: conceptual
+ms.openlocfilehash: 3348fc4665a9fe88d1cd299df665e564fa176a7e
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77439536"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192217"
 ---
 # <a name="print-spooler-in-windows-containers"></a>Spouleur d’impression dans des conteneurs Windows
 
@@ -57,7 +58,7 @@ PS C:\>
 Du fait que, par nature, les conteneurs isolés par processus partagent un noyau, le comportement actuel limite l’utilisateur à l’exécution d’**une seule instance** du service de spouleur d’imprimante sur l’hôte et tous ses conteneurs enfants. Si le spouleur d’imprimante de l’hôte est en cours d’exécution, vous devez arrêter le service sur l’hôte avant de tenter de lancer le service d’imprimante sur l’invité.
 
 > [!TIP]
-> Si vous lancez un conteneur et une requête pour le service de spouleur simultanément sur le conteneur et l’hôte, tous deux signalent leur état comme étant « en cours d’exécution ». Mais ne vous y trompez pas : le conteneur ne pourra pas lancer de requête pour obtenir la liste des imprimantes disponibles. Le service de spouleur de l’hôte ne doit pas s’exécuter. 
+> Si vous lancez un conteneur et une requête pour le service de spouleur simultanément sur le conteneur et l’hôte, tous deux signalent leur état comme étant « en cours d’exécution ». Mais ne vous y trompez pas : le conteneur ne pourra pas lancer de requête pour obtenir la liste des imprimantes disponibles. Le service de spouleur de l’hôte ne doit pas s’exécuter.
 
 Pour vérifier si l’hôte exécute le service d’imprimante, utilisez dans PowerShell la requête ci-dessous :
 

@@ -4,16 +4,16 @@ description: Comment configurer des applications pour utiliser des comptes de se
 keywords: docker, conteneurs, active directory, compte de service administré de groupe, applis, applications, comptes de service administrés de groupe, configuration
 author: rpsqrd
 ms.date: 09/10/2019
-ms.topic: article
+ms.topic: how-to
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 6635381d5f7ddbebf7bdea4624af241b9f6a6864
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 0c082e4b25bf6de53b5e2c31696bc74fe794fa92
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909789"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192886"
 ---
 # <a name="configure-your-app-to-use-a-gmsa"></a>Configurer votre application pour utiliser un compte de service administré de groupe
 

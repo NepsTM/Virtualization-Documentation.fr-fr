@@ -4,16 +4,16 @@ description: Démarrage rapide du déploiement de conteneurs
 keywords: docker, conteneurs, LCOW
 author: taylorb-microsoft
 ms.date: 08/16/2019
-ms.topic: article
+ms.topic: tutorial
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 17186d868c0934c4af670e522b26f9205dd16f76
-ms.sourcegitcommit: 6a5c237bff2c953fec2ce1e09424375a7c615010
+ms.openlocfilehash: df02dada3e5cf759f003999b38270dd1bf3131fe
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84632982"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192186"
 ---
 # <a name="linux-containers-on-windows-10"></a>Conteneurs Linux sur Windows 10
 
@@ -30,7 +30,7 @@ Ce démarrage rapide est spécifique à Windows 10. Une documentation suppléme
 
 Assurez-vous que vous remplissez les conditions suivantes :
 - Un ordinateur physique exécutant Windows 10 Professionnel, Windows 10 Entreprise ou Windows Server 2019 version 1809 ou ultérieure
-- Assurez-vous que [Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) est activé. 
+- Assurez-vous que [Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) est activé.
 
 ## <a name="install-docker-desktop"></a>Installer Docker Desktop
 
@@ -48,7 +48,7 @@ Une fois que vous avez confirmé que vous ciblez le bon démon, exécutez le con
 docker run --rm busybox echo hello_world
 ```
 
-Le conteneur doit s’exécuter, afficher "hello_world", puis se fermer. 
+Le conteneur doit s’exécuter, afficher "hello_world", puis se fermer.
 
 Lorsque vous interrogez `docker images`, vous devez voir l’image conteneur Linux que vous venez juste de tirer (pull) et d’exécuter :
 

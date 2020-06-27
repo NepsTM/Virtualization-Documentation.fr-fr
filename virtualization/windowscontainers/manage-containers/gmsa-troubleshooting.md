@@ -4,16 +4,16 @@ description: Comment résoudre des problèmes de comptes de service administré 
 keywords: docker, conteneurs, Active Directory, compte de service administré de groupe, comptes de service administré de groupe, résolution de problèmes, résoudre des problèmes
 author: rpsqrd
 ms.date: 10/03/2019
-ms.topic: article
+ms.topic: troubleshooting
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 89f255e307c2a48fd743d5abd1a49bba7703aaf3
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: e7cf5685620d3cb50c93f48e5aa6917d9044b860
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910239"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192826"
 ---
 # <a name="troubleshoot-gmsas-for-windows-containers"></a>Résoudre des problèmes de comptes de service administré de groupe pour des conteneurs Windows
 
@@ -170,7 +170,7 @@ Pour obtenir la liste complète des ports utilisés par Active Directory, consul
     Get-ADObject -Filter 'sAMAccountName -like "GMSANAMEHERE*"'
     ```
 
-4. Si vous avez activé une délégation sans contrainte sur le compte de service administré de groupe, assurez-vous que l’indicateur `WORKSTATION_TRUST_ACCOUNT`est toujours activé pour l’attribut [UserAccountControl](https://support.microsoft.com/en-us/help/305144/how-to-use-useraccountcontrol-to-manipulate-user-account-properties). Cet indicateur est requis pour NETLOGON dans le conteneur, pour communiquer avec le contrôleur de domaine, comme c’est le cas quand une application doit résoudre un nom en SID ou inversement. Vous pouvez vérifier si l’indicateur est configuré correctement avec les commandes suivantes :
+4. Si vous avez activé une délégation sans contrainte sur le compte de service administré de groupe, assurez-vous que l’indicateur `WORKSTATION_TRUST_ACCOUNT`est toujours activé pour l’attribut [UserAccountControl](https://support.microsoft.com/help/305144/how-to-use-useraccountcontrol-to-manipulate-user-account-properties). Cet indicateur est requis pour NETLOGON dans le conteneur, pour communiquer avec le contrôleur de domaine, comme c’est le cas quand une application doit résoudre un nom en SID ou inversement. Vous pouvez vérifier si l’indicateur est configuré correctement avec les commandes suivantes :
 
     ```powershell
     $gMSA = Get-ADServiceAccount -Identity 'yourGmsaName' -Properties UserAccountControl

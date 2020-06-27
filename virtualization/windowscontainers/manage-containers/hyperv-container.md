@@ -4,16 +4,16 @@ description: Explication de la différence entre l’isolation Hyper-V et le tra
 keywords: docker, conteneurs
 author: crwilhit
 ms.date: 09/26/2019
-ms.topic: article
+ms.topic: conceptual
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 42154683-163b-47a1-add4-c7e7317f1c04
-ms.openlocfilehash: 362805fa230f461414ccc53643644f6c1b3474a8
-ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
+ms.openlocfilehash: 3102def94d6565f162210ac53e3a80666ed5d485
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78853953"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192796"
 ---
 # <a name="isolation-modes"></a>Modes d’isolation
 
@@ -50,7 +50,7 @@ Les conteneurs Windows s’exécutant sur Windows Server utilisent par défaut u
 
 > [!WARNING]
 > L’exécution avec isolation des processus sur Windows 10 Professionnel et Entreprise est destinée au développement et aux tests. Votre ordinateur hôte doit exécuter Windows 10, build 17763+, et vous devez disposer d’une version de Docker avec le moteur 18.09 ou ultérieur.
-> 
+>
 > Vous devez continuer d'utiliser Windows Server en tant qu'hôte pour les déploiements de production. En utilisant cette fonctionnalité sur Windows 10 Professionnel et Entreprise, vous devez également vous assurer que les balises de version de votre hôte et de votre conteneur correspondent, sans quoi le conteneur risque de ne pas pouvoir démarrer ou ne pas se comporter de manière imprévisible.
 
 ### <a name="isolation-explanation"></a>Description de l’isolation

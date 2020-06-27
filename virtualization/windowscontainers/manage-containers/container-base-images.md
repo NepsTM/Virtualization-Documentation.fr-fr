@@ -4,16 +4,16 @@ description: Vue d’ensemble des images de base de conteneur Windows et du mome
 keywords: Docker, conteneurs, hachages
 author: patricklang
 ms.date: 09/25/2019
-ms.topic: article
+ms.topic: conceptual
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
-ms.openlocfilehash: 9884cc0ae2d2f398d2dc2fb1997a70493a6de6c0
-ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
+ms.openlocfilehash: 6fc7f2b01af84004fb87e708b0f792c06cb3a569
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76764178"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192306"
 ---
 # <a name="container-base-images"></a>Images de base de conteneur
 
@@ -104,7 +104,7 @@ Windows propose quatre images de base de conteneur à partir desquelles les util
 
 ## <a name="image-discovery"></a>Détection d’images
 
-Toutes les images de base de conteneur Windows sont détectables via le [Docker Hub](https://hub.docker.com/_/microsoft-windows-base-os-images). Les images de base de conteneur Windows proprement dites sont servies à partir de [mcr.microsoft.com](https://azure.microsoft.com/en-us/services/container-registry/), le Registre de conteneurs Microsoft. C’est pourquoi les commandes d’extraction des images de base de conteneur Windows se présentent comme suit :
+Toutes les images de base de conteneur Windows sont détectables via le [Docker Hub](https://hub.docker.com/_/microsoft-windows-base-os-images). Les images de base de conteneur Windows proprement dites sont servies à partir de [mcr.microsoft.com](https://azure.microsoft.com/services/container-registry/), le Registre de conteneurs Microsoft. C’est pourquoi les commandes d’extraction des images de base de conteneur Windows se présentent comme suit :
 
 ```code
 docker pull mcr.microsoft.com/windows/servercore:ltsc2019

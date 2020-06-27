@@ -4,16 +4,16 @@ description: Comment orchestrer des conteneurs Windows avec un compte de service
 keywords: docker, conteneurs, ACTIVE DIRECTORY, compte de service administré de groupe, orchestration, kubernetes, comptes de service administré de groupe
 author: rpsqrd
 ms.date: 09/10/2019
-ms.topic: article
+ms.topic: how-to
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 3d102aac45a1becf1879a718bb255d753b215006
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 6c659a124a95393c173b15d9423491349ebe1462
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910259"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192856"
 ---
 # <a name="orchestrate-containers-with-a-gmsa"></a>Orchestrer des conteneurs avec un compte de service administré de groupe
 

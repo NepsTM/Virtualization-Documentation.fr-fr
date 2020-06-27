@@ -5,15 +5,15 @@ keywords: docker, conteneurs, machines virtuelles
 author: jasongerend
 ms.author: jgerend
 ms.date: 10/21/2019
-ms.topic: article
+ms.topic: overview
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: 63150dfde007ec942446387064ad59f05b0aaa43
-ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
+ms.openlocfilehash: 0262fc1c2fe3e050455cad9420cc4f70d0530fa2
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "74910819"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192726"
 ---
 # <a name="containers-vs-virtual-machines"></a>Conteneurs ou machines virtuelles
 

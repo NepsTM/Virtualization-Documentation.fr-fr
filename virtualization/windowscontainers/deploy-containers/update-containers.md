@@ -5,13 +5,14 @@ keywords: métadonnées, conteneurs, version
 author: heidilohr
 ms. author: helohr
 manager: lizross
+ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 84413f27bfce66e7d259c05795a280ed34b582ab
-ms.sourcegitcommit: 6f216408434a437da87a72d582500a4ca6c2679c
+ms.openlocfilehash: 829705e338667910e50578591ad2c065daecfa5f
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80112692"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192836"
 ---
 # <a name="update-windows-server-containers"></a>Mettre à jour des conteneurs Windows Server
 
@@ -30,14 +31,14 @@ Les nouvelles images du conteneur du système d’exploitation de base Windows S
 - ltsc2019 [(LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc):  docker pull mcr.microsoft.com/windows/servercore:ltsc2019
 - 1909 [(SAC)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel): docker pull mcr.microsoft.com/windows/servercore:1909
 
-Si vous connaissez mieux le Docker Hub que le Registre de conteneurs Microsoft, [ce billet de blog](https://azure.microsoft.com/blog/microsoft-syndicates-container-catalog/) vous fournit des explications plus détaillées.  
+Si vous connaissez mieux le Docker Hub que le Registre de conteneurs Microsoft, [ce billet de blog](https://azure.microsoft.com/blog/microsoft-syndicates-container-catalog/) vous fournit des explications plus détaillées.
 
 Pour chaque publication, l’image du conteneur concernée est également publiée avec deux balises supplémentaires, respectivement pour le numéro de révision et pour le numéro d’article de la base de connaissances, afin de cibler des révisions d’image du conteneur spécifiques. Par exemple :
 
 - docker pull mcr.microsoft.com/windows/servercore:10.0.17763.1040
 - docker pull mcr.microsoft.com/windows/servercore:1809-KB4546852
 
-Ces exemples extraient tous deux l’image du conteneur Server Core de Windows Server 2019 avec la mise à jour de sécurité du 18 février.  
+Ces exemples extraient tous deux l’image du conteneur Server Core de Windows Server 2019 avec la mise à jour de sécurité du 18 février.
 
 Pour obtenir la liste complète des images du conteneur du système d’exploitation de base Windows Server, avec leurs versions et balises respectives, consultez la page [Images du conteneur du système d’exploitation de base Windows](https://hub.docker.com/_/microsoft-windows-base-os-images) sur le Docker Hub.
 
@@ -96,7 +97,7 @@ Si vous pouvez accéder à l’hôte de votre conteneur, vous pouvez exécuter l
 Microsoft Windows [Version 10.0.17763.1039]
 (c) 2018 Microsoft Corporation. All rights reserved.
 
-C:\>ver 
+C:\>ver
 
 Microsoft Windows [Version 10.0.17763.1039]
 ```

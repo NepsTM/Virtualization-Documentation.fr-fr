@@ -4,16 +4,16 @@ description: Configurer Docker dans Windows
 keywords: docker, conteneurs
 author: PatrickLang
 ms.date: 05/03/2019
-ms.topic: article
+ms.topic: overview
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.openlocfilehash: c84a6652b5918238ee8ef6e1fa7a9b2aa596aefd
-ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
+ms.openlocfilehash: b0a89bfcae6a78c28603444a682cecf7c667e477
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "79402880"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192716"
 ---
 # <a name="docker-engine-on-windows"></a>Moteur Docker sur Windows
 
@@ -46,7 +46,7 @@ La méthode privilégiée pour configurer le moteur Docker sur Windows consiste 
     "storage-driver": "",
     "storage-opts": [],
     "labels": [],
-    "log-driver": "", 
+    "log-driver": "",
     "mtu": 0,
     "pidfile": "",
     "data-root": "",
@@ -81,7 +81,7 @@ Seules les modifications de configuration souhaitées doivent être ajoutées au
 De même, l'exemple suivant configure le démon Docker pour conserver les images et les conteneurs dans un autre chemin. Si aucune valeur n’est spécifiée, la valeur par défaut est `c:\programdata\docker`.
 
 ```json
-{    
+{   
     "data-root": "d:\\docker"
 }
 ```

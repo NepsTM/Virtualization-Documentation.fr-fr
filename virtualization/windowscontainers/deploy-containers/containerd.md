@@ -4,16 +4,16 @@ description: Apprenez-en davantage sur les nouveaux blocs de construction de con
 keywords: conteneurs Linux, docker, conteneurs, mise en conteneur, conteneurisation, runhcs, runc, containerd
 author: scooley
 ms.date: 11/19/2018
-ms.topic: article
+ms.topic: conceptual
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: a0e62b32-0c4c-4dd4-9956-8056e9abd9e5
-ms.openlocfilehash: 3107eb48dc9c75224b0c9dd9b436af6f0f451871
-ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
+ms.openlocfilehash: dd7ddbc3784eee67fd67bba20533d520e172ebd3
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77439276"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192257"
 ---
 # <a name="container-platform-tools-on-windows"></a>Outils de plateforme de conteneurs sur Windows
 
@@ -63,7 +63,7 @@ runhcs run [ -b bundle ] <container-id>
 
 `<container-id>` est le nom de l’instance de conteneur que vous démarrez. Le nom doit être unique sur l’hôte de votre conteneur.
 
-Le répertoire du bundle (utilisant `-b bundle`) est facultatif.  
+Le répertoire du bundle (utilisant `-b bundle`) est facultatif.
 Comme avec runc, les conteneurs sont configurés à l’aide de bundles. Le bundle d’un conteneur est le répertoire contenant le fichier de spécification OCI du conteneur, « config.json ».  La valeur par défaut de « bundle » est le répertoire actif.
 
 Le fichier de spécifications OCI, « config.json », doit avoir deux champs pour s’exécuter correctement :
@@ -93,7 +93,7 @@ La seule commande qui peut être considérée comme multiconteneur est **list**.
 
 ### <a name="hcs"></a>Service de calcul hôte
 
-Deux wrappers sont disponibles sur GitHub pour s’interfacer avec le service de calcul hôte. Étant donné que service de calcul hôte est une API C, les wrappers facilitent l’appel de ce service à partir de langages de niveau supérieur.  
+Deux wrappers sont disponibles sur GitHub pour s’interfacer avec le service de calcul hôte. Étant donné que service de calcul hôte est une API C, les wrappers facilitent l’appel de ce service à partir de langages de niveau supérieur.
 
 * [hcsshim](https://github.com/microsoft/hcsshim) : HCSShim est écrit en Go et constitue la base pour runhcs.
 Récupérez-le à partir d’AppVeyor ou générez-le vous-même.

@@ -3,12 +3,13 @@ title: Stockage persistant dans des conteneurs
 description: Comment des conteneurs Windows peuvent stocker de manière persistante
 keywords: conteneurs, volume, stockage, montage, montage lié
 author: cwilhit
-ms.openlocfilehash: 8bdf45a46f2e88a2206894f7d412cb93d4491cac
-ms.sourcegitcommit: 57b1c0931a464ad040a7af81b749c7d66c0bc899
+ms.topic: conceptual
+ms.openlocfilehash: 0e4fcde4fcb0b02b7e1e1b96ad930703207f7b0c
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84421005"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192766"
 ---
 # <a name="persistent-storage-in-containers"></a>Stockage persistant dans des conteneurs
 

@@ -3,12 +3,13 @@ title: Vue d’ensemble du stockage de conteneurs
 description: Comment les conteneurs Windows Server peuvent-ils utiliser les hôtes et les autres types de stockage
 keywords: conteneurs, volume, stockage, montage, montage lié
 author: cwilhit
-ms.openlocfilehash: f758877f1131813fe4637a01c03b49d7a18a83c4
-ms.sourcegitcommit: db085db8a54664184a2f7cfa01d00598a1c66992
+ms.topic: overview
+ms.openlocfilehash: a2d5d3bd3a9682e0c85b0e8a660e1ec2161d68ee
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78288671"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192276"
 ---
 # <a name="container-storage-overview"></a>Vue d’ensemble du stockage de conteneurs
 

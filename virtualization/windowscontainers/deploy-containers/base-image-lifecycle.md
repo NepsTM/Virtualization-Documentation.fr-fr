@@ -5,20 +5,20 @@ keywords: conteneurs windows, conteneurs, cycle de vie, informations sur la publ
 author: Heidilohr
 ms.author: helohr
 ms.date: 05/12/2020
-ms.topic: article
+ms.topic: reference
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: c6276db89f093b62a01cadc095f5357d2e5a8eba
-ms.sourcegitcommit: dd80813679df2de89fe523a26600cfe58a2d39a2
+ms.openlocfilehash: b3c519ef3ed93a0c8e20f5b927c34f70cd1677f8
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84023144"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192076"
 ---
 # <a name="base-image-servicing-lifecycles"></a>Cycles de vie de la maintenance des images de base
 
-> [!Note]  
-> Microsoft a retardé les dates planifiées de fin du support et de maintenance pour un certain nombre de produits afin d’aider les personnes et les organisations à concentrer leur attention sur le maintien de la continuité des activités. Pour plus d’informations, consultez l’article [Changements du cycle de vie aux dates de fin de support et de maintenance](https://support.microsoft.com/en-us/help/4557164/lifecycle-changes-to-end-of-support-and-servicing-dates) du 14 avril 2020.
+> [!Note]
+> Microsoft a retardé les dates planifiées de fin du support et de maintenance pour un certain nombre de produits afin d’aider les personnes et les organisations à concentrer leur attention sur le maintien de la continuité des activités. Pour plus d’informations, consultez l’article [Changements du cycle de vie aux dates de fin de support et de maintenance](https://support.microsoft.com/help/4557164/lifecycle-changes-to-end-of-support-and-servicing-dates) du 14 avril 2020.
 
 Les images de base de conteneur Windows reposent sur des publications du Canal semi-annuel ou du Canal de maintenance à long terme de Windows Server. Cet article vous indique la durée du support pour les différentes versions des images de base des deux canaux.
 

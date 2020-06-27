@@ -5,15 +5,15 @@ keywords: docker, conteneurs
 author: cwilhit
 ms.author: crwilhit
 ms.date: 11/12/2019
-ms.topic: article
+ms.topic: quickstart
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: c9e175a7ced0f328e342f3cdd4f99adc717d5700
-ms.sourcegitcommit: 62f4bcca4e07f2a34a927e5c4d786e505821d559
+ms.openlocfilehash: 79de3f520e6d22c338fc95473200286b77cb4467
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82784398"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192516"
 ---
 # <a name="containerize-a-net-core-app"></a>Conteneuriser une application .NET Core
 
@@ -87,7 +87,7 @@ RUN dotnet publish -c Release -o out
 
 Une fois que .NET a extrait toutes les dépendances dans le conteneur `build-env`, l’instruction suivante copie tous les fichiers sources du projet dans le conteneur. Ensuite, nous demandons à .NET de publier notre application avec une version finale et nous spécifions le chemin de sortie.
 
-La compilation doit aboutir. Nous devons à présent créer l’image finale. 
+La compilation doit aboutir. Nous devons à présent créer l’image finale.
 
 > [!TIP]
 > Ce guide de démarrage rapide crée un projet .NET Core à partir de la source. Lors de la génération d’images de conteneur, il est conseillé d’inclure _uniquement_ la charge utile de production et ses dépendances dans l’image de conteneur. Nous ne souhaitons pas inclure le kit de développement logiciel (SDK) .NET Core dans notre image finale, car nous avons uniquement besoin du runtime .NET Core. Dès lors, le fichier Dockerfile est écrit pour utiliser un conteneur temporaire empaqueté avec le kit de développement logiciel (SDK) appelé `build-env` pour générer l’application.
@@ -121,7 +121,7 @@ Une fois le fichier Dockerfile écrit, nous pouvons pointer Docker sur notre fic
 
    Examinons cette commande :
 
-   * `-d` indique à Docker d'exécuter le conteneur « detached », ce qui signifie qu’aucune console n’est reliée à la console à l’intérieur du conteneur. Le conteneur s’exécute en arrière-plan. 
+   * `-d` indique à Docker d'exécuter le conteneur « detached », ce qui signifie qu’aucune console n’est reliée à la console à l’intérieur du conteneur. Le conteneur s’exécute en arrière-plan.
    * `-p 5000:80` indique à Docker de mapper le port 5000 de l’hôte au port 80 du conteneur. Chaque conteneur obtient sa propre adresse IP. Par défaut, ASP .NET écoute sur le port 80. Le mappage de ports nous permet d’accéder à l’adresse IP de l’hôte au niveau du port mappé et Docker transmet tout le trafic vers le port de destination à l’intérieur du conteneur.
    * `--name myapp` indique à Docker d’attribuer à ce conteneur un nom convivial à interroger (plutôt que de devoir rechercher l’ID de conteneur attribué au moment de l’exécution par Docker).
    * `my-asp-app` correspond à l’image que nous souhaitons que Docker exécute. Il s’agit de l’image de conteneur générée au terme du processus `docker build`.
