@@ -4,27 +4,27 @@ description: Initialisation d’un cluster Swarm, création d’un réseau de su
 keywords: docker, conteneurs, swarm, orchestration
 author: kallie-b
 ms.date: 02/9/2017
-ms.topic: article
+ms.topic: how-to
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5ceb9626-7c48-4d42-81f8-9c936595ad85
-ms.openlocfilehash: 560e9ffc92728628268d7d557b8fa8428316c8ec
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 1576b7c102c0320fafbbe129d9937f2593432e3e
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909679"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85191996"
 ---
-# <a name="getting-started-with-swarm-mode"></a>Prise en main du mode Swarm 
+# <a name="getting-started-with-swarm-mode"></a>Prise en main du mode Swarm
 
 ## <a name="what-is-swarm-mode"></a>Qu’est-ce que le « mode Swarm » ?
 Le mode Swarm est une fonctionnalité de Docker qui fournit des fonctionnalités prédéfinies d’orchestration de conteneur, y compris le clustering natif des hôtes Docker et la planification des charges de travail de conteneur. Un groupe d’hôtes Docker constitue un cluster « Swarm » lorsque leurs moteurs Docker s’exécutent ensemble en « mode Swarm ». Pour un contexte supplémentaire sur le mode Swarm, reportez-vous au [site de documentation principale de Docker](https://docs.docker.com/engine/swarm/).
 
 ## <a name="manager-nodes-and-worker-nodes"></a>Nœuds de gestionnaire et nœuds de travail
-Un cluster Swarm est composé de deux types d’hôte de conteneur : *nœuds de gestionnaire* et *nœuds de travail*. Chaque Swarm est initialisé via un nœud de gestionnaire, et toutes les commandes de l’interface de ligne de commande Docker pour contrôler et analyser un cluster Swarm doivent être exécutées à partir de l’un de ses nœuds de gestionnaire. Les nœuds de gestionnaire peuvent être comparés aux « gardiens » de l’état Swarm : ensemble, ils forment un groupe consensuel qui gère la reconnaissance de l’état des services exécutés dans le cluster Swarm. Leur tâche consiste à s’assurer que l’état réel du cluster Swarm correspond à son état souhaité, défini par le développeur ou l’administrateur. 
+Un cluster Swarm est composé de deux types d’hôte de conteneur : *nœuds de gestionnaire* et *nœuds de travail*. Chaque Swarm est initialisé via un nœud de gestionnaire, et toutes les commandes de l’interface de ligne de commande Docker pour contrôler et analyser un cluster Swarm doivent être exécutées à partir de l’un de ses nœuds de gestionnaire. Les nœuds de gestionnaire peuvent être comparés aux « gardiens » de l’état Swarm : ensemble, ils forment un groupe consensuel qui gère la reconnaissance de l’état des services exécutés dans le cluster Swarm. Leur tâche consiste à s’assurer que l’état réel du cluster Swarm correspond à son état souhaité, défini par le développeur ou l’administrateur.
 
 >[!NOTE]
->Tout cluster Swarm peut compter plusieurs nœuds de gestionnaire, mais il doit toujours en comprendre *au moins un*. 
+>Tout cluster Swarm peut compter plusieurs nœuds de gestionnaire, mais il doit toujours en comprendre *au moins un*.
 
 Les nœuds de travail sont orchestrés par Docker Swarm via les nœuds de gestionnaire. Pour joindre un cluster Swarm, un nœud de travail doit utiliser un « jeton de jointure », qui aura été généré par le nœud de gestionnaire à l’initialisation du cluster Swarm. Les nœuds de travail reçoivent et exécutent simplement les tâches des nœuds de gestionnaire. En conséquence, ils ne nécessitent (et ne détiennent) pas de reconnaissance de l’état Swarm.
 
@@ -46,7 +46,7 @@ Ports ouverts : les ports suivants doivent être disponibles sur chaque hôte. 
 Pour initialiser un cluster Swarm, exécutez simplement la commande suivante à partir d’un de vos hôtes de conteneur (en remplaçant \<HOSTIPADDRESS\> par l’adresse IPv4 locale de votre ordinateur hôte) :
 
 ```
-# Initialize a swarm 
+# Initialize a swarm
 C:\> docker swarm init --advertise-addr=<HOSTIPADDRESS> --listen-addr <HOSTIPADDRESS>:2377
 ```
 Lorsque cette commande est exécutée à partir d’un hôte de conteneur donné, le moteur Docker de cet hôte commence à s’exécuter en mode Swarm en tant que nœud de gestionnaire.
@@ -63,7 +63,7 @@ Une fois qu’un cluster Swarm a été initialisé à partir d’un nœud de ges
 C:\> docker swarm join --token <WORKERJOINTOKEN> <MANAGERIPADDRESS>
 ```
 
-Ici, \<MANAGERIPADDRESS\> est l’adresse IP locale d’un nœud de gestionnaire Swarm, et \<WORKERJOINTOKEN\> le jeton de jointure du nœud de travail fourni en tant que sortie par la commande `docker swarm init` exécutée à partir du nœud de gestionnaire. Le jeton de jointure peut également être obtenu en exécutant l’une des commandes suivantes à partir du nœud de gestionnaire après l’initialisation du cluster Swarm :
+Ici, \<MANAGERIPADDRESS\> est l’adresse IP locale d’un nœud de gestionnaire Swarm et \<WORKERJOINTOKEN\> le jeton-jointure du nœud worker fourni en tant que sortie par la commande `docker swarm init` exécutée à partir du nœud de gestionnaire. Le jeton de jointure peut également être obtenu en exécutant l’une des commandes suivantes à partir du nœud de gestionnaire après l’initialisation du cluster Swarm :
 
 ```
 # Get the full command required to join a worker node to the swarm
@@ -80,7 +80,7 @@ D’autres nœuds de gestionnaire peuvent être ajoutés à un cluster Swarm à 
 C:\> docker swarm join --token <MANAGERJOINTOKEN> <MANAGERIPADDRESS>
 ```
 
-Là encore, \<MANAGERIPADDRESS\> est l’adresse IP locale d’un nœud de gestionnaire de cluster Swarm. Le jeton de jointure, \<MANAGERJOINTOKEN\>, est un jeton de jointure de *gestionnaire*, qui peut être obtenu en exécutant l’une des commandes suivantes à partir d’un nœud de gestionnaire existant :
+Là encore, \<MANAGERIPADDRESS\> est l’adresse IP locale d’un nœud de gestionnaire de cluster Swarm. Le jeton de jointure \<MANAGERJOINTOKEN\> est un jeton-jointure de *gestionnaire*, qui peut être obtenu en exécutant l’une des commandes suivantes à partir d’un nœud de gestionnaire existant :
 
 ```
 # Get the full command required to join a **manager** node to the swarm
@@ -95,7 +95,7 @@ C:\> docker swarm join-token manager -q
 Une fois qu’un cluster Swarm a été configuré, des réseaux de superposition peuvent être créés dans le cluster. Vous pouvez créer un réseau de superposition en exécutant la commande suivante à partir d’un nœud de gestionnaire du cluster Swarm :
 
 ```
-# Create an overlay network 
+# Create an overlay network
 C:\> docker network create --driver=overlay <NETWORKNAME>
 ```
 
@@ -109,7 +109,7 @@ Une fois qu’un réseau de superposition a été créé, des services peuvent �
 C:\> docker service create --name=<SERVICENAME> --endpoint-mode dnsrr --network=<NETWORKNAME> <CONTAINERIMAGE> [COMMAND] [ARGS…]
 ```
 
-Ici, \<SERVICENAME\> est le nom que vous souhaitez donner au service. Il s’agit du nom que vous utiliserez pour référencer le service via la découverte de service (qui utilise un serveur DNS natif de Docker). \<NETWORKNAME\> est le nom du réseau auquel vous souhaitez connecter ce service (par exemple, « monRéseauSuperpos »). \<CONTAINERIMAGE\> est le nom de l’image de conteneur qui est défini par le service.
+Ici, \<SERVICENAME\> est le nom que vous souhaitez donner au service. Il s’agit du nom que vous utiliserez pour référencer le service via la découverte de service (qui utilise un serveur DNS natif de Docker). \<NETWORKNAME\> est le nom du réseau auquel vous souhaitez connecter ce service (par exemple, « monRéseauSuperposition »). \<CONTAINERIMAGE\> est le nom de l’image conteneur qui est défini par le service.
 
 >[!NOTE]
 >Le deuxième argument de cette commande, `--endpoint-mode dnsrr`, est nécessaire pour indiquer au moteur Docker que la stratégie de tourniquet (round robin) DNS sera utilisée pour équilibrer le trafic réseau entre les points de terminaison du conteneur de service. Actuellement, l’usage d’un tourniquet (round robin) DNS est la seule stratégie d’équilibrage de charge prise en charge sur Windows Server 2016. Le [maillage de routage](https://docs.docker.com/engine/swarm/ingress/) pour les hôtes Windows Docker est pris en charge sur Windows Server 2019 (et versions ultérieures), mais pas sur Windows Server 2016. Les utilisateurs en quête d’une autre stratégie d’équilibrage de charge sur Windows Server 2016 dès aujourd’hui peuvent configurer un équilibreur de charge externe (par exemple, NGINX) et utiliser le [mode de publication de port](https://docs.docker.com/engine/reference/commandline/service_create/#/publish-service-ports-externally-to-the-swarm--p---publish) de Swarm pour exposer les ports d’hôte de conteneur sur lesquels équilibrer le trafic.
@@ -154,7 +154,7 @@ C:\> docker service ls
 ```
 
 ### <a name="list-the-container-instances-that-define-a-service"></a>Répertorier les instances de conteneur qui définissent un service
-Utilisez la commande suivante pour afficher des détails sur les instances de conteneur exécutées pour un service donné. La sortie de cette commande inclut les ID et les nœuds sur lesquels chaque conteneur s’exécute, ainsi que des informations sur l’état des conteneurs.  
+Utilisez la commande suivante pour afficher des détails sur les instances de conteneur exécutées pour un service donné. La sortie de cette commande inclut les ID et les nœuds sur lesquels chaque conteneur s’exécute, ainsi que des informations sur l’état des conteneurs.
 
 ```
 C:\> docker service ps <SERVICENAME>
@@ -173,12 +173,12 @@ C:\> docker swarm join --token <JOINTOKEN> <MANAGERIPADDRESS>
 ```
 Vous pouvez également initialiser un cluster Swarm à partir d’un ordinateur hôte Linux à l’aide de la même commande que celle que vous exécuteriez pour initialiser ce cluster Swarm à partir d’un ordinateur hôte Windows :
 ```
-# Initialize a swarm 
+# Initialize a swarm
 C:\> docker swarm init --advertise-addr=<HOSTIPADDRESS> --listen-addr <HOSTIPADDRESS>:2377
 ```
 
 ### <a name="adding-labels-to-swarm-nodes"></a>Ajout d'étiquettes à des nœuds de cluster Swarm
-Pour lancer un Service Docker vers un cluster Swarm à systèmes d’exploitation mixtes, il faut pouvoir distinguer ceux des nœuds qui exécutent le système d’exploitation pour lequel ce service est conçu, et ceux qui ne le sont pas. Les [étiquettes d’objet docker](https://docs.docker.com/engine/userguide/labels-custom-metadata/) sont un moyen utile d’étiqueter les nœuds. Les services peuvent ainsi être créés et configurés de manière à ne s’exécuter que sur les nœuds qui correspondent à leur système d’exploitation. 
+Pour lancer un Service Docker vers un cluster Swarm à systèmes d’exploitation mixtes, il faut pouvoir distinguer ceux des nœuds qui exécutent le système d’exploitation pour lequel ce service est conçu, et ceux qui ne le sont pas. Les [étiquettes d’objet docker](https://docs.docker.com/engine/userguide/labels-custom-metadata/) sont un moyen utile d’étiqueter les nœuds. Les services peuvent ainsi être créés et configurés de manière à ne s’exécuter que sur les nœuds qui correspondent à leur système d’exploitation.
 
 >[!NOTE]
 >Les [étiquettes d’objet Docker](https://docs.docker.com/engine/userguide/labels-custom-metadata/) peuvent être utilisées pour appliquer des métadonnées à divers objets Docker (notamment des images de conteneur, des conteneurs, des volumes ou des réseaux) et à diverses fins. Par exemple, elles peuvent servir à séparer les composants « front-end » et « back-end » d’une application en autorisant la planification de microservices front-end uniquement sur des nœuds « front-end » et la planification de microservices back-end uniquement sur des nœuds « back-end ». Dans ce cas, nous utiliserons les étiquettes sur des nœuds afin de distinguer les nœuds du système d’exploitation Windows et ceux du système d’exploitation Linux.
@@ -189,7 +189,7 @@ Pour étiqueter vos nœuds de clusters Swarm existants, utilisez la syntaxe suiv
 C:\> docker node update --label-add <LABELNAME>=<LABELVALUE> <NODENAME>
 ```
 
-Ici, `<LABELNAME>` est le nom de l’étiquette que vous créez. Dans ce cas, par exemple, puisque nous allons distinguer les nœuds selon leur système d’exploitation, il serait logique de nommer l’étiquette « système d’exploitation ». `<LABELVALUE>` est la valeur de l’étiquette (dans ce cas, vous pouvez choisir d’utiliser les valeurs « windows » et « linux »). (Bien entendu, vous pouvez nommer les étiquettes et leurs valeurs comme vous l'entendez, tant que vous restez cohérent). `<NODENAME>` est le nom du nœud que vous étiquetez. Vous pouvez vous retrouver les noms de vos nœuds en exécutant la commande `docker node ls`. 
+Ici, `<LABELNAME>` est le nom de l’étiquette que vous créez. Dans ce cas, par exemple, puisque nous allons distinguer les nœuds selon leur système d’exploitation, il serait logique de nommer l’étiquette « système d’exploitation ». `<LABELVALUE>` est la valeur de l’étiquette (dans ce cas, vous pouvez choisir d’utiliser les valeurs « windows » et « linux »). (Bien entendu, vous pouvez nommer les étiquettes et leurs valeurs comme vous l'entendez, tant que vous restez cohérent). `<NODENAME>` est le nom du nœud que vous étiquetez. Vous pouvez vous retrouver les noms de vos nœuds en exécutant la commande `docker node ls`.
 
 **Par exemple**, si vous avez quatre nœuds dans votre cluster Swarm, dont deux nœuds Windows et deux nœuds Linux, vos commandes de mise à jour de l’étiquette peuvent ressembler à ceci :
 
@@ -227,10 +227,10 @@ Actuellement, le mode Swarm sur Windows connaît les limitations suivantes :
 - Le [maillage de routage](https://docs.docker.com/engine/swarm/ingress/) pour les hôtes Windows Docker n’est pas pris en charge sur Windows Server 2016, mais uniquement à partir de Windows Server 2019. Les utilisateurs recherchant une autre stratégie d’équilibrage de charge dès aujourd'hui peuvent configurer un équilibreur de charge externe (par exemple, NGINX) et utiliser le [mode de publication de port](https://docs.docker.com/engine/reference/commandline/service_create/#/publish-service-ports-externally-to-the-swarm--p---publish) de Swarm pour exposer les ports d’hôte de conteneur sur lesquels équilibrer la charge. Plus de détails sur ce point ci-dessous.
 
  >[!NOTE]
->Pour plus d’informations sur la configuration de la maille de routage Docker Swarm, consultez ce [billet de blog](https://docs.microsoft.com/en-us/virtualization/community/team-blog/2017/20170926-docker-s-routing-mesh-available-with-windows-server-version-1709).
+>Pour plus d’informations sur la configuration de la maille de routage Docker Swarm, consultez ce [billet de blog](https://docs.microsoft.com/virtualization/community/team-blog/2017/20170926-docker-s-routing-mesh-available-with-windows-server-version-1709).
 
 ## <a name="publish-ports-for-service-endpoints"></a>Publication de ports pour les points de terminaison du service
- Les utilisateurs cherchant à publier des ports pour leurs points de terminaison de service peuvent aujourd’hui le faire à l’aide du mode de publication de port ou de la fonctionnalité de [maillage de routage](https://docs.docker.com/engine/swarm/ingress/) du Docker Swarm. 
+ Les utilisateurs cherchant à publier des ports pour leurs points de terminaison de service peuvent aujourd’hui le faire à l’aide du mode de publication de port ou de la fonctionnalité de [maillage de routage](https://docs.docker.com/engine/swarm/ingress/) du Docker Swarm.
 
 Pour que les ports hôtes soient publiés pour chacun des points de terminaison de tâches/conteneur qui définissent un service, utilisez l’argument `--publish mode=host,target=<CONTAINERPORT>` de la commande `docker service create` :
 
@@ -253,10 +253,10 @@ C:\ > docker service ps <SERVICENAME>
 La commande ci-dessus retournera les détails de chaque instance du conteneur en cours d’exécution pour votre service (sur tous vos ordinateurs hôtes de votre cluster Swarm). Une colonne de la sortie, la colonne « ports », comprendra des informations de port pour chaque hôte sous la forme \<HOSTPORT\>->\<CONTAINERPORT\>/tcp. Les valeurs de \<HOSTPORT\> seront différentes pour chaque instance du conteneur, car chaque conteneur est publié sur son propre port d’hôte.
 
 
-## <a name="tips--insights"></a>Conseils et informations 
+## <a name="tips--insights"></a>Conseils et informations
 
-#### <a name="existing-transparent-network-can-block-swarm-initializationoverlay-network-creation"></a>*Un réseau transparent existant peut bloquer l’initialisation d’un cluster Swarm ou la création d’un réseau de superposition* 
-Sous Windows, les pilotes de réseau de superposition ou transparent nécessitent la liaison d'un vSwitch externe à une carte réseau hôte (virtuelle). Lorsqu’un réseau de superposition est créé, un nouveau commutateur est créé, puis connecté à une carte réseau ouverte. Le mode de réseau transparent utilise également une carte réseau hôte. Dans le même temps, une carte réseau donnée ne peut être liée qu'à un seul commutateur à la fois. Si un ordinateur hôte n'a qu’une seule carte réseau, il ne peut la connecter qu'à un vSwitch externe à la fois, que ce soit celui d'un réseau de superposition ou d'un réseau transparent. 
+#### <a name="existing-transparent-network-can-block-swarm-initializationoverlay-network-creation"></a>*Un réseau transparent existant peut bloquer l’initialisation d’un cluster Swarm ou la création d’un réseau de superposition*
+Sous Windows, les pilotes de réseau de superposition ou transparent nécessitent la liaison d'un vSwitch externe à une carte réseau hôte (virtuelle). Lorsqu’un réseau de superposition est créé, un nouveau commutateur est créé, puis connecté à une carte réseau ouverte. Le mode de réseau transparent utilise également une carte réseau hôte. Dans le même temps, une carte réseau donnée ne peut être liée qu'à un seul commutateur à la fois. Si un ordinateur hôte n'a qu’une seule carte réseau, il ne peut la connecter qu'à un vSwitch externe à la fois, que ce soit celui d'un réseau de superposition ou d'un réseau transparent.
 
 Si un hôte de conteneur n'a qu’une seule carte réseau, on risque donc de voir un réseau transparent bloquer la création d’un réseau de superposition (ou vice versa), car le réseau transparent occupe actuellement l’unique interface de réseau virtuel de l’ordinateur hôte.
 
