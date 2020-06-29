@@ -4,22 +4,22 @@ description: FAQ sur les conteneurs Windows Server
 keywords: docker, conteneurs
 author: PatrickLang
 ms.date: 10/25/2019
-ms.topic: article
+ms.topic: overview
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
-ms.openlocfilehash: 405b2abc43a4ae2c546de351679deb755e4a9317
-ms.sourcegitcommit: 16ebc4f00773d809fae84845208bd1dcf08a889c
+ms.openlocfilehash: cd0b4e24cddb434d0a4051888afa3ae3a4a8e096
+ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "74910799"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85192866"
 ---
 # <a name="frequently-asked-questions-about-containers"></a>Questions fréquentes sur les conteneurs
 
 ## <a name="whats-the-difference-between-linux-and-windows-server-containers"></a>Quelle est la différence entre les conteneurs Linux et Windows Server ?
 
-Linux et Windows Server implémentent tous deux des technologies similaires au sein de leurs noyau et système d’exploitation principal. La différence provient de la plateforme et des charges de travail qui s’exécutent dans les conteneurs.  
+Linux et Windows Server implémentent tous deux des technologies similaires au sein de leurs noyau et système d’exploitation principal. La différence provient de la plateforme et des charges de travail qui s’exécutent dans les conteneurs.
 
 Lorsqu'un client utilise des conteneurs Windows Server, ils peuvent être intégrés aux technologies Windows existantes, comme .NET, ASP.NET et PowerShell.
 
