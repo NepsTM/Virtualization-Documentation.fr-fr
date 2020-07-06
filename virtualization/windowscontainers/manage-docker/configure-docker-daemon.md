@@ -8,12 +8,12 @@ ms.topic: overview
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.openlocfilehash: b0a89bfcae6a78c28603444a682cecf7c667e477
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: db794a0151b6554bd4f8a4a4e494bfab034d2da0
+ms.sourcegitcommit: c585bd8b70d0681d8deaf5fefd3f5f93c1ec4316
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192716"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85613431"
 ---
 # <a name="docker-engine-on-windows"></a>Moteur Docker sur Windows
 
@@ -206,6 +206,11 @@ Après avoir désinstallé Docker, vous devez supprimer les réseaux Docker par 
 
 ```powershell
 Get-HNSNetwork | Remove-HNSNetwork
+```
+
+Pour supprimer les réseaux Docker par défaut sur Windows Server 2016.
+```powershell
+Get-ContainerNetwork | Remove-ContainerNetwork
 ```
 
 Exécutez la cmdlet suivante pour supprimer les données programme Docker de votre système :
