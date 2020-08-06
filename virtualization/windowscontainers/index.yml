@@ -1,0 +1,89 @@
+### YamlMime:Landing
+title: Documentation Conteneurs sur Windows
+summary: Les conteneurs Windows permettent aux utilisateurs d’empaqueter des applications avec leurs dépendances et de tirer parti de la virtualisation au niveau du système d’exploitation pour fournir des environnements rapides et entièrement isolés sur un seul système. Découvrez comment utiliser les conteneurs Windows avec nos guides de démarrage rapide, guides de déploiement et exemples.
+metadata:
+  title: Documentation Conteneurs sur Windows
+  description: documentation relative à l’exécution de conteneurs sur Windows.
+  ms.topic: landing-page
+  ms.prod: windows-containers
+  author: cwilhit
+  ms.date: 07/06/2020
+  ms.openlocfilehash: a1d573e1647f6a924d0933b172217d78d373d47c
+  ms.sourcegitcommit: ff0e60f4b34f6cc88f81ef2331e4b0575deb0171
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/05/2020
+  ms.locfileid: "87812429"
+landingContent:
+- title: Contenu recommandé
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Essayez les conteneurs Windows dans AKS !
+      url: /azure/aks/windows-container-cli
+    - text: Consultez nos images conteneur sur Docker Hub.
+      url: https://hub.docker.com/_/microsoft-windows-base-os-images
+    - text: Lisez le blog Conteneurs.
+      url: https://techcommunity.microsoft.com/t5/Containers/bg-p/Containers
+- title: Vue d’ensemble
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: À propos des conteneurs Windows
+      url: /virtualization/windowscontainers/about/
+    - text: Configuration système requise
+      url: /virtualization/windowscontainers/deploy-containers/system-requirements
+    - text: Questions fréquentes (FAQ)
+      url: /virtualization/windowscontainers/about/faq
+- title: Découvrir
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Configurer votre environnement
+      url: /virtualization/windowscontainers/quick-start/set-up-environment
+    - text: Exécuter votre premier conteneur
+      url: /virtualization/windowscontainers/quick-start/run-your-first-container
+    - text: Conteneuriser un exemple d’application
+      url: /virtualization/windowscontainers/quick-start/building-sample-app
+- title: Tutoriels
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Création d’un conteneur Windows
+      url: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile
+    - text: Exécuter sur AKS
+      url: /azure/aks/windows-container-cli
+    - text: Exécuter sur Service Fabric
+      url: /azure/service-fabric/service-fabric-quickstart-containers
+    - text: Exécuter sur Azure App Service
+      url: /azure/app-service/app-service-web-get-started-windows-container
+- title: Concepts
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Docker
+      url: /virtualization/windowscontainers/manage-docker/configure-docker-daemon
+    - text: Orchestration de conteneurs
+      url: /virtualization/windowscontainers/about/overview-container-orchestrators
+    - text: Fondamentaux des conteneurs Windows
+      url: /virtualization/windowscontainers/manage-containers/container-base-images
+- title: Référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Compatibilité des versions
+      url: /virtualization/windowscontainers/deploy-containers/version-compatibility
+    - text: Cycles de vie de maintenance des images
+      url: /virtualization/windowscontainers/deploy-containers/base-image-lifecycle
+    - text: CLUF de l’image système d’exploitation de conteneur
+      url: /virtualization/windowscontainers/images-eula
+- title: Ressources
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Exemples
+      url: /virtualization/windowscontainers/samples
+    - text: Résolution des problèmes
+      url: /virtualization/windowscontainers/troubleshooting
+    - text: Vidéos et blogs de la communauté
+      url: /virtualization/windowscontainers/communitylinks
