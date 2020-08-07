@@ -4,15 +4,14 @@ author: gkudra-msft
 ms.author: gekudray
 ms.date: 11/02/2018
 ms.topic: how-to
-ms.prod: containers
 description: Compilation et compilation croisée des fichiers binaires Kubernetes à partir de la source.
 keywords: kubernetes, 1,12, Linux, compiler
-ms.openlocfilehash: a0c9ed6ef0872e19de49fa97f4727b6e0e09ed43
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: 3e8a5b593cbf02eb5a90a444b117c55b30562e7b
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192346"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985343"
 ---
 # <a name="compiling-kubernetes-binaries"></a>Compilation de fichiers binaires Kubernetes #
 La compilation de Kubernetes requiert un environnement Go de travail. Cette page passe en revue plusieurs façons de compiler les fichiers binaires Linux et d’effectuer une compilation croisée des binaires Windows.

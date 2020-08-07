@@ -5,15 +5,13 @@ keywords: docker, conteneurs
 author: jmesser81
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.prod: windows-containers
-ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 78f9240ccb184b182247617aba116d6ac5533a02
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: 5c60406c0cc839a84e25ff12abf53439c6a208cb
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192086"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985383"
 ---
 # <a name="network-isolation-and-security"></a>Isolement et sécurité réseau
 
@@ -21,7 +19,7 @@ ms.locfileid: "85192086"
 
 Chaque point de terminaison de conteneur est placé dans son propre __espace de noms de réseau__. L’hôte de gestion carte réseau virtuelle et la pile réseau de l’ordinateur hôte se trouvent dans l’espace de noms réseau par défaut. Pour appliquer l’isolement réseau entre les conteneurs sur le même hôte, un espace de noms réseau est créé pour chaque conteneur Windows Server et les conteneurs s’exécutent sous l’isolation Hyper-V dans laquelle la carte réseau du conteneur est installée. Les conteneurs Windows Server utilisent une carte réseau virtuelle hôte pour s’attacher au commutateur virtuel. L’isolation Hyper-V utilise une carte réseau de machine virtuelle synthétique (non exposée à la machine virtuelle de l’utilitaire) à attacher au commutateur virtuel.
 
-![texte](media/network-compartment-visual.png)
+![text](media/network-compartment-visual.png)
 
 ```powershell
 Get-NetCompartment
@@ -48,13 +46,13 @@ Les conteneurs exécutés dans l’isolation Hyper-V ont leur propre noyau isol�
 
 * AUTORISATION par défaut tous dans le pare-feu Windows (en cours d’exécution dans la machine virtuelle utilitaire) et VFP
 
-![texte](media/windows-firewall-containers.png)
+![text](media/windows-firewall-containers.png)
 
-### <a name="kubernetes-pods"></a>Pod Kubernetes
+### <a name="kubernetes-pods"></a>Pods Kubernetes
 
 Dans un [Pod Kubernetes](https://kubernetes.io/docs/concepts/workloads/pods/pod/), un conteneur d’infrastructure est d’abord créé auquel un point de terminaison est attaché. Les conteneurs qui appartiennent au même Pod, y compris les conteneurs d’infrastructure et de travail, partagent un espace de noms réseau commun (même adresse IP et espace de port).
 
-![texte](media/pod-network-compartment.png)
+![text](media/pod-network-compartment.png)
 
 ### <a name="customizing-default-port-acls"></a>Personnalisation des ACL de port par défaut
 

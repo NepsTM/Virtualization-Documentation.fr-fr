@@ -4,16 +4,15 @@ author: daschott
 ms.author: daschott
 ms.date: 11/02/2018
 ms.topic: how-to
-ms.prod: containers
 description: Joindre un nœud Windows à un cluster Kubernetes avec v 1.14.
 keywords: kubernetes, 1,14, Windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: f808428547a0134e6fea2d9165a4b5cee35b6cfb
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: 3f37a3e19800d7121ac65b12efeb0f14a287140b
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192646"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985303"
 ---
 # <a name="joining-windows-server-nodes-to-a-cluster"></a>Jonction de nœuds Windows Server à un cluster #
 Une fois que vous avez [configuré un nœud principal Kubernetes](./creating-a-linux-master.md) et que vous avez [sélectionné la solution réseau de votre choix](./network-topologies.md), vous êtes prêt à joindre les nœuds Windows Server pour former un cluster. Cela nécessite une [préparation sur les nœuds Windows avant d'](#preparing-a-windows-node) être joint.
@@ -39,7 +38,7 @@ Si vous vous trouvez derrière un serveur proxy, vous devez définir les variabl
 
 Si, après le redémarrage, vous voyez l’erreur suivante :
 
-![texte](media/docker-svc-error.png)
+![text](media/docker-svc-error.png)
 
 Démarrez ensuite le service d’ancrage manuellement :
 
@@ -78,9 +77,9 @@ Vérifiez que le conteneur s’exécute réellement sur votre ordinateur :
 docker run microsoft/nanoserver:latest
 ```
 
-Le résultat suivant devrait s'afficher :
+Un résultat semblable à celui-ci doit s’afficher :
 
-![texte](./media/docker-run-sample.png)
+![text](./media/docker-run-sample.png)
 
 > [!tip]
 > Si vous ne pouvez pas exécuter le conteneur, consultez [correspondance de la version de l’hôte du conteneur avec l’image conteneur](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility#matching-container-host-version-with-container-image-versions)
@@ -162,7 +161,7 @@ wget https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/flannel/s
 
 En supposant que vous avez [préparé votre nœud Windows](#preparing-a-windows-node)et `c:\k` que votre répertoire se présente comme indiqué ci-dessous, vous êtes prêt à joindre le nœud.
 
-![texte](./media/flannel-directory.png)
+![text](./media/flannel-directory.png)
 
 #### <a name="join-node"></a>Nœud de jointure ####
 Pour simplifier le processus de jointure d’un nœud Windows, il vous suffit d’exécuter un seul script Windows pour lancer `kubelet` , `kube-proxy` , `flanneld` et joindre le nœud.

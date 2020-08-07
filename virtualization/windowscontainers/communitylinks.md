@@ -5,21 +5,19 @@ keywords: Docker, conteneurs, Windows, exemples
 author: taylorb-microsoft
 ms.date: 12/19/2016
 ms.topic: article
-ms.prod: windows-containers
-ms.service: windows-containers
 ms.assetid: cfbb2542-fead-48e7-8318-4da92a7b5b6f
-ms.openlocfilehash: 338dd0570f1a2e73295b2bacf2c4282b3fdd7956
-ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
+ms.openlocfilehash: a06168922306d2cc8f2f6ad4f314e7ddf8e7bf09
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77439296"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87984613"
 ---
 # <a name="community-videos-and-blogs"></a>Vidéos et blogs de la communauté
 
 Cette page contient des liens vers des vidéos et des blogs créés par des membres de la communauté sur les conteneurs.  Si vous connaissez une ressource intéressante ou si vous en avez vous-même créé une, envoyez une demande de publication pour l’ajouter à cette liste.
 
-## <a name="getting-started"></a>Mise en route
+## <a name="getting-started"></a>Prise en main
 
 [Exécuter des conteneurs Linux et Windows sur Windows 10](https://stefanscherer.github.io/run-linux-and-windows-containers-on-windows-10/) -Stefan Scherer
 
@@ -45,7 +43,7 @@ Cette page contient des liens vers des vidéos et des blogs créés par des memb
 
 [Mettre les charges de travail Windows dans des conteneurs avec Image2Docker](https://blog.docker.com/2016/10/containerize-windows-workloads-image2docker/) - Mano Marks
 
-[Utiliser Docker Compose et la découverte de service sur Windows pour monter en charge votre application de conteneur multiservice](https://techcommunity.microsoft.com/t5/Containers/Use-Docker-Compose-and-Service-Discovery-on-Windows-to-scale-out/ba-p/382312) - Kallie Bracken et Jason Messer
+[Utiliser Docker Compose et la découverte de service sur Windows pour monter en charger votre application de conteneur multiservice](https://techcommunity.microsoft.com/t5/Containers/Use-Docker-Compose-and-Service-Discovery-on-Windows-to-scale-out/ba-p/382312) - Kallie Bracken et Jason Messer
 
 [Configuration de l’état souhaité PowerShell dans des conteneurs Windows à l’aide de dockr](https://dille.name/blog/2016/06/17/powershell-desired-state-configuration-psdsc-in-windows-containers-using-docker/) -étant Nicholas dille
 
@@ -55,6 +53,6 @@ Cette page contient des liens vers des vidéos et des blogs créés par des memb
 
 [Comment protéger un moteur Windows 2016 Docker avec TLS](https://stefanscherer.github.io/protecting-a-windows-2016-docker-engine-with-tls/) - Stefan Scherer
 
-[Utilisation d'une autorité de certification Microsoft pour sécuriser Docker](https://dille.name/blog/2016/11/08/using-a-microsoft-ca-to-secure-docker/) - Nicholas Dille 
+[Utilisation d'une autorité de certification Microsoft pour sécuriser Docker](https://dille.name/blog/2016/11/08/using-a-microsoft-ca-to-secure-docker/) - Nicholas Dille
 
 [Windows #Conteneur Performances des couches](https://dille.name/blog/2017/01/13/windows-container-performance-of-layers/) - Nicholas Dille

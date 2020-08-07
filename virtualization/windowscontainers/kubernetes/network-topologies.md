@@ -4,16 +4,15 @@ author: daschott
 ms.author: daschott
 ms.date: 02/09/2018
 ms.topic: how-to
-ms.prod: containers
 description: Topologies de réseau prises en charge sur Windows et Linux.
 keywords: kubernetes, 1,14, Windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: c322edb6a5ead34d7988f83d8cb8fba7c99cec0d
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: 5eeee17dc6dfc87357d80c8b8fd7a29f05fc4c35
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192536"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985293"
 ---
 # <a name="network-solutions"></a>Network Solutions #
 
@@ -114,7 +113,7 @@ Après quelques minutes, vous devriez voir tous les Pod comme étant en cours d�
 kubectl get pods --all-namespaces
 ```
 
-![texte](media/kube-master.png)
+![text](media/kube-master.png)
 
 Le NodeSelector doit également être appliqué au DaemonSet Flannel `beta.kubernetes.io/os=linux` .
 
@@ -122,7 +121,7 @@ Le NodeSelector doit également être appliqué au DaemonSet Flannel `beta.kuber
 kubectl get ds -n kube-system
 ```
 
-![texte](media/kube-daemonset.png)
+![text](media/kube-daemonset.png)
 
 > [!tip]
 > Pour les autres Flannel-DS-* les daemonsets, ceux-ci peuvent être ignorés ou supprimés, car ils ne sont pas planifiés si aucun nœud ne correspond à cette architecture de processeur.
@@ -190,7 +189,7 @@ Après quelques minutes, vous devriez voir tous les Pod comme étant en cours d�
 kubectl get pods --all-namespaces
 ```
 
-![texte](media/kube-master.png)
+![text](media/kube-master.png)
 
 Le NodeSelector doit également être appliqué au DaemonSet Flannel.
 
@@ -198,7 +197,7 @@ Le NodeSelector doit également être appliqué au DaemonSet Flannel.
 kubectl get ds -n kube-system
 ```
 
-![texte](media/kube-daemonset.png)
+![text](media/kube-daemonset.png)
 
 > [!tip]
 > Pour les autres Flannel-DS-* les daemonsets, ceux-ci peuvent être ignorés ou supprimés, car ils ne sont pas planifiés si aucun nœud ne correspond à cette architecture de processeur.

@@ -4,15 +4,14 @@ author: gkudra-msft
 ms.author: gekudray
 ms.date: 11/02/2018
 ms.topic: troubleshooting
-ms.prod: containers
 description: Solutions aux problèmes courants lors du déploiement de Kubernetes et de la jonction de nœuds Windows.
 keywords: kubernetes, 1,14, Linux, compiler
-ms.openlocfilehash: 2e8074fa018b85a6628280a0dfdbce7c8cd553cb
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: 0b87db08f027e91a2d5047ce4d6bbf41abd1916d
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192695"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985053"
 ---
 # <a name="troubleshooting-kubernetes"></a>Résolution des problèmes Kubernetes #
 Cette page décrit plusieurs problèmes courants lors du déploiement, de la mise en réseau et de la configuration de Kubernetes.
@@ -106,7 +105,7 @@ Les cadres Windows n’ont pas de règles sortantes programmées pour le protoco
 
 Si vous rencontrez toujours des problèmes, il est probable que votre configuration réseau dans [CNI. conf](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf) mérite une attention particulière. Vous pouvez toujours modifier ce fichier statique, la configuration sera appliquée aux ressources Kubernetes nouvellement créées.
 
-Pourquoi ?
+Pourquoi ?
 L’une des exigences de mise en réseau Kubernetes (voir [modèle Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/networking/)) concerne la communication en cluster sans NAT en interne. Pour honorer cette exigence, nous avons [une sélection](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf#L20) dans le cadre de toutes les communications pour lesquelles nous ne voulons pas que le NAT sortant se produise. Toutefois, cela signifie également que vous devez exclure l’adresse IP externe que vous essayez d’interroger à partir de la nouvelle. Seul le trafic provenant de vos boîtiers Windows sera SNAT’ed correctement pour recevoir une réponse du monde extérieur. À cet égard, votre exceptions dans `cni.conf` doit se présenter comme suit :
 ```conf
 "ExceptionList": [

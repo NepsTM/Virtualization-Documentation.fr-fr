@@ -4,15 +4,14 @@ author: daschott
 ms.author: daschott
 ms.date: 02/09/2018
 ms.topic: how-to
-ms.prod: containers
 description: Création d’un maître de cluster Kubernetes.
 keywords: kubernetes, 1,14, Master, Linux
-ms.openlocfilehash: a46c8e996162891cc596946d8601bcb590b2b8eb
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: 383163f29ab439ddd817640fca7203269810dd51
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192386"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985083"
 ---
 # <a name="creating-a-kubernetes-master"></a>Création d’un maître Kubernetes #
 > [!NOTE]
@@ -78,7 +77,7 @@ kubeadm init --pod-network-cidr=10.244.0.0/16 --service-cidr=10.96.0.0/12
 
 Cela peut prendre quelques minutes. Une fois l’opération terminée, vous devriez voir un écran de ce type confirmant que votre maître a été initialisé :
 
-![texte](media/kubeadm-init.png)
+![text](media/kubeadm-init.png)
 
 > [!tip]
 > Vous devez prendre note de cette commande de jointure kubeadm. Faut le jeton kubeadm expire, vous pouvez utiliser `kubeadm token create --print-join-command` pour créer un nouveau jeton.
@@ -124,7 +123,7 @@ Une fois l’opération réussie, vous devez voir « sélecteurs de nœuds » 
 kubectl get ds -n kube-system
 ```
 
-![texte](media/kube-proxy-ds.png)
+![text](media/kube-proxy-ds.png)
 
 ### <a name="collect-cluster-information"></a>Collecter les informations de cluster ###
 Pour joindre avec succès les futurs nœuds au maître, vous devez garder une trace des informations suivantes :

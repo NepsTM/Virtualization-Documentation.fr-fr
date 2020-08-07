@@ -4,16 +4,15 @@ author: daschott
 ms.author: daschott
 ms.date: 11/02/2018
 ms.topic: how-to
-ms.prod: containers
 description: Déploiement de Kubernetes Resoureces sur un cluster Kubernetes de système d’exploitation mixte.
 keywords: kubernetes, 1,14, Windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 13f2168bc2e731b65768a73bbb04ffe9363ded59
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: a342a03153564b2f76af45a9b792b58ae8afc18c
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192336"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985333"
 ---
 # <a name="deploying-kubernetes-resources"></a>Déploiement des ressources Kubernetes #
 En supposant que vous avez un cluster Kubernetes constitué d’au moins 1 maître et 1 Worker, vous êtes prêt à déployer des ressources Kubernetes.
@@ -59,7 +58,7 @@ Si tout va bien, il est possible de :
 Dans cette section, nous avons abordé la planification des ressources Kubernetes sur les nœuds Windows. Cela conclut le guide. En cas de problème, consultez la section résolution des problèmes :
 
 > [!div class="nextstepaction"]
-> [Résolution des problèmes](./common-problems.md)
+> [Dépannage](./common-problems.md)
 
 Dans le cas contraire, vous pouvez également être intéressé par l’exécution des composants Kubernetes en tant que services Windows :
 > [!div class="nextstepaction"]

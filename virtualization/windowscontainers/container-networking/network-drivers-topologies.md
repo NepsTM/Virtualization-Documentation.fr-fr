@@ -5,15 +5,13 @@ keywords: docker, conteneurs
 author: jmesser81
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.prod: windows-containers
-ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: c7be67f3c114e7f6b122dffff399b2c292c26369
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: 1a45bbf5588085df8b740687fd0e889055c84262
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192167"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985123"
 ---
 # <a name="windows-container-network-drivers"></a>Pilotes réseau de conteneur Windows
 

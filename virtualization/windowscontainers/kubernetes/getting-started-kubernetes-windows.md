@@ -3,17 +3,16 @@ title: Kubernetes sur Windows
 author: gkudra-msft
 ms.author: gekudray
 ms.date: 02/09/2018
-ms.prod: containers
 ms.topic: overview
 description: Joindre un nœud Windows à un cluster Kubernetes avec v 1.14.
 keywords: kubernetes, 1,14, Windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 43525b86e00ad3d855f98394aa96ffe987fb51d6
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: 56ab8f662df9a9d01a67022cadcf5b37c45ce2f8
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192326"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985323"
 ---
 # <a name="kubernetes-on-windows"></a>Kubernetes sur Windows
 
