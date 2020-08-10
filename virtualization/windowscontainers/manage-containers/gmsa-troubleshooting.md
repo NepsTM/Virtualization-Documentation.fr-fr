@@ -5,15 +5,13 @@ keywords: docker, conteneurs, Active Directory, compte de service administré de
 author: rpsqrd
 ms.date: 10/03/2019
 ms.topic: troubleshooting
-ms.prod: windows-containers
-ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: e7cf5685620d3cb50c93f48e5aa6917d9044b860
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: 771c72ac7b21bf347192ebf88aa86a6cf2c7cddc
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192826"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985169"
 ---
 # <a name="troubleshoot-gmsas-for-windows-containers"></a>Résoudre des problèmes de comptes de service administré de groupe pour des conteneurs Windows
 

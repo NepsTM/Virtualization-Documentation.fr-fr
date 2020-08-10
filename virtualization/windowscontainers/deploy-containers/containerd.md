@@ -5,15 +5,13 @@ keywords: conteneurs Linux, docker, conteneurs, mise en conteneur, conteneurisat
 author: scooley
 ms.date: 11/19/2018
 ms.topic: conceptual
-ms.prod: windows-containers
-ms.service: windows-containers
 ms.assetid: a0e62b32-0c4c-4dd4-9956-8056e9abd9e5
-ms.openlocfilehash: dd7ddbc3784eee67fd67bba20533d520e172ebd3
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: 10f6a453b4c9352763c1e83b126576f250614af4
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192257"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985363"
 ---
 # <a name="container-platform-tools-on-windows"></a>Outils de plateforme de conteneurs sur Windows
 

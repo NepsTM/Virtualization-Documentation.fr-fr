@@ -5,15 +5,13 @@ keywords: docker, conteneurs, Active Directory, compte de service administré de
 author: rpsqrd
 ms.date: 01/03/2019
 ms.topic: how-to
-ms.prod: windows-containers
-ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: ea0695e94bd0b4898f6f99b5e797a23c60ef5d1f
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: d8faf3d16a7cd07016df334a2299ce4f0eca46f2
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192786"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985133"
 ---
 # <a name="create-gmsas-for-windows-containers"></a>Créer des comptes de service administré de groupe pour des conteneurs Windows
 

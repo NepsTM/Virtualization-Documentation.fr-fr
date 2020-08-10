@@ -5,15 +5,13 @@ keywords: docker, conteneurs
 author: crwilhit
 ms.date: 09/26/2019
 ms.topic: conceptual
-ms.prod: windows-containers
-ms.service: windows-containers
 ms.assetid: 42154683-163b-47a1-add4-c7e7317f1c04
-ms.openlocfilehash: 3102def94d6565f162210ac53e3a80666ed5d485
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: b0e9b3607cf8dbf276aa25b6f4cff6c2d72478bc
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192796"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985223"
 ---
 # <a name="isolation-modes"></a>Modes d’isolation
 

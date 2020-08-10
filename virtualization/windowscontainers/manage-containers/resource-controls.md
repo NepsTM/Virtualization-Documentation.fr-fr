@@ -5,15 +5,13 @@ keywords: docker, conteneurs, processeur, mémoire, disque, ressources
 author: taylorb-microsoft
 ms.date: 11/21/2017
 ms.topic: conceptual
-ms.prod: windows-containers
-ms.service: windows-containers
 ms.assetid: 8ccd4192-4a58-42a5-8f74-2574d10de98e
-ms.openlocfilehash: c435f793371bc71c720784416a367e2c7483e9ff
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: 5027c2289dd441d28333c859e691b27eea9862ab
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192576"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985003"
 ---
 # <a name="implementing-resource-controls-for-windows-containers"></a>Implémentation de contrôles de ressources pour les conteneurs Windows
 Plusieurs contrôles de ressources peuvent être implémentés par conteneur et par ressource.  Par défaut, les conteneurs exécutés sont soumis à la gestion des ressources Windows classique. Celle-ci est généralement exécutée de manière équitable, mais en configurant ces contrôles, un développeur ou un administrateur est en mesure de limiter ou d’influencer l’utilisation des ressources.  Les ressources contrôlables sont les suivantes : UC/Processeur, Mémoire/RAM, Disque/Stockage et Réseau/Débit.

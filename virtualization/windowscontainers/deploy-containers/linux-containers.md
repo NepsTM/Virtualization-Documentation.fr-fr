@@ -5,15 +5,13 @@ keywords: conteneurs linux, docker, conteneurs, windows 10
 author: scooley
 ms.date: 09/17/2019
 ms.topic: overview
-ms.prod: windows-containers
-ms.service: windows-containers
 ms.assetid: edfd11c8-ee99-42d8-9878-efc126fe1826
-ms.openlocfilehash: 1f828562d81292cb1a3c30e456b69e0a61ecc63a
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: 107b81fb17fdaee10e901bda8adf5a58ceba1188
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192196"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985353"
 ---
 # <a name="linux-containers-on-windows-10"></a>Conteneurs Linux sur Windows 10
 

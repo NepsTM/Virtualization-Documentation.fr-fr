@@ -6,15 +6,13 @@ author: cwilhit
 ms.author: crwilhit
 ms.date: 11/12/2019
 ms.topic: quickstart
-ms.prod: windows-containers
-ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 950097bae359ce717e1f4427aaec0b87198fef42
-ms.sourcegitcommit: 1bafb5de322763e7f8b0e840b96774e813c39749
+ms.openlocfilehash: 1422b2b449d469867e1b68aab50274f2463c2b0c
+ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85192896"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985403"
 ---
 # <a name="get-started-run-your-first-windows-container"></a>Bien démarrer : Exécuter votre premier conteneur Windows
 
