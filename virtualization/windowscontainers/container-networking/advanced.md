@@ -1,17 +1,17 @@
 ---
-title: Mise en réseau de conteneur Windows
+title: Options réseau avancées dans Windows
 description: Mise en réseau avancée pour les conteneurs Windows.
 keywords: docker, conteneurs
 author: jmesser81
 ms.date: 03/27/2018
 ms.topic: how-to
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: aed798cf7444cc8ec67aeb663693911ce20247c6
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+ms.openlocfilehash: 7b533a90587c0853be1fe93090d23b3c34fa2386
+ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985373"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161728"
 ---
 # <a name="advanced-network-options-in-windows"></a>Options réseau avancées dans Windows
 
@@ -97,9 +97,11 @@ C:\> docker network create -d transparent -o com.docker.network.windowsshim.dnss
 Pour plus d’informations, voir [cet article](https://www.microsoft.com/research/project/azure-virtual-filtering-platform/).
 
 ## <a name="tips--insights"></a>Conseils et informations
+
 Voici une liste de conseils et d'informations pratiques, inspirées de questions courantes sur la mise en réseau de conteneur Windows exprimées par la Communauté...
 
 #### <a name="hns-requires-that-ipv6-is-enabled-on-container-host-machines"></a>HNS nécessite qu'IPv6 soit activé sur les ordinateurs hôtes de conteneur
+
 Dans le cadre de [KB4015217](https://support.microsoft.com/help/4015217/windows-10-update-kb4015217), HNS nécessite qu'IPv6 soit activé sur les hôtes de conteneur Windows. Si vous rencontrez une erreur comme celle indiquée ci-dessous, il est possible qu'IPv6 soit désactivé sur votre ordinateur hôte.
 ```
 docker: Error response from daemon: container e15d99c06e312302f4d23747f2dfda4b11b92d488e8c5b53ab5e4331fd80636d encountered an error during CreateContainer: failure in a Windows system call: Element not found.

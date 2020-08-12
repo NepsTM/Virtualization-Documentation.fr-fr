@@ -1,17 +1,17 @@
 ---
-title: Mise en réseau de conteneur Windows
+title: Isolement et sécurité réseau
 description: Isolement réseau et sécurité dans les conteneurs Windows.
 keywords: docker, conteneurs
 author: jmesser81
 ms.date: 03/27/2018
 ms.topic: conceptual
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 5c60406c0cc839a84e25ff12abf53439c6a208cb
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+ms.openlocfilehash: e629666a36c3e742a970a60adcf13c526c710eec
+ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985383"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161768"
 ---
 # <a name="network-isolation-and-security"></a>Isolement et sécurité réseau
 
@@ -29,7 +29,7 @@ Get-NetCompartment
 
 Selon le conteneur et le pilote réseau utilisés, les listes de contrôle d’accès des ports sont appliquées par une combinaison du pare-feu Windows et de la [VFP](https://www.microsoft.com/research/project/azure-virtual-filtering-platform/).
 
-### <a name="windows-server-containers"></a>Conteneurs Windows Server
+### <a name="windows-server-containers"></a>Conteneurs Windows Server
 
 Ils utilisent le pare-feu Windows hosts (avec les espaces de noms de réseau), ainsi que la VFP
 
@@ -61,7 +61,7 @@ Si vous souhaitez modifier les listes de contrôle d’accès des ports par déf
 >[!NOTE]
 >Pour l’isolation Hyper-V en mode transparent et NAT, vous ne pouvez pas reprogrammer actuellement les listes de contrôle d’accès des ports par défaut. Cela est reflété par un « X » dans la table.
 
-| Pilote réseau | Conteneurs Windows Server | Isolation Hyper-V  |
+| Pilote réseau | Conteneurs Windows Server | Isolation Hyper-V  |
 | -------------- |-------------------------- | ------------------- |
 | Mode transparent | Pare-feu Windows | X |
 | NAT | Pare-feu Windows | X |

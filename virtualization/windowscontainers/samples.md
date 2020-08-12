@@ -6,20 +6,20 @@ author: cwilhit
 ms.date: 12/19/2016
 ms.topic: article
 ms.assetid: 5c6f6350-f8d6-4426-b53d-9fb09c2bf267
-ms.openlocfilehash: fd96865f903542418016b4f75216fd901b47fb57
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+ms.openlocfilehash: 087aecdae317a81338071def3046fb01511ca152
+ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985413"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161908"
 ---
 # <a name="windows-container-samples"></a>Exemples de conteneurs Windows
 
 Il s’agit d’une collection d’exemples soumis par l’équipe Windows et les membres de la communauté.  Ces exemples sont fournis en l’état et sans aucune garantie.  N’hésitez pas à ajouter d’autres exemples ou à améliorer la collection actuelle.
 
-# <a name="categories"></a>Catégories
+## <a name="categories"></a>Catégories
 
-## <a name="application-frameworks"></a>Infrastructures des applications
+### <a name="application-frameworks"></a>Infrastructures des applications
 
 [ASPNET](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/aspnet)
 
@@ -39,7 +39,7 @@ Il s’agit d’une collection d’exemples soumis par l’équipe Windows et le
 
 [nginx](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/nginx)
 
-## <a name="programing-languages"></a>Langages de programmation
+### <a name="programing-languages"></a>Langages de programmation
 
 [dotnet35](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/dotnet35)
 
@@ -57,7 +57,7 @@ Il s’agit d’une collection d’exemples soumis par l’équipe Windows et le
 
 [server-jre-8u51-windows-x64](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/server-jre-8u51-windows-x64)
 
-## <a name="databases"></a>Bases de données
+### <a name="databases"></a>Bases de données
 
 [MongoDB](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/mongodb)
 
@@ -69,14 +69,14 @@ Il s’agit d’une collection d’exemples soumis par l’équipe Windows et le
 
 sqlserver-express - [Image Docker Hub](https://hub.docker.com/r/microsoft/mssql-server-windows-express/) ou [fichier dockerfile](https://github.com/Microsoft/mssql-docker/blob/master/windows/mssql-server-windows-express/dockerfile)
 
-## <a name="infrastructure-and-ci-tools"></a>Infrastructure et outils d’intégration continue
+### <a name="infrastructure-and-ci-tools"></a>Infrastructure et outils d’intégration continue
 
 [PowerShellDSC_iis-10.0](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/PowerShellDSC_iis-10.0)
 
-## <a name="just-for-fun"></a>Pour vous amuser
+### <a name="just-for-fun"></a>Pour vous amuser
 
 [MineCraft](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/MineCraft)
 
-## <a name="other"></a>Autre
+### <a name="other"></a>Autres
 
 [DirectX](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-container-samples/directx) (y compris l’accélération GPU)

@@ -1,5 +1,5 @@
 ---
-title: Jonction de nœuds Windows
+title: Jonction au cluster de nœuds Windows
 author: daschott
 ms.author: daschott
 ms.date: 11/02/2018
@@ -7,21 +7,24 @@ ms.topic: how-to
 description: Joindre un nœud Windows à un cluster Kubernetes avec v 1.14.
 keywords: kubernetes, 1,14, Windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 3f37a3e19800d7121ac65b12efeb0f14a287140b
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+ms.openlocfilehash: 8954e98eeadca648b3d48599a5174c28101a7ccc
+ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985303"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161898"
 ---
-# <a name="joining-windows-server-nodes-to-a-cluster"></a>Jonction de nœuds Windows Server à un cluster #
+# <a name="joining-windows-server-nodes-to-a-cluster"></a>Jonction de nœuds Windows Server à un cluster
+
 Une fois que vous avez [configuré un nœud principal Kubernetes](./creating-a-linux-master.md) et que vous avez [sélectionné la solution réseau de votre choix](./network-topologies.md), vous êtes prêt à joindre les nœuds Windows Server pour former un cluster. Cela nécessite une [préparation sur les nœuds Windows avant d'](#preparing-a-windows-node) être joint.
 
-## <a name="preparing-a-windows-node"></a>Préparation d’un nœud Windows ##
+## <a name="preparing-a-windows-node"></a>Préparation d’un nœud Windows
+
 > [!NOTE]
 > Tous les extraits de code dans les sections Windows doivent être exécutés dans PowerShell avec _élévation_ de privilèges.
 
-### <a name="install-docker-requires-reboot"></a>Installer l’ancrage (nécessite un redémarrage) ###
+### <a name="install-docker-requires-reboot"></a>Installer l’ancrage (nécessite un redémarrage)
+
 Kubernetes utilise l' [arrimeur](https://www.docker.com/) en tant que moteur de conteneur, donc nous devons l’installer. Vous pouvez suivre les [instructions Docs officielles](../manage-docker/configure-docker-daemon.md#install-docker), les [instructions Docker](https://store.docker.com/editions/enterprise/docker-ee-server-windows), ou essayer les étapes suivantes :
 
 ```powershell
@@ -38,7 +41,7 @@ Si vous vous trouvez derrière un serveur proxy, vous devez définir les variabl
 
 Si, après le redémarrage, vous voyez l’erreur suivante :
 
-![text](media/docker-svc-error.png)
+![Capture d’écran de l’erreur SVC indiquant « erreur lors de la connexion ».](media/docker-svc-error.png)
 
 Démarrez ensuite le service d’ancrage manuellement :
 
@@ -46,8 +49,9 @@ Démarrez ensuite le service d’ancrage manuellement :
 Start-Service docker
 ```
 
-### <a name="create-the-pause-infrastructure-image"></a>Créer l’image « suspendre » (infrastructure) ###
-> [!Important]
+### <a name="create-the-pause-infrastructure-image"></a>Créer l’image « suspendre » (infrastructure)
+
+> [!IMPORTANT]
 > Il est important d’être attentif aux images de conteneur en conflit ; le fait de ne pas avoir la balise attendue peut provoquer une `docker pull` image de conteneur incompatible, provoquant [des problèmes de déploiement](./common-problems.md#when-deploying-docker-containers-keep-restarting) tels que l' `ContainerCreating` État indéfini.
 
 Maintenant que `docker` est installé, vous devez préparer une image « pause » qui est utilisée par Kubernetes pour préparer les pods d’infrastructure. Il existe trois étapes à ce propos :
@@ -55,15 +59,16 @@ Maintenant que `docker` est installé, vous devez préparer une image « pause�
   2. [balisage](#tag-the-image) en tant que Microsoft/serveur : dernière version
   3. et l' [exécuter](#run-the-container)
 
+#### <a name="pull-the-image"></a>Extraire l’image
 
-#### <a name="pull-the-image"></a>Extraire l’image ####
- Extrayez l’image de votre version de Windows spécifique. Par exemple, si vous exécutez Windows Server 2019 :
+Extrayez l’image de votre version de Windows spécifique. Par exemple, si vous exécutez Windows Server 2019 :
 
- ```powershell
+```powershell
 docker pull mcr.microsoft.com/windows/nanoserver:1809
- ```
+```
 
-#### <a name="tag-the-image"></a>Baliser l’image ####
+#### <a name="tag-the-image"></a>Baliser l’image
+
 Les fichiers dockerfile que vous utiliserez plus loin dans ce guide recherchent la `:latest` balise d’image. Étiquetez l’image de serveur que vous venez de déextraire comme suit :
 
 ```powershell
@@ -176,10 +181,9 @@ cd c:\k
 # <a name="managementip"></a>[ManagementIP](#tab/ManagementIP)
 Adresse IP affectée au nœud Windows. Vous pouvez utiliser `ipconfig` pour le Rechercher.
 
-|  |  |
-|---------|---------|
-|Paramètre     | `-ManagementIP`        |
-|Valeur par défaut    | n.A. **Obligatoire**        |
+| Paramètre | Valeur par défaut|
+|---|---|
+| `-ManagementIP` | n.A. **Obligatoire** |
 
 # <a name="networkmode"></a>[NetworkMode](#tab/NetworkMode)
 Le mode réseau `l2bridge` (hôte Flannel-GW) ou `overlay` (Flannel vxlan) choisi comme [solution réseau](./network-topologies.md).
@@ -187,56 +191,45 @@ Le mode réseau `l2bridge` (hôte Flannel-GW) ou `overlay` (Flannel vxlan) chois
 > [!Important]
 > `overlay`le mode de mise en réseau (Flannel vxlan) requiert des binaires Kubernetes v 1.14 (ou version ultérieure) et [KB4489899](https://support.microsoft.com/help/4489899).
 
-|  |  |
-|---------|---------|
-|Paramètre     | `-NetworkMode`        |
-|Valeur par défaut    | `l2bridge`        |
+| Paramètre | Valeur par défaut |
+|---|---|
+| `-NetworkMode` | `12bridge` |
 
 
 # <a name="clustercidr"></a>[ClusterCIDR](#tab/ClusterCIDR)
 [Plage du sous-réseau du cluster](./getting-started-kubernetes-windows.md#cluster-subnet-def).
 
-|  |  |
-|---------|---------|
-|Paramètre     | `-ClusterCIDR`        |
-|Valeur par défaut    | `10.244.0.0/16`        |
-
+| Paramètre | Valeur par défaut |
+|---|---|
+| `-ClusterCIDR` | `10.244.0.0/16` |
 
 # <a name="servicecidr"></a>[ServiceCIDR](#tab/ServiceCIDR)
 [Plage de sous-réseau de service](./getting-started-kubernetes-windows.md#service-subnet-def).
 
-|  |  |
-|---------|---------|
-|Paramètre     | `-ServiceCIDR`        |
-|Valeur par défaut    | `10.96.0.0/12`        |
-
+| Paramètre | Valeur par défaut |
+|---|---|
+| `-ServiceCIDR` | `10.96.0.0/12` |
 
 # <a name="kubednsserviceip"></a>[KubeDnsServiceIP](#tab/KubeDnsServiceIP)
 L' [adresse IP du service DNS Kubernetes](./getting-started-kubernetes-windows.md#plan-ip-addressing-for-your-cluster).
 
-|  |  |
-|---------|---------|
-|Paramètre     | `-KubeDnsServiceIP`        |
-|Valeur par défaut    | `10.96.0.10`        |
-
+| Paramètre | Valeur par défaut |
+|---|---|
+| `-KubeDnsServiceIP` | `10.96.0.10` |
 
 # <a name="interfacename"></a>[InterfaceName](#tab/InterfaceName)
 Nom de l’interface réseau de l’hôte Windows. Vous pouvez utiliser `ipconfig` pour le Rechercher.
 
-|  |  |
-|---------|---------|
-|Paramètre     | `-InterfaceName`        |
-|Valeur par défaut    | `Ethernet`        |
-
+| Paramètre | Valeur par défaut |
+|---|---|
+| `-InterfaceName` | `Ethernet` |
 
 # <a name="logdir"></a>[LogDir](#tab/LogDir)
 Répertoire dans lequel les journaux kubelet et Kube-proxy sont redirigés dans leurs fichiers de sortie respectifs.
 
-|  |  |
-|---------|---------|
-|Paramètre     | `-LogDir`        |
-|Valeur par défaut    | `C:\k`        |
-
+| Paramètre | Valeur par défaut |
+|---|---|
+| `-LogDir` | `C:\k` |
 
 ---
 

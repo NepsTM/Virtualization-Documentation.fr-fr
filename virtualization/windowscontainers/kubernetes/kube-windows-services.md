@@ -7,19 +7,19 @@ ms.topic: how-to
 description: Comment exécuter des composants Kubernetes en tant que services Windows.
 keywords: kubernetes, 1,14, Windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5c18
-ms.openlocfilehash: a4f29626ce51714e9313d56cc6558677506e75e5
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+ms.openlocfilehash: caf364045064744a6c3175047ab5bb77b34b742a
+ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985273"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161779"
 ---
 # <a name="kubernetes-components-as-windows-services"></a>Composants Kubernetes en tant que services Windows
 
 Certains utilisateurs peuvent souhaiter configurer des processus tels que les flanneld.exe, les kubelet.exe, les kube-proxy.exe ou d’autres pour qu’ils s’exécutent en tant que services Windows. Cela offre des avantages supplémentaires en matière de tolérance aux pannes, tels que les processus qui redémarrent automatiquement en cas de panne d’un processus ou d’un nœud inattendu.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 1. Vous avez téléchargé [nssm.exe](https://nssm.cc/download) dans le `c:\k` Répertoire
 2. Vous avez rejoint le nœud sur votre cluster et exécutez le script [install.ps1](https://github.com/Microsoft/SDN/tree/master/Kubernetes/flannel/install.ps1) ou [start.ps1](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/start.ps1) sur votre nœud précédemment
 
@@ -33,10 +33,9 @@ C:\k\register-svc.ps1 -NetworkMode <Network mode> -ManagementIP <Windows Node IP
 # <a name="managementip"></a>[ManagementIP](#tab/ManagementIP)
 Adresse IP affectée au nœud Windows. Vous pouvez utiliser `ipconfig` pour le Rechercher.
 
-|  |  |
-|---------|---------|
-|Paramètre     | `-ManagementIP`        |
-|Valeur par défaut    | n.A.        |
+| Paramètre | Valeur par défaut |
+|---|---|
+| `-ManagementIP` | n.A. |
 
 
 # <a name="networkmode"></a>[NetworkMode](#tab/NetworkMode)
@@ -45,37 +44,30 @@ Le mode réseau `l2bridge` (hôte Flannel-GW) ou `overlay` (Flannel vxlan) chois
 > [!Important]
 > `overlay`le mode de mise en réseau (Flannel vxlan) requiert des binaires Kubernetes v 1.14 ou version ultérieure.
 
-|  |  |
-|---------|---------|
-|Paramètre     | `-NetworkMode`        |
-|Valeur par défaut    | `l2bridge`        |
-
+| Paramètre | Valeur par défaut |
+|---|---|
+| `-NetworkMode` | `12bridge` |
 
 # <a name="clustercidr"></a>[ClusterCIDR](#tab/ClusterCIDR)
 [Plage du sous-réseau du cluster](./getting-started-kubernetes-windows.md#cluster-subnet-def).
 
-|  |  |
-|---------|---------|
-|Paramètre     | `-ClusterCIDR`        |
-|Valeur par défaut    | `10.244.0.0/16`        |
-
+| Paramètre | Valeur par défaut |
+|---|---|
+| `-ClusterCIDR` | `10.244.0.0/16` |
 
 # <a name="kubednsserviceip"></a>[KubeDnsServiceIP](#tab/KubeDnsServiceIP)
-L' [adresse IP du service DNS Kubernetes](./getting-started-kubernetes-windows.md#kube-dns-def).
+L' [adresse IP du service DNS Kubernetes](./getting-started-kubernetes-windows.md#plan-ip-addressing-for-your-cluster).
 
-|  |  |
-|---------|---------|
-|Paramètre     | `-KubeDnsServiceIP`        |
-|Valeur par défaut    | `10.96.0.10`        |
-
+| Paramètre | Valeur par défaut |
+|---|---|
+| `-KubeDnsServiceIP` | `10.96.0.10` |
 
 # <a name="logdir"></a>[LogDir](#tab/LogDir)
 Répertoire dans lequel les journaux kubelet et Kube-proxy sont redirigés dans leurs fichiers de sortie respectifs.
 
-|  |  |
-|---------|---------|
-|Paramètre     | `-LogDir`        |
-|Valeur par défaut    | `C:\k`        |
+| Paramètre | Valeur par défaut |
+|---|---|
+| `-LogDir` | `C:\k` |
 
 ---
 

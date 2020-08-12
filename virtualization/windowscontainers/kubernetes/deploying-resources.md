@@ -1,5 +1,5 @@
 ---
-title: Jonction de nœuds Linux
+title: Déploiement des ressources Kubernetes
 author: daschott
 ms.author: daschott
 ms.date: 11/02/2018
@@ -7,29 +7,33 @@ ms.topic: how-to
 description: Déploiement de Kubernetes Resoureces sur un cluster Kubernetes de système d’exploitation mixte.
 keywords: kubernetes, 1,14, Windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: a342a03153564b2f76af45a9b792b58ae8afc18c
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+ms.openlocfilehash: d1f0d836b6af9330acba5599b7f89a4c76baea10
+ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985333"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161878"
 ---
-# <a name="deploying-kubernetes-resources"></a>Déploiement des ressources Kubernetes #
+# <a name="deploying-kubernetes-resources"></a>Déploiement des ressources Kubernetes
+
 En supposant que vous avez un cluster Kubernetes constitué d’au moins 1 maître et 1 Worker, vous êtes prêt à déployer des ressources Kubernetes.
+
 > [!TIP]
 > Vous êtes curieux de savoir quelles sont les ressources Kubernetes actuellement prises en charge sur Windows ? Pour plus d’informations, consultez [fonctionnalités officiellement prises en charge](https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/#supported-functionality-and-limitations) et Kubernetes sur la feuille de [route Windows](https://github.com/orgs/kubernetes/projects/8) .
 
+## <a name="running-a-sample-service"></a>Exécution d’un exemple de service
 
-## <a name="running-a-sample-service"></a>Exécution d’un exemple de service ##
 Vous allez déployer un [service Web basé sur PowerShell](https://github.com/Microsoft/SDN/blob/master/Kubernetes/WebServer.yaml) très simple pour vous assurer que vous avez rejoint le cluster avec succès et que notre réseau est correctement configuré.
 
 Avant cela, il est toujours judicieux de s’assurer que tous les nœuds sont intègres.
+
 ```bash
 kubectl get nodes
 ```
 
 Si tout semble correct, vous pouvez télécharger et exécuter le service suivant :
-> [!Important]
+
+> [!IMPORTANT]
 > Avant `kubectl apply` , veillez à double-vérifier/modifier l' `microsoft/windowsservercore` image de l’exemple de fichier sur [une image conteneur exécutable par vos nœuds](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility#choosing-container-os-versions).
 
 ```bash
@@ -51,10 +55,11 @@ Si tout va bien, il est possible de :
   - `curl`le *deexclusion* du maître Linux ou des machines situées en dehors du cluster ; Cela démontre la connectivité entrante.
   - `curl`Adresses IP externes à l’intérieur du Pod ; Cela démontre une connectivité sortante.
 
-> [!Note]
+> [!NOTE]
 > Les *hôtes de conteneur* Windows ne seront **pas** en mesure d’accéder à l’adresse IP du service à partir des services planifiés sur ces derniers. Il s’agit d’une [limitation de plateforme connue](./common-problems.md#my-windows-node-cannot-access-my-services-using-the-service-ip) qui sera améliorée dans les futures versions de Windows Server. Toutefois, les *Pod* Windows **sont** en mesure d’accéder à l’adresse IP du service.
 
-## <a name="next-steps"></a>Étapes suivantes ##
+## <a name="next-steps"></a>Étapes suivantes
+
 Dans cette section, nous avons abordé la planification des ressources Kubernetes sur les nœuds Windows. Cela conclut le guide. En cas de problème, consultez la section résolution des problèmes :
 
 > [!div class="nextstepaction"]

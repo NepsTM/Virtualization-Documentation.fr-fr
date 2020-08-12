@@ -1,17 +1,17 @@
 ---
-title: Mise en réseau de conteneurs Windows
+title: Pilotes réseau de conteneur Windows
 description: Pilotes réseau et topologies pour les conteneurs Windows.
 keywords: docker, conteneurs
 author: jmesser81
 ms.date: 03/27/2018
 ms.topic: conceptual
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 1a45bbf5588085df8b740687fd0e889055c84262
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+ms.openlocfilehash: 4f1bba4be783bc3def80b182880991bd90804f65
+ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985123"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161789"
 ---
 # <a name="windows-container-network-drivers"></a>Pilotes réseau de conteneur Windows
 
@@ -46,14 +46,7 @@ En plus de tirer parti du réseau « nat » par défaut créé par Docker sur 
   2. Le réseau L2bridge est configuré avec un nouveau sous-réseau IP personnalisé
 
   Dans la configuration 2, les utilisateurs doivent ajouter un point de terminaison sur le compartiment réseau hôte qui agit en tant que passerelle et configurer des fonctionnalités de routage pour le préfixe désigné.
-  > Requiert : requiert Windows Server 2016, Windows 10 Creators Update ou une version ultérieure.
 
-
-- **l2bridge** : similaire au `transparent` mode de mise en réseau, les conteneurs attachés à un réseau créé avec le pilote « l2bridge » sont connectés au réseau physique via un commutateur Hyper-V *externe* . La différence dans l2bridge réside dans le fait que les points de terminaison de conteneur auront la même adresse MAC que l’hôte en raison de l’opération de traduction d’adresse de couche 2 (réécriture MAC) sur l’entrée et la sortie. Dans les scénarios de clustering, cela permet d’atténuer la contrainte sur les commutateurs qui ont besoin d’apprendre des adresses MAC de conteneurs parfois à courte durée de vie. Les réseaux L2bridge peuvent être configurés de deux manières différentes :
-  1. Le réseau L2bridge est configuré avec le même sous-réseau IP que l’hôte de conteneur
-  2. Le réseau L2bridge est configuré avec un nouveau sous-réseau IP personnalisé
-
-  Dans la configuration 2, les utilisateurs doivent ajouter un point de terminaison sur le compartiment réseau hôte qui agit en tant que passerelle et configurer des fonctionnalités de routage pour le préfixe désigné.
   >[!TIP]
   >Vous trouverez plus d’informations sur la configuration et l’installation de l2bridge [ici](https://techcommunity.microsoft.com/t5/networking-blog/l2bridge-container-networking/ba-p/1180923).
 
@@ -90,8 +83,8 @@ Les adresses IP sont attribuées et assignées différemment pour chaque pilote 
 
 La découverte des services est uniquement prise en charge pour certains pilotes réseau Windows.
 
-|  | Découverte des services locale  | Découverte des services globale |
-| :---: | :---------------     |  :---                |
+| Nom du pilote | Découverte des services locale  | Découverte des services globale |
+| :--- | :---------------     |  :---                |
 | nat | YES | Oui avec docker EE |
 | superposition | YES | Oui avec docker EE ou Kube-DNS |
 | transparent | Non | Non |

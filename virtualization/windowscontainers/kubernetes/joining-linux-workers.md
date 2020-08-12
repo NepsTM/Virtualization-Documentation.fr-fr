@@ -1,5 +1,5 @@
 ---
-title: Jonction de nœuds Linux
+title: Jonction d’un cluster de nœuds Linux
 author: daschott
 ms.author: daschott
 ms.date: 02/09/2018
@@ -7,17 +7,18 @@ ms.topic: how-to
 description: Joindre un nœud Linux à un cluster Kubernetes avec v 1.14.
 keywords: kubernetes, 1,14, Windows, prise en main
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: aee0b6e2ad218ca7c64bbbd1ca87b00a5af6c436
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+ms.openlocfilehash: ababeda847badc2058739c8cd2de36d7f46581d8
+ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985313"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161888"
 ---
 # <a name="joining-linux-nodes-to-a-cluster"></a>Jonction de nœuds Linux à un cluster
 
 Une fois que vous avez [configuré un nœud principal Kubernetes](creating-a-linux-master.md) et que vous avez [sélectionné la solution réseau](network-topologies.md)de votre choix, vous êtes prêt à joindre les nœuds Linux à votre cluster. Cela nécessite une [préparation sur le nœud Linux avant d'](joining-linux-workers.md#preparing-a-linux-node) être joint.
-> [!tip]
+
+> [!TIP]
 > Les instructions Linux sont adaptées à **Ubuntu 16,04**. D’autres distributions Linux certifiées pour exécuter Kubernetes doivent également proposer des commandes équivalentes que vous pouvez remplacer. Ils interagissent également avec Windows.
 
 ## <a name="preparing-a-linux-node"></a>Préparation d’un nœud Linux
@@ -49,7 +50,7 @@ docker run hello-world
 
 Téléchargez les `kubeadm` fichiers binaires pour votre distribution Linux et initialisez votre cluster.
 
-> [!Important]
+> [!IMPORTANT]
 > En fonction de votre distribution Linux, vous devrez peut-être remplacer `kubernetes-xenial` par le [nom de nom](https://wiki.ubuntu.com/Releases)correct.
 
 ``` bash
@@ -89,7 +90,7 @@ mkdir -p $HOME/.kube
 
 2. Copiez le fichier de certificat Kubernetes ( `$HOME/.kube/config` ) [à partir de Master](./creating-a-linux-master.md#collect-cluster-information) et enregistrez-le `$HOME/.kube/config` sur le Worker.
 
-> [!tip]
+> [!TIP]
 > Vous pouvez utiliser des outils SCP tels que [WinSCP](https://winscp.net/eng/download.php) pour transférer le fichier de configuration entre les nœuds.
 
 3. Définissez la propriété du fichier de configuration copié comme suit :
@@ -108,7 +109,7 @@ kubeadm join <Master_IP>:6443 --token <some_token> --discovery-token-ca-cert-has
 
 En cas de réussite, vous devriez obtenir une sortie similaire à ce qui suit :
 
-![text](./media/node-join.png)
+![Une capture d’écran de la jointure de nœuds complète la sortie dans bash.](./media/node-join.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
