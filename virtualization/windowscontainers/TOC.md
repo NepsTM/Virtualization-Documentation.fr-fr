@@ -44,13 +44,7 @@
 ### [Vue d’ensemble](about/overview-container-orchestrators.md)
 ### Kubernetes sur Windows
 #### [Kubernetes sur Windows](kubernetes/getting-started-kubernetes-windows.md)
-#### [Créer un maître Kubernetes](kubernetes/creating-a-linux-master.md)
-#### [Choisir une solution réseau](kubernetes/network-topologies.md)
-#### [Joindre les workers Windows](kubernetes/joining-windows-workers.md)
-#### [Joindre les workers Linux](kubernetes/joining-linux-workers.md)
-#### [Déployer les ressources Kubernetes](kubernetes/deploying-resources.md)
-#### [Résolution des problèmes](kubernetes/common-problems.md)
-#### [Kubernetes en tant que service Windows](kubernetes/kube-windows-services.md)
+#### [Dépannage](kubernetes/common-problems.md)
 #### [Compiler des fichiers binaires Kubernetes](kubernetes/compiling-kubernetes-binaries.md)
 ### Service Fabric
 #### [Service Fabric et conteneurs](/azure/service-fabric/service-fabric-containers-overview)
