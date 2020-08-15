@@ -2,21 +2,21 @@
 title: Mise en réseau de conteneurs Windows
 description: Présentation de l’architecture des réseaux de conteneurs Windows.
 keywords: docker, conteneurs
-author: jmesser81
-ms.date: 03/27/2018
+author: daschott
+ms.date: 08/13/2020
 ms.topic: overview
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 5f9d554a4fcedd9bd233a849c6480589be61abbd
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+ms.openlocfilehash: a243cda27ec7eb27ee1458585c49448991a94893
+ms.sourcegitcommit: aa139e6e77a27b8afef903fee5c7ef338e1c79d4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87984744"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88251622"
 ---
 # <a name="windows-container-networking"></a>Mise en réseau de conteneurs Windows
 
 >[!IMPORTANT]
->Pour plus d’informations sur les commandes, les options et la syntaxe de mise en réseau de l’arrimage, consultez la [mise en réseau des conteneurs](https://docs.docker.com/engine/userguide/networking/) de l’arrimeur. * * * à l’exception des cas décrits dans [fonctionnalités non prises en charge et options réseau](#unsupported-features-and-network-options), toutes les commandes de mise en réseau de l’ancrage sont prises en charge sur Windows avec la même syntaxe que sur Linux. Toutefois, les piles réseau Windows et Linux sont différentes et, par conséquent, vous constaterez que certaines commandes réseau Linux (par exemple, ifconfig) ne sont pas prises en charge sur Windows.
+>Reportez-vous à l'article [Mise en réseau de conteneur Docker](https://docs.docker.com/engine/userguide/networking/) pour les commandes, les options et la syntaxe de mise en réseau de docker en général. À l’exception des cas décrits dans [fonctionnalités non prises en charge et options réseau](#unsupported-features-and-network-options), toutes les commandes de mise en réseau de l’ancrage sont prises en charge sur Windows avec la même syntaxe que sur Linux. Toutefois, les piles réseau Windows et Linux sont différentes et, par conséquent, vous constaterez que certaines commandes réseau Linux (par exemple, ifconfig) ne sont pas prises en charge sur Windows.
 
 ## <a name="basic-networking-architecture"></a>Architecture de mise en réseau de base
 

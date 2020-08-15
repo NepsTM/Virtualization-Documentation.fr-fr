@@ -1,17 +1,17 @@
 ---
 title: Compilation de fichiers binaires Kubernetes
-author: gkudra-msft
-ms.author: gekudray
-ms.date: 11/02/2018
+author: daschott
+ms.author: daschott
+ms.date: 08/13/2020
 ms.topic: how-to
 description: Compilation et compilation croisée des fichiers binaires Kubernetes à partir de la source.
 keywords: kubernetes, 1,12, Linux, compiler
-ms.openlocfilehash: 4b999613223c4d952c8d7186822d1a5cf95ae3dd
-ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
+ms.openlocfilehash: 21ccee749956abc2ffb02a7b2ec1394c1195fe09
+ms.sourcegitcommit: aa139e6e77a27b8afef903fee5c7ef338e1c79d4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88161968"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88251592"
 ---
 # <a name="compiling-kubernetes-binaries"></a>Compilation de fichiers binaires Kubernetes
 
