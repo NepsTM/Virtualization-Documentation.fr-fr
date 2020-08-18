@@ -2,16 +2,16 @@
 title: Modes d’isolation
 description: Explication de la différence entre l’isolation Hyper-V et le traitement de conteneurs isolés.
 keywords: docker, conteneurs
-author: crwilhit
+author: cwilhit
 ms.date: 09/26/2019
 ms.topic: conceptual
 ms.assetid: 42154683-163b-47a1-add4-c7e7317f1c04
-ms.openlocfilehash: b0e9b3607cf8dbf276aa25b6f4cff6c2d72478bc
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+ms.openlocfilehash: c7bcb25b2c3b65be745971ae2dec4d509266a1b3
+ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985223"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161948"
 ---
 # <a name="isolation-modes"></a>Modes d’isolation
 
@@ -21,12 +21,12 @@ Les conteneurs Windows offrent deux modes distincts d’isolation du runtime : 
 
 Il s’agit du mode d’isolation « traditionnel » pour les conteneurs, comme décrit dans la [Vue d’ensemble des conteneurs Windows](../about/index.md). Grâce à l’isolation des processus, plusieurs instances de conteneur s’exécutent simultanément sur un hôte en bénéficiant d’une isolation assurée par des technologies d’espaces de noms, de contrôle des ressources et d’isolation des processus. En cas d’exécution dans ce mode, les conteneurs partagent un même noyau avec l’hôte ainsi qu’entre eux.  Cela se produit pratiquement de la même façon que l’exécution des conteneurs Linux.
 
-![](media/container-arch-process.png)
+![Diagramme montrant un conteneur rempli d’applications isolées du système d’exploitation et du matériel.](media/container-arch-process.png)
 
 ## <a name="hyper-v-isolation"></a>Isolation Hyper-V
 Ce mode d’isolation offre une sécurité accrue et une plus grande compatibilité entre les versions de l’hôte et du conteneur. Avec l’isolation Hyper-V, plusieurs instances de conteneur s’exécutent simultanément sur un hôte. Toutefois, chaque conteneur s’exécute à l’intérieur d’une machine virtuelle hautement optimisée, et reçoit efficacement son propre noyau. La présence de l’ordinateur virtuel fournit un isolation au niveau matériel entre les conteneurs, ainsi qu’entre l’hôte et les conteneurs.
 
-![](media/container-arch-hyperv.png)
+![Diagramme d’un conteneur isolé dans un système d’exploitation d’une machine virtuelle qui s’exécute sur un système d’exploitation d’un ordinateur physique.](media/container-arch-hyperv.png)
 
 ## <a name="isolation-examples"></a>Exemples d’isolation
 

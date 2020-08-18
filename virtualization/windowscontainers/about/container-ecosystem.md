@@ -6,12 +6,12 @@ author: PatrickLang
 ms.date: 05/22/2019
 ms.topic: overview
 ms.assetid: 29fbe13a-228a-4eaa-9d4d-90ae60da5965
-ms.openlocfilehash: 383d3a15f7849e8b8122919bd27e697425107d1a
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+ms.openlocfilehash: c9ea0e346f2b3be23c25d7152b7bbf49b6e709e5
+ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87984873"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161918"
 ---
 # <a name="about-building-container-ecosystems"></a>À propos de la création d'écosystèmes de conteneurs
 
@@ -23,7 +23,7 @@ Les conteneurs Windows constituent un composant clé au sein d'un vaste écosyst
 
 L'écosystème des conteneurs permet de gérer, de partager et de développer des applications exécutées dans des conteneurs.
 
-![](media/containerEcosystem.png)
+![Diagramme de l’écosystème de conteneurs. Il présente plusieurs produits Microsoft divisés en quatre catégories : environnements de développement, gestion des conteneurs, technologies de conteneur et Microsoft Cloud.](media/containerEcosystem.png)
 
 Microsoft souhaite encourager la productivité et les choix des développeurs à mesure qu’ils génèrent ces applications de nouvelle génération. Notre objectif est de stimuler la productivité des développeurs, ce qui signifie que les applications doivent pouvoir cibler n'importe quel cloud Microsoft sans qu'il soit nécessaire de modifier, de réécrire ou de reconfigurer le code.
 

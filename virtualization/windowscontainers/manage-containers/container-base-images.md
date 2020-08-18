@@ -6,12 +6,12 @@ author: patricklang
 ms.date: 09/25/2019
 ms.topic: conceptual
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
-ms.openlocfilehash: 1a2b364ca61f9a53b0c26f7a39f3a10d6084997c
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+ms.openlocfilehash: 7fa5b50506fd9a2d7cd1c5fc84cc867dba412867
+ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985283"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161958"
 ---
 # <a name="container-base-images"></a>Images de base de conteneur
 
@@ -24,7 +24,7 @@ Windows propose quatre images de base de conteneur à partir desquelles les util
             <article class="card has-outline-hover is-relative is-full-height has-padding-none">
                     <div class="cardImageOuter bgdAccent1 has-padding-top-large has-padding-bottom-large has-padding-left-large has-padding-right-large">
                         <div class="cardImage centered has-padding-top-large has-padding-bottom-large has-padding-left-large has-padding-right-large">
-                            <img src="media/Microsoft_logo.svg" alt="" data-linktype="relative-path">
+                            <img src="media/Microsoft_logo.svg" alt="Microsoft logo" data-linktype="relative-path">
                         </div>
                     </div>
                 <div class="card-content has-text-overflow-ellipsis has-padding-top-small">
@@ -44,7 +44,7 @@ Windows propose quatre images de base de conteneur à partir desquelles les util
             <article class="card has-outline-hover is-relative is-full-height has-padding-none">
                     <div class="cardImageOuter bgdAccent1 has-padding-top-large has-padding-bottom-large has-padding-left-large has-padding-right-large">
                         <div class="cardImage centered has-padding-top-large has-padding-bottom-large has-padding-left-large has-padding-right-large">
-                            <img src="media/Microsoft_logo.svg" alt="" data-linktype="relative-path">
+                            <img src="media/Microsoft_logo.svg" alt="Microsoft logo." data-linktype="relative-path">
                         </div>
                     </div>
                 <div class="card-content has-text-overflow-ellipsis has-padding-top-small">
@@ -64,7 +64,7 @@ Windows propose quatre images de base de conteneur à partir desquelles les util
             <article class="card has-outline-hover is-relative is-full-height has-padding-none">
                     <div class="cardImageOuter bgdAccent1 has-padding-top-large has-padding-bottom-large has-padding-left-large has-padding-right-large">
                         <div class="cardImage centered has-padding-top-large has-padding-bottom-large has-padding-left-large has-padding-right-large">
-                            <img src="media/Microsoft_logo.svg" alt="" data-linktype="relative-path">
+                            <img src="media/Microsoft_logo.svg" alt="Microsoft logo." data-linktype="relative-path">
                         </div>
                     </div>
                 <div class="card-content has-text-overflow-ellipsis has-padding-top-small">
@@ -84,7 +84,7 @@ Windows propose quatre images de base de conteneur à partir desquelles les util
             <article class="card has-outline-hover is-relative is-full-height has-padding-none">
                     <div class="cardImageOuter bgdAccent1 has-padding-top-large has-padding-bottom-large has-padding-left-large has-padding-right-large">
                         <div class="cardImage centered has-padding-top-large has-padding-bottom-large has-padding-left-large has-padding-right-large">
-                            <img src="media/Microsoft_logo.svg" alt="" data-linktype="relative-path">
+                            <img src="media/Microsoft_logo.svg" alt="Microsoft logo." data-linktype="relative-path">
                         </div>
                     </div>
                 <div class="card-content has-text-overflow-ellipsis has-padding-top-small">
@@ -142,4 +142,4 @@ Pour en savoir plus, lisez [Utiliser des conteneurs avec le programme Windows In
 
 `Windows Server Core` et `Nanoserver` sont les images de base les plus courantes à cibler. La principale différence entre ces images est que la surface d’API de Nano Server est beaucoup plus petite. PowerShell, WMI et la pile de maintenance Windows sont absents de l’image Nano Server.
 
-Nano Server a été conçu afin de fournir juste assez de surface d’API pour exécuter des applications qui ont une dépendance de .NET Core ou d’autres infrastructures open source modernes. La moindre surface d’APi est compensée par le fait que l’empreinte sur disque de l’image Nano Server est sensiblement plus petite que celle des autres images de base Windows. N’oubliez pas que vous pouvez ajouter autant de couches que vous le souhaitez sur Nano Server. Pour obtenir un exemple, consultez le [fichier Dockerfile Nano Server .NET Core](https://github.com/dotnet/dotnet-docker/blob/master/2.1/sdk/nanoserver-1909/amd64/Dockerfile).
+Nano Server a été conçu afin de fournir juste assez de surface d’API pour exécuter des applications qui ont une dépendance de .NET Core ou d’autres infrastructures open source modernes. La moindre surface d’APi est compensée par le fait que l’empreinte sur disque de l’image Nano Server est sensiblement plus petite que celle des autres images de base Windows. N’oubliez pas que vous pouvez ajouter autant de couches que vous le souhaitez sur Nano Server. Pour obtenir un exemple, consultez le [fichier Dockerfile Nano Server .NET Core](https://github.com/dotnet/dotnet-docker/blob/master/src/sdk/2.1/nanoserver-1909/amd64/Dockerfile).

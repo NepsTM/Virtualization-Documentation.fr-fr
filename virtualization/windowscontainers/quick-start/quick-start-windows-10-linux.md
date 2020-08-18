@@ -1,19 +1,19 @@
 ---
-title: Conteneurs Windows et Linux sur Windows 10
+title: Configurer des conteneurs Linux sur Windows 10
 description: Démarrage rapide du déploiement de conteneurs
 keywords: docker, conteneurs, LCOW
 author: taylorb-microsoft
 ms.date: 08/16/2019
 ms.topic: tutorial
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: b94f71949ad2e6c7d0164e3afdfc479fde4262b8
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+ms.openlocfilehash: 0e29a8645e34845895fedcc8dc03c01ea12d07f2
+ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87984733"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161708"
 ---
-# <a name="linux-containers-on-windows-10"></a>Conteneurs Linux sur Windows 10
+# <a name="get-started-set-up-linux-containers-on-windows-10"></a>Prise en main : Configurer des conteneurs Linux sur Windows 10
 
 Cet exercice vous permet de créer et d'exécuter des conteneurs Linux sur Windows 10.
 

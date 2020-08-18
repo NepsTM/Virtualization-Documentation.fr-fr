@@ -6,18 +6,18 @@ author: Heidilohr
 ms.author: helohr
 ms.date: 05/22/2019
 ms.topic: overview
-ms.openlocfilehash: 85f533d065e647083c916bf26fa4ba601579c02b
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+ms.openlocfilehash: 2e3a69524bc0477321d839eb329311ac5c792c86
+ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87984843"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161928"
 ---
 # <a name="about-docker"></a>À propos de Docker
 
 À mesure que vous découvrirez les conteneurs, vous entendrez inévitablement parler de Docker. Le moteur Docker est un ensemble d'outils de gestion de conteneurs qui empaquette et livre les images de conteneur. Les images qui en résultent peuvent être exécutées n'importe où en tant que conteneurs, que ce soit localement, dans le cloud ou sur un ordinateur personnel.
 
-![](media/docker.png)
+![Graphique montrant un workflow Docker général où l’utilisateur crée un conteneur, puis l’exécute sur le cloud.](media/docker.png)
 
 [Docker](https://www.docker.com) vous permet de gérer un conteneur Windows Server comme n'importe quel autre conteneur.
 
