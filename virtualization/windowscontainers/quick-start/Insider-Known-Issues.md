@@ -3,12 +3,13 @@ title: Problèmes connus pour les builds Insider
 description: Problèmes connus pour les builds Insider.
 keywords: docker, conteneurs
 ms.topic: quickstart
-ms.openlocfilehash: 13272f38af686533725693869553684abd135112
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+author: cwilhit
+ms.openlocfilehash: 7bb5567be29d93310e77b28e5718303bcdf39ab3
+ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87984693"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161688"
 ---
 # <a name="known-issues-for-insider-builds"></a>Problèmes connus pour les builds Insider
 
