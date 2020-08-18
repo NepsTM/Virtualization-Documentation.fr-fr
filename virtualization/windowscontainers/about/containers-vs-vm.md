@@ -6,12 +6,12 @@ author: jasongerend
 ms.author: jgerend
 ms.date: 10/21/2019
 ms.topic: overview
-ms.openlocfilehash: d8f3efe28ec0303fed1cfaa8da116c14141fb21d
-ms.sourcegitcommit: 186ebcd006eeafb2b51a19787d59914332aad361
+ms.openlocfilehash: 0683cf0908b5cec5984622a6d4c87b3c0db543bd
+ms.sourcegitcommit: bb18e6568393da748a6d511d41c3acbe38c62668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87984863"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161938"
 ---
 # <a name="containers-vs-virtual-machines"></a>Conteneurs ou machines virtuelles
 
@@ -35,7 +35,7 @@ Contrairement aux conteneurs, les machines virtuelles exécutent un système d�
 
 Le tableau suivant présente plusieurs similitudes et différences entre ces technologies complémentaires.
 
-|                 | Ordinateur virtuel  | Conteneur  |
+|Fonctionnalité    | Machine virtuelle  | Conteneur  |
 | --------------  | ---------------- | ---------- |
 | Isolation       | Fournit une isolation complète du système d’exploitation hôte et des autres machines virtuelles. Cela s'avère utile lorsqu'une limite de sécurité forte est essentielle (hébergement d'applications provenant d'entreprises concurrentes sur le même serveur ou cluster, par exemple). | Fournit généralement une isolation légère de l’hôte et d’autres conteneurs, mais moins de limite de sécurité qu’une machine virtuelle. (Vous pouvez renforcer la sécurité en utilisant [Mode d’isolation Hyper-V](../manage-containers/hyperv-container.md) pour isoler chaque conteneur dans une machine virtuelle légère). |
 | Système d’exploitation | Exécute un système d’exploitation complet incluant le noyau, ce qui requiert davantage de ressources système (processeur, mémoire et stockage). | Exécute la partie mode utilisateur d’un système d’exploitation et peut être personnalisé pour contenir uniquement les services nécessaires à votre application, en utilisant moins de ressources système. |
@@ -43,6 +43,6 @@ Le tableau suivant présente plusieurs similitudes et différences entre ces tec
 | Déploiement     | Déployez des machines virtuelles individuelles à l’aide de Windows Admin Center ou du Gestionnaire Hyper-V ; déployez plusieurs machines virtuelles à l’aide de PowerShell ou de System Center Virtual Machine Manager. | Déployez des conteneurs individuels à l’aide de Docker via une ligne de commande ; déployez plusieurs conteneurs à l’aide d’un orchestrateur tel qu'Azure Kubernetes Service. |
 | Mises à jour et mises à niveau du système d'exploitation | Téléchargez et installez les mises à jour du système d’exploitation sur chaque machine virtuelle. L’installation d’une nouvelle version du système d’exploitation requiert la mise à niveau ou la création d’une machine virtuelle entièrement nouvelle. Cela peut être chronophage, notamment en présence d'un grand nombre de machines virtuelles. | La procédure de mise à jour ou de mise à niveau des fichiers du système d’exploitation au sein d’un conteneur est la même : <br><ol><li>Modifiez le fichier de build de votre image de conteneur (connu sous le nom de fichier Dockerfile) pour pointer vers la dernière version de l’image de base Windows. </li><li>Régénérez votre image de conteneur avec cette nouvelle image de base.</li><li>Transmettez l’image de conteneur à votre registre de conteneurs.</li> <li>Redéployez à l’aide d’un orchestrateur.<br>L’orchestrateur offre une automatisation puissante pour le faire à grande échelle. Pour plus d’informations, consultez [Tutoriel : Mettre à jour une application dans Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-app-update).</li></ol> |
 | Stockage persistant | Utilisez un disque dur virtuel (VHD) à des fins de stockage local pour une machine virtuelle unique, ou un partage de fichiers SMB à des fins de stockage partagé par plusieurs serveurs | Utilisez des disques Azure à des fins de stockage local pour un seul nœud, ou Azure Files (partages SMB) à des fins de stockage partagé par plusieurs nœuds ou serveurs. |
-| Équilibrage de charge | L’équilibrage de charge des machines virtuelles déplace les machines virtuelles en cours d’exécution vers d’autres serveurs dans un cluster de basculement. | Les conteneurs à proprement parler ne sont pas déplacés, mais un orchestrateur peut démarrer ou arrêter automatiquement des conteneurs sur des nœuds de cluster pour gérer les modifications de charge et de disponibilité. |
+| Équilibrage de la charge | L’équilibrage de charge des machines virtuelles déplace les machines virtuelles en cours d’exécution vers d’autres serveurs dans un cluster de basculement. | Les conteneurs à proprement parler ne sont pas déplacés, mais un orchestrateur peut démarrer ou arrêter automatiquement des conteneurs sur des nœuds de cluster pour gérer les modifications de charge et de disponibilité. |
 | Tolérance de panne | Les machines virtuelles peuvent basculer vers un autre serveur dans un cluster, avec redémarrage du système d’exploitation de la machine virtuelle sur le nouveau serveur.  | En cas de défaillance d’un nœud de cluster, tous les conteneurs en cours d’exécution sont rapidement recréés par l’orchestrateur sur un autre nœud de cluster. |
 | Mise en réseau     | Utilise des cartes réseau virtuelles. | Utilise une vue isolée de carte réseau virtuelle, ce qui fournit un peu moins de virtualisation. Le pare-feu de l’ordinateur hôte est partagé avec des conteneurs, ce qui sollicite moins de ressources. Pour plus d'informations, consultez [Mise en réseau de conteneur Windows](../container-networking/architecture.md). |
