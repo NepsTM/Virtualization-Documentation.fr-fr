@@ -19,7 +19,7 @@ Le moteur et le client Docker ne sont pas inclus avec Windows, et doivent être 
 
 ## <a name="install-docker"></a>Installer Docker
 
-Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker (dockerd.exe) et le client Docker (docker.exe). Le moyen le plus simple de tout installé se trouve dans le guide de démarrage rapide, qui vous permet de tout configurer et d'exécuter votre premier conteneur.
+Docker est nécessaire pour utiliser les conteneurs Windows. Docker comprend le moteur Docker (dockerd.exe) et le client Docker (docker.exe). Le moyen le plus simple de tout installer se trouve dans le guide de démarrage rapide, qui vous permet de tout configurer et d'exécuter votre premier conteneur.
 
 - [Installer Docker](../quick-start/set-up-environment.md)
 
